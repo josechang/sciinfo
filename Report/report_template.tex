@@ -25,7 +25,7 @@
 
 \begin{document}               % Begins the document
 
-\title{Report template for homework}
+\title{Information Retrieval Report}
 \author{First name Last name \\ student number \\ email} 
 %\date{2010-10-10}             % If you want to set the date yourself.
 
@@ -35,104 +35,172 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Instructions regarding the report
+% Abstract of the whole project
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Problem}
-\label{sec:prob}
+\section*{Abstract}
+\label{abstract}
 
-Describe the problem in your own words and break it down into subproblems, unless the problem was alreadyan example, see Problem 1.
+Put abstract here.
 
-\section*{Solution}
-\label{sec:sol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Responsibility of Wolverine
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Solve the subproblems in succession and give the solution to the overall problem at the end, followed by a senttables if they fosters the understanding of the solution. Each figure and table should include a caption, and all the figures and tables should be associated with a reference in the text and placed at the end of your report -- for example, see Figure~\ref{fig:prestanda} and Table~\ref{tab:JacobianMatrix}.  Each equation should only be written once and referred to by reference later when needed -- for example, see \eqref{eqn:PPSystem}. Equations that you do not refer to later may be left unlabeled. The report should be written using \LaTeX\ -- see \cite{Oetiker:2008:TheNotSoShortIntroductiontoLaTeXe} for an introduction.
+\section*{Task 1 -- Building up the database}
+\label{task1}
 
+Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
 
+\subsection*{Feature 1 --Administrator}
+\label{task1:feature1}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 2 -- Web Crawler}
+\label{task1:feature2}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+ 
+\subsection*{Feature 3 -- User account}
+\label{task1:feature3}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 4 -- User Interface}
+\label{task1:feature4}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 5 -- Data Storage and Search Methods}
+\label{task1:feature5}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 6 -- Database}
+\label{task1:feature6}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Example 1
+% Responsibility of Eagle unit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Problem 1 -- Behavior of a nonlinear system}
-\label{sec:prob1}
-Study the behavior of the system
-\begin{subequations}\label{eqn:PPSystem}
-\begin{align}
-    \frac{d x}{dt} & = y \label{eqn:PPSystem1} \\
-    \frac{d y}{dt} & = -2x -2y -4 x^2 \label{eqn:PPSystem2}
-\end{align}
-\end{subequations}
-with regard to its initial value and assess if the system is globally asymptotically stable.
+\section*{Task 1 -- Building up the database}
+\label{task1}
 
-We have chosen a solution strategy based on the phase portrait and broken down the problem into the following three subproblems:
-\begin{enumerate}
-  \item Draw the phase portrait of the system.
-  \item How many equilibrium points does the system have, where are they located, and what type of equilibrium points are they?
-  \item Is the system globally asymptotically stable?  That is, do all trajectories lead to the same equilibrium point?
-\end{enumerate}
+Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
 
-\section*{Solution 1 -- Behavior of a nonlinear system}
-\label{sec:sol1}
+\subsection*{Feature 1 --Administrator}
+\label{task1:feature1}
 
-\begin{enumerate}
-  \item The phase portrait of the system described by \eqref{eqn:PPSystem} is shown in Figure~\ref{fig:pplane}.
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
 
-  \item The system has two equilibrium points, \mbox{(0,0)} and \mbox{($-\frac{1}{2}$,0)}.  They were computed by setting the right hand side of \eqref{eqn:PPSystem} equal to zero
-\begin{align*}
-    \begin{array}{rl}
-    y & =0  \\
-    -2x -2y -4 x^2 & = 0
-    \end{array} \; \Rightarrow
-    \begin{array}{rl}
-      y & =0 \\
-      x (1+2x) & =0
-    \end{array}.
-\end{align*}
-Both points are marked by large dots in Figure~\ref{fig:pplane}.
+\subsection*{Feature 2 -- Web Crawler}
+\label{task1:feature2}
 
-Let us now characterize the equilibrium points. The Hartman-Grobman theorem~\cite[p. 288]{Sastry:1999:Nonlinear-systems:-analysis-stability-and-control:xr} states that the behavior of a nonlinear system near a hyperbolic equilibrium is qualitatively the same as its linearization at the equilibrium point. An equilibrium is by definition hyperbolic if the real part of the eigenvalues of the Jacobian matrix are all non-zero. We will therefore linearize the system \eqref{eqn:PPSystem} around both equilibrium points, calculate the eigenvalues, check if the points are hyperbolic, and determine the type of the equilibria based on the eigenvalues.
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
 
-The linearization of an autonomous nonlinear system $\dot{\textbf{x}} = \textbf{f}(\textbf{x})$ around an equilibrium point, given by $\textbf{f}(\textbf{x}_0) = 0$, is $\dot{\tilde{\textbf{x}}} = A \tilde{\textbf{x}}$, with $\tilde{\textbf{x}} = \textbf{x} - \textbf{x}_0$ and the Jacobian matrix $A = \left. \frac{\partial\textbf{f}}{\partial \textbf{x}}(\textbf{x}) \right|_{\textbf{x}=\textbf{x}_0}$. The Jacobian matrix is calculated to be
-\begin{equation*}
-    \frac{\partial\textbf{f}}{\partial \textbf{x}}(\textbf{x}) =
-    \left[\begin{array}{cc}
-    0 & 1 \\
-    -2 -8x & -2
-    \end{array}\right],
-\end{equation*}
-which for the two equilibrium points turns out to be
-\begin{equation*}
-    A_{(0,0)} =
-    \left[\begin{array}{cc}
-    0 & 1 \\
-    -2 & -2
-    \end{array}\right], \; A_{(-\frac{1}{2},0)} =
-    \left[\begin{array}{cc}
-    0 & 1 \\
-    2 & -2
-    \end{array}\right].
-\end{equation*}
-The eigenvalues of the Jacobian matrix are given by the characteristic equation
-\begin{equation*}
-    \det(\lambda I - A) = 0.
-\end{equation*}
-The characteristic equation of the system linearized around \mbox{(0,0)} is
-\begin{equation*}
-    \lambda^2 +2 \lambda + 2 = 0,
-\end{equation*}
-which gives the eigenvalues $\lambda_{1,2} = -1 \pm j$. The characteristic equation of the system linearized around \mbox{($-\frac{1}{2}$,0)} is
-\begin{equation*}
-    \lambda^2 +2 \lambda - 2 = 0,
-\end{equation*}
-which gives the eigenvalues $\lambda_1 = \sqrt{3} -1 \approx 0.73$ and $\lambda_2 = -1 -\sqrt{3} \approx -2.73$. Both equilibrium points are hence hyperbolic and we can characterize them based on the eigenvalues of the Jacobian matrix of the linearized systems.  The eigenvalues tell us that we have a stable focus at \mbox{(0,0)} and a saddle point at \mbox{($-\frac{1}{2}$,0)}. This is easily verified by looking at Figure~\ref{fig:pplane}.
+\subsection*{Feature 3 -- User account}
+\label{task1:feature3}
 
-  \item Only trajectories starting within the shaded region and its extension above the part of the phase portrait shown in Figure~\ref{fig:pplane} leads to the stable focus. It is therefore obvious that the system is not globally asymptotically stable.
-\end{enumerate}
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
 
-\noindent \textbf{Answer:} The system has two equilibrium points; a stable focus at \mbox{(0,0)} and a saddle point at \mbox{($-\frac{1}{2}$,0)}. It is not globally asymptotically stable.
+\subsection*{Feature 4 -- User Interface}
+\label{task1:feature4}
 
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 5 -- Data Storage and Search Methods}
+\label{task1:feature5}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 6 -- Database}
+\label{task1:feature6}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Responsibility of Union
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Task 1 -- Building up the database}
+\label{task1}
+
+Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
+
+\subsection*{Feature 1 --Administrator}
+\label{task1:feature1}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 2 -- Web Crawler}
+\label{task1:feature2}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 3 -- User account}
+\label{task1:feature3}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 4 -- User Interface}
+\label{task1:feature4}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 5 -- Data Storage and Search Methods}
+\label{task1:feature5}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 6 -- Database}
+\label{task1:feature6}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Responsibility of Hanky Phanky
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Task 1 -- Building up the database}
+\label{task1}
+
+Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
+
+\subsection*{Feature 1 --Administrator}
+\label{task1:feature1}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 2 -- Web Crawler}
+\label{task1:feature2}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 3 -- User account}
+\label{task1:feature3}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 4 -- User Interface}
+\label{task1:feature4}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 5 -- Data Storage and Search Methods}
+\label{task1:feature5}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+
+\subsection*{Feature 6 -- Database}
+\label{task1:feature6}
+
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -170,37 +238,5 @@ Shankar Sastry.
 % Place your figures and tables at the end of the document starting on a new page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage % Ends the current page and causes all figures and tables to be printed
-
-\begin{figure*}[p] % The * makes the figure span both columns, p places the figure on a float page
-  \begin{center}
-    \includegraphics[scale=1.0]{Stepresponse}
-  \end{center}
-  \caption{Step response of the two systems. The figure should have a caption that briefly explains what it shows. The color, symbol and line type should be selected such that the lines can be distinguished when printed in black and white. The lines should be annotated either in the plot, in a legend, or in the caption. The axis should have a label in which the units are given. The figure should be sufficiently large, clear, easy to understand and only contain essential information.}
-  \label{fig:prestanda}
-\end{figure*}
-
-\begin{table*}[p] % The * makes the table span both columns, p places the table on a float page
-\caption{Jacobian matrix $A$ of the linear system $\dot{\textbf{x}} = A \textbf{x}$. The table should have a caption that briefly explains what it shows.}
-\label{tab:JacobianMatrix}
-\begin{center}
-\begin{tabular}{@{\vrule height 10.5pt depth4pt  width0pt}|c|c|c|c|}
-    \hline
-     $-2.46$ & $0$ & $-1.73$ & $0$ \\ \hline
-     $0$ & $-2.553$ & $0$ & $2.774$ \\ \hline
-     $0$ & $6.172$ & $-10$ & $7.333$ \\ \hline
-     $1.767$ & $-0.357$ & $5.714$ & $-6.074$ \\ \hline
-\end{tabular}
-\end{center}
-\end{table*}
-
-
-\begin{figure*}[p] % The * makes the figure span both columns, p places the figure on a float page
-  \begin{center}
-    \includegraphics[width = 1.0\textwidth]{Phase_portrait_with_regionmark}
-  \end{center}
-  \caption{Phase portrait of the system in \eqref{eqn:PPSystem}, which has a stable focus at \mbox{(0,0)} and a saddle point at \mbox{(-0.5,0)}. Both equilibriums are marked by large dots and selected trajectories are marked by solid lines. Trajectories starting within the shaded region end at the stable focus. This figure was generated in
-  Matlab (\texttt{http://www.mathworks.com}) using pplane7 (\texttt{http://math.rice.edu/\textasciitilde dfield/}).}
-  \label{fig:pplane}
-\end{figure*}
 
 \end{document}      % End of the document
