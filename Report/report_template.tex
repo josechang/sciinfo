@@ -145,43 +145,46 @@ Study the behavior of the system with regard to its initial value and assess if 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Responsibility of Union
+Automatic creation of metadata/markup by useof natural language processing of full text articles
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Task 1 -- Building up the database}
+\section*{overview}
 \label{task1}
+We're  producing  a  program  which  automatically  generate  metadata  such  asauthors' name,  date of publishing,  name of articles. . .   and more importantlyauto-abstract for full text articles We are interested in features for either moreconvenient use of the program or improving precise data generation There are5 related problems.
 
-Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
 
-\subsection*{Feature 1 --Administrator}
+\subsection*{Feature 1 }
 \label{task1:feature1}
+When users search with a sentence, how do the program understand the certaininput of text?
 
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+Building a natural language understanding (NLU) system.
+Use a set of possible yes-no questions that can be applied to data items, thenfollow a rule for selecting the best question at any node on the basis of trainingdata, which has a method for pruning trees to prevent over-training.
 
-\subsection*{Feature 2 -- Web Crawler}
+\subsection*{Feature 2 }
 \label{task1:feature2}
 
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 3 -- User account}
+When users search Turkey, the results could be a country or an animal.  Some-times, the results are totally unrelated.
+It's  signifcantly  crucial  for  search  engine  to  understand  what  users  want  byname  recognition  in  natural  language  processing.   Digital  libraries  and  webresources have limited metadata, augmenting them with meaningful, stable anddesired categories.  Information can enable better overviews and support userexploration
+\subsection*{Feature 3 }
 \label{task1:feature3}
+Word sense disambiguation
+word sense disambiguation is an important step in natural language processing.This is the step where words with dierent meaning will be listed in dierentcategory (Abualhaija and Zimmermann, 2016).  WSD has been done with threemain  approaches:   supervised  disambiguation  (Abualhaija  and  Zimmermann,2016), semi-supervised approach (Ben Aouicha et al., 2016), and more recentlyunsupervised approach (Yoon et al., 2006).  Research for unsupervised approachhas been developed quickly and application of this approach has been found inWSD for not-so-popular language such as Korean
 
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+The project team has decided to pursuit the unsupervised approach.  Implemen-tation will be made in term of symnonym grouping (Navigli, 2009) and contextclustering (Wang et al., 2009)
 
-\subsection*{Feature 4 -- User Interface}
+
+\subsection*{Feature 4 }
 \label{task1:feature4}
+The readers do not know what the connected words meaning
+Compute and Analyze in natural language processing
+I suggest we should use the Python language to complete this task.  It can easilyconpute and analyze the words in the articles.  Phthon can compute and analyzeby separating the connected words.  The readers can know what do the wordsmean when they are reading the articles .
 
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
 
-\subsection*{Feature 5 -- Data Storage and Search Methods}
+\subsection*{Feature 5 }
 \label{task1:feature5}
+Natural language processing help us extract the important information from thefull text article.  How could we make it more eciently and precisely?
+Query reduction to single sub-query.he performance of the machine is better in the short query rather than longquery.  Thus, it is an important issue to reduce the query to many sub-query.The rst is extracting the single sub-query by the existing features.  Then, Wecombine these features to the reduction's technique.  We could nd that it ismore ecient than just analyze the original query.
 
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 6 -- Database}
-\label{task1:feature6}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
