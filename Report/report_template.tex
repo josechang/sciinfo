@@ -1,14 +1,14 @@
 \documentclass[a4paper]{article} % Document type
 
 \ifx\pdfoutput\undefined
-    %Use old Latex if PDFLatex does not work
-   \usepackage[dvips]{graphicx}% To get graphics working
-   \DeclareGraphicsExtensions{.eps} % Encapsulated PostScript
- \else
-    %Use PDFLatex
-   \usepackage[pdftex]{graphicx}% To get graphics working
-   \DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps} % Portable Document Format, Joint Photographic Experts Group, Portable Network Graphics, MetaPost
-   \pdfcompresslevel=9
+%Use old Latex if PDFLatex does not work
+\usepackage[dvips]{graphicx}% To get graphics working
+\DeclareGraphicsExtensions{.eps} % Encapsulated PostScript
+\else
+%Use PDFLatex
+\usepackage[pdftex]{graphicx}% To get graphics working
+\DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps} % Portable Document Format, Joint Photographic Experts Group, Portable Network Graphics, MetaPost
+\pdfcompresslevel=9
 \fi
 
 \usepackage[bookmarks=true,bookmarksnumbered=true,hypertexnames=true,breaklinks=true,colorlinks=true]{hyperref}
@@ -25,219 +25,222 @@
 
 
 \begin{document}               % Begins the document
-
-\title{Information Retrieval Report}
-\author{First name Last name \\ student number \\ email} 
-%\date{2010-10-10}             % If you want to set the date yourself.
-
-\maketitle                     % Generates the title
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Abstract of the whole project
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Abstract}
-\label{abstract}
-
-Whole project is seperaed to four major parts:
-\begin{enumerate}
-  \item Create a data base of open access full text articles responded by team Wolverine
-  \item Create a complementary XML structure for metadata that contains all information in the PDF and can be show in Utopia responded by team Eagle unit
-  \item Automatic creation of metadata/markup by use of natural language processing of full text articles responded by team Union
-  \item Automatic creation of links from full text articles to external sources responded by team Hanky Phanky
-\end{enumerate}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Responsibility of Wolverine
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Create a data base of open access full text article}
-\label{task1}
-
-Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database. I'd like to seperate this section into six features, then I'll give several suggestions based on each feature. 
-
-\subsection*{Feature 1 --Administrator}
-\label{task1:part1}
-
-In this part, the main consideration is the relationship between user and administrator. As an administrator's point, I'd like to give the best product to the consumer. On the other hand, users want to have convenient searching engine to get in touch with the knowledge. For this purpose, I'm pressure to show two suggestions for enhancing the relationship between users and producers. First, set up a popular-word-ranking system. When I search in something I don't know its name but know it in some specific area, such as stem cell in medical area. In this moment, the popular-word-ranking system will help me searching by giving me some keywords. Then, I would be easily to use this database. Of course, the popular-word-ranking system is based on users' searches and experts'suggestions to change the key words. So, the system can be trusted. 
-
-Second, build up an area in the database and let user to change the area to what they want it to be. The idea is referenced from well-known media, Wikimedia. It's so called "personalized searching". By doing this, it would help user idealize the system to what they want and suggest administrator the service which clients really want. It would lead to a win-win situation.
-
-\subsection*{Feature 2 -- Web Crawler}
-\label{task1:feature2}
-
-The web crawler is a algorithm that has ability to quickly and accurately process and update a very large amount of data which are constantly being updated.\cite{Liu2012} It starts with a list of URLs to visit, called the seeds. As the crawler visits these URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit, called the crawl frontier. URLs from the frontier are recursively visited according to a set of policies. If the crawler is performing archiving of websites it copies and saves the information as it goes. The archives are usually stored in such a way they can be viewed, read and navigated as they were on the live web, but are preserved as ‘snapshots'.\cite{Du2013} We need to build up a web crawler to automatically visit a list of web page. Then find out which link in the page is valuable to download it into our database. 
- 
-\subsection*{Feature 3 -- User account}
-\label{task1:feature3}
-
-In this part, the main issue is how to create a user account that can connect between user and database. But the more important thing is to make sure database will not collapse by user who is not allowed to access to core part of database.
-
-<<<<<<< HEAD
-To protect the database system security and privilege, this study introduces two methods for user account, principle of least privilege and role-based access control respectively. The principle of least privilege, also known as the principle of minimal privilege, means giving a user account only those those privileges which are essential to that users work \url{https://en.wikipedia.org/wiki/Principle_of_least_privilege} (2016/03/16). The role-based access control is a policy neutral access control mechanism defined around privileges and roles. It can implement discretionary access control (DAC) or mandatory access control (MAC). The role-based access control is very easy to do user assignments as the components of this policy, such as role-permissions, etc. That is why it sometimes referred to as role-based security \url{https://en.wikipedia.org/wiki/Role-based_access_control} (2016/03/16). The information and resources would not in danger due to these two methods will filter user depend on their authority and only allow the legitimate user to access.
-=======
-To protect the database system security and privilege, this study introduces two methods for user account, principle of least privilege and role-based access control respectively. The principle of least privilege, also known as the principle of minimal privilege, means giving a user account only those those privileges which are essential to that user`s work \url{https://en.wikipedia.org/wiki/Principle_of_least_privilege} (2016/03/16). The role-based access control is a policy neutral access control mechanism defined around privileges and roles. It can implement discretionary access control (DAC) or mandatory access control (MAC). The role-based access control is very easy to do user assignments as the components of this policy, such as role-permissions, etc. That is why it sometimes referred to as role-based security \url{https://en.wikipedia.org/wiki/Role-based_access_control} (2016/03/16). The information and resources would not in danger due to these two methods will filter user depend on their authority and only allow the legitimate user to access.
->>>>>>> 02f2163dbd452df228eb52079ec5e08d633dcad7
-
-\subsection*{Feature 4 -- User Interface}
-\label{task1:feature4}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 5 -- Data Storage and Search Methods}
-\label{task1:feature5}
-
-The organization of data inside a database management system(DBMS) and retrieval methods is based on the database storage structure such as tables and indexes. 
-There are several types of database storage structure such as XML, a textual data format. 
-This advantage is self-describing and flexible in organizing data.\cite{one}Several considerations of data storage include right space allocation techniques, data compression techniques (if necessary), security and encryption and the access path to retrieve the data. 
-Therefore, DBMS software will provide some method to optimize and  minimum storage space of a database.
-
-\subsection*{Feature 6 -- Database Management Systems}
-\label{task1:feature6}
-
-The relational database model was proposed by Edgar Codd in 1970, but because of the technological requirements it was not universal at that time. It was until 1980s that the first commercial relational database management systems began to appear. 
-A database management system (DBMS) is a computer software application that interacts with the user, other applications, and the database itself to capture and analyze data. Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. 
-Queries are the main way in which users retrieve information from a database. Most database management systems use a standard system called Structured Query Language (SQL) to query their tables. SQL is a structured form of English and resembles many programming languages, although most systems provide a graphical user-interface to generate the SQL code. And the most popular database systems since the 1980s have all supported the relational model as represented by the SQL language.\cite{Martinez-Cruz2011}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Responsibility of Eagle unit
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Task 1 -- Building up the database}
-\label{task1}
-
-Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
-
-\subsection*{Feature 1 --Administrator}
-\label{task1:feature1}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 2 -- Web Crawler}
-\label{task1:feature2}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 3 -- User account}
-\label{task1:feature3}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 4 -- User Interface}
-\label{task1:feature4}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 5 -- Data Storage and Search Methods}
-\label{task1:feature5}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 6 -- Database}
-\label{task1:feature6}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Responsibility of Union
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Task 1 -- Building up the database}
-\label{task1}
-
-Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
-
-\subsection*{Feature 1 --Administrator}
-\label{task1:feature1}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 2 -- Web Crawler}
-\label{task1:feature2}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 3 -- User account}
-\label{task1:feature3}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 4 -- User Interface}
-\label{task1:feature4}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 5 -- Data Storage and Search Methods}
-\label{task1:feature5}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 6 -- Database}
-\label{task1:feature6}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Responsibility of Hanky Phanky
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Task 1 -- Building up the database}
-\label{task1}
-
-Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
-
-\subsection*{Feature 1 --Administrator}
-\label{task1:feature1}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 2 -- Web Crawler}
-\label{task1:feature2}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 3 -- User account}
-\label{task1:feature3}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 4 -- User Interface}
-\label{task1:feature4}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 5 -- Data Storage and Search Methods}
-\label{task1:feature5}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-\subsection*{Feature 6 -- Database}
-\label{task1:feature6}
-
-Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% I would strongly recommend you to use Mendeley desktop or a similar reference manager 
-%% that can generate a bibtex file so that you don't need to insert references manually. 
-%% It will save you a lot of time. Bests, Prof. Nordling
-
-\bibliographystyle{plain}
-\bibliography{library}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Place your figures and tables at the end of the document starting on a new page
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage % Ends the current page and causes all figures and tables to be printed
-
+	
+	\title{Information Retrieval Report}
+	\author{First name Last name \\ student number \\ email} 
+	%\date{2010-10-10}             % If you want to set the date yourself.
+	
+	\maketitle                     % Generates the title
+	
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Abstract of the whole project
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section*{Abstract}
+	\label{abstract}
+	
+	Whole project is seperaed to four major parts:
+	\begin{enumerate}
+		\item Create a data base of open access full text articles responded by team Wolverine
+		\item Create a complementary XML structure for metadata that contains all information in the PDF and can be show in Utopia responded by team Eagle unit
+		\item Automatic creation of metadata/markup by use of natural language processing of full text articles responded by team Union
+		\item Automatic creation of links from full text articles to external sources responded by team Hanky Phanky
+	\end{enumerate}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Responsibility of Wolverine
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section*{Create a data base of open access full text article}
+	\label{task1}
+	
+	Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database. I'd like to seperate this section into six features, then I'll give several suggestions based on each feature. 
+	
+	\subsection*{Feature 1 --Administrator}
+	\label{task1:part1}
+	
+	In this part, the main consideration is the relationship between user and administrator. As an administrator's point, I'd like to give the best product to the consumer. On the other hand, users want to have convenient searching engine to get in touch with the knowledge. For this purpose, I'm pressure to show two suggestions for enhancing the relationship between users and producers. First, set up a popular-word-ranking system. When I search in something I don't know its name but know it in some specific area, such as stem cell in medical area. In this moment, the popular-word-ranking system will help me searching by giving me some keywords. Then, I would be easily to use this database. Of course, the popular-word-ranking system is based on users' searches and experts'suggestions to change the key words. So, the system can be trusted. 
+	
+	Second, build up an area in the database and let user to change the area to what they want it to be. The idea is referenced from well-known media, Wikimedia. It's so called "personalized searching". By doing this, it would help user idealize the system to what they want and suggest administrator the service which clients really want. It would lead to a win-win situation.
+	
+	\subsection*{Feature 2 -- Web Crawler}
+	\label{task1:feature2}
+	
+	The web crawler is a algorithm that has ability to quickly and accurately process and update a very large amount of data which are constantly being updated.\cite{Liu2012} It starts with a list of URLs to visit, called the seeds. As the crawler visits these URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit, called the crawl frontier. URLs from the frontier are recursively visited according to a set of policies. If the crawler is performing archiving of websites it copies and saves the information as it goes. The archives are usually stored in such a way they can be viewed, read and navigated as they were on the live web, but are preserved as ï¿½snapshots'.\cite{Du2013} We need to build up a web crawler to automatically visit a list of web page. Then find out which link in the page is valuable to download it into our database. 
+	
+	\subsection*{Feature 3 -- User account}
+	\label{task1:feature3}
+	
+	In this part, the main issue is how to create a user account that can connect between user and database. But the more important thing is to make sure database will not collapse by user who is not allowed to access to core part of database.
+	
+	<<<<<<< HEAD
+	To protect the database system security and privilege, this study introduces two methods for user account, principle of least privilege and role-based access control respectively. The principle of least privilege, also known as the principle of minimal privilege, means giving a user account only those those privileges which are essential to that users work \url{https://en.wikipedia.org/wiki/Principle_of_least_privilege} (2016/03/16). The role-based access control is a policy neutral access control mechanism defined around privileges and roles. It can implement discretionary access control (DAC) or mandatory access control (MAC). The role-based access control is very easy to do user assignments as the components of this policy, such as role-permissions, etc. That is why it sometimes referred to as role-based security \url{https://en.wikipedia.org/wiki/Role-based_access_control} (2016/03/16). The information and resources would not in danger due to these two methods will filter user depend on their authority and only allow the legitimate user to access.
+	=======
+	To protect the database system security and privilege, this study introduces two methods for user account, principle of least privilege and role-based access control respectively. The principle of least privilege, also known as the principle of minimal privilege, means giving a user account only those those privileges which are essential to that user`s work \url{https://en.wikipedia.org/wiki/Principle_of_least_privilege} (2016/03/16). The role-based access control is a policy neutral access control mechanism defined around privileges and roles. It can implement discretionary access control (DAC) or mandatory access control (MAC). The role-based access control is very easy to do user assignments as the components of this policy, such as role-permissions, etc. That is why it sometimes referred to as role-based security \url{https://en.wikipedia.org/wiki/Role-based_access_control} (2016/03/16). The information and resources would not in danger due to these two methods will filter user depend on their authority and only allow the legitimate user to access.
+	>>>>>>> 02f2163dbd452df228eb52079ec5e08d633dcad7
+	
+	\subsection*{Feature 4 -- User Interface}
+	\label{task1:feature4}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 5 -- Data Storage and Search Methods}
+	\label{task1:feature5}
+	
+	The organization of data inside a database management system(DBMS) and retrieval methods is based on the database storage structure such as tables and indexes. 
+	There are several types of database storage structure such as XML, a textual data format. 
+	This advantage is self-describing and flexible in organizing data.\cite{ISI:000253400700005}Several considerations of data storage include right space allocation techniques, data compression techniques (if necessary), security and encryption and the access path to retrieve the data. 
+	Therefore, DBMS software will provide some method to optimize and  minimum storage space of a database.
+	
+	\subsection*{Feature 6 -- Database Management Systems}
+	\label{task1:feature6}
+	
+	The relational database model was proposed by Edgar Codd in 1970, but because of the technological requirements it was not universal at that time. It was until 1980s that the first commercial relational database management systems began to appear. 
+	A database management system (DBMS) is a computer software application that interacts with the user, other applications, and the database itself to capture and analyze data. Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. 
+	Queries are the main way in which users retrieve information from a database. Most database management systems use a standard system called Structured Query Language (SQL) to query their tables. SQL is a structured form of English and resembles many programming languages, although most systems provide a graphical user-interface to generate the SQL code. And the most popular database systems since the 1980s have all supported the relational model as represented by the SQL language.\cite{Martinez-Cruz2011}
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Responsibility of Eagle unit
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section*{Task 1 -- Building up the database}
+	\label{task1}
+	
+	Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
+	
+	\subsection*{Feature 1 --Administrator}
+	\label{task1:feature1}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 2 -- Web Crawler}
+	\label{task1:feature2}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 3 -- User account}
+	\label{task1:feature3}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 4 -- User Interface}
+	\label{task1:feature4}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 5 -- Data Storage and Search Methods}
+	\label{task1:feature5}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 6 -- Database}
+	\label{task1:feature6}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%Automatic creation of metadata/markup by useof natural language processing of full text articles
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section*{overview}
+	\label{task1}
+	We're  producing  a  program  which  automatically  generate  metadata  such  asauthors' name,  date of publishing,  name of articles. . .   and more importantlyauto-abstract for full text articles We are interested in features for either moreconvenient use of the program or improving precise data generation There are5 related problems.
+	
+	
+	\subsection*{Feature 1 }
+	\label{task1:feature1}
+	When users search with a sentence, how do the program understand the certaininput of text?
+	
+	Building a natural language understanding (NLU) system.
+	Use a set of possible yes-no questions that can be applied to data items, thenfollow a rule for selecting the best question at any node on the basis of trainingdata, which has a method for pruning trees to prevent over-training.
+	
+	\subsection*{Feature 2 }
+	\label{task1:feature2}
+	
+	When users search Turkey, the results could be a country or an animal.  Some-times, the results are totally unrelated.
+	It's  signifcantly  crucial  for  search  engine  to  understand  what  users  want  byname  recognition  in  natural  language  processing.   Digital  libraries  and  webresources have limited metadata, augmenting them with meaningful, stable anddesired categories.  Information can enable better overviews and support userexploration
+	\subsection*{Feature 3 }
+	\label{task1:feature3}
+	Word sense disambiguation
+	word sense disambiguation is an important step in natural language processing.This is the step where words with different meaning will be listed in different category (Abualhaija and Zimmermann, 2016). WSD has been done with threemain approaches: supervised disambiguation (Abualhaija  and  Zimmermann,2016), semi-supervised approach (Ben Aouicha et al., 2016), and more recently unsupervised approach (Yoon et al., 2006). Research for unsupervised approach has been developed quickly and application of this approach has been found in WSD for not-so-popular language such as Korean.
+	
+	The project team has decided to pursuit the unsupervised approach.  Implemen-tation will be made in term of symnonym grouping (Navigli, 2009) and contextclustering (Wang et al., 2009)
+	
+	
+	\subsection*{Feature 4 }
+	\label{task1:feature4}
+	The readers do not know what the connected words meaning
+	Compute and Analyze in natural language processing
+	I suggest we should use the Python language to complete this task.  It can easilyconpute and analyze the words in the articles.  Phthon can compute and analyzeby separating the connected words.  The readers can know what do the wordsmean when they are reading the articles .
+	
+	
+	\subsection*{Feature 5 }
+	\label{task1:feature5}
+	Natural language processing help us extract the important information from the full text article. How could we make it more efficiently and precisely?
+	Query reduction to single sub-query.he performance of the machine is better in the short query rather than long query. Thus, it is an important issue to reduce the query to many sub-query. The first is extracting the single sub-query by the existing features.  Then, We combine these features to the reduction's technique. We couldn't that it is more efficient than just analyze the original query.
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Responsibility of Hanky Phanky
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section*{Task 1 -- Building up the database}
+	\label{task1}
+	
+	Goal for this section is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
+	
+	\subsection*{Feature 1 --Administrator}
+	\label{task1:feature1}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 2 -- Web Crawler}
+	\label{task1:feature2}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 3 -- User account}
+	\label{task1:feature3}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 4 -- User Interface}
+	\label{task1:feature4}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 5 -- Data Storage and Search Methods}
+	\label{task1:feature5}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	\subsection*{Feature 6 -- Database}
+	\label{task1:feature6}
+	
+	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% The bibliography
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	%% I would strongly recommend you to use Mendeley desktop or a similar reference manager 
+	%% that can generate a bibtex file so that you don't need to insert references manually. 
+	%% It will save you a lot of time. Bests, Prof. Nordling
+	
+	\bibliographystyle{plain}
+	\bibliography{library}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Place your figures and tables at the end of the document starting on a new page
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\clearpage % Ends the current page and causes all figures and tables to be printed
+	
 \end{document}      % End of the document
