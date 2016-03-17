@@ -99,6 +99,7 @@
 	The relational database model was proposed by Edgar Codd in 1970, but because of the technological requirements it was not universal at that time. It was until 1980s that the first commercial relational database management systems began to appear. 
 	A database management system (DBMS) is a computer software application that interacts with the user, other applications, and the database itself to capture and analyze data. Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. 
 	Queries are the main way in which users retrieve information from a database. Most database management systems use a standard system called Structured Query Language (SQL) to query their tables. SQL is a structured form of English and resembles many programming languages, although most systems provide a graphical user-interface to generate the SQL code. And the most popular database systems since the 1980s have all supported the relational model as represented by the SQL language.\cite{Martinez-Cruz2011}	
+	
 	\begin{figure*}[h] % The * makes the figure span both columns, p places the figure on a float page
 		\begin{center}
 			\includegraphics[scale=1.0]{WolverineChart}
@@ -111,40 +112,83 @@
 	% Responsibility of Eagle unit
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\subsection*{Task 1 -- Building up the database}
-	\label{task1}
+	\subsection*{XML metadata structure}
+	\label{sec:abs}
+		
+	Our responsipility is to construct an XML metadata structure.	
 	
-	Goal for this subsection is to build up a database which downloads articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% 1. Different standards of metadata
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\paragraph*{Feature 1 --Administrator}
-	\label{task1:feature1}
+	\paragraph*{1. Different standards of metadata}
+	\label{sec:mets}
+	There's many different standards existing to describe the metadata in different fields and applications. We list 5 of them and give a brief introduction to each one.
 	
-	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	\begin{enumerate}
+		\item IAFA/Whois++ Templates\\
+		Internet Anonymous Ftp Archive (IAFA) templates were designed to facilitate effective access to ftp (file transfer protocol) archives by means of describing the contents and services available from the archive.	
+		
+		\item MARC\\
+		MARC was a means to allow the exchange of catalogue records between co-operating libraries, it was a format for national bibliographies to use for printed bibliographic records, and it was used by bibliographic agencies for their supply of records to libraries.
+		
+		\item Text Encoding Initiative (TEI)\\
+		It describes the goal of the project as "to define a set of generic guidelines for the representation of textual materials in electronic form, in such a way as to enable researchers in any discipline to interchange and re-use resources, independently of software, hardware, and application area.”	
+		
+		\item Dublin Core\\
+		The Dublin Core workshop recognised that widespread indexing and bibliographic control of Internet resources depends on the existence of a simple record to describe networked resources. The objective was to define a simple set of data elements so that authors and publishers of Internet documents could create their own metadata records in a distributed way.
+		
+		\item IEEE Learning Object Metadata (LOM)\\
+		The LOM data schema specifies which characteristics of a learning object should be described and what vocabularies may be used for these descriptions; it also defines how this data model can be amended by additions or constraints.	
+	\end{enumerate}
 	
-	\paragraph*{Feature 2 -- Web Crawler}
-	\label{task1:feature2}
+	More detailed introduction could be found in {\bf\cite{Barker:2010:metadataforlearningmaterials}} and {\bf\cite{Rachel:2009:reviewofmetadataformats}}.
 	
-	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% 2. Necessary elements of XML metadata
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\paragraph*{Feature 3 -- User account}
-	\label{task1:feature3}
+	\paragraph*{2. Necessary elements of XML metadata with DTD}
+	\label{sec:mets}
+	{\bf\cite{Ruey-Shun:2003:DevelopinganXMLframeworkformetadatasystem}} suggest that an XML metadata discribed according the DTD include three necessary elements:
+	\begin{enumerate}
+		\item Structure\\
+		The major execution ability of structure includes parser for well-formed XML and
+		valid DTD structure, authoring tool for editing.
+		
+		\item Depth\\
+		Basically, there are two sorts of fields: Fixed-length fields and variable fields.
+		Fixed-length fields are general types and character-indication types Sub-field, whether
+		fixed-length fields or variable fields, might contain both fixed-length fields and
+		variable fields. According to the reason above, the process ability of the system has to
+		cover the situation
+		
+		\item Scope\\
+		The connections must involve simple object, time, space, people, and event. 
+	\end{enumerate}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% 3. Other apllications
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-	
-	\paragraph*{Feature 4 -- User Interface}
-	\label{task1:feature4}
-	
-	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-	
-	\paragraph*{Feature 5 -- Data Storage and Search Methods}
-	\label{task1:feature5}
-	
-	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
-	
-	\paragraph*{Feature 6 -- Database}
-	\label{task1:feature6}
-	
-	Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
+	\paragraph*{3. Other apllications of XML metadata}
+	Here's a few of useful tools and applications for XML metadata:
+	\begin{enumerate}
+		\item METS:\\
+		METS is an XML document format intended for the encoding of complex objects within digital libraries. It provides the means to record all of the descriptive, administrative, structural and behavioral metadata needed to manage and provide access to complex digital content (McDonough2006). METS provides a method for aggregating all the metadata that can be used with a digital object. ({\bf \cite{Sharon Cheslow:2014:METSForTheCulturalHeritageCommunity}})
+		
+		\item PREMIS:\\
+		PREservation Metadata: Implementation Strategies (PREMIS) {\bf(wiki)} is an administrative metadata schema used for the preservation of digital resources ({\bf \cite{Sharon Cheslow:2014:METSForTheCulturalHeritageCommunity}}). With the rapid changes in technology, digital objects including its metadata a bound to go obsolete at some time in the future. PREMIS was created to set standards that will ensure long term usability of digital resources. 
+		
+		\item MODS:\\
+		Metadata Object and Description Schema (MODS) is a standard for encoding metadata of digital objects using XML. MODS among XML base metadata standards has remain the most descriptive and has high level compatibility with MARC ({\bf \cite{Rebecca Guenther:2003:NewMetadataStandardsforDigitalResources}}).
+		
+	\end{enumerate}
+	\begin{figure*}[h] % The * makes the figure span both columns, p places the figure on a float page
+		\begin{center}
+			\includegraphics[scale=0.7]{EagleUnit}
+		\end{center}
+		\caption{Hierarchical overview}
+	\end{figure*}
 	\clearpage
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
