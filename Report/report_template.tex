@@ -15,10 +15,10 @@
 \usepackage{amsmath,amssymb}   % Contains mathematical symbols
 \usepackage[ansinew]{inputenc} % Input encoding, identical to Windows 1252
 \usepackage[english]{babel}    % Language
-%\usepackage[round,authoryear]{natbib}  %Nice author (year) citations
+\usepackage[round,authoryear]{natbib}  %Nice author (year) citations
 %\usepackage[square,numbers]{natbib}     %Nice numbered citations
 %\bibliographystyle{unsrtnat}           %Unsorted bibliography
-%\bibliographystyle{plainnat}            %Sorted bibliography
+\bibliographystyle{plainnat}            %Sorted bibliography
 
 \addtolength{\topmargin}{-20mm}% Removes 30mm from the top margin
 \addtolength{\textheight}{10mm}% Adds it to the text height
@@ -69,14 +69,14 @@ Second, build up an area in the database and let user to change the area to what
 \subsection*{Feature 2 -- Web Crawler}
 \label{task1:feature2}
 
-The web crawler is a algorithm that has ability to quickly and accurately process and update a very large amount of data which are constantly being updated.\cite{Liu2012} It starts with a list of URLs to visit, called the seeds. As the crawler visits these URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit, called the crawl frontier. URLs from the frontier are recursively visited according to a set of policies. If the crawler is performing archiving of websites it copies and saves the information as it goes. The archives are usually stored in such a way they can be viewed, read and navigated as they were on the live web, but are preserved as ‘snapshots'.\cite{Du2013} We need to build up a web crawler to automatically visit a list of web page. Then find out which link in the page is valuable to download it into our database. 
+Study the behavior of the system with regard to its initial value and assess if the system is globally asymptotically stable.
  
 \subsection*{Feature 3 -- User account}
 \label{task1:feature3}
 
 In this part, the main issue is how to create a user account that can connect between user and database. But the more important thing is to make sure database will not collapse by user who is not allowed to access to core part of database.
 
-To protect the database system security and privilege, this study introduces two methods for user account, principle of least privilege and role-based access control respectively. The principle of least privilege, also known as the principle of minimal privilege, means giving a user account only those those privileges which are essential to that users work \url{https://en.wikipedia.org/wiki/Principle_of_least_privilege} (2016/03/16). The role-based access control is a policy neutral access control mechanism defined around privileges and roles. It can implement discretionary access control (DAC) or mandatory access control (MAC). The role-based access control is very easy to do user assignments as the components of this policy, such as role-permissions, etc. That is why it sometimes referred to as role-based security \url{https://en.wikipedia.org/wiki/Role-based_access_control} (2016/03/16). The information and resources would not in danger due to these two methods will filter user depend on their authority and only allow the legitimate user to access.
+To protect the database system security and privilege, this study introduces two methods for user account, principle of least privilege and role-based access control respectively. The principle of least privilege, also known as the principle of minimal privilege, means giving a user account only those those privileges which are essential to that userâ€™s work \url{https://en.wikipedia.org/wiki/Principle_of_least_privilege} (2016/03/16). The role-based access control is a policy neutral access control mechanism defined around privileges and roles. It can implement discretionary access control (DAC) or mandatory access control (MAC). The role-based access control is very easy to do user assignments as the components of this policy, such as role-permissions, etc. That is why it sometimes referred to as role-based security \url{https://en.wikipedia.org/wiki/Role-based_access_control} (2016/03/16). The information and resources would not in danger due to these two methods will filter user depend on their authority and only allow the legitimate user to access.
 
 \subsection*{Feature 4 -- User Interface}
 \label{task1:feature4}
@@ -223,13 +223,37 @@ Study the behavior of the system with regard to its initial value and assess if 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliography{Bibliography_template} %Read the bibliography from a separate file
 
 %% I would strongly recommend you to use Mendeley desktop or a similar reference manager 
 %% that can generate a bibtex file so that you don't need to insert references manually. 
 %% It will save you a lot of time. Bests, Prof. Nordling
 
-\bibliographystyle{plain}
-\bibliography{library}
+\begin{thebibliography}{99}
+\bibitem[Khalil(2002)]{Khalil:2002:Nonlinear-systems:vh}
+Hassan~K Khalil.
+\newblock \emph{Nonlinear systems}.
+\newblock Prentice Hall, Upper Saddle river, 3. edition, 2002.
+\newblock ISBN 0-13-067389-7.
+
+\bibitem[Oetiker et~al.(2008)Oetiker, Partl, Hyna, and
+  Schlegl]{Oetiker:2008:TheNotSoShortIntroductiontoLaTeXe}
+Tobias Oetiker, Hubert Partl, Irene Hyna, and Elisabeth Schlegl.
+\newblock \emph{The Not So Short Introduction to \LaTeXe}.
+\newblock Oetiker, OETIKER+PARTNER AG, Aarweg 15, 4600 Olten, Switzerland,
+  2008.
+\newblock http://www.ctan.org/info/lshort/.
+
+\bibitem[Sastry(1999)]{Sastry:1999:Nonlinear-systems:-analysis-stability-and-c%
+ontrol:xr}
+Shankar Sastry.
+\newblock \emph{Nonlinear systems: analysis, stability, and control},
+  volume~10.
+\newblock Springer, New York, N.Y., 1999.
+\newblock ISBN 0-387-98513-1.
+\end{thebibliography}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Place your figures and tables at the end of the document starting on a new page
