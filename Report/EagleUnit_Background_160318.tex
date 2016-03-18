@@ -1,0 +1,172 @@
+\documentclass[a4paper]{article} % Document type
+
+\ifx\pdfoutput\undefined
+    %Use old Latex if PDFLatex does not work
+   \usepackage[dvips]{graphicx}% To get graphics working
+   \DeclareGraphicsExtensions{.eps} % Encapsulated PostScript
+ \else
+    %Use PDFLatex
+   \usepackage[pdftex]{graphicx}% To get graphics working
+   \DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps} % Portable Document Format, Joint Photographic Experts Group, Portable Network Graphics, MetaPost
+   \pdfcompresslevel=9
+\fi
+
+\usepackage{amsmath,amssymb}   % Contains mathematical symbols
+\usepackage[ansinew]{inputenc} % Input encoding, identical to Windows 1252
+\usepackage[english]{babel}    % Language
+\usepackage[round,authoryear]{natbib}  %Nice author (year) citations
+%\usepackage[square,numbers]{natbib}     %Nice numbered citations
+%\bibliographystyle{unsrtnat}           %Unsorted bibliography
+\bibliographystyle{plainnat}            %Sorted bibliography
+
+\addtolength{\topmargin}{-20mm}% Removes 30mm from the top margin
+\addtolength{\textheight}{10mm}% Adds it to the text height
+
+
+\begin{document}               % Begins the document
+
+\title{Structure of XML Metadata}
+\author{EagleUnit \\ (I-Chieh, Chinweze, Henry, Ray, Jones, Piyarul)} 
+%\date{2010-10-10}             % If you want to set the date yourself.
+
+\maketitle                     % Generates the title
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Instructions regarding the report
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{XML metadata structure}
+\label{sec:abs}
+
+
+Our responsipility is to construct an XML metadata structure.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. Different standards of metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{1. Different standards of metadata}
+\label{sec:mets}
+There's many different standards existing to describe the metadata in different fields and applications. We list 5 of them and give a brief introduction to each one.
+
+\begin{enumerate}
+	\item IAFA/Whois++ Templates\\
+	Internet Anonymous Ftp Archive (IAFA) templates were designed to facilitate effective access to ftp (file transfer protocol) archives by means of describing the contents and services available from the archive.	
+	
+	\item MARC\\
+	MARC was a means to allow the exchange of catalogue records between co-operating libraries, it was a format for national bibliographies to use for printed bibliographic records, and it was used by bibliographic agencies for their supply of records to libraries.
+	
+	\item Text Encoding Initiative (TEI)\\
+	It describes the goal of the project as "to define a set of generic guidelines for the representation of textual materials in electronic form, in such a way as to enable researchers in any discipline to interchange and re-use resources, independently of software, hardware, and application area.”	
+	
+	\item Dublin Core\\
+	The Dublin Core workshop recognised that widespread indexing and bibliographic control of Internet resources depends on the existence of a simple record to describe networked resources. The objective was to define a simple set of data elements so that authors and publishers of Internet documents could create their own metadata records in a distributed way.
+	
+	\item IEEE Learning Object Metadata (LOM)\\
+	The LOM data schema specifies which characteristics of a learning object should be described and what vocabularies may be used for these descriptions; it also defines how this data model can be amended by additions or constraints.	
+\end{enumerate}
+
+More detailed introduction could be found in {\bf\cite{1:1:1}} and {\bf\cite{Rachel:2009:reviewofmetadataformats}}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2. Necessary elements of XML metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{2. Necessary elements of XML metadata with DTD}
+\label{sec:mets}
+{\bf\cite{Ruey-Shun:2003:DevelopinganXMLframeworkformetadatasystem}} suggest that an XML metadata discribed according the DTD include three necessary elements:
+\begin{enumerate}
+	\item Structure\\
+	The major execution ability of structure includes parser for well-formed XML and
+	valid DTD structure, authoring tool for editing.
+	
+	\item Depth\\
+	Basically, there are two sorts of fields: Fixed-length fields and variable fields.
+	Fixed-length fields are general types and character-indication types Sub-field, whether
+	fixed-length fields or variable fields, might contain both fixed-length fields and
+	variable fields. According to the reason above, the process ability of the system has to
+	cover the situation
+	
+	\item Scope\\
+	The connections must involve simple object, time, space, people, and event. 
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3. Other apllications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{3. Other apllications of XML metadata}
+Here's a few of useful tools and applications for XML metadata:
+\begin{enumerate}
+\item METS:\\
+METS is an XML document format intended for the encoding of complex objects within digital libraries. It provides the means to record all of the descriptive, administrative, structural and behavioral metadata needed to manage and provide access to complex digital content (McDonough2006). METS provides a method for aggregating all the metadata that can be used with a digital object. ({\bf \cite{Sharon Cheslow:2014:METSForTheCulturalHeritageCommunity}})
+
+\item PREMIS:\\
+PREservation Metadata: Implementation Strategies (PREMIS) {\bf(wiki)} is an administrative metadata schema used for the preservation of digital resources ({\bf \cite{Sharon Cheslow:2014:METSForTheCulturalHeritageCommunity}}). With the rapid changes in technology, digital objects including its metadata a bound to go obsolete at some time in the future. PREMIS was created to set standards that will ensure long term usability of digital resources. 
+
+\item MODS:\\
+Metadata Object and Description Schema (MODS) is a standard for encoding metadata of digital objects using XML. MODS among XML base metadata standards has remain the most descriptive and has high level compatibility with MARC ({\bf \cite{Rebecca Guenther:2003:NewMetadataStandardsforDigitalResources}}).
+
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliography{Bibliography_template} %Read the bibliography from a separate file
+
+\begin{thebibliography}{99}
+\bibitem[Barker(2010)]{1:1:1}
+Phil Barker.
+\newblock \emph{Metadata for Learning Materials: an Overview of Existing Standards and Current Developments}.
+\newblock Technology, Instruction, Cognition and Learning vol 7 (3-4) 2010
+\newblock http://www.oldcitypublishing.com/TICL/TICLcontents/TICLv7n3-4contents.html
+
+
+\bibitem[Rachel Heery.(2009)]{Rachel:2009:reviewofmetadataformats}
+Rachel Heery.
+\newblock \emph{Review of Metadata Formats}.
+\newblock "Review of metadata formats", Program, Vol. 30 Iss 4 pp. 345 - 373,1996
+\newblock http://dx.doi.org/10.1108/eb047236
+
+\bibitem[Ruey-Shun Chen(2003)]{Ruey-Shun:2003:DevelopinganXMLframeworkformetadatasystem}
+Ruey-Shun Chen.
+\newblock \emph{Developing an XML framework for metadata system}.
+\newblock ISICT '03 Proceedings of the 1st international symposium on Information and communication technologies
+\newblock http://dl.acm.org/citation.cfm?id=963653
+
+\bibitem[Sharon Cheslow(2014)]{Sharon Cheslow:2014:METSForTheCulturalHeritageCommunity}
+Sharon Cheslow.
+\newblock \emph{METS For The Cultural Heritage Community: A	Literature Review}.
+\newblock Library Philosophy and Practice (e-journal). Paper 1162.
+\newblock http://digitalcommons.unl.edu/libphilprac/1162/
+
+\bibitem[Rebecca Guenther(2003)]{Rebecca Guenther:2003:NewMetadataStandardsforDigitalResources}
+Rebecca Guenther.
+\newblock \emph{New Metadata Standards for Digital Resources: MODS and METS}.
+\newblock Portal: Libraries and the Academy, Johns Hopkins University Press (2003)
+\newblock http://onlinelibrary.wiley.com/doi/10.1002/bult.268/pdf
+
+\end{thebibliography}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage % Ends the current page and causes all figures and tables to be printed
+
+\begin{figure*}[p] % The * makes the figure span both columns, p places the figure on a float page
+	\begin{center}
+		\includegraphics[scale=1.0]{hw3.pdf}
+	\end{center}
+	\caption{hierarchical overview of the methods/solutions}
+	\label{fig:hw3}
+\end{figure*}
+
+
+\end{document}      % End of the document
