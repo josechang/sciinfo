@@ -37,8 +37,12 @@
 We’re producing a program which automatically generate metadata such as authors’ name, date of publishing, name of articles… and more importantly auto-abstract for full text articles
 We are interested in features for either more convenient use of the program or improving precise data generation
 There are 5 related problems.\\
-\includegraphics[scale=0.3]{../Picture1}\\
-Figure 1. Overview of metadata creation process.\\
+%\begin{figure}
+%	\begin{center}
+%	\includegraphics[scale=0.3]{../Picture1}
+%	\end{center}
+%	\caption{}
+%\end{figure}\\
 
 \section*{Problem 1}
 \label{sec:prob}
@@ -54,18 +58,19 @@ Building  a  natural  language  understanding  (NLU)  system.
 Use  a  set  of  possible  yes-no  questions  that  can  be  applied  to  data  items,  then  follow  a  rule  for selecting  the  best  question  at  any  node  on  the  basis  of training  data,  which  has  a  method  for  pruning trees to prevent over-training.
 
 
-\section*{Problem 2}
-\label{sec:prob}
-When users search Turkey, the results could be a country or an animal. Sometimes, the results are totally unrelated. 
+\section*{Name Recognition}
+The results could be a country or an animal if users search for the word, Turkey. Sometimes, the results are totally unrelated. That would be troublesome when we count frequency of a certain word to rank it. 
+Therefore, it’s significantly crucial for search engine to understand what users want by name recognition in natural language processing. The users can find out the results much quicker and can’t get misunderstood.
+The method to improve the above problem is “categorize the results based on different subjects or genres” by using online database. Digital libraries and web resources have limited metadata, augmenting them with meaningful, stable and desired categories.(Bill2006, Categorizing Web Search Results into Meaningful and Stable Categories Using Fast-Feature Techniques)
+Information can enable better overviews and support user exploration. It will be very convenient to find the results we want.( Jin2008, Effectiveness Web Search Results for Genre and Sentiment Classification) Users don’t have to filter the results which are ranked by browsing frequency. Users just can obtain the information and relevance by clicking the specific categories. 
+Creating and using an online database or automated metadata creation are to be recommended. The reason why is because there are some advantages, including integrating with the other cloud service or scaling with what users need such as how to categorize the categories.\\
 
-\section*{Method 2}
-\label{sec:meth}
-categorize the results based on different subjects or genres
+\includegraphics[scale=0.5]{D:/ken/articles about IR/1.png}\\
+Figure 1. Components used to categorize web search results. A set of search results returned from a search engine is categorized by a classifier. The classifier may optionally reference previously acquired information or knowledge, such as a database of rules or training data.\\
 
-\section*{Solution 2}
-\label{sec:solu}
 
-It’s significantly crucial for search engine to understand what users want by name recognition in natural language processing.  Digital libraries and web resources have limited metadata, augmenting them with meaningful, stable and desired categories. Information can enable better overviews and support user exploration.  
+\includegraphics[scale=0.5]{D:/ken/articles about IR/2.png}\\
+Figure 2. The SERVICE web search prototype uses fast- feature techniques to categorize search results and generate interactive overviews based on meaningful and stable categories. 
 
 \section*{Problem 3}
 \label{sec:prob}
@@ -78,6 +83,20 @@ Word sense disambiguation is an important step in natural language processing. T
 \section*{Solution 3}
 \label{sec:solu}
 The project team has decided to pursuit the unsupervised approach. Implementation will be made in term of symnonym grouping (Navigli, 2009) and context clustering (Wang et al., 2009).
+\section{Factuality}
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors’ subjective opions (Agerri et al., 2015). From this paper’s perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+TIMEBANK was first proposed in 2003 (Pustejovsky et al., 2003). The idea was based on that English language has different tenses which could be exploited as signal for fact check. An example as below could help clarifying the ideas. Let’s examine these sentence:\\
+-	I will go to Chimei museum tomorrow.
+-	Chimei museum is near Tainan District.
+-	I was in UK in 2012.\\
+The first sentence is simple future tense which implying something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now – so such fact must be used with caution. \\
+In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opions or even assumption from authors (Schultze, 2000). (Dave et al., 2003) identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opion and so on (Wiebe et al., 2005). Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statementssuch as FACTBANK, which is built by (Saurí and Pustejovsky, 2009). Following example shows how subjective statements can be picked out.\\
+-	Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1 a)
+-	Funding angencies would be happy with big entrepreneurs, instead of small and medium enterprises. (1 b)
+-	Tolerance to dictatorship would has negative influences on anarchist movement in the States (2 a)
+-	Tolerance to dictatorship would doom anarchist movement in the States. (2 c)\\
+It is easy to find in statement (1 a) is an absolute fact. Statement (1 b) is howerver affected by emotional state of authors. After re-writting (1 b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises, sentence (1 b) become a face-based statement. In another case, statement (2 a) is a fact-based statement while in statement (2 b), authors are stressing their dislike toward dictatorship.\\
+Fact checks in language generation is a new field but many useful tool has been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check. 
 
 \section*{Problem 4}
 \label{sec:prob}
@@ -94,7 +113,10 @@ It can easily conpute and analyze the words in the articles.
 Phthon can compute and analyze by separating the connected words.
 The readers can know what do the words mean when they are reading the articles .
 
-
+\section*{Word Sense Disambiguation(unsupervised)}
+\label{sec:solu}
+Word sense disambiguation (WSD) is a core research problem in computational linguistics and natural language processing (NLP), which was recognized since the beginning of the scientific interest in machine translation, and in artificial intelligence, in general. Finding a solution to the WSD problem is in many cases essential, or even compulsory, either for natural language understanding, or for a wide range of applications such as: information retrieval, machine translation, speech processing, text processing etc. From the wide range of unsupervised learning techniques that could be applied to our problem, we have chosen to use a parametric model in order to assign a sense group to each ambiguous occurrence of the target word. The disambiguation method using N-gram features that is being presented here is unsupervised and uses counts collected from the web in a simple way, in order to rank candidates. It does not require sense definitions or inventories; the only requirement is for these counts to be available. 
+Word sense disambiguate is an open challenge in NLP, many researches are in progress, to find the correct sense of a given word. Each word will have different senses, the sense of the word purely depends on the particular context, so that a word can be interpreted in more than one way. The main motivation is to avoid word sense disambiguation and to make ample use of available technologies, so as to achieve this, many approaches are there.
 
 \section*{Problem 5}
 \label{sec:prob}
@@ -107,7 +129,7 @@ How could we make it more efficiently and precisely?
 Query reduction to single sub-query
 
 
-\section*{Solution 5test}
+\section*{Solution 5 88}
 \label{sec:solu}
  The performance of the machine is better in the short query rather than long query. Thus, it is an important issue to reduce the query to many sub-query.  The first is extracting the single sub-query by the existing features. Then, We combine these features to the reduction’s technique. We could find that it is more efficient than just analyze the original query. 
 
@@ -141,6 +163,13 @@ Query reduction to single sub-query
 \\\
 [13]. Yoon, Y., Seon, C.-N., Lee, S.and Seo, J. 2006. Unsupervised word sense disambiguation for Korean through the acyclic weighted digraph using corpus and dictionary. Information Processing and Management, 42, 710-722.
 \\\
+Agerri, R., Artola, X., Beloki, Z., Rigau, G. and Soroa, A. 2015. Big data for Natural Language Processing: A streaming approach. Knowledge-Based Systems, 79, 36-42.
+Dave, K., Lawrence, S. and Pennock, D. M. Mining the peanut gallery: Opinion extraction and semantic classification of product reviews.  Proceedings of the 12th international conference on World Wide Web, 2003. ACM, 519-528.
+Pustejovsky, J., Hanks, P., Sauri, R., See, A., Gaizauskas, R., Setzer, A., Radev, D., Sundheim, B., Day, D. and Ferro, L. The timebank corpus.  Corpus linguistics, 2003. 40.
+Saurí, R. and Pustejovsky, J. 2009. FactBank: A corpus annotated with event factuality. Language resources and evaluation, 43, 227-268.
+Schultze, U. 2000. A confessional account of an ethnography about knowledge work. MIS Quarterly: Management Information Systems, 24, 3-40.
+Wiebe, J., Wilson, T. and Cardie, C. 2005. Annotating expressions of opinions and emotions in language. Language resources and evaluation, 39, 165-210.
+
 
 
 \end{document}      % End of the document

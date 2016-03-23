@@ -1,8 +1,50 @@
+\documentclass[a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages using
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx\pdfoutput\undefined
+	\usepackage[dvips]{graphicx}
+	\DeclareGraphicsExtensions{.eps}
+\else
+	\usepackage[pdftex]{graphicx}
+	\DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps}
+\pdfcompresslevel=9
+\fi
+\usepackage[bookmarks=true,bookmarksnumbered=true,hypertexnames=true,breaklinks=true,colorlinks=true]{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage[ansinew]{inputenc}
+\usepackage[english]{babel}
+\usepackage{indentfirst}
+\addtolength{\topmargin}{-20mm}
+\addtolength{\textheight}{10mm}
+
+\begin{document}               % Begins the document
+
+\title{Structure of XML Metadata}
+\author{EagleUnit \\ (I-Chieh, Chinweze, Henry, Ray, Jones, Piyarul)} 
+%\date{2010-10-10}             % If you want to set the date yourself.
+
+\maketitle                     % Generates the title
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Team:
+% EagleUnit
+% Members: 
+%  I-Chei, Chinweze, Jones, Ray, Hunry, Piyarul, Tim
+% Relative files:
+% 
+% Note:    
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section*{XML metadata structure}
 \subsection{ABSTRACT}
 \label{sec:abs}
-Our responsipility is to construct an XML metadata structure.
-
+Our responsibility is to build a metadata schema which contains all information in the PDF and program it in a XML structure. This article present an overview of standards for metadata related to our responsibility. We review a number of metadata schemas in use today, including MODS, METS, METS+MODS+PREMIS, MARC21, MARC XML, and show the overviews and the pros and cons of each schema. Finally, through the examination of characteristics of these metadata schemas, we try to rank them and to suggest the optimum standard for our work.
+\subsection{INTRODUCTION}
 \subsection{BACKGROUND}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Different standards of metadata
@@ -38,18 +80,18 @@ There's many different standards existing to describe the metadata in different 
 	{\bf Introduction}\\
 	Metadata Object and Description Schema (MODS) is a schema for a bibliographic element set that may be used for a variety of purposes, and particularly for library applications. It is a MARC-compatible XML schema for encoding descriptive data. \\
 	The Library of Congress' Network Development and MARC Standards Office, with interested experts, developed the Metadata Object Description Schema (MODS) in 2002 for a bibliographic element set that may be used for a variety of purposes, and particularly for library applications. As an XML schema it is intended to be able to carry selected data from existing MARC 21 records as well as to enable the creation of original resource description records. It includes a subset of MARC fields and uses language-based tags rather than numeric ones, in some cases regrouping elements from the MARC 21 bibliographic format. As of May 2015 this schema is in its third version (version 3.6). MODS is expressed using the XML schema language of the World Wide Web Consortium. The standard is maintained by the MODS Editorial Committee with support from the Network Development and MARC Standards Office of the Library of Congress.\\
-	MODS could potentially be used as follows :\\	
-	as an SRU specified format\\
-	as an extension schema to METS\\
-	to represent metadata for harvesting\\
-	for original resource description in XML syntax\\
-	for representing a simplified MARC record in XML\\
-	for metadata in XML that may be packaged with an electronic resource\\
+	MODS could potentially be used as follows :\\
+	• as an SRU specified format\\
+	• as an extension schema to METS\\
+	• to represent metadata for harvesting\\
+	• for original resource description in XML syntax\\
+	• for representing a simplified MARC record in XML\\
+	• for metadata in XML that may be packaged with an electronic resource\\
 	Features of MODS :\\
-	The elements generally inherit the semantics of MARC\\
-	Some data has been repackaged; in some cases what is in several data elements in MARC may be brought together into one in MODS\\
-	MODS does not assume the use of any specific cataloging code\\
-	Several elements have an optional ID attribute to facilitate linking at the element level.\\
+	• The elements generally inherit the semantics of MARC\\
+	• Some data has been repackaged; in some cases what is in several data elements in MARC may be brought together into one in MODS\\
+	• MODS does not assume the use of any specific cataloging code\\
+	• Several elements have an optional ID attribute to facilitate linking at the element level.\\
 	{\bf Adventage}
 	\begin{enumerate}
 		\item The element set is richer than Dublin Core.
@@ -102,7 +144,7 @@ There's many different standards existing to describe the metadata in different 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\item MARCXML\\
 	{\bf Introduction}\\
-	To make up the less of internet compatibility of MARC 21, the Library of Congress developed an XML schema based on it. Which the schema is the MARCXML standard. The purpose of MARCXML is to build a metadata format with a simple, extensible and flexible structure, which can be presented in XML stylesheets. Since MARCXML was design to converged data from MARC 21, the structure and performance are very similar between these two standards.  
+	To make up the less of internet compatibility of MARC 21, the Library of Congress developed an XML schema based on it. Which the schema is the MARCXML standard. The purpose of MARCXML is to build a metadata format with a simple, extensible and flexible structure, which can be presented in XML stylesheets. Since MARCXML was design to converged data from MARC 21, the structure and performance are very similar between these two standards.  \\
 	{\bf Adventage}
 	\begin{enumerate}
 		\item Used in XML directly
@@ -114,22 +156,30 @@ There's many different standards existing to describe the metadata in different 
 	\end{enumerate}
 	{\bf Conclusion}\\
 	Since our responsibility is to construct an XML schema, MARCXML will be our choice if MARC 21 becomes the standard we work with.
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item Dublin Core\\
 	{\bf Introduction}\\
-	
+	Dublin Core's purpose is to provide a very simple set of metadata so   that people can describe Web-based information resources quickly and easily, even people with no formal training in that activity. It has fifteen core elements. These simple elements can be further defined to create more detailed metadata.\\
+	The original Dublin Core Metadata Element Set consists of 15 metadata elements:\\
+	1. Title 2. Creator 3. Subject 4. Description 5. Publisher 
+	6. Contributor 7. Date 8. Type 9. Format 10. Identifier
+	11. Source 12. Language 13. Relation 14. Coverage 15. Rights\\
 	{\bf Adventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item Encourage authors and publishers to provide Metadata in the type that can be automatically collected by resource discovery tools.
+		\item Encourage web publishing tool that contains element of the Metadata module to be founded, which further simplify the creation of Metadata records.
+		\item DC records can be the basis of more detailed cataloging records.
+		\item After the DC becomes the standard, Metadata records can be understood by the user.
 	\end{enumerate}	
 	{\bf Disadventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item There are no cataloging rules that determine how data will be entered in the fields. So although I wrote "creator = Karen Coyle", I could also have written "creator = Coyle, Karen." This allows people who are adopting Dublin Core to make use of whatever rules are common in their community, but it does mean that there is no consistency across different uses of Dublin Core.
+		\item Does not work well for data conversion.
+		\item Data values in non-mappable space will be left out, especially when a source schema has a richer structure than that of the target schema. E.g., from LOM records to DC records.
 	\end{enumerate}
 	{\bf Conclusion}\\
-	
+		One of the things that makes Dublin Core easy and usable by anyone is that there are no cataloging rules involved. This is something that goes against the article cataloging.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item IAFA/Whois++ Templates\\
 	{\bf Introduction}\\
@@ -174,12 +224,19 @@ More detailed introduction could be found in {\bf Metadata for learning material
 \end{enumerate}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\bibliography{library}
+	\clearpage 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % figures
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage % Ends the current page and causes all figures and tables to be printed
 
 
 
-
-
+\end{document}      % End of the document
