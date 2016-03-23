@@ -37,12 +37,12 @@
 We’re producing a program which automatically generate metadata such as authors’ name, date of publishing, name of articles… and more importantly auto-abstract for full text articles
 We are interested in features for either more convenient use of the program or improving precise data generation
 There are 5 related problems.\\
-\begin{figure}
-	\begin{center}
-	\includegraphics[scale=0.3]{../Picture1}
-	\end{center}
-	\caption{Overview of metadata creation process}
-\end{figure}\\
+%\begin{figure}
+%	\begin{center}
+%	\includegraphics[scale=0.3]{../Picture1}
+%	\end{center}
+%	\caption{}
+%\end{figure}\\
 
 \section*{Problem 1}
 \label{sec:prob}
@@ -58,18 +58,19 @@ Building  a  natural  language  understanding  (NLU)  system.
 Use  a  set  of  possible  yes-no  questions  that  can  be  applied  to  data  items,  then  follow  a  rule  for selecting  the  best  question  at  any  node  on  the  basis  of training  data,  which  has  a  method  for  pruning trees to prevent over-training.
 
 
-\section*{Problem 2}
-\label{sec:prob}
-When users search Turkey, the results could be a country or an animal. Sometimes, the results are totally unrelated. 
+\section*{Name Recognition}
+The results could be a country or an animal if users search for the word, Turkey. Sometimes, the results are totally unrelated. That would be troublesome when we count frequency of a certain word to rank it. 
+Therefore, it’s significantly crucial for search engine to understand what users want by name recognition in natural language processing. The users can find out the results much quicker and can’t get misunderstood.
+The method to improve the above problem is “categorize the results based on different subjects or genres” by using online database. Digital libraries and web resources have limited metadata, augmenting them with meaningful, stable and desired categories.(Bill2006, Categorizing Web Search Results into Meaningful and Stable Categories Using Fast-Feature Techniques)
+Information can enable better overviews and support user exploration. It will be very convenient to find the results we want.( Jin2008, Effectiveness Web Search Results for Genre and Sentiment Classification) Users don’t have to filter the results which are ranked by browsing frequency. Users just can obtain the information and relevance by clicking the specific categories. 
+Creating and using an online database or automated metadata creation are to be recommended. The reason why is because there are some advantages, including integrating with the other cloud service or scaling with what users need such as how to categorize the categories.\\
 
-\section*{Method 2}
-\label{sec:meth}
-categorize the results based on different subjects or genres
+\includegraphics[scale=0.5]{D:/ken/articles about IR/1.png}\\
+Figure 1. Components used to categorize web search results. A set of search results returned from a search engine is categorized by a classifier. The classifier may optionally reference previously acquired information or knowledge, such as a database of rules or training data.\\
 
-\section*{Solution 2}
-\label{sec:solu}
 
-It’s significantly crucial for search engine to understand what users want by name recognition in natural language processing.  Digital libraries and web resources have limited metadata, augmenting them with meaningful, stable and desired categories. Information can enable better overviews and support user exploration.  
+\includegraphics[scale=0.5]{D:/ken/articles about IR/2.png}\\
+Figure 2. The SERVICE web search prototype uses fast- feature techniques to categorize search results and generate interactive overviews based on meaningful and stable categories. 
 
 \section*{Problem 3}
 \label{sec:prob}
@@ -111,32 +112,6 @@ I suggest we should use the Python language to complete this task.
 It can easily conpute and analyze the words in the articles.
 Phthon can compute and analyze by separating the connected words.
 The readers can know what do the words mean when they are reading the articles .
-
-\section*{Word Sense Disambiguation(supervised and semmi-supervised)}
-\label{sec:solu}
-Word sense disambiguation
-Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD is identifying which sense of a word (i.e.meaning) is used in a sentence, when the word has multiple meanings. The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
-The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurologic reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning.
-Supervised
-Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words (hence, common sense and reasoning are deemed unnecessary). Probably every machine learning algorithm going has been applied to WSD, including associated techniques such as feature selection, parameter optimization, and ensemble learning. Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create.
-Semi-supervised
-Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm.[24] It uses the ‘One sense per collocation’ and the ‘One sense per discourse’ properties of human languages for word sense disambiguation. From observation, words tend to exhibit only one sense in most given discourse and in a given collocation.
-The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached.
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.
-
-\section*{Word Sense Disambiguation(supervised and semmi-supervised)}
-\label{sec:solu}
-Word sense disambiguation
-Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD is identifying which sense of a word (i.e.meaning) is used in a sentence, when the word has multiple meanings. The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
-The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurologic reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning.
-Supervised
-Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words (hence, common sense and reasoning are deemed unnecessary). Probably every machine learning algorithm going has been applied to WSD, including associated techniques such as feature selection, parameter optimization, and ensemble learning. Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create.
-Semi-supervised
-Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm.[24] It uses the ‘One sense per collocation’ and the ‘One sense per discourse’ properties of human languages for word sense disambiguation. From observation, words tend to exhibit only one sense in most given discourse and in a given collocation.
-The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached.
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.
 
 \section*{Word Sense Disambiguation(unsupervised)}
 \label{sec:solu}
