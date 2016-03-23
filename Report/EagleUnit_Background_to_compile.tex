@@ -78,19 +78,37 @@ There's many different standards existing to describe the metadata in different 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item MODS\\
 	{\bf Introduction}\\
-	
+	Metadata Object and Description Schema (MODS) is a schema for a bibliographic element set that may be used for a variety of purposes, and particularly for library applications. It is a MARC-compatible XML schema for encoding descriptive data. \\
+	The Library of Congress' Network Development and MARC Standards Office, with interested experts, developed the Metadata Object Description Schema (MODS) in 2002 for a bibliographic element set that may be used for a variety of purposes, and particularly for library applications. As an XML schema it is intended to be able to carry selected data from existing MARC 21 records as well as to enable the creation of original resource description records. It includes a subset of MARC fields and uses language-based tags rather than numeric ones, in some cases regrouping elements from the MARC 21 bibliographic format. As of May 2015 this schema is in its third version (version 3.6). MODS is expressed using the XML schema language of the World Wide Web Consortium. The standard is maintained by the MODS Editorial Committee with support from the Network Development and MARC Standards Office of the Library of Congress.\\
+	MODS could potentially be used as follows :\\
+	• as an SRU specified format\\
+	• as an extension schema to METS\\
+	• to represent metadata for harvesting\\
+	• for original resource description in XML syntax\\
+	• for representing a simplified MARC record in XML\\
+	• for metadata in XML that may be packaged with an electronic resource\\
+	Features of MODS :\\
+	• The elements generally inherit the semantics of MARC\\
+	• Some data has been repackaged; in some cases what is in several data elements in MARC may be brought together into one in MODS\\
+	• MODS does not assume the use of any specific cataloging code\\
+	• Several elements have an optional ID attribute to facilitate linking at the element level.\\
 	{\bf Adventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item The element set is richer than Dublin Core.
+		\item The element set is more compatible with library data than ONIX.
+		\item The schema is more end user oriented than the full MARCXML schema.
+		\item The element set is simpler than the full MARC format.
 	\end{enumerate}	
 	{\bf Disadventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item An original MARC 21 record converted to MODS may not convert back to MARC 21 in its entirety without some loss of specificity in tagging or loss of data.
+		\item In some cases if reconverted into MARC 21, the data may not be placed in exactly the same field that it started in because a MARC field may have been mapped to a more general one in MODS.
+		\item MODS does not include business rules for populating the elements.
+		\item Additional instructions would need to be provided for conversion details.
 	\end{enumerate}
 	{\bf Conclusion}\\
-	
+	MODS has a high level of compatibility with MARC records because it inherits the semantics of the equivalent data elements in the MARC 21 bibliographic format. It may be used for original resource description that allows for rich description that is generally compatible with existing library data and is expressed in XML syntax. Because it includes a subset of MARC fields and repackages some of them, it is particularly useful for technician input.\\
+	An additional use of MODS is as an extension schema for descriptive matadata for METS object.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item METS+MODS+PREMIS\\
 	{\bf Introduction}\\
@@ -126,18 +144,18 @@ There's many different standards existing to describe the metadata in different 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\item MARCXML\\
 	{\bf Introduction}\\
-	
+	To make up the less of internet compatibility of MARC 21, the Library of Congress developed an XML schema based on it. Which the schema is the MARCXML standard. The purpose of MARCXML is to build a metadata format with a simple, extensible and flexible structure, which can be presented in XML stylesheets. Since MARCXML was design to converged data from MARC 21, the structure and performance are very similar between these two standards.  \\
 	{\bf Adventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item Used in XML directly
+		\item Easily work with MARC 21 system.
 	\end{enumerate}	
 	{\bf Disadventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item The disadventage of MARC 21 can be almost totally found on MARCXML, except the ability of internet apllication.
 	\end{enumerate}
 	{\bf Conclusion}\\
+	Since our responsibility is to construct an XML schema, MARCXML will be our choice if MARC 21 becomes the standard we work with.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item Dublin Core\\
