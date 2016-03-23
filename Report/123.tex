@@ -1,0 +1,64 @@
+\documentclass[a4paper]{article} % Document type
+
+\ifx\pdfoutput\undefined
+    %Use old Latex if PDFLatex does not work
+   \usepackage[dvips]{graphicx}% To get graphics working
+   \DeclareGraphicsExtensions{.eps} % Encapsulated PostScript
+ \else
+    %Use PDFLatex
+   \usepackage[pdftex]{graphicx}% To get graphics working
+   \DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps} % Portable Document Format, Joint Photographic Experts Group, Portable Network Graphics, MetaPost
+   \pdfcompresslevel=9
+\fi
+
+\usepackage{amsmath,amssymb}   % Contains mathematical symbols
+\usepackage[ansinew]{inputenc} % Input encoding, identical to Windows 1252
+\usepackage[english]{babel}    % Language
+\usepackage[round,authoryear]{natbib}  %Nice author (year) citations
+%\usepackage[square,numbers]{natbib}     %Nice numbered citations
+%\bibliographystyle{unsrtnat}           %Unsorted bibliography
+\bibliographystyle{plainnat}            %Sorted bibliography
+
+\addtolength{\topmargin}{-20mm}% Removes 30mm from the top margin
+\addtolength{\textheight}{10mm}% Adds it to the text height
+
+
+\begin{document}               % Begins the document
+
+\title{Report template for homework}
+\author{Jang Che Wei \\ N26041678 \\ 4A02C014@stust.edu.tw} 
+%\date{2010-10-10}             % If you want to set the date yourself.
+
+\maketitle                     % Generates the title
+
+
+\section*{Problem}
+\label{sec:prob}
+
+The readers do not know what the connected words meaning
+
+\section*{Method}
+\label{sec:meth}
+Compute and Analyze in natural language processing
+
+\section*{Solution}
+\label{sec:solu}
+
+I suggest we should use the Python language to complete this task. 
+It can easily conpute and analyze the words in the articles.
+They help the readers to know the articles.The connected words often appear in the articles.
+Therefore, we should compute and analyze to separate the connected words.
+The readers can know what do the words mean when they are reading the articles .
+
+\section*{Reference}
+\label{sec:refe}
+
+[1].Ralph Weiscbedel,Chairperson BBN Systems and Technologies Corporation Jaime Carbonell Carnegie-Mellon University Barbara Grosz Harvard University Wendy Lehnert University of Massachusetts, Amherst Mitchell Marcus University of Pennsylvania Raymond Perrault SRI International Robert Wilensky University of California, Berkeley   
+\\\
+[2].Ronan Collobert ,JasonWeston ,L´eon Bottou,Michael Karlen, Koray Kavukcuoglu, Pavel Kuksa, NEC Laboratories America4 Independence Way Princeton, NJ 08540
+
+
+
+
+
+\end{document}      % End of the document
