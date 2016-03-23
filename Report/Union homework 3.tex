@@ -37,8 +37,12 @@
 We’re producing a program which automatically generate metadata such as authors’ name, date of publishing, name of articles… and more importantly auto-abstract for full text articles
 We are interested in features for either more convenient use of the program or improving precise data generation
 There are 5 related problems.\\
-\includegraphics[scale=0.3]{../Picture1}\\
-Figure 1. Overview of metadata creation process.\\
+\begin{figure}
+	\begin{center}
+	\includegraphics[scale=0.3]{../Picture1}
+	\end{center}
+	\caption{Overview of metadata creation process}
+\end{figure}\\
 
 \section*{Problem 1}
 \label{sec:prob}
@@ -78,6 +82,20 @@ Word sense disambiguation is an important step in natural language processing. T
 \section*{Solution 3}
 \label{sec:solu}
 The project team has decided to pursuit the unsupervised approach. Implementation will be made in term of symnonym grouping (Navigli, 2009) and context clustering (Wang et al., 2009).
+\section{Factuality}
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors’ subjective opions (Agerri et al., 2015). From this paper’s perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+TIMEBANK was first proposed in 2003 (Pustejovsky et al., 2003). The idea was based on that English language has different tenses which could be exploited as signal for fact check. An example as below could help clarifying the ideas. Let’s examine these sentence:\\
+-	I will go to Chimei museum tomorrow.
+-	Chimei museum is near Tainan District.
+-	I was in UK in 2012.\\
+The first sentence is simple future tense which implying something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now – so such fact must be used with caution. \\
+In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opions or even assumption from authors (Schultze, 2000). (Dave et al., 2003) identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opion and so on (Wiebe et al., 2005). Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statementssuch as FACTBANK, which is built by (Saurí and Pustejovsky, 2009). Following example shows how subjective statements can be picked out.\\
+-	Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1 a)
+-	Funding angencies would be happy with big entrepreneurs, instead of small and medium enterprises. (1 b)
+-	Tolerance to dictatorship would has negative influences on anarchist movement in the States (2 a)
+-	Tolerance to dictatorship would doom anarchist movement in the States. (2 c)\\
+It is easy to find in statement (1 a) is an absolute fact. Statement (1 b) is howerver affected by emotional state of authors. After re-writting (1 b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises, sentence (1 b) become a face-based statement. In another case, statement (2 a) is a fact-based statement while in statement (2 b), authors are stressing their dislike toward dictatorship.\\
+Fact checks in language generation is a new field but many useful tool has been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check. 
 
 \section*{Problem 4}
 \label{sec:prob}
@@ -144,6 +162,13 @@ Query reduction to single sub-query
 \\\
 [13]. Yoon, Y., Seon, C.-N., Lee, S.and Seo, J. 2006. Unsupervised word sense disambiguation for Korean through the acyclic weighted digraph using corpus and dictionary. Information Processing and Management, 42, 710-722.
 \\\
+Agerri, R., Artola, X., Beloki, Z., Rigau, G. and Soroa, A. 2015. Big data for Natural Language Processing: A streaming approach. Knowledge-Based Systems, 79, 36-42.
+Dave, K., Lawrence, S. and Pennock, D. M. Mining the peanut gallery: Opinion extraction and semantic classification of product reviews.  Proceedings of the 12th international conference on World Wide Web, 2003. ACM, 519-528.
+Pustejovsky, J., Hanks, P., Sauri, R., See, A., Gaizauskas, R., Setzer, A., Radev, D., Sundheim, B., Day, D. and Ferro, L. The timebank corpus.  Corpus linguistics, 2003. 40.
+Saurí, R. and Pustejovsky, J. 2009. FactBank: A corpus annotated with event factuality. Language resources and evaluation, 43, 227-268.
+Schultze, U. 2000. A confessional account of an ethnography about knowledge work. MIS Quarterly: Management Information Systems, 24, 3-40.
+Wiebe, J., Wilson, T. and Cardie, C. 2005. Annotating expressions of opinions and emotions in language. Language resources and evaluation, 39, 165-210.
+
 
 
 \end{document}      % End of the document
