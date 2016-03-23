@@ -160,19 +160,26 @@ There's many different standards existing to describe the metadata in different 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item Dublin Core\\
 	{\bf Introduction}\\
-	
+	Dublin Core's purpose is to provide a very simple set of metadata so   that people can describe Web-based information resources quickly and easily, even people with no formal training in that activity. It has fifteen core elements. These simple elements can be further defined to create more detailed metadata.\\
+	The original Dublin Core Metadata Element Set consists of 15 metadata elements:\\
+	1. Title 2. Creator 3. Subject 4. Description 5. Publisher 
+	6. Contributor 7. Date 8. Type 9. Format 10. Identifier
+	11. Source 12. Language 13. Relation 14. Coverage 15. Rights\\
 	{\bf Adventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item Encourage authors and publishers to provide Metadata in the type that can be automatically collected by resource discovery tools.
+		\item Encourage web publishing tool that contains element of the Metadata module to be founded, which further simplify the creation of Metadata records.
+		\item DC records can be the basis of more detailed cataloging records.
+		\item After the DC becomes the standard, Metadata records can be understood by the user.
 	\end{enumerate}	
 	{\bf Disadventage}
 	\begin{enumerate}
-		\item testA
-		\item testB
+		\item There are no cataloging rules that determine how data will be entered in the fields. So although I wrote "creator = Karen Coyle", I could also have written "creator = Coyle, Karen." This allows people who are adopting Dublin Core to make use of whatever rules are common in their community, but it does mean that there is no consistency across different uses of Dublin Core.
+		\item Does not work well for data conversion.
+		\item Data values in non-mappable space will be left out, especially when a source schema has a richer structure than that of the target schema. E.g., from LOM records to DC records.
 	\end{enumerate}
 	{\bf Conclusion}\\
-	
+		One of the things that makes Dublin Core easy and usable by anyone is that there are no cataloging rules involved. This is something that goes against the article cataloging.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item IAFA/Whois++ Templates\\
 	{\bf Introduction}\\
