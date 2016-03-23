@@ -1,0 +1,69 @@
+\documentclass[a4paper]{article} % Document type
+
+\ifx\pdfoutput\undefined
+    %Use old Latex if PDFLatex does not work
+   \usepackage[dvips]{graphicx}% To get graphics working
+   \DeclareGraphicsExtensions{.eps} % Encapsulated PostScript
+ \else
+    %Use PDFLatex
+   \usepackage[pdftex]{graphicx}% To get graphics working
+   \DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps} % Portable Document Format, Joint Photographic Experts Group, Portable Network Graphics, MetaPost
+   \pdfcompresslevel=9
+\fi
+
+\usepackage{amsmath,amssymb}   % Contains mathematical symbols
+\usepackage[ansinew]{inputenc} % Input encoding, identical to Windows 1252
+\usepackage[english]{babel}    % Language
+\usepackage[round,authoryear]{natbib}  %Nice author (year) citations
+%\usepackage[square,numbers]{natbib}     %Nice numbered citations
+%\bibliographystyle{unsrtnat}           %Unsorted bibliography
+\bibliographystyle{plainnat}            %Sorted bibliography
+
+\addtolength{\topmargin}{-20mm}% Removes 30mm from the top margin
+\addtolength{\textheight}{10mm}% Adds it to the text height
+
+
+\begin{document}               % Begins the document
+
+\title{Report template for homework}
+\author{Guan-Chung Lan \\ N16041430 \\ jb0929n@gmail.com} 
+%\date{2010-10-10}             % If you want to set the date yourself.
+
+\maketitle                     % Generates the title
+
+
+\section*{Introducing}
+\label{sec:prob}
+
+
+When users search with a sentence, how does the program understand the certain input of text? Can we make the program knows a group of characters is a word or something? If that doesn’t work, we may only get the results with the words we inputted but cannot obtain any others similar results. Therefore, in order to facilitate the interaction between user and system, it’s important for system to understand the input text in natural language understanding (Shapiro1982, A knowledge engineering approach to natural language understanding).
+The method to solve the above problem is to building a natural language understanding (NLU) system, in which the system’s rules for semantic interpretation are learnt automatically from training data. The rules are encoded in a forest of specialized decision trees called Semantic Classification Trees (SCTs). It use a set of possible yes-no questions that can be applied to data items, then follow a rule for selecting the best question at  any node on the basis of training data, which has a method for pruning trees to prevent over-training (Kuhn1995, The Application of Semantic Classification Trees to Natural Language Understanding).
+
+\begin{center}
+	\includegraphics[scale=0.4]{aa.png}
+	
+	Fig.1 Single-symbol SCT
+\end{center}
+
+By reducing the need for hand-coding and debugging a large number of rules, this approach facilitates rapid construction of an NLU system. In the long run, NLU systems whose parameters are learned from data will scale up better, and be more portable to new tasks, than purely hand-coded systems
+
+\begin{center}
+	\includegraphics[scale=1.5]{bb.png}
+	
+	Fig.2 The SCT-based robust matcher	
+\end{center}
+
+
+
+
+\section*{Reference}
+\label{sec:refe}
+
+[1].Periñán-Pascual, C. 2013. “A knowledge-engineering approach to the cognitive categorization of lexical meaning”. VIAL: Vigo International Journal of Applied Linguistics 10: 85-104   
+\\\
+[2].R. Kuhn and R. De Mori, “The application of semantic classification
+trees to natural language understanding,” IEEE Trans. Pattern Anal. Machine
+Intell., vol. 17, pp. 449–460, May 1995.
+
+
+\end{document}      % End of the document
