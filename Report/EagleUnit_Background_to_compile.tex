@@ -1,3 +1,45 @@
+\documentclass[a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages using
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx\pdfoutput\undefined
+	\usepackage[dvips]{graphicx}
+	\DeclareGraphicsExtensions{.eps}
+\else
+	\usepackage[pdftex]{graphicx}
+	\DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps}
+\pdfcompresslevel=9
+\fi
+\usepackage[bookmarks=true,bookmarksnumbered=true,hypertexnames=true,breaklinks=true,colorlinks=true]{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage[ansinew]{inputenc}
+\usepackage[english]{babel}
+\usepackage{indentfirst}
+\addtolength{\topmargin}{-20mm}
+\addtolength{\textheight}{10mm}
+
+\begin{document}               % Begins the document
+
+\title{Structure of XML Metadata}
+\author{EagleUnit \\ (I-Chieh, Chinweze, Henry, Ray, Jones, Piyarul)} 
+%\date{2010-10-10}             % If you want to set the date yourself.
+
+\maketitle                     % Generates the title
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Team:
+% EagleUnit
+% Members: 
+%  I-Chei, Chinweze, Jones, Ray, Hunry, Piyarul, Tim
+% Relative files:
+% 
+% Note:    
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section*{XML metadata structure}
 \subsection{ABSTRACT}
 \label{sec:abs}
@@ -157,12 +199,19 @@ More detailed introduction could be found in {\bf Metadata for learning material
 \end{enumerate}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\bibliography{library}
+	\clearpage 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % figures
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage % Ends the current page and causes all figures and tables to be printed
 
 
 
-
-
+\end{document}      % End of the document
