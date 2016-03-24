@@ -16,8 +16,10 @@
 \usepackage{indentfirst}
 \addtolength{\topmargin}{-20mm}
 \addtolength{\textheight}{10mm}
+\usepackage{amsmath} % Added to get modern math environments
 \usepackage{amssymb,amsfonts} %Added to get math
 \usepackage{amsthm} % Added to get theorems
+\usepackage{natbib} % Added to get better bibliography
 
 \usepackage{url}
 % Special hack below to break the URL!
@@ -90,7 +92,7 @@ pdfkeywords = {Information retrieval, Metadata}}
 	%
 	% I'm using Mendeley Desktop with library.bib
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
-	\bibliographystyle{plain}
+	\bibliographystyle{plainnat}
 	\bibliography{library}	
 	\clearpage 
 \end{document}  
