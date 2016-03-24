@@ -1,5 +1,4 @@
 \documentclass[a4paper]{article} % Document type
-
 \ifx\pdfoutput\undefined
     %Use old Latex if PDFLatex does not work
    \usepackage[dvips]{graphicx}% To get graphics working
@@ -10,7 +9,6 @@
    \DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps} % Portable Document Format, Joint Photographic Experts Group, Portable Network Graphics, MetaPost
    \pdfcompresslevel=9
 \fi
-
 \usepackage{amsmath,amssymb}   % Contains mathematical symbols
 \usepackage[ansinew]{inputenc} % Input encoding, identical to Windows 1252
 \usepackage[english]{babel}    % Language
@@ -21,7 +19,7 @@
 
 \addtolength{\topmargin}{-20mm}% Removes 30mm from the top margin
 \addtolength{\textheight}{10mm}% Adds it to the text height
-
+\usepackage{indentfirst}
 
 \begin{document}               % Begins the document
 
@@ -37,25 +35,18 @@
 We’re producing a program which automatically generate metadata such as authors’ name, date of publishing, name of articles… and more importantly auto-abstract for full text articles
 We are interested in features for either more convenient use of the program or improving precise data generation
 There are 5 related problems.\\
-%\begin{figure}
-%	\begin{center}
-%	\includegraphics[scale=0.3]{../Picture1}
-%	\end{center}
-%	\caption{}
-%\end{figure}\\
+\begin{figure}
+	\caption{The process of metadata creation}
+\begin{center}
+	\includegraphics[width=\textwidth]{UnionChart}
+\end{center}
+\end{figure}
 
-\section*{Problem 1}
-\label{sec:prob}
-When  users  search  with  a  sentence,  how  do  the  program  understand  the  certain  input  of  text?  
+\section*{Language understanding}
 
-\section*{Method 1}
-\label{sec:meth}
+When  users  search  with  a  sentence,  how  do  the  program  understand  the  certain  input  of  text? \\
 
-Building  a  natural  language  understanding  (NLU)  system.
-\section*{Solution 1}
-\label{sec:solu}
-
-Use  a  set  of  possible  yes-no  questions  that  can  be  applied  to  data  items,  then  follow  a  rule  for selecting  the  best  question  at  any  node  on  the  basis  of training  data,  which  has  a  method  for  pruning trees to prevent over-training.
+Building  a  natural  language  understanding  (NLU)  system. Use  a  set  of  possible  yes-no  questions  that  can  be  applied  to  data  items,  then  follow  a  rule  for selecting  the  best  question  at  any  node  on  the  basis  of training  data,  which  has  a  method  for  pruning trees to prevent over-training.
 
 
 \section*{Name Recognition}
@@ -65,71 +56,46 @@ The method to improve the above problem is “categorize the results based on diff
 Information can enable better overviews and support user exploration. It will be very convenient to find the results we want.( Jin2008, Effectiveness Web Search Results for Genre and Sentiment Classification) Users don’t have to filter the results which are ranked by browsing frequency. Users just can obtain the information and relevance by clicking the specific categories. 
 Creating and using an online database or automated metadata creation are to be recommended. The reason why is because there are some advantages, including integrating with the other cloud service or scaling with what users need such as how to categorize the categories.\\
 
-\includegraphics[scale=0.5]{D:/ken/articles about IR/1.png}\\
-Figure 1. Components used to categorize web search results. A set of search results returned from a search engine is categorized by a classifier. The classifier may optionally reference previously acquired information or knowledge, such as a database of rules or training data.\\
 
+\section*{Word sense disambiguation: supervised and semi-supervised approach}
 
-\includegraphics[scale=0.5]{D:/ken/articles about IR/2.png}\\
-Figure 2. The SERVICE web search prototype uses fast- feature techniques to categorize search results and generate interactive overviews based on meaningful and stable categories. 
-
-\section*{Problem 3}
-\label{sec:prob}
-Word sense disambiguation
-
-\section*{Method 3}
-\label{sec:meth}
 Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD is identifying which sense of a word (i.e.meaning) is used in a sentence, when the word has multiple meanings. The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurologic reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning.
-
-\includegraphics[scale=0.5]{C:\Users\MyPC\Documents\Union-Tan\Report/WSD.png}\\
-
-Supervised
+\subsection*{Supervised}
 Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words (hence, common sense and reasoning are deemed unnecessary). Probably every machine learning algorithm going has been applied to WSD, including associated techniques such as feature selection, parameter optimization, and ensemble learning. Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create.
-
-\includegraphics[scale=0.5]{C:\Users\MyPC\Documents\Union-Tan\Report/sup.png}\\
-
-Semi-supervised
-Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm.[24] It uses the ‘One sense per collocation’ and the ‘One sense per discourse’ properties of human languages for word sense disambiguation. From observation, words tend to exhibit only one sense in most given discourse and in a given collocation.
-The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached.
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.
-
-\includegraphics[scale=0.5]{C:\Users\MyPC\Documents\Union-Tan\Report/semi.png}\\
-
+\subsection*{Semi-supervised}
+Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm.[24] It uses the ‘One sense per collocation’ and the ‘One sense per discourse’ properties of human languages for word sense disambiguation. From observation, words tend to exhibit only one sense in most given discourse and in a given collocation.\\
+The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached.\\
+Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.\\
 Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.
+\subsection*{Unsupervised}
+Word sense disambiguation (WSD) is a core research problem in computational linguistics and natural language processing (NLP), which was recognized since the beginning of the scientific interest in machine translation, and in artificial intelligence, in general. Finding a solution to the WSD problem is in many cases essential, or even compulsory, either for natural language understanding, or for a wide range of applications such as: information retrieval, machine translation, speech processing, text processing etc. From the wide range of unsupervised learning techniques that could be applied to our problem, we have chosen to use a parametric model in order to assign a sense group to each ambiguous occurrence of the target word. The disambiguation method using N-gram features that is being presented here is unsupervised and uses counts collected from the web in a simple way, in order to rank candidates. It does not require sense definitions or inventories; the only requirement is for these counts to be available. \\
 
-
-\section*{Method 3}
-\label{sec:meth}
-Word sense disambiguation is an important step in natural language processing. This is the step where words with different meaning will be listed in different category (Abualhaija and Zimmermann, 2016). WSD has been done with three main approaches: supervised disambiguation (Abualhaija and Zimmermann, 2016), semi-supervised approach (Ben Aouicha et al., 2016), and more recently unsupervised approach (Yoon et al., 2006). Research for unsupervised approach has been developed quickly and application of this approach has been found in WSD for not-so-popular language such as Korean. 
-
-\section*{Solution 3}
-\label{sec:solu}
-The project team has decided to pursuit the unsupervised approach. Implementation will be made in term of symnonym grouping (Navigli, 2009) and context clustering (Wang et al., 2009).
-\section{Factuality}
+Word sense disambiguate is an open challenge in NLP, many researches are in progress, to find the correct sense of a given word. Each word will have different senses, the sense of the word purely depends on the particular context, so that a word can be interpreted in more than one way. The main motivation is to avoid word sense disambiguation and to make ample use of available technologies, so as to achieve this, many approaches are there.\\
+\section*{Factuality}
 In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors’ subjective opions (Agerri et al., 2015). From this paper’s perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
-TIMEBANK was first proposed in 2003 (Pustejovsky et al., 2003). The idea was based on that English language has different tenses which could be exploited as signal for fact check. An example as below could help clarifying the ideas. Let’s examine these sentence:\\
--	I will go to Chimei museum tomorrow.
--	Chimei museum is near Tainan District.
--	I was in UK in 2012.\\
+TIMEBANK was first proposed in 2003 (Pustejovsky et al., 2003). The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help clarifying the ideas. Let’s examine these sentence:\\
+\begin{flushleft}
+	-	I will go to Chimei museum tomorrow.\\
+	-	Chimei museum is near Tainan District.\\
+	-	I was in UK in 2012.\\
+\end{flushleft}
+
 The first sentence is simple future tense which implying something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now – so such fact must be used with caution. \\
+
 In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opions or even assumption from authors (Schultze, 2000). (Dave et al., 2003) identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opion and so on (Wiebe et al., 2005). Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statementssuch as FACTBANK, which is built by (Saurí and Pustejovsky, 2009). Following example shows how subjective statements can be picked out.\\
--	Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1 a)
--	Funding angencies would be happy with big entrepreneurs, instead of small and medium enterprises. (1 b)
--	Tolerance to dictatorship would has negative influences on anarchist movement in the States (2 a)
--	Tolerance to dictatorship would doom anarchist movement in the States. (2 c)\\
+\noindent
+\begin{flushleft}
+	   -   Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1 a)\\
+	   -	Funding angencies would be happy with big entrepreneurs, instead of small and medium enterprises. (1 b)\\
+	   -	Tolerance to dictatorship would has negative influences on anarchist movement (2 a)\\
+	   -	Tolerance to dictatorship would doom anarchist movement. (2 c)\\
+\end{flushleft}
+
 It is easy to find in statement (1 a) is an absolute fact. Statement (1 b) is howerver affected by emotional state of authors. After re-writting (1 b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises, sentence (1 b) become a face-based statement. In another case, statement (2 a) is a fact-based statement while in statement (2 b), authors are stressing their dislike toward dictatorship.\\
-Fact checks in language generation is a new field but many useful tool has been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check. 
+Fact checks in language generation is a new field but many useful tool has been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check. \\
 
-\section*{Problem 4}
-\label{sec:prob}
-The readers do not know what the connected words meaning
-
-\section*{Method 4}
-\label{sec:meth}
-Compute and Analyze in natural language processing
-
-\section*{Solution 4}
-\label{sec:solu}
+\section*{Computing and analysing}
 I suggest we should use the Python language to complete this task. 
 It can easily conpute and analyze the words in the articles.
 Phthon can compute and analyze by separating the connected words.
@@ -170,30 +136,17 @@ d. 5 $>$Word Count
 5. sort         : Show the  number of occurrences of most rankings in every categorie.\\
 
 
-\section*{Word Sense Disambiguation(unsupervised)}
-\label{sec:solu}
-Word sense disambiguation (WSD) is a core research problem in computational linguistics and natural language processing (NLP), which was recognized since the beginning of the scientific interest in machine translation, and in artificial intelligence, in general. Finding a solution to the WSD problem is in many cases essential, or even compulsory, either for natural language understanding, or for a wide range of applications such as: information retrieval, machine translation, speech processing, text processing etc. From the wide range of unsupervised learning techniques that could be applied to our problem, we have chosen to use a parametric model in order to assign a sense group to each ambiguous occurrence of the target word. The disambiguation method using N-gram features that is being presented here is unsupervised and uses counts collected from the web in a simple way, in order to rank candidates. It does not require sense definitions or inventories; the only requirement is for these counts to be available. 
-Word sense disambiguate is an open challenge in NLP, many researches are in progress, to find the correct sense of a given word. Each word will have different senses, the sense of the word purely depends on the particular context, so that a word can be interpreted in more than one way. The main motivation is to avoid word sense disambiguation and to make ample use of available technologies, so as to achieve this, many approaches are there.
 
-\section*{Problem 5}
+
+\section*{Language generation}
 \label{sec:prob}
 Natural language processing help us extract the important information from the full text article.
 How could we make it more efficiently and precisely?
-
-
-\section*{Method 5}
-\label{sec:meth}
 Query reduction to single sub-query
+The performance of the machine is better in the short query rather than long query. Thus, it is an important issue to reduce the query to many sub-query.  The first is extracting the single sub-query by the existing features. Then, We combine these features to the reduction’s technique. We could find that it is more efficient than just analyze the original query. 
 
 
-\section*{Solution 5 88}
-\label{sec:solu}
- The performance of the machine is better in the short query rather than long query. Thus, it is an important issue to reduce the query to many sub-query.  The first is extracting the single sub-query by the existing features. Then, We combine these features to the reduction’s technique. We could find that it is more efficient than just analyze the original query. 
-
-
-
-\section*{Reference}
-\label{sec:refe}
+\bibliography{Union homework 3}
 [1].Jin 2008, Effectiveness Web Search Results for Genre and Sentiment Classification
 \\\
 [2].Bill 2006, Categorizing Web Search Results into Meaningful and Stable Categories Using Fast-Feature Techniques
