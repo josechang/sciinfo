@@ -44,7 +44,7 @@
 \section*{XML metadata structure}
 \subsection{ABSTRACT}
 \label{sec:abs}
-Our responsibility is to build a metadata schema which contains all information in a PDF and then program it in an XML structure. This article presents an overview of metadata standards related to our responsibility. We reviewed a number of metadata schemas in use today, including MODS, METS, METS+MODS+PREMIS, MARC21, MARC XML, showing the overview, pros, and cons of each schema. Finally, by examining the characteristics and unique features of these metadata schemas, we were able to rank them and suggest the optimum standard to be used to accomplish our responsibility.
+Our responsibility is to build a metadata schema which contains all information in a PDF and then program it in an XML structure. This article presents an overview of metadata standards related to our responsibility. We reviewed a number of metadata schemas in use today, including MODS, METS, METS+MODS+PREMIS, MARC21, MARC XML, Dublin Core, showing the overview, pros, and cons of each schema. Finally, by examining the characteristics and unique features of these metadata schemas, we were able to rank them and suggest the optimum standard to be used to accomplish our responsibility.
 \subsection{INTRODUCTION}
 Metadata is defined as “data about data” or alternatively “information about
 information”. In practice, Metadata is the administrative data used in both
@@ -56,7 +56,7 @@ The metadata schemas can be classified in to three types (Dempsey and Heery, 199
 • Structured formats: it includes data which contains full enough description to allow a user to assess the potential utility or interest of a resource without having to retrieve it or connect to it. The data is structured and supports fielded searching, such as Dublin Core, IAFA templates, RFC 1807, SOIF, LDIF.\\\\
 • Rich formats: it includes includes fuller descriptive formats which may be used for location and discovery, but also have a role in documenting objects or, very often, collections of objects, such as ICPSR, CIMI, EAD, TEI, MARC.\\
 
-XML markup, is the idiom of choice for the encoding and exchange of structured data. The XML namespace facility provides structural capabilities that HTML lacks, making it easier to achieve the principles of modularity and extensibility. The XML Schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability. (Duval 2002). Our work is need to build a metadata schema in XML structure, so next section we will introduce the schemas which has been implemented in the XML as mentioned previously.
+XML markup, is the idiom of choice for the encoding and exchange of structured data. The XML namespace facility provides structural capabilities that HTML lacks, making it easier to achieve the principles of modularity and extensibility. The XML Schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability. (Duval 2002). Our work is need to build a metadata schema in XML structure, so next section we will introduce the schemas which have been implemented in the XML as mentioned previously.
 \subsection{BACKGROUND}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Different standards of metadata
@@ -242,6 +242,13 @@ There are various types of standards that describes the metadata in different fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % figures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[h]
+	\begin{center}
+		\includegraphics[scale=0.8]{Eagle_unit.png}
+	\end{center}
+	\caption{Hierarchical overview}
+\end{figure*}
+
 \clearpage % Ends the current page and causes all figures and tables to be printed
 
 
