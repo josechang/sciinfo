@@ -113,6 +113,41 @@ It can easily conpute and analyze the words in the articles.
 Phthon can compute and analyze by separating the connected words.
 The readers can know what do the words mean when they are reading the articles .
 
+\section*{Direction}
+\label{sec:prob}
+
+
+In order to highlight the focus of the article ,the special and important words in the article need to be found mostly.
+The article will promote these words to make the article's mainpoint prominent.
+Compute all the words in the article and show the number of occurrences of most rankings.
+By these words ,the analyzer know which words in the article should be analyzed.
+
+
+\section*{Operate}
+\label{sec:meth}
+1. distinguish     : distinguish all the words in the article\\\\
+\begin{center}
+	\includegraphics[scale=1.0]{union_01.jpg}
+\end{center}
+2. classification   : Divided into four categories by word count.\\
+
+
+a. Word Count $>$ 15 
+
+b.15 $>$ Word Count $>$ 10
+
+c. 10 $>$ Word Count $>$5 
+
+d. 5 $>$Word Count
+
+\begin{center}
+	\includegraphics[scale=1.5]{union_02.jpg}
+\end{center}
+3. search       : Search Word repetition rate in the article.\\
+4. statistics     : count the repetition rate of words in the article.\\
+5. sort         : Show the  number of occurrences of most rankings in every categorie.\\
+
+
 \section*{Word Sense Disambiguation(unsupervised)}
 \label{sec:solu}
 Word sense disambiguation (WSD) is a core research problem in computational linguistics and natural language processing (NLP), which was recognized since the beginning of the scientific interest in machine translation, and in artificial intelligence, in general. Finding a solution to the WSD problem is in many cases essential, or even compulsory, either for natural language understanding, or for a wide range of applications such as: information retrieval, machine translation, speech processing, text processing etc. From the wide range of unsupervised learning techniques that could be applied to our problem, we have chosen to use a parametric model in order to assign a sense group to each ambiguous occurrence of the target word. The disambiguation method using N-gram features that is being presented here is unsupervised and uses counts collected from the web in a simple way, in order to rank candidates. It does not require sense definitions or inventories; the only requirement is for these counts to be available. 
