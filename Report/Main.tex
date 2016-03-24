@@ -1,4 +1,5 @@
-\documentclass[a4paper]{article}
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper,twocolumn,twoside]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages using
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,36 +11,80 @@
 	\DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps}
 	\pdfcompresslevel=9
 \fi
-\usepackage[bookmarks=true,bookmarksnumbered=true,hypertexnames=true,breaklinks=true,colorlinks=true]{hyperref}
-\usepackage{amsmath,amssymb}
-\usepackage[ansinew]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{indentfirst}
 \addtolength{\topmargin}{-20mm}
 \addtolength{\textheight}{10mm}
+\usepackage{amssymb,amsfonts} %Added to get math
+\usepackage{amsthm} % Added to get theorems
+
+\usepackage{url}
+% Special hack below to break the URL!
+\def\UrlBreaks{\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
+ \do\)\do\,\do\?\do\'\do+\do\=\do\#\do\i\do\m\do\t\do\a\do\x}%
+\urlstyle{rm} %
+\usepackage[bookmarks=true,bookmarksnumbered=true,hypertexnames=true,breaklinks=true,colorlinks=true]{hyperref}
+\hypersetup{
+pdfauthor = {Torbj\"{o}rn E. M. Nordling},
+pdftitle = {Information Retrieval and Processing--Setup of a Full Text System Implementing Automatic Metadata Extraction and Visualisation},
+pdfsubject = {Technical Report},
+pdfkeywords = {Information retrieval, Metadata}}
+
+% Headers and footers (must be after the document settings)
+\usepackage{fancyhdr} %Custom header package
+\pagestyle{fancy} %Turn on fancy headers
+\fancyhead{} %Clears default layout
+\fancyfoot{} %Clears default layout
+\fancyhead[LO,RE]{\small \normalfont \leftmark} %Adds section headline to header
+\fancyhead[LE,RO]{\slshape \rightmark} %Adds subsection headline to header
+\fancyfoot[LO,RE]{\href{http://www.nordlinglab.org/ScientificInformation}{nordlinglab.org/ScientificInformation}}
+\fancyfoot[RO,LE]{Information Retrieval and Processing}
+\fancyfoot[CO,CE]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt} %Header line
+\renewcommand{\footrulewidth}{0.4pt} %Footer line
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document} 
 	
-	\title{Information Retrieval Report}
-	\author{Torbjörn Nordling, \\Eric Lee, Jacky Wu, Karthick Mani, \\Eric Chang, Dexter Cheng, Peter Cheng}  % Please add your name here
+	\title{Information Retrieval and Processing--Setup of a Full Text System Implementing Automatic Metadata Extraction and Visualisation}
+	\author{Eric Chang, Dexter Cheng, Peter Cheng, Eric Lee, Karthick Mani, Jacky Wu,\\ TorbjÃ¶rn E. M. Nordling}  % Please add your name here in alphabetic order (except Prof. N who is last)
 	\maketitle   
 	
-	\section*{Background}
-	\label{Background}
+	\section{Introduction}
+	\label{Introduction}
 	
-	Whole project is seperaed to four major parts:
+	This technical report contains both general information on the state of the scientific information retrieval and processing art and a description of the \href{https://bitbucket.org/nordron/nordron-sciinfo}{Nordron-SciInfo} software package for information retrieval and processing. 
+	This report was written by all participants of the \emph{Scientific Information Gathering and Processing for Engineering Research} course lead by Prof. Nordling at the National Cheng Kung University in the spring semester 2016. The main objectives of the course is to teach the students state of the art information retrieval and processing methods, project management, and technical writing by doing a project on implementation of some methods for retrieval and processing of full text scientific articles. The result of the student project is described in this report.
+	
+	\subsection{Aim and project structure}
+	\label{aim}
+
+	The whole project was separated into three parts, each with a responsible team:
 	\begin{enumerate}
-		\item Create a data base of open access full text articles responded by team Wolverine
-		\item Create a complementary XML structure for metadata that contains all information in the PDF and can be show in Utopia responded by team Eagle unit
-		\item Automatic creation of metadata/markup by use of natural language processing of full text articles responded by team Union
-		\item Automatic creation of links from full text articles to external sources responded by team Hanky Phanky
+		\item Create a data base of open access full text articles (Team Wolverine).
+		\item Create a complementary XML like structure for metadata that contains all information in the PDF and can be show in Utopia (Team Eagle unit).
+		\item Automatic creation of metadata/markup by use of natural language processing of full text articles (Team Union).
+		%\item Automatic creation of links from full text articles to external sources (Team Hanky Phanky).
 	\end{enumerate}
 	
-	\include{Background_Wolverine}
-	%\include{Union homework 3} % Change it to your .tex filename
-	\include{Background_EagleUnit}
+	\section{Background}
+	\label{Background}
+
+	\input{Background_Wolverine}
+	\input{Background_EagleUnit}
+	%\input{Background_Union}
+
+	\section{Methods}
+	\label{Methods}
 	
+	\section{Results and discussion}
+	\label{Results and discussion}
+
+	\section{Conclusions and future work}
+	\label{Conclusions and future work}
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% References
 	%
