@@ -109,10 +109,8 @@ d. 5 $>$Word Count
 
 \section*{Language generation}
 \label{sec:prob}
-Natural language processing help us extract the important information from the full text article.
-How could we make it more efficiently and precisely?
-Query reduction to single sub-query
-The performance of the machine is better in the short query rather than long query. Thus, it is an important issue to reduce the query to many sub-query.  The first is extracting the single sub-query by the existing features. Then, We combine these features to the reduction's technique. We could find that it is more efficient than just analyze the original query. 
+After the essential data was extracted, we have to arrange the data in the proper position. Also, it is better that a short abstraction describe the main idea of the article. To implement this concept, two methods, natural language generation (NLP) and linguistic description of data (LDD), are applied to it. We try to generate the short abstraction by NLP; in the other hand, we generate a short sentence or word via LDD.
+These two methods have its pros and cons respectively. They all are mature technique now and applied to the many field, such as medical system, weather forecast and traffic report, etc. NLG system is known for its flexibility. By this technique, we could simulate the language human being use. Not only English, but also other languages are under development. Short abstraction done by this method would make it more readable. However, the NLG system is more complex than the LDD. Also this field is lack of the standardization. To make our work easier in the rest part, we decide to introduce the LDD method. In fact, some concept in the NLG comes from the LDD. LDD has a standard format and is easy to produce the sentence. The disadvantage is that the sentence has a similar type. We are not willing to see it happen on our abstraction. But it is allowed in just one sentence.
 
 %
 %\bibliography{Union homework
