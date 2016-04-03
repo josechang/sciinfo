@@ -42,8 +42,8 @@ Word sense disambiguation (WSD) is a core research problem in computational ling
 
 Word sense disambiguate is an open challenge in NLP, many researches are in progress, to find the correct sense of a given word. Each word will have different senses, the sense of the word purely depends on the particular context, so that a word can be interpreted in more than one way. The main motivation is to avoid word sense disambiguation and to make ample use of available technologies, so as to achieve this, many approaches are there.\\
 \section*{Factuality}
-In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opions (Agerri et al., 2015). From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
-TIMEBANK was first proposed in 2003 (Pustejovsky et al., 2003). The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help clarifying the ideas. Let's examine these sentence:\\
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opions \cite{agerri2015big}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+TIMEBANK was first proposed in 2003 \cite{pustejovsky2003timebank}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help clarifying the ideas. Let's examine these sentence:\\
 \begin{flushleft}
 	-	I will go to Chimei museum tomorrow.\\
 	-	Chimei museum is near Tainan District.\\
@@ -52,17 +52,17 @@ TIMEBANK was first proposed in 2003 (Pustejovsky et al., 2003). The idea was bas
 
 The first sentence is simple future tense which implying something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now -- so such fact must be used with caution. \\
 
-In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opions or even assumption from authors (Schultze, 2000). (Dave et al., 2003) identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opion and so on (Wiebe et al., 2005). Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statementssuch as FACTBANK, which is built by (Saur\'{I} and Pustejovsky, 2009). Following example shows how subjective statements can be picked out.\\
+In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opions or even assumption from authors \cite{schultze2000confessional}. \cite{dave2003mining} identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opion and so on \cite{wiebe2005annotating}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statementssuch as FACTBANK, which is built by \cite{sauri2009factbank}. Following example shows how subjective statements can be picked out.\\
 \noindent
 \begin{flushleft}
-	   -   Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1 a)\\
-	   -	Funding angencies would be happy with big entrepreneurs, instead of small and medium enterprises. (1 b)\\
-	   -	Tolerance to dictatorship would has negative influences on anarchist movement (2 a)\\
-	   -	Tolerance to dictatorship would doom anarchist movement. (2 c)\\
+	-   Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1 a)\\
+	-	Funding angencies would be happy with big entrepreneurs, instead of small and medium enterprises. (1 b)\\
+	-	Tolerance to dictatorship would has negative influences on anarchist movement (2 a)\\
+	-	Tolerance to dictatorship would doom anarchist movement. (2 c)\\
 \end{flushleft}
 
 It is easy to find in statement (1 a) is an absolute fact. Statement (1 b) is howerver affected by emotional state of authors. After re-writting (1 b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises, sentence (1 b) become a face-based statement. In another case, statement (2 a) is a fact-based statement while in statement (2 b), authors are stressing their dislike toward dictatorship.\\
-Fact checks in language generation is a new field but many useful tool has been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check. \\
+Fact checks in language generation is a new field but many useful tool has been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.\\
 
 \section*{Computing and analysing}
 I suggest we should use the Python language to complete this task. 
