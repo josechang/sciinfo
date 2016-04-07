@@ -48,16 +48,12 @@ Compare to relational databases, there are several advantages. Graph database ar
 
 And graph database have also some disadvantages, relational database are typically faster at performing the same operation on large numbers of data elements. Finally, we want to take one example of graph database: AllegroGraph. 
 
-Because of our lack of the experience of building a database, we think it is important for us to choose a database which is easy to learn and convenience to solve problems we may encounter. Furthermore, it seems relational database is the most capable database which can handle large data among them. Therefore, relational database is our choice.\\
-
 
 According to many database website and discussion thread, there are many method to store a binary data with a database. The two main directions is store in the database and store out of the database. I will always be suggested not to store binary data in database if the binary is large. That will cause significant performance decrease and additional storage space. And another way is to store binary data in file system, and record the path in the database, that will not cause performance decrease when large binary data. But the binary data cannot automatic distributed with the database. Even the PDF document is not a large data, but still cost some performance. And our system have no requirement to automatic distribute. Our suggest for store PDF document is storing in the file system.
 
+The responsibility for our study is to create a data base of open access full text articles. Relational data base is decided as the structure in this study due to this structure has several advantages with which others cannot compare. For example, the relational database is so easy to learn that can make all participants know how to use that easier. For another example, there are many sources can get from Internet so that tasks can be done quicker. However, authors believe, combining with others attractive and useful designs such as web crawler, user interface and so on, can build a good data base stores the full text file like PDF. 
+
 \begin{figure*}[h]
-	\begin{center}
-		\includegraphics[scale=0.4]{WolverineChart}
-	\end{center}
-	\caption{Structure of our system}
 	\begin{center}
 		\includegraphics[scale=0.3]{WolverineChart2}
 	\end{center}
