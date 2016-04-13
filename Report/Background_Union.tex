@@ -1,5 +1,5 @@
 \section*{overview}
-\label{sec:prob}
+%\label{sec:prob}
 
 We're producing a program which automatically generate metadata such as authors' name, date of publishing, name of articles... and more importantly auto-abstract for full text articles
 We are interested in features for either more convenient use of the program or improving precise data generation
@@ -31,7 +31,7 @@ Creating and using an online database or automated metadata creation are to be r
 	\begin{center}
 		\includegraphics[width=\columnwidth]{union(WSD)}
 	\end{center}
-	\caption{GWord+Sense with words and senses. \label{fig}}
+	\caption{GWord+Sense with words and senses. \label{fig1}}
 \end{figure}
 Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD is identifying which sense of a word (i.e.meaning) is used in a sentence, when the word has multiple meanings. The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurologic reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning.
@@ -51,7 +51,7 @@ Supervised methods are based on the assumption that the context can provide enou
 	\begin{center}
 		\includegraphics[width=\columnwidth]{union(sup3)}
 	\end{center}
-	\caption{Supervised approach. \label{fig}}
+	\caption{Supervised approach. \label{fig2}}
 \end{figure}
 \subsection*{Semi-supervised}
 Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm.[24] It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. From observation, words tend to exhibit only one sense in most given discourse and in a given collocation.\\
@@ -59,7 +59,7 @@ Because of the lack of training data, many word sense disambiguation algorithms 
 	\begin{center}
 		\includegraphics[width=\columnwidth]{union(semi)}
 	\end{center}
-	\caption{Classifier that improves over the basic classifier. \label{fig}}
+	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
 The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached.\\
 Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.\\
@@ -98,7 +98,7 @@ Phthon can compute and analyze by separating the connected words.
 The readers can know what do the words mean when they are reading the articles .
 
 \section*{Direction}
-\label{sec:prob}
+%\label{sec:prob}
 
 
 In order to highlight the focus of the article ,the special and important words in the article need to be found mostly.
@@ -135,7 +135,7 @@ d : 5 $>$Word Count
 
 
 \section*{Language generation}
-\label{sec:prob}
+%\label{sec:prob}
 In the part of language generation, we would introduce two methods which are used generally in this field  \\
 Natural language generation: Natural language generation is one branch of natural language processing. The goal is to generate the words human being used by machine automatically. To imply this technique, six basic activities which are content determination, discourse planning, sentence aggregation, lexicalization, referring expression generation and linguistic realization are constructed. \cite{aramossoto2016onthe}. Some of the activities are mention above. The advantage of this technique is that it is flexible since there is no standardization. But it is also has difficulty in the implication of this technique.\\
 Linguistic description of data: Linguistic description of data (LDD) is a concept that applied the fussy set theory to the linguistic field. At the beginning, the Compared to the NLG field, it is a newer technique to solve the problem of language generation. However, the basic steps of LDD have been built. The four main parts in this technique us input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. Some of them are similar with the concept. The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Ramos-SotoBBT14}. Also the many practical methods have been proposed. However, it still has long way to go.\\
