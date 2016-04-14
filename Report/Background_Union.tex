@@ -23,8 +23,7 @@ The results could be a country or an animal if users search for the word, Turkey
 Therefore, it's significantly crucial for search engine to understand what users want by name recognition in natural language processing. The users can find out the results much quicker and can't get misunderstood.
 The method to improve the above problem is "categorize the results based on different subjects or genres" by using online database.Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories.\cite{10.1145/1141753.1141801}
 Users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.\cite{DBLP:journals/jis/NaT09} Users don't have to filter the results which are ranked by browsing frequency  popularity. Users just can obtain the information and relevance by clicking the specific categories. Also, users are able to choose multiply fields if the results include a lot of relevant fields. 
-Creating and using an online database or automated metadata creation are to be recommended. The reason why is because there are some advantages, including integrating with the other cloud service or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized database.    \\
-
+Creating and using an online database or automated metadata creation are to be recommended. The reason why is because there are some advantages, including integrating with the other cloud service or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized database.    \
 
 \section*{Word sense disambiguation: supervised and semi-supervised approach}
 \begin{figure}[tbh]
@@ -36,23 +35,25 @@ Creating and using an online database or automated metadata creation are to be r
 Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD is identifying which sense of a word (i.e.meaning) is used in a sentence, when the word has multiple meanings. The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurologic reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning.
 \subsection*{Supervised}
-Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words (hence, common sense and reasoning are deemed unnecessary). Probably every machine learning algorithm going has been applied to WSD, including associated techniques such as feature selection, parameter optimization, and ensemble learning. Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create.
 \begin{figure}[tbh]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{union(sup1)}
 	\end{center}
+	\caption{Sense tagged text.}
 \end{figure}
 \begin{figure}[tbh]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{union(sup2)}
 	\end{center}
+	\caption{Two bags of words.}
 \end{figure}
 \begin{figure}[tbh]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{union(sup3)}
 	\end{center}
-	\caption{Supervised approach. \label{fig2}}
+	\caption{Supervised approach.}
 \end{figure}
+Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words (hence, common sense and reasoning are deemed unnecessary). Probably every machine learning algorithm going has been applied to WSD, including associated techniques such as feature selection, parameter optimization, and ensemble learning. Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create.
 \subsection*{Semi-supervised}
 Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm.[24] It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. From observation, words tend to exhibit only one sense in most given discourse and in a given collocation.\\
 \begin{figure}[tbh]
