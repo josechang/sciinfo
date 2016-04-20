@@ -15,7 +15,7 @@ There are 5 related problems.\\
 
 When users search with a sentence, how does the program understand the certain input of text? \\
 
-We can build a natural language understanding (NLU) system, which use a set of possible yes-no questions that can be applied to data items. After that, it follows a rule for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.
+We can build a natural language understanding (NLU) system, which uses a set of possible yes-no questions that can be applied to data items. After that, it follows a rule for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.
 
 
 \section*{Name Recognition}
@@ -70,7 +70,7 @@ Word sense disambiguation (WSD) is a core research problem in computational ling
 
 Word sense disambiguate is an open challenge in NLP, many researches are in progress, to find the correct sense of a given word. Each word will have different senses, the sense of the word purely depends on the particular context, so that a word can be interpreted in more than one way. The main motivation is to avoid word sense disambiguation and to make ample use of available technologies, so as to achieve this, many approaches are there.\\
 \section*{Factuality}
-In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opions \cite{agerri2015big}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opinions \cite{agerri2015big}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
 TIMEBANK was first proposed in 2003 \cite{pustejovsky2003timebank}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help clarifying the ideas. Let's examine these sentence:\\
 \begin{flushleft}
 	-	I will go to Chimei museum tomorrow.\\
@@ -80,7 +80,7 @@ TIMEBANK was first proposed in 2003 \cite{pustejovsky2003timebank}. The idea was
 
 The first sentence is simple future tense which implying something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now -- so such fact must be used with caution. \\
 
-In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opions or even assumption from authors \cite{schultze2000confessional}. \cite{dave2003mining} identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opion and so on \cite{wiebe2005annotating}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statementssuch as FACTBANK, which is built by \cite{sauri2009factbank}. Following example shows how subjective statements can be picked out.\\
+In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. \cite{dave2003mining} identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opinion and so on \cite{wiebe2005annotating}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statements such as FACTBANK, which is built by \cite{sauri2009factbank}. Following example shows how subjective statements can be picked out.\\
 \noindent
 \begin{flushleft}
 	-   Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1 a)\\
@@ -90,7 +90,7 @@ In addition to TIMEBANK, many other tools can be another filter for fact extract
 \end{flushleft}
 
 It is easy to find in statement (1 a) is an absolute fact. Statement (1 b) is howerver affected by emotional state of authors. After re-writting (1 b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises, sentence (1 b) become a face-based statement. In another case, statement (2 a) is a fact-based statement while in statement (2 b), authors are stressing their dislike toward dictatorship.\\
-Fact checks in language generation is a new field but many useful tool has been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.\\
+Fact checks in language generation is a new field but many useful tools have been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.\\
 
 \section*{Computing and analysing}
 I suggest we should use the Python language to complete this task. 
@@ -138,8 +138,8 @@ d : 5 $>$Word Count
 \section*{Language generation}
 %\label{sec:prob}
 In the part of language generation, we would introduce two methods which are used generally in this field  \\
-Natural language generation: Natural language generation is one branch of natural language processing. The goal is to generate the words human being used by machine automatically. To imply this technique, six basic activities which are content determination, discourse planning, sentence aggregation, lexicalization, referring expression generation and linguistic realization are constructed. \cite{aramossoto2016onthe}. Some of the activities are mention above. The advantage of this technique is that it is flexible since there is no standardization. But it is also has difficulty in the implication of this technique.\\
-Linguistic description of data: Linguistic description of data (LDD) is a concept that applied the fussy set theory to the linguistic field. At the beginning, the Compared to the NLG field, it is a newer technique to solve the problem of language generation. However, the basic steps of LDD have been built. The four main parts in this technique us input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. Some of them are similar with the concept. The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Ramos-SotoBBT14}. Also the many practical methods have been proposed. However, it still has long way to go.\\
+Natural language generation: Natural language generation is one branch of natural language processing. The goal is to generate the words human being used by machine automatically. To imply this technique, six basic activities which content determination, discourse planning, sentence aggregation, lexicalization, referring expression generation and linguistic realization are constructed. \cite{aramossoto2016onthe}. Some of the activities are mention above. The advantage of this technique is that it is flexible since there is no standardization. But it also has the difficulty in the implication of this technique.\\
+Linguistic description of data: Linguistic description of data (LDD) is a concept that applied the fussy set theory to the linguistic field. At the beginning, the Compared to the NLG field, it is a newer technique to solve the problem of language generation. However, the basic steps of LDD have been built. The four main parts in this technique is input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. Some of them are similar with the concept. The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Ramos-SotoBBT14}. Also the many practical methods have been proposed. However, it still has long way to go.\\
 These two techniques are usually combined together nowadays. The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
 
 
