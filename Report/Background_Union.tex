@@ -79,14 +79,14 @@ So, this background focuses mainly on the issues of feature selection for unsupe
 
 \section*{Factuality}
 In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opinions \cite{agerri2015big}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
-TIMEBANK was first proposed in \cite{pustejovsky2003timebank}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help clarifying the ideas. Let's examine these sentence:\\
+TIMEBANK was first proposed in \cite{pustejovsky2003timebank}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help to clarify the ideas. Let's examine these sentence:\\
 \begin{flushleft}
 	-	I will go to Chimei museum tomorrow.\\
 	-	Chimei museum is near Tainan District.\\
 	-	I was in UK in 2012.\\
 \end{flushleft}
 
-The first sentence is simple future tense which implying something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now -- so such fact must be used with caution. \\
+The first sentence is simple future tense which implys something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now -- so such fact must be used with caution. \\
 
 In addition to TIMEBANK, many other tools can be another filter for fact extraction. The reason for introducing such tool is that even scientific reseach articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. \cite{dave2003mining} identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are sujectively supporting a cause, an opinion and so on \cite{wiebe2005annotating}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signalling for non-factually statements such as FACTBANK, which is built by \cite{sauri2009factbank}. Following example shows how subjective statements can be picked out.\\
 \noindent
@@ -103,7 +103,7 @@ Fact checks in language generation is a new field but many useful tools have bee
 \section*{Computing and analysing}
 I suggest we should use the Python language to complete this task. 
 It can easily conpute and analyze the words in the articles.
-Phthon can compute and analyze by separating the connected words.
+Python can compute and analyze by separating the connected words.
 The readers can know what do the words mean when they are reading the articles .
 
 \section*{Direction}
