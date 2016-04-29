@@ -8,20 +8,21 @@
 % Note:    
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{XML metadata structure}
-\textit{\footnotesize Author:Chinweze Ubadigha, Feng-Chun Hsia, Piyarul Hoque, Ray Chang, I-Chieh Lin, Jones Hou, Henry Peng.}\\\\
-\label{sec:abs}
-Our responsibility is to build a metadata schema which contains all information in a PDF and then program it in an XML structure. This article presents an overview of metadata standards related to our responsibility. We reviewed a number of metadata schemas in use today, including MODS, METS, METS+MODS+PREMIS, MARC21, MARC XML, Dublin Core showing the overview, pros, and cons of each schema. Finally, by examining the characteristics and unique features of these metadata schemas, we were able to rank them and suggest the optimum standard to be used to accomplish our responsibility.\\
+\textit{\footnotesize Author:Chinweze Ubadigha, Feng-Chun Hsia, Piyarul Hoque, Ray Chang, I-Chieh Lin, Jones Hou, Henry Peng.}\label{sec:abs}\\
 
-Metadata is defined as "data about data" or alternatively "information about information". In practice, Metadata summarizes basic information of data for the organization and management of documents. It can be accessed manually or by automatic information processing. \cite{underwood2003xml}.\\
+Our responsibility is to build a metadata schema which contains all information in a PDF and then program it in an XML structure. This article presents an overview of metadata standards related to our responsibility. We reviewed a number of metadata schemas in use today, including MODS, METS, METS+MODS+PREMIS, MARC21, MARC XML, Dublin Core showing the overview, pros, and cons of each schema. Finally, by examining the characteristics and unique features of these metadata schemas, we were able to rank them and suggest the optimum standard to be used to accomplish our responsibility.
 
-The metadata schemas can be classified in to three types \cite{dempsey1997specification}:\\\\
-- Simple formats: it includes relatively unstructured data, typically automatically extracted from resources and indexed for searching. The data has little explicit semantics and does not support searching by field, such as Lycos, Altavista, Yahoo, etc.\\\\	
-- Structured formats: it includes data which contains full enough description to allow a user to assess the potential utility or interest of a resource without having to retrieve it or connect to it. The data is structured and supports fielded searching, such as Dublin Core, IAFA templates, RFC 1807, SOIF, LDIF.\\\\
-- Rich formats: it includes fuller descriptive formats which may be used for location and discovery, but also have a role in documenting objects or, very often, collections of objects, such as ICPSR, CIMI, EAD, TEI, MARC.\\
+Metadata is defined as "data about data" or alternatively "information about information". In practice, Metadata summarizes basic information of data for the organization and management of documents. It can be accessed manually or by automatic information processing. \cite{underwood2003xml}.
 
-XML (Extensible Markup Language) is the universal format for the encoding and exchange of structured documents and data. There are no predifined tags and document structures in XML. In other words the XML provides structural capabilities that HTML lacks, making it easier to achieve the principles of modularity and extensibility. The XML Schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability \cite{duval2002metadata}. Our work is need to build a metadata schema in XML structure, so next section we will introduce the schemas which has been implemented in the XML as mentioned previously.
+The metadata schemas can be classified in to three types \cite{dempsey1997specification}:
+\begin{itemize}
+	\item Simple formats: it includes relatively unstructured data, typically automatically extracted from resources and indexed for searching. The data has little explicit semantics and does not support searching by field, such as Lycos, Altavista, Yahoo, etc.
+	\item Structured formats: it includes data which contains full enough description to allow a user to assess the potential utility or interest of a resource without having to retrieve it or connect to it. The data is structured and supports fielded searching, such as Dublin Core, IAFA templates, RFC 1807, SOIF, LDIF.
+	\item Rich formats: it includes fuller descriptive formats which may be used for location and discovery, but also have a role in documenting objects or, very often, collections of objects, such as ICPSR, CIMI, EAD, TEI, MARC.
+\end{itemize}
+
+XML (Extensible Markup Language) is the universal format for the encoding and exchange of structured documents and data. There are no predefined tags and document structures in XML. In other words the XML provides structural capabilities that HTML lacks, making it easier to achieve the principles of modularity and extensibility. The XML Schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability \cite{duval2002metadata}. Our work is need to build a metadata schema in XML structure, so next section we will introduce the schemas which has been implemented in the XML as mentioned previously.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Different standards of metadata
@@ -87,7 +88,7 @@ There are various types of standards that describes the metadata in different fi
 	The Metadata Object Description Standard (MODS) provides ways to describe objects and has a high level compatibility with MARC. Among other XML metadata standard it is an alternative between a simple metadata format (such as Dublin Core) which has a minimum of fields and little or no substructure, and a very detailed format (such as MARC 21) with many data elements having various structural complexities.\cite{Guenther200312}
 	The PREservation Metadata Implementation Strategies (PREMIS) is an administrative metadata schema used for the preservation of digital resources.\cite{Cheslow2014} With the rapid changes in technology, digital objects including its metadata are bound to go obsolete at some time in the future. PREMIS was created to set standards that will ensure long term usability and preservation of digital resources.
 	
-	{\bf Why METS+PREMIS+MODS? }
+	{\bf Why METS+PREMIS+MODS? }\\
 	To understand metadata needs, it is important to understand the data production and structures. Structuring digital objects particularly e-journal present two main difficult problems. First, e-journals are structurally complex. New issues are released in intervals for each journal title. These may contain varying number of articles and other publishing matters having variety of formats. Second, the production of e-journal is outside the control of the digital repository and done without the benefit of standards for the structure of file formats, metadata formats and vocabulary, publishing schedules, etc.\cite{Dappert2008}
 	As a means to solve these problem, METS provides a robust and flexible way to define digital objects. The MODS on the other hand, provides ways to describe digital objects and can be built on a MARC. Finally the PREMIS provides ways to describe digital objects and processes that are essential for digital preservation. Also, these three metadata standards are all built on an XML schema.\cite{Dappert2008}
 	Details on how to implement these three metadata standards to form a robust metadata structure or archive can be found in "Using METS, PREMIS and MODS for Archiving eJournals".\cite{Dappert2008} Though there are different ways to implement these schema only one was discussed in the aforementioned literature.
@@ -202,7 +203,7 @@ There are various types of standards that describes the metadata in different fi
 
 	\end{figure*}
 	
-	\clearpage % Ends the current page and causes all figures and tables to be printed
+	\newpage % Ends the current page and causes all figures and tables to be printed
 
 
 
