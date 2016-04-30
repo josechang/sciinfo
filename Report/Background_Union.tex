@@ -90,15 +90,17 @@ Because of the lack of training data, many word sense disambiguation algorithms 
 	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
 
-The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached.
+The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached. (Citation?)
 
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.\\
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.
+Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains (Citation?).\\
+Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system (Citation?).
+
+You have not pointed out which semi-supervised approach which you prefer
 
 \subsubsection*{Unsupervised}
-Word Sense Disambiguation (WSD) is related to Natural Language Processing and is linked with computational languages.People introduced it when they felt the need of complex problems likw: machine translation, information retrieval, speech processing and text processing etc. The use of WSD is focused on determining the sense of word which is used in a problem by using that word in a particular context. Despite a greater number of existing disambiguation algorithms , WSD still has an open problem with the three main parts of the WSD methods being considered by literature: supervised, unsupervised and knowledge based disambiguation.
+Word Sense Disambiguation (WSD) is related to Natural Language Processing and is linked with computational languages.People introduced it when they felt the need of complex problems likw: machine translation, information retrieval, speech processing and text processing etc. The use of WSD is focused on determining the sense of word which is used in a problem by using that word in a particular context. Despite a greater number of existing disambiguation algorithms , WSD still has an open problem with the three main parts of the WSD methods being considered by literature: supervised, unsupervised and knowledge based disambiguation(Citation?).
 
-With the use of the Naive Bayes model, we can focus on the approaches to unsupervised WSD that rely on single writings. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups.
+With the use of the Naive Bayes model(Citation?), we can focus on the approaches to unsupervised WSD that rely on single writings. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups.
 The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
 
 \begin{enumerate}
@@ -108,7 +110,7 @@ The Naive Bayes model applied mathematically entirely focuses on the issue of fe
 
 Apart from the above mentioned model, the web can act as a corpus too, where it searches words which are relevant and distinctive for the target word, which makes it more appropriate in searching particular words' meaning.
 
-So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.
+So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model. It's better if you can provide pros and cons of this approach in comparison to supervised and semi-supervised approach
 
 \subsubsection*{Factuality}
 In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opinions \cite{agerri2015big}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
@@ -137,11 +139,11 @@ It is easy to find in statement (1a) is an absolute fact. Statement (1b) is howe
 Fact checks in language generation is a new field but many useful tools have been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.
 
 \subsubsection*{Computing and analyzing}
-I suggest we should use the Python language to complete this task. It can easily conpute and analyze the words in the articles. Python can compute and analyze by separating the connected words. The readers can know what do the words mean when they are reading the articles .
+This is actually not a background. It's more suitable to methodology section.\\ \underline{I suggest we should use the Python language to complete this task. It can easily compute and analyze words in the articles. Python can compute and analyze by separating connected words. Therefore, readers can know what do the words mean when they are reading the articles .}
 
 \subsubsection*{Direction}
-In order to highlight the focus of the article ,the special and important words in the article need to be found mostly. The article will promote these words to make the article's main point prominent. Compute all the words in the article and show the number of occurrences of most rankings. By these words ,the analyzer know which words in the article should be analyzed.
-
+\underline{In order to highlight the focus of the article ,the special and important words in the article need to be found mostly. The article will promote these words to make the article's main point prominent. Compute all the words in the article and show the number of occurrences of most rankings. By these words ,the analyzer know which words in the article should be analyzed.}\\
+Same as above, you continued to discuss your methodology without showing the background. 
 \subsubsection*{Operate}
 \begin{itemize}
 	\item distinguish: distinguish all the words
