@@ -10,7 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Automatic creation of metadata}
-\textit{\footnotesize Author:Bernie Huan, Hoang Tan, Jim Lan, Kenny Hsu, Wei, Tan Phat.}\\
+\textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
 We're producing a program which automatically generate metadata such as authors' name, date of publishing, name of articles... and more importantly auto-abstract for full text articles
 
@@ -79,7 +79,7 @@ The human brain is quite proficient at word-sense disambiguation. The fact that 
 	\caption{Supervised approach.}
 \end{figure}
 
-Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words (hence, common sense and reasoning are deemed unnecessary). Probably every machine learning algorithm going has been applied to WSD, including associated techniques such as feature selection, parameter optimization, and ensemble learning. Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create \cite{Ramos-Soto2015}.
+Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words. Probably every machine learning algorithm going has been applied to WSD, including associated techniques such as feature selection, parameter optimization, and ensemble learning. Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create \cite{Ramos-Soto2015}.
 
 \subsubsection*{Semi-supervised}
 Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm. \cite{Gartner2013} It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. From observation, words tend to exhibit only one sense in most given discourse and in a given collocation.
@@ -91,15 +91,13 @@ Because of the lack of training data, many word sense disambiguation algorithms 
 	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
 
-The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules (e.g., 'play' in the context of 'bass' almost always indicates the musical instrument). The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \cite{Blascheck2016}.
+The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \cite{Blascheck2016}.
 
 Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.\\
 Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system  \cite{Cheslow2014}.
 
 \subsubsection*{Unsupervised}
-Word Sense Disambiguation (WSD) is related to Natural Language Processing and is linked with computational languages.People introduced it when they felt the need of complex problems like: machine translation, information retrieval, speech processing and text processing etc. The use of WSD is focused on determining the sense of word which is used in a problem by using that word in a particular context. Despite of having a greater number of existing disambiguation algorithms ,WSD still has an open problem with the three main parts of the WSD methods being considered by literature: supervised, unsupervised and knowledge based disambiguation \cite{Guenther2003}.
-
-Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on it. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups.
+Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on it. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups\cite{Guenther2003}.
 The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
 
 \begin{enumerate}
