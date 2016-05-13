@@ -12,9 +12,9 @@
 \subsection{Automatic creation of metadata}
 \textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
-We're producing a program which automatically generate metadata such as authors' name, date of publishing, name of articles... and more importantly auto-abstract for full text articles
+We are producing a program which automatically generate metadata such as authors' name, date of publishing, name of articles... and more importantly auto-abstract for full text articles
 
-We are interested in features for either more convenient use of the program or improving precise data generation
+We are interested in features for either more convenient uses of the program or improving precise data generation
 There are 5 related problems.
 
 \begin{figure}
@@ -27,23 +27,23 @@ There are 5 related problems.
 \subsubsection*{Language understanding}
 When users search for a sentence, how does the program understand certain inputs of text? 
 
-We can build a natural language understanding (NLU) system, which uses a set of possible yes-no questions that can be applied to data items. After that, it follows a rule for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.\\ 
+We can build a natural language understanding (NLU) system, which uses a set of possible yes-no questions that can be applied to data items. After that, it follows rules for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.\\ 
 
 I believe you should read some publication and cite their work properly. Clarity in your writing should also be improved.Please take a look at it (Phat's comment)
 
 \subsubsection*{Name Recognition}
 Identifying all textual mentions of the named entities is the main goal of the name recognition mechnanism. 
-The results could be a country or an animal if users search for the word, Turkey. The type is very different.
+The results could be a country or an animal if users search for the word, Turkey. The type (meaning instead of type) is very different.
 
-There are a lot of misunderstandings like this if users search some words which have multiply meanings. Sometimes, the results are totally unrelated and this situation is always annoying. That would be troublesome when we count frequency of a certain word to rank it.
+There are a lot of misunderstandings like this if users search some words which have multiply meanings. Sometimes, the results are totally unrelated and this situation is always annoying. That would be troublesome when we count frequency of certain words to rank them.
  
-Therefore, it's significantly crucial for a program to totally understand what users want by name recognition in natural language processing. The users can find out the results much quicker and can't get misunderstood.
+Therefore, it is significantly crucial for a program to totally understand what users want by name recognition in natural language processing. The users can find out the results much quicker and can't get misunderstood (and will not be confused?).
 
-The method to improve the above problem is "categorize the words based on different subjects,topic or genres" by using online database.Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories.\cite{Kules2006}
+The method to improve the problem above is "categorize the words based on different subjects,topic or genres" by using online database.Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories.\cite{Kules2006}
 
-Users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.\cite{TunThuraThet2010} Users don't have to filter the results which are ranked by browsing frequency  popularity. Users just can obtain the information and relevance by clicking the specific categories. Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle this problems.Plus,it could be useful and interesting if people solve the problems appropriately, even perfectly.  
+Users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.\cite{TunThuraThet2010} Users don not have to filter the results which are ranked by browsing frequency  popularity. Users just can obtain the information and relevance by clicking the specific categories. Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle this problems.Plus,it could be useful and interesting if people solve the problems appropriately, even perfectly.  
 
-A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended. The reason why is because there are some advantages, including integrating with the other cloud service or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized metadata.    \\
+A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended. The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized metadatas.    \\
 
 \subsubsection*{Word sense disambiguation: supervised and semi-supervised approach}
 
@@ -115,7 +115,7 @@ The difference between 'Supervised' and 'Unsupervised' WSD is:
 
 
 \subsubsection*{Factuality}
-It is just testing. In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
 
 TIMEBANK was first proposed in \cite{Pustejovsky2003}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help to clarify the ideas. Let's examine these sentence:
 
