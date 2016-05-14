@@ -2,14 +2,14 @@
 % Team:
 % EagleUnit
 % Members: 
-%  I-Chei, Chinweze, Jones, Ray, Hunry, Piyarul, Tim
+% Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang
 % Relative files:
-% 
-% Note:    
-% 
+% Main.tex, Background_EagleUnit.tex, Library.bib, EagleUnit_Background_Chart_1.png
+% Note:
+% Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{XML metadata structure}
-\textit{\footnotesize Author:Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\label{sec:abs}\\
+\textit{\footnotesize Author:Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
 Our responsibility is building a metadata schema which contains all information in a PDF and then edit it in an XML structure. This article provides an overview of metadata standards which are related to our responsibility. A number of metadata schemas in use nowadays was reviewed, including MODS, METS, METS+MODS+PREMIS, MARC21, MARC XML, Dublin Core showing their pros and cons. Finally, we compared these schemas by examining the characteristics and unique features of them. We were able to rank them and suggest the optimum standard to be used in accomplishing our XML structure. XML is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. It is widely used for the representation of arbitrary data structures such as those used in web services.
 
@@ -57,7 +57,7 @@ There are various types of standards that describes the metadata in different fi
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item MODS\\
 	{\bf Introduction}\\
-    Metadata Object Description Schema (MODS) was developed by the Library of Congress' Network Development and MARC Standards Office in 2002. It is a bibliographic element set for multiple purposes, especially for library applications. As an XML schema, it is not only able to carry the selected data from existing MARC 21 records but to enable the creation of original resource description records. It includes a subset of MARC and uses language-based tags rather than numeric ones, in some cases regrouping elements from the MARC 21 bibliographic format. It released the third version (version 3.6) in May 2015. MODS is expressed using the XML of the World Wide Web Consortium. The standard is maintained by the MODS Editorial Committee with support from the Network Development and MARC Standards Office of the Library of Congress.\\
+	Metadata Object Description Schema (MODS) was developed by the Library of Congress' Network Development and MARC Standards Office in 2002. It is a bibliographic element set for multiple purposes, especially for library applications. As an XML schema, it is not only able to carry the selected data from existing MARC 21 records but to enable the creation of original resource description records. It includes a subset of MARC and uses language-based tags rather than numeric ones, in some cases regrouping elements from the MARC 21 bibliographic format. It released the third version (version 3.6) in May 2015. MODS is expressed using the XML of the World Wide Web Consortium. The standard is maintained by the MODS Editorial Committee with support from the Network Development and MARC Standards Office of the Library of Congress.\\
 	
 	The elements of MODS generally inherit the MARC, some data has been repackaged; in some cases what is in several data elements in MARC may be brought together into one in MODS. Also, MODS does not assume any specific cataloging code\\ It is used as an extension schema to METS (Metadata Encoding and Transmission Standard), as a representing a simplified MARC record in XML.
 	
@@ -142,7 +142,7 @@ There are various types of standards that describes the metadata in different fi
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\item MARCXML\\
 	{\bf Introduction}\\
-	To make up the less of internet compatibility of MARC 21, the Library of Congress developed an XML schema based on it. Which the schema is the MARCXML standard. The purpose of MARCXML is to build a metadata format with a simple, extensible and flexible structure, which can be presented in XML stylesheets. Since MARCXML was design to converged data from MARC 21, the structure and performance are very similar between these two standards.  \\
+	To make up the less of internet compatibility of MARC 21, the Library of Congress developed an XML schema based on it. Which the schema is the MARCXML standard. The purpose of MARCXML is to build a metadata format with a simple, extensible and flexible structure, which can be presented in XML stylesheets. Since MARCXML was design to converged data from MARC 21, the structure and performance are very similar between these two standards.\\
 	{\bf Advantages}
 	\begin{enumerate}
 		\item Used in XML directly
@@ -197,7 +197,7 @@ There are various types of standards that describes the metadata in different fi
 	\begin{figure*}[ht]
 		
 		\begin{center}
-			\includegraphics[scale=0.8]{Eagle_unit1}
+			\includegraphics[scale=0.8]{EagleUnit_Background_Chart_1}
 		\end{center}
 		\caption{Overview and hierarchical ranking of metadata standards and their individual features}
 		\vspace{20mm}

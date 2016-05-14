@@ -2,11 +2,11 @@
 % Team:
 % Union
 % Members: 
-%  
+% Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei
 % Relative files:
-% 
-% Note:    
-% 
+% Main.tex, Background_Union.tex, Library.bib, Union_Background_Chart_1.png, Union_Background_Chart_2.png, Union_Background_Chart_3.png, Union_Background_Chart_semi.png, Union_Background_Chart_sup1.png, Union_Background_Chart_sup2.png, Union_Background_Chart_sup3.png, Union_Background_Chart_WSD.png
+% Note:
+% Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Automatic creation of metadata}
@@ -20,7 +20,7 @@ There are 5 related problems.
 \begin{figure}
 	\caption{The process of metadata creation}
 \begin{center}
-	\includegraphics[width=\columnwidth]{UnionChart}
+	\includegraphics[width=\columnwidth]{Union_Background_Chart_1}
 \end{center}
 \end{figure}
 
@@ -41,15 +41,15 @@ Therefore, it is significantly crucial for a program to totally understand what 
 
 The method to improve the problem above is "categorize the words based on different subjects,topic or genres" by using online database.Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories.\cite{Kules2006}
 
-Users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.\cite{TunThuraThet2010} Users don not have to filter the results which are ranked by browsing frequency  popularity. Users just can obtain the information and relevance by clicking the specific categories. Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle this problems.Plus,it could be useful and interesting if people solve the problems appropriately, even perfectly.  
+Users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.\cite{TunThuraThet2010} Users don not have to filter the results which are ranked by browsing frequency popularity. Users just can obtain the information and relevance by clicking the specific categories. Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle this problems.Plus,it could be useful and interesting if people solve the problems appropriately, even perfectly.
 
-A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended. The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized metadatas.    \\
+A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended. The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized metadatas.\\
 
 \subsubsection*{Word sense disambiguation: supervised and semi-supervised approach}
 
 \begin{figure}[tbh]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{union(WSD)}
+		\includegraphics[width=\columnwidth]{Union_Background_Chart_WSD}
 	\end{center}
 	\caption{GWord+Sense with words and senses. \label{fig1}}
 \end{figure}
@@ -62,19 +62,19 @@ The human brain is quite proficient at word-sense disambiguation. The fact that 
 
 \begin{figure}[tbh]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{union(sup1)}
+		\includegraphics[width=\columnwidth]{Union_Background_Chart_sup1}
 	\end{center}
 	\caption{Sense tagged text.}
 \end{figure}
 \begin{figure}[tbh]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{union(sup2)}
+		\includegraphics[width=\columnwidth]{Union_Background_Chart_sup2}
 	\end{center}
 	\caption{Two bags of words.}
 \end{figure}
 \begin{figure}[tbh]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{union(sup3)}
+		\includegraphics[width=\columnwidth]{Union_Background_Chart_sup3}
 	\end{center}
 	\caption{Supervised approach.}
 \end{figure}
@@ -86,7 +86,7 @@ Because of the lack of training data, many word sense disambiguation algorithms 
 
 \begin{figure}[tbh]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{union(semi)}
+		\includegraphics[width=\columnwidth]{Union_Background_Chart_semi}
 	\end{center}
 	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
@@ -94,7 +94,7 @@ Because of the lack of training data, many word sense disambiguation algorithms 
 The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \cite{Blascheck2016}.
 
 Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.\\
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system  \cite{Cheslow2014}.
+Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system\cite{Cheslow2014}.
 
 \subsubsection*{Unsupervised}
 WSD is related to Natural Language Processing and is also linked with computational languages. People introduced it when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing etc. WSD is mainly focused on determining the sense of word,computationally which is used in a problem by using that word in a particular context.Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on it. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups\cite{Guenther2003}.
@@ -115,7 +115,7 @@ The difference between 'Supervised' and 'Unsupervised' WSD is:
 
 
 \subsubsection*{Factuality}
-In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques.  The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
 
 TIMEBANK was first proposed in \cite{Pustejovsky2003}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help to clarify the ideas. Let's examine these sentence:
 
@@ -154,15 +154,15 @@ In order to highlight the focus of the article ,the special and important words 
 \begin{itemize}
 	\item distinguish: distinguish all the words
 	\begin{center}
-		\includegraphics[width=0.8\columnwidth]{union_01.jpg}
+		\includegraphics[width=0.8\columnwidth]{Union_Background_Chart_2}
 	\end{center}
 	\item classification: Divided into four categories\\ 	
-	(a)  Word Count $>$ 15\\
-	(b)  15 $>$ Word Count $>$ 10\\
-	(c)  10 $>$ Word Count $>$5\\
-	(d)  5 $>$Word Count	
+	(a) Word Count $>$ 15\\
+	(b) 15 $>$ Word Count $>$ 10\\
+	(c) 10 $>$ Word Count $>$5\\
+	(d) 5 $>$Word Count	
 	\begin{center}
-		\includegraphics[width=0.8\columnwidth]{union_02.jpg}
+		\includegraphics[width=0.8\columnwidth]{Union_Background_Chart_3}
 	\end{center}
 	\item search : Search Word repetition rate
 	\item statistics: Count the repetition rate of words
