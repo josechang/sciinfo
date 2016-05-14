@@ -12,16 +12,15 @@
 \subsection{Automatic creation of metadata}
 \textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
-We are producing a program which automatically generate metadata such as authors' name, date of publishing, name of articles... and more importantly auto-abstract for full text articles
+We are producing a program which automatically generate metadata such as authors' name, date of publishing, name of articles and more importantly auto-abstract for full text articles.
 
-We are interested in features for either more convenient uses of the program or improving precise data generation
-There are 5 related problems.
+We are interested in features for either more convenient uses of the program or improving precise data generation.There are 5 related problems.
 
-\begin{figure}
-	\caption{The process of metadata creation}
-\begin{center}
-	\includegraphics[width=\columnwidth]{Union_Background_Chart_1}
-\end{center}
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{Union_Background_Chart_1}
+	\end{center}
+\caption{The process of metadata creation}
 \end{figure}
 
 \subsubsection*{Language understanding}
@@ -32,7 +31,7 @@ We can build a natural language understanding (NLU) system, which uses a set of 
 I believe you should read some publication and cite their work properly. Clarity in your writing should also be improved.Please take a look at it (Phat's comment)
 
 \subsubsection*{Name Recognition}
-Identifying all textual mentions of the named entities is the main goal of the name recognition mechnanism. 
+Identifying all textual mentions of the named entities is the main goal of the name recognition mechanism. 
 The results could be a country or an animal if users search for the word, Turkey. The type (meaning instead of type) is very different.
 
 There are a lot of misunderstandings like this if users search some words which have multiply meanings. Sometimes, the results are totally unrelated and this situation is always annoying. That would be troublesome when we count frequency of certain words to rank them.

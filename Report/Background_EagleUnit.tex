@@ -32,6 +32,13 @@ XML (Extensible Markup Language) is the universal format for the encoding and ex
 \label{sec:mets}
 There are various types of standards that describes the metadata in different fields and applications. Listed in the following are five different standards with a brief introduction to each one.
 
+\begin{figure*}		
+	\begin{center}
+		\includegraphics[scale=0.8]{EagleUnit_Background_Chart_1}
+	\end{center}
+	\caption{Overview and hierarchical ranking of metadata standards and their individual features}
+\end{figure*}
+
 \begin{enumerate}
 	\item METS\\
 	{\bf Introduction}\\
@@ -92,7 +99,6 @@ There are various types of standards that describes the metadata in different fi
 	To understand metadata needs, it is important to understand the data production and structures. Structuring digital objects particularly e-journal present two main difficult problems. First, e-journals are structurally complex. New issues are released in intervals for each journal title. These may contain varying number of articles and other publishing matters having variety of formats. Second, the production of e-journal is outside the control of the digital repository and done without the benefit of standards for the structure of file formats, metadata formats and vocabulary, publishing schedules, etc.\cite{Dappert2008}
 	As a means to solve these problem, METS provides a robust and flexible way to define digital objects. The MODS on the other hand, provides ways to describe digital objects and can be built on a MARC. Finally the PREMIS provides ways to describe digital objects and processes that are essential for digital preservation. Also, these three metadata standards are all built on an XML schema.\cite{Dappert2008}
 	Details on how to implement these three metadata standards to form a robust metadata structure or archive can be found in "Using METS, PREMIS and MODS for Archiving eJournals".\cite{Dappert2008} Though there are different ways to implement these schema only one was discussed in the aforementioned literature.
-	
 	
 	{\bf Advantages}
 	\begin{enumerate}
@@ -167,7 +173,6 @@ There are various types of standards that describes the metadata in different fi
 	11. Source 12. Language 13. Relation 14. Coverage 15. Rights.
 	\cite{NISO2012}
 	
-
 	{\bf Advantages}
 	\begin{enumerate}
 		\item Encourage authors and publishers to provide Metadata in the type that can be automatically collected by resource discovery tools.
@@ -175,6 +180,7 @@ There are various types of standards that describes the metadata in different fi
 		\item DC records can be the basis of more detailed cataloging records.
 		\item After the DC becomes the standard, Metadata records can be understood by the user.
 	\end{enumerate}	
+		
 	{\bf Disadvantages}
 	\begin{enumerate}
 		\item There are no cataloging rules that determine how data will be filled in. So if I write " Contributor: Sam Smith ", I can also write "contributor = Smith, Sam.". It means that there is no consistency across different uses of Dublin Core.
@@ -184,24 +190,8 @@ There are various types of standards that describes the metadata in different fi
 	{\bf Conclusion}\\
 	Because there are no cataloging rules, it makes Dublin core easy to use by anyone. On the other hand, this is something that goes against the article cataloging.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	
-\end{enumerate}
-
-
-
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	% figures
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\begin{figure*}[ht]
 		
-		\begin{center}
-			\includegraphics[scale=0.8]{EagleUnit_Background_Chart_1}
-		\end{center}
-		\caption{Overview and hierarchical ranking of metadata standards and their individual features}
-		\vspace{20mm}
-	\end{figure*}
+\end{enumerate}
 	
 \newpage % Ends the current page and causes all figures and tables to be printed
 
