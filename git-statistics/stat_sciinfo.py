@@ -1,16 +1,17 @@
+#!/usr/bin/python
 #-*- coding: utf-8 -*-
 
 import subprocess
-import shlex
 import datetime
 import sys
 
 tar_dir=""
 authors=[]
 num_commits=[]
-files_changed=[]
 lines_inserted=[]
 lines_deleted=[]
+list_datalists=[num_commits,lines_inserted,lines_deleted]
+num_authors=0
 def getrep():
 	if len(sys.argv) < 2:
 		print "Lack of git repository parameter"
@@ -19,26 +20,24 @@ def getrep():
 	tar_dir=sys.argv[1]
 	return True
 def getdata(cmd):
-	len_cmd=len(cmd)
 	p=subprocess.Popen(cmd[0],stdout=subprocess.PIPE,shell=True)
 	processes=[p]
-	for x in cmd[1:len_cmd]:
+	for x in cmd[1:]:
 		p=subprocess.Popen(x,stdin=p.stdout,stdout=subprocess.PIPE,shell=True)
-        processes.append(p)
+        	processes.append(p)
+	for process in processes:
+		process.wait()
 	output=p.communicate()[0]
-	for p in processes:
-		p.wait()
 	return  output.split("\n")
 def getnewest():
 	p=subprocess.Popen("git --git-dir=%s pull"%(tar_dir),shell=True)
-	out=p.communicate()
-	return out
+	p.wait()
 def remove_last_item(ls):
 	len_ls=len(ls)
 	ls=ls[:len_ls-1]
 	return ls
 def get_author():
-	cmd=["git --git-dir=%s shortlog -s -n" % (tar_dir),"awk 'BEGIN{FS=\"\t\"}{print $2\t$1}'"]
+	cmd=["/usr/bin/git --git-dir=%s shortlog -sne " % (tar_dir),"/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2\t$1}'"]
 	author_commits=remove_last_item(getdata(cmd))
 	for x in author_commits:
 		(a,c)=x.split("    ")
@@ -51,19 +50,18 @@ def get_line_data():
 		lines_inserted.append(i)
 		lines_deleted.append(d)
 def correct_similar_name(name1,name2):
-	index1=authors.index(name1)
-	index2=authors.index(name2)
-	if index1<0 or index2 <0:
-		return
-	num_commits[index1]=int(num_commits[index1])+int(num_commits[index2])
-	lines_inserted[index1]=int(lines_inserted[index1])+int(lines_inserted[index2])
-	lines_deleted[index1]=int(lines_deleted[index1])+int(lines_deleted[index2])
-	del authors[index2]
-	del lines_inserted[index2]
-	del lines_deleted[index2]
-	
+	for item in name2:
+		index1=authors.index(name1)
+		index2=authors.index(item)
+		for l in list_datalists:
+			l[index1]=int(l[index1])+int(l[index2])
+			del l[index2]
+		del authors[index2]
+def remove_email(list_of_author):
+	for i,author in enumerate(list_of_author):
+		list_of_author[i]=author.split(" <")[0]
 def createHTML():
-	with open("index.html","w") as f:
+	with open("/home/yslin/statistics/index.html","w") as f:
 		format='%Y-%m-%d %H:%M:%S'
 		f.write("""
 <!DOCTYPE html>
@@ -75,25 +73,39 @@ def createHTML():
 <body>
 """)
 		f.write('<h1>Statistics for bitbucket</h1>')
-		f.write('Until %s'%(datetime.datetime.now().strftime(format)))
+		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
 		f.write('<table border="1">')
 		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th></tr>')
-		for i in range(0,len(authors)):
+		for i in range(0,num_authors):
 			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i]))
+		f.write('</table>')
+		f.write('<p>Total authors: %d </p>' % num_authors)
+		f.write("<h4>TA's murmur</h4>")
+		f.write('1. If you find out that there are multiple authors in the table are all belong to you. Please inform me and tell me which username you will use later also. I will merge them into one.My email address is E14006151@mail.ncku.edu.tw<br/>')
+		f.write("2. If you can't find your name in the table, it means you haven't done any commit<br/>")
 		f.write('</body>')
 		f.write('</html>')
 def statistics():
+	global num_authors
 	out=getrep()
 	if out == False:
 		print "error in opening the git repository"
 		return False
-	getnewest()
+	#getnewest()
 	get_author()
 	get_line_data()
-	correct_similar_name('Feng Chun Hsia','FengChunHsia')
-	correct_similar_name('Chinweze','chinweze')
-	correct_similar_name('DexterChen','Dexter Chen')
-	correct_similar_name('Jim_Lan','Your NameJim_Lan')
+	correct_similar_name('Feng Chun Hsia <tim.hsia@nordlinglab.org>',['FengChunHsia <tim.hsia@nordlinglab.org>'])
+	correct_similar_name("Chinweze <chinwezeubadigha@gmail.com>",['chinweze <chinwezeubadigha@gmail.com>'])
+	correct_similar_name('DexterChen <owesdexter2011@gmail.com>',['Dexter Chen <owesdexter2011@gmail.com>','unknown <you@example.com>'])
+	correct_similar_name('Jim_Lan <jb0929n@gmail.com>',['Your NameJim_Lan <jb0929n@gmail.com>'])
+	correct_similar_name('Wei <4A02C014@stust.edu.tw>',['4A02C014 <4A02C014@stust.edu.tw>','哲偉 張 <4a02c014@stust.edu.tw>'])
+	correct_similar_name('Piyarul <piyarulhoque1993@gmail.com>',['Piyarul Hoque <piyarulhoque1993@gmail.com>','Piyarul <piyarulhoque1993@gmail.com.com>'])
+	correct_similar_name('Jacky Wu <Jacky@youande-MacBook-Pro.local>',['Yu-An Wu <jackywugogo@gmail.com>'])
+	correct_similar_name('Henry-Peng <kkvvy12@gmail.com>',['Henry <kkvvy12@gmail.com>'])
+	correct_similar_name('Torbj\xc3\xb6rn Nordling <tn@nordron.com>',['Torbj\xc3\xb6rn Nordling <tn@kth.se>'])
+	correct_similar_name('Kenny Hsu <tei1004@yahoo.com.tw>',['Kenny Hsu <teii1004@yahoo.com.tw>'])
+	correct_similar_name('TPhat <geminielf9@gmail.com>',['Tan Phat <geminielf@gmail.com>','unknown <geminielf9@gmail.com>'])
+	remove_email(authors)
+	num_authors=len(authors)
 	createHTML()
-
 statistics()
