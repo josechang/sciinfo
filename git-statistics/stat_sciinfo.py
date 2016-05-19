@@ -10,7 +10,10 @@ authors=[]
 num_commits=[]
 lines_inserted=[]
 lines_deleted=[]
-list_datalists=[num_commits,lines_inserted,lines_deleted]
+words_inserted=[]
+words_deleted=[]
+list_datalists=[num_commits,lines_inserted,lines_deleted,words_inserted,words_deleted]
+#list_datalists=[num_commits,lines_inserted,lines_deleted,words_inserted,words_deleted]
 num_authors=0
 def getrep():
 	if len(sys.argv) < 2:
@@ -28,7 +31,7 @@ def getdata(cmd):
 	for process in processes:
 		process.wait()
 	output=p.communicate()[0]
-	return  output.split("\n")
+	return  remove_last_item(output.split("\n"))
 def getnewest():
 	p=subprocess.Popen("git --git-dir=%s pull"%(tar_dir),shell=True)
 	p.wait()
@@ -37,18 +40,24 @@ def remove_last_item(ls):
 	ls=ls[:len_ls-1]
 	return ls
 def get_author():
-	cmd=["/usr/bin/git --git-dir=%s shortlog -sne " % (tar_dir),"/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2\t$1}'"]
-	author_commits=remove_last_item(getdata(cmd))
+	cmd=["/usr/bin/git --git-dir=%s shortlog -sne HEAD" % (tar_dir),"/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2\t$1}'"]
+	author_commits=getdata(cmd)
 	for x in author_commits:
 		(a,c)=x.split("    ")
 		authors.append(a)
 		num_commits.append(c)
 def get_line_data():
 	for author in authors:
-		cmd=["git --git-dir=%s log --shortstat --author='%s' " % (tar_dir,author),"grep -E \"fil(e|es) changed\"","awk '{inserted+=$4; deleted+=$6} END {print inserted,deleted }'"]
-		(i,d)=remove_last_item(getdata(cmd))[0].split(" ")
+		cmd=["git --git-dir=%s log --shortstat --author='%s' " % (tar_dir,author),'grep -E "fil(e|es) changed"',"awk '{inserted+=$4; deleted+=$6} END {print inserted,deleted }'"]
+		(i,d)=getdata(cmd)[0].split(" ")
 		lines_inserted.append(i)
 		lines_deleted.append(d)
+def get_word_data():
+	for author in authors:
+		cmd1=["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(tar_dir,author),'grep "^-[^-]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
+		cmd2=["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(tar_dir,author),'grep "^+[^+]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
+		words_deleted.append(getdata(cmd1)[0])
+		words_inserted.append(getdata(cmd2)[0])
 def correct_similar_name(name1,name2):
 	for item in name2:
 		index1=authors.index(name1)
@@ -75,9 +84,9 @@ def createHTML():
 		f.write('<h1>Statistics for bitbucket</h1>')
 		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
 		f.write('<table border="1">')
-		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th></tr>')
+		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th></tr>')
 		for i in range(0,num_authors):
-			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i]))
+			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]))
 		f.write('</table>')
 		f.write('<p>Total authors: %d </p>' % num_authors)
 		f.write("<h4>TA's murmur</h4>")
@@ -94,6 +103,7 @@ def statistics():
 	#getnewest()
 	get_author()
 	get_line_data()
+	get_word_data()
 	correct_similar_name('Feng Chun Hsia <tim.hsia@nordlinglab.org>',['FengChunHsia <tim.hsia@nordlinglab.org>'])
 	correct_similar_name("Chinweze <chinwezeubadigha@gmail.com>",['chinweze <chinwezeubadigha@gmail.com>'])
 	correct_similar_name('DexterChen <owesdexter2011@gmail.com>',['Dexter Chen <owesdexter2011@gmail.com>','unknown <you@example.com>'])
