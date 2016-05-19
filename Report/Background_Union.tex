@@ -55,7 +55,7 @@ A lot of online services have done similar tasks before .Thus,creating and using
 
 Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD identifies which sense of a word (i.e.meaning) is used in a sentence, when the word has multiple meanings \cite{Du2013}. The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 
-The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning \cite{TunThuraThet2010}.
+The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning.
 
 \subsection*{Supervised}
 
@@ -96,7 +96,7 @@ Other semi-supervised techniques use large quantities of untagged corpora to pro
 Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system\cite{Cheslow2014}.
 
 \subsubsection*{Unsupervised}
-WSD is related to Natural Language Processing and is also linked with computational languages. People introduced it when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing etc. WSD is mainly focused on determining the sense of word,computationally which is used in a problem by using that word in a particular context.Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on it. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups\cite{Guenther2003}.
+Word Sense Disambiguation(WSD) is related to Natural Language Processing and is also linked with computational languages. People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing etc. WSD is mainly focused on determining the sense of word,computationally which is used in a problem by using that word in a particular context.Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups\cite{4028513}.
 The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
 
 \begin{enumerate}
@@ -104,17 +104,19 @@ The Naive Bayes model applied mathematically entirely focuses on the issue of fe
 	\item WordNet-based feature selection.
 \end{enumerate}
 
-Apart from the above mentioned model, the web can act as a corpus too, where it searches words which are relevant and distinctive for the target word, which makes it more appropriate in searching particular words' meaning.The Supervised approaches make use of information from labeled training data while the Unsupervised ones rely on the UMLS metathesarus.
+Apart from the above mentioned model, the web can act as a corpus too, where it searches words which are relevant and distinctive for the target word, which makes it more appropriate in searching particular words' meaning.
 
 So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.
 The difference between 'Supervised' and 'Unsupervised' WSD is:
-*The Supervised WSD approach requires a large amount of data in order to achieve a reliable result and generally the scope is limited to some words.
-*Whereas the Unsupervised WSD approach does not use any corpus and suggests the suitable information extracted to the word knowledge base.This method is used in case of performing WSD without data learning.
 
+\begin{enumerate}
+	\item The Supervised WSD approach requires a large amount of data in order to achieve a reliable result and generally the scope is limited to some words. Whereas the Unsupervised WSD approach does not use any corpus and suggests the suitable information extracted to the word knowledge base.This method is used in case of performing WSD without data learning.
+	\item The Supervised approaches make use of information from labeled training data while the Unsupervised ones rely on the UMLS metathesarus.
+\end{enumerate}
 
 
 \subsubsection*{Factuality}
-Test again. In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
 
 TIMEBANK was first proposed in \cite{Pustejovsky2003}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help to clarify the ideas. Let's examine these sentence:
 
