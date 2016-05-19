@@ -55,7 +55,7 @@ A lot of online services have done similar tasks before .Thus,creating and using
 
 Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD identifies which sense of a word (i.e.meaning) is used in a sentence, when the word has multiple meanings \cite{Du2013}. The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 
-The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning \cite{TunThuraThet2010}.
+The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning.
 
 \subsection*{Supervised}
 
@@ -108,13 +108,15 @@ Apart from the above mentioned model, the web can act as a corpus too, where it 
 
 So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.
 The difference between 'Supervised' and 'Unsupervised' WSD is:
-*The Supervised WSD approach requires a large amount of data in order to achieve a reliable result and generally the scope is limited to some words.
- Whereas the Unsupervised WSD approach does not use any corpus and suggests the suitable information extracted to the word knowledge base.This method is used in case of performing WSD without data learning.
-*The Supervised approaches make use of information from labeled training data while the Unsupervised ones rely on the UMLS metathesarus.
+
+\begin{enumerate}
+	\item The Supervised WSD approach requires a large amount of data in order to achieve a reliable result and generally the scope is limited to some words. Whereas the Unsupervised WSD approach does not use any corpus and suggests the suitable information extracted to the word knowledge base.This method is used in case of performing WSD without data learning.
+	\item The Supervised approaches make use of information from labeled training data while the Unsupervised ones rely on the UMLS metathesarus.
+\end{enumerate}
 
 
 \subsubsection*{Factuality}
-Test again. In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
+In the process of producing metadatas, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.
 
 TIMEBANK was first proposed in \cite{Pustejovsky2003}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help to clarify the ideas. Let's examine these sentence:
 
