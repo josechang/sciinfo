@@ -16,13 +16,12 @@ We are producing a program that automatically generate metadata, such as authors
 
 We are interested in features for either more convenient uses of the program or improving precise data generation.There are 5 related problems.
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 	\begin{center}
-		\includegraphics[width=\columnwidth]{Union_Background_Chart_1}
+		\includegraphics[width=1.8\columnwidth]{Union_Background_Chart_1}
 	\end{center}
 \caption{The process of metadata creation.}
-\end{figure}
-\todo{The figure is too small, it is hard to read the text, please make it cover two columns.}
+\end{figure*}
 
 \subsubsection*{Language understanding}
 When users search for a sentence, how does the program understand certain inputs of text? 
@@ -40,11 +39,11 @@ There are a lot of misunderstandings like this if users search some words which 
  
 Therefore, it is significantly crucial for a program to totally understand what users want by name recognition in natural language processing. The users can find out the results much quicker and can't get misunderstood (and will not be confused?).
 
-The method to improve the problem above is "categorize the words based on different subjects,topic or genres" by using online database. Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories \citep{Kules2006}.\todo{Check how to use citations in APA style.}
+The method to improve the problem above is "categorize the words based on different subjects,topic or genres" by using online database. Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories \cite{Kules2006}.\todo{Check how to use citations in APA style.}
 
 Users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.\cite{TunThuraThet2010} Users don not have to filter the results which are ranked by browsing frequency popularity. Users just can obtain the information and relevance by clicking the specific categories. Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle this problems. 
 
-A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended. \todo{Citation or a few examples needed.} The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized metadatas.\\
+A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended. \todo{Citation or a few examples needed.} The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized metadata.\\
 
 \subsubsection*{Word sense disambiguation: supervised and semi-supervised approach}
 
@@ -82,11 +81,11 @@ The human brain is quite proficient at word-sense disambiguation. The fact that 
 	\caption{Supervised approach.}
 \end{figure}
 
-Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words. Probably every machine learning algorithm going has been applied to WSD, including associated techniques, such as feature selection, parameter optimization, and ensemble learning.\todo{Try to avoid speculations. If you speculate you should motivate it.} Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create \citep{Ramos-Soto2015}.
+Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words. Probably every machine learning algorithm going has been applied to WSD, including associated techniques, such as feature selection, parameter optimization, and ensemble learning.\todo{Try to avoid speculations. If you speculate you should motivate it.} Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create \cite{Ramos-Soto2015}.
 
 \subsubsection*{Semi-supervised}
 
-Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm \citep{Gartner2013}. It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \todo{Good beginning. An example or explanation of the properties is needed. A citation on the last sentence is needed.}
+Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm \cite{Gartner2013}. It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \todo{Good beginning. An example or explanation of the properties is needed. A citation on the last sentence is needed.}
 
 \begin{figure}[tbh]
 	\begin{center}
@@ -95,15 +94,15 @@ Because of the lack of training data, many word sense disambiguation algorithms 
 	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
 
-The bootstrapping approach\todo{Which bootstraping? Missing text in between.} starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \citep{Blascheck2016}.
+The bootstrapping approach\todo{Which bootstraping? Missing text in between.} starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \cite{Blascheck2016}.
 
 Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.
 
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system\citep{Cheslow2014}.
+Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system\cite{Cheslow2014}.
 
 \subsubsection*{Unsupervised}
 
-Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups \citep{4028513}.
+Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups \cite{4028513}.
 The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
 
 \begin{enumerate}
@@ -125,7 +124,7 @@ The difference between 'Supervised' and 'Unsupervised' WSD is:
 
 \subsubsection*{Factuality}
 
-In the process of producing metadatas\todo{Data is plural, so you cannot write datas}, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective,\todo{A paper cannot have a perspective, but the authors of a paper can.} the two main set of tools having such functions is TIMEBANK and FACTBANK.\todo{Did the authors always use capital letters? If not treat them as names, so only the first letter should be capital.}
+In the process of producing metadata\todo{Data is plural, so you cannot write datas}, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From this paper's perspective,\todo{A paper cannot have a perspective, but the authors of a paper can.} the two main set of tools having such functions is TIMEBANK and FACTBANK.\todo{Did the authors always use capital letters? If not treat them as names, so only the first letter should be capital.}
 
 TIMEBANK was first proposed in \cite{Pustejovsky2003}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help to clarify the ideas. Let's examine these sentence:
 
@@ -137,7 +136,7 @@ TIMEBANK was first proposed in \cite{Pustejovsky2003}. The idea was based on tha
 
 The first sentence is simple future tense which imply something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now -- so such fact must be used with caution. 
 
-In addition to TIMEBANK, many other tools can be another filter for fact extraction.\todo{Give a few examples.} The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \citep{Schultze2000}. \cite{Dave2003} identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \citep{Wiebe2005}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK, which is built by \cite{Sauri2009}. Following example shows how subjective statements can be picked out.
+In addition to TIMEBANK, many other tools can be another filter for fact extraction.\todo{Give a few examples.} The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{Schultze2000}. \cite{Dave2003} identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \cite{Wiebe2005}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK, which is built by \cite{Sauri2009}. Following example shows how subjective statements can be picked out.
 
 \begin{itemize}
 	\item Channelization would guarantee high flow velocity in rivers, more flooding and consequent degradation of riparian community (1a)
@@ -183,7 +182,7 @@ Show the number of rankings \\
 
 \subsubsection*{Language generation}
 
-Natural language generation (NLG) is one branch of natural language processing. The goal is generating the words human being using via machine automatically. To use this technique, six basic activities are done: (a) content determination, (b) discourse planning, (c) sentence aggregation, (d) lexicalization, (e) referring expression generation, and (f) linguistic realization \citep{Ramos-Soto2015}. Some of the activities are mentioned above.\todo{Where? Please explain the 6 terms. What are they?} The advantage of this technique is that it is flexible, since there is no standardization. But it also has the difficulty in the implication of this technique.\cite{Ramos-Soto2015}
+Natural language generation (NLG) is one branch of natural language processing. The goal is generating the words human being using via machine automatically. To use this technique, six basic activities are done: (a) content determination, (b) discourse planning, (c) sentence aggregation, (d) lexicalization, (e) referring expression generation, and (f) linguistic realization \cite{Ramos-Soto2015}. Some of the activities are mentioned above.\todo{Where? Please explain the 6 terms. What are they?} The advantage of this technique is that it is flexible, since there is no standardization. But it also has the difficulty in the implication of this technique.\cite{Ramos-Soto2015}
 
 \todo{Now you jump too far. More explanations are needed.}
 Linguistic description of data: Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. However, the basic steps of LDD have been built. The four main parts in this technique are input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{Ramos-Soto2015}. Some of them are similar to the concept. The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Tamine2009}. Also, many practical methods have been proposed. However, it still has a long way to go.
