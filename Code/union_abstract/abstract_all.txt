@@ -1,0 +1,71 @@
+file-1
+ABSTRACT 
+When  search  results  against  digital  libraries  and  web  resources 
+have  limited  metadata,  augmenting  them  with  meaningful  and 
+stable  category  information  can  enable  better  overviews  and 
+support  user  exploration.  This  paper  proposes  six  “fast-feature” 
+techniques that use only features available in the search result list, 
+such  as  title,  snippet,  and  URL,  to  categorize  results  into 
+meaningful  categories.  They  use  credible  knowledge  resources, 
+including  a  US  government  organizational  hierarchy,  a thematic 
+hierarchy from the Open Directory Project (ODP) web directory, 
+and personal browse histories, to add valuable metadata to search 
+results.  In  three  tests  the  percent  of  results  categorized  for  five 
+representative  queries  was  high  enough  to  suggest  practical 
+benefits:  general  web  search  (76-90%),  government  web  search 
+(39-100%), and the Bureau of Labor Statistics website (48-94%). 
+An additional test submitted 250 TREC queries to a search engine 
+and successfully categorized 66% of the top 100 using the ODP 
+and  61%  of  the  top  350.  Fast-feature  techniques  have  been 
+implemented in a prototype search engine. We propose research 
+directions  to  improve  categorization  rates  and  make  suggestions 
+about  how  web  site  designers  could  re-organize  their  sites  to 
+support fast categorization of search results.   
+
+
+file-2
+Abstract
+The present paper concentrates on the issue of feature selection for unsuper-
+vised word sense disambiguation (WSD) performed with an underlying Naïve Bayes model.
+It introduces web N-gram features which, to our knowledge, are used for the ﬁrst time in
+unsupervised WSD. While creating features from unlabeled data, we are “helping” a simple,
+basic knowledge-lean disambiguation algorithm to significantly increase its accuracy as a
+result of receiving easily obtainable knowledge. The performance of this method is com-
+pared to that of others that rely on completely different feature sets. Test results concerning
+nouns, adjectives and verbs show that web N-gram feature selection is a reliable alternative
+to previously existing approaches, provided that a “quality list” of features, adapted to the
+part of speech, is used.
+
+
+file-3
+ABSTRACT
+Translational control is crucial in the regulation of
+gene expression and deregulation of translation is
+associated with a wide range of cancers and hu-
+man diseases. Ribosome proﬁling is a technique
+that provides genome wide information of mRNA in
+translation based on deep sequencing of ribosome
+protected mRNA fragments (RPF). RPFdb is a com-
+prehensive resource for hosting, analyzing and vi-
+sualizing RPF data, available at www.rpfdb.org or
+http://sysbio.sysu.edu.cn/rpfdb/index.html. The cur-
+rent version of database contains 777 samples from
+82 studies in 8 species, processed and reanalyzed by
+a uniﬁed pipeline. There are two ways to query the
+database: by keywords of studies or by genes. The
+outputs are presented in three levels. (i) Study level:
+including meta information of studies and repro-
+cessed data for gene expression of translated mR-
+NAs; (ii) Sample level: including global perspective
+of translated mRNA and a list of the most translated
+mRNA of each sample from a study; (iii) Gene level:
+including normalized sequence counts of translated
+mRNA on different genomic location of a gene from
+multiple samples and studies. To explore rich in-
+formation provided by RPF, RPFdb also provides
+a genome browser to query and visualize context-
+speciﬁc translated mRNA. Overall our database pro-
+vides a simple way to search, analyze, compare, vi-
+sualize and download RPF data sets.
+
+
