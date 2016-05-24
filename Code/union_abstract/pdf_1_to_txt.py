@@ -1,12 +1,6 @@
 import textract
 text = textract.process('file_1.pdf', method='pdfminer')
 
-search="Models for Predicting Stage"
-def delect_special(a):
-    b=a.replace("."."").replace("!"."").replace("@"."").replace("#"."").replace("~"."")
-    return b
-search=delect_special(search).split(" ")
-
 
 def abstract_start(a):
     arr=['ABSTRACT']
@@ -17,7 +11,7 @@ def abstract_start(a):
         return 0
 
 def abstract_end(a):
-    arr=['','KEYWORDS']
+    arr=['INTRODUCTION','KEYWORDS','CATEGORI']
     
     if(a.strip().upper() in arr):     
         return 1
