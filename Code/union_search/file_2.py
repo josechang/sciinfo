@@ -1,7 +1,7 @@
 import textract
-text = textract.process('file_1.pdf', method='pdfminer')
+text = textract.process('file_2.pdf', method='pdfminer')
 
-search="Predicting"
+search="N-gram features"
 def delect_special(a):
     b=a.replace(".","").replace("!","").replace("@","").replace("#","").replace("~","").replace(",","")
     return b
@@ -9,23 +9,23 @@ def delect_special(a):
 search1=delect_special(search).split(" ")
 
 
-xml=open('pdf_1.txt','w')
+xml=open('pdf_2.txt','w')
 
 for i in xrange(len(text)):
     xml.write(text[i])
 xml.close()
 
-myfile = open("pdf_1.txt")
+myfile = open("pdf_2.txt")
 
 
-xml=open('pdf_1.txt','w')
+xml=open('pdf_2.txt','w')
 
 for i in xrange(len(text)):
     xml.write(text[i])
 xml.close()
 
 
-myfile = open("pdf_1.txt")
+myfile = open("pdf_2.txt")
 
 #------------------------------------------------------------------------------------------------------------------------------
 
@@ -324,7 +324,7 @@ for i in xrange(len(conclusion2)):
     if conclusion4 == len(search1) :
        conclusion3.append(conclusion2[i])
 #----------------------------------------------------------------------------------------      
-ab=open('pdf_search_1.txt','w')
+ab=open('pdf_search_2.txt','w')
 
 if len(a3) > 0:
    ab.write("Abstract"+"   "+str(search) +"-------------------------------------------------------------------------------")
