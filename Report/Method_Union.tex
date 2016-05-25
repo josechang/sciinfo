@@ -12,7 +12,12 @@
 	
 \subsection*{Title extraction}
 \item Using python to catch the title.
-First step,in the beginning,we import some necessary packages such as NLTK and string...etc.  
+First step, we import some necessary packages and function.
+\begin{enumerate}
+	\item re: Regular expression package
+	\item os: this function could connect the python to operating system so that we can call the path
+	\item nltk: natural language toolkit, we use the corpus plaintext function to build the txt file in a folder as corpus
+\end{enumerate}  
 Second step,we convert every PDF file we want to deal with into txt file and set the path and store them in specific folder.
 Third step,ues regular expression in python to capture the first sentence in the txt files which have been convertrd and stored in specific folder in previous step. 
 Fourth step, output the title of the article in txt file.   
