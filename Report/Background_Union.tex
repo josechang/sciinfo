@@ -120,6 +120,10 @@ Three different feature sets have been used by 'Pedersen and Bruce' (under Naive
 The features which were taken into account are:
 \textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology.This feature represents the morphology of the ambiguous word and is denoted by M.In case of nouns, M acts as Binary which indicates whether the word is plural or singular.For verbs, M indicates the tense of the verb and can have up to seven possible values.This feature is not applicable for adjectives.
 
+\textbf{Part-of-speech:} This feature represents the part-of-speech of the word and tells the position of the ambiguous word.Each POS feature can have one of five possible values: noun, verb, adjective, adverb or other.
+
+\textbf{Co-occurences:} This feature also acts as binary variables representing whether the most frequent content word in all the sentences contains the ambiguous word can occur anywhere in the sentence or not.
+
 Apart from the above mentioned model, the web can act as a corpus too, where it searches words which are relevant and distinctive for the target word, which makes it more appropriate in searching particular words' meaning.
 
 So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.\todo{Really? This section is shorter.}
