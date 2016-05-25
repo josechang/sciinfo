@@ -124,7 +124,14 @@ The features which were taken into account are:
 
 \textbf{Co-occurences:} This feature also acts as binary variables representing whether the most frequent content word in all the sentences contains the ambiguous word can occur anywhere in the sentence or not.
 
-Apart from the above mentioned model, the web can act as a corpus too, where it searches words which are relevant and distinctive for the target word, which makes it more appropriate in searching particular words' meaning.
+\begin{enumerate}
+	\item WordNet-based feature selection:
+\end{enumerate}
+WordNet is a large lexical database of English. The approach to WSD relies on a set of features formed by the actual words occuring near the target word and reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.The WN semantic network provides the words considered relevant for theh set of senses taken into consideration corresponding to the target word.
+In WordNet, noun is the most developed portion as per the research done over the performance for knowledge-based disambiguation.
+For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this part of speech.
+Verbs are suggested to use additionally whenever possible.
+As a result of using only those words indicated as being relevant by WordNet, a much small vocabulary was obtained, and therefore a much smaller number of features were taking part in the disambiguation process.
 
 So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.\todo{Really? This section is shorter.}
 
