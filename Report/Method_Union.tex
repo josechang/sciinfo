@@ -9,7 +9,7 @@
 % Note:    
 % Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+\section*{Method}
 As mentioned in the background, our group use natural language processing in order to generate metadata. The scope of metatada is about producing at least three types of metadata include author name, title and abstract. This is the least we want to produce within the time frame of this course. Once accomplishing 3 metadata mentioned earlier, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix, journal name, volume number and so on. If time is still on our side, we will even extend the scope our project further and join other teams to produce a search engine. Following are our plan to complete extracting the 3 first types of metatata from PDF files.
 \subsection*{Title extraction}
 We chose python to be the program to catch the title and other metadata as well. First step, we import some necessary packages and function as following:
@@ -24,10 +24,10 @@ To begin,we convert all PDF files we want to deal with into a txt file and set t
 
 
 \subsubsection*{Abstract extraction}
-	Developing from previous theory mentioned in the background section, w use the python to catch the abstract as mentioned in the figure below
-	\begin{center}
-		\includegraphics[width=0.8\columnwidth]{Union_Background_Chart_2}
-	\end{center}
+	Developing from previous theory mentioned in the background section, we use the python to catch the abstract. The following step is below
+	%\begin{center}
+	%	\includegraphics[width=\columnwidth]{Union_Background_Chart_2}
+	%\end{center}
 	The pdf is converted into txt file.Thus, it will create the txt file. The work is done by hand coding. For detailed coding scheme, we have presented it in the appendix at the end of this report\\ 
 	After being able to read the txt file on every line, the python detects the abstract-database's words ,it will start to catch the sentences.\\ 	
 	abstract-database:including the condition\\
@@ -36,12 +36,12 @@ To begin,we convert all PDF files we want to deal with into a txt file and set t
 	3. in the sentence "Abstract—Word sense ....."\\
 	4. and so on \\
 	In the process building "abstract database", we are aware of different papers may have different form of structures and writing style, we search through numbers of articles from different journals. Number of article found is 100, from 20 different journals including The Lancet, Progress in Energy and Combustion Science, Chemical Analysis and so. Search results for sections such as Theoretical, Methods, Results, Discussion, Conclusion, Acknowledgements are also obtained.  Table below are the results of the search.\\
-	\begin{table}
-		\includegraphics{Table for method Union}.\\
-		\includegraphics{Table 2 for method Union}.\\
-		\caption{Result of finding all forms of "abstract", "introduction" written by different authors}
-	\end{table}
-	Then the our program will read the txt file on every line.If the python detects the abstract-database-stop's words ,it will stop to catch the sentences.\\ 
+	\begin{center}
+		%\includegraphics[width=\columnwidth]{Table for method Union}.\\
+		%\includegraphics[width=\columnwidth]{Table 2 for method Union}.\\
+		%\caption{Result of finding all forms of "abstract", "introduction" written by different authors}
+	\end{center}
+	Then our program will read the txt file on every line.If the python detects the abstract-database-stop's words ,it will stop to catch the sentences.\\ 
 	abstract-database-stop:including the following conditions
 	1. the blank line
 	2. specific words in the beginning "Keywords"
