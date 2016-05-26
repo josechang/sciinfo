@@ -13,9 +13,9 @@
 \subsection{Information retrieval on existing database}
 \textit{\footnotesize Author:Dexter Chen, Eric Chang, Eric Lee, Jacky Wu, Karthick Mani, Kenvin Lo, Yu-cheng Chen.}\\
 
-We live in the time where technologies evolve beyond our imagination. Due to the rapidly increasing amount of information, we can't rely on the old fashion ways to find data. We need new information retrieval methods to handle such a big amount of data. But most of the information retrieval methods such as search engine can't really search everything on the web. They can only search the data that has been captured into the database according to \cite{Grehan2002}. Thus, we need to create a database to store these data and automatically update them frequently.
+We live in the time where technologies evolve beyond our imagination.\todo{This is very subjective and I don't agree, so you should write it in a less emotional way.} Due to the rapidly increasing amount of information, we can't rely on the old fashion ways to find data. We need new information retrieval methods to handle such a big amount of data. But most of the information retrieval methods such as search engine can't really search everything on the web. They can only search the data that has been captured into the database according to \cite{Grehan2002}.\todo{This reference is not found in the Articles folder. Add all articles that you cite to the Dropbox.} Thus, we need to create a database to store these data and automatically update them frequently.
 
-There are several online libraries currently available for us to get the academic articles we need. And they can be roughly divided into three group according to the way they store articles.
+There are several online libraries currently available for us to get the academic articles we need. And they can be roughly divided into three group according to the way they store articles.\todo{Good, but is this your division or someone elses? Add a citation.}
 
 \paragraph{Index libraries}
 	These kind of libraries stores the index and abstract of the articles. They don't provide the full-text documents directly, but may give the linkage to the publisher websites of articles. And can be categorized by the type of articles they include.
@@ -34,12 +34,14 @@ There are several online libraries currently available for us to get the academi
 \paragraph{Aggregator libraries}
 	These libraries do not publish the articles by themselves, but they still sometimes provide the full-text articles to the user. The way they do this is to negotiate with some of the publisher libraries and get the authorization of the articles. Libraries such as EBSCOhost, ProQuest, JSTOR...
 
-\subsubsection{Introduction to several libraries }
+\todo{Guide the reader by adding one sentence on why you will tell the next things.}
+
+\subsubsection{Introduction to several libraries }\todo{Consider to change the title.}
 \begin{enumerate}
 	\item\textbf{PubMed}
 	\setlength{\parindent}{2em}
 		
-	 PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics. PubMed’s design philosophy is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent. PubMed is classified into Index libraries, which is the prime reason that it won’t be able to provide full text in some papers. For the type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of the archives such as XML, images, PDF files supplementary, etc.
+	 PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics. PubMed’s design philosophy is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent. PubMed is classified into Index libraries, which is the prime reason that it won’t be able to provide full text in some papers. For the type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of the archives such as XML, images, PDF files supplementary, etc. \todo{Good that you start by describing what it is and then tell how it is built.}
 	
 	%\item\textbf{Science Direct}
 	%\item\textbf{Springer Link}
@@ -49,9 +51,11 @@ There are several online libraries currently available for us to get the academi
 	
 	IEEE Xplore is a scholarly research library formerly known as IEEE/IET Electronic Library (IEL). The IEEE is an acronym for Institute of Electrical and Electronics Engineers, which is one of the leading standard organizations in the world. More than 3.5-million full-text documents in the field of electrical, engineering, computer science and electronics are provided in this library. 
 	
-	The front and user interface of IEEE library present the information on the screen, including the latest Angular, Jquery, HTML 5, CSS, etc. Most of the HTML for PDF, either it is for journal (conference) articles or standards get dynamic transformations real time and served through MarkLogic. Endeca, which is an Oracle product powers Xplore searches, is used in the search layer. All PDF files are fed through Endeca system. Endeca servers will provide the matching documents and Xplore platform presents it on the screen to the user. And all the content is stored in oracle metadata which will be consumed by Endeca, MarkLogic Authentication, and Authorization services.
+	The front and user interface of IEEE library present the information on the screen, including the latest Angular, Jquery, HTML 5, CSS, etc.\todo{You mean it is implemented using these techniques. Please don't use etc. when you describe how something is built and do it in this context.} Most of the HTML for PDF, either it is for journal (conference) articles or standards get dynamic transformations real time and served through MarkLogic. Endeca, which is an Oracle product powers Xplore searches, is used in the search layer. All PDF files are fed through Endeca system. Endeca servers will provide the matching documents and Xplore platform presents it on the screen to the user. And all the content is stored in oracle metadata which will be consumed by Endeca, MarkLogic Authentication, and Authorization services.
 	
 \end{enumerate}
+
+\todo[inline]{You need to add at least one library example of each library type, since you started with different types. Otherwise you could have focused on one type and motivated the focus. For the libraries containing articles you should add several since you are building one. You should also discuss the database techniques, including alternative ones to the used ones, such as MongoDB, Hadoop, etc. Try to compare features.}
 
 \begin{figure*}[htb]
 	\begin{center}
