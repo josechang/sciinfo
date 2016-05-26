@@ -19,7 +19,7 @@ We chose python to be the program to catch the title and other metadata as well.
 	\item nltk: A natural language toolkit. We use the corpus plaintext function to build the txt file in a folder as corpus.
 	\item string:The string package includes a lot of classes such as lowercase, uppercase,punctuation,digits or whitespace...etc. 
 \end{enumerate}  
-To begin,we convert all PDF files we want to deal with into a txt file and set the path and store them in specific folder. Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. Afterward, we intend to produce the title of the article in a txt file.   
+To begin, we convert all PDF files we want to deal with into a txt file and set the path and store them in specific folder. Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. Afterward, we intend to produce the title of the article in a txt file.   
 
 \subsubsection*{Author extraction}
 
@@ -30,7 +30,7 @@ To begin,we convert all PDF files we want to deal with into a txt file and set t
 	%	\includegraphics[width=\columnwidth]{Union_Background_Chart_2}
 	%\end{center}
 	The pdf is converted into txt file.Thus, it will create the txt file. The work is done by hand coding. For detailed coding scheme, we have presented it in the appendix at the end of this report\\ 
-	After being able to read the txt file on every line, the python detects the abstract-database's words ,it will start to catch the sentences.\\ 	
+	After being able to read the txt file on every line, the python will detect the content of the abstract. In order to do so, we strip the text between "abstract" label and "introduction" label.\\ 	
 	abstract-database:including the condition\\
 	1. capital         "ABSTRACT"\\
 	2. lower case      "abstract"\\
