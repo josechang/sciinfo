@@ -65,7 +65,9 @@ A database management system (DBMS) is a computer software application that inte
 	
 	On the other hand, graph database also comes with some disadvantages. For example, relational database is typically faster at performing the same operation on large numbers of data elements.\\
 	
-	According to many database websites and discussion thread, there are several methods to store data in database. The two main directions are store inside the database and store out of the database. I will always be suggested not to store binary data in the database if the binary is large. That will cause significant performance decrease and additional storage space. And another way is to store binary data in the file system, and record the path in the database, that will not cause performance decrease when large binary data. But the binary data cannot automatically distribute with the database. Due to the PDF document will cost some performance issues even though PDF file is small in size and our system has no requirement to automatic distribute. We suggest sorting the PDF document in the file system.
+	According to database sturcture, there are several methods to store data. The two main directions are storing inside the database and storing out of the database.//
+	
+	We suggest not to store binary data in database if it is large. It will cause significant performance decrease and additional storage space. In contrast, we suggest to store binary data in the file system, and record the path in the database. It will not cause performance decrease when large binary data store into database, but the binary data can not automatically distribute with the database. Due to the PDF file will cost some performance issues even though it is small in size and our system has no requirement to automatic distribution. We suggest sorting the PDF file in the file system too.
 	
 \end{enumerate}
 
