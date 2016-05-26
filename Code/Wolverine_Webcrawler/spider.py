@@ -12,7 +12,7 @@ __all__ = ['ftpurls', 'ftppaths', 'weburls', 'ftpmirror', 'ftpspider',
 
 '''Multithreaded crawling, reporting, and mirroring for Web and FTP.'''
 
-from __future__ import generators
+
 
 
 class Spider:
@@ -21,14 +21,14 @@ class Spider:
     
     import os as _os
     import urllib as _ulib
-    import urlparse as _uparse
+    import urllib.parse as _uparse
     from os import path as _path 
     from ftplib import FTP as _ftp
     from time import strftime as _formtime
     from time import localtime as _localtime
     from ftplib import error_perm as _ftperr        
     from sgmllib import SGMLParseError as _sperror
-    from robotparser import RobotFileParser as _rparser
+    from urllib.robotparser import RobotFileParser as _rparser
     # Use threads if available 
     try: from threading import Thread as _thread
     except ImportError: pass
@@ -72,8 +72,8 @@ class Spider:
             tries -- number of login attempts'''
             tries += tries
             try:
-                self._name = raw_input('Enter login name: ')
-                self._password = raw_input('Enter password: ')
+                self._name = eval(input('Enter login name: '))
+                self._password = eval(input('Enter password: '))
                 session = ftp(base, self._name, self._password)
                 return session
             # If login attempt fails, retry login
@@ -83,7 +83,7 @@ class Spider:
                     return session
                 # Too many login attempts? End program
                 elif attempts <= tries:
-                    raise IOError, 'Permission denied.'
+                    raise IOError('Permission denied.')
                     import sys
                     sys.exit(0)           
 
@@ -190,7 +190,7 @@ class Spider:
         # Walk FTP site
         visitftp()
         # Make path list out of files' keys and return it
-        self.paths = files.keys()
+        self.paths = list(files.keys())
         self.paths.sort()
         return self.paths
 
@@ -631,7 +631,7 @@ class Spider:
             self.base, self._sb = base, base.split('/')
             self._visited[base], good[base] = 1, 1
         # If URL is bad, abort and raise error
-        else: raise IOError, "URL is invalid"
+        else: raise IOError("URL is invalid")
         # Adjust dept to length of base URL
         if self.depth and depth == 6: self.depth += len(self._sb)
         else: self.depth = depth + len(self._sb)
@@ -653,7 +653,7 @@ class Spider:
         # If user interrupts crawl, return what's done
         except KeyboardInterrupt: pass
         # Get URLs, sort them, and return list
-        self.urls = good.keys()
+        self.urls = list(good.keys())
         self.urls.sort()
         return self.urls                        
 
