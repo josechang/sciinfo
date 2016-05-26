@@ -78,12 +78,13 @@ def createHTML():
 <head>
 	<meta charset="UTF-8">
 	<title>statistics</title>
+	<script src="sorttable.js"></script>
 </head>
 <body>
 """)
 		f.write('<h1>Statistics for bitbucket</h1>')
 		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
-		f.write('<table border="1">')
+		f.write('<table border="1" class="sortable">')
 		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th></tr>')
 		for i in range(0,num_authors):
 			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]))
@@ -100,7 +101,7 @@ def statistics():
 	if out == False:
 		print "error in opening the git repository"
 		return False
-	#getnewest()
+	getnewest()
 	get_author()
 	get_line_data()
 	get_word_data()

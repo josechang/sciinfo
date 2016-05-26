@@ -13,16 +13,16 @@
 
 Our responsibility is building a metadata schema which contains all information in a PDF and then edit it in an XML structure. This article provides an overview of metadata standards which are related to our responsibility. A number of metadata schemas in use nowadays are reviewed, including MODS, METS, METS+MODS+PREMIS, MARC21, MARC XML, Dublin Core, and  their pros and cons. Finally, we compare these schemas by examining the characteristics and unique features of them. We are able to rank them and suggest the optimum standard to build our XML structure. XML is a markup language that defines a set of rules for encoding documents in a format,  which is both human-readable and machine-readable. It is widely used for the representation of arbitrary data structures, such as those used in web services.
 
-Metadata is defined as the "data about data" or alternatively "information about information". In practice, metadata summarizes basic information of data for the organization and management of documents. It can be accessed manually or by automatic information processing and coding. \cite{underwood2003}.
+Metadata is defined as the "data about data" or alternatively "information about information". In practice, metadata summarizes basic information of data for the organization and management of documents. It can be accessed manually or by automatic information processing and coding. \cite{underwood2003xml}.
 
-The metadata schemas can be classified into three types \cite{Dempsey2015}:
+The metadata schemas can be classified into three types \cite{dempsey1997specification}:
 \begin{itemize}
 	\item Simple formats: it includes relatively unstructured data, typically automatically extracted from resources and indexed for searching. The data has little explicit semantics and does not support searching by field, such as Lycos, Altavista, Yahoo, etc.
 	\item Structured formats: it includes data which contains full enough description to allow a user to assess the potential utility or interest of a resource without having to retrieve it or connect to it. The data is structured and supports fielded searching, such as Dublin Core, IAFA templates, RFC 1807, SOIF, LDIF.
 	\item Rich formats: it includes fuller descriptive formats which may be used for location and discovery, but also have a role in documenting objects or, very often, collections of objects, such as ICPSR, CIMI, EAD, TEI, MARC.
 \end{itemize}
 
-XML (Extensible Markup Language) is the universal format for the encoding and exchange of structured documents and data. There are no predefined tags and document structures in XML. In other words, the XML provides structural capabilities that HTML lacks, making it easy to achieve the principles of modularity and extensibility. The XML schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability \cite{duval2002}. Our work is to build a metadata schema in XML structure. The following sections will introduce the different schemas as mentioned previously.
+XML (Extensible Markup Language) is the universal format for the encoding and exchange of structured documents and data. There are no predefined tags and document structures in XML. In other words, the XML provides structural capabilities that HTML lacks, making it easy to achieve the principles of modularity and extensibility. The XML schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability \cite{duval2002metadata}. Our work is to build a metadata schema in XML structure. The following sections will introduce the different schemas as mentioned previously.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Different standards of metadata
@@ -34,7 +34,7 @@ There are various types of standards that describes the metadata in different fi
 
 \begin{figure*}		
 	\begin{center}
-		\includegraphics[scale=0.8]{EagleUnit_Background_Chart_1}
+		\includegraphics[width=1.8\columnwidth]{EagleUnit_Background_Chart_1}
 	\end{center}
 	\caption{Overview and hierarchical ranking of metadata standards and their individual features}
 \end{figure*}
@@ -66,6 +66,8 @@ There are various types of standards that describes the metadata in different fi
 	{\bf Introduction}\\
 	Metadata Object Description Schema (MODS) was developed by the Library of Congress' Network Development and MARC Standards Office in 2002. It is a bibliographic element set for multiple purposes, especially for library applications. As an XML schema, it is not only able to carry the selected data from existing MARC 21 records but to enable the creation of original resource description records. It includes a subset of MARC and uses language-based tags rather than numeric ones. In some cases regrouping elements are from the MARC 21 bibliographic format. It released the third version (version 3.6) in May 2015. MODS is expressed using the XML of the World Wide Web Consortium. The standard is maintained by the MODS Editorial Committee with support from the Network Development and MARC Standards Office of the Library of Congress.\\
 	
+	MODS is an XML schema which is guidelines a resource description for encoding, as well as exchange and management descriptions of encoding.\\
+	
 	Elements of MODS generally inherit the MARC, some data has been repackaged; in some cases what is in several data elements in MARC may be brought together into one in MODS. Also, MODS does not assume any specific cataloging code.\\ It is used as an extension schema to METS (Metadata Encoding and Transmission Standard), as a representing a simplified MARC record in XML.
 	
 	{\bf Advantages}
@@ -95,7 +97,8 @@ There are various types of standards that describes the metadata in different fi
 	The PREservation Metadata Implementation Strategies (PREMIS) is an administrative metadata schema used for the preservation of digital resources.\cite{Cheslow2014} With the rapid changes in technology, digital objects including its metadata are bound to go obsolete at some time in the future. PREMIS was created to set standards that will ensure long term usability and preservation of digital resources.
 	
 	{\bf Why METS+PREMIS+MODS? }\\
-	To understand metadata needs, it is important to understand the data production and structures. Structuring digital objects particularly e-journal present two main difficult problems. First, e-journals are structurally complex. New issues are released in intervals for each journal title. These may contain varying number of articles and other publishing matters having variety of formats. Second, the production of e-journal is outside the control of the digital repository and done without the benefit of standards for the structure of file formats, metadata formats and vocabulary, publishing schedules, etc.\cite{Dappert2008}
+	To understand metadata needs, whuch is important to understand the data production and structures. Structuring digital objects particularly e-journals present two main difficult problems. 
+	First, e-journals are structurally complex. New issues are released in intervals for each journal title. These may contain a varying number of articles and other publishing matters having a variety of formats. Second, the production of e-journals are outside the control of the digital repository and done without the benefit of standards for the structure of file formats, metadata formats and vocabulary, publishing schedules, etc.\cite{Dappert2008}
 	As a means to solve these problem, METS provides a robust and flexible way to define digital objects. The MODS on the other hand, provides ways to describe digital objects and can be built on a MARC. Finally the PREMIS provides ways to describe digital objects and processes that are essential for digital preservation. Also, these three metadata standards are all built on an XML schema.\cite{Dappert2008}
 	Details on how to implement these three metadata standards to form a robust metadata structure or archive can be found in "Using METS, PREMIS and MODS for Archiving eJournals".\cite{Dappert2008} Though there are different ways to implement these schema only one was discussed in the aforementioned literature.
 	
@@ -124,7 +127,7 @@ There are various types of standards that describes the metadata in different fi
 	The Library of Congress Network Development and MARC Standards is developed a framework for working in MARC data in a XML environment. The MARC XML schema are not need to be edited to reflect of minor changes to MARC21. The schema retains the semantics of MARC.\\
 	This information has been made in several areas and fields, one of these the bibliographic domain, where this is guided by instruments, principles, models and technologies. With the metadata standards used in this field, the MARC formats 21, with origins in the 1960s Considering the widespread use of these standards are, the objective of\\
 	highlight the purposes that led to the creation of MARC formats 21. Which is carried out a literature review on the origin of MARC and its development in the MARC 21 and the coding records. Thus it is presented coding with XML and the MARCXML schema, as well as criticism of the MARC formats 21. It follows that, despite the criticism, the MARC formats 21 are still widely used and disseminated, and that despite the advantages offered by XML, encoding with the ISO 2709 standard. \\
-	It is important to note that the MARC 21 is a format for data exchange, which tells how a bibliographic and cataloging record should be described for our import or export successfully occur, but the catalog data model should not necessarily be structurally organized in the same format a MARC21 record. \\
+	It is important to note that the MARC 21 is a data exchange format, which tells how import or export successfully occur the bibliographic and cataloging record and should be described, but the catalog data model should not necessarily be structurally organized in the same format as a MARC21 record. \\
 	When the technological development will start with direct and indirect implications for informational resource representation activities and exchange of cataloging data. We hoped that the MARC formats 21, on development and on their encodings has contributed to the area of Information Science. \\
 	But now-a-day the standards are the Metadata Object Description Schema (MODS) (Metadata Scheme for description of object) and the Metadata Authority Description Schema (MADS), both created for use with XML and specified by XML schemas.
 	
