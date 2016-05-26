@@ -10,16 +10,16 @@
 % Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Method}
-As mentioned in the background, our group use natural language processing in order to generate metadata. The scope of metatada is about producing at least three types of metadata include author name, title and abstract. This is the least we want to produce within the time frame of this course. Once accomplishing 3 metadata mentioned earlier, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix, journal name, volume number and so on. If time is still on our side, we will even extend the scope our project further and join other teams to produce a search engine. Following are our plan to complete extracting the 3 first types of metatata from PDF files.
+As mentioned in the background, our group use natural language processing in order to generate metadata. The scope of metatada processing is about producing at least three types of metadata include author name, title and abstract. This is the least we want to produce within the time frame of this course. Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on. If time is still on our side, we will even extend the scope our project further and join other teams to produce a search engine. Following discussion are our plan to complete extracting the 3 first types of metatata from PDF files.
 \subsection*{Title extraction}
-We chose python to be the program to catch the title and other metadata as well. First step, we import some necessary packages and function as following:
+We chose python to be the program to catch the title and other metadata as well. First step, we import some necessary packages and functions as following:
 \begin{enumerate}
 	\item re: Regular expression package
-	\item os: this function can connect the python to operating system, so that we can call the path
+	\item os: This function can connect the python to operating system, so that we can call the path
 	\item nltk: A natural language toolkit. We use the corpus plaintext function to build the txt file in a folder as corpus.
 	\item string:The string package includes a lot of classes such as lowercase, uppercase,punctuation,digits or whitespace...etc. 
 \end{enumerate}  
-To begin,we convert all PDF files we want to deal with into a txt file and set the path and store them in specific folder. Then, the use of regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. Afterward, we intend to produce the title of the article in a txt file.   
+To begin, we convert all PDF files we want to deal with into a txt file and set the path and store them in specific folder. Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. Afterward, we intend to produce the title of the article in a txt file.   
 
 \subsubsection*{Author extraction}
 
@@ -30,7 +30,7 @@ To begin,we convert all PDF files we want to deal with into a txt file and set t
 	%	\includegraphics[width=\columnwidth]{Union_Background_Chart_2}
 	%\end{center}
 	The pdf is converted into txt file.Thus, it will create the txt file. The work is done by hand coding. For detailed coding scheme, we have presented it in the appendix at the end of this report\\ 
-	After being able to read the txt file on every line, the python detects the abstract-database's words ,it will start to catch the sentences.\\ 	
+	After being able to read the txt file on every line, the python will detect the content of the abstract. In order to do so, we strip the text between "abstract" label and "introduction" label.\\ 	
 	abstract-database:including the condition\\
 	1. capital         "ABSTRACT"\\
 	2. lower case      "abstract"\\
@@ -49,7 +49,6 @@ To begin,we convert all PDF files we want to deal with into a txt file and set t
 	3. and so on.\\
 	The intended output are sentences extracted to the txt file. To further validate if the program can run precisely, members randomly search for articles (10 articles) to test the programs. The program was run successfully and all abstracts was extracted from the text. \\ 	
 	
-\end{itemize}
 
 \subsubsection*{Search sentences}
 \begin{itemize}
