@@ -12,9 +12,10 @@
 \subsection{Automatic creation of metadata}
 \textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
-We are producing a program that automatically generate metadata. Threre are three main subjects we want to extract: authors' name, title and abstract of the article .\todo{Please update based on what you are building}
-
-We are interested in features for either more convenient uses of the program or improving precise data generation.There are 5 related problems.
+We are producing a program that automatically generate metadata with natural language processing. 
+We also strive to generate XML files with metadata extracted. 
+In the best scenario, we will even try to create a search engine together with other groups. 
+Following discussion is our literature review on natural language processing.
 
 \begin{figure*}[ht]
 	\begin{center}
@@ -183,9 +184,13 @@ TIMEBANK was first proposed in \cite{pustejovsky2003timebank}. The idea was base
 	\item I was in UK in 2012.
 \end{itemize}
 
-The first sentence is simple future tense which imply something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now -- so such fact must be used with caution. 
+The first sentence is simple future tense which imply something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now, so such fact must be used with caution. 
 
-The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. In addition to TIMEBANK, many other tools can be another filter for fact extraction. \cite{Dave2003mining} identify words, clauses and phrases that show emotional state of the authors. The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \cite{Wiebe2005}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK, which is built by \cite{Sauri2009}. Following example shows how subjective statements can be picked out.
+The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. In addition to TIMEBANK, many other tools can be another filter for fact extraction. 
+\cite{Dave2003mining} identify words, clauses and phrases that show emotional state of the authors. 
+The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \cite{Wiebe2005}. 
+Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK, which is built by \cite{Sauri2009}. 
+Following example shows how subjective statements can be picked out.
 
 \begin{itemize}
 	\item Channelization would guarantee high flow velocity in rivers, flooding and consequent degradation of riparian community (1a)
@@ -194,9 +199,14 @@ The reason for introducing such tool is that even scientific research articles c
 	\item Tolerance to dictatorship would doom anarchist movement (2b)
 \end{itemize}
 
-It is easy to find in statement (1a) is an absolute fact. Statement (1b) is however affected by emotional state of authors. After re-writing (1b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises, sentence (1b) become a face-based statement. In another case, statement (2a) is a fact-based statement while in statement (2b), authors are stressing their dislike toward dictatorship.
+It is easy to find in statement (1a) is an absolute fact. 
+Statement (1b) is however affected by emotional state of authors. 
+After re-writing (1b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises, sentence (1b) become a face-based statement. 
+In another case, statement (2a) is a fact-based statement while in statement (2b), authors are stressing their dislike toward dictatorship.
 
-Fact checks in language generation is a new field but many useful tools have been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.
+Fact checks in language generation is a new field but many useful tools have been developed. 
+Each of them has their own function and could complement each others. 
+In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.
 
 
 
