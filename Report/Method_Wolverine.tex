@@ -14,7 +14,9 @@
 \subsection{Built a database containing ten thousand articles}
 %\textit{\footnotesize Author:Dexter Chen, Eric Chang, Eric Lee, Jacky Wu, Karthick Mani, Kenvin Lo, Yu-cheng Chen.}\\
 
-The most important thing on this subject is to build a database which contains 10,000 articles. To reach that target, this study will go to discuss the advantages and disadvantages of different databases and will decide the most suitable one to be the database of this study. At a meantime, this study will focus on how to use web crawlers to download articles automatically, which will contain in the database of this study
+The most important thing on this subject is to build a database which contains 10,000 articles.
+To reach that target, this study will go to discuss the advantages and disadvantages of different databases and will decide the most suitable one to be the database of this study.
+At a meantime, this study will focus on how to use web crawlers to download articles automatically, which will contain in the database of this study.
 
 %Aim of this article is to give a brief idea of a database which is about to develop for the purpose of downloading the articles from open access databases using web crawler or web robot. And setting up a system that can allow the users to access the data in our database. we like to separate the article into 6 subsection based on their features, fallowed by then suggestions based on each feature. 
 
@@ -51,19 +53,12 @@ A database management system (DBMS) is a computer software application that inte
 	\item\textbf{Relational database}
 	\setlength{\parindent}{1em}
 	
-<<<<<<< HEAD
-    A relational database is the most popular database used in the world. They can organize data into one or more tables of columns and rows, with a unique key identifying each row. Rows are also called records or tuples. Generally, each table represents one "entity type" (such as customer or product). The rows represent instances of that type of entity (such as "Lee" or "iPhone 6") and the columns representing values attributed to that instance (such as address or price).
-    
-    Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data. Besides SQL is easy in the relational database approach. For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities. However, once the attributes of data become more and more, you'll need a lot of tables to store your information. Therefore, the performance of relational database will decrease obviously.
-=======
 	A relational database is the most popular database used in the world. 
 	They can organize data into one or more tables of columns and rows, with a unique key identifying each row. 
 	Rows are also called records or tuples. Generally, each table represents one "entity type" (such as customer or product). 
 	The rows represent instances of that type of entity (such as "Lee" or "iPhone 6") and the columns representing values attributed to that instance (such as address or price).
 	
-	Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data. Besides SQL is easy in the relational database approach. For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities. However, once the attributes of data become more and more, you'll need a large amount of tables to store your information. Therefore, the performance of relational database will decrease obviously.
->>>>>>> origin/DexterChen/make-the-size-of-sentence-suitable-to-th-1464311380447
-
+    Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data. Besides SQL is easy in the relational database approach. For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities. However, once the attributes of data become more and more, you'll need a lot of tables to store your information. Therefore, the performance of relational database will decrease obviously.
 	
 	\item\textbf{Graph database}
 	\setlength{\parindent}{1em}
@@ -74,7 +69,7 @@ A database management system (DBMS) is a computer software application that inte
 	
 	On the other hand, graph database also comes with some disadvantages. For example, the relational database is typically faster at performing the same operation on large numbers of data elements.\
 	
-    According to the database structure, there are several methods to store data. The two main directions are storing inside the database and storing out of the database.//
+    According to the database structure, there are several methods to store data. The two main directions are storing inside the database and storing out of the database.
     
     We suggest not to store binary data in the database if it is large. It will cause significant performance decrease and additional storage space. In contrast, we suggest to store binary data in the file system and record the path in the database. It will not cause performance decrease when large binary data store into the database, but the binary data can not automatically distribute with the database. Due to the PDF file will cost some performance issues even though it is small in size and our system has no requirement for automatic distribution. We suggest sorting the PDF file in the file system too.
 	
@@ -87,18 +82,16 @@ A database management system (DBMS) is a computer software application that inte
 	
 	
 \subsubsection{Web Crawler}
-The web crawler is a program that can automatically browse through web pages, find out the information we assigned and store them. It has ability to process the data quickly and accurate to update a very large amount of data which are constantly being updated according to \cite{Liu2012}. It starts with a list of URL to visit, called the seeds. As crawler visits these URL, it identifies all the informations that we want, such as hyper links in the page and adds them to the list of URL to visit, called the crawl frontier. URL from the frontier is recursively visited according to a set of policies. If the crawler is performing archiving of websites, it copies and saves the information as it goes. The archives are usually stored in such a way they can be viewed, read and navigated as they were on the live web, but are preserved as 'snapshots' from \cite{Du2013}. We need to build up a web crawler to automatically visit a list of web page. Then find out which link in the page is valuable to download into our database.
-	
-	
-%\subsubsection*{User account}
-%One of the the main issue is how to create a user account that can connect between user and database. But the more important thing is to make sure database will not collapse by user who is not allowed to access to core part of database. 
- %To protect the database system security and privilege, this study introduces two methods for user account, principle of least privilege and role-based access control respectively. The principle of least privilege, also known as the principle of minimal privilege, means giving a user account only those those privileges which are essential to that user's work \cite{PrincipleLeastPrivilege}. The role-based access control is a policy neutral access control mechanism defined around privileges and roles. It can implement discretionary access control (DAC) or mandatory access control (MAC). The role-based access control is very easy to do user assignments as the components of this policy, such as role-permissions, etc. That is why it sometimes referred to as role-based security \cite{RoleBasedAccessControl}. The information and resources would not in danger due to these two methods will filter user depend on their authority and only allow the legitimate user to access. 
-	
-	
-%\subsubsection*{User Interface}
-%Understanding the types of visualizations people create by themselves for personal use. As part of this recent direction, we have studied a large collection of whiteboards in a research institution, where people make active use of combinations of words, diagrams and various types of visuals to help them further their thought processes. Our goal is to arrive at a better understanding of the nature of visuals that are created spontaneously during brainstorming, thinking, communicating, and general problem solving on whiteboards.\cite{Blascheck2016} We use the qualitative approaches of open coding, interviewing, and affinity diagramming to explore the use of recognizable and novel visuals, and the interplay between visualization and diagrammatic elements with words, numbers and labels. We discuss the potential implications of our findings on in- formation visualization design. Combining the advantage of visual thinking new standard of data processing, that visual nature of computers can challenge the first generation of hackers, An icon is an image, picture, or symbol representing a concept.\cite{Szpunar2010}
-	
-	
+The web crawler is a program that can automatically browse through web pages, find out the information we assigned and store them.
+It has ability to process the data quickly and accurate to update a very large amount of data which are constantly being updated according to \cite{Liu2012}.
+It starts with a list of URL to visit, called the seeds.
+As crawler visits these URL, it identifies all the informations that we want, such as hyper links in the page and adds them to the list of URL to visit, called the crawl frontier.
+URL from the frontier is recursively visited according to a set of policies.
+If the crawler is performing archiving of websites, it copies and saves the information as it goes.
+The archives are usually stored in such a way they can be viewed, read and navigated as they were on the live web, but are preserved as 'snapshots' from \cite{Du2013}.
+We need to build up a web crawler to automatically visit a list of web page.
+Then find out which link in the page is valuable to download into our database.
+		
 %\subsubsection*{Data Storage and Search Methods}
 %The organization of data inside a database management system(DBMS) and retrieval methods is based on the database storage structure such as tables and indexes. There are several types of database storage structure such as XML, a textual data format. This advantage is self-describing and flexible in organizing data.\cite{ISI:000253400700005}Several considerations of data storage include right space allocation techniques, data compression techniques (if necessary), security and encryption and the access path to retrieve the data. Therefore, DBMS software will provide some method to optimize and minimum storage space of a database.
 	
