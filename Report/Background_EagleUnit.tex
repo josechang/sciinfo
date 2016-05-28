@@ -59,8 +59,10 @@ Listed in the following are five different standards with a brief introduction t
 	
 	In 1990s, Making of America II (MOA2) project was proposed to share vision between national digital libraries which provides a means for the Digital Library Federation (DLF) to investigate, refine, and recommend metadata elements and encodings used to discover, display, and navigate digital archival objects. MOA2 DTD was created to test MOA2 project.
 	
-	However, MOA2 DTD was limited in several ways. It provided no flexibility in terms of the exact metadata elements to be used for descriptive, administrative and structural metadata. 
-	Also, limited in scope to support for text and still image materials and no attempt to support time-based media such as audio or video materials. To solve those problems led to the creation of METS.
+	However, MOA2 DTD was limited in several ways. 
+	It provided no flexibility in terms of the exact metadata elements to be used for descriptive, administrative and structural metadata. 
+	Also, limited in scope to support for text and still image materials and no attempt to support time-based media such as audio or video materials. 
+	To solve those problems led to the creation of METS.
 	
 	{\bf Advantages}
 	\begin{enumerate}
@@ -78,11 +80,15 @@ Listed in the following are five different standards with a brief introduction t
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item MODS\\
 	{\bf Introduction}\\
-	Metadata Object Description Schema (MODS) was developed by the Library of Congress' Network Development and MARC Standards Office in 2002. It is a bibliographic element set for multiple purposes, especially for library applications. As an XML schema, it is not only able to carry the selected data from existing MARC 21 records but to enable the creation of original resource description records. It includes a subset of MARC and uses language-based tags rather than numeric ones. In some cases regrouping elements are from the MARC 21 bibliographic format. It released the third version (version 3.6) in May 2015. MODS is expressed using the XML of the World Wide Web Consortium. The standard is maintained by the MODS Editorial Committee with support from the Network Development and MARC Standards Office of the Library of Congress.\\
+	Metadata Object Description Schema (MODS) was developed by the Library of Congress' Network Development and MARC Standards Office in 2002. 
+	It is a bibliographic element set for multiple purposes, especially for library applications. As an XML schema, it is not only able to carry the selected data from existing MARC 21 records but to enable the creation of original resource description records. 
+	It includes a subset of MARC and uses language-based tags rather than numeric ones. In some cases regrouping elements are from the MARC 21 bibliographic format. 
+	It released the third version (version 3.6) in May 2015. MODS is expressed using the XML of the World Wide Web Consortium. The standard is maintained by the MODS Editorial Committee with support from the Network Development and MARC Standards Office of the Library of Congress.\\
 	
 	MODS is an XML schema which is guidelines a resource description for encoding, as well as exchange and management descriptions of encoding.\\
 	
-	Elements of MODS generally inherit the MARC, some data has been repackaged; in some cases what is in several data elements in MARC may be brought together into one in MODS. Also, MODS does not assume any specific cataloging code.\\ It is used as an extension schema to METS (Metadata Encoding and Transmission Standard), as a representing a simplified MARC record in XML.
+	Elements of MODS generally inherit the MARC, some data has been repackaged; in some cases what is in several data elements in MARC may be brought together into one in MODS. Also, MODS does not assume any specific cataloging code.\\ 
+	It is used as an extension schema to METS (Metadata Encoding and Transmission Standard), as a representing a simplified MARC record in XML.
 	
 	{\bf Advantages}
 	\begin{enumerate}
@@ -99,7 +105,8 @@ Listed in the following are five different standards with a brief introduction t
 		\item Additional instructions would need to be provided for conversion details.
 	\end{enumerate}
 	{\bf Conclusion}\\
-	MODS has a high level of compatibility with MARC records because it inherits the semantics of the equivalent data elements in the MARC 21 bibliographic format. It may be used for the original resource description that allows for rich description that is generally compatible with existing library data and is expressed in XML syntax. 
+	MODS has a high level of compatibility with MARC records because it inherits the semantics of the equivalent data elements in the MARC 21 bibliographic format. 
+	It may be used for the original resource description that allows for rich description that is generally compatible with existing library data and is expressed in XML syntax. 
 	Because it includes a subset of MARC fields and repackages some of them, it is particularly useful for technician input.\\
 	An additional use of MODS is as an extension schema for descriptive metadata for the METS object.
 	
@@ -109,14 +116,21 @@ Listed in the following are five different standards with a brief introduction t
 	{\bf Introduction}\\
 	The first developed of digital repositories of the British Library's e-journal system was the combination of METS, MODS and PREMIS..\cite{Dappert2008} 
 	It exploited the METS structural, PREMIS preservation and MODS descriptive metadata to form a robust metadata structure. 
-	The Metadata Encoding and Transmission Standard (METS) is an XML document that can package the metadata of a digital resource: the descriptive, administrative, structural, rights and other data needed for retrieval and preserving of a digital resources.\cite{Guenther2003} 
-	In other words it can be referred as a metadata storing and communication standard. The METS wrapper has up to seven major subsections: "a METS Header (metsHDR), a Descriptive Metadata Section (dmdSec), an Administrative Metadata Section (amdSec), a File Section (fileSec), a Structural Map (structMap), Structural Links (structLink), and a Behavior Section (behaviorSec)" these form the basic structure of METS. 
-	The Structural Map is the most important subsection and must be included in a METS document.\cite{Cheslow2014} These subsections have elements that provide the means for describing in detail the digital objects. The Structural Map defines a hierarchical structure such that using METS pointers users of the digital library object can easily navigate through it . 
+	The Metadata Encoding and Transmission Standard (METS) is an XML document that can package the metadata of a digital resource: 
+	the descriptive, administrative, structural, rights and other data needed for retrieval and preserving of a digital resources.\cite{Guenther2003} 
+	In other words it can be referred as a metadata storing and communication standard. The METS wrapper has up to seven major subsections: 
+	"a METS Header (metsHDR), a Descriptive Metadata Section (dmdSec), an Administrative Metadata Section (amdSec), a File Section (fileSec), 
+	a Structural Map (structMap), Structural Links (structLink), and a Behavior Section (behaviorSec)" these form the basic structure of METS. 
+	The Structural Map is the most important subsection and must be included in a METS document.\cite{Cheslow2014} 
+	These subsections have elements that provide the means for describing in detail the digital objects. 
+	The Structural Map defines a hierarchical structure such that using METS pointers users of the digital library object can easily navigate through it . 
 	One great advantage of METS is that it provides a flexible framework for modelling different document types and scenarios.\cite{Dappert2008}
 	The Metadata Object Description Standard (MODS) provides ways to describe objects and has a high level compatibility with MARC. 
-	Among other XML metadata standard it is an alternative between a simple metadata format (such as Dublin Core) which has a minimum of fields and little or no substructure, and a very detailed format (such as MARC 21) with many data elements having various structural complexities.\cite{Guenther2003}
+	Among other XML metadata standard it is an alternative between a simple metadata format (such as Dublin Core) 
+	which has a minimum of fields and little or no substructure, and a very detailed format (such as MARC 21) with many data elements having various structural complexities.\cite{Guenther2003}
 	The PREservation Metadata Implementation Strategies (PREMIS) is an administrative metadata schema used for the preservation of digital resources.\cite{Cheslow2014} 
-	With the rapid changes in technology, digital objects including its metadata are bound to go obsolete at some time in the future. PREMIS was created to set standards that will ensure long term usability and preservation of digital resources.
+	With the rapid changes in technology, digital objects including its metadata are bound to go obsolete at some time in the future. 
+	PREMIS was created to set standards that will ensure long term usability and preservation of digital resources.
 	
 	{\bf Why METS+PREMIS+MODS? }\\
 	To understand metadata needs, whuch is important to understand the data production and structures. 
@@ -144,7 +158,8 @@ Listed in the following are five different standards with a brief introduction t
 	\begin{enumerate}
 		\item Easiness: This schema is not ease to build compared to single metadata structure.
 		\item Redundancy: Some of the metadata stored in the METS were also stored in the PREMIS to improve preservation.
-		\item Update: The digital object in the repository are write-once in order to support archival authenticity and track digital object provenance, thus in-situ update is not possible. To update another version of the Archival information package has to be added.
+		\item Update: The digital object in the repository are write-once in order to support archival authenticity and track digital object provenance, thus in-situ update is not possible. 
+		To update another version of the Archival information package has to be added.
 	\end{enumerate}
 	{\bf Conclusion}\\
 	METS is an excellent metadata schema for use with digital libraries and will become more robust when combined with MODS for descriptive metadata and PREMIS for preservation metadata.
@@ -162,7 +177,8 @@ Listed in the following are five different standards with a brief introduction t
 	Which is carried out a literature review on the origin of MARC and its development in the MARC 21 and the coding records. Thus it is presented coding with XML and the MARCXML schema, as well as criticism of the MARC formats 21. 
 	It follows that, despite the criticism, the MARC formats 21 are still widely used and disseminated, and that despite the advantages offered by XML, encoding with the ISO 2709 standard. \\
 	It is important to note that the MARC 21 is a data exchange format, which tells how import or export successfully occur the bibliographic and cataloging record and should be described, but the catalog data model should not necessarily be structurally organized in the same format as a MARC21 record. \\
-	When the technological development start with direct and indirect implications for informational resource representation activities and exchange of cataloging data. We hoped that the MARC formats 21, on development and on their encodings has contributed to the area of Information Science. \\
+	When the technological development start with direct and indirect implications for informational resource representation activities and exchange of cataloging data. 
+	We hoped that the MARC formats 21, on development and on their encodings has contributed to the area of Information Science. \\
 	But now-a-day the standards are the Metadata Object Description Schema (MODS) (Metadata Scheme for description of object) and the Metadata Authority Description Schema (MADS), both created for use with XML and specified by XML schemas.
 	
 	{\bf Advantages}
@@ -186,15 +202,20 @@ Listed in the following are five different standards with a brief introduction t
 	\end{enumerate}
 	
 	{\bf Conclusion}\\
-	The MARC formats 21 are still widely used and disseminated for the exchange of cataloging data in digital environments. Despite the advantages offered by coding the XML, including the development of software for processing MARC 21 records still persists.\\
-	Together with efforts to use XML - coding in MARC records 21, LC is designed metadata standards which have alternatives to traditional formats. Among these standards are the Metadata Object Description Schema (MODS) (Metadata Scheme for description of object) and the Metadata Authority Description Schema (MADS), both created for use with XML and specified by XML schemas.\\
+	The MARC formats 21 are still widely used and disseminated for the exchange of cataloging data in digital environments. 
+	Despite the advantages offered by coding the XML, including the development of software for processing MARC 21 records still persists.\\
+	Together with efforts to use XML - coding in MARC records 21, LC is designed metadata standards which have alternatives to traditional formats. 
+	Among these standards are the Metadata Object Description Schema (MODS) (Metadata Scheme for description of object) and the Metadata Authority Description Schema (MADS), both created for use with XML and specified by XML schemas.\\
 	The MODS and MADS have great compatibility with traditional formats MARC 21, although, in general, do not allow the data record with the same level of specificity given by the MARC formats 21.\\
 	The MODS, due to its high compatibility with the MARC format 21 for Bibliographic Data can be chosen by libraries as a metadata standard for describing information resources.
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\item MARCXML\\
 	{\bf Introduction}\\
-	To make up the less of internet compatibility of MARC 21, the Library of Congress developed an XML schema based on it. Which the schema is the MARCXML standard. The purpose of MARCXML is to build a metadata format with a simple, extensible and flexible structure, which can be presented in XML stylesheets. Since MARCXML was design to converged data from MARC 21, the structure and performance are very similar between these two standards.\\
+	To make up the less of internet compatibility of MARC 21, the Library of Congress developed an XML schema based on it, which the schema is the MARCXML standard. 
+	The purpose of MARCXML is to build a metadata format with a simple, extensible and flexible structure, which can be presented in XML stylesheets. 
+	Since MARCXML was design to converged data from MARC 21, the structure and performance are very similar between these two standards.\\
+	
 	{\bf Advantages}
 	\begin{enumerate}
 		\item Used in XML directly.
@@ -229,12 +250,14 @@ Listed in the following are five different standards with a brief introduction t
 		
 	{\bf Disadvantages}
 	\begin{enumerate}
-		\item There are no cataloging rules that determine how data will be filled in. So if I write " Contributor: Sam Smith ", I can also write "contributor = Smith, Sam.". It means that there is no consistency across different uses of Dublin Core.
+		\item There are no cataloging rules that determine how data will be filled in. So if I write " Contributor: Sam Smith ", I can also write "contributor = Smith, Sam.". 
+			It means that there is no consistency across different uses of Dublin Core.
 		\item Does'nt work well for data conversion.
-		\item Data values in non-mappable space will be left out, especially when a source schema has a richer structure than the target schema. E.g., from METS to Dublin core.
+		\item Data values in non-mappable space will be left out, especially when a source schema has a richer structure than the target schema, e.g. from METS to Dublin core.
 	\end{enumerate}
 	{\bf Conclusion}\\
-	Because there are no cataloging rules, it makes Dublin core easy to use by anyone. On the other hand, this is something that goes against the article cataloging.
+	Because there are no cataloging rules, it makes Dublin core easy to use by anyone. 
+	On the other hand, this is something that goes against the article cataloging.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		
 \end{enumerate}
