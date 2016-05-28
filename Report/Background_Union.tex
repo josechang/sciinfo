@@ -44,7 +44,12 @@ Besides dealing with mutiple-meaning words,the most important part of name recog
 
 
 
-With above effort,users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.\cite{TunThuraThet2010} Users don not have to filter the results which are ranked by browsing frequency popularity. Users just can obtain the information and relevance by clicking the specific categories. Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle this problems. 
+With above effort,users' exploration and overviews of information could be better supported. 
+It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.
+\cite{TunThuraThet2010} Users don not have to filter the results which are ranked by browsing frequency popularity. 
+Users just can obtain the information and relevance by clicking the specific categories. 
+Also, users are able to choose multiply fields if the results include a lot of relevant fields. 
+That's a big motivation for people to handle this problems. 
 
 A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended. \\\\\\\\\todo{Citation or a few examples needed9999999454546459.} The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized database or metadata.\\
 
@@ -123,7 +128,9 @@ Supervised methods are based on the assumption that the context can provide enou
 
 \subsubsection*{Semi-supervised}
 
-Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm \cite{Gartner201317}. It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \todo{Good beginning. An example or explanation of the properties is needed. A citation on the last sentence is needed.}\\
+Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm \cite{Gartner201317}. 
+It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. 
+Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \todo{Good beginning. An example or explanation of the properties is needed. A citation on the last sentence is needed.}\\
 
 Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm. 
 It uses the ‘One sense per collocation’ and the ‘One sense per discourse’ properties of human languages for word sense disambiguation. 
@@ -147,15 +154,22 @@ Also, an ambiguous word in one language is often translated into different words
 	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
 
-The bootstrapping approach\todo{Which bootstraping? Missing text in between.} starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \cite{Blascheck2016}.
+The bootstrapping approach\todo{Which bootstraping? Missing text in between.} starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. 
+The seeds are used to train an initial classifier, using any supervised method. 
+This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. 
+The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \cite{Blascheck2016}.
 
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.
+Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplements the tagged corpora. 
+These techniques have the potential to help in the adaptation of supervised models to different domains.
 
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system\cite{Cheslow2014}.
+Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. 
+Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system\cite{Cheslow2014}.
 
 \subsubsection*{Unsupervised}
 
-Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. In this model, a number of sentences are used which contains a particular word which has several meanings. The main goal is to divide those words into a specified number of sense groups \cite{4028513}.
+Unsupervised WSD which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. 
+In this model, a number of sentences are used which contains a particular word which has several meanings. 
+The main goal is to divide those words into a specified number of sense groups \cite{4028513}.
 The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
 
 \begin{enumerate}
@@ -169,16 +183,22 @@ The Naive Bayes model applied mathematically entirely focuses on the issue of fe
 Three different feature sets have been used by 'Pedersen and Bruce' (under Naive Bayes model) for each word to formulate such a model describing the distributions of sense groups of that word in Unsupervised WSD.
 
 The features which were taken into account are:
-\textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology.This feature represents the morphology of the ambiguous word and is denoted by M.In case of nouns, M acts as Binary which indicates whether the word is plural or singular.For verbs, M indicates the tense of the verb and can have up to seven possible values.This feature is not applicable for adjectives.
+\textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology.
+This feature represents the morphology of the ambiguous word and is denoted by M.
+In case of nouns, M acts as Binary which indicates whether the word is plural or singular.
+For verbs, M indicates the tense of the verb and can have up to seven possible values.
+This feature is not applicable for adjectives.
 
-\textbf{Part-of-speech:} This feature represents the part-of-speech of the word and tells the position of the ambiguous word.Each POS feature can have one of five possible values: noun, verb, adjective, adverb or other.
+\textbf{Part-of-speech:} This feature represents the part-of-speech of the word and tells the position of the ambiguous word.
+Each POS feature can have one of five possible values: noun, verb, adjective, adverb or other.
 
 \textbf{Co-occurences:} This feature also acts as binary variables representing whether the most frequent content word in all the sentences contains the ambiguous word can occur anywhere in the sentence or not.
 
 \begin{enumerate}
 	\item WordNet-based feature selection:
 \end{enumerate}
-WordNet is a large lexical database of English. The approach to WSD relies on a set of features formed by the actual words occuring near the target word and reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.The WN semantic network provides the words considered relevant for theh set of senses taken into consideration corresponding to the target word.
+WordNet is a large lexical database of English. The approach to WSD relies on a set of features formed by the actual words occuring near the target word and reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.
+The WN semantic network provides the words considered relevant for theh set of senses taken into consideration corresponding to the target word.
 In WordNet, noun is the most developed portion as per the research done over the performance for knowledge-based disambiguation.
 For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this part of speech.
 Verbs are suggested to use additionally whenever possible.
@@ -189,16 +209,23 @@ So, this background focuses mainly on the issues of feature selection for unsupe
 The difference between 'Supervised' and 'Unsupervised' WSD is:
 
 \begin{enumerate}
-	\item The Supervised WSD approach requires a large amount of data in order to achieve a reliable result and generally the scope is limited to some words. Whereas the Unsupervised WSD approach does not use any corpus and suggests the suitable information extracted to the word knowledge base.This method is used in case of performing WSD without data learning.
+	\item The Supervised WSD approach requires a large amount of data in order to achieve a reliable result and generally the scope is limited to some words. 
+	Whereas the Unsupervised WSD approach does not use any corpus and suggests the suitable information extracted to the word knowledge base.
+	This method is used in case of performing WSD without data learning.
 	\item The Supervised approaches make use of information from labeled training data while the Unsupervised does not depend upon any labeled data, it uses a multi-lingual thesaurus that contains millions of biomedical and health related concepts, their synonymous names and their relationships.
 \end{enumerate}
 \todo[inline]{A summary on list format can be motivated, but then each item need to be brief and you should not introduce anything new like UMLS in it.}
 
 \subsubsection*{Factuality}
 
-In the process of producing metadata, which are should be the most precise information and representing the text, validity of such metadata must be checked. Therefore tools for fact checks are developed based on linguistic techniques. The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From the authors's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.(yes, the authors used capitalized name)
+In the process of producing metadata, which are should be the most precise information and representing the text, validity of such metadata must be checked. 
+Therefore tools for fact checks are developed based on linguistic techniques. 
+The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. 
+From the authors's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.(yes, the authors used capitalized name)
 
-TIMEBANK was first proposed in \cite{pustejovsky2003timebank}. The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example as below could help to clarify the ideas. Let's examine these sentence:
+TIMEBANK was first proposed in \cite{pustejovsky2003timebank}. 
+The idea was based on that English language has different tenses which could be exploited as signals for fact check. 
+An example as below could help to clarify the ideas. Let's examine these sentence:
 
 \begin{itemize}
 	\item I will go to Chimei museum tomorrow.
@@ -234,18 +261,30 @@ In the limit of this study, we are using both of TIMEBANK and FACTBANK together 
 
 \subsubsection*{Language generation}
 
-Natural language generation (NLG) is one branch of natural language processing. The goal is generating the words human being using via machine automatically. To use this technique, six basic activities are done: 
+Natural language generation (NLG) is one branch of natural language processing. 
+The goal is generating the words human being using via machine automatically. 
+To use this technique, six basic activities are done: 
 \begin{enumerate}
-	\item content determination: In this active, we create some messages which are communicated in the text. These messages shall be labeled and the entity in the messeges is also distinguished, which is convenient for us to use these data to the following step.
-	\item discourse planning: This part is closely related to the previous part. We determin the order and the structure of the messeges.
-	\item sentence aggregation:This part combin several messeges in to sentence. Although some of messeges have been a sentence, we can improve the influency of messeges by combining them.
-	\item lexicalization: This part make the messege more precise by use the specific words and concepts. Then people can get the idea of the messeges more quickly.
-	\item referring expression generation: This part is a litte same as the previous part. But the difference is that this part differentiate the one domain to the other domains.
+	\item content determination: In this active, we create some messages which are communicated in the text. 
+	These messages shall be labeled and the entity in the messeges is also distinguished, which is convenient for us to use these data to the following step.
+	\item discourse planning: This part is closely related to the previous part. 
+	We determin the order and the structure of the messeges.
+	\item sentence aggregation:This part combin several messeges in to sentence. 
+	Although some of messeges have been a sentence, we can improve the influency of messeges by combining them.
+	\item lexicalization: This part make the messege more precise by use the specific words and concepts. 
+	Then people can get the idea of the messeges more quickly.
+	\item referring expression generation: This part is a litte same as the previous part. 
+	But the difference is that this part differentiate the one domain to the other domains.
 	\item linguistic realization: Last part is to make the expression follow the rules of grammer, part of speech and the natural language rule.
 \end{enumerate}
-\cite{aramossoto2016onthe}.\todo{Where? Please explain the 6 terms. What are they?} The advantage of this technique is that it is flexible, since there is no standardization. But it also has the difficulty in the implication of this technique.\cite{aramossoto2016onthe}No standardization means that no rules can be followed. Without logic method, It is almost impossible to code and realized by computer.Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize. The technique is linguistic discription of data.
-\todo{Now you jump too far. More explanations are needed.}
-Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. However, the basic steps of LDD have been built. The four main parts in this technique are input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. Some of them are similar to the concept. The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Ramos-SotoBBT14}. Also, many practical methods have been proposed. However, it still has a long way to go.
+\cite{aramossoto2016onthe}.\todo{Where? Please explain the 6 terms. What are they?} The advantage of this technique is that it is flexible, since there is no standardization. 
+But it also has the difficulty in the implication of this technique.\cite{aramossoto2016onthe}No standardization means that no rules can be followed. Without logic method, It is almost impossible to code and realized by computer.
+Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize.
+The technique is linguistic discription of data.\todo{Now you jump too far. More explanations are needed.}
+Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. 
+However, the basic steps of LDD have been built. 
+The four main parts in this technique are input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. Some of them are similar to the concept. 
+The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Ramos-SotoBBT14}. Also, many practical methods have been proposed. However, it still has a long way to go.
 
 These two techniques are usually combined together nowadays. The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
 
