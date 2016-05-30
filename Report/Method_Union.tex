@@ -17,28 +17,29 @@ Once accomplishing the 3 types of metadata, we will extend the scope of our proj
 If time is still on our side, we will even extend the scope our project further and join other teams to produce a search engine. 
 Following discussion are our plan to complete extracting the 3 first types of metatata from PDF files.
 \subsection*{Title extraction}
-We chose python to be the program to catch the title and other metadata as well. First step, we import some necessary packages and functions as following:
+We chose python to be the program to catch the title and other metadata as well. 
+First step, we import some necessary packages and functions as following:
 \begin{enumerate}
-	\item re: Regular expression package
-	\item os: This function can connect the python to operating system, so that we can call the path
+	\item re: Regular expression package is a useful package which could be applied to the string comparison.
+	\item os: This function can connect the python to operating system, so that we can call the path of the files and folders.
 	\item nltk: A natural language toolkit. We use the corpus plaintext function to build the txt file in a folder as corpus.
 	\item string:The string package includes a lot of classes such as lowercase, uppercase,punctuation,digits or whitespace...etc. 
 \end{enumerate}  
-To begin, we convert all PDF files we want to deal with into a txt file and set the path and store them in specific folder. 
+To begin, we convert all PDF files we want to deal with into a txt file, set the path and store them in specific folder. 
 Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. 
 Afterward, we intend to produce the title of the article in a txt file.   
 
 \subsubsection*{Author extraction}
 In this part, we use the existing python package to achieve our goal. 
 The key point in this part is natural language processing, which we have introduced in the basic section. 
-Also we combined the key word comparison technique to finish this task. The following step is below:
+Also we combine the key word comparison technique to finish this task. The following step is below:
 
 \begin{enumerate}
 	\item section seperation: As we seperate the abstract part from the full text, we extract the text above the abstract section and rename as top section. This section contains title, author and email ,etc.
 	\item tokenization: After accessing the top section, we seperate the text into each single word. These single words composed with a string list. 
 	\item part of speech tag: We use the existing corpus to tag the part of speech to the words. This step is necessary since that the chunker need the every words' part-of-speech and then chunck
 	\item chunker: In this part, we mainly chunk the noun, because the noun often represent some meaningful feature such as location or author
-	\item label: We check every phrase with the corpus which contain specific words like author. Then we labele the words and store to the new list. At last, we write the information to the xml file. 
+	\item label: We check every phrase with the corpus which contain specific words like people name. Then we labele the words and store to the new list. At last, we write the information to the xml file. 
 \end{enumerate}
 
 The above steps is also availabe to extracting the location and organization.
@@ -69,11 +70,11 @@ The above steps is also availabe to extracting the location and organization.
 	
 
 \subsubsection*{Search sentences}
+The search sentence pasrt is  related to the search engine. After extracting the necessary information, we have to find a  way search these data.
 \begin{itemize}
-	\item I use python to complete the task. 
-	\begin{center}
-		\includegraphics[width=0.8\columnwidth]{Union_Background_Chart_2}
-	\end{center}
+	%\begin{center}
+	%	\includegraphics[width=0.8\columnwidth]{Union_Background_Chart_2}
+	%\end{center}
 	\item First,turn the PDF to the txt file .(Make the programe easy to read file)\\ 
 	\item Second,read the txt file by lines.\\ 	
 	\item Third,create the array to divide the section of the articles.\\ 	
