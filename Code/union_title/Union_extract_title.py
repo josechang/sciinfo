@@ -22,14 +22,15 @@ files = []
 # Code to iterate over files in directory
 ##############################################
 
-'''Iterate over the directory of filenames and add to list.  
-Inspection shows our target filenames begin with 'p' and end with 'pdf' '''
+"""
+Iterate over the directory of filenames and add to list.  
+Inspection shows our target filenames begin with 'p' and end with 'pdf'
+"""
 
 for dirName, subdirList, fileList in os.walk(TESTDIR):
     for fileName in fileList:
         if fileName.startswith('p') and fileName.endswith('.pdf'):   #can be set by our own rule
             files.append(fileName)
-end_time = time.time()
 
 ###############################################
 # Output
@@ -254,6 +255,8 @@ def toppull(docnum=None,section='top',full = False):
 ################################
 #polyglot
 ################################
+#polyglot has some problem in the package
+"""
 def extraction(corpus):
     import itertools
     import unicodedata
@@ -304,7 +307,7 @@ def extraction(corpus):
     results['locations']=locations
 
     return results
-
+"""
 ###########################################
 #nltk
 ###########################################
@@ -392,6 +395,8 @@ def nltktreelist(text):
 ###############################################
 #  Function to get lists of entities from Stanford NER
 ###############################################
+#I save the function here
+"""
 def get_continuous_chunks(string):
     string = string
     continuous_chunk = []
@@ -465,6 +470,7 @@ def get_continuous_chunks(string):
     #entities['percent']= percent
 
     return entities
+"""
 
 # We need the top and references sections from p19.txt and p29.txt
 p4={'top':toppull("p8pdf.txt")['p8pdf.txt']['top']}
@@ -478,14 +484,19 @@ print(nltkstandard_p4ents['top']['persons'])
 ###############################################
 # Polyglot NERC Tool
 ###############################################
+#package problem
 
-
-#poly_p4ents = {'top': extraction(p4['top'])}
-#print(poly_p4ents['top']['persons'])
+"""
+poly_p4ents = {'top': extraction(p4['top'])}
+print(poly_p4ents['top']['persons'])
+"""
 
 ###############################################
 # Stanford NERC Tool
 ################################################
+#We decide no java here
+
+"""
 import os
 java_path = "C:/Program Files/Java/jdk1.8.0_20/bin/java.exe"
 os.environ['JAVAHOME'] = java_path
@@ -497,3 +508,4 @@ stpos = StanfordPOSTagger('/Users/user/stanford-postagger-full/models/english-bi
 stan_p4ents = {'top': get_continuous_chunks(p4['top'])}
 print(nltkstandard_p4ents['top']['persons'])
                
+"""
