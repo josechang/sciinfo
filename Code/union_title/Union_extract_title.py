@@ -96,14 +96,21 @@ for fileid in kddcorpus.fileids():
     wordcount += len(kddcorpus.words(fileid))
 print wordcount
 
-# Using metacharacters vice literal matches
-"""""
-p=re.compile('^(.*)([\s]){2}[A-z]+[\s]+[\s]?.+')
+###################
+# extract title
+###################
 
+# Using metacharacters vice literal matches
+p=re.compile('^(.*)([\s]){2}[A-z]+[\s]+[\s]?.+')
+""""
 for fileid in kddcorpus.fileids()[:25]:
     print re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(fileid)).group(1).strip()+" "+re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(fileid)).group(2).strip()
 """""
-
+def titlepull(docnum):
+    text = kddcorpus.raw(docnum)
+    title_test=re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(docnum)).group(1).strip()+" "+re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(docnum)).group(2).strip()
+    return title_test
+    
 #######################
 #extract abstract
 #######################
@@ -256,6 +263,7 @@ def toppull(docnum=None,section='top',full = False):
 ################################
 #polyglot
 ################################
+""""
 def extraction(corpus):
     import itertools
     import unicodedata
@@ -306,7 +314,7 @@ def extraction(corpus):
     results['locations']=locations
 
     return results
-
+""""
 ###########################################
 #nltk
 ###########################################
@@ -471,8 +479,9 @@ def get_continuous_chunks(string):
 """
 num=len(files)
 texts = []
-metas1=[]
-metas2=[]
+metas1= []
+metas2= []
+metas3 = []
 # We need the top section
 """
 DATA_DIR="C:\Users\user\Desktop\KDD_corpus"
@@ -480,8 +489,10 @@ for filename in os.listdir(DATA_DIR):
     texts.append(filename)
     metas1.append(toppull(filename)[filename]['top'])
     metas2.append(abpull(filename)[filename]['abstract'])
+    metas3.append(titlepull(filename))
 """
 print abpull('p6pdf.txt')['p6pdf.txt']['abstract']
+print titlepull('p6pdf.txt')
 
 ###############################################
 #  NLTK Standard Chunker
@@ -489,7 +500,6 @@ print abpull('p6pdf.txt')['p6pdf.txt']['abstract']
 
 #nltkstandard_p4ents = nltktreelist(metas1[3])
 #print(nltkstandard_p4ents['persons'])
-#print metas2[3]
 
 ###############################################
 # Polyglot NERC Tool
