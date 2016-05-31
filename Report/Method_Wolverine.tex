@@ -47,7 +47,6 @@ In accordance with the definition, a database management system (DBMS) is a comp
 	\item\textbf{Object-oriented database}
 	\setlength{\parindent}{1em}
 	
-	%An object-oriented database (OODBMS) is one of its kind, a database management system.\cite{WiKiauthor2013} The information in the database is represented as objects as used in object-oriented programming.
 	
 	An object database (also object-oriented database management system - OODBMS) is a database management system in which information is represented in the form of objects as used in object-oriented programming. Object databases are different from relational databases which are table-oriented.
 	
@@ -58,7 +57,6 @@ In accordance with the definition, a database management system (DBMS) is a comp
 	
 	And OODBMS also have some disadvantages, the have mention 3 disadvantages for OODBMS. First, because the usage is forced to be similar to an object-oriented language. This makes maintaining and evolving is difficult. Second, the technique for store complex type of information takes additional computational resources. Third, the absence of a standard data model leads to design errors and inconsistencies.
 	
-	%And OODBMS also have some disadvantages, the \cite{Systems2010} have mention 3 disadvantages for OODBMS. First, because the usage is forced to be similar to an object-oriented language. This makes maintaining and evolving is difficult. Second, the technique for store complex type of information takes additional computational resources. Third, the absence of a standard data model leads to design errors and inconsistencies.
 	
 	\item\textbf{Relational database}
 	\setlength{\parindent}{1em}
@@ -91,11 +89,6 @@ In accordance with the definition, a database management system (DBMS) is a comp
     We suggest not to store binary data in the database if it is large. It may cause significant performance decrease and additional storage space. In contrast, we suggest to store binary data in the file system and record the path in the database. It may not cause the disadvantages above when large binary data store into the database, but the binary data can not automatically distribute with the database. Due to the PDF file will cost some performance issues even though it is small in size and our system has no requirement for automatic distribution. We suggest sorting the PDF file in the file system.
 	
 \end{enumerate}
-
-%\subsubsection{Database management system}
-%The key feature which binds the relationship between user and administrator. Administrator's point of view, we like to give the best product to the end user. On the other hand, users strive to have convenient searching engine to find what they want at ease. For this purpose, I'm pressure to show two suggestions for enhancing the relationship between users and developer. First, setting up a word-ranking system. When user search for something with specific keyword, such as stem cell in medical area. In this moment, the word-ranking system will help the user by giving some suggested keywords. Of course, the word-ranking systems are developed based on users' searches and expert's suggestions to change the key words. This makes the system trust worthy.
- 
-%Secondly, building up a space in the database and allowing the user to change /edit the space based on their preference. The idea is referenced from well-known database, Wikipedia. It's so called "personalized searching".  By doing this, it would help user idealize their views on the system to what they want and suggest administrator the service which clients really want. It would lead to a win-win situation. 
 	
 	
 \subsubsection{Web Crawler}
@@ -109,18 +102,11 @@ The archives are usually stored in such a way they can be viewed, read and navig
 We need to build up a web crawler to automatically visit a list of web page.
 Then find out which link in the page is valuable to download into our database.
 		
-%\subsubsection*{Data Storage and Search Methods}
-%The organization of data inside a database management system(DBMS) and retrieval methods is based on the database storage structure such as tables and indexes. There are several types of database storage structure such as XML, a textual data format. This advantage is self-describing and flexible in organizing data.\cite{ISI:000253400700005}Several considerations of data storage include right space allocation techniques, data compression techniques (if necessary), security and encryption and the access path to retrieve the data. Therefore, DBMS software will provide some method to optimize and minimum storage space of a database.
-	
 %\begin{figure*}[h]
 %	\begin{center}
 %		\includegraphics[scale=0.4]{WolverineChart}
 %	\end{center}
 %	\caption{Structure of our system}
-%	\begin{center}
-%		\includegraphics[scale=0.3]{WolverineChart2}
-%	\end{center}
-%	\caption{Database structure modes}
 %\end{figure*}
 
 \newpage % Ends the current page and causes all figures and tables to be printed
