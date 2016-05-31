@@ -22,15 +22,14 @@ files = []
 # Code to iterate over files in directory
 ##############################################
 
-"""
-Iterate over the directory of filenames and add to list.  
-Inspection shows our target filenames begin with 'p' and end with 'pdf'
-"""
+'''Iterate over the directory of filenames and add to list.  
+Inspection shows our target filenames begin with 'p' and end with 'pdf' '''
 
 for dirName, subdirList, fileList in os.walk(TESTDIR):
     for fileName in fileList:
         if fileName.startswith('p') and fileName.endswith('.pdf'):   #can be set by our own rule
             files.append(fileName)
+
 
 ###############################################
 # Output
@@ -86,6 +85,7 @@ for dirName, subdirList, fileList in os.walk(TESTDIR):
                     else:
                         pass
 
+
 kddcorpus= nltk.corpus.PlaintextCorpusReader(corpuspath, '.*\.txt')
 
 # Mapping, setting count to zero for start
@@ -97,10 +97,12 @@ for fileid in kddcorpus.fileids():
 print wordcount
 
 # Using metacharacters vice literal matches
+"""""
 p=re.compile('^(.*)([\s]){2}[A-z]+[\s]+[\s]?.+')
 
 for fileid in kddcorpus.fileids()[:25]:
     print re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(fileid)).group(1).strip()+" "+re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(fileid)).group(2).strip()
+"""""
 
 #######################
 #extract abstract
@@ -124,11 +126,9 @@ def abpull(docnum=None,section='abstract',full = False):
                 if section == "abstract":
                     section1=["ABSTRACT", "Abstract "]
                     target = ""   
-                    section2=["Categories and Subject Descriptors","Categories & Subject Descriptors","Keywords","INTRODUCTION","Author Keywords"]
+                    section2=["Categories and Subject Descriptors","Categories & Subject Descriptors","Keywords","INTRODUCTION"]
                     for fileid in kddcorpus.fileids():
                         text = kddcorpus.raw(fileid)
-
-
                         for sect1 in section1:
                             for sect2 in section2:
                                 part1= "(?<="+str(sect1)+")(.+)"
@@ -158,7 +158,8 @@ def abpull(docnum=None,section='abstract',full = False):
         if section == "abstract":
             section1=["ABSTRACT", "Abstract "]
             target = ""   
-            section2=["Categories and Subject Descriptors","Categories & Subject Descriptors","Keywords","INTRODUCTION","Author Keywords"]
+            section2=["Categories and Subject Descriptors","Categories & Subject Descriptors","Keywords","INTRODUCTION"]
+            text = kddcorpus.raw(docnum)
             for sect1 in section1:
                 for sect2 in section2:
                     part1= "(?<="+str(sect1)+")(.+?)"
@@ -186,7 +187,7 @@ def abpull(docnum=None,section='abstract',full = False):
 #####################################
 def toppull(docnum=None,section='top',full = False):
 
-    
+ 
     ans={}
     failids = []
     section = section.lower()    
@@ -255,8 +256,6 @@ def toppull(docnum=None,section='top',full = False):
 ################################
 #polyglot
 ################################
-#polyglot has some problem in the package
-"""
 def extraction(corpus):
     import itertools
     import unicodedata
@@ -307,7 +306,7 @@ def extraction(corpus):
     results['locations']=locations
 
     return results
-"""
+
 ###########################################
 #nltk
 ###########################################
@@ -393,9 +392,8 @@ def nltktreelist(text):
 
 
 ###############################################
-#  Function to get lists of entities from Stanford NER
+#Stanford NER
 ###############################################
-#I save the function here
 """
 def get_continuous_chunks(string):
     string = string
@@ -471,31 +469,39 @@ def get_continuous_chunks(string):
 
     return entities
 """
+num=len(files)
+texts = []
+metas1=[]
+metas2=[]
+# We need the top section
+"""
+DATA_DIR="C:\Users\user\Desktop\KDD_corpus"
+for filename in os.listdir(DATA_DIR):
+    texts.append(filename)
+    metas1.append(toppull(filename)[filename]['top'])
+    metas2.append(abpull(filename)[filename]['abstract'])
+"""
+print abpull('p6pdf.txt')['p6pdf.txt']['abstract']
 
-# We need the top and references sections from p19.txt and p29.txt
-p4={'top':toppull("p8pdf.txt")['p8pdf.txt']['top']}
 ###############################################
 #  NLTK Standard Chunker
 ###############################################
 
-nltkstandard_p4ents = {'top': nltktreelist(p4['top'])}
-print(nltkstandard_p4ents['top']['persons'])
+#nltkstandard_p4ents = nltktreelist(metas1[3])
+#print(nltkstandard_p4ents['persons'])
+#print metas2[3]
 
 ###############################################
 # Polyglot NERC Tool
 ###############################################
-#package problem
 
-"""
-poly_p4ents = {'top': extraction(p4['top'])}
-print(poly_p4ents['top']['persons'])
-"""
+
+#poly_p4ents = {'top': extraction(p4['top'])}
+#print(poly_p4ents['top']['persons'])
 
 ###############################################
 # Stanford NERC Tool
 ################################################
-#We decide no java here
-
 """
 import os
 java_path = "C:/Program Files/Java/jdk1.8.0_20/bin/java.exe"
@@ -505,7 +511,7 @@ from nltk.tag import StanfordNERTagger, StanfordPOSTagger
 stner = StanfordNERTagger('/Users/user/stanford-corenlp-full/classifiers/english.muc.7class.distsim.crf.ser.gz','/Users/user/stanford-corenlp-full/stanford-corenlp-3.6.0.jar',encoding='utf-8')
 stpos = StanfordPOSTagger('/Users/user/stanford-postagger-full/models/english-bidirectional-distsim.tagger','/Users/user/stanford-postagger-full/stanford-postagger-3.6.0.jar') 
 
-stan_p4ents = {'top': get_continuous_chunks(p4['top'])}
-print(nltkstandard_p4ents['top']['persons'])
-               
-"""
+stan_p4ents = get_continuous_chunks(p4['top'])
+print(nltkstandard_p4ents['persons'])
+"""     
+end_time = time.time()
