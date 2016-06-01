@@ -57,6 +57,9 @@ class User extends CI_Controller {
           $line .="python /home/z7724581/public_html/nordling/python/search.py ".$ex_name[$i]." ".$input['search'] . " & ";
       }
      shell_exec($line);
+     $all['search'] =ltrim(rtrim($input['search']));
+     $all['name']   =$ex_name;
+     $this->load->view('view_page3',$all);
   }
   
 }
