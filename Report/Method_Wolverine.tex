@@ -62,11 +62,13 @@ In accordance with the definition, a database management system (DBMS) is a comp
 	
 	A relational database is the most popular database used in the world. 
 	They can organize data into one or more tables of columns and rows, with a unique key identifying each row. 
-	Rows are also called records or tuples. Generally, each table represents one "entity type" (such as customer or product). 
+	Rows are also called records or tuples. 
+	Generally, each table represents one "entity type" (such as customer or product). 
 	The rows represent instances of that type of entity (such as "Lee" or "iPhone 6") and the columns representing values attributed to that instance (such as address or price).
 	
 	Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data. 
-	Besides SQL is easy in the relational database approach. For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities. 
+	Besides SQL is easy in the relational database approach. 
+	For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities. 
 	However, once the attributes of data become more and more, you'll need a large amount of tables to store your information. 
 	Therefore, the performance of relational database will decrease obviously.
 	
@@ -74,9 +76,14 @@ In accordance with the definition, a database management system (DBMS) is a comp
 	\item\textbf{Graph database}
 	\setlength{\parindent}{1em}
 	
-	A graphical database uses graph structures for semantic queries with nodes, edges, and properties to represent and store data. Most of them are NoSQL in nature and store data in a key-value store or a document-oriented database. Graph databases are powerful tools for graph-like queries, for example computing the shortest path between two nodes in the graph.
+	A graphical database uses graph structures for semantic queries with nodes, edges, and properties to represent and store data. 
+	Most of them are NoSQL in nature and store data in a key-value store or a document-oriented database. 
+	Graph databases are powerful tools for graph-like queries, for example computing the shortest path between two nodes in the graph.
 	
-	As we know, relational databases are most popular databases in the world. Compare to them, Graph databases have several advantages. A graph database is often faster for associative data set and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require expensive join operations. As they less depend on a rigid schema, they are more suitable to manage ad hoc and changing data with an evolving schema.
+	As we know, relational databases are most popular databases in the world. Compare to them, Graph databases have several advantages. 
+	A graph database is often faster for associative data set and map more directly to the structure of object-oriented applications. 
+	They can scale more naturally to large data sets as they do not typically require expensive join operations. 
+	As they less depend on a rigid schema, they are more suitable to manage ad hoc and changing data with an evolving schema.
 	
 	On the other hand, graph database also comes with some disadvantages. 
 	For example, the relational database is typically faster at performing the same operation on large numbers of data elements.
@@ -96,6 +103,13 @@ In accordance with the definition, a database management system (DBMS) is a comp
 	
 \end{enumerate}
 
+\begin{figure}[tbh]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{Wolverine_Method_Chart_2}
+	\end{center}
+	\caption{Advantages and disadvantages between three kind of databases}
+\end{figure}
+
 \subsubsection{SQL and NoSQL}
 Every website is full of data, such as Facebook, Bank of Taiwan and official web page of National Cheng Kung University (NCKU).
 The database is coming in many forms, including Object-oriented, graph and relational, which are listed above.
@@ -105,7 +119,20 @@ It is also an American National Standards Institute (ANSI) standard.
 SQL is a kind of simple language.
 It is like English to help uo to "communicate" with database server.
 Therefor, even the people who are not good at programming can writing it easily.
-	
+
+SQL has been a single standard to support all kind of databases for several decades.
+It seems good enough to let us don't need any alternatives.
+However, it is going to be changed.
+NoSQL is going to be an alternative, which means "non SQL" or "non relational". 
+It is different from relational database management system (RDMS) in some ways.
+For example, NoSQL use concept of JSON-like (JavaScript Object Notation) or name-value to store data, instead of using tables like SQL. This study already list some different between SQL and NoSQL in figure underneath.
+
+\begin{figure}[tbh]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{Wolverine_Method_Chart_3}
+	\end{center}
+	\caption{The difference between SQL and NoSQL}
+\end{figure}
 	
 \subsubsection{Web Crawler}
 The web crawler is a program that can automatically browse through web pages, find out the information we assigned and store them.
@@ -117,12 +144,5 @@ If the crawler is performing archiving of websites, it copies and saves the info
 The archives are usually stored in such a way they can be viewed, read and navigated as they were on the live web, but are preserved as 'snapshots' from \cite{Du2013}.
 We need to build up a web crawler to automatically visit a list of web page.
 Then find out which link in the page is valuable to download into our database.
-		
-%\begin{figure*}[h]
-%	\begin{center}
-%		\includegraphics[scale=0.4]{WolverineChart}
-%	\end{center}
-%	\caption{Structure of our system}
-%\end{figure*}
 
 \newpage % Ends the current page and causes all figures and tables to be printed
