@@ -78,19 +78,33 @@ In accordance with the definition, a database management system (DBMS) is a comp
 	
 	As we know, relational databases are most popular databases in the world. Compare to them, Graph databases have several advantages. A graph database is often faster for associative data set and map more directly to the structure of object-oriented applications. They can scale more naturally to large data sets as they do not typically require expensive join operations. As they less depend on a rigid schema, they are more suitable to manage ad hoc and changing data with an evolving schema.
 	
-	On the other hand, graph database also comes with some disadvantages. For example, the relational database is typically faster at performing the same operation on large numbers of data elements.
+	On the other hand, graph database also comes with some disadvantages. 
+	For example, the relational database is typically faster at performing the same operation on large numbers of data elements.
 	
 	\item\textbf{Summary}
 	\setlength{\parindent}{1em}
 	
-    To sum up, there are several methods to store data according to the database structures. Two main directions are storing inside the database and storing out of the database.
+    To sum up, there are several methods to store data according to the database structures. 
+    Two main directions are storing inside the database and storing out of the database.
     
-    We suggest not to store binary data in the database if it is large. It may cause significant performance decrease and additional storage space. In contrast, we suggest to store binary data in the file system and record the path in the database. It may not cause the disadvantages above when large binary data store into the database, but the binary data can not automatically distribute with the database. Due to the PDF file will cost some performance issues even though it is small in size and our system has no requirement for automatic distribution. We suggest sorting the PDF file in the file system.
+    We suggest not to store binary data in the database if it is large.
+    It may cause significant performance decrease and additional storage space.
+    In contrast, we suggest to store binary data in the file system and record the path in the database. 
+    It may not cause the disadvantages above when large binary data store into the database, but the binary data can not automatically distribute with the database.
+    Due to the PDF file will cost some performance issues even though it is small in size and our system has no requirement for automatic distribution.
+    We suggest sorting the PDF file in the file system.
 	
 \end{enumerate}
 
 \subsubsection{SQL and NoSQL}
-%SQL (Structured Query Language) is a programming language designed for relational database.  
+Every website is full of data, such as Facebook, Bank of Taiwan and official web page of National Cheng Kung University (NCKU).
+The database is coming in many forms, including Object-oriented, graph and relational, which are listed above.
+Most of the databases come with querying languages interact with databases.
+SQL (Structured Query Language) is the most popular among them. 
+It is also an American National Standards Institute (ANSI) standard.
+SQL is a kind of simple language.
+It is like English to help uo to "communicate" with database server.
+Therefor, even the people who are not good at programming can writing it easily.
 	
 	
 \subsubsection{Web Crawler}
