@@ -102,10 +102,10 @@ print wordcount
 
 # Using metacharacters vice literal matches
 p=re.compile('^(.*)([\s]){2}[A-z]+[\s]+[\s]?.+')
-""""
+"""
 for fileid in kddcorpus.fileids()[:25]:
     print re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(fileid)).group(1).strip()+" "+re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(fileid)).group(2).strip()
-"""""
+"""
 def titlepull(docnum):
     text = kddcorpus.raw(docnum)
     title_test=re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(docnum)).group(1).strip()+" "+re.search('^(.*)[\s]+[\s]?(.*)?',kddcorpus.raw(docnum)).group(2).strip()
@@ -263,7 +263,7 @@ def toppull(docnum=None,section='top',full = False):
 ################################
 #polyglot
 ################################
-""""
+"""
 def extraction(corpus):
     import itertools
     import unicodedata
@@ -314,7 +314,7 @@ def extraction(corpus):
     results['locations']=locations
 
     return results
-""""
+"""
 ###########################################
 #nltk
 ###########################################
