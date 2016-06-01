@@ -11,11 +11,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Method}
 As mentioned in the background, our group use natural language processing in order to generate metadata. 
-The scope of metatada processing is about producing at least three types of metadata include author name, title and abstract. 
+The scope of metatada processing is about producing at least three types of metadata including author name, title and abstract. 
 This is the least we want to produce within the time frame of this course. 
 Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on. 
 If time is still on our side, we will even extend the scope our project further and join other teams to produce a search engine. 
-Following discussion are our plan to complete extracting the 3 first types of metatata from PDF files.
+Following discussion are our plan to complete extracting the 4 first types of metatata from PDF files.
 \subsection*{Title extraction}
 We chose python to be the program to catch the title and other metadata as well. 
 First step, we import some necessary packages and functions as following:
@@ -27,7 +27,7 @@ First step, we import some necessary packages and functions as following:
 \end{enumerate}  
 To begin, we convert all PDF files we want to deal with into a txt file, set the path and store them in specific folder. 
 Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. 
-Afterward, we intend to produce the title of the article in a txt file.   
+Afterwards, we intend to produce the title of the article in a txt file.   
 
 \subsubsection*{Author extraction}
 In this part, we use the existing python packages to achieve our goal. 
@@ -68,7 +68,17 @@ The above steps is also availabe to extracting the location and organization,etc
 	2. specific words in the beginning "Keywords"
 	3. and so on.\\
 	The intended output are sentences extracted to the txt file. To further validate if the program can run precisely, members randomly search for articles (10 articles) to test the programs. The program was run successfully and all abstracts was extracted from the text. \\ 	
-	
+\subsubsection*{References URL extraction}
+References URL extraction is very easy and straightforward. Just use a powerful package called PDfx to complete this task.
+The procedure is below:
+   \item  First of all,import a PDFx package to python.\\
+   \item  Second,utilize the function in PDFx package to get the metadata and the URL of references by inputing a URL of a PDF or PDF's file name. \\
+   \item  Finally,output and list the results in txt file and choose the specific directory to store it. \\
+   
+   This method can also detects URL,arxiv and doi references.
+
+
+
 
 \subsubsection*{Search sentences}
 The search sentence pasrt is  related to the search engine. After extracting the necessary information, we have to find a  way search these data.
