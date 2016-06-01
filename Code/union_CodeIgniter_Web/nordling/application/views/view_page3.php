@@ -113,7 +113,7 @@
                     $c1=1;
                  }elseif($c1 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Abstract line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Abstract line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c1+=1;
                     echo "<tr><td colspan='2'>" ;
 
@@ -130,7 +130,7 @@
                     $c2=1;
                  }elseif($c2 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Introduction line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Introduction line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c2+=1;
                     echo "<tr><td colspan='2'>" ;
 
@@ -147,7 +147,7 @@
                     $c3=1;
                  }elseif($c3 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Theoretical line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Theoretical line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c3+=1;
                     echo "<tr><td colspan='2'>" ;
 
@@ -164,7 +164,7 @@
                     $c4=1;
                  }elseif($c4 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Method line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Method line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c4+=1;
                     echo "<tr><td colspan='2'>" ;
 
@@ -181,7 +181,7 @@
                     $c5=1;
                  }elseif($c5 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Result line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Result line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c5+=1;
                     echo "<tr><td colspan='2'>" ;
 
@@ -198,7 +198,7 @@
                     $c6=1;
                  }elseif($c6 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Discussion line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Discussion line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c6+=1;
                     echo "<tr><td colspan='2'>" ;
 
@@ -215,7 +215,7 @@
                     $c7=1;
                  }elseif($c7 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Conclusion line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Conclusion line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c7+=1;
                     echo "<tr><td colspan='2'>" ;
 
@@ -232,7 +232,7 @@
                     $c8=1;
                  }elseif($c8 ==1){
 
-                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Reference line numbers</td><td>".$arr1[$j]."</td></tr>";
+                    echo "<tr><td style='background-color:#A2FB96;text-align:center;'>Reference line numbers</td><td style='background-color:#A2FB96;text-align:center;'>".$arr1[$j]."</td></tr>";
                     $c8+=1;
                     echo "<tr><td colspan='2'>" ;
 

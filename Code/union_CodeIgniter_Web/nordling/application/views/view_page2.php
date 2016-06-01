@@ -9,6 +9,7 @@
         table {
               margin: 0 auto;
               width:  1520px;
+              font-size: 25px;
 
         }
         th {
@@ -72,21 +73,34 @@
      unset($check1['search']);
      $key= array_keys($check1);
      for($j=0;$j<count($key);$j++){
-          
+
+ 
+      echo "<table>";
+      echo "<tr><th>".strtoupper($key[$j])."</th></tr>";
       for($i=0;$i<count($ex_name);$i++){
+
+         echo "<tr><th style='background-color:#C4F5AA;'>".$ex_name[$i]."</th></tr>";
          
+
          $file   ="/home/z7724581/public_html/nordling/python/TXT/".ltrim(rtrim($ex_name[$i]))."_".$key[$j].".txt";
-         $myfile = fopen($file, "r") or die("Unable to open file!");
-
-         while(!feof($myfile)) {
-                echo fgets($myfile) . "<br>";
-         }
-         fclose($myfile);
          
-         echo "------------------------------------------";
-         echo "<br>" ."<br>" ."<br>";
+         if (file_exists($file)) {
 
+                $myfile = fopen($file, "r") or die("Unable to open file!");
+         
+        
+                echo "<tr><td>";
+                while(!feof($myfile)) {
+                       echo fgets($myfile) ;
+                }
+                fclose($myfile);
+                echo "</td></tr>";
+         }else{
+
+                echo "<tr><td>None</td></tr>";
+         }
       }
+      echo "</table><br><br>";
      }
 ?>
 
