@@ -13,28 +13,21 @@
 	
 \subsection{Built a database containing ten thousand articles}
 
-
 The most important thing on this subject is to build a database which contains 10,000 articles.
 To reach that target, this study will go to discuss the advantages and disadvantages of different databases and will decide the most suitable one to be the database of this study.
 At a meantime, this study will focus on how to use web crawlers to download articles automatically, which will contain in the database of this study.
 
-
-
 \subsubsection{Database Management Systems}
 
-The relational database model was proposed by 
-Edgar Codd in 1970. However, it was not universal
-at that time because of the technical requirements. 
-Until the 1980s, first commercial 
-relational database management system(RDBMS)
-which is the most popular database management 
-system(DBMS) at present began to appear. 
-Besides RDBMSs, there are several 
-kinds of DBMSs. For example, object-oriented 
-databases(OODBMS) and graph database management 
-systems(GDBMS).
+The relational database model was proposed by Edgar Codd in 1970.
+However, it was not universal at that time because of the technical requirements.
+Until the 1980s, first commercial relational database management system(RDBMS) which is the most popular database management system(DBMS) at present began to appear.
+Besides RDBMSs, there are several kinds of DBMSs.
+For example, object-oriented databases(OODBMS) and graph database management systems(GDBMS).
 
-In accordance with the definition, a database management system (DBMS) is a computer software application that interacts with the user, other applications, and the database itself to capture and analyze data. Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. Furthermore,they can support different kinds of databases.
+In accordance with the definition, a database management system (DBMS) is a computer software application that interacts with the user, other applications, and the database itself to capture and analyze data.
+Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2.
+Furthermore,they can support different kinds of databases.
 
 %%%%%%%%%%%%%%%%% these are duplicated to the information following
 %For building up such a database. We need a database management system (DBMS), a computer application that interacts with the user and other applications, captures and analyze data itself. Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. All of them can support different kinds of databases. This study includes numerous application and usage of such database as follows.
@@ -43,79 +36,74 @@ In accordance with the definition, a database management system (DBMS) is a comp
 %Finally, we'd like to introduce a DBMS, Neo4j. Neo4j is a graph database management system. It's one of the most popular GDBMS and ranks 20 in the popularity of DBMS. Unlike other databases, relationships take first priority in graph databases. Also, the model is simpler and expressive than those of relational databases, such as NOSQL databases. Neo4j is widely used by organizations and has 1,000,000+ downloads. Because Neo4j is easy to learn and use, it is more easier for beginners to get used to the structure of graph databases. This study also introduced three kinds of DBMS, and the following paragraph contains brief information about each kind of DBMS.
 
 \begin{enumerate}
+		
 	\item\textbf{Object-oriented database}
-	\setlength{\parindent}{1em}
-	
-	
-	An object database (also object-oriented database management system - OODBMS) is a database management system in which information is represented in the form of objects as used in object-oriented programming. Object databases are different from relational databases which are table-oriented.
+	\setlength{\parindent}{1em}		
+	An object database (also object-oriented database management system - OODBMS) is a database management system in which information is represented in the form of objects as used in object-oriented programming.
+	Object databases are different from relational databases which are table-oriented.
 	
 	Because of tighter integration with the object-oriented language, the program is easier to maintain consistency with the same representation in both OODBMS and programming language.
 	
-	Although relational databases which are table-oriented might be similar to object-oriented databases, but they are actually different. The object-oriented database supports objects, classes, and inheritance in the database schema and query language.
+	Although relational databases which are table-oriented might be similar to object-oriented databases, but they are actually different.
+	The object-oriented database supports objects, classes, and inheritance in the database schema and query language.
 	There are many advantages for OODBMS compared to the relational database management system (RDBMS) such as the performance, flexibility, and development cost.
 	
-	And OODBMS also have some disadvantages, the have mention 3 disadvantages for OODBMS. First, because the usage is forced to be similar to an object-oriented language. This makes maintaining and evolving is difficult. Second, the technique for store complex type of information takes additional computational resources. Third, the absence of a standard data model leads to design errors and inconsistencies.
-	
-	
+	And OODBMS also have some disadvantages, the have mention 3 disadvantages for OODBMS.
+	First, because the usage is forced to be similar to an object-oriented language.
+	This makes maintaining and evolving is difficult.
+	Second, the technique for store complex type of information takes additional computational resources.
+	Third, the absence of a standard data model leads to design errors and inconsistencies.
+		
 	\item\textbf{Relational database}
-	\setlength{\parindent}{1em}
-	
-	A relational database is the most popular database used in the world. 
-	They can organize data into one or more tables of columns and rows, with a unique key identifying each row. 
-	Rows are also called records or tuples. 
-	Generally, each table represents one "entity type" (such as customer or product). 
+	\setlength{\parindent}{1em}	
+	A relational database is the most popular database used in the world.
+	They can organize data into one or more tables of columns and rows, with a unique key identifying each row.
+	Rows are also called records or tuples.
+	Generally, each table represents one "entity type" (such as customer or product).
 	The rows represent instances of that type of entity (such as "Lee" or "iPhone 6") and the columns representing values attributed to that instance (such as address or price).
 	
-	Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data. 
-	Besides SQL is easy in the relational database approach. 
-	For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities. 
-	However, once the attributes of data become more and more, you'll need a large amount of tables to store your information. 
+	Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data.
+	Besides SQL is easy in the relational database approach.
+	For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities.
+	However, once the attributes of data become more and more, you'll need a large amount of tables to store your information.
 	Therefore, the performance of relational database will decrease obviously.
-	
-	
+		
 	\item\textbf{Graph database}
-	\setlength{\parindent}{1em}
-	
-	A graphical database uses graph structures for semantic queries with nodes, edges, and properties to represent and store data. 
-	Most of them are NoSQL in nature and store data in a key-value store or a document-oriented database. 
+	\setlength{\parindent}{1em}	
+	A graphical database uses graph structures for semantic queries with nodes, edges, and properties to represent and store data.
+	Most of them are NoSQL in nature and store data in a key-value store or a document-oriented database.
 	Graph databases are powerful tools for graph-like queries, for example computing the shortest path between two nodes in the graph.
 	
-	As we know, relational databases are most popular databases in the world. Compare to them, Graph databases have several advantages. 
-	A graph database is often faster for associative data set and map more directly to the structure of object-oriented applications. 
-	They can scale more naturally to large data sets as they do not typically require expensive join operations. 
+	As we know, relational databases are most popular databases in the world.
+	Compare to them, Graph databases have several advantages.
+	A graph database is often faster for associative data set and map more directly to the structure of object-oriented applications.
+	They can scale more naturally to large data sets as they do not typically require expensive join operations.
 	As they less depend on a rigid schema, they are more suitable to manage ad hoc and changing data with an evolving schema.
 	
-	On the other hand, graph database also comes with some disadvantages. 
+	On the other hand, graph database also comes with some disadvantages.
 	For example, the relational database is typically faster at performing the same operation on large numbers of data elements.
 	
-	\begin{figure}[tbh]
-		\begin{center}
-			\includegraphics[width=\columnwidth]{Wolverine_Method_Chart_2}
-		\end{center}
-		\caption{Advantages and disadvantages between three kind of databases}
-	\end{figure}
-	
 	\item\textbf{Summary}
-	\setlength{\parindent}{1em}
-	
-    To sum up, there are several methods to store data according to the database structures. 
+	\setlength{\parindent}{1em}	
+    To sum up, there are several methods to store data according to the database structures.
     Two main directions are storing inside the database and storing out of the database.
+    The comparison of three databases is shown in Figure \ref{WMC2}.
     
     We suggest not to store binary data in the database if it is large.
     It may cause significant performance decrease and additional storage space.
-    In contrast, we suggest to store binary data in the file system and record the path in the database. 
+    In contrast, we suggest to store binary data in the file system and record the path in the database.
     It may not cause the disadvantages above when large binary data store into the database, but the binary data can not automatically distribute with the database.
     Due to the PDF file will cost some performance issues even though it is small in size and our system has no requirement for automatic distribution.
     We suggest sorting the PDF file in the file system.
 	
 \end{enumerate}
 
-
 \subsubsection{SQL and NoSQL}
+
 Every website is full of data, such as Facebook, Bank of Taiwan and official web page of National Cheng Kung University (NCKU).
 The database is coming in many forms, including Object-oriented, graph and relational, which are listed above.
 Most of the databases come with querying languages interact with databases.
-SQL (Structured Query Language) is the most popular among them. 
+SQL (Structured Query Language) is the most popular among them.
 It is also an American National Standards Institute (ANSI) standard.
 SQL is a kind of simple language.
 It is like English to help uo to "communicate" with database server.
@@ -124,16 +112,10 @@ Therefore, even the people who are not good at programming can writing it easily
 SQL has been a single standard to support all kinds of databases for several decades.
 It seems good enough to let us don't need any alternatives.
 However, it is going to be changed.
-NoSQL is going to be an alternative, which means "non SQL" or "non relational". 
+NoSQL is going to be an alternative, which means "non SQL" or "non relational".
 It is different from relational database management system (RDMS) in some ways.
-For example, NoSQL use the concept of JSON-like (JavaScript Object Notation) or name-value to store data, instead of using tables like SQL. This study already lists some differences between SQL and NoSQL in figure underneath.
-
-\begin{figure}[tbh]
-	\begin{center}
-		\includegraphics[width=\columnwidth]{Wolverine_Method_Chart_3}
-	\end{center}
-	\caption{The differences between SQL and NoSQL}
-\end{figure}
+For example, NoSQL use the concept of JSON-like (JavaScript Object Notation) or name-value to store data, instead of using tables like SQL.
+This study already lists some differences between SQL and NoSQL shown in Figure \ref{WMC3}.
 
 However, SQL and NoSQL has their own advantages and disadvantages.
 Therefore, it should be chosen depending on data characteristic.
@@ -150,5 +132,18 @@ If the crawler is performing archiving of websites, it copies and saves the info
 The archives are usually stored in such a way they can be viewed, read and navigated as they were on the live web, but are preserved as 'snapshots' from \cite{Du2013}.
 We need to build up a web crawler to automatically visit a list of web page.
 Then find out which link in the page is valuable to download into our database.
+
+\begin{figure*}[h]
+	\begin{center}
+		\includegraphics[width=1.8\columnwidth]{Wolverine_Method_Chart_2}
+	\end{center}
+	\caption{Advantages and disadvantages between three kind of databases.\label{WMC2}}	
+\end{figure*}
+\begin{figure*}[h]
+	\begin{center}
+		\includegraphics[width=1.8\columnwidth]{Wolverine_Method_Chart_3}
+	\end{center}
+	\caption{The differences between SQL and NoSQL. \label{WMC3}}
+\end{figure*}
 
 \newpage % Ends the current page and causes all figures and tables to be printed

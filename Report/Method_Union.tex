@@ -9,95 +9,139 @@
 % Note:    
 % Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Method}
+\subsection{Method} %Please change "Method" to your goal. 
+\textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
-As mentioned in the background, our group use natural language processing in order to generate metadata. 
-The scope of metatada processing is about producing at least three types of metadata including author name, title and abstract. 
-This is the least we want to produce within the time frame of this course. 
-Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on. 
-If time is still on our side, we will even extend the scope our project further and join other teams to produce a search engine. 
+As mentioned in the background, our group use natural language processing in order to generate metadata.
+The scope of metatada processing is about producing at least three types of metadata including author name, title and abstract.
+This is the least we want to produce within the time frame of this course.
+Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on.
+If time is still on our side, we will even extend the scope our project further and join other teams to produce a search engine.
 Following discussion are our plan to complete extracting the 4 first types of metatata from PDF files.
 
 \subsubsection{Title extraction}
-We chose python to be the program to catch the title and other metadata as well. 
+
+We chose python to be the program to catch the title and other metadata as well.
 First step, we import some necessary packages and functions as following:
+
 \begin{enumerate}
+	
 	\item re: Regular expression package is a useful package which could be applied to the string comparison.
 	\item os: This function can connect the python to operating system, so that we can call the path of the files and folders.
-	\item nltk: A natural language toolkit. We use the corpus plaintext function to build the txt file in a folder as corpus.
-	\item string:The string package includes a lot of classes such as lowercase, uppercase,punctuation,digits or whitespace...etc. 
+	\item nltk: A natural language toolkit.	We use the corpus plaintext function to build the txt file in a folder as corpus.
+	\item string:The string package includes a lot of classes such as lowercase, uppercase,punctuation,digits or whitespace...etc.
+	
 \end{enumerate}  
+
 To begin, we convert all PDF files we want to deal with into a txt file, set the path and store them in specific folder. 
-Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. 
-Afterwards, we intend to produce the title of the article in a txt file.   
+Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step.
+Afterwards, we intend to produce the title of the article in a txt file.
 
 \subsubsection{Author extraction}
-In this part, we use the existing python packages to achieve our goal. 
-The key point in this part is natural language processing, which we have introduced in the basic section. 
-Also we combine the key word comparison technique to finish this task. The following step is below:
+
+In this part, we use the existing python packages to achieve our goal.
+The key point in this part is natural language processing, which we have introduced in the basic section.
+Also we combine the key word comparison technique to finish this task.
+The following step is below:
 
 \begin{enumerate}
-	\item Section Seperation: As we seperate the abstract part from the full text, we extract the text above the abstract section and rename as top section. This section contains title, author and email ,etc.
-	\item Tokenization: After accessing the top section, we seperate the text into each single word. These single words composed with a string list. 
+	
+	\item Section Separation: As we separate the abstract part from the full text, we extract the text above the abstract section and rename as top section. This section contains title, author and email ,etc.
+	\item Tokenization: After accessing the top section, we separate the text into each single word. These single words composed with a string list. 
 	\item Part Of Speech Tag: We use the existing corpus to tag the part of speech to the words. This step is necessary since that the chunker needs the every word's part-of-speech and then chunck.
-	\item Chunker: In this part, we mainly chunk the noun  because a noun often represents some meaningful features such as location or author.
-	\item Label: We check every phrase with the corpus which contain specific words like people name. Then we labele the words and store within the new list. Eventually, we write the information withhin the xml file. 
+	\item Chunker: In this part, we mainly chunk the noun because a noun often represents some meaningful features such as location or author.
+	\item Label: We check every phrase with the corpus which contain specific words like people name. Then we label the words and store within the new list. Eventually, we write the information within the xml file. 
+	
 \end{enumerate}
 
+The above steps is also available to extracting the location and organization,etc.
 
-The above steps is also availabe to extracting the location and organization,etc.
 \subsubsection{Abstract extraction}
-	Developing from previous theory mentioned in the background section, we use the python to catch the abstract. The following step is below
+
+	Developing from previous theory mentioned in the background section, we use the python to catch the abstract.
+	The following step is below.
 	%\begin{center}
 	%	\includegraphics[width=\columnwidth]{Union_Background_Chart_2}
 	%\end{center}
-	The pdf is converted into txt file.Thus, it will create the txt file. The work is done by hand coding. For detailed coding scheme, we have presented it in the appendix at the end of this report\\ 
-	After being able to read the txt file on every line, the python will detect the content of the abstract. In order to do so, we strip the text between "abstract" label and "introduction" label.\\ 	
-	abstract-database:including the condition\\
-	1. capital         "ABSTRACT"\\
-	2. lower case      "abstract"\\
-	3. in the sentence "Abstract—Word sense ....."\\
-	4. and so on \\
-	In the process building "abstract database", we are aware of different papers may have different form of structures and writing style, we search through numbers of articles from different journals. Number of article found is 100, from 20 different journals including The Lancet, Progress in Energy and Combustion Science, Chemical Analysis and so. Search results for sections such as Theoretical, Methods, Results, Discussion, Conclusion, Acknowledgements are also obtained.  Table below are the results of the search.\\
-	\begin{center}
+	The pdf is converted into txt file.Thus, it will create the txt file.
+	The work is done by hand coding.
+	For detailed coding scheme, we have presented it in the appendix at the end of this report.
+	 
+	After being able to read the txt file on every line, the python will detect the content of the abstract.
+	In order to do so, we strip the text between "abstract" label and "introduction" label.	
+	
+	Abstract-database:including the condition
+	
+	\begin{enumerate}
+		
+		\item Capital         "ABSTRACT".
+		\item Lower case      "abstract".
+		\item In the sentence "Abstract—Word sense ...".
+		\item And so on...
+		
+	\end{enumerate}
+	
+	In the process building "abstract database", we are aware of different papers may have different form of structures and writing style, we search through numbers of articles from different journals.
+	Number of article found is 100, from 20 different journals including The Lancet, Progress in Energy and Combustion Science, Chemical Analysis and so.
+	Search results for sections such as Theoretical, Methods, Results, Discussion, Conclusion, Acknowledgments are also obtained.
+	Table below are the results of the search.
+	
+	%\begin{center}
 		%\includegraphics[width=\columnwidth]{Table for method Union}.\\
 		%\includegraphics[width=\columnwidth]{Table 2 for method Union}.\\
 		%\caption{Result of finding all forms of "abstract", "introduction" written by different authors}
-	\end{center}
-	Then our program will read the txt file on every line.If the python detects the abstract-database-stop's words ,it will stop to catch the sentences.\\ 
+	%\end{center}
+	
+	Then our program will read the txt file on every line.If the python detects the abstract-database-stop's words ,it will stop to catch the sentences.
 	abstract-database-stop:including the following conditions
-	1. the blank line
-	2. specific words in the beginning "Keywords"
-	3. and so on.\\
-	The intended output are sentences extracted to the txt file. To further validate if the program can run precisely, members randomly search for articles (10 articles) to test the programs. The program was run successfully and all abstracts was extracted from the text. \\ 	
+	
+	\begin{enumerate}
+			
+		\item The blank line.
+		\item Specific words in the beginning "Keywords".
+		\item And so on.
+					
+	\end{enumerate}
+	
+	The intended output are sentences extracted to the txt file.
+	To further validate if the program can run precisely, members randomly search for articles (10 articles) to test the programs.
+	The program was run successfully and all abstracts was extracted from the text.
+	 	
 \subsubsection{References URL extraction}
-References URL extraction is very easy and straightforward. Just use a powerful package called PDfx to complete this task.
+
+References URL extraction is very easy and straightforward.
+Just use a powerful package called PDfx to complete this task.
 The procedure is below:
+
 \begin{enumerate}
-   \item  First of all,import a PDFx package to python.\\
-   \item  Second,utilize the function in PDFx package to get the metadata and the URL of references by inputing a URL of a PDF or PDF's file name.\\ 
-   \item  Finally,output and list the results in txt file and choose the specific directory to store it. \\
+	
+	\item First of all,import a PDFx package to python.
+	\item Second,utilize the function in PDFx package to get the metadata and the URL of references by inputing a URL of a PDF or PDF's file name.
+	\item Finally,output and list the results in txt file and choose the specific directory to store it.
+
 \end{enumerate}
-   
-   This method can also detects URL,arxiv and doi references.
-
-
-
+ 
+This method can also detects URL,arxiv and doi references.
 
 \subsubsection{Search sentences}
-The search sentence pasrt is  related to the search engine. After extracting the necessary information, we have to find a  way search these data.
+
+The search sentence part is related to the search engine.
+ After extracting the necessary information, we have to find a way to search these data.
+ 
 \begin{itemize}
+	
 	%\begin{center}
 	%	\includegraphics[width=0.8\columnwidth]{Union_Background_Chart_2}
 	%\end{center}
-	\item First,turn the PDF to the txt file .(Make the programe easy to read file)\\ 
-	\item Second,read the txt file by lines.\\ 	
-	\item Third,create the array to divide the section of the articles.\\ 	
-	\item Forth,expend the array to divide the section clearly.\\ 	
-	\item Fifth,Users search the sentence.The programe search all sections by this sentence.\\
-	\item Sixth,Show the results\\  		
+	\item First,turn the PDF to the txt file .(Make the programe easy to read file)
+	\item Second,read the txt file by lines.
+	\item Third,create the array to divide the section of the articles.
+	\item Forth,expend the array to divide the section clearly.
+	\item Fifth,Users search the sentence.The programe search all sections by this sentence.
+	\item Sixth,Show the results
 	
 \end{itemize}
-Our project has four remaining weeks to complete (counting from 26 May 2016). 
+
+Our project has four remaining weeks to complete (counting from 26 May 2016).
 
 \newpage % Ends the current page and causes all figures and tables to be printed
