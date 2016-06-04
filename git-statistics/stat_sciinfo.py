@@ -13,7 +13,6 @@ lines_deleted=[]
 words_inserted=[]
 words_deleted=[]
 list_datalists=[num_commits,lines_inserted,lines_deleted,words_inserted,words_deleted]
-#list_datalists=[num_commits,lines_inserted,lines_deleted,words_inserted,words_deleted]
 num_authors=0
 def getrep():
 	if len(sys.argv) < 2:
@@ -69,6 +68,9 @@ def correct_similar_name(name1,name2):
 def remove_email(list_of_author):
 	for i,author in enumerate(list_of_author):
 		list_of_author[i]=author.split(" <")[0]
+def change_name(oldname,newname):
+	index=authors.index(oldname)
+	authors[index]=newname
 def createHTML():
 	with open("/home/yslin/statistics/index.html","w") as f:
 		format='%Y-%m-%d %H:%M:%S'
@@ -110,13 +112,15 @@ def statistics():
 	correct_similar_name('DexterChen <owesdexter2011@gmail.com>',['Dexter Chen <owesdexter2011@gmail.com>','unknown <you@example.com>'])
 	correct_similar_name('Jim_Lan <jb0929n@gmail.com>',['Your NameJim_Lan <jb0929n@gmail.com>'])
 	correct_similar_name('Wei <4A02C014@stust.edu.tw>',['4A02C014 <4A02C014@stust.edu.tw>','哲偉 張 <4a02c014@stust.edu.tw>'])
-	correct_similar_name('Piyarul <piyarulhoque1993@gmail.com>',['Piyarul Hoque <piyarulhoque1993@gmail.com>','Piyarul <piyarulhoque1993@gmail.com.com>'])
+	correct_similar_name('Piyarul <piyarulhoque1993@gmail.com>',['Piyarul Hoque <piyarulhoque1993@gmail.com>','Piyarul <piyarulhoque1993@gmail.com.com>','Piyarul1993 <piyarulhoque1993@gmail.com>'])
 	correct_similar_name('Jacky Wu <Jacky@youande-MacBook-Pro.local>',['Yu-An Wu <jackywugogo@gmail.com>'])
 	correct_similar_name('Henry-Peng <kkvvy12@gmail.com>',['Henry <kkvvy12@gmail.com>'])
 	correct_similar_name('Torbj\xc3\xb6rn Nordling <tn@nordron.com>',['Torbj\xc3\xb6rn Nordling <tn@kth.se>'])
 	correct_similar_name('Kenny Hsu <tei1004@yahoo.com.tw>',['Kenny Hsu <teii1004@yahoo.com.tw>'])
 	correct_similar_name('TPhat <geminielf9@gmail.com>',['Tan Phat <geminielf@gmail.com>','unknown <geminielf9@gmail.com>'])
 	remove_email(authors)
+	change_name("l0989553696","I-Chieh Lin")
+	change_name("leoc0426","Ray")
 	num_authors=len(authors)
 	createHTML()
 statistics()
