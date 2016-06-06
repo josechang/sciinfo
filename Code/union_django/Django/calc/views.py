@@ -91,10 +91,13 @@ def reference_start(a):
         return 0
 
 def add(request):
+
+   all_name=[]
    if 'abstract' in request.GET:
 
       DATA_DIR = '/root/Django/file'
       pdf_name=[]
+      all_name.append("abstract")
       for filename in os.listdir(DATA_DIR):
 
        if(filename[-4:len(filename)] ==".pdf") :
@@ -130,6 +133,7 @@ def add(request):
 
       DATA_DIR = '/root/Django/file'
       pdf_name=[]
+      all_name.append("introduction")
       for filename in os.listdir(DATA_DIR):
 
        if(filename[-4:len(filename)] ==".pdf") :
@@ -165,6 +169,7 @@ def add(request):
 
       DATA_DIR = '/root/Django/file'
       pdf_name=[]
+      all_name.append("method")
       for filename in os.listdir(DATA_DIR):
 
        if(filename[-4:len(filename)] ==".pdf") :
@@ -200,6 +205,7 @@ def add(request):
 
       DATA_DIR = '/root/Django/file'
       pdf_name=[]
+      all_name.append("result")
       for filename in os.listdir(DATA_DIR):
 
        if(filename[-4:len(filename)] ==".pdf") :
@@ -235,6 +241,7 @@ def add(request):
 
       DATA_DIR = '/root/Django/file'
       pdf_name=[]
+      all_name.append("discussion")
       for filename in os.listdir(DATA_DIR):
 
        if(filename[-4:len(filename)] ==".pdf") :
@@ -270,6 +277,7 @@ def add(request):
 
       DATA_DIR = '/root/Django/file'
       pdf_name=[]
+      all_name.append("reference")
       for filename in os.listdir(DATA_DIR):
 
        if(filename[-4:len(filename)] ==".pdf") :
@@ -296,7 +304,35 @@ def add(request):
             if kk == 1 :
               a1.append(str(j))
           b1=open('/root/Django/file/'+pdf_name[i]+'_reference.txt','w')
+         
           for i in xrange(len(a1)):
              b1.write(a1[i])
           b1.close()
+   
+
+   DATA_DIR = '/root/Django/file'
+   pdf_name_all=[]
+   
+   for filename in os.listdir(DATA_DIR):
+
+     if(filename[-4:len(filename)] ==".pdf") :
+
+       pdf_name_all.append(filename.replace(".pdf",""))
+
+   b1=open('/root/Django/calc/templates/home3.html')
+   b2=open('/root/Django/calc/templates/home4.html','w')
+
+   for k in b1.readlines():
+     	 kk=str(k.strip().replace(" ",""))
+     	 
+	 if(kk=="<!--abstract-->"):
+   	       for j in xrange(len(pdf_name_all)):
+   	       	   b3=open('/root/Django/file/'+pdf_name_all[j]+'_abstract.txt')
+                   for jj in b3.readlines():
+                     b2.write(str(jj))
+		   b2.write("--------------------------------------")
+               
+         else:
+             b2.write(k)
+
    return HttpResponse('Success')
