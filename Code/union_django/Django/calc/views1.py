@@ -2,10 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import os
 import textract
-
-def delect_special(a):
-    b=a.replace(".","").replace("!","").replace("@","").replace("#","").replace("~","").replace(",","")
-    return b
 def abstract_start(a):
     arr=['ABSTRACT']
 
@@ -378,68 +374,5 @@ def add(request):
    return render(request, 'home4.html')
   
   else:
-      search=delect_special(request.GET['search']).split(" ")
-      c=0
-      c1=0
-      c2_1=0
-      c2=0
-      c3=0
-      c4=0
-      c3_1=0
-
-      a1=[]
-      introduction1=[]
-      theoretical1=[]
-      method1=[]
-      result1=[]
-      discussion1=[]
-      conclusion1=[]
-      reference1=[]
-
-      DATA_DIR = '/root/Django/file'
-      pdf_name=[]
-      for filename in os.listdir(DATA_DIR):
-
-       if(filename[-4:len(filename)] ==".pdf") :
-
-        pdf_name.append(filename.replace(".pdf",""))
-
-        text = textract.process('/root/Django/file/'+filename, method='pdfminer')
-
-        file_txt = '/root/Django/file/all_'+filename.replace(".pdf",".txt")
-
-        xml=open(file_txt,'w')
-        for i in xrange(len(text)):
-          xml.write(text[i])
-        xml.close()
-
-      for i in xrange(len(pdf_name)):
-        myfile_w = open('/root/Django/file/all_'+pdf_name[i]+'.txt','r')
-        kk=0
-        a1=[]
-        for j in myfile_w.readlines():
-    
-          k=str(j.strip().replace(" ",""))
-          if(abstract_start(k) or abstract_start(k[0:8])):
-              kk=1
-          elif(abstract_end(k) or abstract_end(k[0:8])):
-              kk=0
-          if kk == 1 :
-              a1.append(str(j))
-
-        a2=''.join(a1).split('.')
-        a3=[]
-	for x in xrange(len(a2)):
-         a4=0
-	 for xx in xrange(len(search)):
-
-	   if str(search[xx]).upper() in str(a2[x]).upper():
-             a4+=1 
-         if a4 == len(search) :
-	   a3.append(a2[x])
-        ab=open('/root/Django/file/'+pdf_name[i]+'_result.txt','w')
-        for xxx in xrange(len(a3)):
-	  
-	  ab.write(str(a3[xxx])+"\n\n"+"-------------------"+"\n\n")
-      return HttpResponse('Success')
+   return HttpResponse('Success')
    #return HttpResponse('Success')
