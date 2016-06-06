@@ -323,16 +323,46 @@ def add(request):
    b2=open('/root/Django/calc/templates/home4.html','w')
 
    for k in b1.readlines():
-     	 kk=str(k.strip().replace(" ",""))
+      kk=str(k.strip().replace(" ",""))
      	 
-	 if(kk=="<!--abstract-->"):
-   	       for j in xrange(len(pdf_name_all)):
-   	       	   b3=open('/root/Django/file/'+pdf_name_all[j]+'_abstract.txt')
-                   for jj in b3.readlines():
+      if(kk=="<!--abstract-->"):
+   	      for j in xrange(len(pdf_name_all)):
+   	          b3=open('/root/Django/file/'+pdf_name_all[j]+'_abstract.txt')
+              for jj in b3.readlines():
                      b2.write(str(jj))
-		   b2.write("--------------------------------------")
-               
-         else:
-             b2.write(k)
+              b2.write("--------------------------------------")
+      elif(kk=="<!--introduction-->"):
+              for j in xrange(len(pdf_name_all)):
+                 b3=open('/root/Django/file/'+pdf_name_all[j]+'_introduction.txt')
+              for jj in b3.readlines():
+                     b2.write(str(jj))
+              b2.write("--------------------------------------")
+      elif(kk=="<!--method-->"):
+              for j in xrange(len(pdf_name_all)):
+                 b3=open('/root/Django/file/'+pdf_name_all[j]+'_method.txt')
+              for jj in b3.readlines():
+                     b2.write(str(jj))
+              b2.write("--------------------------------------")
+      elif(kk=="<!--result-->"):
+              for j in xrange(len(pdf_name_all)):
+                 b3=open('/root/Django/file/'+pdf_name_all[j]+'_result.txt')
+              for jj in b3.readlines():
+                 b2.write(str(jj))
+              b2.write("--------------------------------------")
+      elif(kk=="<!--discussion-->"):
+              for j in xrange(len(pdf_name_all)):
+                  b3=open('/root/Django/file/'+pdf_name_all[j]+'_discussion.txt')
+              for jj in b3.readlines():
+                  b2.write(str(jj))
+              b2.write("--------------------------------------")                    
+      elif(kk=="<!--reference-->"):
+              for j in xrange(len(pdf_name_all)):
+                 b3=open('/root/Django/file/'+pdf_name_all[j]+'_reference.txt')
+              for jj in b3.readlines():
+                 b2.write(str(jj))
+              b2.write("--------------------------------------")
+      else:
+           b2.write(k)
 
-   return HttpResponse('Success')
+   return render(request, 'home4.html')
+   #return HttpResponse('Success')
