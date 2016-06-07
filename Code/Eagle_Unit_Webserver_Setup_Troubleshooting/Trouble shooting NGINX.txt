@@ -1,0 +1,39 @@
+Trouble shooting NGINX
+
+When you start nginx using
+
+	$ sudo systemctl start nginx
+
+And you see the error
+
+	“Job for nginx.service failed because the control process exited with error code. See "systemctl status nginx.service" and "journalctl -xe" for details.”
+
+Type in (in the putty command window)
+
+	$ journalctl –xe
+
+If you see the following error (can be seen towards the end of the window and note the date will be your current date)
+
+
+".........
+
+-- Unit nginx.service has begun starting up.
+Jun 07 19:11:30 localhost.localdomain nginx[21724]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+Jun 07 19:11:30 localhost.localdomain nginx[21724]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+Jun 07 19:11:30 localhost.localdomain nginx[21732]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Jun 07 19:11:30 localhost.localdomain nginx[21732]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+Jun 07 19:11:30 localhost.localdomain nginx[21732]: nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+........
+
+-- Subject: Unit nginx.service has failed
+
+.........”
+
+
+This means that nginx or some other process is already using port 80. Type-in the following in the putty command window to kill it.
+
+	$ sudo fuser -k 80/tcp
+
+Then restart nginx again, using the previous command:
+
+	$ sudo systemctl start nginx
