@@ -37,7 +37,19 @@ def introduction_end(a):
         return 1
     else:
         return 0
+def theoretical_start(a):
+    arr=["THEORETICAL"]
+    if(a.strip().upper() in arr):     
+	 return 1     
+    else:
+         return 0
 
+def theoretical_end(a):
+   arr=["II.METHODS","METHODS","2.METHODS","MATERIAL","EXPERIME"]
+   if(a.strip().upper() in arr):     
+        return 1
+   else:
+        return 0
 def method_start(a):
     arr=["II.METHODS","METHODS","2.METHODS","MATERIAL","EXPERIME","METHOD"]
     
@@ -85,6 +97,19 @@ def discussion_end(a):
         return 1
     else:
         return 0
+def conclusion_start(a):
+    arr=["CONCLUSI","SUMMARYA","SUMMARY"] 
+    if(a.strip().upper() in arr):     
+        return 1
+    else:
+        return 0
+
+def conclusion_end(a):
+    arr=["REFERENCES"]
+    if(a.strip().upper() in arr):     
+       return 1
+    else:
+       return 0
 
 def reference_start(a):
     arr=["REFERENCES"]
@@ -379,22 +404,6 @@ def add(request):
   
   else:
       search=delect_special(request.GET['search']).split(" ")
-      c=0
-      c1=0
-      c2_1=0
-      c2=0
-      c3=0
-      c4=0
-      c3_1=0
-
-      a1=[]
-      introduction1=[]
-      theoretical1=[]
-      method1=[]
-      result1=[]
-      discussion1=[]
-      conclusion1=[]
-      reference1=[]
 
       DATA_DIR = '/root/Django/file'
       pdf_name=[]
@@ -415,31 +424,161 @@ def add(request):
 
       for i in xrange(len(pdf_name)):
         myfile_w = open('/root/Django/file/all_'+pdf_name[i]+'.txt','r')
-        kk=0
+
+        c=0
+        c1=0
+        c2_1=0
+        c2=0
+        c3=0
+        c4=0
+        c3_1=0
         a1=[]
+        introduction1=[]
+        theoretical1=[]
+        method1=[]
+        result1=[]
+        discussion1=[]
+        conclusion1=[]
+        reference1=[]
         for j in myfile_w.readlines():
     
           k=str(j.strip().replace(" ",""))
           if(abstract_start(k) or abstract_start(k[0:8])):
-              kk=1
+              c=1
           elif(abstract_end(k) or abstract_end(k[0:8])):
-              kk=0
-          if kk == 1 :
+              c=0
+          if c == 1 :
               a1.append(str(j))
+
+          if(introduction_start(k) or introduction_start(k[0:8])):
+            c1+=1
+          elif(introduction_end(k) or introduction_end(k[0:8])):
+            c1=0
+          if c1 > 0 :
+            introduction1.append(str(j))
+
+          if(method_start(k) or method_start(k[0:8])):
+             c2+=1
+          elif(method_end(k) or method_end(k[0:7])):
+             c2=0 
+          if c2 > 0 :
+             method1.append(str(j))
+
+          if(result_start(k) or result_start(k[0:7])):
+             c3+=1
+          elif(result_end(k) or result_end(k[0:8])):
+             c3=0 
+          if c3 > 0 :
+             result1.append(str(j))
+     
+          if(discussion_start(k) or discussion_start(k[0:8])):
+             c3_1+=1
+          elif(discussion_end(k) or discussion_end(k[0:8])):
+             c3_1=0    
+          if c3_1 > 0 :
+            discussion1.append(str(j))
+     
+          if(reference_start(k) or reference_start(k[0:8])):
+             c4+=1
+          if c4>0:
+             reference1.append(str(j))       
 
         a2=''.join(a1).split('.')
         a3=[]
 	for x in xrange(len(a2)):
-         a4=0
-	 for xx in xrange(len(search)):
-
-	   if str(search[xx]).upper() in str(a2[x]).upper():
+          a4=0
+	  for xx in xrange(len(search)):
+	    if str(search[xx]).upper() in str(a2[x]).upper():
              a4+=1 
-         if a4 == len(search) :
-	   a3.append(a2[x])
-        ab=open('/root/Django/file/'+pdf_name[i]+'_result.txt','w')
-        for xxx in xrange(len(a3)):
-	  
-	  ab.write(str(a3[xxx])+"\n\n"+"-------------------"+"\n\n")
-      return HttpResponse('Success')
+          if a4 >0 :
+	     a3.append(a2[x])
+
+        introduction2=''.join(introduction1).split('.')
+        introduction3=[]
+        for x in xrange(len(introduction2)):
+            introduction4=0
+            for xx in xrange(len(search)):
+              if str(search[xx].upper()) in str(introduction2[x].upper()):
+                introduction4+=1
+            if introduction4 >0 :
+                introduction3.append(introduction2[x])
+         
+	method2=''.join(method1).split('.')
+        method3=[]
+        for x in xrange(len(method2)):
+            method4=0
+            for xx in xrange(len(search)):
+              if str(search[xx].upper()) in str(method2[x].upper()):
+                method4+=1
+            if method4 >0 :
+                method3.append(method2[x])
+
+        result2=''.join(result1).split('.')
+        result3=[]
+        for x in xrange(len(result2)):
+            result4=0
+            for xx in xrange(len(search)):
+              if str(search[xx].upper()) in str(result2[x].upper()):
+                result4+=1
+            if result4 >0 :
+                result3.append(result2[x])
+
+        discussion2=''.join(discussion1).split('.')
+        discussion3=[]
+        for x in xrange(len(discussion2)):
+            discussion4=0
+            for xx in xrange(len(search)):
+              if str(search[xx].upper()) in str(discussion2[x].upper()):
+                discussion4+=1
+            if discussion4 >0 :
+                discussion3.append(discussion2[x])
+
+        reference2=''.join(reference1).split('.')
+        reference3=[]
+        for x in xrange(len(reference2)):
+            reference4=0
+            for xx in xrange(len(search)):
+              if str(search[xx].upper()) in str(reference2[x].upper()):
+                reference4+=1
+            if reference4 >0 :
+                reference3.append(reference2[x])
+
+
+        # ab=open('/root/Django/file/'+pdf_name[i]+'_result.txt','w')
+
+        b1=open('/root/Django/calc/templates/home3.html')
+        b2=open('/root/Django/calc/templates/home4.html','w')
+        for b3 in b1.readlines():
+
+          b4=str(b3.strip().replace(" ",""))    
+          if(b4=="<!--abstract-->" and len(a3)>0):
+            b2.write("abstract<br><br><br><br>")
+            for xxx in xrange(len(a3)):  
+	           b2.write(str(a3[xxx])+"-------------------<br>")
+          
+          elif(b4=="<!--introduction-->" and len(introduction3)>0):
+            b2.write("introduction<br><br>")
+            for xxx in xrange(len(introduction3)):  
+             b2.write(str(introduction3[xxx])+"-------------------<br>")
+          elif(b4=="<!--method-->" and len(method3)>0):
+            b2.write("method<br><br>")
+            for xxx in xrange(len(method3)):  
+             b2.write(str(method3[xxx])+"-------------------<br>")
+          elif(b4=="<!--result-->" and len(result3)>0):
+            b2.write("result<br><br>")
+            for xxx in xrange(len(result3)):  
+             b2.write(str(result3[xxx])+"-------------------<br>")
+          elif(b4=="<!--discussion-->" and len(discussion3)>0):
+            b2.write("discussion<br><br>")
+            for xxx in xrange(len(discussion3)):  
+             b2.write(str(discussion3[xxx])+"-------------------<br>")
+          elif(b4=="<!--reference-->" and len(reference3)>0):
+            b2.write("reference<br><br>")
+            for xxx in xrange(len(reference3)):  
+             b2.write(str(reference3[xxx])+"-------------------<br>")
+          else:
+             b2.write(b3)
+      
+
+  return render(request, 'home4.html')
    #return HttpResponse('Success')
