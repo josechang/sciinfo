@@ -353,44 +353,44 @@ def add(request):
    b2=open('/root/Django/calc/templates/home4.html','w')
 
    for k in b1.readlines():
-      kk=str(k.strip().replace(" ",""))
-     	 
-      if(kk=="<!--abstract-->" and 'abstract' in request.GET):
+    kk=str(k.strip().replace(" ",""))
+    if(kk=="start"): 	 
+      if( 'abstract' in request.GET):
    	      for j in xrange(len(pdf_name_all)):
    	          b3=open('/root/Django/file/'+pdf_name_all[j]+'_abstract.txt')
                   for jj in b3.readlines():
                      b2.write(str(jj))
 		     b2.write("<br>")
               b2.write("<br>--------------------------------------<br>")
-      elif(kk=="<!--introduction-->" and 'introduction' in request.GET):
+      if( 'introduction' in request.GET):
               for j in xrange(len(pdf_name_all)):
                  b3=open('/root/Django/file/'+pdf_name_all[j]+'_introduction.txt')
                  for jj in b3.readlines():
                      b2.write(str(jj))
 		     b2.write("<br>")
               b2.write("<br>--------------------------------------<br>")
-      elif(kk=="<!--method-->" and 'method' in request.GET):
+      if( 'method' in request.GET):
               for j in xrange(len(pdf_name_all)):
                  b3=open('/root/Django/file/'+pdf_name_all[j]+'_method.txt')
                  for jj in b3.readlines():
                      b2.write(str(jj))
 		     b2.write("<br>")
               b2.write("<br>--------------------------------------<br>")
-      elif(kk=="<!--result-->" and 'result' in request.GET):
+      if('result' in request.GET):
               for j in xrange(len(pdf_name_all)):
                  b3=open('/root/Django/file/'+pdf_name_all[j]+'_result.txt')
                  for jj in b3.readlines():
                      b2.write(str(jj))
 		     b2.write("<br>")
               b2.write("<br>--------------------------------------<br>")
-      elif(kk=="<!--discussion-->" and 'discussion' in request.GET):
+      if('discussion' in request.GET):
               for j in xrange(len(pdf_name_all)):
                   b3=open('/root/Django/file/'+pdf_name_all[j]+'_discussion.txt')
                   for jj in b3.readlines():
                       b2.write(str(jj))
 		      b2.write("<br>")
               b2.write("<br>--------------------------------------<br>")                    
-      elif(kk=="<!--reference-->" and 'reference' in request.GET):
+      if('reference' in request.GET):
               for j in xrange(len(pdf_name_all)):
                  b3=open('/root/Django/file/'+pdf_name_all[j]+'_reference.txt')
                  for jj in b3.readlines():
@@ -421,10 +421,16 @@ def add(request):
         for i in xrange(len(text)):
           xml.write(text[i])
         xml.close()
-
+      
+      a=[]
+      introduction=[]
+      method=[]
+      result=[]
+      discussion=[]
+      reference=[]
       for i in xrange(len(pdf_name)):
         myfile_w = open('/root/Django/file/all_'+pdf_name[i]+'.txt','r')
-
+        
         c=0
         c1=0
         c2_1=0
@@ -434,54 +440,52 @@ def add(request):
         c3_1=0
         a1=[]
         introduction1=[]
-        theoretical1=[]
         method1=[]
         result1=[]
         discussion1=[]
-        conclusion1=[]
         reference1=[]
         for j in myfile_w.readlines():
     
-          k=str(j.strip().replace(" ",""))
+          k=str(j.strip()).replace(" ","")
           if(abstract_start(k) or abstract_start(k[0:8])):
               c=1
           elif(abstract_end(k) or abstract_end(k[0:8])):
               c=0
           if c == 1 :
-              a1.append(str(j))
+              a1.append(j)
 
           if(introduction_start(k) or introduction_start(k[0:8])):
             c1+=1
           elif(introduction_end(k) or introduction_end(k[0:8])):
             c1=0
           if c1 > 0 :
-            introduction1.append(str(j))
+            introduction1.append(j)
 
           if(method_start(k) or method_start(k[0:8])):
              c2+=1
           elif(method_end(k) or method_end(k[0:7])):
              c2=0 
           if c2 > 0 :
-             method1.append(str(j))
+             method1.append(j)
 
           if(result_start(k) or result_start(k[0:7])):
              c3+=1
           elif(result_end(k) or result_end(k[0:8])):
              c3=0 
           if c3 > 0 :
-             result1.append(str(j))
+             result1.append(j)
      
           if(discussion_start(k) or discussion_start(k[0:8])):
              c3_1+=1
           elif(discussion_end(k) or discussion_end(k[0:8])):
              c3_1=0    
           if c3_1 > 0 :
-            discussion1.append(str(j))
+            discussion1.append(j)
      
           if(reference_start(k) or reference_start(k[0:8])):
              c4+=1
           if c4>0:
-             reference1.append(str(j))       
+             reference1.append(j)
 
         a2=''.join(a1).split('.')
         a3=[]
@@ -498,7 +502,7 @@ def add(request):
         for x in xrange(len(introduction2)):
             introduction4=0
             for xx in xrange(len(search)):
-              if str(search[xx].upper()) in str(introduction2[x].upper()):
+              if str(search[xx]).upper() in str(introduction2[x]).upper():
                 introduction4+=1
             if introduction4 >0 :
                 introduction3.append(introduction2[x])
@@ -508,7 +512,7 @@ def add(request):
         for x in xrange(len(method2)):
             method4=0
             for xx in xrange(len(search)):
-              if str(search[xx].upper()) in str(method2[x].upper()):
+              if str(search[xx]).upper() in str(method2[x]).upper():
                 method4+=1
             if method4 >0 :
                 method3.append(method2[x])
@@ -518,7 +522,7 @@ def add(request):
         for x in xrange(len(result2)):
             result4=0
             for xx in xrange(len(search)):
-              if str(search[xx].upper()) in str(result2[x].upper()):
+              if str(search[xx]).upper() in str(result2[x]).upper():
                 result4+=1
             if result4 >0 :
                 result3.append(result2[x])
@@ -528,7 +532,7 @@ def add(request):
         for x in xrange(len(discussion2)):
             discussion4=0
             for xx in xrange(len(search)):
-              if str(search[xx].upper()) in str(discussion2[x].upper()):
+              if str(search[xx]).upper() in str(discussion2[x]).upper():
                 discussion4+=1
             if discussion4 >0 :
                 discussion3.append(discussion2[x])
@@ -538,47 +542,95 @@ def add(request):
         for x in xrange(len(reference2)):
             reference4=0
             for xx in xrange(len(search)):
-              if str(search[xx].upper()) in str(reference2[x].upper()):
+              if str(search[xx]).upper() in str(reference2[x]).upper():
                 reference4+=1
             if reference4 >0 :
                 reference3.append(reference2[x])
 
 
-        # ab=open('/root/Django/file/'+pdf_name[i]+'_result.txt','w')
-
-        b1=open('/root/Django/calc/templates/home3.html')
-        b2=open('/root/Django/calc/templates/home4.html','w')
-        for b3 in b1.readlines():
+        b1=open('/root/Django/calc/templates/home3.html','r')
+        b2=open('/root/Django/calc/templates/'+pdf_name[i]+'.txt','w')
+	for b3 in b1.readlines():
 
           b4=str(b3.strip().replace(" ",""))    
-          if(b4=="<!--abstract-->" and len(a3)>0):
-            b2.write("abstract<br><br><br><br>")
+          if(b4=="start" and len(a3)>0):
+	    
+            b2.write("@@@")
             for xxx in xrange(len(a3)):  
-	           b2.write(str(a3[xxx])+"-------------------<br>")
-          
-          elif(b4=="<!--introduction-->" and len(introduction3)>0):
-            b2.write("introduction<br><br>")
-            for xxx in xrange(len(introduction3)):  
-             b2.write(str(introduction3[xxx])+"-------------------<br>")
-          elif(b4=="<!--method-->" and len(method3)>0):
-            b2.write("method<br><br>")
-            for xxx in xrange(len(method3)):  
-             b2.write(str(method3[xxx])+"-------------------<br>")
-          elif(b4=="<!--result-->" and len(result3)>0):
-            b2.write("result<br><br>")
-            for xxx in xrange(len(result3)):  
-             b2.write(str(result3[xxx])+"-------------------<br>")
-          elif(b4=="<!--discussion-->" and len(discussion3)>0):
-            b2.write("discussion<br><br>")
-            for xxx in xrange(len(discussion3)):  
-             b2.write(str(discussion3[xxx])+"-------------------<br>")
-          elif(b4=="<!--reference-->" and len(reference3)>0):
-            b2.write("reference<br><br>")
-            for xxx in xrange(len(reference3)):  
-             b2.write(str(reference3[xxx])+"-------------------<br>")
-          else:
-             b2.write(b3)
-      
+	           b2.write(str(a3[xxx])+"_")
 
-  return render(request, 'home4.html')
+            b2.write("!!!") 
+            for xxx in xrange(len(introduction3)):  
+             b2.write(str(introduction3[xxx])+"_")
+
+            b2.write("!!!") 
+            for xxx in xrange(len(method3)):  
+             b2.write(str(method3[xxx])+"_")            
+
+            b2.write("!!!") 
+            for xxx in xrange(len(result3)):  
+             b2.write(str(result3[xxx])+"_")    
+
+            b2.write("!!!") 
+            for xxx in xrange(len(discussion3)):  
+             b2.write(str(discussion3[xxx])+"_")                 
+                      
+            b2.write("!!!") 
+            for xxx in xrange(len(reference3)):  
+             b2.write(str(reference3[xxx])+"_") 
+
+            b2.write("@@@")             
+          # elif(b4=="<!--introduction-->" and len(introduction3)>0):
+            
+            # for xxx in xrange(len(introduction3)):  
+            #  b2.write(str(introduction3[xxx])+"_")
+          # elif(b4=="<!--method-->" and len(method3)>0):
+          #   b2.write("method<br><br>")
+          #   for xxx in xrange(len(method3)):  
+          #    b2.write(str(method3[xxx])+"-------------------<br>")
+          # elif(b4=="<!--result-->" and len(result3)>0):
+          #   b2.write("result<br><br>")
+          #   for xxx in xrange(len(result3)):  
+          #    b2.write(str(result3[xxx])+"-------------------<br>")
+          # elif(b4=="<!--discussion-->" and len(discussion3)>0):
+          #   b2.write("discussion<br><br>")
+          #   for xxx in xrange(len(discussion3)):  
+          #    b2.write(str(discussion3[xxx])+"-------------------<br>")
+          # elif(b4=="<!--reference-->" and len(reference3)>0):
+          #   b2.write("reference<br><br>")
+          #   for xxx in xrange(len(reference3)):  
+          #    b2.write(str(reference3[xxx])+"-------------------<br>")
+          #else:
+          #  b2.write(b3)
+      DATA_DIR = '/root/Django/calc/templates'
+      b1=open('/root/Django/calc/templates/home3.html','r')
+      b2=open('/root/Django/calc/templates/home4.html','w')
+      for b3 in b1.readlines():
+        b4=str(b3.strip().replace(" ",""))
+        if(b4=="start"):	
+	  for filename in os.listdir(DATA_DIR):     
+            arr=[]
+	    if(filename[-4:len(filename)] ==".txt") :
+	      
+              f1=open('/root/Django/calc/templates/'+filename,'r')
+              for f2 in f1.readlines():
+	          arr.append(f2)
+	      
+              ext="".join(arr).replace("<","").replace(">","").replace("\'","")
+              ext_sp =ext.split('@@@')
+	      for f3 in range(1,len(ext_sp)):
+                ext_f3=ext_sp[f3].split('!!!')
+                
+		aar=['Abstract','Introduction','Method','Result','Discussion','Reference']
+                for f4 in xrange(len(ext_f3)):
+	           b2.write(str(aar[f4])+"<br><br>")
+		   f5=ext_f3[f4].split('_')
+		   for f6 in xrange(len(f5)):  
+		     
+                     b2.write(str(f5[f6])+"<br><br>")
+
+	      b2.write("----------------------<br><br>")
+        else:
+              b2.write(b3)
+      return render(request, 'home4.html')
    #return HttpResponse('Success')
