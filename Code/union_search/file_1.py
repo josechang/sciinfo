@@ -1,13 +1,23 @@
 import textract
+
+###################
+#convert the files
+###################
 text = textract.process('file_1.pdf', method='pdfminer')
 
 search="Predicting"
+###################
+#ignore the useless character
+###################
 def delect_special(a):
     b=a.replace(".","").replace("!","").replace("@","").replace("#","").replace("~","").replace(",","")
     return b
 
 search1=delect_special(search).split(" ")
 
+#######################
+#open and write the txt file
+#######################
 
 xml=open('pdf_1.txt','w')
 
@@ -28,7 +38,9 @@ xml.close()
 myfile = open("pdf_1.txt")
 
 #------------------------------------------------------------------------------------------------------------------------------
-
+###########################################
+#define the start and the end of the abstract part
+###########################################
 def abstract_start(a):
     arr=['ABSTRACT']
     
@@ -44,7 +56,9 @@ def abstract_end(a):
         return 1
     else:
         return 0
-############################################################
+###########################################
+#define the start and the end of the introduction part
+###########################################
     
 def introduction_start(a):
     arr=['1.INTRODUCTION',"I.INTRODUCTION","INTRODUCTION"]
@@ -61,8 +75,9 @@ def introduction_end(a):
         return 1
     else:
         return 0
-############################################################
-    
+###########################################
+#define the start and the end of the theory part
+###########################################
 def theoretical_start(a):
     arr=["THEORETICAL"]
     
@@ -78,7 +93,9 @@ def theoretical_end(a):
         return 1
     else:
         return 0
-############################################################
+###########################################
+#define the start and the end of the method part
+###########################################
     
 def method_start(a):
     arr=["II.METHODS","METHODS","2.METHODS","MATERIAL","EXPERIME"]
@@ -95,7 +112,9 @@ def method_end(a):
         return 1
     else:
         return 0
-############################################################
+###########################################
+#define the start and the end of the result part
+###########################################
     
 def result_start(a):
     arr=["III.RESULTS","RESULTS","3.RESULTS"]
@@ -112,8 +131,10 @@ def result_end(a):
         return 1
     else:
         return 0
-############################################################
-    
+
+###########################################
+#define the start and the end of the discussion part
+###########################################
 def discussion_start(a):
     arr=["IV.DISCUSSION","DISCUSSION","4.DISCUSSION"]
     
@@ -129,7 +150,9 @@ def discussion_end(a):
         return 1
     else:
         return 0
-############################################################
+###########################################
+#define the start and the end of the conclusion part
+###########################################
     
 def conclusion_start(a):
     arr=["CONCLUSI","SUMMARYA","SUMMARY"]
@@ -149,6 +172,7 @@ def conclusion_end(a):
 
     
 #------------------------------------------------------------------------------------------------------------------------------
+#set the list for store the extracted information
 c=0
 c1=0
 c2_1=0
@@ -165,7 +189,7 @@ result1=[]
 discussion1=[]
 conclusion1=[]
 
-
+#abstract extraction
 for i in myfile.readlines():
     
   if(abstract_start(i.strip().replace(" ","")) or abstract_start(i.strip().replace(" ","")[0:8])):
@@ -177,6 +201,7 @@ for i in myfile.readlines():
   if c > 0 :
      a1.append(i)
   #########################################################################################################
+  #introction extraction
 
   if(introduction_start(i.strip().replace(" ","")) or introduction_start(i.strip().replace(" ","")[0:8])):
      c1+=1
@@ -187,7 +212,8 @@ for i in myfile.readlines():
      introduction1.append(i)
 
   #########################################################################################################
-
+  #theory extraction
+     
   if(theoretical_start(i.strip().replace(" ","")) or theoretical_start(i.strip().replace(" ","")[0:8])):
      c2_1+=1
   elif(theoretical_end(i.strip().replace(" ","")) or theoretical_end(i.strip().replace(" ","")[0:8])):
@@ -197,6 +223,7 @@ for i in myfile.readlines():
      theoretical1.append(i)
 
   #########################################################################################################
+  #method extraction
 
   if(method_start(i.strip().replace(" ","")) or method_start(i.strip().replace(" ","")[0:8])):
      c2+=1
@@ -206,7 +233,8 @@ for i in myfile.readlines():
   if c2 > 0 :
      method1.append(i)
   #########################################################################################################
-
+  #result extraction
+     
   if(result_start(i.strip().replace(" ","")) or result_start(i.strip().replace(" ","")[0:7])):
      c3+=1
   elif(result_end(i.strip().replace(" ","")) or result_end(i.strip().replace(" ","")[0:8])):
@@ -215,7 +243,8 @@ for i in myfile.readlines():
   if c3 > 0 :
      result1.append(i)
   #########################################################################################################
-
+  #discussion extraction
+     
   if(discussion_start(i.strip().replace(" ","")) or discussion_start(i.strip().replace(" ","")[0:8])):
      c3+=1
   elif(discussion_end(i.strip().replace(" ","")) or discussion_end(i.strip().replace(" ","")[0:8])):
@@ -225,7 +254,8 @@ for i in myfile.readlines():
      discussion1.append(i)
 
   #########################################################################################################
-
+  #conclusion extraction
+     
   if(conclusion_start(i.strip().replace(" ","")) or conclusion_start(i.strip().replace(" ","")[0:8])):
      c3_1+=1
   elif(conclusion_end(i.strip().replace(" ","")) or conclusion_end(i.strip().replace(" ","")[0:8])):
@@ -239,7 +269,7 @@ for i in myfile.readlines():
 
      
 #------------------------------------------------------------------------------------------------------------------------------
-
+#this part is for searching, the sequence is as same as the above function(from the abstract to conclusion)
 a2=''.join(a1).split('.')
 a3=[]
 for i in xrange(len(a2)):
@@ -323,7 +353,8 @@ for i in xrange(len(conclusion2)):
            conclusion4+=1
     if conclusion4 == len(search1) :
        conclusion3.append(conclusion2[i])
-#----------------------------------------------------------------------------------------      
+#----------------------------------------------------------------------------------------
+#this part is for writing the files, the sequence is as same as the above function(from the abstract to conclusion)
 ab=open('pdf_search_1.txt','w')
 
 if len(a3) > 0:
