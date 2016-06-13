@@ -17,12 +17,12 @@ The scope of metatada processing is about producing at least three types of meta
 This is at least we want to produce within the time frame of this course.
 Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on.
 If time is still on our side, we will even extend the scope of our project further and try to build a djanjo or search engine. 
-Try to make our project more completely and let it can be shown on the interfance. 
+Try to make our project more completely and let it can be shown on the interface. 
 Following discussion are our plan to complete extracting the 4 first types of metatata from PDF files.
 
 \subsubsection{Title extraction}
 
-We chose python to be the program to catch the title and other metadata as well.
+We chose python to be the program to catch the title and other metadata.
 First step, we import some necessary packages and functions as following:
 
 \begin{enumerate}
@@ -47,11 +47,16 @@ The following step is below:
 
 \begin{enumerate}
 	
-	\item Section Separation: As we separate the abstract part from the full text, we extract the text above the abstract section and rename as top section. This section contains title, author and email ,etc.
-	\item Tokenization: After accessing the top section, we separate the text into each single word. These single words composed with a string list. 
-	\item Part Of Speech Tag: We use the existing corpus to tag the part of speech to the words. This step is necessary since that the chunker needs the every word's part-of-speech and then chunck.
+	\item Section Separation: As we separate the abstract part from the full text, we extract the text above the abstract section and rename as top section. 
+	This section contains title, author and email ,etc.
+	\item Tokenization: After accessing the top section, we separate the text into each single word. 
+	These single words composed with a string list. 
+	\item Part Of Speech Tag: We use the existing corpus to tag the part of speech to the words. 
+	This step is necessary since that the chunker needs the every word's part-of-speech and then chunck.
 	\item Chunker: In this part, we mainly chunk the noun because a noun often represents some meaningful features such as location or author.
-	\item Label: We check every phrase with the corpus which contain specific words like people name. Then we label the words and store within the new list. Eventually, we write the information within the xml file. 
+	\item Label: We check every phrase with the corpus which contain specific words like people name. 
+	Then we label the words and store within the new list. 
+	Eventually, we write the information within the xml file. 
 	
 \end{enumerate}
 
@@ -64,7 +69,8 @@ The above steps is also available to extracting the location and organization,et
 	%\begin{center}
 	%	\includegraphics[width=\columnwidth]{Union_Background_Chart_2}
 	%\end{center}
-	The pdf is converted into txt file.Thus, it will create the txt file.
+	The pdf is converted into txt file.
+	Thus, it will create the txt file.
 	The work is done by hand coding.
 	For detailed coding scheme, we have presented it in the appendix at the end of this report.
 	 
@@ -93,7 +99,8 @@ The above steps is also available to extracting the location and organization,et
 		%\caption{Result of finding all forms of "abstract", "introduction" written by different authors}
 	%\end{center}
 	
-	Then our program will read the txt file on every line.If the python detects the abstract-database-stop's words ,it will stop to catch the sentences.
+	Then our program will read the txt file on every line.
+	If the python detects the abstract-database-stop's words ,it will stop to catch the sentences.
 	abstract-database-stop:including the following conditions
 	
 	\begin{enumerate}
@@ -122,7 +129,10 @@ The procedure is below:
 
 \end{enumerate}
  
-This method can also detects URL,arxiv and doi references.  Plus,by using this method, we  also can easily extract the title , page number and creation date. However,only the page number is always right in every case. The others are not totally correct. Thus, among these metadata,this method is more suitable for page number. 
+This method can also detects URL,arxiv and doi references.  
+Plus,by using this method, we  also can easily extract the title , page number and creation date. 
+However,only the page number is always right in every case. The others are not totally correct. 
+Thus, among these metadata,this method is more suitable for page number. 
 
 \subsubsection{Search sentences}
 
