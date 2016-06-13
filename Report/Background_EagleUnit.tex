@@ -11,6 +11,33 @@
 \subsection{XML metadata structure}
 \textit{\footnotesize Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
+Our responsibility is building a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
+This article provides an overview of metadata standards which are related to our responsibility. 
+A number of metadata schemas in use to now-a-days are reviewed, including MODS, METS, METS+MODS+PREMIS, MARC 21, MARCXML, Dublin Core, and  their pros and cons. 
+Finally, we compare these schemas by examining the characteristics and unique features of them. 
+We are able to rank them and suggest the optimum standard to build our XML structures. 
+XML is a markup language that defines a set of rules for encoding the documents in a format,  which is both human-readable and machine-readable. 
+It is widely used to representation of arbitrary data structures, such as those used in web services.
+
+Metadata is defined as the "data about data" or alternatively "information about information". 
+In practice, metadata summarizes basic information of data for the organization and management of documents. 
+It can be accessed manually or by automatic information processing and coding. \cite{underwood2003xml}.
+
+The metadata schemas can be classified into three types \cite{dempsey1997specification}:
+\begin{itemize}
+	\item Simple formats: it includes relatively unstructured data, typically automatically extracted from resources and indexed for searching. 
+	The data has little explicit semantics and does not support searching by field, such as Lycos, Altavista, Yahoo, etc.
+	\item Structured formats: it includes data which contains full enough description to allow a user to assess the potential utility or interest of a resource without having to retrieve it or connect to it. 
+	The data is structured and supports fielded searching, such as Dublin Core, IAFA templates, RFC 1807, SOIF, LDIF.
+	\item Rich formats: it includes fuller descriptive formats which may be used for location and discovery, 
+	but also have a role in documenting objects or, very often, collections of objects, such as ICPSR, CIMI, EAD, TEI, MARC.
+\end{itemize}
+
+XML (Extensible Markup Language) is the universal format for the encoding and exchange of structured documents and data. 
+There are no predefined tags and document structures in XML. 
+In other words, the XML provides structural capabilities that HTML lacks, making it easy to achieve the principles of modularity and extensibility. 
+The XML schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability \cite{duval2002metadata}. 
+Our work is to build a metadata schema in XML structure. The following sections will introduce the different schemas as mentioned previously.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Different standards of metadata
