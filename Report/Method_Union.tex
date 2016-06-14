@@ -40,7 +40,8 @@ set the path and store them in specific folder.
 Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and
 stored in specific folder in previous step.
 The process of extracting title from the text is mainly regulated by Union_extract_title.py. 
-The coding scheme has following steps: Importation of necessary components, setting the path, creating the directory we will write the .txt files to after stripping text, using basic command to extract titles. 
+The coding scheme has following steps: Importation of necessary components, setting the path, creating the directory we 
+will write the .txt files to after stripping text, using basic command to extract titles. 
 The results are tested and listed.
 We successfully produce the title of the article in a txt file.
 
@@ -80,15 +81,16 @@ As we test the result, our program has been able to extract authors' name.
 	Developing from previous theory mentioned in the background section, we use the python to catch the abstract.
 	The following step is below.
 	%\begin{center}
-	%	\includegraphics[width=\columnwidth]{Union_Background_Chart_2}
+	%	\includegraphics[width=\columnwidth]{Union_Background_Chart_2
 	%\end{center}
 	The pdf is converted into txt file.
 	Thus, it will create the txt file.
 	The work is done by hand coding.
 	For detailed coding scheme, we have presented it in the appendix at the end of this report.
-	 
+	
 	After being able to read the txt file on every line, the python will detect the content of the abstract.
 	In order to do so, we strip the text between "abstract" label and "introduction" label.	
+	
 	
 	Abstract-database:including the condition
 	
@@ -139,14 +141,14 @@ The procedures are below:
 \begin{enumerate}
 	
 	\item First of all,import a PDFx package to python.
-	\item Second,utilize the function in PDFx package to get the metadata and the URL of references by inputing a URL of a 
-	PDF or PDF's file name.
+	\item Second,utilize the function in PDFx package to get the metadata and the URL of references by inputing a URL of 
+	a PDF or PDF's file name.
 	\item Finally,output and list the results in txt file and choose the specific directory to store it.
 
 \end{enumerate}
  
 This method can also detects URL,arxiv and doi references.  
-Plus,by using this method, we  also can easily extract the title , page number and creation date. 
+Plus,by using this method, we also can easily extract the title, page number and creation date. 
 However,only the page number is always right in every case. 
 The others are not totally correct. 
 Basically, over 50 percent is not correct.

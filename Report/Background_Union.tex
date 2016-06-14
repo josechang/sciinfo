@@ -14,7 +14,8 @@
 
 We are producing a program that automatically generate and extract metadata with natural language processing. 
 We also strive to generate XML files with metadata extracted. 
-In the best scenario, we will even try to create a search engine together with other groups. Also, creating a sutiable interface and structure for users is necessary.  
+In the best scenario, we will even try to create a search engine together with other groups. 
+Also, creating a sutiable interface and structure for users is necessary.  
 Following discussion is our literature review on natural language processing.
 
 \begin{figure*}[ht]
@@ -30,7 +31,8 @@ Natural language understanding (NLU) is a subtopic of natural language processin
 When users search for a sentence, how does the program understand certain inputs of text? 
 
 We could build a natural language understanding (NLU) system, in which the system's rules for semantic interpretation are 
-learnt automatically from training data, which uses a set of possible yes-no questions that can be applied to data items. After that, it follows rules for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.
+learnt automatically from training data, which uses a set of possible yes-no questions that can be applied to data items.
+After that, it follows rules for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.
 
 \subsubsection*{Name Recognition}
 
@@ -46,6 +48,7 @@ The users can find out the results much quicker and can't get misunderstood (and
 The method to improve the problem above is "categorize the words based on different subjects,topic or genres" by using online database.
 Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired
 categories \cite{Kules2006}.
+
 Besides dealing with mutiple-meaning words,the most important part of name recognition is to recognize the special names and terms such as locations,people name,even company names and academic terms.
 Therefore, it is better for search engine to know what user want and huge name corpus are necessary. Plus, this work also can assist previous work.
 
@@ -53,6 +56,7 @@ Therefore, it is better for search engine to know what user want and huge name c
 
 With above effort,users' exploration and overviews of information could be better supported. 
 It will be very convenient to find the results we want and lower the possibility of misunderstanding if users are not very familiar with finding the appropriate result in specific fields.
+
 \cite{TunThuraThet2010} Users don not have to filter the results which are ranked by browsing frequency popularity. 
 Users just can obtain the information and relevance by clicking the specific categories. 
 Also, users are able to choose multiply fields if the results include a lot of relevant fields. 
@@ -110,11 +114,13 @@ Part of speech tagging (POS tagging), also called grammatical tagging or word-ca
 Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. 
 WSD identifies which sense of a word (i.e.meaning) is used in a sentence,
 when the word has multiple meanings \cite{Du2013}. 
+
 The solution to this problem impacts other computer-related writing, such as discourse, 
 improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 
 Word Sense Disambiguation(WSD) is related to Natural Language Processing and is also linked with computational languages. 
 People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing ,etc. 
+
 WSD is mainly focused on determining the sense of word,computationally which is used in a problem by using that word in a particular context. 
 Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. 
 \todo{Merge this text into the rest in this section. I moved it from another place.}
@@ -122,6 +128,7 @@ Inspite of having a greater number of existing disambiguation algorithms, WSD st
 The human brain is quite proficient at word-sense disambiguation. 
 The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. 
 In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. 
+
 In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning. 
 \todo{Why not insert a figure showing how the best solution has improved over time and how many solutions that exist?}
 
@@ -149,7 +156,9 @@ In computer science and the information technology that it enables, it has been 
 Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words. 
 Probably every machine learning algorithm going has been applied to WSD, including associated techniques, such as feature selection, parameter optimization, and ensemble learning.
 \todo{Try to avoid speculations. If you speculate you should motivate it.}
- Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. 
+
+Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. 
+
 However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create \cite{aramossoto2016onthe}.
 
 \subsubsection*{Semi-supervised}
@@ -219,6 +228,7 @@ The approach to WSD relies on a set of features formed by the actual words occur
 reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.
 The WN semantic network provides the words considered relevant for the set of senses taken into consideration corresponding 
 to the target word.
+
 In WordNet, noun is the most developed portion as per the research done over the performance for knowledge-based disambiguation.
 For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this 
 part of speech.
@@ -245,6 +255,7 @@ The difference between 'Supervised' and 'Unsupervised' WSD is:
 
 In the process of producing metadata, which should be the most precise information and representing the text, validity of such metadata must be checked. 
 Therefore tools for fact checks are developed based on linguistic techniques. 
+
 The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. 
 From the authors's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.(yes, the authors used capitalized name)
 
@@ -265,6 +276,7 @@ but is no longer a fact right now, so such fact must be used with caution.
 The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. 
 In addition to TIMEBANK, many other tools can be another filter for fact extraction. 
 \cite{Dave2003mining} Identify words, clauses and phrases that show emotional state of the authors. 
+
 The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \cite{Wiebe2005}. 
 Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK,
 which is built by \cite{Sauri2009}. 
@@ -309,10 +321,11 @@ To use this technique, six basic activities are done:
 	But the difference is that this part differentiate the one domain to the other domains.
 	\item linguistic realization: Last part is to make the expression follow the rules of grammer, part of speech and the natural language rule.
 \end{enumerate}
-\cite{aramossoto2016onthe}.\todo{Where? Please explain the 6 terms. What are they?} The advantage of this technique is that
-it is flexible, since there is no standardization. 
+\cite{aramossoto2016onthe}.\todo{Where? Please explain the 6 terms. What are they?} 
+The advantage of this technique is that it is flexible, since there is no standardization. 
 But it also has the difficulty in the implication of this technique.\cite{aramossoto2016onthe}No standardization means that 
 no rules can be followed. 
+
 Without logic method, It is almost impossible to code and be realized by computer.
 Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize.
 The technique is linguistic discription of data.
