@@ -46,6 +46,7 @@ for i in xrange(len(pdf_name)):
   for j in myfile.readlines():
       
     #abstract-----------------------------------------
+
     if(abstract_start(j.strip().replace(" ","")) or abstract_start(j.strip().replace(" ","")[0:8])):
 
      c+=1

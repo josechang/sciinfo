@@ -9,6 +9,7 @@ from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.pdfdevice import PDFDevice
 
 # Open a PDF file.
+
 fp = open('mypdf.pdf', 'rb')
 # Create a PDF parser object associated with the file object.
 parser = PDFParser(fp)

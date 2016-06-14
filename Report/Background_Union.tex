@@ -29,23 +29,25 @@ Natural language understanding (NLU) is a subtopic of natural language processin
 
 When users search for a sentence, how does the program understand certain inputs of text? 
 
-We could build a natural language understanding (NLU) system, in which the system's rules for semantic interpretation are learnt automatically from training data, which uses a set of possible yes-no questions that can be applied to data items. After that, it follows rules for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.
+We could build a natural language understanding (NLU) system, in which the system's rules for semantic interpretation are 
+learnt automatically from training data, which uses a set of possible yes-no questions that can be applied to data items. After that, it follows rules for selecting the best question at any node on the basis of training data by using a method for pruning trees to prevent over-training.
 
 \subsubsection*{Name Recognition}
 
 The results could be a country or an animal if users search for the word, Turkey. The type (meaning instead of type) is very different.
 
 There are a lot of misunderstandings like this if users search some words which have multiply meanings.
- Sometimes, the results are totally unrelated and this situation is always annoying. 
- That would be troublesome when we count frequency of certain words to rank them.
+Sometimes, the results are totally unrelated and this situation is always annoying. 
+That would be troublesome when we count frequency of certain words to rank them.
  
 Therefore, it is significantly crucial for a program to totally understand what users want by name recognition in natural language processing. 
 The users can find out the results much quicker and can't get misunderstood (and will not be confused?).
 
 The method to improve the problem above is "categorize the words based on different subjects,topic or genres" by using online database.
- Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories \cite{Kules2006}.
+Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired
+categories \cite{Kules2006}.
 Besides dealing with mutiple-meaning words,the most important part of name recognition is to recognize the special names and terms such as locations,people name,even company names and academic terms.
- Therefore, it is better for search engine to know what user want and huge name corpus are necessary. Plus, this work also can assist previous work.
+Therefore, it is better for search engine to know what user want and huge name corpus are necessary. Plus, this work also can assist previous work.
 
 
 
@@ -56,14 +58,15 @@ Users just can obtain the information and relevance by clicking the specific cat
 Also, users are able to choose multiply fields if the results include a lot of relevant fields. 
 That's a big motivation for people to handle this problems. 
 
-A lot of online services have done similar tasks before .
+A lot of online services have done similar tasks before.
 Thus,creating and using an online database or automated metadata creation are to be recommended.The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories.
- It is beneficial for people who would like to create a convenient and personalized database or metadata.\\
+It is beneficial for people who would like to create a convenient and personalized database or metadata.\\
 
 \subsubsection*{Part of speech}
 
 In the English language, we can consider words as the smallest elements that have distinctive meanings.
-Based on their use and functions, words are categorized into several parts of speech, and the 8 major parts of speech in English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, preposition, and interjection.
+Based on their use and functions, words are categorized into several parts of speech, and the 8 major parts of speech in 
+English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, preposition, and interjection.
 \begin{itemize}
 	\item Noun (names)\\
 	A word or lexical item denoting any abstract (abstract noun: e.g. home) or concrete entity (concrete noun: e.g. house); a person (doctor, Jim), place (farm, Taiwan), thing (earring, refrigerator), idea (happiness), or quality (ambition). Nouns can also be classified as counted nouns or non-counted nouns; some can belong to either category. 
@@ -169,14 +172,17 @@ The seeds are used to train an initial classifier, using any supervised method. 
 The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, 
 or until a given maximum number of iterations is reached \cite{Blascheck2016}.
 
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplys the tagged corpora. 
+Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplys 
+the tagged corpora. 
 These techniques have the potential to help in the adaptation of supervised models to different domains.
 
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. 
+Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense 
+of the word. 
 Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system\cite{Cheslow2014}.
 
 \subsubsection*{Unsupervised}
-Unsupervised WSD is the third part of Word sense disambiguation,it has to focus in the sense of the word which is being used in a sentence.  
+Unsupervised WSD is the third part of Word sense disambiguation,it has to focus in the sense of the word which is being used 
+in a sentence.  
 Unsupervised WSD, which rely on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. 
 In this model, a number of sentences are used which contains a particular word which has several meanings. 
 The main goal is to divide those words into a specified number of sense groups \cite{4028513}.
@@ -190,7 +196,8 @@ The Naive Bayes model applied mathematically entirely focuses on the issue of fe
 \begin{enumerate}
 	\item Pedersen and Bruce local type features:
 \end{enumerate}
-Three different feature sets have been used by 'Pedersen and Bruce' (under Naive Bayes model) for each word to formulate such a model describing the distributions of sense groups of that word in Unsupervised WSD.
+Three different feature sets have been used by 'Pedersen and Bruce' (under Naive Bayes model) for each word to formulate such 
+a model describing the distributions of sense groups of that word in Unsupervised WSD.
 
 Features which were taken into account are:
 \textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology.
@@ -210,9 +217,11 @@ Each POS feature can have one of five possible values: noun, verb, adjective, ad
 WordNet is a large lexical database of English. 
 The approach to WSD relies on a set of features formed by the actual words occuring near the target word and 
 reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.
-The WN semantic network provides the words considered relevant for the set of senses taken into consideration corresponding to the target word.
+The WN semantic network provides the words considered relevant for the set of senses taken into consideration corresponding 
+to the target word.
 In WordNet, noun is the most developed portion as per the research done over the performance for knowledge-based disambiguation.
-For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this part of speech.
+For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this 
+part of speech.
 Verbs are suggested to use additionally whenever possible.
 As a result of using only those words indicated as being relevant and recommended by WordNet, a much small vocabulary was obtained.
 and therefore a much smaller number of features were taking part in the disambiguation process.
@@ -270,7 +279,8 @@ Following example shows how subjective statements can be picked out.
 
 It is easy to find in statement (1a) is an absolute fact. 
 Statement (1b) is however affected by emotional state of authors. 
-After re-writing (1b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small and medium enterprises,
+After re-writing (1b) into: Funding agencies lend more money with lower interest rate to big entrepreneurs, instead of small 
+and medium enterprises,
 sentence (1b) become a face-based statement. 
 In another case, statement (2a) is a fact-based statement while in statement (2b), authors are stressing their dislike toward dictatorship.
 
@@ -287,7 +297,8 @@ The goal is generating the words human being using via machine automatically.
 To use this technique, six basic activities are done: 
 \begin{enumerate}
 	\item content determination: In this active, we create some messages which are communicated in the text. 
-	These messages shall be labeled and the entity in the messeges is also distinguished, which is convenient for us to use these data within the following step.
+	These messages shall be labeled and the entity in the messeges is also distinguished, which is convenient for us to 
+	use these data within the following step.
 	\item discourse planning: This part is closely related to the previous part. 
 	We determine the order and the structure of the messeges.
 	\item sentence aggregation:This part combine several messeges into sentence. 
@@ -298,8 +309,10 @@ To use this technique, six basic activities are done:
 	But the difference is that this part differentiate the one domain to the other domains.
 	\item linguistic realization: Last part is to make the expression follow the rules of grammer, part of speech and the natural language rule.
 \end{enumerate}
-\cite{aramossoto2016onthe}.\todo{Where? Please explain the 6 terms. What are they?} The advantage of this technique is that it is flexible, since there is no standardization. 
-But it also has the difficulty in the implication of this technique.\cite{aramossoto2016onthe}No standardization means that no rules can be followed. 
+\cite{aramossoto2016onthe}.\todo{Where? Please explain the 6 terms. What are they?} The advantage of this technique is that
+it is flexible, since there is no standardization. 
+But it also has the difficulty in the implication of this technique.\cite{aramossoto2016onthe}No standardization means that 
+no rules can be followed. 
 Without logic method, It is almost impossible to code and be realized by computer.
 Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize.
 The technique is linguistic discription of data.
@@ -309,7 +322,7 @@ At the beginning, comparing to the NLG field, it is a newer technique to solve t
 However, the basic steps of LDD have been built. 
 The four main parts in this technique are input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. 
 Some of them are similar to the concept. 
-The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Ramos-SotoBBT14}. 
+The advantage of this technique is that it has been implied in many fields just like weather forecast \cite{Ramos-SotoBBT14}. 
 Also, many practical methods have been proposed. 
 However, it still has a long way to go.
 

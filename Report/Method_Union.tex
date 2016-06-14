@@ -15,7 +15,8 @@
 As mentioned in the background, our group use natural language processing in order to generate metadata.
 The scope of metatada processing is about producing at least three types of metadata including author name, title and abstract.
 This is at least we want to produce within the time frame of this course.
-Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on.
+Once accomplishing the 3 types of metadata, we will extend the scope of our project, 
+intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on.
 If time is still on our side, we will even extend the scope of our project further and try to build a djanjo or search engine. 
 Try to make our project more completely and let it can be shown on the interface. 
 Following discussion are our plan to complete extracting the 4 first types of metatata from PDF files.
@@ -34,8 +35,10 @@ First step, we import some necessary packages and functions as following:
 	
 \end{enumerate}  
 
-To begin, we convert all PDF files we want to deal with into a txt file, set the path and store them in specific folder. 
-Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step.
+To begin, we convert all PDF files we want to deal with into a txt file,
+set the path and store them in specific folder. 
+Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and
+stored in specific folder in previous step.
 The process of extracting title from the text is mainly regulated by Union_extract_title.py. 
 The coding scheme has following steps: Importation of necessary components, setting the path, creating the directory we will write the .txt files to after stripping text, using basic command to extract titles. 
 The results are tested and listed.
@@ -50,13 +53,15 @@ The following step is below:
 
 \begin{enumerate}
 	
-	\item Section Separation: As we separate the abstract part from the full text, we extract the text above the abstract section and rename as top section. 
+	\item Section Separation: As we separate the abstract part from the full text, we extract the text above the 
+	abstract section and rename as top section. 
 	This section contains title, author and email ,etc.
 	\item Tokenization: After accessing the top section, we separate the text into each single word. 
 	These single words composed with a string list. 
 	\item Part Of Speech Tag: We use the existing corpus to tag the part of speech to the words. 
 	This step is necessary since that the chunker needs the every word's part-of-speech and then chunck.
-	\item Chunker: In this part, we mainly chunk the noun because a noun often represents some meaningful features such as location or author.
+	\item Chunker: In this part, we mainly chunk the noun because a noun often represents some meaningful features 
+	such as location or author.
 	\item Label: We check every phrase with the corpus which contain specific words like people name. 
 	Then we label the words and store within the new list. 
 	Eventually, we write the information within the xml file. 
@@ -96,7 +101,8 @@ As we test the result, our program has been able to extract authors' name.
 		
 	\end{enumerate}
 	
-	In the process building "abstract database", we are aware of different papers may have different form of structures and writing style, we search through numbers of articles from different journals.
+	In the process building "abstract database", we are aware of different papers may have different form of structures 
+	and writing style, we search through numbers of articles from different journals.
 	Number of article found is 100, from 20 different journals including The Lancet, Progress in Energy and Combustion Science, Chemical Analysis and so.
 	Search results for sections such as Theoretical, Methods, Results, Discussion, Conclusion, Acknowledgments are also obtained.
 	Table below are the results of the search.
@@ -127,12 +133,14 @@ As we test the result, our program has been able to extract authors' name.
 
 References URL extraction is very easy and straightforward.
 Just use a powerful package called PDfx to complete this task.
-The procedure is below:
+Find the package online and use it.
+The procedures are below:
 
 \begin{enumerate}
 	
 	\item First of all,import a PDFx package to python.
-	\item Second,utilize the function in PDFx package to get the metadata and the URL of references by inputing a URL of a PDF or PDF's file name.
+	\item Second,utilize the function in PDFx package to get the metadata and the URL of references by inputing a URL of a 
+	PDF or PDF's file name.
 	\item Finally,output and list the results in txt file and choose the specific directory to store it.
 
 \end{enumerate}
@@ -141,6 +149,7 @@ This method can also detects URL,arxiv and doi references.
 Plus,by using this method, we  also can easily extract the title , page number and creation date. 
 However,only the page number is always right in every case. 
 The others are not totally correct. 
+Basically, over 50 percent is not correct.
 Thus, among these metadata,this method is more suitable for page number. 
 
 \subsubsection{Search sentences}
@@ -164,7 +173,8 @@ The search sentence part is related to the search engine.
 \subsection{API}
 We also attempt to produce an semi-automatic interface that help users to inquire certain information from our database. 
 Currently it allows user to search for abstracts, introduction, method, result, discussion, and reference. We will continue develop the interface in the remaining week. 
-The objectives are either covering more functions or make the results pages has more professional appearance. However, that said when we still have enough time.
+The objectives are either covering more functions or make the results pages has more professional appearance. However, that
+said when we still have enough time.
 
 
 \newpage % Ends the current page and causes all figures and tables to be printed

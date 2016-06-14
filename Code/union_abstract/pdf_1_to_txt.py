@@ -3,6 +3,7 @@ text = textract.process('file_1.pdf', method='pdfminer')
 
 
 def abstract_start(a):
+
     arr=['ABSTRACT']
     
     if(a.strip().upper() in arr):     
@@ -30,6 +31,7 @@ myfile = open("pdf_1.txt")
 a1=[]
 
 c=0
+
 for i in myfile.readlines():
     
   if(abstract_start(i)):
