@@ -56,7 +56,8 @@ Users just can obtain the information and relevance by clicking the specific cat
 Also, users are able to choose multiply fields if the results include a lot of relevant fields. 
 That's a big motivation for people to handle this problems. 
 
-A lot of online services have done similar tasks before .Thus,creating and using an online database or automated metadata creation are to be recommended.The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories.
+A lot of online services have done similar tasks before .
+Thus,creating and using an online database or automated metadata creation are to be recommended.The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories.
  It is beneficial for people who would like to create a convenient and personalized database or metadata.\\
 
 \subsubsection*{Part of speech}
@@ -65,7 +66,8 @@ In the English language, we can consider words as the smallest elements that hav
 Based on their use and functions, words are categorized into several parts of speech, and the 8 major parts of speech in English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, preposition, and interjection.
 \begin{itemize}
 	\item Noun (names)\\
-	A word or lexical item denoting any abstract (abstract noun: e.g. home) or concrete entity (concrete noun: e.g. house); a person (doctor, Jim), place (farm, Taiwan), thing (earring, refrigerator), idea (happiness), or quality (ambition). Nouns can also be classified as counted nouns or non-counted nouns; some can belong to either category. The most common part of the speech; they are called naming words.
+	A word or lexical item denoting any abstract (abstract noun: e.g. home) or concrete entity (concrete noun: e.g. house); a person (doctor, Jim), place (farm, Taiwan), thing (earring, refrigerator), idea (happiness), or quality (ambition). Nouns can also be classified as counted nouns or non-counted nouns; some can belong to either category. 
+	The most common part of the speech; they are called naming words.
 	
 	\item Pronoun (replaces)\\
 	A substitute for a noun or noun phrase (e.g. them, he). Pronouns make sentences shorter and clearer since they replace nouns.
@@ -79,7 +81,8 @@ Based on their use and functions, words are categorized into several parts of sp
 	A modifier of an adjective, verb, or other adverb (very, quite). Adverbs make your writing more precisely.
 	
 	\item Preposition (relates)\\
-	A word that relates words to each other in a phrase or a sentence and aids in syntactic context (in, of). Prepositions show the relationship between a noun or a pronoun with another word in a sentence.
+	A word that relates words to each other in a phrase or a sentence and aids in syntactic context (in, of). 
+	Prepositions show the relationship between a noun or a pronoun with another word in a sentence.
 	
 	\item Conjunction (connects)\\
 	A syntactic connector; links words, phrases, or clauses (and, but). Conjunctions connect words or group of words.
@@ -101,18 +104,23 @@ Part of speech tagging (POS tagging), also called grammatical tagging or word-ca
 	\caption{GWord+Sense with words and senses. \label{fig1}}
 \end{figure}
 
-Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD identifies which sense of a word (i.e.meaning) is used in a sentence,
-when the word has multiple meanings \cite{Du2013}. The solution to this problem impacts other computer-related writing, such as discourse, 
+Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. 
+WSD identifies which sense of a word (i.e.meaning) is used in a sentence,
+when the word has multiple meanings \cite{Du2013}. 
+The solution to this problem impacts other computer-related writing, such as discourse, 
 improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 
 Word Sense Disambiguation(WSD) is related to Natural Language Processing and is also linked with computational languages. 
-People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing etc. 
+People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing ,etc. 
 WSD is mainly focused on determining the sense of word,computationally which is used in a problem by using that word in a particular context. 
-Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. \todo{Merge this text into the rest in this section. I moved it from another place.}
+Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. 
+\todo{Merge this text into the rest in this section. I moved it from another place.}
 
-The human brain is quite proficient at word-sense disambiguation. The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. 
+The human brain is quite proficient at word-sense disambiguation. 
+The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. 
 In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. 
-In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning. \todo{Why not insert a figure showing how the best solution has improved over time and how many solutions that exist?}
+In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning. 
+\todo{Why not insert a figure showing how the best solution has improved over time and how many solutions that exist?}
 
 \subsection*{Supervised}
 
@@ -137,7 +145,8 @@ In computer science and the information technology that it enables, it has been 
 
 Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words. 
 Probably every machine learning algorithm going has been applied to WSD, including associated techniques, such as feature selection, parameter optimization, and ensemble learning.
-\todo{Try to avoid speculations. If you speculate you should motivate it.} Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. 
+\todo{Try to avoid speculations. If you speculate you should motivate it.}
+ Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. 
 However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create \cite{aramossoto2016onthe}.
 
 \subsubsection*{Semi-supervised}
@@ -198,7 +207,8 @@ Each POS feature can have one of five possible values: noun, verb, adjective, ad
 \begin{enumerate}
 	\item WordNet-based feature selection:
 \end{enumerate}
-WordNet is a large lexical database of English. The approach to WSD relies on a set of features formed by the actual words occuring near the target word and 
+WordNet is a large lexical database of English. 
+The approach to WSD relies on a set of features formed by the actual words occuring near the target word and 
 reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.
 The WN semantic network provides the words considered relevant for the set of senses taken into consideration corresponding to the target word.
 In WordNet, noun is the most developed portion as per the research done over the performance for knowledge-based disambiguation.
@@ -207,7 +217,8 @@ Verbs are suggested to use additionally whenever possible.
 As a result of using only those words indicated as being relevant and recommended by WordNet, a much small vocabulary was obtained.
 and therefore a much smaller number of features were taking part in the disambiguation process.
 
-So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.\todo{Really? This section is shorter.}
+So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.
+\todo{Really? This section is shorter.}
 
 The difference between 'Supervised' and 'Unsupervised' WSD is:
 
@@ -218,6 +229,7 @@ The difference between 'Supervised' and 'Unsupervised' WSD is:
 	\item The Supervised approaches make use of information from labeled training data while the Unsupervised does not depend upon any labeled data, 
 	it uses a multi-lingual thesaurus that contains millions of biomedical and health related concepts, their synonymous names and their relationships.
 \end{enumerate}
+
 \todo[inline]{A summary on list format can be motivated, but then each item need to be brief and you should not introduce anything new like UMLS in it.}
 
 \subsubsection*{Factuality}
@@ -241,7 +253,8 @@ The first sentence is simple future tense which implies something has never actu
 and the last sentence is in simple past tense which is about something already happened (which is facts),
 but is no longer a fact right now, so such fact must be used with caution. 
 
-The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. In addition to TIMEBANK, many other tools can be another filter for fact extraction. 
+The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. 
+In addition to TIMEBANK, many other tools can be another filter for fact extraction. 
 \cite{Dave2003mining} Identify words, clauses and phrases that show emotional state of the authors. 
 The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \cite{Wiebe2005}. 
 Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK,
@@ -289,15 +302,18 @@ To use this technique, six basic activities are done:
 But it also has the difficulty in the implication of this technique.\cite{aramossoto2016onthe}No standardization means that no rules can be followed. 
 Without logic method, It is almost impossible to code and be realized by computer.
 Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize.
-The technique is linguistic discription of data.\todo{Now you jump too far. More explanations are needed.}
+The technique is linguistic discription of data.
+\todo{Now you jump too far. More explanations are needed.}
 Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. 
 At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. 
 However, the basic steps of LDD have been built. 
 The four main parts in this technique are input data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. 
 Some of them are similar to the concept. 
 The advantage of this technique is that it has been implied in many fields like weather forecast \cite{Ramos-SotoBBT14}. 
-Also, many practical methods have been proposed. However, it still has a long way to go.
+Also, many practical methods have been proposed. 
+However, it still has a long way to go.
 
-These two techniques are usually combined together nowadays. The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
+These two techniques are usually combined together nowadays. 
+The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
 
 \newpage % Ends the current page and causes all figures and tables to be printed
