@@ -9,9 +9,17 @@
 % Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{XML metadata structure}
-\textit{\footnotesize Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
-Our responsibility is building a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
+\textit{\footnotesize Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
+\subsubsection*{BACKGROUND}
+To make the database be functional for the user to recieve the articles they're seeking, our resposibility will be creating an interface between the user, the database, and the searching programe. In the other words, we're going to construct a webpage with a search bar for the user to enter their search string, and can display the search result given by the search system.
+To achieve this goal, we seperate our responsibility into parts:\\
+\begin{itemize}
+	\item Build a webpage with a search bar.
+	\item Place a list on the webpage which showing the search results.
+	\item Build a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
+	\item Build up the APIs. The search bar should send the search string to tje search system, and the result list then recieve the results of searching and display it.
+\end{itemize}
 This article provides an overview of metadata standards which are related to our responsibility. 
 A number of metadata schemas in use to now-a-days are reviewed, including MODS, METS, METS+MODS+PREMIS, MARC 21, MARCXML, Dublin Core, and  their pros and cons. 
 Finally, we compare these schemas by examining the characteristics and unique features of them. 
