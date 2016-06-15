@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="http://140.116.215.238/~z7724581/GD1/css/auto.css" /> 
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>  
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>  
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>  
+<script src="http://malsup.github.io/jquery.blockUI.js"></script>
+<style>
+</style>    
+
+  <style type="text/css">
+	   
+        body{
+             font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%
+        }
+        .top {     
+                    width: 1500px;
+                    height: 130px;
+                    background:#6495ed;
+                    margin: 0 auto;
+                    padding-right: 20px;                   
+        }
+         #top_title {                    
+                     font-weight: 300;
+                     font-size: 30px;
+                     color: #FFFFFF ;
+                     padding-top: 30px;
+                     padding-left: 25px;
+                     float: left;
+      }
+        #result_title {font-weight: 300;
+                     font-size: 30px;
+                     color: #808080 ;
+                     padding-top: 140px;
+                      padding-left: 20px;
+      }
+  </style>
+
+</head>
+
+<body>
+      <div class="top">
+
+            <div id = 'top_title'> Search category: {{filte}} <br>
+                                   Keywords: {{keyword}}
+              
+            </div>           
+            <div id = 'result_title'> Result:</div>
+      </div>
+<br><br><br>
+<table border="1" style="width:100%">
+  <tr>
+    <td>Title</td>
+    <td>{{showtitle}}</td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>{{showauthor}}</td>
+  </tr>
+  <tr>
+    <td>Publisher</td>
+    <td>{{showauthor}}</td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td>{{showdate}}</td>
+  </tr>
+  <tr>
+    <td>ISBN</td>
+    <td>{{showisbn}}</td>
+  </tr>
+  <tr>
+    <td>Link</td>
+    <td>{{showlink}}</td>
+  </tr>
+  <tr>
+    <td>Abstract</td>
+    <td>{{showabstract}}</td>
+  </tr>
+  <tr>
+    <td>Importantpart</td>
+    <td>{{showimportantpart}}</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

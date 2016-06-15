@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+</head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ <style type="text/css">
+	   
+        body{
+             font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%
+        }
+        .top {     
+                    width: 1500px;
+                    height: 150px;
+                    background:#7CD284;
+                    margin: 0 auto;
+                    padding-right: 20px;                   
+        }
+         #top_title {                    
+                     font-weight: 700;
+                     font-size: 60px;
+                     color: #FFFFFF ;
+                     padding-top: 30px;
+                     padding-left: 25px;
+                     float: left;
+         }
+         #top_right {                    
+                     font-size: 30px;
+                     color: #FFFFFF ;
+                     padding-top: 100px;
+                     padding-left: 30px;
+                     float: right;
+         }
+         .box {     
+               width: 1500px;
+               height: 400px;                  
+               margin: 0 auto;
+               padding-top: 150px;
+               padding-left: 400px;
+               align:center;
+               position: relative;
+
+         }
+         .box_insert1 {     
+                       width: 500px;                    
+                       margin-left: 80px;
+                       height: 500px;
+                       background:#FCFDDC;
+                       float: left;
+                       border: black solid 3px;
+         }
+         .box_insert2 {     
+                       width: 500px;                  
+                       margin-right: 80px;       
+                       height: 450px;
+                       background:#FCFDDC;
+                       float: left;
+                       border: black solid 3px;
+         }       
+         #sub1 {
+                   width: 400px;
+                   height: 50px;
+                   margin-left:50px ;
+                   margin-top: 50px;
+                   border: black solid 3px;
+                   background: #B5F1E9;
+                   font-size: 30px;
+                   font-weight: 200;
+         }
+         #sub2 {
+                   width: 400px;
+                   height: 50px;
+                   margin-left:50px ;
+                   margin-top: 203px;
+                   border: black solid 3px;
+                   background: #B5F1E9;
+                   font-size: 30px;
+                   font-weight: 200;
+         }
+         #insert_word {
+                       
+                       font-weight: 700;
+                       font-size: 30px;
+                       color: #151875 ;
+                       padding-left: 25px;
+         }
+         #insert_divider{                   
+                         font-weight: 200;
+                         font-size: 30px;
+                         color: #000 ;
+                         padding-left: 25px;               
+         } 
+         #insert_textrea{
+                          margin-left:120px ;
+         }
+         #insert_get_id{
+                          margin-left:120px ;
+         }  
+         #insert_checkbox{
+                          font-size:27px;padding-left:150px;color:#50110A;
+         }
+         #insert_boxword{
+                          font-size:27px;padding-left:120px;color:#50110A;
+         }
+	 .bottom {     
+                    width: 1520px;
+                    height: 140px;
+                    background:#7CD284;
+                    margin: 0 auto;
+                    margin-top: 60px;
+                   /* align:center;*/
+         }
+        #msg {
+               width: 1520px;
+                margin: 0 auto;
+               /*background:#7CD284;*/
+                           
+        }
+      
+  </style>   
+   
+  
+
+ <body>
+ <div class="box">
+        <form aciton="" method="get">
+             <div class="box_insert2"><br>
+
+              <div id='insert_word'>Search:</div><br>
+
+                <div id='insert_checkbox'>
+                    <input type="checkbox" name="cata[]" value="abstract" style="width: 18px; height: 18px;">Abstract<br>
+                    <input type="checkbox" name="cata[]" value="Introduction" style="width: 18px; height: 18px;">Introduction<br>
+                    <input type="checkbox" name="cata[]" value="Method" style="width: 18px; height: 18px;">Method<br>
+                    <input type="checkbox" name="cata[]" value="Result" style="width: 18px; height: 18px;">Result<br>
+                    <input type="checkbox" name="cata[]" value="Discussion" style="width: 18px; height: 18px;">Discussion<br>
+                    <input type="checkbox" name="cata[]" value="Reference" style="width: 18px; height: 18px;">Reference<br>
+                 </div>
+                <div id='insert_boxword'><br>
+                    Keywords: <input id="user_name" type="text" name="user_name" style="    font-size: 22px;width: 200px;">
+                 </div>
+            
+            
+              <input type="submit" id="sub1" value="search">
+            </div>    
+        </form>
+     </div>
+     
+ </body>
+
+
+</html>
+
