@@ -156,6 +156,19 @@ Because of a lack of popularity, it is harder to obtain hosts or service provide
 	
 	\item\textbf{Way to create a web crawler}
 	\setlength{\parindent}{1em}	
+	To create a web crawler, first we need to know how the web page works. 
+	There are two kind of web pages: dynamic page and static page.
+	With static pages, the html of the page is directly loaded when one enters the page.
+	With dynamic pages, the original html of the page need to be rendered by javascripts to create new html file in order to show the complete page.
+	These two kind of page seems identical to the users, but were totally different for the crawlers.
+	It's easy for the web crawler to find informations in static webpages.
+	When it comes to the dynamic pages. 
+	Web crawler needs to first pass the original html to a javascript rendering program or a light weight browser. 
+	In order to get the final html to extract informations.
+	After we get the html files.
+	We need to use packages such as regular expression operations to find specific information inside the file.
+	In this case we need to find the href tags with *.pdf in it.
+	After finding those links we need to download them one by one into the server.	
 	
 \end{enumerate}
 
