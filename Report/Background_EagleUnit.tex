@@ -127,7 +127,60 @@ Listed in the following are five different standards with a brief introduction t
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-
+	\item METS+MODS+PREMIS\\
+	{\bf Introduction}\\
+		The first developed of digital repositories of the British Library's e-journal system was the combination of METS, MODS and PREMIS..\cite{Dappert2008} 
+		It exploited the METS structural, PREMIS preservation and MODS descriptive metadata to form a robust metadata structure. 
+		The Metadata Encoding and Transmission Standard (METS) is an XML document that can package the metadata of a digital resource: 
+		the descriptive, administrative, structural, rights and other data needed for retrieval and preserving of a digital resources.\cite{Guenther2003} 
+		In other words it can be referred as a metadata storing and communication standard. The METS wrapper has up to seven major subsections: 
+		"a METS Header (metsHDR), a Descriptive Metadata Section (dmdSec), an Administrative Metadata Section (amdSec), a File Section (fileSec), 
+		a Structural Map (structMap), Structural Links (structLink), and a Behavior Section (behaviorSec)" these form the basic structure of METS. 
+		The Structural Map is the most important subsection and must be included in a METS document.\cite{Cheslow2014} 
+		These subsections have elements that provide the means for describing in detail the digital objects. 
+		The Structural Map defines a hierarchical structure such that using METS pointers users of the digital library object can easily navigate through it. 
+		One great advantage of METS is that it provides a flexible framework for modelling different document types and scenarios.\cite{Dappert2008}
+		The Metadata Object Description Standard (MODS) provides ways to describe objects and has a high level compatibility with MARC. 
+		Among other XML metadata standard it is an alternative between a simple metadata format (such as Dublin Core) 
+		which has a minimum of fields and little or no substructure, and a very detailed format (such as MARC 21) with many data elements having various structural complexities.\cite{Guenther2003}
+		The PREservation Metadata Implementation Strategies (PREMIS) is an administrative metadata schema used for the preservation of digital resources.\cite{Cheslow2014} 
+		With the rapid changes in technology, digital objects including its metadata are bound to go obsolete at some time in the future. 
+		PREMIS was created to set standards that will ensure long term usability and preservation of digital resources.
+	
+	{\bf Why METS+PREMIS+MODS? }\\
+	To understand metadata needs, whuch is important to understand the data production and structures. 
+	Structuring digital objects particularly e-journals present two main difficult problems. 
+	First, e-journals are structurally complex. New issues are released in intervals for each journal title. 
+	These may contain a varying number of articles and other publishing matters having a variety of formats. 
+	Second, the production of e-journals are outside the control of the digital repository and done without the benefit of standards for the structure of file formats, metadata formats and vocabulary, publishing schedules, etc.\cite{Dappert2008}
+	As a means to solve these problem, METS provides a robust and flexible way to define digital objects. The MODS on the other hand, provides ways to describe digital objects and can be built on a MARC. 
+	Finally the PREMIS provides ways to describe digital objects and processes that are essential for digital preservation. 
+	Also, these three metadata standards are all built on an XML schema.\cite{Dappert2008}
+	Details on how to implement these three metadata standards to form a robust metadata structure or archive can be found in "Using METS, PREMIS and MODS for Archiving eJournals".\cite{Dappert2008} 
+	Though there are different ways to implement these schema only one was discussed in the aforementioned literature.
+	
+	{\bf Advantages}
+	\begin{enumerate}
+		\item Interoperability: According to Hafezi et al on their survey of Iranian digital library, most of the bibliographic data comprises of 82\% XML and 64\% MARC formats. 
+								Given these statistics, METS+PREMIS+MODS can be considered interoperable since they all can be implemented in these formats.\cite{AlipourHafezi2013}					
+		\item XML Schema: Considering our given responsibility and the easiness of implementing XML, METS+PREMIS+MODS is among the right choice. 
+		\item Metadata Preservation: The inclusion of PREMIS in METS provided the metadata preservation feature which single metadata standard cannot provide.
+		\item Highly descriptive metadata: The MODS used in structuring the descriptive metadata in METS provided a highly descriptive metadata structure.
+		\item Data migration: Because METS is flexible and contains header for easy transmission it is very easy to deploy this metadata structure to a different system.
+		\item Robustness: This schema is considered robust by the virtue of containing the features of three different metadata standard.
+	\end{enumerate}	
+	{\bf Disadvantages}
+	\begin{enumerate}
+		\item Easiness: This schema is not ease to build compared to single metadata structure.
+		\item Redundancy: Some of the metadata stored in the METS were also stored in the PREMIS to improve preservation.
+		\item Update: The digital object in the repository are write-once in order to support archival authenticity and track digital object provenance, thus in-situ update is not possible. 
+		To update another version of the Archival information package has to be added.
+	\end{enumerate}
+	{\bf Conclusion}\\
+	METS is an excellent metadata schema for use with digital libraries and will become more robust when combined with MODS for descriptive metadata and PREMIS for preservation metadata.
+	Also, with a minimal knowledge of XML, METS is relatively easy to implement and the Library of Congress provides great resources to help implement METS.
+	Our mission is to create a better metadata structure that can stand the test of time.
+	Bearing this in mind and considering the metadata standards mentioned above, the combination of METS, MODS and PREMIS possesses the features that will resolve the limitations of present day information retrieval systems.
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item MARC 21\\
