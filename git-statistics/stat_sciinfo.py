@@ -80,21 +80,27 @@ def createHTML():
 <head>
 	<meta charset="UTF-8">
 	<title>statistics</title>
-	<script src="sorttable.js"></script>
 </head>
 <body>
 """)
 		f.write('<h1>Statistics for bitbucket</h1>')
 		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
-		f.write('<table border="1" class="sortable">')
-		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th></tr>')
+		f.write('<table id="statistics" border="1" class="sortable">')
+		f.write('<col width="130"><col width="60"><col width="110"><col width="110"><col width="120"><col width="110"><col width="80">')
+		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th><th>Score</th></tr>')
 		for i in range(0,num_authors):
-			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]))
+			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td></td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]))
+		f.write('</table>')
+		f.write('<table border="1">')
+		f.write('<col width="130"><col width="60"><col width="110"><col width="110"><col width="120"><col width="110"><col width="80">')
+		f.write('<td>weight</td><td><input type="text" id="weight1" value="0" size="3"></td><td><input type="text" id="weight2" value="0" size="3"></td><td><input type="text" id="weight3" value="0" size="3"></td><td><input type="text" id="weight4" value="0" size="3"></td><td><input type="text" id="weight5" value="0" size="3"></td><td><button onclick="calculate()">Calculate</button></td>')
 		f.write('</table>')
 		f.write('<p>Total authors: %d </p>' % num_authors)
 		f.write("<h4>TA's murmur</h4>")
 		f.write('1. If you find out that there are multiple authors in the table are all belong to you. Please inform me and tell me which username you will use later also. I will merge them into one.My email address is E14006151@mail.ncku.edu.tw<br/>')
 		f.write("2. If you can't find your name in the table, it means you haven't done any commit<br/>")
+		f.write('<script src="score.js"></script>')
+		f.write('<script src="sorttable.js"></script>')
 		f.write('</body>')
 		f.write('</html>')
 def statistics():
