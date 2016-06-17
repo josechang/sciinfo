@@ -24,35 +24,67 @@ However, it was not universal at that time because of the technical requirements
 Until the 1980s, first commercial relational database management system(RDBMS) which is the most popular database management system(DBMS) at present began to appear.
 Besides RDBMSs, there are several kinds of DBMSs.
 For example, object-oriented databases(OODBMS) and graph database management systems(GDBMS).
-
 In accordance with the definition, a database management system (DBMS) is a computer software application that interacts with the user, other applications, and the database itself to capture and analyze data.
 Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2.
 Furthermore,they can support different kinds of databases.
 
 %%%%%%%%%%%%%%%%% these are duplicated to the information following
-%For building up such a database. We need a database management system (DBMS), a computer application that interacts with the user and other applications, captures and analyze data itself. Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. All of them can support different kinds of databases. This study includes numerous application and usage of such database as follows.
-%MySQL is the second rank relational database management system (RDBMS) which is open-source. LAMP is an archetypal model of web service solution stacks, and its central component is MySQL. Web-based applications such as TYPO3 and MODx often use MySQL. MySQL is also applied in some famous website like Google, Facebook, and YouTube. It is able to be developed by the visual database design tool, MySQL Workbench.
-%Same as Relational database, object-oriented database management systems has developed since the 1970s. Db4o which was launched in 2004 represents an object-oriented database model. It provides an easy interface to work with object-oriented programming languages and it also includes various object-oriented programming languages. For this reason, the programmer can work in one environment persistently.
-%Finally, we'd like to introduce a DBMS, Neo4j. Neo4j is a graph database management system. It's one of the most popular GDBMS and ranks 20 in the popularity of DBMS. Unlike other databases, relationships take first priority in graph databases. Also, the model is simpler and expressive than those of relational databases, such as NOSQL databases. Neo4j is widely used by organizations and has 1,000,000+ downloads. Because Neo4j is easy to learn and use, it is more easier for beginners to get used to the structure of graph databases. This study also introduced three kinds of DBMS, and the following paragraph contains brief information about each kind of DBMS.
+%For building up such a database. We need a database management system (DBMS), a computer application that interacts with the user and other applications, captures and analyze data itself. 
+
+
+%Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. All of them can support different kinds of databases. This study includes numerous application and usage of such database as follows.
+
+
+%MySQL is the second rank relational database management system (RDBMS) which is open-source. LAMP is an archetypal model of web service solution stacks, and its central component is MySQL. 
+
+
+%Web-based applications such as TYPO3 and MODx often use MySQL. MySQL is also applied in some famous website like Google, Facebook, and YouTube. 
+
+%It is able to be developed by the visual database design tool, MySQL Workbench.
+
+%Same as Relational database, object-oriented database management systems has developed since the 1970s. 
+
+%Db4o which was launched in 2004 represents an object-oriented database model. 
+
+%It provides an easy interface to work with object-oriented programming languages and it also includes various object-oriented programming languages. For this reason, the programmer can work in one environment persistently.
+
+
+%Finally, we'd like to introduce a DBMS, Neo4j. Neo4j is a graph database management system. 
+
+
+%It's one of the most popular GDBMS and ranks 20 in the popularity of DBMS. 
+
+
+%Unlike other databases, relationships take first priority in graph databases. 
+
+
+%Also, the model is simpler and expressive than those of relational databases, such as NOSQL databases. 
+
+
+%Neo4j is widely used by organizations and has 1,000,000+ downloads. Because Neo4j is easy to learn and use, it is more easier for beginners to get used to the structure of graph databases. 
+
+
+%This study also introduced three kinds of DBMS, and the following paragraph contains brief information about each kind of DBMS.
+
 
 \begin{enumerate}
+	
 	
 	\item\textbf{Object-oriented database}
 	\setlength{\parindent}{1em}		
 	An object database (also object-oriented database management system - OODBMS) is a database management system in which information is represented in the form of objects as used in object-oriented programming.
 	Object databases are different from relational databases which are table-oriented.
-	
 	Because of tighter integration with the object-oriented language, the program is easier to maintain consistency with the same representation in both OODBMS and programming language.
-	
 	Although relational databases which are table-oriented might be similar to object-oriented databases, but they are actually different.
 	The object-oriented database supports objects, classes, and inheritance in the database schema and query language.
 	There are many advantages for OODBMS compared to the relational database management system (RDBMS) such as the performance, flexibility, and development cost.
-	
 	And OODBMS also have some disadvantages, the have mention 3 disadvantages for OODBMS.
 	First, because the usage is forced to be similar to an object-oriented language.
 	This makes maintaining and evolving is difficult.
 	Second, the technique for store complex type of information takes additional computational resources.
 	Third, the absence of a standard data model leads to design errors and inconsistencies.
+	
+	
 	
 	\item\textbf{Relational database}
 	\setlength{\parindent}{1em}	
@@ -109,6 +141,7 @@ SQL is a kind of simple language.
 It is like English to help uo to "communicate" with database server.
 Therefore, even the people who are not good at programming can writing it easily.
 
+
 SQL has been a single standard to support all kinds of databases for several decades.
 It seems good enough to let us don't need any alternatives.
 However, it is going to be changed.
@@ -117,24 +150,26 @@ It is different from relational database management system (RDMS) in some ways.
 For example, NoSQL use the concept of JSON-like (JavaScript Object Notation) or name-value to store data, instead of using tables like SQL.
 This study already lists some differences between SQL and NoSQL shown in Figure \ref{WMC3}.
 
+
 However, SQL and NoSQL has their own advantages and disadvantages.
 Therefore, it should be chosen depending on data characteristic.
 SQL is the ideal language when projects require logical related discrete data that can be identified and data integrity is essential.
 On the other hand, NoSQL can be considered as an ideal language if projects require unrelated, indeterminate or evolving data and simultaneously it needs speed and scalability.
 
+
 \subsubsection{PostgreSQL}
 
 PostgreSQL is an open source object-relational database management system (ORDBMS).
-It's developed at the University of California at Berkeley.
+It's developed at the University of California, Berkeley.
 The following operating systems such as Linux, Windows and MacOS are able to install PostgreSQL.
 There are so many graphical user interface (GUI) like Pgadmin and PhpPgadmin we can choose.
-It stores most SQL:2008 data types, such as INTEGER, NUMERIC, BOOLEAN, CHAR, VARCHAR, DATE, INTERVAL,or TIMESTAMP,and even binary large objects including pictures, sounds, or video.
+It stores most SQL:2008 data types, such as INTEGER, NUMERIC, BOOLEAN, CHAR, VARCHAR, DATE, INTERVAL or TIMESTAMP and even binary large objects including pictures, sounds, or video.
 It has programming language interfaces for C/C++, .NET, Java, Python, php, among others.
 
 The following is advantages of PostgreSQL.
 It's free and powerful RDBMS.
 To deal with amounts of data , PostgreSQL is supported with  open-source third-party tools compatibility extensions for designing, managing, and applying the DBMS.
-Due to the long history of PostgreSQL, it has a strong and experienced community accessed through knowledge-bases sites any time for free.
+It has a strong and experienced community accessed through knowledge-bases sites any time for free due to the long history of PostgreSQL.
 PostgreSQL not only is a RDBMS system but also have features of an OODBMS.
 However, PostgreSQL is too simple to appear less performance than MySQL.
 Because of a lack of popularity, it is harder to obtain hosts or service providers that provide managed PostgreSQL examples.

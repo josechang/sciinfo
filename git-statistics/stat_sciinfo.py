@@ -39,7 +39,7 @@ def remove_last_item(ls):
 	ls=ls[:len_ls-1]
 	return ls
 def get_author():
-	cmd=["/usr/bin/git --git-dir=%s shortlog -sne HEAD" % (tar_dir),"/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2\t$1}'"]
+	cmd=["git --git-dir=%s shortlog -sne HEAD" % (tar_dir),"/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2,$1}'"]
 	author_commits=getdata(cmd)
 	for x in author_commits:
 		(a,c)=x.split("    ")
@@ -72,7 +72,7 @@ def change_name(oldname,newname):
 	index=authors.index(oldname)
 	authors[index]=newname
 def createHTML():
-	with open("/home/yslin/statistics/index.html","w") as f:
+	with open("index.html","w") as f:
 		format='%Y-%m-%d %H:%M:%S'
 		f.write("""
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ def statistics():
 	if out == False:
 		print "error in opening the git repository"
 		return False
-	getnewest()
+	#getnewest()
 	get_author()
 	get_line_data()
 	get_word_data()
@@ -118,9 +118,11 @@ def statistics():
 	correct_similar_name('Torbj\xc3\xb6rn Nordling <tn@nordron.com>',['Torbj\xc3\xb6rn Nordling <tn@kth.se>'])
 	correct_similar_name('Kenny Hsu <tei1004@yahoo.com.tw>',['Kenny Hsu <teii1004@yahoo.com.tw>'])
 	correct_similar_name('TPhat <geminielf9@gmail.com>',['Tan Phat <geminielf@gmail.com>','unknown <geminielf9@gmail.com>'])
+	correct_similar_name('HoangTan <lopcatia@gmail.com>',['tony <lopcatia@gmail.com>'])
 	remove_email(authors)
 	change_name("l0989553696","I-Chieh Lin")
 	change_name("leoc0426","Ray")
+	change_name("Yu-Kai","Eric Chang")	
 	num_authors=len(authors)
 	createHTML()
 statistics()
