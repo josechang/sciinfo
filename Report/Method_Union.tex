@@ -38,13 +38,14 @@ The path is set and the files are stored in a specific folder.
 Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step.
 The process of extracting title from the text is mainly regulated by Union\_extract\_title.py.
 The coding scheme has following steps:Importation of necessary components, setting the path, creating the directory we will write the .txt files to after stripping text, using basic command to extract titles.
-the results are tested and listed.
+The results are tested and listed.
 We successfully produce the title of the article in the txt file. 
 
 \subsubsection{Author extraction}
 
 In this part, we use the existing python packages to achieve our goal.
-The key point in this part is natural language processing, which we have introduced in the basic section.
+The key point in this part is natural language processing, 
+which we have introduced in the basic section.
 Also we combine the key word comparison technique to finish this task.
 The following step is below:
 
@@ -65,7 +66,8 @@ The following step is below:
 	
 \end{enumerate}
 
-The above steps is also available to extracting the location and organization,etc when needed. 
+The above steps is also available to extracting the location and organization,etc 
+when needed. 
 The file mainly functioning for this task is Extract\_Authors.py.
 The coding scheme for this task is quite similar to title extraction.
 The main different is a corpus is introduced.
@@ -74,7 +76,8 @@ As we test the result, our program has been able to extract authors' name.
 
 \subsubsection{Abstract extraction}
 
-Developing from previous theory mentioned in the background section, we use the python to catch the abstract.
+Developing from previous theory mentioned in the background section, 
+we use the python to catch the abstract.
 The following step is below.
 %\begin{center}
 %	\includegraphics[width=\columnwidth]{Union_Background_Chart_2
@@ -84,7 +87,8 @@ Thus, it will create the txt file.
 The work is done by hand coding.
 For detailed coding scheme, we have presented it in the appendix at the end of this report.
 
-After being able to read the txt file on every line, the python will detect the content of the abstract.
+After being able to read the txt file on every line, 
+the python will detect the content of the abstract.
 In order to do so, we strip the text between "abstract" label and "introduction" label.	
 
 
@@ -112,7 +116,8 @@ Table below are the results of the search.
 %\end{center}
 
 Then our program will read the txt file on every line.
-If the python detects the abstract-database-stop's words ,it will stop to catch the sentences.
+If the python detects the abstract-database-stop's words ,
+it will stop to catch the sentences.
 abstract-database-stop:including the following conditions
 
 \begin{enumerate}
