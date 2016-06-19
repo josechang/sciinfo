@@ -72,7 +72,7 @@ def change_name(oldname,newname):
 	index=authors.index(oldname)
 	authors[index]=newname
 def createHTML():
-	with open("index.html","w") as f:
+	with open("/home/yslin/statistics/index.html","w") as f:
 		format='%Y-%m-%d %H:%M:%S'
 		f.write("""
 <!DOCTYPE html>
@@ -85,15 +85,15 @@ def createHTML():
 """)
 		f.write('<h1>Statistics for bitbucket</h1>')
 		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
+		f.write('<table>')
+		f.write('<col width="130"><col width="67"><col width="110"><col width="110"><col width="120"><col width="110"><col width="90">')
+		f.write('<td align="center">weight</td><td align="center"><input type="text" id="weight1" value="0" size="2"></td><td align="center"><input type="text" id="weight2" value="0" size="2"></td><td align="center"><input type="text" id="weight3" value="0" size="2"></td><td align="center"><input type="text" id="weight4" value="0" size="2"></td><td align="center"><input type="text" id="weight5" value="0" size="2"></td><td align="center"><button onclick="calculate()">Calculate</button></td>')
+		f.write('</table>')
 		f.write('<table id="statistics" border="1" class="sortable">')
-		f.write('<col width="130"><col width="60"><col width="110"><col width="110"><col width="120"><col width="110"><col width="80">')
-		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th><th>Score</th></tr>')
+		f.write('<col width="130"><col width="60"><col width="110"><col width="110"><col width="120"><col width="110"><col width="90">')
+		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th><th>GIT Score</th></tr>')
 		for i in range(0,num_authors):
 			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td></td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]))
-		f.write('</table>')
-		f.write('<table border="1">')
-		f.write('<col width="130"><col width="60"><col width="110"><col width="110"><col width="120"><col width="110"><col width="80">')
-		f.write('<td>weight</td><td><input type="text" id="weight1" value="0" size="3"></td><td><input type="text" id="weight2" value="0" size="3"></td><td><input type="text" id="weight3" value="0" size="3"></td><td><input type="text" id="weight4" value="0" size="3"></td><td><input type="text" id="weight5" value="0" size="3"></td><td><button onclick="calculate()">Calculate</button></td>')
 		f.write('</table>')
 		f.write('<p>Total authors: %d </p>' % num_authors)
 		f.write("<h4>TA's murmur</h4>")
@@ -109,7 +109,7 @@ def statistics():
 	if out == False:
 		print "error in opening the git repository"
 		return False
-	#getnewest()
+	getnewest()
 	get_author()
 	get_line_data()
 	get_word_data()
