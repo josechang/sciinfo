@@ -20,7 +20,7 @@ But most of the information retrieval methods such as search engine can't really
 They can only search the data that has been captured into the database according to \cite{Grehan2002}. 
 Thus, we need to create a database to store these data and automatically update them frequently.
 
-There are several online libraries currently available for us to get the academic articles or periodical we need.
+There are several online libraries currently available for us to get the academic articles or periodicals we need.
 And they can be roughly divided into three groups according to the way they store articles base on the division used by National Taiwan University Library.
 
 \paragraph{Index libraries}
@@ -64,20 +64,23 @@ some of the existing libraries.
 	
 	\item\textbf{PubMed}
 	\setlength{\parindent}{1em}
-		
-	 PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics.
-	 PubMed’s design philosophy is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent.
-	 PubMed is classified into Index libraries, which is the prime reason that it won’t be able to provide full text in some papers.
+	 PMC (PubMed Central) is launched in 2000.	
+	 and PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics.
+	 THe design philosophy of PubMed is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent.
+	 PubMed is classified into Index libraries, which is the prime reason that it is not able to provide full text in some papers.
 	 For the type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of 
 	 the archives such as XML, images, PDF files supplementary, etc. \todo{Good that you start by describing what it is and then tell how it is built.}
-	 PubMed citations often include links to the full-text article on the publishers' Web sites and/or in PMC and the Bookshelf. MEDLINE is the largest subset of PubMed. You may limit your PubMed search retrieval to MEDLINE citations by restricting your search to the MeSH controlled vocabulary or by using the Journal Categories filter called MEDLINE.
+	 
+	 PubMed citations often include links to the full-text article on the publishers' Web sites and/or in PMC and the Bookshelf. 
+	 
+	 MEDLINE is the largest subset of PubMed. You may limit your PubMed search retrieval to MEDLINE citations by restricting your search to the MeSH
+	 controlled vocabulary or by using the Journal Categories filter called MEDLINE.
 
-PMC (PubMed Central) launched in 2000 as a free archive for full-text biomedical and life sciences journal articles. PMC serves as a digital counterpart to the NLM extensive print journal collection; 
-it is a repository for journal literature deposited by participating publishers, as well as for author manuscripts that have been submitted in compliance with the NIH Public Access Policy and similar policies of other research funding agencies. 
-Some PMC journals are also MEDLINE journals. For publishers, there are a number of ways to participate and deposit their content in this archive, explained on the NLM Web pages Add a Journal to PMC and PMC Policies. Journals must be in scope according to the NLM Collection Development Manual. 
-Although free access is a requirement for PMC deposit, publishers and individual authors may continue to hold copyright on the material in PMC and publishers can delay the release of their material in PMC for a short period after publication. 
-There are reciprocal links between the full text in PMC and corresponding citations in PubMed. 
-PubMed citations are created for content not already in the MEDLINE database. Some PMC content, such as book reviews, is not cited in PubMed.
+     Simple searches on PubMed can be carried out by entering key aspects of a subject into PubMed's search window.
+
+     PubMed translates this initial search formulation and automatically adds field names, relevant MeSH (Medical Subject Headings) terms, synonyms, Boolean operators, 
+     and 'nests' the resulting terms appropriately, enhancing the search formulation significantly, in particular by routinely
+     combining (using the OR operator) textwords and MeSH terms.
 		
 	\item\textbf{IEEE Xplore}
 	\setlength{\parindent}{1em}
