@@ -14,25 +14,25 @@
 \textit{\footnotesize Author:Dexter Chen, Eric Chang, Eric Lee, Jacky Wu, Karthick Mani, Kenvin Lo, Yu-cheng Chen.}\\
 
 We live in the time where technologies evolve beyond our imagination.
-Information growth in a exponential rate according to \cite{Tague1981}, thus we can't rely on the old fashion ways to find data. 
-We need new information retrieval methods to handle such a big amount of data.
+Information growth in a exponential rate according to \cite{Tague1981}, thus we can't rely on the old fashion ways to find data we want. 
+We need new information retrieval methods to handle such a big amount of data systematically.
 But most of the information retrieval methods such as search engine can't really search everything on the web. 
 They can only search the data that has been captured into the database according to \cite{Grehan2002}. 
 Thus, we need to create a database to store these data and automatically update them frequently.
 
-There are several online libraries currently available for us to get the academic articles we need.
-And they can be roughly divided into three group according to the way they store articles base on the division used by National Taiwan University Library.
+There are several online libraries currently available for us to get the academic articles or periodical we need.
+And they can be roughly divided into three groups according to the way they store articles base on the division used by National Taiwan University Library.
 
 \paragraph{Index libraries}
 
 	These kind of libraries stores the index and abstract of the articles.
 	They don't provide the full-text documents directly, but may give the linkage to the publisher websites of articles.
-	And can be categorized by the type of articles they include.
+	And they can be categorized by the type of articles they include.
 	
 	\begin{itemize}
 		
 		\item\textbf{Comprehensive topics}\\Libraries such as Web of Science, Scopus...
-		\item\textbf{Specialized topics}\\Libraries such as Compendex, BIOSIS Previews, PubMed...
+		\item\textbf{Specialized topics}\\Libraries such as Compendex, BIOSIS Previews, PubMed, MEDline...
 		
 	\end{itemize}
 	
@@ -55,7 +55,8 @@ And they can be roughly divided into three group according to the way they store
 	Libraries such as EBSCOhost, ProQuest, JSTOR...
 
 The comparison between three kinds of library can be found on Figure \ref{WBC1}. 
-On the next section we'll discuss about more details about some of the existing libraries.
+On the next section we'll discuss about more details about 
+some of the existing libraries.
 
 \subsubsection{Introduction to several libraries }\todo{Consider to change the title.}
 
@@ -67,7 +68,16 @@ On the next section we'll discuss about more details about some of the existing 
 	 PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics.
 	 PubMed’s design philosophy is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent.
 	 PubMed is classified into Index libraries, which is the prime reason that it won’t be able to provide full text in some papers.
-	 For the type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of the archives such as XML, images, PDF files supplementary, etc. \todo{Good that you start by describing what it is and then tell how it is built.}
+	 For the type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of 
+	 the archives such as XML, images, PDF files supplementary, etc. \todo{Good that you start by describing what it is and then tell how it is built.}
+	 PubMed citations often include links to the full-text article on the publishers' Web sites and/or in PMC and the Bookshelf. MEDLINE is the largest subset of PubMed. You may limit your PubMed search retrieval to MEDLINE citations by restricting your search to the MeSH controlled vocabulary or by using the Journal Categories filter called MEDLINE.
+
+PMC (PubMed Central) launched in 2000 as a free archive for full-text biomedical and life sciences journal articles. PMC serves as a digital counterpart to the NLM extensive print journal collection; 
+it is a repository for journal literature deposited by participating publishers, as well as for author manuscripts that have been submitted in compliance with the NIH Public Access Policy and similar policies of other research funding agencies. 
+Some PMC journals are also MEDLINE journals. For publishers, there are a number of ways to participate and deposit their content in this archive, explained on the NLM Web pages Add a Journal to PMC and PMC Policies. Journals must be in scope according to the NLM Collection Development Manual. 
+Although free access is a requirement for PMC deposit, publishers and individual authors may continue to hold copyright on the material in PMC and publishers can delay the release of their material in PMC for a short period after publication. 
+There are reciprocal links between the full text in PMC and corresponding citations in PubMed. 
+PubMed citations are created for content not already in the MEDLINE database. Some PMC content, such as book reviews, is not cited in PubMed.
 		
 	\item\textbf{IEEE Xplore}
 	\setlength{\parindent}{1em}
@@ -76,7 +86,8 @@ On the next section we'll discuss about more details about some of the existing 
 	The IEEE is an acronym for Institute of Electrical and Electronics Engineers, which is one of the leading standard organizations in the world.
 	More than 3.5-million full-text documents in the field of electrical, engineering, computer science and electronics are provided in this library. 
 	
-	The front and user interface of IEEE library present the information on the screen, including the latest Angular, Jquery, HTML 5, CSS, etc.\todo{You mean it is implemented using these techniques. Please don't use etc. when you describe how something is built and do it in this context.} 
+	The front and user interface of IEEE library present the information on the screen, 
+	including the latest Angular, Jquery, HTML 5, CSS, etc.\todo{You mean it is implemented using these techniques. Please don't use etc. when you describe how something is built and do it in this context.} 
 	Most of the HTML for PDF, either it is for journal (conference) articles or standards get dynamic transformations real time and served through MarkLogic.
 	Endeca, which is an Oracle product powers Xplore searches, is used in the search layer.
 	All PDF files are fed through Endeca system.
@@ -88,11 +99,12 @@ On the next section we'll discuss about more details about some of the existing 
 
 	EBSCOhost is a popular reference which authorizes users to gain a great many full-text articles from proprietary databases.
 	EBSCO Information Services, headquartered in Ipswich, Massachusetts, 
-    is a division of EBSCO Industries Inc., 
+    which is a division of EBSCO Industries Inc., 
     the third largest private company in Birmingham, Alabama, with annual sales of nearly $2 billion according to the BBJ's 2013 Book of Lists.
 
     EBSCO offers library resources to customers in academic, medical, K–12,  
-    public library, law, corporate, and government markets. Its products include EBSCONET, a complete e-resource management system, 
+    public library, law, corporate, and government markets. 
+	Its products include EBSCONET, a complete e-resource management system, 
 
     and EBSCOhost, which supplies a fee-based online research 
     service with 375 full-text databases, a collection
