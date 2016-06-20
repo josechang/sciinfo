@@ -90,30 +90,20 @@ Furthermore,they can support different kinds of databases.
 	
 	\item\textbf{Relational database}
 	\setlength{\parindent}{1em}	
+	A relational database is the most popular database used in the world.
 	Each row in a table has its own unique key. 
-Rows in a table can be linked to rows in other tables by adding a column for the unique key of the linked row (such columns are known as foreign keys). 
-A relational database is the most popular database used in the world.
-Each row in a table has its own unique key.
-Codd showed that data relationships of arbitrary complexity can be represented by a simple set of concepts.
-Rows are also called records or tuples.
-Part of this processing involves consistently being able to select or modify one and only one row in a table. 
-and the columns representing values attributed to that instance
-Therefore, most physical implementations have a unique primary key for each table. 
-When a new row is written to the table, a new unique value for the primary key (PK) is generated; this is the key that the system uses primarily for accessing the table. 
-System performance is optimized for PKs. Other, more natural keys may also be identified and defined as alternate keys (AK). 
-Therefore, the performance of relational database will decrease obviously.
-Often several columns may be needed to form an AK (this is one reason why a single integer column is usually made the PK). 
-However, once the attributes of data become more and more, you'll need a large amount of tables to store your information.
-Both PKs and AKs have the ability to uniquely identify one row within a table. 
-Additional technology may be applied that will significantly assure a unique ID across the world, a globally unique identifier; 
-these are used when there are broader system requirements.
-The primary keys within a database are used to define the relationships among the tables. 
-When a PK migrates to another table, it becomes a foreign key in the other table.
-When each cell can contain only one value and the PK migrates into a regular entity table, this design pattern can represent either a one-to-one, or a one-to-many relationship.
-Most relational database designs resolve many-to-many relationships by creating an additional table that contains the PKs from both of the other entity tables—the relationship becomes an entity; 
-the resolution table is then named appropriately and the two FKs are combined to form an PK. 
-The migration of PKs to other tables is the second major reason why system-assigned integers are used normally as PKs; 
-there usually is neither efficiency nor clarity in migrating a bunch of other types of columns.
+	They can organize data into one or more tables of columns and rows, with the key identifying each row.
+	Rows are also called records or tuples.
+	Generally, each table represents one "entity type" (such as customer or product).
+	The rows represent instances of that type of entity (such as "Lee" or "iPhone 6") 
+	and the columns representing values attributed to that instance (such as address or price).
+	
+	
+	Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data.
+	Besides SQL is easy in the relational database approach.
+	For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities.
+	However, once the attributes of data become more and more, you'll need a large amount of tables to store your information.
+	Therefore, the performance of relational database will decrease obviously.
 
 
 	
