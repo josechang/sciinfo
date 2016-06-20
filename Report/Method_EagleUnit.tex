@@ -15,18 +15,19 @@ We are going to construct a public, user friendly web site, which provide servic
 To achieve this goal, we seperate our responsibility into parts:\\
 \begin{itemize}
 	\item Build up the web server.
-	The web server is built by Django. Django is web framework which can highly construct by Pithon.
+	The web server is built by Django. Django is web framework which can highly construct by Python.
 	\item Build a web page with a search bar.
 	\item Place a list on the webpage which showing the search results.
 	\item Build a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
-	\item Build up the APIs. The search bar should send the search string to tje search system, and the result list then recieve the results of searching and display it.
+	\item Build up the APIs. The search bar should send the search string and the result list to tje search system 
+	then the system recieve the results of searching and display it.
 \end{itemize}
 This article will provide a review through the tools and methodologies we use to achieve each work.
 \subsubsection{Web Server}
-For any web service, a web server is necessary.
+For any web page, a web server is necessary.
 There are three web server system used in our project. 
 They play the role as web page framework, reverse proxy server, 
 and database management, respectively.
-Consider the ease to use and learn, and the generality of Python language, 
-we choose Django, a Python based web server system for our work.
+Consider the ease to use and learn, and the generality of Python language 
+that we choose Django, a Python based web server system for our work.
 
