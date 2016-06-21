@@ -10,6 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Automatic creation of metadata}
+
 \textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
 We are producing a program that automatically generate and extract metadata with natural language processing. We also strive to generate XML files with metadata extracted. In the best scenario, we will even try to create a search engine together with other groups. Also, creating a sutiable interface and structure with some finctions for users is necessary. Following discussion is our literature review on natural language processing.
@@ -22,6 +23,7 @@ We are producing a program that automatically generate and extract metadata with
 \end{figure*}
 
 \subsubsection*{Language understanding}
+
 Natural language understanding (NLU) is a subtopic of natural language processing in artificial intelligence that deals with machine reading comprehension, it's considered an AI-hard problem.
 
 When users search for a sentence, how does the program understand the certain inputs of text? We could build a natural language understanding (NLU) system, in which the system's rules for semantic interpretation are learnt automatically from training data, which uses a set of possible yes-no questions that can be applied to data items.
@@ -29,7 +31,7 @@ After that, it follows rules for selecting the best questions at any node on the
 
 \subsubsection*{Name Recognition}
 
-The results could be a country or an animal if users search for the word "Turkey." The meaning is totally different and definitely make users very confused if he or she is not very familiar with the word "Turkey". 
+If users search for the word "Turkey", the results could be a country or an animal. The meaning is totally different and definitely make users very confused if he or she is not very familiar with the word "Turkey". 
 
 There are a lot of misunderstandings like this if users search some words which have multiply meanings. Sometimes, the results are fully unrelated and this situation is always annoying. That would be troublesome when we count frequency of certain words to rank them.
 
@@ -47,14 +49,13 @@ Plus, creating some choices for users is also vital because this make the search
 
 Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle these problems. 
 
-A lot of online services have done similar tasks before. Thus, creating and using an online databases or automated metadata creation are to be recommended. The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized database or metadata.\\
+A lot of online services have done similar tasks before. Thus, creating and using an online databases or automated metadata creation are to be recommended. The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized database or metadata.\\\\\\
 
 
 \subsubsection*{Part-of-speech}
 
-In the English language, we can consider words as the smallest elements that have distinctive meanings.
-Based on their uses and functions, words are categorized into several parts of speech, and the 8 major parts of speech in 
-English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, preposition, and interjection.
+In the English language, we can consider words as the smallest elements that have distinctive meanings. Based on their uses and functions, words are categorized into several parts of speech, and the 8 major parts of speech in English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, preposition, and interjection.
+
 \begin{itemize}
 	\item Noun (names)\\
 	A word or lexical item denoting any abstract (abstract noun: e.g. home) or concrete entity (concrete noun: e.g. house); a person (doctor, Jim), place (farm, Taiwan), thing (earring, refrigerator), idea (happiness), or quality (ambition). 
@@ -90,14 +91,11 @@ English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, prepos
 
 \subsubsection*{Part-of-speech tagging}
 
-Part of speech tagging (POS tagging), also called grammatical tagging or word-category disambiguation, which is a process 
-of assigning a part of speech to each word in a sentence that based on both definition and its context.\\
+Part of speech tagging (POS tagging), also called grammatical tagging or word-category disambiguation, which is a process of assigning a part of speech to each word in a sentence that based on both definition and its context.\\
 
 \subsubsection*{Word sense disambiguation: supervised and semi-supervised approach}
 
-Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. 
-WSD identifies which sense of a word (i.e.meaning) is used in a sentence,
-when the word has multiple meanings \cite{Du2013}. 
+Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD identifies which sense of a word (i.e. meaning) is used in a sentence, when the word has multiple meanings \cite{Du2013}. 
 
 \begin{figure}[tbh]
 	\begin{center}
@@ -106,27 +104,20 @@ when the word has multiple meanings \cite{Du2013}.
 	\caption{GWord+Sense with words and senses. \label{fig1}}
 \end{figure}
 
-The solution to this problem impacts other computer-related writing, such as discourse, 
-improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
+The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 
-Word Sense Disambiguation(WSD) is related to Natural Language Processing and is also linked with computational languages. 
-People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing ,etc. 
+Word Sense Disambiguation (WSD) is related to natural language processing and is also linked with computational languages. People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing ,etc. 
 
-WSD is mainly focused on determining the sense of word,computationally which is used in a problem by using that word in a particular context. 
-Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. 
+WSD is mainly focused on determining the sense of word, computationally which is used in a problem by using that word in a particular context. Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. 
 
 The human brain is quite proficient at word-sense disambiguation. 
-The fact that natural language is formed in a way that requires so much of it is a reflection of that neurological reality. 
-In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided 
-by the brain's neural networks. 
+The fact that natural language is formed in a way that requires so much of a reflection of that neurological reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. 
 
-In computer science and the information technology that it enables, it has been a long-term challenge to develop the ability 
-in computers to do natural language processing and machine learning. 
+In computer science and the information technology that is enable, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning. 
 
 \subsection*{Supervised}
 
-Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words. 
-Probably every machine learning algorithm going has been applied to WSD, including associated techniques, such as feature selection, parameter optimization, and ensemble learning.
+Supervised methods are based on the assumption that the context can provide enough evidence on its own to disambiguate words. Probably every machine learning algorithm going has been applied to WSD including associated techniques, such as feature selection, parameter optimization, and ensemble learning.
 
 \begin{figure}[tbh]
 	\begin{center}
@@ -147,16 +138,13 @@ Probably every machine learning algorithm going has been applied to WSD, includi
 	\caption{Simple Supervised approach.}
 \end{figure}
 
-Support Vector Machines and memory-based learning have been shown to be the most successful approaches, to date, probably because they can cope with the high-dimensionality of the feature space. 
+Support Vector Machines and memory-based learning have been shown to be the most successful approaches to date, probably because they can cope with the high-dimensionality of the feature space. 
 
 However, these supervised methods are subject to a new knowledge acquisition bottleneck since they rely on substantial amounts of manually sense-tagged corpora for training, which are laborious and expensive to create \cite{aramossoto2016onthe}.
 
 \subsubsection*{Semi-supervised}
 
-Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. 
-The Yarowsky algorithm was an early example of such an algorithm \cite{Gartner201317}. 
-It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. 
-Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \cite{5599823}
+Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm \cite{Gartner201317}. It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \cite{5599823}
 
 \begin{figure}[tbh]
 	\begin{center}
@@ -165,67 +153,44 @@ Based on observation it has been shown that words tend to exhibit only one sense
 	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
 
-The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or 
-a small number of surefire decision rules. 
-The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. 
-The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed, or until a given maximum number of iterations is reached \cite{Blascheck2016}.
+The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. 
+The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed or a given maximum number of iterations is reached \cite{Blascheck2016}.
 
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplys 
-the tagged corpora. 
-These techniques have the potential to help in the adaptation of supervised models to different domains.
+Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplys the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.
 
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense 
-of the word. 
-Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.\cite{Cheslow2014}
+Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.\cite{Cheslow2014}
 
 \subsubsection*{Unsupervised}
-Unsupervised WSD is the third part of Word sense disambiguation,it has to focus in the sense of the word which is being used 
-in a sentence.  
-Unsupervised WSD, which relys on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. 
-In this model, a number of sentences are used which contains a particular word which has several meanings. 
-The main goal is to divide those words into a specified number of sense groups \cite{4028513}.
-The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
+Unsupervised WSD is the third part of Word sense disambiguation, it has to focus in the sense of the word which is being used in a sentence. Unsupervised WSD, which relys on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. In this model, a number of sentences are used which contains a particular word which has several meanings. 
+The main goal is to divide those words into a specified number of sense groups \cite{4028513}. The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
 
 \begin{enumerate}
 	\item Pedersen and Bruce local type features.
 	\item WordNet-based feature selection.
 \end{enumerate}
 
-\begin{enumerate}
-	\item Pedersen and Bruce local type features:
-\end{enumerate}
-Three different feature sets have been used by 'Pedersen and Bruce' (under Naive Bayes model) for each word to formulate such 
-a model describing the distributions of sense groups of that word in Unsupervised WSD.
+Three different feature sets have been used by 'Pedersen and Bruce' (under Naive Bayes model) for each word to formulate such a model describing the distributions of sense groups of that word in Unsupervised WSD.
 
 Features which were taken into account are:
-\textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology.
-This feature represents the morphology \cite{5494927} of the ambiguous word and is denoted by M. 
-In case of nouns, M acts as Binary which indicates whether the word is plural or singular.
-For verbs, M indicates the tense of the verb and can have up to seven possible values.
-This feature is not applicable for adjectives.
+\textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology. This feature represents the morphology \cite{5494927} of the ambiguous word and is denoted by M. 
+In case of nouns, M acts as Binary which indicates whether the word is plural or singular. For verbs, M indicates the tense of the verb and can have up to seven possible values. This feature is not applicable for adjectives.
 
-\textbf{Part-of-speech:} This feature represents the part-of-speech \cite{6982457} of the word and tells the position of the ambiguous word.
-Each POS feature can have one of five possible values: noun, verb, adjective, adverb or other.
+\textbf{Part-of-speech:} This feature represents the part-of-speech \cite{6982457} of the word and tells the position of the ambiguous word. Each POS feature can have one of five possible values: noun, verb, adjective, adverb or other.
 
-\textbf{Co-occurences:} This feature also acts as binary variables representing whether the most frequent content word in all the sentences contain the ambiguous word can occur anywhere in the sentence or not.
+\textbf{Co-occurences:} This feature also acts as binary variables representing whether the most frequent content word in all the sentences contain the ambiguous word can occur anywhere in the sentence or not.\\\\
 
 \begin{enumerate}
 	\item WordNet-based feature selection:
 \end{enumerate}
-WordNet is a large lexical database of English. 
-The approach to WSD relies on a set of features formed by the actual words occuring near the target word and 
-reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.
-The WN semantic network provides the words considered relevant for the set of senses taken into consideration corresponding 
-to the target word.
+
+WordNet is a large lexical database of English. The approach to WSD relies on a set of features formed by the actual words occuring near the target word and reduces the size of this feature set by performing knowledge-based feature selection that relies entirely on WordNet.
+The WN semantic network provides the words considered relevant for the set of senses taken into consideration corresponding to the target word.
 
 In WordNet, noun is the most developed portion as per the research done over the performance for knowledge-based disambiguation.
-For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this 
-part of speech.
-Verbs are suggested to use additionally whenever possible.
-As a result of using only those words indicated as being relevant and recommended by WordNet, a much small vocabulary was obtained.
-Therefore, a much smaller number of features were taking part in the disambiguation process.
+For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this part of speech.
+Verbs are suggested to use additionally whenever possible. As a result of using only those words indicated as being relevant and recommended by WordNet, a much small vocabulary was obtained. Therefore, a much smaller number of features were taking part in the disambiguation process.
 
-So, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.
+Therefore, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.
 \todo{Really? This section is shorter.}
 
 The difference between 'Supervised' and 'Unsupervised' WSD is:
