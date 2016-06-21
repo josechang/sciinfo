@@ -206,16 +206,12 @@ The difference between 'Supervised' and 'Unsupervised' WSD is:
 
 \subsubsection*{Factuality}
 
-In the process of producing metadata, which should be the most precise information and representing the text, validity of such metadata must be checked. 
-Therefore tools for fact checks are developed based on linguistic techniques. 
+In the process of producing metadata, which should be the most precise information and representing the text, validity of such metadata must be checked. Therefore, tools for fact checks are developed based on linguistic techniques. 
 
-The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. 
-From the authors's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK.(yes, the authors used capitalized name)
+The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From the authors's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK. (yes, the authors used capitalized name)
 
 TIMEBANK was first proposed in \cite{pustejovsky2003timebank}. 
-The idea was based on that English language has different tenses which could be exploited as signals for fact check. 
-An example below could help to clarify the ideas.
-Let's examine these sentences:
+The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example below could help to clarify the ideas. Let's examine these sentences:
 
 \begin{itemize}
 	\item I will go to Chimei museum tomorrow.
@@ -223,14 +219,11 @@ Let's examine these sentences:
 	\item I was in UK in 2012.
 \end{itemize}
 
-The first sentence is simple future tense which implies something has never actually happened, the second sentence is simple present tense which can directly imply facts,and the last sentence is in simple past tense which is about something already happened (which is facts),but is no longer a fact right now, so such fact must be used with caution. 
+The first sentence is simple future tense which implies something has never actually happened, the second sentence is simple present tense which can directly imply facts, and the last sentence is in simple past tense which is about something already happened (which is facts), but is no longer a fact right now, so such fact must be used with caution. 
 
-The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. 
-In addition to TIMEBANK, many other tools can be another filter for fact extraction. 
-\cite{Dave2003mining} Identify words, clauses and phrases that show emotional state of the authors. 
+The reason for introducing such tool is that even scientific research articles can be glittering with subjective comments, opinions or even assumption from authors \cite{schultze2000confessional}. In addition to TIMEBANK, many other tools can be another filter for fact extraction. \cite{Dave2003mining} Identify words, clauses and phrases that show emotional state of the authors. 
 
-The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \cite{Wiebe2005}. 
-Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK,which is built by \cite{Sauri2009}. 
+The choice in expression of facts could also be a helpful indicator to show whether authors are subjectively supporting a cause, an opinion and so on \cite{Wiebe2005}. Among these mentioned approaches, this paper highly favors creation a kind of thesaurus compiled of linguistic signaling for non-factually statements such as FACTBANK, which is built by \cite{Sauri2009}. 
 Following example shows how subjective statements can be picked out.
 
 \begin{itemize}
@@ -246,49 +239,35 @@ After re-writing (1b) into: Funding agencies lend more money with lower interest
 and medium enterprises,sentence (1b) become a face-based statement. 
 In another case, statement (2a) is a fact-based statement while in statement (2b), authors are stressing their dislike toward dictatorship.
 
-Fact checks in language generation is a new field but many useful tools have been developed. 
-Each of them has their own function and could complement each others. 
-In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.
-
+Fact checks in language generation is a new field but many useful tools have been developed. Each of them has their own function and could complement each others. In the limit of this study, we are using both of TIMEBANK and FACTBANK together for fact check.
 
 
 \subsubsection*{Language generation}
 
-Natural language generation (NLG) is one branch of natural language processing. 
-The goal is generating the words that human being uses via machine automatically. 
-In order to use this technique, six basic activities are done: 
+Natural language generation (NLG) is one branch of natural language processing. The goal is generating the words that human being uses via machine automatically. In order to use this technique, six basic activities are done: 
+
 \begin{enumerate}
-	\item content determination: In this active, we create some messages which are communicated in the text. 
+	\item Content determination: In this active, we create some messages which are communicated in the text. 
 	These messages shall be labeled and the entity in the messeges is also distinguished, which is convenient for us to 
 	use these data within the following step.
-	\item discourse planning: This part is closely related to the previous part. 
+	\item Discourse planning: This part is closely related to the previous part. 
 	We determine the order and the structure of the messeges.
-	\item sentence aggregation:This part combines several messeges into sentences. 
+	\item Sentence aggregation:This part combines several messeges into sentences. 
 	Although some of messeges have been a sentence, we can improve the influency of messeges by combining them.
-	\item lexicalization: This part make the messege more precise by use the specific words and concepts. 
+	\item Lexicalization: This part make the messege more precise by use the specific words and concepts. 
 	Then people can get the ideas of the messeges more quickly.
-	\item referring expression generation: This part is a litte same as the previous part. 
+	\item Referring expression generation: This part is a litte same as the previous part. 
 	But the difference is that this part differentiate the one domain to the other domains.
-	\item linguistic realization: Last part is to make the expression follow the rules of grammer, part of speech and the natural language rule.
+	\item Linguistic realization: Last part is to make the expression follow the rules of grammer, part of speech and the natural language rule.
+	
 \end{enumerate}
-\cite{aramossoto2016onthe}.\todo{Where? Please explain the 6 terms. What are they?} 
-The advantage of this technique is that it is flexible, since there is no standardization. 
-But it also has the difficulty in the implication of this technique.\cite{aramossoto2016onthe}No standardization means that 
-no rules can be followed. 
+\cite{aramossoto2016onthe}. The advantage of this technique is that it is flexible, since there is no standardization. But it also has the difficulty in the implication of this technique. \cite{aramossoto2016onthe} No standardization means that no rules can be followed. 
 
-Without logic method, it is almost impossible to code and be realized by computer.
-Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize.
-The technique is linguistic discription of data.
+Without logic method, it is almost impossible to code and be realized by computer. Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize. The technique is linguistic discription of data.
 \todo{Now you jump too far. More explanations are needed.}
-Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. 
-At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. 
-However, the basic steps of LDD have been built. 
+Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. However, the basic steps of LDD have been built. 
 The four main parts in this technique are inputing data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. 
-Some of them are similar to the concept. 
-The advantage of this technique is that it has been implied in many fields just like weather forecast \cite{Ramos-SotoBBT14}. 
-Also, many practical methods have been proposed. 
-However, it still has a long way to go.
+Some of them are similar to the concept. The advantage of this technique is that it has been implied in many fields just like weather forecast \cite{Ramos-SotoBBT14}. Also, many practical methods have been proposed. However, it still has a long way to go.
 
-These two techniques are usually combined together nowadays. 
-The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
+These two techniques are usually combined together nowadays. The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
 \newpage % Ends the current page and causes all figures and tables to be printed
