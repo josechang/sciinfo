@@ -13,7 +13,11 @@
 
 \textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
-We are producing a program that automatically generate and extract metadata with natural language processing. We also strive to generate XML files with metadata extracted. In the best scenario, we will even try to create a search engine together with other groups. Also, creating a sutiable interface and structure with some finctions for users is necessary. Following discussion is our literature review on natural language processing.
+We are producing a program that automatically generate and extract metadata with natural language processing. 
+We also strive to generate XML files with metadata extracted. 
+In the best scenario, we will even try to create a search engine together with other groups. 
+Also, creating a sutiable interface and structure with some finctions for users is necessary. 
+Following discussion is our literature review on natural language processing.
 
 \begin{figure*}[ht]
 	\begin{center}
@@ -25,36 +29,49 @@ We are producing a program that automatically generate and extract metadata with
 \subsubsection*{Language understanding}
 
 Natural language understanding (NLU) is a subtopic of natural language processing in artificial intelligence that deals with machine reading comprehension, it's considered an AI-hard problem.
-
 When users search for a sentence, how does the program understand the certain inputs of text? We could build a natural language understanding (NLU) system, in which the system's rules for semantic interpretation are learnt automatically from training data, which uses a set of possible yes-no questions that can be applied to data items.
 After that, it follows rules for selecting the best questions at any node on the basis of training data by using a method for pruning trees to prevent over-training.
 
 \subsubsection*{Name Recognition}
 
-If users search for the word "Turkey", the results could be a country or an animal. The meaning is totally different and definitely make users very confused if he or she is not very familiar with the word "Turkey". 
+If users search for the word "Turkey", the results could be a country or an animal. 
+The meaning is totally different and definitely make users very confused if he or she is not very familiar with the word "Turkey". 
 
-There are a lot of misunderstandings like this if users search some words which have multiply meanings. Sometimes, the results are fully unrelated and this situation is always annoying. That would be troublesome when we count frequency of certain words to rank them.
+There are a lot of misunderstandings like this if users search some words which have multiply meanings. 
+Sometimes, the results are fully unrelated and this situation is always annoying. 
+That would be troublesome when we count frequency of certain words to rank them.
 
 Therefore, it is significantly crucial for a program to totally understand what users want by name recognition in natural language processing, finally they can find out the results much quicker and will not be confused anymore.
 
-The method to improve the problem above is "categorize the words based on different subjects, topic, or genres" by using online database and python program. Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired
+The method to improve the problem above is "categorize the words based on different subjects, topic, or genres" by using online database and python program. 
+Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired
 categories \cite{Kules2006}.
 
 Besides dealing with mutiple-meaning words, the most important part of name recognition is to recognize the special names and terms such as locations, people name, country, even company names and academic terms.
-Therefore, it is better for search engine to know what user want and huge name corpus are necessary. Plus, this work also can assist previous work.
+Therefore, it is better for search engine to know what user want and huge name corpus are necessary. 
+Plus, this work also can assist previous work.
 
-With above effort, users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstandings if users are not very familiar with finding the appropriate result in specific fields.\cite{TunThuraThet2010} Users don't need to filter the results which are ranked by browsing frequency popularity but can just obtain the information and relevance by clicking the specific categories and some reasonable choices.
+With above effort, users' exploration and overviews of information could be better supported. It will be very convenient to find the results we want and lower the possibility of misunderstandings if users are not very familiar with finding the appropriate result in specific fields.
+\cite{TunThuraThet2010} Users don't need to filter the results which are ranked by browsing frequency popularity but can just obtain the information and relevance by clicking the specific categories and some reasonable choices.
 
-Plus, creating some choices for users is also vital because this make the searching much more oragnized. For example, if there are a lot of subtitles such as abstract, introduction, method, or references in some standard research articles, try to make some choices so that the users can easily find out what they want. There are a lot of different standard articles in the world. Making a suitable choices if someone want to creat a personalzed search engine and interface. 
+Plus, creating some choices for users is also vital because this make the searching much more oragnized. 
+For example, if there are a lot of subtitles such as abstract, introduction, method, or references in some standard research articles, try to make some choices so that the users can easily find out what they want. 
+There are a lot of different standard articles in the world.
+ Making a suitable choices if someone want to creat a personalzed search engine and interface. 
 
-Also, users are able to choose multiply fields if the results include a lot of relevant fields. That's a big motivation for people to handle these problems. 
+Also, users are able to choose multiply fields if the results include a lot of relevant fields. 
+That's a big motivation for people to handle these problems. 
 
-A lot of online services have done similar tasks before. Thus, creating and using an online databases or automated metadata creation are to be recommended. The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. It is beneficial for people who would like to create a convenient and personalized database or metadata.\\\\\\
+A lot of online services have done similar tasks before. 
+Thus, creating and using an online databases or automated metadata creation are to be recommended. 
+The reason is there are many advantages, including integrating with the other cloud services or scaling with what users need such as how to categorize the categories. 
+It is beneficial for people who would like to create a convenient and personalized database or metadata.\\\\\\
 
 
 \subsubsection*{Part-of-speech}
 
-In the English language, we can consider words as the smallest elements that have distinctive meanings. Based on their uses and functions, words are categorized into several parts of speech, and the 8 major parts of speech in English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, preposition, and interjection.
+In the English language, we can consider words as the smallest elements that have distinctive meanings. 
+Based on their uses and functions, words are categorized into several parts of speech, and the 8 major parts of speech in English grammar are: noun, pronoun, verb, adverb, adjective, conjunction, preposition, and interjection.
 
 \begin{itemize}
 	\item Noun (names)\\
@@ -95,7 +112,8 @@ Part of speech tagging (POS tagging), also called grammatical tagging or word-ca
 
 \subsubsection*{Word sense disambiguation: supervised and semi-supervised approach}
 
-Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. WSD identifies which sense of a word (i.e. meaning) is used in a sentence, when the word has multiple meanings \cite{Du2013}. 
+Word sense disambiguation (WSD) is an open problem of natural language processing and ontology. 
+WSD identifies which sense of a word (i.e. meaning) is used in a sentence, when the word has multiple meanings \cite{Du2013}. 
 
 \begin{figure}[tbh]
 	\begin{center}
@@ -106,12 +124,15 @@ Word sense disambiguation (WSD) is an open problem of natural language processin
 
 The solution to this problem impacts other computer-related writing, such as discourse, improving relevance of search engines, anaphora resolution, coherence, inference et cetera.
 
-Word Sense Disambiguation (WSD) is related to natural language processing and is also linked with computational languages. People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing ,etc. 
+Word Sense Disambiguation (WSD) is related to natural language processing and is also linked with computational languages. 
+People introduced it as a solution when they felt the need of some complex problems like machine translation, information retrieval, speech processing and text processing ,etc. 
 
-WSD is mainly focused on determining the sense of word, computationally which is used in a problem by using that word in a particular context. Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. 
+WSD is mainly focused on determining the sense of word, computationally which is used in a problem by using that word in a particular context. 
+Inspite of having a greater number of existing disambiguation algorithms, WSD still has an open problem with the three main parts of the WSD methods being considered by literature: Supervised, Unsupervised and semi-supervised. 
 
 The human brain is quite proficient at word-sense disambiguation. 
-The fact that natural language is formed in a way that requires so much of a reflection of that neurological reality. In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. 
+The fact that natural language is formed in a way that requires so much of a reflection of that neurological reality. 
+In other words, human language developed in a way that reflects (and also has helped to shape) the innate ability provided by the brain's neural networks. 
 
 In computer science and the information technology that is enable, it has been a long-term challenge to develop the ability in computers to do natural language processing and machine learning. 
 
@@ -144,7 +165,9 @@ However, these supervised methods are subject to a new knowledge acquisition bot
 
 \subsubsection*{Semi-supervised}
 
-Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. The Yarowsky algorithm was an early example of such an algorithm \cite{Gartner201317}. It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \cite{5599823}
+Because of the lack of training data, many word sense disambiguation algorithms use semi-supervised learning, which allows both labeled and unlabeled data. 
+The Yarowsky algorithm was an early example of such an algorithm \cite{Gartner201317}. It uses the 'One sense per collocation' and the 'One sense per discourse' properties of human languages for word sense disambiguation. 
+Based on observation it has been shown that words tend to exhibit only one sense in most given discourse and in a given collocation. \cite{5599823}
 
 \begin{figure}[tbh]
 	\begin{center}
@@ -153,16 +176,22 @@ Because of the lack of training data, many word sense disambiguation algorithms 
 	\caption{Classifier that improves over the basic classifier. \label{fig3}}
 \end{figure}
 
-The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. 
+The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. 
+The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. 
 The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed or a given maximum number of iterations is reached \cite{Blascheck2016}.
 
-Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplys the tagged corpora. These techniques have the potential to help in the adaptation of supervised models to different domains.
+Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplys the tagged corpora. 
+These techniques have the potential to help in the adaptation of supervised models to different domains.
 
-Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.\cite{Cheslow2014}
+Also, an ambiguous word in one language is often translated into different words in a second language depending on the sense of the word. 
+Word-aligned bilingual corpora have been used to infer cross-lingual sense distinctions, a kind of semi-supervised system.\cite{Cheslow2014}
 
 \subsubsection*{Unsupervised}
-Unsupervised WSD is the third part of Word sense disambiguation, it has to focus in the sense of the word which is being used in a sentence. Unsupervised WSD, which relys on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. In this model, a number of sentences are used which contains a particular word which has several meanings. 
-The main goal is to divide those words into a specified number of sense groups \cite{4028513}. The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
+Unsupervised WSD is the third part of Word sense disambiguation, it has to focus in the sense of the word which is being used in a sentence. 
+Unsupervised WSD, which relys on single writing can be approached by the use of Naive Bayes' model, which mainly focuses on unsupervised part of the context. 
+In this model, a number of sentences are used which contains a particular word which has several meanings. 
+The main goal is to divide those words into a specified number of sense groups \cite{4028513}. 
+The Naive Bayes model applied mathematically entirely focuses on the issue of feature selection, which describes its two types:
 
 \begin{enumerate}
 	\item Pedersen and Bruce local type features.
@@ -211,7 +240,8 @@ In the process of producing metadata, which should be the most precise informati
 The tool could detect facts and excludes authors' subjective opinions \cite{Agerri2014}. From the authors's perspective, the two main set of tools having such functions is TIMEBANK and FACTBANK. (yes, the authors used capitalized name)
 
 TIMEBANK was first proposed in \cite{pustejovsky2003timebank}. 
-The idea was based on that English language has different tenses which could be exploited as signals for fact check. An example below could help to clarify the ideas. Let's examine these sentences:
+The idea was based on that English language has different tenses which could be exploited as signals for fact check. 
+An example below could help to clarify the ideas. Let's examine these sentences:
 
 \begin{itemize}
 	\item I will go to Chimei museum tomorrow.
@@ -263,11 +293,19 @@ Natural language generation (NLG) is one branch of natural language processing. 
 \end{enumerate}
 \cite{aramossoto2016onthe}. The advantage of this technique is that it is flexible, since there is no standardization. But it also has the difficulty in the implication of this technique. \cite{aramossoto2016onthe} No standardization means that no rules can be followed. 
 
-Without logic method, it is almost impossible to code and be realized by computer. Thus, the another concept is proposed. This way has the logical method, also the algorithm is easy to realize. The technique is linguistic discription of data.
+Without logic method, it is almost impossible to code and be realized by computer. 
+Thus, the another concept is proposed. 
+This way has the logical method, also the algorithm is easy to realize. 
+The technique is linguistic discription of data.
 \todo{Now you jump too far. More explanations are needed.}
-Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. However, the basic steps of LDD have been built. 
+Linguistic description of data (LDD) is a concept that applied the fuzzy set theory in the linguistic field. 
+At the beginning, comparing to the NLG field, it is a newer technique to solve the problem of language generation. 
+However, the basic steps of LDD have been built. 
 The four main parts in this technique are inputing data, linguistic variable, fuzzy quantifiers and evaluation criteria \cite{aramossoto2016onthe}. 
-Some of them are similar to the concept. The advantage of this technique is that it has been implied in many fields just like weather forecast \cite{Ramos-SotoBBT14}. Also, many practical methods have been proposed. However, it still has a long way to go.
+Some of them are similar to the concept. 
+The advantage of this technique is that it has been implied in many fields just like weather forecast \cite{Ramos-SotoBBT14}. 
+Also, many practical methods have been proposed. However, it still has a long way to go.
 
-These two techniques are usually combined together nowadays. The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
+These two techniques are usually combined together nowadays. 
+The concept of NLG and the practical approach of LDD could be used in the same time to provide the better performance in language generate field.
 \newpage % Ends the current page and causes all figures and tables to be printed
