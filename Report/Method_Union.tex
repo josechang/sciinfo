@@ -44,8 +44,7 @@ We successfully produce the title of the article in the txt file.
 \subsubsection{Author extraction}
 
 In this part, we use the existing python packages to achieve our goal.
-The key point in this part is natural language processing, 
-which we have introduced in the basic section.
+The key point in this part is natural language processing,  which we have introduced in the basic section.
 Also we combine the key word comparison technique to finish this task.
 The following step is below:
 
@@ -58,7 +57,7 @@ The following step is below:
 	These single words composed with a string list. 
 	\item Part Of Speech Tag: We use the existing corpus to tag the part of speech to the words. 
 	This step is necessary since that the chunker needs the every word's part-of-speech and then chunck.
-	\item Chunker: In this part, we mainly chunk the noun because a noun often represents some meaningful features 
+	\item Chunker: Chunker is a tool that combines the single words to the phrase.In this part, we mainly chunk the noun because a noun often represents some meaningful features 
 	such as location or author.
 	\item Label: We check every phrase with the corpus which contain specific words like people name. 
 	Then we label the words and store within the new list. 
@@ -66,12 +65,11 @@ The following step is below:
 	
 \end{enumerate}
 
-The above steps is also available to extracting the location and organization,etc 
-when needed. 
+The above steps is also available to extracting the location and organization,etc when needed. 
 The file mainly functioning for this task is Extract\_Authors.py.
 The coding scheme for this task is quite similar to title extraction.
-The main different is a corpus is introduced.
-This scheme also include a natural language toolkit in order to extract people's name. 
+The main different is a corpus being introduced.
+This scheme also include a natural language toolkit in order to identify and extract people's name. 
 As we test the result, our program has been able to extract authors' name.
 
 \subsubsection{Abstract extraction}
@@ -177,6 +175,5 @@ We also attempt to produce an semi-automatic interface that help users to inquir
 Currently it allows user to search for abstracts, introduction, method, result, discussion, and reference. We will continue develop the interface in the remaining week. 
 The objectives are either covering more functions or make the results pages has more professional appearance. However, that being
 said when we still have enough time.
-\subsection{Result and discussion}
 
 \newpage % Ends the current page and causes all figures and tables to be printed
