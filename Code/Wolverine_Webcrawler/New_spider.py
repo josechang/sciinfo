@@ -5,8 +5,10 @@ import re
 from bs4 import BeautifulSoup
 
 url = "http://eric.ed.gov/?q=a&ft=on&pg=__"
-wget = "wget -nc -P ./pdfs "
+directory = "./pdfs"
+wget = "wget -nc -P " + directory + " "
 urls = []
+dirs = []
 pdfs = []
 
 def geturllist(url, offset, numpage):
@@ -14,11 +16,10 @@ def geturllist(url, offset, numpage):
 		offsetstring = str(offset*i)
 		curl = url.replace('__', offsetstring) 
 		urls.append(curl)
-	print urls
+	#print urls
 
 
 def getpdflist():
-	i = 1
 	while len(urls) > 0:
         	try:
                 	htmltext = urllib.urlopen(urls[0]).read()
@@ -32,18 +33,22 @@ def getpdflist():
 
         	soup = BeautifulSoup(htmltext, 'html.parser')
         	urls.pop(0)
-        	print len(urls)
+        	print "%s urls remaning..." % len(urls)
 
-		repdf = re.compile('.*pdf')
+		repdf = re.compile("^http.*\.pdf$")
 		#for tag in soup.find_all('a', string=re.compile(".pdf"),  href=True):
 		for tag in soup.find_all('a',  href=True):
 			if repdf.match(tag['href']):
+				name = re.search('[^\/]*?\.pdf', tag['href'])
+				dirs.append(directory+"/"+name.group())
                			pdfs.append(tag['href'])
-	for item in pdfs:
-		with open("pdfs.txt", 'w') as p:
-			p.write("%s\n" % item)
+
+	with open("pdfs.txt", 'w') as p:
+		for i in range(0, len(pdfs)-1):
+			p.write("%s\t%s\n" % (dirs[i], pdfs[i]))
 	#print pdfs
-	print len(pdfs)
+	print "Length of dirs: %s" % len(dirs)
+	print "Length of pdfs: %s" % len(pdfs)
 
 def getpdffiles():
 	while len(pdfs) > 0:
@@ -53,13 +58,13 @@ def getpdffiles():
 			print "done downloading files!!"
 
 		subprocess.call(wpdf, shell=True)
-		print len(pdfs)
 		pdfs.pop(0)
+		print "%s more pdfs to download" % len(pdfs)
 
 
-geturllist(url, offset = 1, numpage = 670)
+geturllist(url, offset = 1, numpage = 2)
 getpdflist()
-#getpdffiles()
+getpdffiles()
 
 
 

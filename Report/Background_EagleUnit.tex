@@ -12,11 +12,11 @@
 
 \textit{\footnotesize Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
-To make the database be functional for the user to receive the articles they're seeking,
+To make the database functional for the user to receive the articles that they are looking for,
 our responsibility will be creating an interface between the user, the database, and the searching programme. 
-In the other words, we're going to construct a webpage with a search bar for the user to enter their search string,
-And can display the search result given by the search system. 
-For displaying the information of each article the system found, we need to construct an XML schema which contains all important data about the article.
+In other words, we're going to construct a webpage with a search bar for the user to enter their search string,
+and can display the search results given by the search system. 
+To display the information of each article the system found, we need to construct an XML schema which contains all important data about the article.
 
 This article provides an overview of metadata standards which are related to our responsibility.
 A number of metadata schemas in use to now-a-days are reviewed, including MODS, METS, METS+MODS+PREMIS, MARC 21, MARCXML, Dublin Core, and  their pros and cons. 
@@ -31,11 +31,11 @@ It can be accessed manually or by automatic information processing and coding. \
 
 The metadata schemas can be classified into three types \cite{dempsey1997specification}:
 \begin{itemize}
-	\item Simple formats: it includes relatively unstructured data, typically automatically extracted from resources and indexed for searching. 
+	\item Simple formats: It includes relatively unstructured data, typically automatically extracted from resources and indexed for searching. 
 	The data has little explicit semantics and does not support searching by field, such as Lycos, Altavista, Yahoo, etc.
-	\item Structured formats: it includes data which contains the full enough description to allow a user to assess the potential utility or interest of a resource without having to retrieve it or connect to it. 
+	\item Structured formats: It includes data which contains the full enough description to allow a user to assess the potential utility or interest of a resource without having to retrieve it or connect to it. 
 	The data is structured and supports fielded searching, such as Dublin Core, IAFA templates, RFC 1807, SOIF, LDIF.
-	\item Rich formats: it includes fuller descriptive formats which may be used for location and discovery, 
+	\item Rich formats: It includes fuller descriptive formats which may be used for location and discovery, 
 	but also have a role in documenting objects or very often, collections of objects, such as ICPSR, CIMI, EAD, TEI, MARC.
 \end{itemize}
 
@@ -43,7 +43,7 @@ XML (Extensible Markup Language) is the universal format for the encoding and ex
 There are no predefined tags and document structures in XML. 
 In other words, the XML provides structural capabilities that HTML lacks, making it easy to achieve the principles of modularity and extensibility. 
 The XML schema specification defines a schema language that allows for the specification of application profiles that will increase the prospects for interoperability \cite{duval2002metadata}. 
-Our work is to build a metadata schema in XML structure. The following sections will introduce the different schemas as mentioned previously.
+Our work is to build a metadata schema in XML structure. The following sections will introduce the schemas mentioned previously.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Different standards of metadata
@@ -52,7 +52,7 @@ Our work is to build a metadata schema in XML structure. The following sections 
 \subsubsection*{Different standards of metadata}
 \label{sec:mets}
 There are various types of standards that describe the metadata in different fields and applications. 
-Listed in the following are five different standards with a brief introduction to each one.
+Listed in the following are five different standards with brief introduction.
 
 \begin{figure*}		
 	\begin{center}
@@ -185,6 +185,10 @@ Listed in the following are five different standards with a brief introduction t
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\item MARC 21\\
 	{\bf Introduction}\\
+	MARC is the acronym for MAchine-Readable Cataloging. 
+	It defines a data format that emerged from a Library of Congress-led initiative that began nearly forty years ago. 
+	It provides the mechanism by which is computers exchange using and interpreting bibliographic information, 
+	and it is used today for data elements make up the foundation of most library catalogs.
 	The Library of Congress Network Development and MARC Standards is developed a framework for working in MARC data in a XML environment. 
 	The MARC XML schema does not need to be edited to reflect of minor changes to MARC 21. 
 	The schema retains the semantics of MARC.\\
@@ -199,7 +203,18 @@ Listed in the following are five different standards with a brief introduction t
 	When the technological development starts from direct and indirect implications for informational resource representation exchange of cataloging data and activities. 
 	We hoped that the MARC21 formats, on their encodings and development have contributed to the area of Information Science. \\
 	But now-a-day the standards are the Metadata Object Description Schema (MODS) (Metadata scheme for description of object).
-	And the Metadata Authority Description Schema (MADS), both created for use with XML and specified by XML schemas.
+	And the Metadata Authority Description Schema (MADS), both created for use with XML and specified by XML schemas. \\
+	MARC 21 to MARCXML Conversion: The MARCXML toolkit is a set of Java programs which is formats available in the MARCXML architecture, 
+	and allow users to convert to and from the MARC file format (including full character set conversion) and other. 
+	The tool-kit requires Java and works best with Java 1.4. 
+	If you using a earlier version of Java, 
+	then you need to modify the marcxml.bat file to include an xml parser in the classpath. 
+	The unzip the marcxml.zip file in a directory and run marcxml.bat for more instructions. 
+	Make sure java is in your PATH.
+	A list of some of the systems that support the MARC 21 formats is at www.loc.gov/marc/marcsysvend.html. 
+	The list includes systems that collect, organize and manage MARC 21 records.
+	
+	
 	
 	{\bf Advantages}
 	\begin{enumerate}

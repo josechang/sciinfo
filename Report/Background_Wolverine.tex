@@ -64,37 +64,46 @@ some of the existing libraries.
 	
 	\item\textbf{PubMed}
 	\setlength{\parindent}{1em}
-	 PMC (PubMed Central) is launched in 2000.	
-	 and PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics.
-	 THe design philosophy of PubMed is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent.
+	 PMC (PubMed Central) is launched in 2000.
+	 PubMed citations often include links to the full-text article on the publishers' Web sites or in PMC and the Bookshelf.
+	 PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics.
+	 The largest subset of PubMed is MEDLINE, which is a bibliographic database containing life sciences and biomedical information.
+	 Both of them are built by National Library of Medicine.You may limit your search to MEDLINE only in PubMed.
+	 
+	 A strong feature of PubMed is its ability to link MeSH(Medical Subject Headings) terms automatically. 
+	 It is useful for people who want to find the medical articles. 
+     Simple searches on PubMed can be carried out by entering tje key words of a subject into PubMed's search window.
+     PubMed translates this initial search formulation and automatically adds field names.
+	 Like several libraries, one can find the specific result he desires by addding relevant MeSH terms, synonyms and Boolean operators.
+	 
+	 The design philosophy of PubMed is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent.
 	 PubMed is classified into Index libraries, which is the prime reason that it is not able to provide full text in some papers.
 	 For the type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of 
-	 the archives such as XML, images, PDF files supplementary, etc. \todo{Good that you start by describing what it is and then tell how it is built.}
-	 
-	 PubMed citations often include links to the full-text article on the publishers' Web sites and/or in PMC and the Bookshelf. 
-	 
-	 MEDLINE is the largest subset of PubMed. You may limit your PubMed search retrieval to MEDLINE citations by restricting your search to the MeSH
-	 controlled vocabulary or by using the Journal Categories filter called MEDLINE.
-
-     Simple searches on PubMed can be carried out by entering key aspects of a subject into PubMed's search window.
-
-     PubMed translates this initial search formulation and automatically adds field names, relevant MeSH (Medical Subject Headings) terms, synonyms, Boolean operators, 
-     and 'nests' the resulting terms appropriately, enhancing the search formulation significantly, in particular by routinely
-     combining (using the OR operator) textwords and MeSH terms.
+	 the archives such as XML, images, PDF files supplementary, etc. \todo{Good that you start by describing what it is and then tell how it is built.}	 
+	  
 		
 	\item\textbf{IEEE Xplore}
 	\setlength{\parindent}{1em}
 	
-	IEEE Xplore is a scholarly research library formerly known as IEEE/IET Electronic Library (IEL).
-	The IEEE is an acronym for Institute of Electrical and Electronics Engineers, which is one of the leading standard organizations in the world.
+	The IEEE is an acronym for Institute of Electrical and Electronics Engineers, which is one of the leading standard organizations in the world 
+	It is one of the most professional organization devoted to advancing technology for the benefit of humanity.
+	There are more than 420,000 IEEE members in over 160 countries.
+	And IEEE Xplore is a scholarly research library formerly known as IEEE/IET Electronic Library (IEL).
+	The articles covered by IEEE Xplore are mainly from the Institute of Electrical and Electronics Engineers (IEEE) and the Institution of Engineering and Technology.
 	More than 3.5-million full-text documents in the field of electrical, engineering, computer science and electronics are provided in this library. 
+	
+	There are many features in IEEE. IEEE can rank the articles according to their click through rates or download times. 
+    Once an articles is updated by the author, those who set research alert on it will receive a notification through email by IEEE.
+    However, some of the features are available for members only.
+    Many enterprises and schools are the members of IEEE.
+
 	
 	The front and user interface of IEEE library present the information on the screen, 
 	including the latest Angular, Jquery, HTML 5, CSS, etc.\todo{You mean it is implemented using these techniques. Please don't use etc. when you describe how something is built and do it in this context.} 
 	Most of the HTML for PDF, either it is for journal (conference) articles or standards get dynamic transformations real time and served through MarkLogic.
 	Endeca, which is an Oracle product powers Xplore searches, is used in the search layer.
 	All PDF files are fed through Endeca system.
-	Endeca servers will provide the matching documents and Xplore platform presents it on the screen to the user.
+	Endeca servers will provide the matching documents and Xplore platform will presents it on the screen to the user.
 	And all the content is stored in oracle metadata which will be consumed by Endeca, MarkLogic Authentication, and Authorization services.
 	
 	\item\textbf{EBSCOhost}
@@ -103,12 +112,11 @@ some of the existing libraries.
 	EBSCOhost is a popular reference which authorizes users to gain a great many full-text articles from proprietary databases.
 	EBSCO Information Services, headquartered in Ipswich, Massachusetts, 
     which is a division of EBSCO Industries Inc., 
-    the third largest private company in Birmingham, Alabama, with annual sales of nearly $2 billion according to the BBJ's 2013 Book of Lists.
+    the third largest private company in Birmingham, Alabama, with annual sales of nearly $2$ billion according to the BBJ's 2013 Book of Lists.
 
     EBSCO offers library resources to customers in academic, medical, K–12,  
     public library, law, corporate, and government markets. 
-	Its products include EBSCONET, a complete e-resource management system, 
-
+	Its products include EBSCONET, a complete e-resource management system,
     and EBSCOhost, which supplies a fee-based online research 
     service with 375 full-text databases, a collection
     of 600,000-plus ebooks, subject indexes, point-of-care 
@@ -122,16 +130,23 @@ some of the existing libraries.
 	\setlength{\parindent}{1em}
 	
 	PubMed is a free library which contains many databases, like Medline, PreMedline and Publisher Supplied Citations.
-    One can also access Medline through EBSCOhost. 
-    Medline is the largest subset of PubMed. 
-    You may limit your search to Medline only in PubMed. 
-    Both of them are built by National Library of Medicine. 
-    In contrast to other two libraries, the advanced search of PubMed is weak. 
+    Medline is the largest subset of PubMed.
+    One can also access MEDLINE through EBSCOhost.  
+    EBSCOhost promises a large number of databases. 
+	Many of them, such as MEDLINE and EconLit, are licensed from web content vendors.
+    Others, such as Criminal Justice Abstracts, MasterFILE, are compiled by EBSCO itself.
+
+    However, in contrast to other two libraries, the advanced search of PubMed is weak. 
     It do not show citation times or further information.
+    And the only database which does not provide full-text documents is PubMed. 
+
     The documents in PubMed are almost related to the biomedical topics.
     IEEE contains more than one third documents in the field of electrical, engineering, computer science and electronics.
-    And EBSCOhost PubMed is a free search engine accessing primarily the MEDLINE 
-    database of references and abstracts on life sciences and biomedical topics. 
+    And the articles of EBSCOhost comprises many fields, like business, education, laws, medical, computer science, and so on.
+
+    Each library has its own features. PubMed can link the MeSH. EBSCOhost can search the videos or photos concerned with the key words you enter. 
+    IEEE has many features the other two databases don’t have, like “top downloads list”, “top search terms” and “custom setting” mentioned above.
+
     
 
 \end{enumerate}

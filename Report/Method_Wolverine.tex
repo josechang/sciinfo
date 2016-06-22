@@ -13,15 +13,20 @@
 
 \subsection{Built a database containing ten thousand articles}
 
-The most important thing on this subject is to build a database which contains 10,000 articles.
+The most important thing on this subject is to build a database containing 10,000 articles.
 To reach that target, this study will go to discuss the advantages and disadvantages of different databases and will decide the most suitable one to be the database of this study.
-At a meantime, this study will focus on how to use web crawlers to download articles automatically, which will contain in the database of this study.
+At a meantime, this study will focus on how to use web crawlers to download articles automatically, which will be contained in the database of this study.
 
 \subsubsection{Database Management Systems}
 
-The relational database model was proposed by Edgar Codd in 1970.
-However, it was not universal at that time because of the technical requirements.
-Until the 1980s, first commercial relational database management system(RDBMS) which is the most popular database management system(DBMS) at present began to appear.
+A database is an organized collection of data.
+And database management systems (DBMS) are applications that can capture and analyze data.
+There are many disciplines to manage data in different databases such as tables, queries, or other objects. 
+The data are organized typically in a way according to the kind of the database management. 
+
+The relational database model was proposed by Edgar Codd in 1970 initially.
+However, it was not universal at that time because of the lack of the technical requirements.
+Until the 1980s, the first commercial relational database management system(RDBMS) which is the most popular database management system(DBMS) at present began to appear.
 Besides RDBMSs, there are several kinds of DBMSs.
 For example, object-oriented databases(OODBMS) and graph database management systems(GDBMS).
 In accordance with the definition, a database management system (DBMS) is a computer software application that interacts with the user, other applications, and the database itself to capture and analyze data.
@@ -72,15 +77,16 @@ Furthermore,they can support different kinds of databases.
 	
 	\item\textbf{Object-oriented database}
 	\setlength{\parindent}{1em}		
-	An object database (also object-oriented database management system - OODBMS) is a database management system 
-	in which information is represented in the form of objects as used in object-oriented programming.
+	
+	An object database, which is also called object-oriented database management system(OODBMS), is a database management system 
+	restoring information in the form of objects as used in object-oriented programming.
 	Object databases are different from relational databases which are table-oriented.
 	Because of tighter integration with the object-oriented language, 
 	the program is easier to maintain consistency with the same representation in both OODBMS and programming language.
-	Although relational databases which are table-oriented might be similar to object-oriented databases, but they are actually different.
+	Although relational databases might be similar to object-oriented databases, they are actually different.
 	The object-oriented database supports objects, classes, and inheritance in the database schema and query language.
 	There are many advantages for OODBMS compared to the relational database management system (RDBMS) such as the performance, flexibility, and development cost.
-	And OODBMS also have some disadvantages, the have mention 3 disadvantages for OODBMS.
+	And OODBMS also have some disadvantages, they have mentioned 3 disadvantages for OODBMS.
 	First, because the usage is forced to be similar to an object-oriented language.
 	This makes maintaining and evolving is difficult.
 	Second, the technique for store complex type of information takes additional computational resources.
@@ -98,7 +104,6 @@ Furthermore,they can support different kinds of databases.
 	The rows represent instances of that type of entity (such as "Lee" or "iPhone 6") 
 	and the columns representing values attributed to that instance (such as address or price).
 	
-	
 	Considering the method of the organization of data, the relational database is much easier to understand and is flexible to manipulate the data.
 	Besides SQL is easy in the relational database approach.
 	For data organized in other structure, the query language either becomes complex or extremely limited in its capabilities.
@@ -112,16 +117,16 @@ Furthermore,they can support different kinds of databases.
 	\setlength{\parindent}{1em}	
 	A graphical database uses graph structures for semantic queries with nodes, edges, and properties to represent and store data.
 	Most of them are NoSQL in nature and store data in a key-value store or a document-oriented database.
-	Graph databases are powerful tools for graph-like queries, for example computing the shortest path between two nodes in the graph.
+	Graph databases are powerful tools for graph-like queries, for example, computing the shortest path between two nodes in the graph.
 	
-	As we know, relational databases are most popular databases in the world.
-	Compare to them, Graph databases have several advantages.
+	As we know, relational databases are the most popular databases in the world.
+	Compared to them, Graph databases have several advantages.
 	A graph database is often faster for associative data set and map more directly to the structure of object-oriented applications.
 	They can scale more naturally to large data sets as they do not typically require expensive join operations.
 	As they less depend on a rigid schema, they are more suitable to manage ad hoc and changing data with an evolving schema.
 	
 	On the other hand, graph database also comes with some disadvantages.
-	For example, the relational database is typically faster at performing the same operation on large numbers of data elements.
+	For example, the relational database is typically faster at performing the same operation on large numbers of data elements than graph databases.
 	
 	\item\textbf{Summary}
 	\setlength{\parindent}{1em}	
@@ -132,7 +137,8 @@ Furthermore,they can support different kinds of databases.
 	We suggest not to store binary data in the database if it is large.
 	It may cause significant performance decrease and additional storage space.
 	In contrast, we suggest to store binary data in the file system and record the path in the database.
-	It may not cause the disadvantages above when large binary data store into the database, but the binary data can not automatically distribute with the database.
+	It may not cause the disadvantages above when large binary data store into the database, 
+	but the binary data can not automatically distribute with the database.
 	Due to the PDF file will cost some performance issues even though it is small in size and our system has no requirement for automatic distribution.
 	We suggest sorting the PDF file in the file system.
 	

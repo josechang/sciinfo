@@ -4,6 +4,7 @@
 import subprocess
 import datetime
 import sys
+import math
 
 tar_dir=""
 authors=[]
@@ -14,6 +15,13 @@ words_inserted=[]
 words_deleted=[]
 list_datalists=[num_commits,lines_inserted,lines_deleted,words_inserted,words_deleted]
 num_authors=0
+
+participants=['Jacky Wu','Eric Lee','Eric Chang','KARTHIK','UCheng Chen','DexterChen','Kevin Lo','I-Chieh Lin','Chinweze','JSGY','Ray','Henry-Peng','Piyarul','Feng Chun Hsia','Kenny Hsu','TPhat','Jim_Lan','HoangTan','Wei','Bernie Huang','Rahul'];
+par=['Jacky Wu','Eric Lee','Eric Chang','Karthick Mani','Yu-cheng Chen','Dexter','Kevin Lo','I-Chieh Lin','Chinweze','Jones','Ray','Henry','Piyarul Hoque','Tim Hsia','Kenny Hsu','Phat','Jim','Tan','Wei','Bernie','Rahul Aditya']
+attendance_lecture=[]
+gitScore=[]
+gitScore_transfer=[]
+presentation_grade=[]
 def getrep():
 	if len(sys.argv) < 2:
 		print "Lack of git repository parameter"
@@ -32,7 +40,7 @@ def getdata(cmd):
 	output=p.communicate()[0]
 	return  remove_last_item(output.split("\n"))
 def getnewest():
-	p=subprocess.Popen("git --git-dir=%s pull"%(tar_dir),shell=True)
+	p=subprocess.Popen("git --git-dir=%s fetch"%(tar_dir),shell=True)
 	p.wait()
 def remove_last_item(ls):
 	len_ls=len(ls)
@@ -44,19 +52,19 @@ def get_author():
 	for x in author_commits:
 		(a,c)=x.split("    ")
 		authors.append(a)
-		num_commits.append(c)
+		num_commits.append(int(c))
 def get_line_data():
 	for author in authors:
 		cmd=["git --git-dir=%s log --shortstat --author='%s' " % (tar_dir,author),'grep -E "fil(e|es) changed"',"awk '{inserted+=$4; deleted+=$6} END {print inserted,deleted }'"]
 		(i,d)=getdata(cmd)[0].split(" ")
-		lines_inserted.append(i)
-		lines_deleted.append(d)
+		lines_inserted.append(int(i))
+		lines_deleted.append(int(d))
 def get_word_data():
 	for author in authors:
 		cmd1=["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(tar_dir,author),'grep "^-[^-]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
 		cmd2=["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(tar_dir,author),'grep "^+[^+]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
-		words_deleted.append(getdata(cmd1)[0])
-		words_inserted.append(getdata(cmd2)[0])
+		words_deleted.append(int(getdata(cmd1)[0]))
+		words_inserted.append(int(getdata(cmd2)[0]))
 def correct_similar_name(name1,name2):
 	for item in name2:
 		index1=authors.index(name1)
@@ -85,21 +93,23 @@ def createHTML():
 """)
 		f.write('<h1>Statistics for bitbucket</h1>')
 		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
-		f.write('<table>')
-		f.write('<col width="130"><col width="67"><col width="110"><col width="110"><col width="120"><col width="110"><col width="90">')
-		f.write('<td align="center">weight</td><td align="center"><input type="text" id="weight1" value="0" size="2"></td><td align="center"><input type="text" id="weight2" value="0" size="2"></td><td align="center"><input type="text" id="weight3" value="0" size="2"></td><td align="center"><input type="text" id="weight4" value="0" size="2"></td><td align="center"><input type="text" id="weight5" value="0" size="2"></td><td align="center"><button onclick="calculate()">Calculate</button></td>')
-		f.write('</table>')
 		f.write('<table id="statistics" border="1" class="sortable">')
 		f.write('<col width="130"><col width="60"><col width="110"><col width="110"><col width="120"><col width="110"><col width="90">')
 		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th><th>GIT Score</th></tr>')
 		for i in range(0,num_authors):
-			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td></td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]))
+			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%d</td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i],gitScore[i]))
 		f.write('</table>')
 		f.write('<p>Total authors: %d </p>' % num_authors)
 		f.write("<h4>TA's murmur</h4>")
 		f.write('1. If you find out that there are multiple authors in the table are all belong to you. Please inform me and tell me which username you will use later also. I will merge them into one.My email address is E14006151@mail.ncku.edu.tw<br/>')
 		f.write("2. If you can't find your name in the table, it means you haven't done any commit<br/>")
-		f.write('<script src="score.js"></script>')
+		f.write('<h1>Total Score</h1>')
+		f.write('<table id="total" border="1">')
+		f.write('<tr><th>Participants</th><th>Attendace at lecture</th><th>Attendance at daily scrum</th><th>GIT Score</th><th>Oral presentation</th><th>Quiz</th><th>Report</th><th>TOTAL</th></tr>')
+		for i in range(len(participants)):
+			f.write('<tr><td>%s</td><td>%d</td><td></td><td>%d</td><td>%d</td><td></td><td><input value="0"></td><td></td></tr>'% (participants[i],attendance_lecture[i],gitScore_transfer[i],presentation_grade[i]))
+		f.write('</table>')
+		#f.write('<script src="score.js"></script>')
 		f.write('<script src="sorttable.js"></script>')
 		f.write('</body>')
 		f.write('</html>')
@@ -113,6 +123,7 @@ def statistics():
 	get_author()
 	get_line_data()
 	get_word_data()
+	remove_fake_stats()
 	correct_similar_name('Feng Chun Hsia <tim.hsia@nordlinglab.org>',['FengChunHsia <tim.hsia@nordlinglab.org>'])
 	correct_similar_name("Chinweze <chinwezeubadigha@gmail.com>",['chinweze <chinwezeubadigha@gmail.com>'])
 	correct_similar_name('DexterChen <owesdexter2011@gmail.com>',['Dexter Chen <owesdexter2011@gmail.com>','unknown <you@example.com>'])
@@ -123,12 +134,92 @@ def statistics():
 	correct_similar_name('Henry-Peng <kkvvy12@gmail.com>',['Henry <kkvvy12@gmail.com>'])
 	correct_similar_name('Torbj\xc3\xb6rn Nordling <tn@nordron.com>',['Torbj\xc3\xb6rn Nordling <tn@kth.se>'])
 	correct_similar_name('Kenny Hsu <tei1004@yahoo.com.tw>',['Kenny Hsu <teii1004@yahoo.com.tw>'])
-	correct_similar_name('TPhat <geminielf9@gmail.com>',['Tan Phat <geminielf@gmail.com>','unknown <geminielf9@gmail.com>'])
+	correct_similar_name('TPhat <geminielf9@gmail.com>',['Tan Phat <geminielf@gmail.com>','unknown <geminielf9@gmail.com>','Lam Tan Phat <geminielf9@gmail.com>'])
 	correct_similar_name('HoangTan <lopcatia@gmail.com>',['tony <lopcatia@gmail.com>'])
+	correct_similar_name('Eric Chang <ehero80425@gmail.com>',['Yu-Kai <ehero80425@gmail.com>'])
 	remove_email(authors)
 	change_name("l0989553696","I-Chieh Lin")
 	change_name("leoc0426","Ray")
-	change_name("Yu-Kai","Eric Chang")	
 	num_authors=len(authors)
-	createHTML()
+def remove_fake_stats():
+	cmd=["grep 'commits/' fake_commits.txt"]
+	f=getdata(cmd)
+	for i,c in enumerate(f):
+		f[i]=c.replace("\r","")
+	for i,url in enumerate(f):
+		a,b=url.split("commits/")
+		f[i]=b
+	for commit in f:
+		cmd_author=["git --git-dir=%s log %s -n 1"%(tar_dir,commit),"grep 'Author:'"]
+		x,author = getdata(cmd_author)[0].split("Author: ")
+		index=authors.index(author)
+		cmd_del_word=["git --git-dir=%s log -p --word-diff=porcelain %s -n 1"%(tar_dir,commit),'grep "^-[^-]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
+		cmd_ins_word=["git --git-dir=%s log -p --word-diff=porcelain %s -n 1"%(tar_dir,commit),'grep "^+[^+]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
+		cmd_line=["git --git-dir=%s log --shortstat %s -n 1" % (tar_dir,commit),'grep -E "fil(e|es) changed"',"awk '{inserted+=$4; deleted+=$6} END {print inserted,deleted}'"]
+		(y,z)=getdata(cmd_line)[0].split(" ")
+		lines_inserted[index]-= int(y)
+		lines_deleted[index]-= int(z)
+		words_deleted[index]-=int(getdata(cmd_del_word)[0])
+		words_inserted[index]-=int(getdata(cmd_ins_word)[0])
+		num_commits[index]-=1
+def get_attendance_lecture():
+	global attendance_lecture
+	attendance_lecture=getdata(["awk '{print $NF}' Attendance_lecture.tsv"])
+	for i,item in enumerate(attendance_lecture):
+		attendance_lecture[i]=item.replace("\r","")
+		attendance_lecture[i]=round(float(attendance_lecture[i])*100)
+def get_GitScore():
+	i=authors.index("Torbjörn Nordling")
+	prof_data=[num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]]
+	temp_data=[[0 for x in range(num_authors)] for y in range(len(list_datalists))]
+	weight=[0.3,0.2,0.15,0.2,0.15]
+	for c in range(len(list_datalists)):
+		for r in range(num_authors):
+			data=list_datalists[c][r]
+			if data > 0:
+				temp_data[c][r] = math.log10(data/float(prof_data[c]))
+			else:
+				temp_data[c][r] = -10
+	for c in range(len(list_datalists)):
+		maximum=max(temp_data[c])
+		for r in range(num_authors):
+			temp_data[c][r]= 70+30*(temp_data[c][r]/float(maximum))
+	for r in range(num_authors):
+		count=0
+		for c in range(len(list_datalists)):
+			count+=temp_data[c][r]*weight[c]
+		gitScore.append(round(count))
+def transform_datalist():
+	for c in range(len(list_datalists)):
+		for r in range(num_authors):
+			list_datalists[c][r]=int(list_datalists[c][r])
+def transfer_git_score():
+	for items in participants:
+		i=authors.index(items)
+		gitScore_transfer.append(gitScore[i])
+def get_presentation_grade():
+	group=['Wolverine','Eagle unit','Union']
+	for i in range(len(group)):
+		cmd=["grep '%s' Presentation_Grade.tsv" % group[i],"awk '{print $NF}'"]
+		a=getdata(cmd)
+		for x,item in enumerate(a):
+			a[x]=float(item.replace("\r",""))
+		for y in range(7):
+			presentation_grade.append(round(sum(a)/len(a)*10))
+def get_quiz_score():
+	for i in range(len(par)):
+		cmd=["grep '%s' Quiz_Grade.txt" % par[i],"awk '{print $NF}'"]
+		a=getdata(cmd)
+		print a
+		#for x,item in enumerate(a):
+		#	a[x]=float(item.replace("\r",""))
+def TotalScore():
+	transform_datalist()
+	get_attendance_lecture()
+	get_GitScore()
+	transfer_git_score()
+	get_presentation_grade()
+	#get_quiz_score()
 statistics()
+TotalScore()
+createHTML()
