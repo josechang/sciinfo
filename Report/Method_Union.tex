@@ -12,11 +12,16 @@
 \subsection{Method} %Please change "Method" to your goal. 
 \textit{\footnotesize Author:Bernie Huan, Jim Lan, Hoang Tan, Kenny Hsu, Rahul Aditya, Tan Phat, Wei.}\\
 
-As mentioned in the background, our team used natural language processing in order to generate metadata. The scope of metadata processing is about producing at least three types of metadata including author name, title and abstract. This is the least we want to do within the time frame of this course. Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on. If time is still on our side, we will even extend the scope of our project further and join other teams to produce a search engine. Following discussion are our plan to complete extracting the 4 first types of metadata from PDF files.
+As mentioned in the background, our team used natural language processing in order to generate metadata. 
+The scope of metadata processing is about producing at least three types of metadata including author name, title and abstract. This is the least we want to do within the time frame of this course. 
+Once accomplishing the 3 types of metadata, we will extend the scope of our project, intimidate the scheme to produce other remaining metadata such as doix number, journal name, volume number and so on. 
+If time is still on our side, we will even extend the scope of our project further and join other teams to produce a search engine. 
+Following discussion are our plan to complete extracting the 4 first types of metadata from PDF files.
 
 \subsubsection{Title extraction}
 
-We chose python to be the program to catch the title and other metadata. First step, we import some necessary packages and functions as following:
+We chose python to be the program to catch the title and other metadata. 
+First step, we import some necessary packages and functions as following:
 
 \begin{enumerate}
 	
@@ -27,7 +32,11 @@ We chose python to be the program to catch the title and other metadata. First s
 	
 \end{enumerate}  
 
-To begin, all PDF files are converted into txt file with which we want to deal with. The path is set and the files are stored in a specific folder. Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. The process of extracting title from the text is mainly regulated by Union\_extract\_title.py. The coding scheme has following steps:Importation of necessary components, setting the path, creating the directory we will write the .txt files to after stripping text, using basic command to extract titles. The results are tested and listed. We successfully produce the title of the article in the txt file. 
+To begin, all PDF files are converted into txt file with which we want to deal with. 
+The path is set and the files are stored in a specific folder. 
+Then, regular expression in python can help capturing the first sentence in the txt files, which have been converted and stored in specific folder in previous step. 
+The process of extracting title from the text is mainly regulated by Union\_extract\_title.py. 
+The coding scheme has following steps:Importation of necessary components, setting the path, creating the directory we will write the .txt files to after stripping text, using basic command to extract titles. The results are tested and listed. We successfully produce the title of the article in the txt file. 
 
 \subsubsection{Author extraction}
 
@@ -51,7 +60,12 @@ The key point in this part is natural language processing,  which we have introd
 	
 \end{enumerate}
 
-The above steps is also available to extracting the location and organization,etc when needed. The file mainly functioning for this task is Extract\_Authors.py. The coding scheme for this task is quite similar to title extraction. The main different is a corpus being introduced. This scheme also include a natural language toolkit in order to identify and extract people's name. As we test the result, our program has been able to extract authors' name.
+The above steps is also available to extracting the location and organization,etc when needed. 
+The file mainly functioning for this task is Extract\_Authors.py. 
+The coding scheme for this task is quite similar to title extraction. 
+The main different is a corpus being introduced. 
+This scheme also include a natural language toolkit in order to identify and extract people's name. 
+As we test the result, our program has been able to extract authors' name.
 
 \subsubsection{Abstract extraction}
 
@@ -68,7 +82,8 @@ we use the python to catch the abstract. The following step is below.
 The pdf is converted into txt file. Thus, it will create the txt file.
 The work is done by hand coding. For detailed coding scheme, we have presented it in the appendix at the end of this report.
 
-After being able to read the txt file on every line, the python will detect the content of the abstract. In order to do so, we strip the text between "abstract" label and "introduction" label.	
+After being able to read the txt file on every line, the python will detect the content of the abstract. 
+In order to do so, we strip the text between "abstract" label and "introduction" label.	
 
 
 Abstract-database:including the condition
@@ -82,7 +97,8 @@ Abstract-database:including the condition
 	
 \end{enumerate}
 
-In the process building "abstract database", we are aware of different papers may have different form of structures and writing style, we search through numbers of articles from different journals. Number of article found is 100, from 20 different journals including The Lancet, Progress in Energy and Combustion Science, Chemical Analysis and so.
+In the process building "abstract database", we are aware of different papers may have different form of structures and writing style, we search through numbers of articles from different journals. 
+Number of article found is 100, from 20 different journals including The Lancet, Progress in Energy and Combustion Science, Chemical Analysis and so.
 Search results for sections such as Theoretical, Methods, Results, Discussion, Conclusion, Acknowledgments are also obtained. Table below are the results of the search.
 
 \begin{figure}[tbh]
@@ -95,7 +111,7 @@ Search results for sections such as Theoretical, Methods, Results, Discussion, C
 Then our program will read the txt file on every line.
 If the python detects the abstract-database-stop's words ,
 it will stop to catch the sentences.
-abstract-database-stop:including the following conditions
+Abstract-database-stop: including the following conditions
 
 \begin{enumerate}
 	
@@ -105,11 +121,15 @@ abstract-database-stop:including the following conditions
 	
 \end{enumerate}
 
-The intended output are sentences extracted to the txt file. To further validate if the program can run precisely, members randomly search for articles (10 articles) to test the programs. The program was run successfully and all abstracts was extracted from the text.
+The intended output are sentences extracted to the txt file. 
+To further validate if the program can run precisely, members randomly search for articles (10 articles) to test the programs. 
+The program was run successfully and all abstracts was extracted from the text.
 
 \subsubsection{References URL extraction}
 
-References URL extraction is very easy and straightforward. Just use a powerful package called PDfx to complete this task. Find the package online and use it. The procedures are below:
+References URL extraction is very easy and straightforward. 
+Just use a powerful package called PDfx to complete this task. 
+Find the package online and use it. The procedures are below:
 
 \begin{enumerate}
 	
@@ -119,7 +139,11 @@ References URL extraction is very easy and straightforward. Just use a powerful 
 	
 \end{enumerate}
 
-This method can also detects URL,arxiv and doi references. Plus,by using this method, we also can easily extract the title, page number and creation date. However,only the page number is always right in every case. The others are not totally correct. Basically, over 50 percent is not correct. Thus, among these metadata,this method is more suitable for page number. 
+This method can also detects URL,arxiv and doi references. 
+Plus,by using this method, we also can easily extract the title, page number and creation date. 
+However,only the page number is always right in every case. 
+The others are not totally correct. 
+Basically, over 50 percent is not correct. Thus, among these metadata,this method is more suitable for page number. 
 
 \subsubsection{Search sentences}
 
@@ -142,6 +166,10 @@ The search sentence part is related to the search engine. After extracting the n
 	\end{figure}
 \subsubsection{API}
 
-We also attempt to produce an semi-automatic interface that help users to inquire certain information from our database. Currently it allows user to search for abstracts, introduction, method, result, discussion, and reference. We will continue develop the interface in the remaining week. The objectives are either covering more functions or make the results pages has more professional appearance. However, that being said when we still have enough time.
+We also attempt to produce an semi-automatic interface that help users to inquire certain information from our database. 
+Currently it allows user to search for abstracts, introduction, method, result, discussion, and reference. 
+We will continue develop the interface in the remaining week. 
+The objectives are either covering more functions or make the results pages has more professional appearance. 
+However, that being said when we still have enough time.
 
 \newpage % Ends the current page and causes all figures and tables to be printed
