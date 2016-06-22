@@ -9,13 +9,13 @@
 % Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Webpage Construction}
-\textit{\footnotesize Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
+\textit{\footnote size Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
 We are going to construct a public, user friendly web site, which provide service of scientific article searching.
-To achieve this goal, we seperate our responsibility into parts:\\
+To achieve this goal, we separate our responsibility into parts:\\
 \begin{itemize}
 	\item Build up the web server.
-	The web server is basically built using Django web frame work on a centOS 7 system. Django is a web framework which is constructed using Python code.
+	The web server is basically built using Django web frame work on a CentOS 7 system. Django is a web framework which is constructed using Python code.
 	For the purpose of this project the Django web server was built using PostgresSQL (database management application), 
 	Nginx (traffic control and security), and 
 	Gunicorn (interface to translate clients requests in HTTP to python calls that Django can understand)  
@@ -25,10 +25,10 @@ To achieve this goal, we seperate our responsibility into parts:\\
 	\item Place a list on the webpage which showing the search results.
 	\item Build a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
 	\item Build up the APIs. The search bar should send the search string and the result list to tje search system 
-	then the system recieve the results of searching and display it.
+	then the system receive the results of searching and display it.
 \end{itemize}
 This article will provide a review through the tools and methodologies we use to achieve each work.
-\subsubsection{Web Server}
+\sub subsection{Web Server}
 For any web page, a web server is necessary.
 There are three web server system used in our project. 
 They play the role as web page framework, reverse proxy server, 
