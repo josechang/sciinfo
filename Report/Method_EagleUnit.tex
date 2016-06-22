@@ -15,9 +15,12 @@ We are going to construct a public, user friendly web site, which provide servic
 To achieve this goal, we seperate our responsibility into parts:\\
 \begin{itemize}
 	\item Build up the web server.
-	The web server is built by Django. Django is web framework which can highly construct by Python.
-	Consider the Django framework that PostgresSOL, Nginx, and Gunicorn are recommand to build as an database sever, web sever, 
-	and Python WSGI HTTP Server, respectively.
+	The web server is basically built using Django web frame work on a centOS 7 system. Django is a web framework which is constructed using Python code.
+	For the purpose of this project the Django web server was built using PostgresSQL (database management application), 
+	Nginx (traffic control and security), and 
+	Gunicorn (interface to translate clients requests in HTTP to python calls that Django can understand)  
+	and Python WSGI HTTP Server (used to create entry sock for Django)
+	thus making a robust web server.
 	\item Build a web page with a search bar.
 	\item Place a list on the webpage which showing the search results.
 	\item Build a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
