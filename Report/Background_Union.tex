@@ -177,7 +177,8 @@ Based on observation it has been shown that words tend to exhibit only one sense
 \end{figure}
 
 The bootstrapping approach starts from a small amount of seed data for each word: either manually tagged training examples or a small number of surefire decision rules. 
-The seeds are used to train an initial classifier, using any supervised method. This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. 
+The seeds are used to train an initial classifier, using any supervised method. 
+This classifier is then used on the untagged portion of the corpus to extract a larger training set, in which only the most confident classifications are included. 
 The process repeats, each new classifier being trained on a successively larger training corpus, until the whole corpus is consumed or a given maximum number of iterations is reached \cite{Blascheck2016}.
 
 Other semi-supervised techniques use large quantities of untagged corpora to provide co-occurrence information that supplys the tagged corpora. 
@@ -201,8 +202,10 @@ The Naive Bayes model applied mathematically entirely focuses on the issue of fe
 Three different feature sets have been used by 'Pedersen and Bruce' (under Naive Bayes model) for each word to formulate such a model describing the distributions of sense groups of that word in Unsupervised WSD.
 
 Features which were taken into account are:
-\textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology. This feature represents the morphology \cite{5494927} of the ambiguous word and is denoted by M. 
-In case of nouns, M acts as Binary which indicates whether the word is plural or singular. For verbs, M indicates the tense of the verb and can have up to seven possible values.But this feature is not applicable for adjectives.
+\textbf{Morphology:} The pattern of word formation in a particular language is called as Morphology. 
+This feature represents the morphology \cite{5494927} of the ambiguous word and is denoted by M. 
+In case of nouns, M acts as Binary which indicates whether the word is plural or singular. 
+For verbs, M indicates the tense of the verb and can have up to seven possible values.But this feature is not applicable for adjectives.
 
 \textbf{Part-of-speech:} This feature represents the part-of-speech \cite{6982457} of the word and tells the position of the ambiguous word. Each POS feature can have one of five possible values: noun, verb, adjective, adverb or other.
 
@@ -217,7 +220,8 @@ The WN semantic network provides the words considered relevant for the set of se
 
 In WordNet, noun is the most developed portion as per the research done over the performance for knowledge-based disambiguation.
 For adjectives, the same disambiguation method has taken into account as the similarity relation, which  is typical of this part of speech.
-Verbs are suggested to use additionally whenever possible. As a result of using only those words indicated as being relevant and recommended by WordNet, a much small vocabulary was obtained. Therefore, a much smaller number of features were taking part in the disambiguation process.
+Verbs are suggested to use additionally whenever possible. 
+As a result of using only those words indicated as being relevant and recommended by WordNet, a much small vocabulary was obtained. Therefore, a much smaller number of features were taking part in the disambiguation process.
 
 Therefore, this background focuses mainly on the issues of feature selection for unsupervised WSD performed with an underlying Naive Bayes model.
 \todo{Really? This section is shorter.}
