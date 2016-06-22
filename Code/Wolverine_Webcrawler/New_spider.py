@@ -62,7 +62,7 @@ def getpdffiles():
 		print "%s more pdfs to download" % len(pdfs)
 
 
-geturllist(url, offset = 1, numpage = 670)
+geturllist(url, offset = 1, numpage = 2)
 getpdflist()
 getpdffiles()
 
