@@ -57,15 +57,19 @@ This README would normally document whatever steps are necessary to get your app
 		
 ### Start the spider ###
 
-* Step 1 : Move into the repository
+* Step 1 : Set up the package
+
+		pip install beautifulsoup4
+
+* Step 2 : Move into the repository
 	
 		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler
 		
-* Step 2 : Run the spider
+* Step 3 : Run the spider
 
 		python New_spider.py
 
-* Step 3 : Check the files
+* Step 4 : Check the files
 
 	There will be a pdfs.txt which include all the file path and original link of the files.
 	And a repository called pdf which includes the pdf files.
