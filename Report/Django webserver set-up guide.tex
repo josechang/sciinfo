@@ -12,6 +12,9 @@
 \pdfcompresslevel=9
 \fi
 
+\usepackage{adjustbox}
+\usepackage{enumitem}
+\usepackage{xparse}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 %\usepackage[round,authoryear]{natbib}
 \usepackage[utf8]{inputenc}
@@ -46,13 +49,32 @@
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[draft]{todonotes}   % notes showed
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Step-by-step Procedure to Set Up Django with Postgres, Nginx, and Gunicorn on CentOS 7} 
 %\author{Chinweze Ubadigha} 
 \date{\today} 
 
+\makeatletter
+\def\step{%
+	\@ifnextchar[ \@myitem{\@noitemargtrue\@myitem[\@itemlabel]}}
+\def\@myitem[#1]{\item[#1]\mbox{}\\}
+\makeatother
 
+
+% Custom environments
+\newenvironment{Step}{%
+	\begin{enumerate}[label= \textbf {Step} \arabic*,align=left, leftmargin=1.0cm]%
+	}{
+\end{enumerate}%
+}
+
+\newenvironment{Thing}{%
+	\begin{enumerate}[label=Thing \arabic*,align=left, leftmargin=1.0cm]%
+	}{
+\end{enumerate}%
+}
 
 \begin{document}
 \maketitle
@@ -62,9 +84,9 @@
 Before we begin lets review briefly Django, Postgres, Gunicorn, Nginx and also why we chose to use these in
 setting up our web server.  Django is a web framework which can be created using python application. Django
 offers simplified development server but for anything slightly production related a more powerful and
-secure web server is required \cite{DigitalOceaInc}. 
+secure web server is required \citenum{DigitalOceaInc}. 
 Django comes with default SQlite database but we will be using PostgreSQL a more powerful open source
-object-relational database system instead \cite{ThePostgreSQLGlobalDevelopmentGroup}. Thinking of security, NGINX is a free, open-source, high-performance HTTP server and reverse proxy \cite{NGINXInc}. By reverse proxy, it enhances security and manages the web
+object-relational database system instead \citenum{ThePostgreSQLGlobalDevelopmentGroup}. Thinking of security, NGINX is a free, open-source, high-performance HTTP server and reverse proxy \citenum{NGINXInc}. By reverse proxy, it enhances security and manages the web
 traffic.\\ 
 Gunicorn is an application server we will use to interface with our Django python applications and NGINX. Combining the features of these applications our Django web server will be security and performance enhanced. \par
 
@@ -73,10 +95,59 @@ Gunicorn is an application server we will use to interface with our Django pytho
 Things you should have handy in order to complete this guide:
 
 \begin{enumerate}
-	\item Fresh CentOS 7 server.
+	\item CentOS 7 server.
 	\item Sudo password (user should have sudo privileges).
-	\item virtual environment. If you don't have do not worry will guide you on how to do that when the time comes.
+	\item virtual environment. If you don't have any never mind, you will be guided on how to do that when the time comes.\\
 \end{enumerate}
+
+Lets get started,\\
+
+\section* {Step by step procedure}
+\begin{Step}
+	\step
+    \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=.4\linewidth]{putty}
+		}
+		
+		\medskip
+		Login in to the server through putty using the following and as shown above.\\ %\autoref{fig:putty}:\\ \\
+		Host name or IP address: \textbf{epsilon.nordlinglab.org}\\
+		Port: \textbf{2222}\\
+	\end{minipage}
+	
+%	\begin{figure}[h!]
+%		\centering
+%		\includegraphics[scale=0.6]{putty}
+%		\caption{putty login screen}
+%		\label{fig:putty}
+%	\end{figure}
+	
+	\step
+	\begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=.6\linewidth]{putty_screen}
+		}
+		
+		\medskip
+		A black screen will open as shown above. You will be prompted to key-in your \textbf{user name} followed by a \textbf{password}. Please do that.\\
+	\end{minipage}
+		
+\step
+Now you've logged into the server. We will start right away to install the packages from EPEL and the CentOS Repositories. Afterwards, we will use Python package manager \textbf{\textit{pip}} to install some additional components.\\ Type the following in the command window to enable EPEL repository. When prompted for the sudo password please type it.\\ \\
+\textbf{\emph{sudo yum install epel release}}\\ \\
+With the new repository available, we can install all we needed in one command.
+\step
+
+\end{Step}
+	
+	
+	
+	
+	
+
 
 
 
