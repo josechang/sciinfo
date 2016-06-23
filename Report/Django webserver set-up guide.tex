@@ -281,25 +281,32 @@ Test the Gunicorn's ability to serve the project :\\ \\
 \textbf{\emph{ cd $\sim$/\textcolor{red}{myproject}}}\\ \\
 \textbf{\emph{ gunicorn --bind 0.0.0.0:8000 $\sim$/\textcolor{red}{myproject}.wsgi:application}}\\ \\
 
+Hit \textbf{CTRL-C} to stop Gunicorn.\\\\
+Type the following to get out of our virtual environment:\\\\
+\textbf{\emph{ deactivate}}\\ \\
 
+\step
+Create and open a Systemd service file for Gunicorn with sudo privileges:\\ \\
+\textbf{\emph{sudo nano /etc/systemd/system/gunicorn.service}}\\ \\
+Input the following inside the file:\\\\
+\textbf{\emph{[Unit]}}\\
+\textbf{\emph{Description=gunicorn daemon}}\\
+\textbf{\emph{After=network.target}}\\ \\
+\textbf{\emph{[Service]}}\\
+\textbf{\emph{User=\textcolor{red}{user}}}\\
+\textbf{\emph{Group=nginx}}\\
+\textbf{\emph{WorkingDirectory=/home/\textcolor{red}{user}/\textcolor{red}{myproject}}}\\
+\textbf{\emph{ExecStart=/home/\textcolor{red}{user}/\textcolor{red}{myproject}/\textcolor{red}{myprojectenv}/bin/gunicorn --workers 3 --bind unix:/home/\textcolor{red}{user}/\textcolor{red}{myproject}/\textcolor{red}{myproject}.sock \textcolor{red}{myproject}.wsgi:application}}\\ \\
+\textbf{\emph{[Install]}}\\
+\textbf{\emph{WantedBy=multi-user.target}}\\
 
+Note the bars \textbf{"|"} in front of \textit{"workers"} and \textit{"bind"} are two and no space between them.\\
+Save and close the the file when you are done, \textbf{CTRL-C} and \textbf{"Y"}\\\\ \\ \\
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\step
+We now start the Gunicorn we created and enable it so that it starts at boot:\\ \\
+\textbf{\emph{ sudo systemctl start gunicorn}}\\ \\
+\textbf{\emph{ sudo systemctl enable gunicorn}}\\ \\
 
 
 
