@@ -190,8 +190,121 @@ Now also exit the root user by typing:\\ \\
 \textbf{\emph{exit}}\\
 
 \step
-We now create our python virtual environment for your Django Project. If you already have virtualenv install you skip this step, else type:\\ \\
-\textbf{\emph{sudo pip install virtualenv}}\\ \\
+We now create our python virtual environment for your Django Project. If you already have virtualenv installed you skip this step, else type:\\ \\
+\textbf{\emph{sudo pip install virtualenv}}\\ \\ \\
+
+\step
+Make a directory for you project and navigate into the directory:\\ \\
+\textbf{\emph{mkdir $\sim$/\textcolor{red}{myproject}}}\\ \\
+\textbf{\emph{cd $\sim$/\textcolor{red}{myproject}}}\\ \\
+
+\step
+Within the project directory, create python virtual environment by typing:\\ \\
+\textbf{\emph{virtualenv ~/\textcolor{red}{myprojectenv}}}\\ \\
+Activate the virtual environment:\\ \\
+\textbf{\emph{source ~/\textcolor{red}{myprojectenv}/bin/activate}}
+
+\step
+With virtual environment activated, proceed to install Django, gunicorn and the psycopg2 PostgreSQL adaptor with the local instance of \textit{pip}:\\ \\
+\textbf{\emph{pip install django gunicorn psycopg2}}\\ \\
+
+\step
+Create Django Project file in the same directory:\\ \\
+\textbf{\emph{django-admin.py startproject \textcolor{red}{myproject}}}\\ \\
+
+\step
+Open the django project files settings\\ \\
+\textbf{\emph{nano \textcolor{red}{myproject}/settings.py}}\\ \\
+Change the settings with your PostgreSQL database information. We have to give the database name, database username, the database username's password and then specify that the database is located on the local computer as shown below:\\ \\
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=0.9\linewidth]{django_db}
+	}\\
+\end{minipage}
+
+\step
+Next, move to the bottom of the file and add where the static files should be placed. This is so Nginx could handle request for these items:\\ \\
+\textbf{\emph{STATIC\_ROOT = os.path.join(BASE\_DIR, "static/")}}\\ \\
+Save and close the the file when you are done.\\ \\ \\
+
+\step
+migrate the initial database schema to our PostgreSQL database using the management script:\\ \\
+\textbf{\emph{ cd $\sim$/\textcolor{red}{myproject}}}\\ \\
+\textbf{\emph{./manage.py makemigrations }}\\ \\
+\textbf{\emph{./manage.py makemigrate}}\\ \\
+Create an administrative user for the project by typing:\\ \\ 
+\textbf{\emph{./manage.py createsuperuser}}\\ \\
+When prompted select a \textit{\textbf {username}}, provide an \textit{\textbf {email address}}, and choose and confirm a \textit{\textbf {password}}.
+
+\step
+collect all of the static content into the directory location we configured by typing:\\ \\
+\textbf{\emph{./manage.py collectstatic}}\\ \\
+When prompted to confirm the operation type \textbf{"Y"}\\\\
+
+\step
+Finally, you can test your project by starting up the Django development server with this command:\\ \\
+\textbf{\emph{./manage.py runserver 140.116.155.13:8000}}\\ \\
+In your web browser, visit your server's \textbf{domain name} or \textbf{IP address} followed by \textbf{:8000}:\\\\
+\textbf{\emph{http://\textcolor{red}{140.116.155.13}:8000}}\\ \\
+
+\step
+You should see the following page, if everything is properly configured:\\ \\
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=1\linewidth]{django_df}
+	}
+\end{minipage}
+\medskip \ \\
+	if you append \textbf{/admin} to the end of the url in the address bar, you will see the following. Input the \textbf{username} and \textbf{password} you created as \textbf{superuser}:
+	
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=0.4\linewidth]{django_admin}
+	}
+\end{minipage}
+	\medskip \ \\	
+	After authenticating, you can access the default Django admin interface:\\\\
+\begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=0.8\linewidth]{django_int}
+		}
+\end{minipage}
+	\medskip \ \\
+	When you are finished exploring, hit \textbf{CTRL-C} in the terminal window to shut down the development server.
+
+\step
+Test the Gunicorn's ability to serve the project :\\ \\
+\textbf{\emph{ cd $\sim$/\textcolor{red}{myproject}}}\\ \\
+\textbf{\emph{ gunicorn --bind 0.0.0.0:8000 $\sim$/\textcolor{red}{myproject}.wsgi:application}}\\ \\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{Step}
