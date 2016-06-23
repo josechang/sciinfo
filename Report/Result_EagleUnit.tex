@@ -8,11 +8,23 @@
 % Note:
 % Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Web Server}
+\subsection{Web Server Structure}
+by combining Django, PostgreSQL, NGINX, and Gunicorn, a robust web server was build.
+The Django provide a very convinient web page framework to modify the outlooks and finctions. 
+For the database system, Postgres provide a much more powerful funnction and management then the default SQLite in Django.
+By using Gunicor as an interface to the Django, NGINX makes the server more  fast and secured on communication with the internet requiests.
+
+\subsection{NGINX Server}
+The NGINX server provide a particular internet donmain to our web page,
+which allowed us to conect the web page by using URL,
+with out entering any port number. Additionally,
+the NGINX server is not only playing the role of reverse proxy server of our Django server,
+it can direct the user to any other donmain in the main sever as well.
+It means we can have other single HTML files not including in the Django server, or,
+even an other Django project, and all linking to the same NGINX server.
+NGINX can lead the user to projects according their own requiests. 
 
 \subsection{Web Page}
 The final design of the search setting page has a search bar and several fliters.
 It allows users to enter the keywords, and decide which part of articles shoud the search system search in.
-
 To display the articles found, we didn't shows them in the samepage with search settings in the end. Instead, a link to a new page displaying all the metadata of search results was created.
-\subsection{XML Metadata Schema}
