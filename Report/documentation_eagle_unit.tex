@@ -1,0 +1,77 @@
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{green!20},   
+	commentstyle=\color{blue},
+	keywordstyle=\color{red},
+	numberstyle=\tiny\color{gray}\noncopynumber,
+	stringstyle=\color{purple},
+	basicstyle=\ttfamily,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,  
+   	numbers=none,    	           
+	numbersep=4pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,       
+	keepspaces=true,           
+	tabsize=2
+	columns=fullflexible,
+	language={matlab},
+	breakindent=0pt,
+	frame=single,	
+}
+
+
+
+\newcommand{\noncopynumber}[1]{
+	\BeginAccSupp{method=escape,ActualText={}}
+	#1
+	\EndAccSupp{}
+}
+
+
+\lstset{style=mystyle}
+\begin{enumerate}
+	\item Django
+\begin{itemize}
+	\item Step 1 :
+	Open the terminal and create folder named mydjango
+\begin{lstlisting}[language=python, caption=Django]
+$ mkdir mydjango
+$ cd mydjango
+
+\end{lstlisting}
+\item Step 2:
+Create a vitual environment named mydjangovenv
+\begin{lstlisting}[language=python, caption=Django]
+$ virtualenv mydjangovenv
+$ cd mydjangovenv
+$ source bin/activate
+
+\end{lstlisting}
+\item Step 3:
+Install django
+
+\begin{lstlisting}[language=python, caption=Django]
+$ python -m pip install django
+
+\end{lstlisting}
+\item Step 4:
+Create a project named mysite and make it run in server
+
+\begin{lstlisting}[language=python, caption=Django]
+$ django-admin.py startproject mysite
+$ python manage.py runserver 0.0.0.0:8000
+
+\end{lstlisting}
+
+\item Step 5:
+Create apps named firstapp
+
+\begin{lstlisting}[language=python, caption=Django]
+$ python manage.py startapp firstapp
+
+\end{lstlisting}
+\end{itemize}
+\end{enumerate}
