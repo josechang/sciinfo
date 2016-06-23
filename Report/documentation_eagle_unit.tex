@@ -17,7 +17,7 @@
 	keepspaces=true,           
 	tabsize=2
 	columns=fullflexible,
-	language={matlab},
+	language={python},
 	breakindent=0pt,
 	frame=single,	
 }
@@ -33,18 +33,18 @@
 
 \lstset{style=mystyle}
 \begin{enumerate}
-	\item Django
+	\item Django installation
 \begin{itemize}
 	\item Step 1 :
 	Open the terminal and create folder named mydjango
-\begin{lstlisting}[language=python, caption=Django]
+\begin{lstlisting}[language=python]
 $ mkdir mydjango
 $ cd mydjango
 
 \end{lstlisting}
 \item Step 2:
 Create a vitual environment named mydjangovenv
-\begin{lstlisting}[language=python, caption=Django]
+\begin{lstlisting}[language=python]
 $ virtualenv mydjangovenv
 $ cd mydjangovenv
 $ source bin/activate
@@ -53,14 +53,14 @@ $ source bin/activate
 \item Step 3:
 Install django
 
-\begin{lstlisting}[language=python, caption=Django]
+\begin{lstlisting}[language=python]
 $ python -m pip install django
 
 \end{lstlisting}
 \item Step 4:
 Create a project named mysite and make it run in server
 
-\begin{lstlisting}[language=python, caption=Django]
+\begin{lstlisting}[language=python]
 $ django-admin.py startproject mysite
 $ python manage.py runserver 0.0.0.0:8000
 
@@ -69,7 +69,7 @@ $ python manage.py runserver 0.0.0.0:8000
 \item Step 5:
 Create apps named firstapp
 
-\begin{lstlisting}[language=python, caption=Django]
+\begin{lstlisting}[language=python]
 $ python manage.py startapp firstapp
 
 \end{lstlisting}
