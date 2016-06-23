@@ -58,18 +58,26 @@ you can use vi vim or nano by your choice.
 
 Origin:
 
-<pre>host    all             all             127.0.0.1/32            ident
-host    all             all             ::1/128                 ident<code>
+<pre>
+	host    all             all             127.0.0.1/32            ident
+	host    all             all             ::1/128                 ident
+<code>
 
 Final:
 
-<pre>shost    all             all             127.0.0.1/32            md5
-host    all             all             ::1/128                 md5<code>
+<pre>
+	host    all             all             127.0.0.1/32            md5
+	host    all             all             ::1/128                 md5
+<code>
 
 Step 3 : Start and enable database management system (DBMS).
 
-<pre>sudo systemctl start postgresql
-sudo systemctl enable postgresql<code>
+<pre>
+	sudo systemctl start postgresql
+	systemctl enable postgresql
+<code>
+
+Step 4 : Log in 
 
 ### Python ###
 
