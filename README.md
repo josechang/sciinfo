@@ -32,19 +32,21 @@ This README would normally document whatever steps are necessary to get your app
 
 * [PostgreSQL Documentation](https://www.postgresql.org/docs/) : 
 
-**There are several online manuals to refer. It's help to search SQL command.
+>There are several online manuals to refer. It's help to search SQL command.
 
 * [PostgreSQL wiki - Psycopg2 Tutorial](https://wiki.postgresql.org/wiki/Psycopg2_Tutorial) : 
 
-**Some simple Python code can be found in this way. You can just modify it.
+>Some simple Python code can be found in this way. You can just modify it.
 
 * [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7) : 
 
-**It's really suitable for a beginner. All commands almost come from here.
+>It's really suitable for a beginner. All commands almost come from here.
 
 Step 1 : Installation
 
 		sudo yum install postgresql-server postgresql-contrib
+
+Note that if Django already install all postgreSQL package, Skip this step.		
 
 Step 2 : Create a new PostgreSQL database cluster
 
@@ -72,7 +74,32 @@ Step 3 : Start and enable database management system (DBMS).
 		systemctl enable postgresql
 
 
-Step 4 : Log in 
+Step 4 : Log in the default Postgres role.
+
+		sudo -i -u postgres
+
+Step 5 : Create a New Database
+	
+		createdb test
+	
+Step 6 : Enter the database.
+
+		psql -d test
+	
+Note that if Django already create its own database, Skip this step.
+	
+Step 7 : Create a New Table
+
+		CREATE TABLE fulltxt (
+			name varchar (250) NOT NULL,
+			data text NOT NULL,
+		);
+
+Step 8 : Insert data.
+
+		INSERT INTO fulltxt (name,data) VALUES ('This is the filename.','
+		Copying the article here. ( Ctrl+C, Ctrl+V)
+		');
 
 ### Python ###
 
