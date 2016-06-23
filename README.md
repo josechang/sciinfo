@@ -28,6 +28,47 @@ This README would normally document whatever steps are necessary to get your app
 * Repo owner or admin
 * Other community or team contact
 
+### Set up git ###
+
+Step 1 : Find the URL
+
+Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
+Find the HTTPS link on the top-right of the page.
+
+Step 2 : Clone the repository
+
+First move to the ~ directory
+
+		cd ~
+
+Then clone the repository
+
+		git clone (URL of the bitbucket)
+
+Note that if Django already install all postgreSQL package, Skip this step.		
+
+Step 2 : Create a new PostgreSQL database cluster
+
+		sudo postgresql-setup initdb
+
+Step 3 : Use the editer to modify pg_hba.conf
+
+you can use vi vim or nano by your choice.
+
+		sudo vi /var/lib/pgsql/data/pg_hba.conf
+
+Origin:
+
+		host    all             all             127.0.0.1/32            ident
+		host    all             all             ::1/128                 ident
+
+Final:
+
+		host    all             all             127.0.0.1/32            md5
+		host    all             all             ::1/128                 md5
+
+Step 3 : Start and enable database management system (DBMS).
+
 ### PostgreSQL ###
 
 * [PostgreSQL Documentation](https://www.postgresql.org/docs/) : 
