@@ -14,13 +14,7 @@
 We are going to construct a public, user friendly web site, which provide service of scientific article searching.
 To achieve this goal, we separate our responsibility into parts:\\
 \begin{itemize}
-	\item Build up the web server.
-	The web server is basically built using Django web frame work on a CentOS 7 system. Django is a web framework which is constructed using Python code.
-	For the purpose of this project the Django web server was built using PostgresSQL (database management application), 
-	Nginx (traffic control and security), and 
-	Gunicorn (interface to translate clients requests in HTTP to python calls that Django can understand)  
-	and Python WSGI HTTP Server (used to create entry sock for Django)
-	thus making a robust web server.
+	\item Build up the web server.	
 	\item Build a web page with a search bar.
 	\item Place a list on the webpage which showing the search results.
 	\item Build a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
@@ -32,10 +26,15 @@ This article will provide a review through the tools and methodologies we use to
 For any web page, a web server is necessary.
 There are three web server system used in our project. 
 They play the role as web page framework, reverse proxy server, 
-and database management, respectively.
-Consider the ease to use and learn, and the generality of Python language 
-that we choose Django, a Python based web server system for our work.
-\subsubsection{Ngnix}
+and database management, respectively. 
+Consider the ease to use and the generality of Python language, we choose Django, a Python based web server works on CentOS 7, as our web page framework. A server system based on Django was then built by using PostgresSQL (database management application), 
+Nginx (traffic control and security),  
+Gunicorn (interface to translate clients requests in HTTP to python calls that Django can understand), 
+and Python WSGI HTTP Server (used to create entry sock for Django)
+thus making a robust web server.
+
+\subsubsection*{NGINX  --  \normalfont{traffic control and security}}
+
 Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. When compared to Apache, Nginx is light-weight and has minimal hardware requirements to deal with web traffic. It has many features as follow:
 \begin{itemize}
 	\item Fastest and the best for serving static files
@@ -43,8 +42,8 @@ Nginx is a high performance web server. It can act as an HTTP and reverse proxy 
 	\item Handling many concurrent connections at the same time
 	\item Load Balancing Support
 \end{itemize}
-\subsubsection{Django}
-Django is one of the most well-known python web framework. There are many famous sites built with Django, such as Pinterest, Instagram, Disqus. It has many features as follow:
+\subsubsection*{Django  --  \normalfont{web page framework}}
+Django is one of the most well-known python web framework in nowdays. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus. It has many features as follow:
 \begin{itemize}
 	\item Free and open-source web framework
 	\item Written in python
@@ -54,55 +53,23 @@ Django is one of the most well-known python web framework. There are many famous
 	\item Fully loaded
 	\item Incredibly versatile
 \end{itemize}
-%<<<<<<< HEAD
-Next, we are going to show how to install Django in Linux.
-\begin{itemize}
-	  
-		\item Step 1\\
-		Open the terminal and create folder named mydjango
-			\begin{itemize}
-				\item\emph {\$ mkdir mydjango}\\
-				\item\emph {\$ cd mydjango}
-			\end{itemize}	
-		\item Step 2\\
-		Create a vitual environment named mydjangovenv
-			\begin{itemize}
-				\item\emph {/mydjango \$ virtualenv mydjangovenv}\\
-				\item\emph {/mydjango \$ cd mydjangovenv}\\
-				\item\emph {/mydjangovenv \$ source bin/activate}
-			\end{itemize}	
-		\item Step 3\\
-		Install django
-			\begin{itemize}
-				\item\emph {(mydjangovenv) \$ python -m pip install django}\\
-			\end{itemize}	
-
-After installing Django, we can start to build websites. Fisrt we need to create project and apps. One project can contains many apps. In pratical, these apps are divided into different funtions and can be reused. 
-		\item Step 4\\
-		Create a project named mysite and make it run in server
-			\begin{itemize}
-				\item\emph {(mydjangovenv) \$ django-admin.py startproject mysite}\\
-				\item\emph {(mydjangovenv) /mysite \$ python manage.py runserver 0.0.0.0:8000}
-			\end{itemize}	
-		\item Step 5\\
-		Create apps named firstapp
-			\begin{itemize}
-				\item\emph {(mydjangovenv) /mysite \$ python manage.py startapp firstapp}\\
-			\end{itemize}
-%=======
-%>>>>>>> 87226a5d82a585951cbd908f7e3c00ec85d93539
 
 A Djago based web page designing was done by by four key parts, which dominate the reactions \& functions, outlooks, linking traffic, and the database schema, respectively. The following is a brief view of each of them:
 \begin{itemize}
-		\item[] \textbf{views.py}\\
+		\item[] \textbf{views.py}
+		
 			  In the views file, it contain many funtions to deal with HttpRequest and  HttpResponse objects.
-		\item[] \textbf{urls.py}\\
+		\item[] \textbf{urls.py}
+		
 			  This file defines URL configuration, which is the relationship between the view funtions and the URL.
-		\item[] \textbf{templates}\\
+		\item[] \textbf{templates}
+		
 			  Templates is file which consist of some HTML/CSS desiged webpage. Therefore, the view funtions can call these webpage for a request.
-		\item[] \textbf{model.py}\\
+		\item[] \textbf{model.py}
+		
 			  Nowadays, webpages usally interact with users, in order to store the information input by users, we need to connect with database. The model file define the schema of database and make it easy to synchronize information.\\\\
 \end{itemize}
 With the basic knowledge above, we can start to build a funtional and compelete website in Django.
 
-\subsubsection{Django with Postgres, Nginx, and Gunicorn}
+\subsubsection*{Postgres}
+\subsubsection*{Gunicorn}
