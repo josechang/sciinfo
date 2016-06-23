@@ -30,9 +30,13 @@ Following discussion is our literature review on natural language processing.
 
 Natural language understanding (NLU) is a subtopic of natural language processing in artificial intelligence that deals with machine reading comprehension, it's considered an AI-hard problem.
 
-For a machine to understand language, it first has to develop a mental map of words, their meanings and interactions with other words. It needs to build a dictionary of words, and understand where they stand semantically and contextually, compared to other words in their dictionary. To achieve this, each word is mapped to a set of numbers in a high-dimensional space, which are called “word embeddings”. Similar words are close to each other in this number space, and dissimilar words are far apart. Some word embeddings encode mathematical properties such as addition and subtraction (For some examples, see Table 1).
+For a machine to understand language, it first has to develop a mental map of words, their meanings and interactions with other words. It needs to build a dictionary of words, and understand where they stand semantically and contextually, compared to other words in their dictionary. To achieve this, each word is mapped to a set of numbers in a high-dimensional space, which are called “word embeddings”. Similar words are close to each other in this number space, and dissimilar words are far apart. Some word embeddings encode mathematical properties such as addition and subtraction.
 
-Word embeddings can either be learned in a general-purpose fashion before-hand by reading large amounts of text (like Wikipedia), or specially learned for a particular task (like sentiment analysis). We go into a little more detail on learning word embeddings in a later section.
+After the machine has learned word embeddings, the next problem to tackle is the ability to string words together appropriately in small, grammatically correct sentences which make sense. This is called language modeling. Language modeling is one part of quantifying how well the machine understands language.
+
+For example, given a sentence “I am eating pasta for lunch.”, and a word “cars”, if the machine can tell you with high confidence whether or not the word is relevant to the sentence “cars” is related to this sentence with a probability 0.01 and I am pretty confident about it, then that indicates that the machine understands something about words and contexts.
+
+An even simpler metric is to predict the next word in the sentence. Given a sentence, for each word in its dictionary the machine assigns a probability of the word’s likeliness to appear next in the sentence. For example: “I am eating (     ).” To fill in the blank, a good language model would likely give higher probabilities to all edibles like “pasta”, “apple”, or “chocolate”, and it would give lower probability to other words in the dictionary which are contextually irrelevant like “taxi”, “building”, or “music”.
 
 When users search for a sentence, how does the program understand the certain inputs of text? We could build a natural language understanding (NLU) system, in which the system's rules for semantic interpretation are learnt automatically from training data, which uses a set of possible yes-no questions that can be applied to data items.
 After that, it follows rules for selecting the best questions at any node on the basis of training data by using a method for pruning trees to prevent over-training.
@@ -49,8 +53,7 @@ That would be troublesome when we count frequency of certain words to rank them.
 Therefore, it is significantly crucial for a program to totally understand what users want by name recognition in natural language processing, finally they can find out the results much quicker and will not be confused anymore.
 
 The method to improve the problem above is "categorize the words based on different subjects, topic, or genres" by using online database and python program. 
-Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired
-categories \cite{Kules2006}.
+Metadata is limited in digital libraries and web resources, try to enlarge them with meaningful, organized and desired categories \cite{Kules2006}.
 
 Besides dealing with mutiple-meaning words, the most important part of name recognition is to recognize the special names and terms such as locations, people name, country, even company names and academic terms.
 Therefore, it is better for search engine to know what user want and huge name corpus are necessary. 
