@@ -1,0 +1,80 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages using
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx\pdfoutput\undefined
+\usepackage[dvips]{graphicx}
+\DeclareGraphicsExtensions{.eps}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png,.mps}
+\pdfcompresslevel=9
+\fi
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{indentfirst}
+\addtolength{\topmargin}{-40mm}
+\addtolength{\textheight}{10mm}
+\usepackage{amsmath} % Added to get modern math environments
+\usepackage{amssymb,amsfonts} %Added to get math
+\usepackage{amsthm} % Added to get theorems
+\usepackage{natbib} % Added to get better bibliography
+\usepackage{soul} %underline
+\usepackage{url}
+% Special hack below to break the URL!
+\def\UrlBreaks{\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
+	\do\)\do\,\do\?\do\'\do+\do\=\do\#\do\i\do\m\do\t\do\a\do\x}%
+\urlstyle{rm} %
+\usepackage[bookmarks=true,bookmarksnumbered=true,hypertexnames=true,breaklinks=true,colorlinks=true]{hyperref}
+\hypersetup{
+	pdfauthor = {Ubadigha Chinweze},
+	pdftitle = {Information Retrieval and Processing--Setup of a Full Text System Implementing Automatic Metadata Extraction and Visualization},
+	pdfsubject = {Set-Up Guide},
+	pdfkeywords = {Django, Nginx, Postgres, Gunicorn, centOS 7}}
+
+% Headers and footers (must be after the document settings)
+\usepackage{fancyhdr} %Custom header package
+\pagestyle{fancy} %Turn on fancy headers
+\fancyhead{} %Clears default layout
+\fancyfoot{} %Clears default layout
+\fancyhead[LO,RE]{\small \normalfont \leftmark} %Adds section headline to header
+\fancyhead[LE,RO]{\slshape \rightmark} %Adds subsection headline to header
+\fancyfoot[LO,RE]{\href{http://www.nordlinglab.org/ScientificInformation}{nordlinglab.org/ScientificInformation}}
+\fancyfoot[RO,LE]{Information Retrieval and Processing}
+\fancyfoot[CO,CE]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt} %Header line
+\renewcommand{\footrulewidth}{0.4pt} %Footer line
+
+% Select what to do with todonotes: 
+% \usepackage[disable]{todonotes} % notes not showed
+\usepackage[draft]{todonotes}   % notes showed
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Step-by-step Procedure to Set Up Django with Postgres, Nginx, and Gunicorn on CentOS 7} 
+%\author{Chinweze Ubadigha} 
+\date{\today} 
+
+
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+ \label{system}
+Before we begin lets review briefly Django, Postgres, Gunicorn, Nginx and also why we chose to use these in
+setting up our web server.  Django is a web framework which can be created using python application. Django
+offers simplified development server but for anything slightly production related a more powerful and
+secure web server is required\cite. 
+Django comes with default SQlite database but we will be using PostgreSQL a more powerful open source
+object-relational database system instead. Thinking of security, NGINX is a free, open-source, high-performance HTTP server and reverse proxy. By reverse proxy, it enhances security and manages the web
+traffic.\\ 
+Gunicorn is an application server we will use to interface with our Django python applications and NGINX. Combining the features of these applications our Django web server will be security and performance enhanced. \par
+
+
+
+
+\end{document}
