@@ -100,3 +100,26 @@ step12: regular operate
             
             => match7 = re.findall('a+\w+c',string) 
             # use 'a+\d+c' behind the 'a' need the number ,in front of 'c' need the number
+
+step13: if-else operate
+       
+       example:
+                if len('abcde') == 5:
+                  print('yes')
+                else:
+                  print('no')
+
+               You know 'abcde' length is 5. So it will show yes.
+
+step14: for loop operate
+       
+       example:I want 0 add to 10
+  
+            c=0   
+            for i in xrange(11):
+               c+=i
+            print(c)
+
+            step1: you can see c=0
+            step2: xrange(11) Because the python is start from 0 and you want add to 10.
+                              You have xrange(11) 0 1 2 3 4 5 6 7 8 9 10 
