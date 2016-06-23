@@ -54,6 +54,7 @@ Django is one of the most well-known python web framework. There are many famous
 	\item Fully loaded
 	\item Incredibly versatile
 \end{itemize}
+<<<<<<< HEAD
 Next, we are going to show how to install Django in Linux.
 \begin{itemize}
 	  
@@ -88,17 +89,20 @@ After installing Django, we can start to build websites. Fisrt we need to create
 			\begin{itemize}
 				\item\emph {(mydjangovenv) /mysite \$ python manage.py startapp firstapp}\\
 			\end{itemize}
+=======
+>>>>>>> 87226a5d82a585951cbd908f7e3c00ec85d93539
 
-Then, we will introduce some key files for designing a webpage.
-		
-		\item \textbf{views.py}\\
+A Djago based web page designing was done by by four key parts, which dominate the reactions \& functions, outlooks, linking traffic, and the database schema, respectively. The following is a brief view of each of them:
+\begin{itemize}
+		\item[] \textbf{views.py}\\
 			  In the views file, it contain many funtions to deal with HttpRequest and  HttpResponse objects.
-		\item \textbf{urls.py}\\
+		\item[] \textbf{urls.py}\\
 			  This file defines URL configuration, which is the relationship between the view funtions and the URL.
-		\item \textbf{templates}\\
+		\item[] \textbf{templates}\\
 			  Templates is file which consist of some HTML/CSS desiged webpage. Therefore, the view funtions can call these webpage for a request.
-		\item \textbf{model.py}\\
+		\item[] \textbf{model.py}\\
 			  Nowadays, webpages usally interact with users, in order to store the information input by users, we need to connect with database. The model file define the schema of database and make it easy to synchronize information.\\\\
-With the basic knowledge above, we can start to build a funtional and compelete website in Django.
 \end{itemize}
+With the basic knowledge above, we can start to build a funtional and compelete website in Django.
+
 \subsubsection{Django with Postgres, Nginx, and Gunicorn}
