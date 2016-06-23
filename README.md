@@ -83,13 +83,13 @@ This README would normally document whatever steps are necessary to get your app
 
 		cd folder_name
 
-*step 2 : set up the virtual environment
+* step 2 : set up the virtual environment
 		
 		virtualenv folder_name_enve
 
 		cd folder_name_enve
 
-*step 3 : activate the virtual environment
+* step 3 : activate the virtual environment
 
 		source bin/activate
 
@@ -98,11 +98,11 @@ This README would normally document whatever steps are necessary to get your app
 		cd ..
 	Back to the folder_name
 
-*step 4 : install django
+* step 4 : install django
 
 		pip install django
 
-*step 5 : copy the existing to this foler
+* step 5 : copy the existing to this foler
 		
 ### PostgreSQL ###
 
