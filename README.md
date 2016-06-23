@@ -87,7 +87,7 @@ Step 1 : Installation
 
 		sudo yum install postgresql-server postgresql-contrib
 
-Note that if Django already install all postgreSQL package, Skip this step.		
+*Note that* if Django already install all postgreSQL package, Skip this step.		
 
 Step 2 : Create a new PostgreSQL database cluster
 
@@ -127,7 +127,7 @@ Step 6 : Enter the database.
 
 		psql -d test
 	
-Note that if Django already create its own database, Skip this step.
+*Note that* if Django already create its own database, Skip this step.
 	
 Step 7 : Create a New Table
 
@@ -136,16 +136,12 @@ Step 7 : Create a New Table
 			data text NOT NULL,
 		);
 
-Note that after you download some articles and  convert into txt files, do next step!
+*Note that* after you download some articles and  convert into txt files, do next step!
 
 Step 8 : Insert data.
 
-		                                         #######################
-		INSERT INTO fulltxt (name,data) VALUES ('#This is the filename.#','
-			                                     #######################
-			#############################################
-			#Copying the article here. ( Ctrl+C, Ctrl+V)#
-			#############################################
+		INSERT INTO fulltxt (name,data) VALUES ('*This is the filename.*','
+			*Copying the article here. ( Ctrl+C, Ctrl+V)*
 		');
 
 ### Python ###

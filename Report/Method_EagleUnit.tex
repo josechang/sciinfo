@@ -11,19 +11,19 @@
 \subsection{Web page Construction}
 \textit{\footnote size Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
-We are going to construct a public, user friendly web site, which provide service of scientific article searching.
+We are going to construct a public, user friendly web site, which provides service of scientific article searching.
 To achieve this goal, we separate our responsibility into parts:\\
 \begin{itemize}
 	\item Build up the web server.	
 	\item Build a web page with a search bar.
-	\item Place a list on the webpage which showing the search results.
-	\item Build up the APIs. The search bar should send the search string and the result list to tje search system 
-	then the system receive the results of searching and display it.
+	\item Place a list on the webpage which shows the search results.
+	\item Build up the APIs. The search bar should send the search string and the result list to the search system, 
+	then the system receive the results of searching. finally, display it.
 \end{itemize}
 This article will provide a review through the tools and methodologies we use to achieve each work.
 \subsubsection{Web Server}
 For any web page, a web server is necessary.
-There are three web server system used in our project. 
+There are three web server systems used in our project. 
 They play the role as web page framework, reverse proxy server, 
 and database management, respectively. 
 Consider the ease to use and the generality of Python language, we choose Django, a Python based web server works on CentOS 7, as our web page framework. A server system based on Django was then built by using PostgresSQL (database management application), 
@@ -37,14 +37,14 @@ thus making a robust web server.
 Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. When compared to Apache, Nginx is light-weight and has minimal hardware requirements to deal with web traffic. It has many features as follow:
 \begin{itemize}
 	\item Fastest and the best for serving static files
-	\item Increased security of server 
+	\item Increased security of server
 	\item Handling many concurrent connections at the same time
-	\item Load Balancing Support
+	\item Load balancing support
 \end{itemize}
 
 \subsubsection*{Gunicorn}
 The Gunicorn "Green Unicorn" is a Python Web Server Gateway Interface (WSGI) HTTP server. It supports Django and is an interface server between Django and Nginx.
-It has many features as follow:
+there are many features as follow:
 \begin{itemize}
 	\item Supports many framework like WSGI, web2py, Django and Paster
 	\item Preloading applications
