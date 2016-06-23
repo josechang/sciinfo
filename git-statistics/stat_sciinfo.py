@@ -22,6 +22,9 @@ attendance_lecture=[]
 gitScore=[]
 gitScore_transfer=[]
 presentation_grade=[]
+quiz_grade=[]
+daily_scrum_grade=[]
+temptotal_grade=[]
 def getrep():
 	if len(sys.argv) < 2:
 		print "Lack of git repository parameter"
@@ -40,7 +43,7 @@ def getdata(cmd):
 	output=p.communicate()[0]
 	return  remove_last_item(output.split("\n"))
 def getnewest():
-	p=subprocess.Popen("git --git-dir=%s fetch"%(tar_dir),shell=True)
+	p=subprocess.Popen("git --git-dir=%s pull"%(tar_dir),shell=True)
 	p.wait()
 def remove_last_item(ls):
 	len_ls=len(ls)
@@ -94,7 +97,6 @@ def createHTML():
 		f.write('<h1>Statistics for bitbucket</h1>')
 		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
 		f.write('<table id="statistics" border="1" class="sortable">')
-		f.write('<col width="130"><col width="60"><col width="110"><col width="110"><col width="120"><col width="110"><col width="90">')
 		f.write('<tr><th>Authors</th><th>Commits</th><th>Line Inserted</th><th>Line Deleted</th><th>Word Inserted</th><th>Word Deleted</th><th>GIT Score</th></tr>')
 		for i in range(0,num_authors):
 			f.write('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%d</td></tr>'% (authors[i],num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i],gitScore[i]))
@@ -104,12 +106,12 @@ def createHTML():
 		f.write('1. If you find out that there are multiple authors in the table are all belong to you. Please inform me and tell me which username you will use later also. I will merge them into one.My email address is E14006151@mail.ncku.edu.tw<br/>')
 		f.write("2. If you can't find your name in the table, it means you haven't done any commit<br/>")
 		f.write('<h1>Total Score</h1>')
-		f.write('<table id="total" border="1">')
-		f.write('<tr><th>Participants</th><th>Attendace at lecture</th><th>Attendance at daily scrum</th><th>GIT Score</th><th>Oral presentation</th><th>Quiz</th><th>Report</th><th>TOTAL</th></tr>')
+		f.write('<table id="total" border="1" class="sortable">')
+		f.write('<tr><th>Participants</th><th>Attendace at lecture</th><th>Attendance at daily scrum</th><th>GIT Score</th><th>Oral presentation</th><th>Quiz</th><th>Report</th><th><button onclick="calculate()">TOTAL</button></th></tr>')
 		for i in range(len(participants)):
-			f.write('<tr><td>%s</td><td>%d</td><td></td><td>%d</td><td>%d</td><td></td><td><input value="0"></td><td></td></tr>'% (participants[i],attendance_lecture[i],gitScore_transfer[i],presentation_grade[i]))
+			f.write('<tr><td>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td><input value="0"></td><td>%d</td></tr>'% (participants[i],attendance_lecture[i],daily_scrum_grade[i],gitScore_transfer[i],presentation_grade[i],quiz_grade[i],temptotal_grade[i]))
 		f.write('</table>')
-		#f.write('<script src="score.js"></script>')
+		f.write('<script src="score.js"></script>')
 		f.write('<script src="sorttable.js"></script>')
 		f.write('</body>')
 		f.write('</html>')
@@ -208,18 +210,28 @@ def get_presentation_grade():
 			presentation_grade.append(round(sum(a)/len(a)*10))
 def get_quiz_score():
 	for i in range(len(par)):
-		cmd=["grep '%s' Quiz_Grade.txt" % par[i],"awk '{print $NF}'"]
-		a=getdata(cmd)
-		print a
-		#for x,item in enumerate(a):
-		#	a[x]=float(item.replace("\r",""))
+		cmd=["grep '%s' Quiz_Grade.tsv" % par[i],"awk '{print $NF}'"]
+		a=getdata(cmd)[0]
+		a=a.replace("\r","")
+		quiz_grade.append(round(float(a)))
+def get_attendance_scrum():
+	for i in range(len(par)):
+		cmd=["grep '%s' daily_scrum.tsv" % par[i],"awk '{print $NF}'"]
+		a=getdata(cmd)[0]
+		a=a.replace("\r","")
+		daily_scrum_grade.append(round(float(a)*100))
+def get_temptotal():
+	for i in range(len(par)):
+		temptotal_grade.append(round(0.18*attendance_lecture[i]+0.06*daily_scrum_grade[i]+0.36*gitScore_transfer[i]+0.1*presentation_grade[i]+0.1*quiz_grade[i]))
 def TotalScore():
 	transform_datalist()
 	get_attendance_lecture()
 	get_GitScore()
 	transfer_git_score()
 	get_presentation_grade()
-	#get_quiz_score()
+	get_quiz_score()
+	get_attendance_scrum()
+	get_temptotal()
 statistics()
 TotalScore()
 createHTML()
