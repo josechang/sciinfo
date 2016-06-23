@@ -74,6 +74,36 @@ This README would normally document whatever steps are necessary to get your app
 	There will be a pdfs.txt which include all the file path and original link of the files.
 	And a repository called pdf which includes the pdf files.
 
+###Django###
+* Step 1 : make a directory
+
+		mkdir folder_name
+	 
+	make a new folder for the virtual environment
+
+		cd folder_name
+
+*step 2 : set up the virtual environment
+		
+		virtualenv folder_name_enve
+
+		cd folder_name_enve
+
+*step 3 : activate the virtual environment
+
+		source bin/activate
+
+		cd ..
+		
+		cd ..
+	Back to the folder_name
+
+*step 4 : install django
+
+		pip install django
+
+*step 5 : copy the existing to this foler
+		
 ### PostgreSQL ###
 
 * [PostgreSQL Documentation](https://www.postgresql.org/docs/) : 
