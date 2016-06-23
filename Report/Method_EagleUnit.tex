@@ -11,20 +11,19 @@
 \subsection{Web page Construction}
 \textit{\footnote size Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
-We are going to construct a public, user friendly web site, which provide service of scientific article searching.
+We are going to construct a public, user friendly web site, which provides service of scientific article searching.
 To achieve this goal, we separate our responsibility into parts:\\
 \begin{itemize}
 	\item Build up the web server.	
 	\item Build a web page with a search bar.
-	\item Place a list on the webpage which showing the search results.
-	\item Build a metadata schema which contains all information in a PDF and then edit it in an XML structure. 
-	\item Build up the APIs. The search bar should send the search string and the result list to tje search system 
-	then the system receive the results of searching and display it.
+	\item Place a list on the webpage which shows the search results.
+	\item Build up the APIs. The search bar should send the search string and the result list to the search system, 
+	then the system receive the results of searching. finally, display it.
 \end{itemize}
 This article will provide a review through the tools and methodologies we use to achieve each work.
 \subsubsection{Web Server}
 For any web page, a web server is necessary.
-There are three web server system used in our project. 
+There are three web server systems used in our project. 
 They play the role as web page framework, reverse proxy server, 
 and database management, respectively. 
 Consider the ease to use and the generality of Python language, we choose Django, a Python based web server works on CentOS 7, as our web page framework. A server system based on Django was then built by using PostgresSQL (database management application), 
@@ -38,9 +37,19 @@ thus making a robust web server.
 Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. When compared to Apache, Nginx is light-weight and has minimal hardware requirements to deal with web traffic. It has many features as follow:
 \begin{itemize}
 	\item Fastest and the best for serving static files
-	\item Increased security of server 
+	\item Increased security of server
 	\item Handling many concurrent connections at the same time
-	\item Load Balancing Support
+	\item Load balancing support
+\end{itemize}
+
+\subsubsection*{Gunicorn}
+The Gunicorn "Green Unicorn" is a Python Web Server Gateway Interface (WSGI) HTTP server. It supports Django and is an interface server between Django and Nginx.
+there are many features as follow:
+\begin{itemize}
+	\item Supports many framework like WSGI, web2py, Django and Paster
+	\item Preloading applications
+	\item Simple Python configuration
+	\item Automatic process management
 \end{itemize}
 \subsubsection*{Django  --  \normalfont{web page framework}}
 Django is one of the most well-known python web framework in nowdays. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus. It has many features as follow:
@@ -56,20 +65,17 @@ Django is one of the most well-known python web framework in nowdays. There are 
 
 A Djago based web page designing was done by by four key parts, which dominate the reactions \& functions, outlooks, linking traffic, and the database schema, respectively. The following is a brief view of each of them:
 \begin{itemize}
-		\item[] \textbf{views.py}
-		
-			  In the views file, it contain many funtions to deal with HttpRequest and  HttpResponse objects.
-		\item[] \textbf{urls.py}
-		
-			  This file defines URL configuration, which is the relationship between the view funtions and the URL.
-		\item[] \textbf{templates}
-		
-			  Templates is file which consist of some HTML/CSS desiged webpage. Therefore, the view funtions can call these webpage for a request.
-		\item[] \textbf{model.py}
-		
-			  Nowadays, webpages usally interact with users, in order to store the information input by users, we need to connect with database. The model file define the schema of database and make it easy to synchronize information.\\\\
+	\item[] \textbf{views.py}
+	
+	In the views file, it contain many funtions to deal with HttpRequest and  HttpResponse objects.
+	\item[] \textbf{urls.py}
+	
+	This file defines URL configuration, which is the relationship between the view funtions and the URL.
+	\item[] \textbf{templates}
+	
+	Templates is file which consist of some HTML/CSS desiged webpage. Therefore, the view funtions can call these webpage for a request.
+	\item[] \textbf{model.py}
+	
+	Nowadays, webpages usally interact with users, in order to store the information input by users, we need to connect with database. The model file define the schema of database and make it easy to synchronize information.\\\\
 \end{itemize}
 With the basic knowledge above, we can start to build a funtional and compelete website in Django.
-
-\subsubsection*{Postgres}
-\subsubsection*{Gunicorn}
