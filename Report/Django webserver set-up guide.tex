@@ -13,11 +13,12 @@
 \fi
 
 \usepackage[a4paper, total={6in, 8in}]{geometry}
+%\usepackage[round,authoryear]{natbib}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{indentfirst}
-\addtolength{\topmargin}{-40mm}
-\addtolength{\textheight}{10mm}
+\addtolength{\topmargin}{-20mm}
+\addtolength{\textheight}{70mm}
 \usepackage{amsmath} % Added to get modern math environments
 \usepackage{amssymb,amsfonts} %Added to get math
 \usepackage{amsthm} % Added to get theorems
@@ -38,13 +39,6 @@
 % Headers and footers (must be after the document settings)
 \usepackage{fancyhdr} %Custom header package
 \pagestyle{fancy} %Turn on fancy headers
-\fancyhead{} %Clears default layout
-\fancyfoot{} %Clears default layout
-\fancyhead[LO,RE]{\small \normalfont \leftmark} %Adds section headline to header
-\fancyhead[LE,RO]{\slshape \rightmark} %Adds subsection headline to header
-\fancyfoot[LO,RE]{\href{http://www.nordlinglab.org/ScientificInformation}{nordlinglab.org/ScientificInformation}}
-\fancyfoot[RO,LE]{Information Retrieval and Processing}
-\fancyfoot[CO,CE]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt} %Header line
 \renewcommand{\footrulewidth}{0.4pt} %Footer line
 
@@ -64,17 +58,42 @@
 \maketitle
 
 \section*{Introduction}
- \label{system}
+ \label{introduction}
 Before we begin lets review briefly Django, Postgres, Gunicorn, Nginx and also why we chose to use these in
 setting up our web server.  Django is a web framework which can be created using python application. Django
 offers simplified development server but for anything slightly production related a more powerful and
-secure web server is required\cite. 
+secure web server is required \cite{DigitalOceaInc}. 
 Django comes with default SQlite database but we will be using PostgreSQL a more powerful open source
-object-relational database system instead. Thinking of security, NGINX is a free, open-source, high-performance HTTP server and reverse proxy. By reverse proxy, it enhances security and manages the web
+object-relational database system instead \cite{ThePostgreSQLGlobalDevelopmentGroup}. Thinking of security, NGINX is a free, open-source, high-performance HTTP server and reverse proxy \cite{NGINXInc}. By reverse proxy, it enhances security and manages the web
 traffic.\\ 
 Gunicorn is an application server we will use to interface with our Django python applications and NGINX. Combining the features of these applications our Django web server will be security and performance enhanced. \par
 
+\section* {Prerequisites}
+\label{prerequisite}
+Things you should have handy in order to complete this guide:
+
+\begin{enumerate}
+	\item Fresh CentOS 7 server.
+	\item Sudo password (user should have sudo privileges).
+	\item virtual environment. If you don't have do not worry will guide you on how to do that when the time comes.
+\end{enumerate}
 
 
+
+
+
+
+
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% References
+	% Using Mendeley Desktop with library.bib
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\newpage	
+	\bibliographystyle{agsm_nurl}
+	\bibliography{library}	
+	\clearpage 
 
 \end{document}
