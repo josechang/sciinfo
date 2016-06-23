@@ -30,20 +30,22 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up git ###
 
-Step 1 : Find the URL
+* Step 1 : Find the URL
 
-Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
-Find the HTTPS link on the top-right of the page.
+> Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
+> and find the HTTPS link on the top-right of the page.
 
-Step 2 : Clone the repository
+* Step 2 : Clone the repository
 
-First move to the ~ directory
+> First move to the ~ directory
 
 		cd ~
 
-Then clone the repository
+> Then clone the repository
 
-		git clone (URL of the bitbucket)
+		git clone (URL of the bitbucket)		
+	Ex:
+		git clone https://github.com/
 
 Note that if Django already install all postgreSQL package, Skip this step.		
 
