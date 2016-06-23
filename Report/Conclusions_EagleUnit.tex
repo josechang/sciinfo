@@ -1,7 +1,22 @@
 \subsection{Search Settings}
-So far our search system can only provide "single query" searching, which means the users can only search with a sigle key word everytime. If multiple words was entered in the search bar, it will be processed as a single word.
+So far our search system can only provide "single query" searching, which means the users can only search with a sigle key word everytime.
+If multiple words was entered in the search bar, it will be processed as a single word.
 
 In nowadays, almost every existing sientific article database provide multi-query and Boolean searching function,
-to make it more convenient for the user to enter all possible key words, and faster to convert the result. To provide a more efficient information retrieve service, multi-query search seems to be a necessary function.
+to make it more convenient for the user to enter all possible key words,
+and faster to convert the result.
+To provide a more efficient information retrieve service,
+multi-query search seems to be a necessary function.
 
-\subsection{Web Server}
+\subsection{Search Result}
+
+
+\subsection{NGINX Server}
+The NGINX server provide a particular internet donmain to our web page,
+which allowed us to conect the web page by using URL,
+with out entering any port number. Additionally,
+the NGINX server is not only playing the role of reverse proxy server of our Django server,
+it can direct the user to any other donmain in the main sever as well.
+It means we can have other single HTML files not including in the Django server, or,
+even an other Django project, and all linking to the same NGINX server.
+NGINX can lead the user to projects according their own requiests. 
