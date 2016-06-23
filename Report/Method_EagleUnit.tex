@@ -28,7 +28,7 @@ To achieve this goal, we separate our responsibility into parts:\\
 	then the system receive the results of searching and display it.
 \end{itemize}
 This article will provide a review through the tools and methodologies we use to achieve each work.
-\sub subsection{Web Server}
+\subsubsection{Web Server}
 For any web page, a web server is necessary.
 There are three web server system used in our project. 
 They play the role as web page framework, reverse proxy server, 
@@ -36,23 +36,44 @@ and database management, respectively.
 Consider the ease to use and learn, and the generality of Python language 
 that we choose Django, a Python based web server system for our work.
 \subsubsection{Ngnix}
-\begin{enumerate}
 Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. When compared to Apache, Nginx is light-weight and has minimal hardware requirements to deal with web traffic. It has many features as follow:
-\item Fastest and the best for serving static files
-\item Increased security of server 
-\item Handling many concurrent connections at the same time
-\item Load Balancing Support
-\end{enumerate}
-
+\begin{itemize}
+	\item Fastest and the best for serving static files
+	\item Increased security of server 
+	\item Handling many concurrent connections at the same time
+	\item Load Balancing Support
+\end{itemize}
 \subsubsection{Django}
-\begin{enumerate}
 Django is one of the most well-known python web framework. There are many famous sites built with Django, such as Pinterest, Instagram, Disqus. It has many features as follow:
-\item Free and open-source web framework
-\item Written in python
-\item MTV framework
-\item fast and secure
-\item Exceedingly scalable
-\item Fully loaded
-\item Incredibly versatile
-\end{enumerate}
+\begin{itemize}
+	\item Free and open-source web framework
+	\item Written in python
+	\item MTV framework
+	\item fast and secure
+	\item Exceedingly scalable
+	\item Fully loaded
+	\item Incredibly versatile
+\end{itemize}
+Next, we are going to show how to install Django in Linux.
+\begin{itemize}
+	  
+		\item Step 1\\
+		Open the terminal and create folder named mydjango
+		\begin{enumerate}
+			\emph {\$ mkdir mydjango}\\
+			\emph {\$ cd mydjango}
+		\end{enumerate}	
+		\item Step 2\\
+		Create a vitual environment
+		\begin{enumerate}
+			\emph {/mydjango \$ virtualenv mydjangovenv}\\
+			\emph {/mydjango \$ cd mydjangovenv}\\
+			\emph {/mydjangovenv \$ source bin/activate}
+		\end{enumerate}	
+		\item Step 3\\
+		Install django
+		\begin{enumerate}
+			\emph {(mydjangovenv) \$ python -m pip install django}\\
+		\end{enumerate}	
+\end{itemize}
 \subsubsection{Django with Postgres, Nginx, and Gunicorn}
