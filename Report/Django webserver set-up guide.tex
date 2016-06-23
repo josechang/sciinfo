@@ -86,10 +86,10 @@
 Before we begin lets review briefly Django, Postgres, Gunicorn, Nginx and also why we chose to use these in
 setting up our web server.  Django is a web framework which can be created using python application. Django
 offers simplified development server but for anything slightly production related a more powerful and
-secure web server is required \citenum{DigitalOceaInc}. 
+secure web server is required \citenum{Digitalocea2016} . 
 Django comes with default SQlite database but we will be using PostgreSQL a more powerful open source
-object-relational database system instead \citenum{ThePostgreSQLGlobalDevelopmentGroup}. Thinking of security, NGINX is a free, open-source, high-performance HTTP server and reverse proxy \citenum{NGINXInc}. By reverse proxy, it enhances security and manages the web
-traffic.\\ 
+object-relational database system instead \citenum{Thepostgresqlglobaldevelopmentgroup2016}. Thinking of security, NGINX is a free, open-source, high-performance HTTP server and reverse proxy . By reverse proxy, it enhances security and manages the web
+traffic \citenum{Nginxincdoc2016}.\\ 
 Gunicorn is an application server we will use to interface with our Django python applications and NGINX. Combining the features of these applications our Django web server will be security and performance enhanced. \par
 
 \section* {Prerequisites}
@@ -301,18 +301,51 @@ Input the following inside the file:\\\\
 \textbf{\emph{WantedBy=multi-user.target}}\\
 
 Note the bars \textbf{"|"} in front of \textit{"workers"} and \textit{"bind"} are two and no space between them.\\
-Save and close the the file when you are done, \textbf{CTRL-C} and \textbf{"Y"}\\\\ \\ \\
+Save and close the the file when you are done, \textbf{CTRL-C} and \textbf{"Y"}\\\\
 
 \step
 We now start the Gunicorn we created and enable it so that it starts at boot:\\ \\
+\textbf{\emph{ sudo systemctl start gunicorn}}\\
+\textbf{\emph{ sudo systemctl enable gunicorn}}\\
+
+\step
+We will now configure Nginx to proxy pass to Gunicorn i.e pass traffic to the process. We do this by modifying the Nginx configuration file. To learn more on how Nginx works or being configured see \citenum{Nginxincconfig2016}:\\ \\
 \textbf{\emph{ sudo systemctl start gunicorn}}\\ \\
-\textbf{\emph{ sudo systemctl enable gunicorn}}\\ \\
+To do this open the Nginx configuration file:\\\\
+\textbf{\emph{sudo nano /etc/nginx/nginx.conf}}\\
 
+Inside, open up a new server block just above the server block that is already present as shown in the below (red text):\\\\
 
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=0.8\linewidth]{nginx_bl}
+	}
+\end{minipage}
+\medskip \ \\
+Insert the following code into the server block as shown below. Make sure to substitute accordingly the red texts:\\
 
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=1\linewidth]{nginx_lo}
+	}
+\end{minipage}
+\medskip \ \\
 
+Save and close the file when you are done.
 
+\step
+Add the nginx user to your group with the following command. Substitute your own \textbf{\textcolor{red}{username}} for the \textbf{\textcolor{red}{user}} in the command:\\ \\\\
+\textbf{\emph{ sudo usermod -a -G \textcolor{red}{user} nginx}}\\\\\\
 
+Give our user group execute permissions on our home directory. This will allow the Nginx process to enter and access content within:\\\\
+\textbf{\emph{chmod 710 /home/\textcolor{red}{user} nginx}}\\\\
+
+Test the Nginx configuration file for syntax errors:\\\\
+\textbf{\emph{sudo nginx -tx}}\\\\
+
+If no errors are present, restart the Nginx service by typing:
 
 \end{Step}
 	
