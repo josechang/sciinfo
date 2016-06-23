@@ -12,6 +12,7 @@
 \pdfcompresslevel=9
 \fi
 
+\usepackage{color}
 \usepackage{adjustbox}
 \usepackage{enumitem}
 \usepackage{xparse}
@@ -23,6 +24,7 @@
 \addtolength{\topmargin}{-20mm}
 \addtolength{\textheight}{70mm}
 \usepackage{amsmath} % Added to get modern math environments
+\usepackage{bm}
 \usepackage{amssymb,amsfonts} %Added to get math
 \usepackage{amsthm} % Added to get theorems
 \usepackage{natbib} % Added to get better bibliography
@@ -133,13 +135,64 @@ Lets get started,\\
 		
 		\medskip
 		A black screen will open as shown above. You will be prompted to key-in your \textbf{user name} followed by a \textbf{password}. Please do that.\\
-	\end{minipage}
-		
+	\end{minipage}		
 \step
-Now you've logged into the server. We will start right away to install the packages from EPEL and the CentOS Repositories. Afterwards, we will use Python package manager \textbf{\textit{pip}} to install some additional components.\\ Type the following in the command window to enable EPEL repository. When prompted for the sudo password please type it.\\ \\
-\textbf{\emph{sudo yum install epel release}}\\ \\
+Now you've logged into the server. We will start right away to install the packages from EPEL and the
+CentOS Repositories. Afterwards, we will use Python package manager \textbf{\textit{pip}} to install some
+additional components.\\ Type the following in the command window to enable EPEL repository. When prompted
+for the sudo password please type it.\\ \\
+\textbf{\emph{sudo yum install epel-release}}\\ \\
 With the new repository available, we can install all we needed in one command.
 \step
+Type the following into the command window:\\ \\
+\textbf{\emph{sudo yum install python-pip python-devel postgresql-server postgresql-devel postgresql-contrib gcc nginx}}\\ 
+\step
+Configure and Start PostgreSQL. First, initialize the PostgreSQL database. We can do that by typing:\\ \\
+\textbf{\emph{sudo postgresql-setup initdb}}\\
+\step
+Start the PostgreSQL service by typing:\\ \\
+\textbf{\emph{sudo systemctl start postgresql}}\\
+\step
+Change the authentication method for the database to allow our Django instance user to have access using password. Type the following to edit using \textbf{nano} editor. Remember when prompted for password please type it.\\ \\
+\textbf{\emph{sudo nano /var/lib/pgsql/data/pg\_hba.conf}}\\
+\step
+\medskip When the file opens, move to the bottom of the page and edit the file as shown below. Modify the two host lines by changing the last column (the authentication method) to \textbf{md5}. This will allow password authentication:\\
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=1.0\linewidth]{post_auth}
+	}\\
+	
+	\medskip
+	When you are finished, save and close the file by clicking \textbf{ctrl C} followed by \textbf{"Y"} and then \textbf{"Enter"}. \\
+\end{minipage}
+
+\step
+Restart the service and also enable the PostgreSQL so that it start automatically at boot:\\ \\
+\textbf{\emph{sudo systemctl restart postgresql}}
+\textbf{\emph{sudo systemctl enable postgresql}}\\
+\step
+It will be convenient to change to root user temporarily in order to work with postgres locally. Type\\ \\
+\textbf{\emph{sudo su - postgres}}\\ \\followed by\\ \\
+\textbf{\emph{psql}}\\ \\
+This will be give you a PostgreSQL prompt where we can set up our requirements.\\
+
+\step
+Creat a database for our project:\\ \\
+\textbf{\emph{CREATE DATABASE \textcolor{red}{myproject};}}\\ \\
+Next create database user for our project:\\ \\
+\textbf{\emph{CREATE USER \textcolor{red}{myprojectuser} WITH PASSWORD '\textcolor{red}{password}';}}\\ \\
+Give our new user access to administer our new database:\\ \\
+\textbf{\emph{GRANT ALL PRIVILEGES ON DATABASE \textcolor{red}{myproject} TO \textcolor{red}{myprojectuser};}}\\ \\
+Notice all the command must end with semicolon. When you are done exit the postgreSQL promtp by typing:\\ \\
+\bm{$\backslash q$}\\ \\
+Now also exit the root user by typing:\\ \\
+\textbf{\emph{exit}}\\
+
+\step
+We now create our python virtual environment for your Django Project. If you already have virtualenv install you skip this step, else type:\\ \\
+\textbf{\emph{sudo pip install virtualenv}}\\ \\
+
 
 \end{Step}
 	
