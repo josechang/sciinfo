@@ -32,50 +32,45 @@ This README would normally document whatever steps are necessary to get your app
 
 * [PostgreSQL Documentation](https://www.postgresql.org/docs/) : 
 
-There are several online manuals to refer. It's help to search SQL command.
+**There are several online manuals to refer. It's help to search SQL command.
 
 * [PostgreSQL wiki - Psycopg2 Tutorial](https://wiki.postgresql.org/wiki/Psycopg2_Tutorial) : 
 
-Some simple Python code can be found in this way. You can just modify it.
+**Some simple Python code can be found in this way. You can just modify it.
 
 * [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7) : 
 
-It's really suitable for a beginner. All commands almost come from here.
+**It's really suitable for a beginner. All commands almost come from here.
 
 Step 1 : Installation
 
-<pre>sudo yum install postgresql-server postgresql-contrib<code>
+		sudo yum install postgresql-server postgresql-contrib
 
 Step 2 : Create a new PostgreSQL database cluster
 
-<pre>sudo postgresql-setup initdb<code>
+		sudo postgresql-setup initdb
 
 Step 3 : Use the editer to modify pg_hba.conf
 
 you can use vi vim or nano by your choice.
 
-<pre>sudo vi /var/lib/pgsql/data/pg_hba.conf<code>
+		sudo vi /var/lib/pgsql/data/pg_hba.conf
 
 Origin:
 
-<pre>
-	host    all             all             127.0.0.1/32            ident
-	host    all             all             ::1/128                 ident
-<code>
+		host    all             all             127.0.0.1/32            ident
+		host    all             all             ::1/128                 ident
 
 Final:
 
-<pre>
-	host    all             all             127.0.0.1/32            md5
-	host    all             all             ::1/128                 md5
-<code>
+		host    all             all             127.0.0.1/32            md5
+		host    all             all             ::1/128                 md5
 
 Step 3 : Start and enable database management system (DBMS).
 
-<pre>
-	sudo systemctl start postgresql
-	systemctl enable postgresql
-<code>
+		sudo systemctl start postgresql
+		systemctl enable postgresql
+
 
 Step 4 : Log in 
 
