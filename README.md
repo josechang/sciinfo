@@ -95,10 +95,16 @@ Step 7 : Create a New Table
 			data text NOT NULL,
 		);
 
+Note that after you download some articles and  convert into txt files, do next step!
+
 Step 8 : Insert data.
 
-		INSERT INTO fulltxt (name,data) VALUES ('This is the filename.','
-		Copying the article here. ( Ctrl+C, Ctrl+V)
+		                                         #######################
+		INSERT INTO fulltxt (name,data) VALUES ('#This is the filename.#','
+			                                     #######################
+			#############################################
+			#Copying the article here. ( Ctrl+C, Ctrl+V)#
+			#############################################
 		');
 
 ### Python ###
