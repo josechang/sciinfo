@@ -32,8 +32,8 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 1 : Find the URL
 
-> Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
-> and find the HTTPS link on the top-right of the page.
+	Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
+	and find the HTTPS link on the top-right of the page.
 
 * Step 2 : Clone the repository
 
