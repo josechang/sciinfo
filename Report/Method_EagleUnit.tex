@@ -59,35 +59,35 @@ Next, we are going to show how to install Django in Linux.
 	  
 		\item Step 1\\
 		Open the terminal and create folder named mydjango
-		\begin{enumerate}
-			\emph {\$ mkdir mydjango}\\
-			\emph {\$ cd mydjango}
-		\end{enumerate}	
+			\begin{itemize}
+				\item\emph {\$ mkdir mydjango}\\
+				\item\emph {\$ cd mydjango}
+			\end{itemize}	
 		\item Step 2\\
 		Create a vitual environment named mydjangovenv
-		\begin{enumerate}
-			\emph {/mydjango \$ virtualenv mydjangovenv}\\
-			\emph {/mydjango \$ cd mydjangovenv}\\
-			\emph {/mydjangovenv \$ source bin/activate}
-		\end{enumerate}	
+			\begin{itemize}
+				\item\emph {/mydjango \$ virtualenv mydjangovenv}\\
+				\item\emph {/mydjango \$ cd mydjangovenv}\\
+				\item\emph {/mydjangovenv \$ source bin/activate}
+			\end{itemize}	
 		\item Step 3\\
 		Install django
-		\begin{enumerate}
-			\emph {(mydjangovenv) \$ python -m pip install django}\\
-		\end{enumerate}	
+			\begin{itemize}
+				\item\emph {(mydjangovenv) \$ python -m pip install django}\\
+			\end{itemize}	
 
 After installing Django, we can start to build websites. Fisrt we need to create project and apps. One project can contains many apps. In pratical, these apps are divided into different funtions and can be reused. 
 		\item Step 4\\
 		Create a project named mysite and make it run in server
-		\begin{enumerate}
-			\emph {(mydjangovenv) \$ django-admin.py startproject mysite}\\
-			\emph {(mydjangovenv) /mysite \$ python manage.py runserver 0.0.0.0:8000}
-		\end{enumerate}	
+			\begin{itemize}
+				\item\emph {(mydjangovenv) \$ django-admin.py startproject mysite}\\
+				\item\emph {(mydjangovenv) /mysite \$ python manage.py runserver 0.0.0.0:8000}
+			\end{itemize}	
 		\item Step 5\\
 		Create apps named firstapp
-		\begin{enumerate}
-			\emph {(mydjangovenv) /mysite \$ python manage.py startapp firstapp}\\
-		\end{enumerate}
+			\begin{itemize}
+				\item\emph {(mydjangovenv) /mysite \$ python manage.py startapp firstapp}\\
+			\end{itemize}
 
 Then, we will introduce some key files for designing a webpage.
 		
