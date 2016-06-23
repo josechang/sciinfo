@@ -37,39 +37,38 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 2 : Clone the repository
 
-> First move to the ~ directory
+	First move to the ~ directory
 
 		cd ~
 
-> Then clone the repository
+	Then clone the repository
 
 		git clone (URL of the bitbucket)		
 	Ex:
 		git clone https://github.com/
+		
+* Step 3 : Move into the repository
 
-Note that if Django already install all postgreSQL package, Skip this step.		
+		cd nordron-sciinfo
 
-Step 2 : Create a new PostgreSQL database cluster
+* Step 4 : Pull the files
 
-		sudo postgresql-setup initdb
+		git pull
+		
+### Start the spider ###
 
-Step 3 : Use the editer to modify pg_hba.conf
+* Step 1 : Move into the repository
+	
+		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler
+		
+* Step 2 : Run the spider
 
-you can use vi vim or nano by your choice.
+		python New_spider.py
 
-		sudo vi /var/lib/pgsql/data/pg_hba.conf
+* Step 3 : Check the files
 
-Origin:
-
-		host    all             all             127.0.0.1/32            ident
-		host    all             all             ::1/128                 ident
-
-Final:
-
-		host    all             all             127.0.0.1/32            md5
-		host    all             all             ::1/128                 md5
-
-Step 3 : Start and enable database management system (DBMS).
+	There will be a pdfs.txt which include all the file path and original link of the files.
+	And a repository called pdf which includes the pdf files.
 
 ### PostgreSQL ###
 
