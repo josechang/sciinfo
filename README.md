@@ -161,7 +161,7 @@ This README would normally document whatever steps are necessary to get your app
 		sudo nano /var/lib/pgsql/data/pg_hba.conf
 
 	Move to the bottom of the page and you can see this.
-	Modify the two host line by changing the last column to md:
+	Modify the two host line by changing the last column to md5:
 	
 		. . .
 		
@@ -176,7 +176,23 @@ This README would normally document whatever steps are necessary to get your app
 		#host    all             all             ::1/128                 ident
 		host    all             all             ::1/128                 md5
 
-
+* Step 5: Restart the service
+		
+		sudo systemctl restart postgresql
+		sudo systemctl enable postgresql
+		
+* Step 6: Change to root user
+		
+		sudo su - postgres
+		psql
+		
+* Step 7: Create the database
+		
+		CREATE DATABASE <myproject>;
+		CREATE USER <myprojectuser> WITH PASSWORD '<password>';
+		GRANT ALL PRIVILEGES ON DATABASE <myproject> TO <myprojectuser>;
+		\q
+		exit
 
 
 * Step 1: make a directory
