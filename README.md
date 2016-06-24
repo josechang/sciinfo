@@ -32,11 +32,9 @@ This README would normally document whatever steps are necessary to get your app
 ### Create a user on Centos ###
 
 * Step 1 : Find the URL
-
 		adduser <username>
 		
 * Step 2 : Set the password of the user
-
 		passwd <username>
 		
 * Step 3 : Login with the new user
