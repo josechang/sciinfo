@@ -31,19 +31,19 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Create a user on Centos ###
 
-* Step 1: Find the URL
+* Step 1: Find the URL.
 
 		adduser <username>
 		
-* Step 2: Set the password of the user
+* Step 2: Set the password of the user.
 
 		passwd <username>		
 		
-* Step 3: Execute the following command
+* Step 3: Execute the following command.
 		
 		/usr/sbin/visudo
 		
-* Step 4: Add the user to sudo list
+* Step 4: Add the user to sudo list.
 		
 	Find: 
 	
@@ -56,44 +56,42 @@ This README would normally document whatever steps are necessary to get your app
 		root	ALL=(ALL)	ALL
 		<username>	ALL=(ALL)	ALL
 		
-* Step 5: Re-login with the new username
-		
+* Step 5: Re-login with the new username.
+
 
 ### Set up git ###
 
-* Step 1: Install git on Centos
+* Step 1: Install git on Centos.
 
 		sudo yum install git
 		
-* Step 2: Find the URL
+* Step 2: Find the URL.
 
 	Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
 	and find the HTTPS link on the top-right of the page.
 
-* Step 3: Clone the repository
+* Step 3: Clone the repository.
 
-	First move to the ~ directory
+	First move to the ~ directory.
 
 		cd ~
 
-	Then clone the repository
+	Then clone the repository.
 
-		git clone <URL of the bitbucket>	
-	Ex:
-		git clone https://github.com/
+		git clone <URL of the bitbucket>		
 		
-* Step 4: Move into the repository
+* Step 4: Move into the repository.
 
 		cd nordron-sciinfo
 
-* Step 5: Pull the files
+* Step 5: Pull the files.
 
 		git pull
 		
 		
 ### Start the spider ###
 
-* Step 1: Install pip on Centos
+* Step 1: Install pip on Centos.
 
 		sudo yum install epel-release
 		
@@ -101,24 +99,34 @@ This README would normally document whatever steps are necessary to get your app
 		
 		sudo yum install -y python-pip
 
-* Step 2: Set up the package Beautifulsoup
+* Step 2: Set up the package Beautifulsoup.
 
 		pip install beautifulsoup4
 
-* Step 3: Move into the repository
+* Step 3: Move into the repository of the spider.
 	
 		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler
 		
-* Step 4: Run the spider
+* Step 4: Run the spider.
 
 		python New_spider.py
 
-* Step 5: Check the files
+* Step 5: Check the files.
 
 	There will be a pdfs.txt which include all the file path and original link of the files
 	and a repository called pdf which includes the pdf files.
 	
+	
+### Convert pdfs into txts ###
 
+* Step 1: Install pdfx.
+
+		sudo pip install pdfx
+		
+* Step 2: Move into the repository of the pdf converter.
+		
+		
+	
 ### Django ###
 
 * Step 1: make a directory
