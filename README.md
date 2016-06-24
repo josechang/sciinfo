@@ -123,9 +123,18 @@ This README would normally document whatever steps are necessary to get your app
 
 		sudo pip install pdfx
 		
-* Step 2: Move into the repository of the pdf converter.
+* Step 2: Make a directory called txt under Wolverine_Webcrawler
+
+		mkdir ~/nordron-sciinfo/Code/Wolverine_Webcrawler/txt
 		
+* Step 3: Move into the repository of the pdfs.
 		
+		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler/pdfs
+		ls		
+
+* Step 4: Transfer the files one by one
+		
+		pdfx <filename> -t -o output ../txt
 	
 ### Django ###
 
