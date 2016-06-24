@@ -290,10 +290,10 @@ This README would normally document whatever steps are necessary to get your app
 		After=network.target
 		
 		[Service]
-		User=user
+		User=<user>
 		Group=nginx
-		WorkingDirectory=/home/user/myproject
-		ExecStart=/home/user/myproject/myprojectenv/bin/gunicorn --workers 3 --bind unix:/home/user/myproject/myproject.sock myproject.wsgi:application
+		WorkingDirectory=/home/<user>/<myproject>
+		ExecStart=/home/<user>/<myproject>/<myprojectenv>/bin/gunicorn --workers 3 --bind unix:/home/<user>/<myproject>/<myproject>.sock <myproject>.wsgi:application
 
 		[Install]
 		WantedBy=multi-user.target
@@ -302,6 +302,39 @@ This README would normally document whatever steps are necessary to get your app
 		
 		sudo systemctl start gunicorn
 		sudo systemctl enable gunicorn
+		
+* Step 22: Modify the nginx configuration file.
+		
+		sudo nano /etc/nginx/nginx.conf
+	
+	Inside it we can see:
+		
+		server {
+			listen 80;
+			server_name <server_domain_or_IP>;
+
+			location = /favicon.ico { access_log off; log_not_found off; }
+			location /static/ {
+				root /home/<user>/<myproject>;
+			}
+
+			location / {
+				proxy_set_header Host $http_host;
+				proxy_set_header X-Real-IP $remote_addr;
+				proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+				proxy_set_header X-Forwarded-Proto $scheme;
+				proxy_pass http://unix:/home/<user>/<myproject>/<myproject>.sock;
+			}
+		}
+		
+* Step 23: Adjust group membership and permissions.
+		
+		sudo usermod -a -G <user> nginx
+		chmod 710 /home/<user>
+		sudo nginx -t
+		sudo systemctl start nginx	
+		sudo systemctl enable nginx
+		
 
 ### Python ###
 
