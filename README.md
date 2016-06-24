@@ -31,31 +31,46 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Create a user on Centos ###
 
-* Step 1 : Find the URL
+* Step 1: Find the URL
 
 		adduser <username>
 		
-		
-* Step 2 : Set the password of the user
+* Step 2: Set the password of the user
 
-		passwd <username>
+		passwd <username>		
 		
+* Step 3: Execute the following command
 		
-* Step 3 : Login with the new user
-
+		/usr/sbin/visudo
+		
+* Step 4: Add the user to sudo list
+		
+	Find: 
+	
+		## Allow root to run any commands anywhere
+		root	ALL=(ALL)	ALL
+		
+	Change to:
+		
+		## Allow root to run any commands anywhere
+		root	ALL=(ALL)	ALL
+		<username>	ALL=(ALL)	ALL
+		
+* Step 5: Re-login with the new username
+		
 
 ### Set up git ###
 
-* Step 1 : Install git on Centos
+* Step 1: Install git on Centos
 
-
-
-* Step 1 : Find the URL
+		sudo yum install git
+		
+* Step 2: Find the URL
 
 	Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
 	and find the HTTPS link on the top-right of the page.
 
-* Step 2 : Clone the repository
+* Step 3: Clone the repository
 
 	First move to the ~ directory
 
@@ -67,35 +82,46 @@ This README would normally document whatever steps are necessary to get your app
 	Ex:
 		git clone https://github.com/
 		
-* Step 3 : Move into the repository
+* Step 4: Move into the repository
 
 		cd nordron-sciinfo
 
-* Step 4 : Pull the files
+* Step 5: Pull the files
 
 		git pull
 		
+		
 ### Start the spider ###
 
-* Step 1 : Set up the package
+* Step 1: Install pip on Centos
+
+		sudo yum install epel-release
+		
+	Then do:	
+		
+		sudo yum install -y python-pip
+
+* Step 2: Set up the package Beautifulsoup
 
 		pip install beautifulsoup4
 
-* Step 2 : Move into the repository
+* Step 3: Move into the repository
 	
 		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler
 		
-* Step 3 : Run the spider
+* Step 4: Run the spider
 
 		python New_spider.py
 
-* Step 4 : Check the files
+* Step 5: Check the files
 
-	There will be a pdfs.txt which include all the file path and original link of the files.
-	And a repository called pdf which includes the pdf files.
+	There will be a pdfs.txt which include all the file path and original link of the files
+	and a repository called pdf which includes the pdf files.
+	
 
 ### Django ###
-* Step 1 : make a directory
+
+* Step 1: make a directory
 
 		mkdir folder_name
 	 
