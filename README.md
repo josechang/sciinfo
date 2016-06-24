@@ -123,7 +123,7 @@ This README would normally document whatever steps are necessary to get your app
 
 		sudo pip install pdfx
 		
-* Step 2: Make a directory called txt under Wolverine_Webcrawler
+* Step 2: Make a directory called txt under Wolverine_Webcrawler.
 
 		mkdir ~/nordron-sciinfo/Code/Wolverine_Webcrawler/txt
 		
@@ -135,26 +135,26 @@ This README would normally document whatever steps are necessary to get your app
 	
 		ls		
 
-* Step 4: Transfer the files one by one
+* Step 4: Transfer the files one by one.
 		
 		pdfx <filename>.pdf -t -o ../txt/<filename>.txt
 	
 	
 ### Install Django with Postgres, Nginx and Gunicorn ###
 
-* Step 1: Installation of the Postgres
+* Step 1: Installation of the Postgres.
 
 		sudo yum install python-devel postgresql-server postgresql-devel psotgresql-contrib gcc nginx
 
-* Step 2: Initialize the PostgreSQL
+* Step 2: Initialize the PostgreSQL.
 
 		sudo postgresql-setup initdb
 		
-* Step 3: Start the PostgreSQL service
+* Step 3: Start the PostgreSQL service.
 		
 		sudo systemctl start postgresql
 		
-* Step 4: Change the setting
+* Step 4: Change the setting.
 		
 	When opening:
 	
@@ -176,17 +176,17 @@ This README would normally document whatever steps are necessary to get your app
 		#host    all             all             ::1/128                 ident
 		host    all             all             ::1/128                 md5
 
-* Step 5: Restart the service
+* Step 5: Restart the service.
 		
 		sudo systemctl restart postgresql
 		sudo systemctl enable postgresql
 		
-* Step 6: Change to root user
+* Step 6: Change to root user.
 		
 		sudo su - postgres
 		psql
 		
-* Step 7: Create the database
+* Step 7: Create the database.
 		
 		CREATE DATABASE <myproject>;
 		CREATE USER <myprojectuser> WITH PASSWORD '<password>';
@@ -194,32 +194,32 @@ This README would normally document whatever steps are necessary to get your app
 		\q
 		exit
 		
-* Step 8: Install virtualenv
+* Step 8: Install virtualenv.
 		
 		sudo pip install virtualenv
 		
-* Step 9: Make the directory
+* Step 9: Make the directory.
 		
 		mkdir ~/myproject
 		cd ~/myproject
 		
-* Step 10: Within the directory create virtualenv
+* Step 10: Within the directory create virtualenv.
 		
 		virtualenv myprojectenv
 		
-* Step 11: Activate virtualenv
+* Step 11: Activate virtualenv.
 				
 		source myprojectenv/bin/activate
 		
-* Step 12: Install django and so on
+* Step 12: Install django and so on.
 		
 		pip install django gunicorn psycopg2
 		
-* Step 13: Create a project
+* Step 13: Create a project.
 		
 		django-admin.py startproject myproject .
 		
-* Step 14: Adjust the setting
+* Step 14: Adjust the setting.
 		
 	When open:	
 	
@@ -242,7 +242,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 		STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 		
-* Step 16: Return to the myproject directory
+* Step 16: Return to the myproject directory.
 		
 		cd ~/<myproject>
 		./manage.py makemigrations
@@ -254,13 +254,13 @@ This README would normally document whatever steps are necessary to get your app
 		
 	When prompted select a user name, provide an email address and choose and comfirm a password.
 		
-* Step 18: Collect the static content
+* Step 18: Collect the static content.
 		
 		./manage.py collectstatic
 		
 	When prompted, click 'Y'.
 	
-* Step 19: Run the server
+* Step 19: Run the server.
 		
 		./manage.py runserver 0.0.0.0:8000
 		
@@ -275,7 +275,7 @@ This README would normally document whatever steps are necessary to get your app
 		cd ~/<myproject>
 		gunicorn --bind 0.0.0.0:8000 <myproject>.wsgi:application
 		
-	To stop Gunicorn hit Ctrl+C, then deactivate the virtulenv.
+	To stop Gunicorn hit Ctrl+C, then deactivate the virtulenv:
 		
 		deactivate
 		
