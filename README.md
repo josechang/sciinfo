@@ -193,111 +193,74 @@ This README would normally document whatever steps are necessary to get your app
 		GRANT ALL PRIVILEGES ON DATABASE <myproject> TO <myprojectuser>;
 		\q
 		exit
-
-
-* Step 1: make a directory
-
-		mkdir folder_name
-	 
-* Step 2 :make a new folder for the virtual environment
-
-		cd folder_name
-
-* step 3 : set up the virtual environment
 		
-		virtualenv folder_name_enve
-
-		cd folder_name_enve
-
-* step 4 : activate the virtual environment
-
-		source bin/activate
-
-		cd ..
+* Step 8: Install virtualenv
 		
-		cd ..
-	Back to the folder_name
-
-* step 5 : install django
-
-		pip install django
-
-* step 6 : copy the existing file to this foler
+		sudo pip install virtualenv
 		
-### PostgreSQL ###
-
-* [PostgreSQL Documentation](https://www.postgresql.org/docs/) : 
-
-	There are several online manuals to refer. It's help to search SQL command.
-
-* [PostgreSQL wiki - Psycopg2 Tutorial](https://wiki.postgresql.org/wiki/Psycopg2_Tutorial) : 
-
-	Some simple Python code can be found in this way. You can just modify it.
-
-* [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7) : 
-
-	It's really suitable for a beginner. All commands almost come from here.
-
-* Step 1 : Installation
-
-		sudo yum install postgresql-server postgresql-contrib
-
-	_Note that_ if Django already install all postgreSQL package, Skip this step.		
-
-* Step 2 : Create a new PostgreSQL database cluster
-
-		sudo postgresql-setup initdb
-
-* Step 3 : Use the editer to modify pg_hba.conf
-
-	you can use vi vim or nano by your choice.
-
-		sudo vi /var/lib/pgsql/data/pg_hba.conf
-
-* Origin:
-
-		host    all             all             127.0.0.1/32            ident
-		host    all             all             ::1/128                 ident
-
-* Final:
-
-		host    all             all             127.0.0.1/32            md5
-		host    all             all             ::1/128                 md5
-
-* Step 3 : Start and enable database management system (DBMS).
-
-		sudo systemctl start postgresql
-		systemctl enable postgresql
-
-
-* Step 4 : Log in the default Postgres role.
-
-		sudo -i -u postgres
-
-* Step 5 : Create a New Database
+* Step 9: Make the directory
+		
+		mkdir ~/myproject
+		cd ~/myproject
+		
+* Step 10: Within the directory create virtualenv
+		
+		virtualenv myprojectenv
+		
+* Step 11: Activate virtualenv
+				
+		source myprojectenv/bin/activate
+		
+* Step 12: Install django and so on
+		
+		pip install django gunicorn psycopg2
+		
+* Step 13: Create a project
+		
+		django-admin.py startproject myproject .
+		
+* Step 14: Adjust the setting
+		
+	When open:	
 	
-		createdb test
+		nano myproject/settings.py
+
+	You'll see:
 	
-* Step 6 : Enter the database.
+		DATABASES = {
+			'default': {
+				'ENGINE': 'django.db.backends.postgresql_psycopg2',
+				'NAME': '<myproject>',
+				'USER': '<myprojectuser>',
+				'PASSWORD': '<password>',
+				'HOST': 'localhost',
+				'PORT': '',
+			}
+		}
+		
+* Step 15: Insert the static root.
+		
+		STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+		
+* Step 16: Return to the myproject directory
+		
+		cd ~/<myproject>
+		./manage.py makemigrations
+		./manage.py migrate
 
-		psql -d test
+* Step 17: Create an administrator.
+
+		./manage.py createsuperuser
+		
+	When prompted select a user name, provide an email address and choose and comfirm a password.
+		
+* Step 18: Collect the static content
+		
+		./manage.py collectstatic
+		
+	When prompted, click 'Y'.
 	
-	_Note that_ if Django already create its own database, Skip this step.
-	
-* Step 7 : Create a New Table
-
-		CREATE TABLE fulltxt (
-			name varchar (250) NOT NULL,
-			data text NOT NULL,
-		);
-
-	_Note that_ after you download some articles and  convert into txt files, do next step!
-
-* Step 8 : Insert data.
-
-		INSERT INTO fulltxt (name,data) VALUES ('This is the filename.','
-			Copying the article here. ( Ctrl+C, Ctrl+V)
-		');
+* Step 19: 
 
 ### Python ###
 
