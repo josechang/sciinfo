@@ -109,7 +109,7 @@ def createHTML():
 		f.write('<table id="total" border="1" class="sortable">')
 		f.write('<tr><th>Participants</th><th>Attendace at lecture</th><th>Attendance at daily scrum</th><th>GIT Score</th><th>Oral presentation</th><th>Quiz</th><th>Report</th><th><button onclick="calculate()">TOTAL</button></th></tr>')
 		for i in range(len(participants)):
-			f.write('<tr><td>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td><input value="0"></td><td>%d</td></tr>'% (participants[i],attendance_lecture[i],daily_scrum_grade[i],gitScore_transfer[i],presentation_grade[i],quiz_grade[i],temptotal_grade[i]))
+			f.write('<tr><td>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td><input value="85"></td><td>%d</td></tr>'% (participants[i],attendance_lecture[i],daily_scrum_grade[i],gitScore_transfer[i],presentation_grade[i],quiz_grade[i],temptotal_grade[i]))
 		f.write('</table>')
 		f.write('<script src="score.js"></script>')
 		f.write('<script src="sorttable.js"></script>')
@@ -165,11 +165,11 @@ def remove_fake_stats():
 		words_inserted[index]-=int(getdata(cmd_ins_word)[0])
 		num_commits[index]-=1
 def get_attendance_lecture():
-	global attendance_lecture
-	attendance_lecture=getdata(["awk '{print $NF}' Attendance_lecture.tsv"])
-	for i,item in enumerate(attendance_lecture):
-		attendance_lecture[i]=item.replace("\r","")
-		attendance_lecture[i]=round(float(attendance_lecture[i])*100)
+	for i in range(len(par)):
+		cmd=["grep '%s' Attendance_lecture.tsv" % par[i],"awk '{print $NF}'"]
+		a=getdata(cmd)[0]
+		a=a.replace("\r","")
+		attendance_lecture.append(round(float(a)*100))
 def get_GitScore():
 	i=authors.index("Torbjörn Nordling")
 	prof_data=[num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]]
@@ -222,7 +222,7 @@ def get_attendance_scrum():
 		daily_scrum_grade.append(round(float(a)*100))
 def get_temptotal():
 	for i in range(len(par)):
-		temptotal_grade.append(round(0.18*attendance_lecture[i]+0.06*daily_scrum_grade[i]+0.36*gitScore_transfer[i]+0.1*presentation_grade[i]+0.1*quiz_grade[i]))
+		temptotal_grade.append(round(0.18*attendance_lecture[i]+0.06*daily_scrum_grade[i]+0.36*gitScore_transfer[i]+0.1*presentation_grade[i]+0.1*quiz_grade[i]+0.2*85))
 def TotalScore():
 	transform_datalist()
 	get_attendance_lecture()
