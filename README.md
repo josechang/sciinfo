@@ -139,7 +139,45 @@ This README would normally document whatever steps are necessary to get your app
 		
 		pdfx <filename>.pdf -t -o ../txt/<filename>.txt
 	
-### Django ###
+	
+### Install Django with Postgres, Nginx and Gunicorn ###
+
+* Step 1: Installation of the Postgres
+
+		sudo yum install python-devel postgresql-server postgresql-devel psotgresql-contrib gcc nginx
+
+* Step 2: Initialize the PostgreSQL
+
+		sudo postgresql-setup initdb
+		
+* Step 3: Start the PostgreSQL service
+		
+		sudo systemctl start postgresql
+		
+* Step 4: Change the setting
+		
+	When opening:
+	
+		sudo nano /var/lib/pgsql/data/pg_hba.conf
+
+	Move to the bottom of the page and you can see this.
+	Modify the two host line by changing the last column to md:
+	
+		. . .
+		
+		# TYPE	DATABASE	USER	ADDRESS	METHOD
+
+		# "local" is for Unix domain socket connections only
+		local   all             all                                     peer
+		# IPv4 local connections:
+		#host    all             all             127.0.0.1/32            ident
+		host    all             all             127.0.0.1/32            md5
+		# IPv6 local connections:
+		#host    all             all             ::1/128                 ident
+		host    all             all             ::1/128                 md5
+
+
+
 
 * Step 1: make a directory
 
