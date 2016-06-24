@@ -260,7 +260,48 @@ This README would normally document whatever steps are necessary to get your app
 		
 	When prompted, click 'Y'.
 	
-* Step 19: 
+* Step 19: Run the server
+		
+		./manage.py runserver 0.0.0.0:8000
+		
+	Test this on the browser:
+	
+		http://<server_domain_or_IP>:8000
+		
+	After testing hit Ctrl+C on puTTy to stop the server.
+		
+* Step 20: Test Gunicorn.
+		
+		cd ~/<myproject>
+		gunicorn --bind 0.0.0.0:8000 <myproject>.wsgi:application
+		
+	To stop Gunicorn hit Ctrl+C, then deactivate the virtulenv.
+		
+		deactivate
+		
+* Step 21: Create a Gunicorn systemd service file.
+		
+		sudo nano /etc/systemd/system/gunicorn.service
+		
+	And insert the following lines:
+		
+		[Unit]
+		Description=gunicorn daemon
+		After=network.target
+		
+		[Service]
+		User=user
+		Group=nginx
+		WorkingDirectory=/home/user/myproject
+		ExecStart=/home/user/myproject/myprojectenv/bin/gunicorn --workers 3 --bind unix:/home/user/myproject/myproject.sock myproject.wsgi:application
+
+		[Install]
+		WantedBy=multi-user.target
+		
+	Then close and save the file and start and enable it:
+		
+		sudo systemctl start gunicorn
+		sudo systemctl enable gunicorn
 
 ### Python ###
 
