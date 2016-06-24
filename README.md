@@ -137,7 +137,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 4: Transfer the files one by one
 		
-		pdfx pdfs/<filename> -t -o ../txt/<filename>.txt
+		pdfx <filename>.pdf -t -o ../txt/<filename>.txt
 	
 ### Django ###
 
