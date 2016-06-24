@@ -28,156 +28,313 @@ This README would normally document whatever steps are necessary to get your app
 * Repo owner or admin
 * Other community or team contact
 
+
+### Create a user on Centos ###
+
+* Step 1: Find the URL.
+
+		adduser <username>
+		
+* Step 2: Set the password of the user.
+
+		passwd <username>		
+		
+* Step 3: Execute the following command.
+		
+		/usr/sbin/visudo
+		
+* Step 4: Add the user to sudo list.
+		
+	Find: 
+	
+		## Allow root to run any commands anywhere
+		root	ALL=(ALL)	ALL
+		
+	Change to:
+		
+		## Allow root to run any commands anywhere
+		root	ALL=(ALL)	ALL
+		<username>	ALL=(ALL)	ALL
+		
+* Step 5: Re-login with the new username.
+
+
 ### Set up git ###
 
-* Step 1 : Find the URL
+* Step 1: Install git on Centos.
+
+		sudo yum install git
+		
+* Step 2: Find the URL.
 
 	Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
 	and find the HTTPS link on the top-right of the page.
 
-* Step 2 : Clone the repository
+* Step 3: Clone the repository.
 
-	First move to the ~ directory
+	First move to the ~ directory.
 
 		cd ~
 
-	Then clone the repository
+	Then clone the repository.
 
-		git clone (URL of the bitbucket)		
-	Ex:
-		git clone https://github.com/
+		git clone <URL of the bitbucket>		
 		
-* Step 3 : Move into the repository
+* Step 4: Move into the repository.
 
 		cd nordron-sciinfo
 
-* Step 4 : Pull the files
+* Step 5: Pull the files.
 
 		git pull
 		
+		
 ### Start the spider ###
 
-* Step 1 : Set up the package
+* Step 1: Install pip on Centos.
+
+		sudo yum install epel-release
+		
+	Then do:	
+		
+		sudo yum install -y python-pip
+
+* Step 2: Set up the package Beautifulsoup.
 
 		pip install beautifulsoup4
 
-* Step 2 : Move into the repository
+* Step 3: Move into the repository of the spider.
 	
 		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler
 		
-* Step 3 : Run the spider
+* Step 4: Run the spider.
 
 		python New_spider.py
 
-* Step 4 : Check the files
+* Step 5: Check the files.
 
-	There will be a pdfs.txt which include all the file path and original link of the files.
-	And a repository called pdf which includes the pdf files.
+	There will be a pdfs.txt which include all the file path and original link of the files
+	and a repository called pdf which includes the pdf files.
+	
+	
+### Convert pdfs into txts ###
 
-### Django ###
-* Step 1 : make a directory
+* Step 1: Install pdfx.
 
-		mkdir folder_name
-	 
-* Step 2 :make a new folder for the virtual environment
-
-		cd folder_name
-
-* step 3 : set up the virtual environment
+		sudo pip install pdfx
 		
-		virtualenv folder_name_enve
+* Step 2: Make a directory called txt under Wolverine_Webcrawler
 
-		cd folder_name_enve
-
-* step 4 : activate the virtual environment
-
-		source bin/activate
-
-		cd ..
+		mkdir ~/nordron-sciinfo/Code/Wolverine_Webcrawler/txt
 		
-		cd ..
-	Back to the folder_name
-
-* step 5 : install django
-
-		pip install django
-
-* step 6 : copy the existing file to this foler
+* Step 3: Move into the repository of the pdfs.
 		
-### PostgreSQL ###
+		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler/pdfs
+		
+	Check the files:
+	
+		ls		
 
-* [PostgreSQL Documentation](https://www.postgresql.org/docs/) : 
+* Step 4: Transfer the files one by one
+		
+		pdfx <filename>.pdf -t -o ../txt/<filename>.txt
+	
+	
+### Install Django with Postgres, Nginx and Gunicorn ###
 
-	There are several online manuals to refer. It's help to search SQL command.
+* Step 1: Installation of the Postgres
 
-* [PostgreSQL wiki - Psycopg2 Tutorial](https://wiki.postgresql.org/wiki/Psycopg2_Tutorial) : 
+		sudo yum install python-devel postgresql-server postgresql-devel psotgresql-contrib gcc nginx
 
-	Some simple Python code can be found in this way. You can just modify it.
-
-* [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7) : 
-
-	It's really suitable for a beginner. All commands almost come from here.
-
-* Step 1 : Installation
-
-		sudo yum install postgresql-server postgresql-contrib
-
-	_Note that_ if Django already install all postgreSQL package, Skip this step.		
-
-* Step 2 : Create a new PostgreSQL database cluster
+* Step 2: Initialize the PostgreSQL
 
 		sudo postgresql-setup initdb
+		
+* Step 3: Start the PostgreSQL service
+		
+		sudo systemctl start postgresql
+		
+* Step 4: Change the setting
+		
+	When opening:
+	
+		sudo nano /var/lib/pgsql/data/pg_hba.conf
 
-* Step 3 : Use the editer to modify pg_hba.conf
+	Move to the bottom of the page and you can see this.
+	Modify the two host line by changing the last column to md5:
+	
+		. . .
+		
+		# TYPE	DATABASE	USER	ADDRESS	METHOD
 
-	you can use vi vim or nano by your choice.
-
-		sudo vi /var/lib/pgsql/data/pg_hba.conf
-
-* Origin:
-
-		host    all             all             127.0.0.1/32            ident
-		host    all             all             ::1/128                 ident
-
-* Final:
-
+		# "local" is for Unix domain socket connections only
+		local   all             all                                     peer
+		# IPv4 local connections:
+		#host    all             all             127.0.0.1/32            ident
 		host    all             all             127.0.0.1/32            md5
+		# IPv6 local connections:
+		#host    all             all             ::1/128                 ident
 		host    all             all             ::1/128                 md5
 
-* Step 3 : Start and enable database management system (DBMS).
-
-		sudo systemctl start postgresql
-		systemctl enable postgresql
-
-
-* Step 4 : Log in the default Postgres role.
-
-		sudo -i -u postgres
-
-* Step 5 : Create a New Database
+* Step 5: Restart the service
+		
+		sudo systemctl restart postgresql
+		sudo systemctl enable postgresql
+		
+* Step 6: Change to root user
+		
+		sudo su - postgres
+		psql
+		
+* Step 7: Create the database
+		
+		CREATE DATABASE <myproject>;
+		CREATE USER <myprojectuser> WITH PASSWORD '<password>';
+		GRANT ALL PRIVILEGES ON DATABASE <myproject> TO <myprojectuser>;
+		\q
+		exit
+		
+* Step 8: Install virtualenv
+		
+		sudo pip install virtualenv
+		
+* Step 9: Make the directory
+		
+		mkdir ~/myproject
+		cd ~/myproject
+		
+* Step 10: Within the directory create virtualenv
+		
+		virtualenv myprojectenv
+		
+* Step 11: Activate virtualenv
+				
+		source myprojectenv/bin/activate
+		
+* Step 12: Install django and so on
+		
+		pip install django gunicorn psycopg2
+		
+* Step 13: Create a project
+		
+		django-admin.py startproject myproject .
+		
+* Step 14: Adjust the setting
+		
+	When open:	
 	
-		createdb test
+		nano myproject/settings.py
+
+	You'll see:
 	
-* Step 6 : Enter the database.
+		DATABASES = {
+			'default': {
+				'ENGINE': 'django.db.backends.postgresql_psycopg2',
+				'NAME': '<myproject>',
+				'USER': '<myprojectuser>',
+				'PASSWORD': '<password>',
+				'HOST': 'localhost',
+				'PORT': '',
+			}
+		}
+		
+* Step 15: Insert the static root.
+		
+		STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+		
+* Step 16: Return to the myproject directory
+		
+		cd ~/<myproject>
+		./manage.py makemigrations
+		./manage.py migrate
 
-		psql -d test
+* Step 17: Create an administrator.
+
+		./manage.py createsuperuser
+		
+	When prompted select a user name, provide an email address and choose and comfirm a password.
+		
+* Step 18: Collect the static content
+		
+		./manage.py collectstatic
+		
+	When prompted, click 'Y'.
 	
-	_Note that_ if Django already create its own database, Skip this step.
+* Step 19: Run the server
+		
+		./manage.py runserver 0.0.0.0:8000
+		
+	Test this on the browser:
 	
-* Step 7 : Create a New Table
+		http://<server_domain_or_IP>:8000
+		
+	After testing hit Ctrl+C on puTTy to stop the server.
+		
+* Step 20: Test Gunicorn.
+		
+		cd ~/<myproject>
+		gunicorn --bind 0.0.0.0:8000 <myproject>.wsgi:application
+		
+	To stop Gunicorn hit Ctrl+C, then deactivate the virtulenv.
+		
+		deactivate
+		
+* Step 21: Create a Gunicorn systemd service file.
+		
+		sudo nano /etc/systemd/system/gunicorn.service
+		
+	And insert the following lines:
+		
+		[Unit]
+		Description=gunicorn daemon
+		After=network.target
+		
+		[Service]
+		User=<user>
+		Group=nginx
+		WorkingDirectory=/home/<user>/<myproject>
+		ExecStart=/home/<user>/<myproject>/<myprojectenv>/bin/gunicorn --workers 3 --bind unix:/home/<user>/<myproject>/<myproject>.sock <myproject>.wsgi:application
 
-		CREATE TABLE fulltxt (
-			name varchar (250) NOT NULL,
-			data text NOT NULL,
-		);
+		[Install]
+		WantedBy=multi-user.target
+		
+	Then close and save the file and start and enable it:
+		
+		sudo systemctl start gunicorn
+		sudo systemctl enable gunicorn
+		
+* Step 22: Modify the nginx configuration file.
+		
+		sudo nano /etc/nginx/nginx.conf
+	
+	Inside it we can see:
+		
+		server {
+			listen 80;
+			server_name <server_domain_or_IP>;
 
-	_Note that_ after you download some articles and  convert into txt files, do next step!
+			location = /favicon.ico { access_log off; log_not_found off; }
+			location /static/ {
+				root /home/<user>/<myproject>;
+			}
 
-* Step 8 : Insert data.
-
-		INSERT INTO fulltxt (name,data) VALUES ('This is the filename.','
-			Copying the article here. ( Ctrl+C, Ctrl+V)
-		');
+			location / {
+				proxy_set_header Host $http_host;
+				proxy_set_header X-Real-IP $remote_addr;
+				proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+				proxy_set_header X-Forwarded-Proto $scheme;
+				proxy_pass http://unix:/home/<user>/<myproject>/<myproject>.sock;
+			}
+		}
+		
+* Step 23: Adjust group membership and permissions.
+		
+		sudo usermod -a -G <user> nginx
+		chmod 710 /home/<user>
+		sudo nginx -t
+		sudo systemctl start nginx	
+		sudo systemctl enable nginx
+		
 
 ### Python ###
 
