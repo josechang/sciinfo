@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Team:
+% EagleUnit
+% Members: 
+% Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang
+% Relative files:
+% Main.tex, Background_EagleUnit.tex, Library.bib, EagleUnit_Background_Chart_1.png
+% Note:
+% Do not compile this file compile Main.tex to get the pdf file instead.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Web Server Structure}
+By combining Django, PostgreSQL, NGINX, and Gunicorn, a robust web server was build.
+The Django provide a very convenient web page framework to modify the outlooks and functions. 
+For the database system, Postgres provide a much more powerful function and management then the default SQLite in Django.
+By using Gunicor as an interface to the Django, NGINX makes the server more  fast and secured on communication with the internet requests.
+
+\subsection{NGINX Server}
+The NGINX server provide a particular internet domain to our web page,
+which allowed us to connect the web page by using URL,
+with out entering any port number. Additionally,
+the NGINX server is not only playing the role of reverse proxy server of our Django server,
+it can direct the user to any other domain in the main sever as well.
+It means we can have other single HTML files not including in the Django server, or,
+even an other Django project, and all linking to the same NGINX server.
+NGINX can lead the user to projects according their own requests. 
+
+\subsection{Web Page}
+The final design of the search setting page has a search bar and several filters.
+It allows users to enter the keywords, and decide which part of articles should the search system search in.
+To display the articles found, we didn't shows them in the same page with search settings in the end. 
+Instead, a link to a new page displaying all the metadata of search results was created.

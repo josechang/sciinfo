@@ -37,7 +37,9 @@ Furthermore,they can support different kinds of databases.
 %For building up such a database. We need a database management system (DBMS), a computer application that interacts with the user and other applications, captures and analyze data itself. 
 
 
+
 %Well-known DBMSs include MySQL, PostgreSQL, Microsoft SQL Server, Oracle, Sybase and IBM DB2. All of them can support different kinds of databases. This study includes numerous application and usage of such database as follows.
+
 
 
 %MySQL is the second rank relational database management system (RDBMS) which is open-source. LAMP is an archetypal model of web service solution stacks, and its central component is MySQL. 
@@ -171,23 +173,64 @@ SQL is the ideal language when projects require logical related discrete data th
 On the other hand, NoSQL can be considered as an ideal language if projects require unrelated, indeterminate or evolving data and simultaneously. 
 It needs speed and scalability.
 
+\subsubsection{MySQL}
+MYSQL is one of the  most popular among the 
+open-source database due to the reason  MYSQL 
+offers a verity of functionality Whether y a fast growing web
+property, technology ISV, or large enterprise, MySQL can help a developer
+to deliver high performance, scalable database applications and more predominantly it has a free community. Cross platform and 
+that's why MYSQL is  the good choice for  both development process
+which works on almost all the  platforms and for companies
+with heterogenous IT infrastructure. For  developers well MYSQL
+s well known  for  its efficient workbench tool , 
+admin and data migration.Very fast on simple queries.
 
 \subsubsection{PostgreSQL}
 
 PostgreSQL is an open source object-relational database management system (ORDBMS).
 It's developed at the University of California, Berkeley.
-The following operating systems such as Linux, Windows and MacOS are able to install PostgreSQL.
-There are so many graphical user interface (GUI) like Pgadmin and PhpPgadmin we can choose.
+PostgreSQL works on all platform, Linux, Windows, and MacOS .
+There is variety of graphical user interface (GUI)  to choose from like Pgadmin and PhpPgadmin.
 It stores most SQL:2008 data types, such as INTEGER, NUMERIC, BOOLEAN, CHAR, VARCHAR, DATE, INTERVAL or TIMESTAMP and even binary large objects including pictures, sounds, or video.
-It has programming language interfaces for C/C++, .NET, Java, Python, php, among others.
+It is compatible with the  programming language such as C/C++,NET, Java, Python, PHP, etc.
 
-The following is advantages of PostgreSQL.
-It's free and powerful RDBMS.
-To deal with amounts of data , PostgreSQL is supported with  open-source third-party tools compatibility extensions for designing, managing, and applying the DBMS.
-It has a strong and experienced community accessed through knowledge-bases sites any time for free due to the long history of PostgreSQL.
-PostgreSQL not only is a RDBMS system but also have features of an OODBMS.
-However, PostgreSQL is too simple to appear less performance than MySQL.
-Because of a lack of popularity, it is harder to obtain hosts or service providers that provide managed PostgreSQL examples.
+The following are the  advantages of PostgreSQL.
+It's open source  and powerful RDBMS.
+To deal with large amounts of data , PostgreSQL 
+is supported with  open-source third-party tools compatibility extensions for designing, managing, and applying the DBMS.
+Age of PostgreSQL is quite long when compared to
+another database. and It has well established  open access  community through which a large amount of  knowledge-transfer happens between experienced professional to the amateur developer. 
+PostgreSQL not only  an RDBMS system but also have 
+features of an OODBMS.
+However, PostgreSQL is too simple may appear like less 
+performance than MySQL.
+Because of a lack of popularity, and moreover, it is harder to obtain hosts or service providers that provide managed PostgreSQL examples.
+
+
+\subsubsection{MongoDB}
+MongoDB is a kind of document-oriented database, which is free and open source. 
+In the meanwhile, it also is one of the top five in database ranking list. 
+The interesting thing is the other four databases, such as Oracle, MySQL and PostgreSQL, of the top five are relational database.
+Only one kind of database doesn't belonged to that, document-oriented database, MongoDB.
+There are several advantages let so many people like to use MongoDB.
+First, MongoDB can store the file as a file system, called Grid file system.
+It can be used in many development languages.
+Grid file system storing a file into several parts separately, instead of a single document.
+That is why MongoDB can create a load-balance and fault-tolerant system effectively.
+Second, less of schema. 
+Last but not least, MongoDB can run on many operating systems, such as Linux, and also can on cheaper merchandise kit.
+MongoDB also have several disadvantages, such as no support join operation, ram limitation and no transaction.
+
+
+\subsubsection{Comparison for three databases}
+In comparison  Between PostgreSQL and MySQL, there is generally no good reason to use MySQL over PostgreSQL, but however their is certain advanvange of MYSQL made us to choose MYSQL in our project 
+
+PostgreSQL, like all SQL databases, is a relational database. It specialises in tracking the relationships between pieces of data and helping you retrieve something if you know something related to it.
+
+All SQL databases can do relational queries like this, but PostgreSQL is really, really good at this. There is however an advanced use case that PostgreSQL isn't that good for: graphs. We'll get to that in a minute.
+
+
+And finally, MongoDB. MongoDB is not a graph database, or even a relational database. Like CouchDB, it's a document database and it represents the other end of the scale. 
 
 \subsubsection{Web Crawler}
 \begin{enumerate}
