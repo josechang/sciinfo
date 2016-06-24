@@ -28,7 +28,27 @@ This README would normally document whatever steps are necessary to get your app
 * Repo owner or admin
 * Other community or team contact
 
+
+### Create a user on Centos ###
+
+* Step 1 : Find the URL
+
+		adduser <username>
+		
+		
+* Step 2 : Set the password of the user
+
+		passwd <username>
+		
+		
+* Step 3 : Login with the new user
+
+
 ### Set up git ###
+
+* Step 1 : Install git on Centos
+
+
 
 * Step 1 : Find the URL
 
@@ -43,7 +63,7 @@ This README would normally document whatever steps are necessary to get your app
 
 	Then clone the repository
 
-		git clone (URL of the bitbucket)		
+		git clone <URL of the bitbucket>	
 	Ex:
 		git clone https://github.com/
 		
