@@ -17,7 +17,7 @@
 \usepackage{enumitem}
 \usepackage{xparse}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
-%\usepackage[round,authoryear]{natbib}
+\usepackage[round,authoryear]{natbib}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{indentfirst}
@@ -343,33 +343,26 @@ Give our user group execute permissions on our home directory. This will allow t
 \textbf{\emph{chmod 710 /home/\textcolor{red}{user} nginx}}\\\\
 
 Test the Nginx configuration file for syntax errors:\\\\
-\textbf{\emph{sudo nginx -tx}}\\\\
+\textbf{\emph{sudo nginx -tx}}\\
 
-If no errors are present, restart the Nginx service by typing:
+If no errors are present, restart the Nginx service by typing:\\\\
+\textbf{\emph{sudo systemctl start nginx}}\\
+
+Tell the system to start the Nginx server at boot by typing:\\\\
+\textbf{\emph{sudo systemctl enable nginx}}\\
+
+If everything went well you should now have access to your Django application in your browser over your server's domain name or IP address without specifying a port.\\
+
+You have successfully setup a Django webserver that runs with PostgreSQL, Gunicorn and Nginx.
 
 \end{Step}
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% References
 	% Using Mendeley Desktop with library.bib
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\newpage	
-	\bibliographystyle{agsm_nurl}
+	\bibliographystyle{IEEEtran}
 	\bibliography{library}	
 	\clearpage 
 
