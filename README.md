@@ -129,7 +129,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 * Step 3: Move into the repository of the pdfs.
 		
-		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler
+		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler/pdfs
 		
 	Check the files:
 	
@@ -137,7 +137,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 4: Transfer the files one by one
 		
-		pdfx pdfs/<filename> -t -o output txt
+		pdfx pdfs/<filename> -t -o ../txt/<filename>.txt
 	
 ### Django ###
 
