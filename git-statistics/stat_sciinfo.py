@@ -58,7 +58,7 @@ def get_author():
 		num_commits.append(int(c))
 def get_line_data():
 	for author in authors:
-		cmd=["git --git-dir=%s log --shortstat --author='%s' " % (tar_dir,author),'grep -E "fil(e|es) changed"',"awk '{inserted+=$4; deleted+=$6} END {print inserted,deleted }'"]
+		cmd=["git --git-dir=%s log --numstat --author='%s'"%(tar_dir, author),'grep "^[0-9]"',"awk '{inserted+=$1;deleted+=$2} END {print inserted,deleted}'"]
 		(i,d)=getdata(cmd)[0].split(" ")
 		lines_inserted.append(int(i))
 		lines_deleted.append(int(d))
@@ -157,7 +157,7 @@ def remove_fake_stats():
 		index=authors.index(author)
 		cmd_del_word=["git --git-dir=%s log -p --word-diff=porcelain %s -n 1"%(tar_dir,commit),'grep "^-[^-]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
 		cmd_ins_word=["git --git-dir=%s log -p --word-diff=porcelain %s -n 1"%(tar_dir,commit),'grep "^+[^+]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
-		cmd_line=["git --git-dir=%s log --shortstat %s -n 1" % (tar_dir,commit),'grep -E "fil(e|es) changed"',"awk '{inserted+=$4; deleted+=$6} END {print inserted,deleted}'"]
+		cmd_line=["git --git-dir=%s log --numstat %s -n 1" % (tar_dir,commit),'grep "^[0-9]"',"awk '{inserted+=$1;deleted+=$2} END {print inserted,deleted}'"]
 		(y,z)=getdata(cmd_line)[0].split(" ")
 		lines_inserted[index]-= int(y)
 		lines_deleted[index]-= int(z)

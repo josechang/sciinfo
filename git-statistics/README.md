@@ -11,3 +11,8 @@ MAKE THE PYTHON CODE EXECUTE AUTOMATICALLY
 2. The form for setting crontab looks like this: "min hr date month week instruction". For example, for setting our python code, you should type "0 */4 * * * python stat_sciinfo.py /home/yslin/nordron-sciinfo/.git", where * stands for accept anyway.
 3. If you set all above that and your crontab doesn't work, it might be the problem of recognizing the path of python for the system. Type "which python" to find where your python is. Then replace the first line of stat_sciinfo.py by your python path. Then add "PATH=your python path" in the forst line of crontab.
 4.See http://linux.vbird.org/linux_basic/0430cron.php for more information about crontab.
+
+REMOVE FAKE COMMITS
+1. In this program also remove those fake commits.
+2. If you need this function, put urls of the fake commits in a file named "fake_commits.txt". And put this file under the same directory as this program.
+3. If you don't need this function, close the function named "remove_fake_stats" in this program.
