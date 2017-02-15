@@ -346,6 +346,14 @@ This README would normally document whatever steps are necessary to get your app
 		sudo nginx -t
 		sudo systemctl start nginx	
 		sudo systemctl enable nginx
+		
+	If the service can't start try to check this file
+	
+		sudo vim /var/log/nginx/error.log
+	
+	If the problem is cause by port 80 occupied
+	
+		sudo fuser -k 80/tcp
 				
 		
 		
