@@ -103,7 +103,7 @@ This README would normally document whatever steps are necessary to get your app
 
 		pip install beautifulsoup4
 
-* Step 3: Move into the repository of the spider.
+* Step 3: Move into the directory of the spider.
 	
 		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler
 		
@@ -113,8 +113,8 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 5: Check the files.
 
-	There will be a pdfs.txt which include all the file path and original link of the files
-	and a repository called pdf which includes the pdf files.
+	There will be a **pdfs.txt** which include all the file paths and original links
+	and a directory called **pdfs** which includes the pdf files.
 	
 	
 ### Convert pdfs into txts ###
@@ -123,11 +123,11 @@ This README would normally document whatever steps are necessary to get your app
 
 		sudo pip install pdfx
 		
-* Step 2: Make a directory called txt under Wolverine_Webcrawler.
+* Step 2: Make a directory called **txt** under Wolverine_Webcrawler.
 
 		mkdir ~/nordron-sciinfo/Code/Wolverine_Webcrawler/txt
 		
-* Step 3: Move into the repository of the pdfs.
+* Step 3: Move into the directory **pdfs**.
 		
 		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler/pdfs
 		
@@ -138,6 +138,16 @@ This README would normally document whatever steps are necessary to get your app
 * Step 4: Transfer the files one by one.
 		
 		pdfx <filename>.pdf -t -o ../txt/<filename>.txt
+		
+	or write a batch file with the following code and run it in directory **pdfs**.
+	
+		#!/bin/bash
+		
+		for f in *.pdf
+		do
+			pdfx $f -t -o ../txt/$(echo $f | cut -f 1 -d '.').txt
+		done
+
 	
 	
 ### Install Django with Postgres, Nginx and Gunicorn ###
