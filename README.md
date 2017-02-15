@@ -145,6 +145,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 		for f in *.pdf
 		do
+			echo "Converting $f"
 			pdfx $f -t -o ../txt/$(echo $f | cut -f 1 -d '.').txt
 		done
 
@@ -168,7 +169,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 	When opening:
 	
-		sudo nano /var/lib/pgsql/data/pg_hba.conf
+		sudo vim /var/lib/pgsql/data/pg_hba.conf
 
 	Move to the bottom of the page and you can see this.
 	Modify the two host line by changing the last column to md5:
@@ -193,14 +194,14 @@ This README would normally document whatever steps are necessary to get your app
 		
 * Step 6: Change to root user.
 		
-		sudo su - postgres
+		sudo -u postgres -i
 		psql
 		
 * Step 7: Create the database.
 		
-		CREATE DATABASE <myproject>;
-		CREATE USER <myprojectuser> WITH PASSWORD '<password>';
-		GRANT ALL PRIVILEGES ON DATABASE <myproject> TO <myprojectuser>;
+		CREATE DATABASE "<myproject>";
+		CREATE USER "<myprojectuser>" WITH PASSWORD '<password>';
+		GRANT ALL PRIVILEGES ON DATABASE "<myproject>" TO "<myprojectuser>";
 		\q
 		exit
 		
@@ -210,32 +211,33 @@ This README would normally document whatever steps are necessary to get your app
 		
 * Step 9: Make the directory.
 		
-		mkdir ~/myproject
-		cd ~/myproject
+		mkdir ~/<myproject>
+		cd ~/<myproject>
 		
 * Step 10: Within the directory create virtualenv.
 		
-		virtualenv myprojectenv
+		virtualenv <myprojectenv>
 		
 * Step 11: Activate virtualenv.
 				
-		source myprojectenv/bin/activate
+		source ~/<myproject>/<myprojectenv>/bin/activate
 		
 * Step 12: Install django and so on.
 		
 		pip install django gunicorn psycopg2
+		pip install Django==1.8
 		
 * Step 13: Create a project.
 		
-		django-admin.py startproject myproject .
+		django-admin.py startproject <myproject> .
 		
 * Step 14: Adjust the setting.
 		
-	When open:	
+	When opening:	
 	
-		nano myproject/settings.py
+		vim <myproject>/settings.py
 
-	You'll see:
+	Change the DATABASE into:
 	
 		DATABASES = {
 			'default': {
@@ -248,13 +250,13 @@ This README would normally document whatever steps are necessary to get your app
 			}
 		}
 		
-* Step 15: Insert the static root.
+* Step 15: Insert the static root in the bottom of the file.
 		
 		STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 		
 * Step 16: Return to the myproject directory.
 		
-		cd ~/<myproject>
+		cd ~/<myproject>		
 		./manage.py makemigrations
 		./manage.py migrate
 
@@ -268,7 +270,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 		./manage.py collectstatic
 		
-	When prompted, click 'Y'.
+	When prompted, type 'yes'.
 	
 * Step 19: Run the server.
 		
@@ -291,7 +293,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 * Step 21: Create a Gunicorn systemd service file.
 		
-		sudo nano /etc/systemd/system/gunicorn.service
+		sudo vim /etc/systemd/system/gunicorn.service
 		
 	And insert the following lines:
 		
@@ -303,7 +305,7 @@ This README would normally document whatever steps are necessary to get your app
 		User=<user>
 		Group=nginx
 		WorkingDirectory=/home/<user>/<myproject>
-		ExecStart=/home/<user>/<myproject>/<myprojectenv>/bin/gunicorn --workers 3 --bind unix:/home/<user>/<myproject>/<myproject>.sock <myproject>.wsgi:application
+		ExecStart=/home/<user>/<myproject>/<myprojectenv>/bin/gunicorn --workers 3 --bind unix:/home/<user>/<myproject>/<myprojectenv>/<myproject>.sock <myproject>.wsgi:application
 
 		[Install]
 		WantedBy=multi-user.target
@@ -315,7 +317,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 * Step 22: Modify the nginx configuration file.
 		
-		sudo nano /etc/nginx/nginx.conf
+		sudo vim /etc/nginx/nginx.conf
 	
 	Inside it we can see:
 		
@@ -333,7 +335,7 @@ This README would normally document whatever steps are necessary to get your app
 				proxy_set_header X-Real-IP $remote_addr;
 				proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 				proxy_set_header X-Forwarded-Proto $scheme;
-				proxy_pass http://unix:/home/<user>/<myproject>/<myproject>.sock;
+				proxy_pass http://unix:/home/<user>/<myproject>/<myprojectenv>/<myproject>.sock;
 			}
 		}
 		
