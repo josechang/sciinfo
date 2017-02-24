@@ -5,6 +5,7 @@ import subprocess
 import datetime
 import sys
 import math
+import os
 
 tar_dir=""
 authors=[]
@@ -94,7 +95,7 @@ def change_name(oldname,newname):
 	authors[index]=newname
 	
 def createHTML():
-	with open("/home/yslin/statistics/index.html","w") as f:
+	with open(os.getcwd()+"/index.html","w+") as f:
 		format='%Y-%m-%d %H:%M:%S'
 		f.write('<!DOCTYPE html>')
 		f.write('<html>')
@@ -154,6 +155,7 @@ def statistics():
 	change_name("l0989553696","I-Chieh Lin")
 	change_name("leoc0426","Ray")
 	num_authors=len(authors)
+
 def remove_fake_stats():
 	cmd=["grep 'commits/' fake_commits.txt"]
 	f=getdata(cmd)
@@ -175,12 +177,14 @@ def remove_fake_stats():
 		words_deleted[index]-=int(getdata(cmd_del_word)[0])
 		words_inserted[index]-=int(getdata(cmd_ins_word)[0])
 		num_commits[index]-=1
+
 def get_attendance_lecture():
 	for i in range(len(par)):
 		cmd=["grep '%s' Attendance_lecture.tsv" % par[i],"awk '{print $NF}'"]
 		a=getdata(cmd)[0]
 		a=a.replace("\r","")
 		attendance_lecture.append(round(float(a)*100))
+
 def get_GitScore():
 	i=authors.index("Torbjörn Nordling")
 	prof_data=[num_commits[i],lines_inserted[i],lines_deleted[i],words_inserted[i],words_deleted[i]]
@@ -202,14 +206,17 @@ def get_GitScore():
 		for c in range(len(list_datalists)):
 			count+=temp_data[c][r]*weight[c]
 		gitScore.append(round(count))
+
 def transform_datalist():
 	for c in range(len(list_datalists)):
 		for r in range(num_authors):
 			list_datalists[c][r]=int(list_datalists[c][r])
+
 def transfer_git_score():
 	for items in participants:
 		i=authors.index(items)
 		gitScore_transfer.append(gitScore[i])
+
 def get_presentation_grade():
 	group=['Wolverine','Eagle unit','Union']
 	for i in range(len(group)):
@@ -219,21 +226,25 @@ def get_presentation_grade():
 			a[x]=float(item.replace("\r",""))
 		for y in range(7):
 			presentation_grade.append(round(sum(a)/len(a)*10))
+
 def get_quiz_score():
 	for i in range(len(par)):
 		cmd=["grep '%s' Quiz_Grade.tsv" % par[i],"awk '{print $NF}'"]
 		a=getdata(cmd)[0]
 		a=a.replace("\r","")
 		quiz_grade.append(round(float(a)))
+
 def get_attendance_scrum():
 	for i in range(len(par)):
 		cmd=["grep '%s' daily_scrum.tsv" % par[i],"awk '{print $NF}'"]
 		a=getdata(cmd)[0]
 		a=a.replace("\r","")
 		daily_scrum_grade.append(round(float(a)*100))
+
 def get_temptotal():
 	for i in range(len(par)):
 		temptotal_grade.append(round(0.18*attendance_lecture[i]+0.06*daily_scrum_grade[i]+0.36*gitScore_transfer[i]+0.1*presentation_grade[i]+0.1*quiz_grade[i]+0.2*85))
+
 def TotalScore():
 	transform_datalist()
 	get_attendance_lecture()
