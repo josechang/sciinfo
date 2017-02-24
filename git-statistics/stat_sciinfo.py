@@ -25,6 +25,7 @@ presentation_grade=[]
 quiz_grade=[]
 daily_scrum_grade=[]
 temptotal_grade=[]
+
 def getrep():
 	if len(sys.argv) < 2:
 		print "Lack of git repository parameter"
@@ -32,6 +33,7 @@ def getrep():
 	global tar_dir
 	tar_dir=sys.argv[1]
 	return True
+	
 def getdata(cmd):
 	p=subprocess.Popen(cmd[0],stdout=subprocess.PIPE,shell=True)
 	processes=[p]
@@ -42,13 +44,16 @@ def getdata(cmd):
 		process.wait()
 	output=p.communicate()[0]
 	return  remove_last_item(output.split("\n"))
+	
 def getnewest():
 	p=subprocess.Popen("git --git-dir=%s pull"%(tar_dir),shell=True)
 	p.wait()
+	
 def remove_last_item(ls):
 	len_ls=len(ls)
 	ls=ls[:len_ls-1]
 	return ls
+	
 def get_author():
 	cmd=["git --git-dir=%s shortlog -sne HEAD" % (tar_dir),"/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2,$1}'"]
 	author_commits=getdata(cmd)
@@ -56,18 +61,21 @@ def get_author():
 		(a,c)=x.split("    ")
 		authors.append(a)
 		num_commits.append(int(c))
+		
 def get_line_data():
 	for author in authors:
 		cmd=["git --git-dir=%s log --numstat --author='%s'"%(tar_dir, author),'grep "^[0-9]"',"awk '{inserted+=$1;deleted+=$2} END {print inserted,deleted}'"]
 		(i,d)=getdata(cmd)[0].split(" ")
 		lines_inserted.append(int(i))
 		lines_deleted.append(int(d))
+		
 def get_word_data():
 	for author in authors:
 		cmd1=["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(tar_dir,author),'grep "^-[^-]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
 		cmd2=["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(tar_dir,author),'grep "^+[^+]"',"awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
 		words_deleted.append(int(getdata(cmd1)[0]))
 		words_inserted.append(int(getdata(cmd2)[0]))
+		
 def correct_similar_name(name1,name2):
 	for item in name2:
 		index1=authors.index(name1)
@@ -76,24 +84,26 @@ def correct_similar_name(name1,name2):
 			l[index1]=int(l[index1])+int(l[index2])
 			del l[index2]
 		del authors[index2]
+		
 def remove_email(list_of_author):
 	for i,author in enumerate(list_of_author):
 		list_of_author[i]=author.split(" <")[0]
+		
 def change_name(oldname,newname):
 	index=authors.index(oldname)
 	authors[index]=newname
+	
 def createHTML():
 	with open("/home/yslin/statistics/index.html","w") as f:
 		format='%Y-%m-%d %H:%M:%S'
-		f.write("""
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>statistics</title>
-</head>
-<body>
-""")
+		f.write('<!DOCTYPE html>')
+		f.write('<html>')
+		f.write('<head>')
+		f.write('\t<meta charset="UTF-8">')
+		f.write('\t<title>statistics</title>')
+		f.write('</head>')
+		f.write('<body>')
+	
 		f.write('<h1>Statistics for bitbucket</h1>')
 		f.write('<p>Until %s</p>'%(datetime.datetime.now().strftime(format)))
 		f.write('<table id="statistics" border="1" class="sortable">')
@@ -115,6 +125,7 @@ def createHTML():
 		f.write('<script src="sorttable.js"></script>')
 		f.write('</body>')
 		f.write('</html>')
+		
 def statistics():
 	global num_authors
 	out=getrep()
