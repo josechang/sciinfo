@@ -6,34 +6,35 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link href="css/table.css" rel="stylesheet" type="text/css" />
 		<link href="css/container.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="score.js"></script>
 		<script type="text/javascript" src="jquery-latest.js"></script>
-		<script type="text/javascript" src="jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="jquery.tablesorter.js"></script>	
 		<script type="text/javascript">
 		$(document).ready(function() {
-			$("#Statistic").tablesorter();		
-			$("#Score").tablesorter();				
+			$("#statistic").tablesorter();		
+			$("#score").tablesorter();				
 			}
 		);	
 		</script>
 	</head>
 	<body>
-		<div class="container">
-			<h1>Statistics for bitbucket</h1>
-			<p>Until 2017-02-24 15:27:50</p>
+		<div class="container" id="header">
+			<h1>Statistics for Scientific Information Gathering 2017</h1>
+			<p>Accessed at 2017-02-24 15:27:50 from git repository.</p>
 		</div>
 	
 		<div class="container">
-			<h2>Statistics</h2>		
-			<table cellspacing="1" id="Statistic" class="tablesorter">
+			<h2>Statistics of the Commits on Bitbucket</h2>		
+			<table cellspacing="2" id="statistic" class="tablesorter">
 				<thead>
 				<tr>
 					<th>Authors</th>
-					<th>Commits</th>
+					<th>Number of Commits</th>
 					<th>Line Inserted</th>
 					<th>Line Deleted</th>
 					<th>Word Inserted</th>
 					<th>Word Deleted</th>
-					<th>GIT Score</th>
+					<th>Total GIT Score</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -273,15 +274,13 @@
 					</tr>
 				</tbody>
 			</table>
-			<p>Total authors: 26 </p>
+			<p id="total">Total authors: 26 </p>
 		</div>
 		
-		<div class="container">
-			<div class="subcontainer">
-				<h2>Score</h2>
-				<button class="btn" onclick="calculate()">Calculate Total Score</button>
-			</div>
-			<table cellspacing="1" id="Score" class="tablesorter">
+		<div class="container">			
+			<h2>Total Score for the Course</h2>
+			<button class="btn" onclick="calculate()">Calculate Total Score</button>			
+			<table cellspacing="2" id="score" class="tablesorter">
 				<thead>
 					<tr>
 						<th>Participants</th>
@@ -289,9 +288,9 @@
 						<th>Attendance at daily scrum</th>
 						<th>GIT Score</th>
 						<th>Oral presentation</th>
-						<th>Quiz</th>
-						<th>Report</th>
-						<th>Total</th>
+						<th>Quiz Score</th>
+						<th>Report Score</th>
+						<th>Total Score</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -303,7 +302,7 @@
 						<td>85</td>
 						<td>80</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>83</td>
 					</tr>
@@ -315,7 +314,7 @@
 						<td>85</td>
 						<td>88</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>91</td>
 					</tr>
@@ -327,7 +326,7 @@
 						<td>85</td>
 						<td>70</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>79</td>
 					</tr>
@@ -339,7 +338,7 @@
 						<td>85</td>
 						<td>55</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>74</td>
 					</tr>
@@ -351,7 +350,7 @@
 						<td>85</td>
 						<td>70</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>78</td>
 					</tr>
@@ -363,7 +362,7 @@
 						<td>85</td>
 						<td>70</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>82</td>
 					</tr>
@@ -375,7 +374,7 @@
 						<td>85</td>
 						<td>39</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 					<td>58</td>
 					</tr>
@@ -387,7 +386,7 @@
 						<td>86</td>
 						<td>79</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>85</td>
 					</tr>
@@ -399,7 +398,7 @@
 						<td>86</td>
 						<td>74</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>88</td>
 					</tr>
@@ -411,7 +410,7 @@
 						<td>86</td>
 						<td>78</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>86</td>
 					</tr>
@@ -423,7 +422,7 @@
 						<td>86</td>
 						<td>79</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>87</td>
 					</tr>
@@ -435,7 +434,7 @@
 						<td>86</td>
 						<td>70</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>81</td>
 					</tr>
@@ -447,7 +446,7 @@
 						<td>86</td>
 						<td>53</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>79</td>
 					</tr>
@@ -459,7 +458,7 @@
 						<td>86</td>
 						<td>80</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>88</td>
 					</tr>
@@ -471,7 +470,7 @@
 						<td>82</td>
 						<td>70</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>82</td>
 					</tr>
@@ -483,7 +482,7 @@
 						<td>82</td>
 						<td>71</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>82</td>
 					</tr>
@@ -495,7 +494,7 @@
 						<td>82</td>
 						<td>78</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>81</td>
 					</tr>
@@ -507,7 +506,7 @@
 						<td>82</td>
 						<td>70</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>82</td>
 					</tr>
@@ -519,7 +518,7 @@
 						<td>82</td>
 						<td>76</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>88</td>
 					</tr>
@@ -531,7 +530,7 @@
 						<td>82</td>
 						<td>81</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>84</td>
 					</tr>
@@ -543,7 +542,7 @@
 						<td>82</td>
 						<td>75</td>
 						<td>
-							<input type="text" value="85">
+							<input type="text" value="85" onkeypress="return isNumberKey(event)" maxlength="3">
 						</td>
 						<td>81</td>
 					</tr>
