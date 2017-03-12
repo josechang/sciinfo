@@ -1,0 +1,14 @@
+./pdfs/ED560733.pdf	http://files.eric.ed.gov/fulltext/ED560733.pdf
+./pdfs/ED545102.pdf	http://files.eric.ed.gov/fulltext/ED545102.pdf
+./pdfs/ED566137.pdf	http://files.eric.ed.gov/fulltext/ED566137.pdf
+./pdfs/EJ1078768.pdf	http://files.eric.ed.gov/fulltext/EJ1078768.pdf
+./pdfs/EJ1117977.pdf	http://files.eric.ed.gov/fulltext/EJ1117977.pdf
+./pdfs/EJ1066265.pdf	http://files.eric.ed.gov/fulltext/EJ1066265.pdf
+./pdfs/EJ1070051.pdf	http://files.eric.ed.gov/fulltext/EJ1070051.pdf
+./pdfs/EJ1018781.pdf	http://files.eric.ed.gov/fulltext/EJ1018781.pdf
+./pdfs/EJ1022042.pdf	http://files.eric.ed.gov/fulltext/EJ1022042.pdf
+./pdfs/EJ862936.pdf	http://files.eric.ed.gov/fulltext/EJ862936.pdf
+./pdfs/EJ1082474.pdf	http://files.eric.ed.gov/fulltext/EJ1082474.pdf
+./pdfs/EJ1068866.pdf	http://files.eric.ed.gov/fulltext/EJ1068866.pdf
+./pdfs/EJ1089588.pdf	http://files.eric.ed.gov/fulltext/EJ1089588.pdf
+./pdfs/EJ1098229.pdf	http://files.eric.ed.gov/fulltext/EJ1098229.pdf

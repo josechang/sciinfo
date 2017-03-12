@@ -4,7 +4,7 @@ import subprocess
 import re
 from bs4 import BeautifulSoup
 
-url = "http://eric.ed.gov/?q=a&ft=on&pg=__"
+url = "http://eric.ed.gov/?q=b&ft=on&pg=__"
 directory = "./pdfs"
 wget = "wget -nc -P " + directory + " "
 urls = []
