@@ -188,18 +188,18 @@ def match_participants():
 	create_participant(2016, 'Kevin Lo', [['Kevin Lo']])
 	create_participant(2016, 'I-Chieh Lin', [['l0989553696']])
 	create_participant(2016, 'Chinweze', [['Chinweze'], ['chinweze']])
-	create_participant(2016, 'JSGY', [['JSGY']])
+	create_participant(2016, 'Jones', [['JSGY']])
 	create_participant(2016, 'Ray', [['leoc0426']])
 	create_participant(2016, 'Henry Peng', [['Henry-Peng'], ['Henry']])
 	create_participant(2016, 'Piyarul Hoque', [['Piyarul Hoque'], ['Piyarul'], ['Piyarul1993']])
-	create_participant(2016, 'Feng-Chun Hsia', [['Feng Chun Hsia'], ['FengChunHsia']])
+	create_participant(2016, 'Tim Hsia', [['Feng Chun Hsia'], ['FengChunHsia']])
 	create_participant(2016, 'Kenny Hsu', [['Kenny Hsu']])
-	create_participant(2016, 'TPhat', [['TPhat'], ['Lam Tan Phat'], ['Tan Phat']])
+	create_participant(2016, 'Phat', [['TPhat'], ['Lam Tan Phat'], ['Tan Phat']])
 	create_participant(2016, 'Jim Lan', [['Jim_Lan'], ['Your NameJim_Lan']])
 	create_participant(2016, 'Hoang Tan', [['HoangTan'], ['tony']])
 	create_participant(2016, 'Wei', [['Wei'], ['4A02C014'], ['\xe5\x93\xb2\xe5\x81\x89 \xe5\xbc\xb5']])
 	create_participant(2016, 'Bernie Huang', [['Bernie Huang'], ['Bo Han Huang']])
-	create_participant(2016, 'Rahul', [['Rahul']])
+	create_participant(2016, 'Rahul Aditya', [['Rahul']])
 	create_participant(2016, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling']])
 	create_participant(2016, 'Yu-Sin Lin', [['kurumalin']])
 	create_participant(2017, 'Lewis Hsu', [])
@@ -207,7 +207,7 @@ def match_participants():
 	print_Participants(participant_list)	
 	print_Authors(author_list)
 
-def statistics():
+def generate_statistics():
 	if not getgitrep():
 		print("Lack of git repository parameter!!")
 		return False
@@ -218,4 +218,12 @@ def statistics():
 	remove_fake_commits()
 	match_participants()
 
-statistics()
+def create_html()
+	script_dir = os.path.dirname(__file__)
+	relative_path = "html/index.html"
+	absolute_path = os.path.join(script_dir, relative_path)
+	with open(absolute_path, "w") as f:
+		format = '%Y-%m-%d %H:%M:%S'
+		f.write('<!DOCTYPE html>\n')
+
+generate_statistics()
