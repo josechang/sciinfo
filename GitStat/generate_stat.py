@@ -17,6 +17,7 @@ class Participant:
 		self.semester = []
 		self.fake_commits = 0
 		self.large_commits = 0
+		self.git_score = 0
 		self.author = []
 		self.commits = []
 		self.lines_inserted = []
@@ -29,6 +30,9 @@ class Participant:
 
 	def set_semester(self, semester):
 		self.semester = semester
+
+	def set_git_score(self, score):
+		self.git_score = score
 
 	def add_commits(self, author, commits):
 		self.author.append(author)
@@ -76,6 +80,7 @@ class Participant:
 	def print_info(self):
 		print("Participant:\t%s"%(str(self.participant)))
 		print("Semester:\t%s"%(str(self.semester)))
+		print("Git score:\t%s"%(str(self.git_score)))
 		print("Fake commits:\t%s"%(str(self.fake_commits)))
 		print("Large commits:\t%s"%(str(self.large_commits)))
 		print("Author:\t\t%s"%(str(self.author)))
@@ -217,7 +222,7 @@ def create_participant(semester, participant_name, author_name):
 				participant += author
 				author_list.remove(author)
 	participant_list.append(participant)
-	participant.print_info()
+	# participant.print_info()
 
 def match_participants():
 	# Not matched: ['Liucempc'], ['Elison Liu']
@@ -248,9 +253,50 @@ def match_participants():
 	create_participant(2016, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling <tn@nordron.com>'], ['Torbj\xc3\xb6rn Nordling <tn@kth.se>']])
 	create_participant(2016, 'Yu-Sin Lin', [['kurumalin <pallacanestro159@gmail.com>']])
 	create_participant(2017, 'Lewis Hsu', [])
-	
+
 	print_Participants(participant_list)	
 	print_Authors(author_list)
+
+def score_func(arr, val):
+	arr_sum = sum(arr)
+	if arr_sum > 0:
+		score = math.log10(arr_sum/float(val))
+	else:
+		score = -10
+	return score
+
+def generate_git_score():
+	index = 0
+	wt = [0.3, 0.2, 0.15, 0.2, 0.15]
+	prof = []
+	commits = []
+	lines_inserted = []
+	lines_deleted = []
+	words_inserted = []
+	words_deleted = []
+	for participant in participant_list:
+		if participant.participant == 'Torbj\xc3\xb6rn Nordling': 
+			prof = [sum(participant.commits), sum(participant.lines_inserted), sum(participant.lines_deleted), \
+                                sum(participant.words_inserted), sum(participant.words_deleted)]
+	for participant in participant_list:
+		if not participant.participant == 'Torbj\xc3\xb6rn Nordling':
+			commits.append(score_func(participant.commits, prof[0]))
+			lines_inserted.append(score_func(participant.lines_inserted, prof[1]))
+			lines_deleted.append(score_func(participant.lines_deleted, prof[2]))
+			words_inserted.append(score_func(participant.words_inserted, prof[3]))
+			words_deleted.append(score_func(participant.words_deleted, prof[4]))
+	maximum = [max(commits), max(lines_inserted), max(lines_deleted), max(words_inserted), max(words_deleted)]
+	for i in range(len(participant_list)-1):
+		commits[i] = 70+30*(commits[i]/float(maximum[0]))
+		lines_inserted[i] = 70+30*(lines_inserted[i]/float(maximum[1]))
+		lines_deleted[i] = 70+30*(lines_deleted[i]/float(maximum[2]))
+		words_inserted[i] = 70+30*(words_inserted[i]/float(maximum[3]))
+		words_deleted[i] = 70+30*(words_deleted[i]/float(maximum[4]))
+	for participant in participant_list:
+                if not participant.participant == 'Torbj\xc3\xb6rn Nordling':
+			participant.set_git_score(commits[index]*wt[0]+lines_inserted[index]*wt[1]+lines_deleted[index]*wt[2]+ \
+				words_inserted[index]*wt[3]+words_deleted[index]*wt[4])
+			index += 1
 
 def generate_statistics():
 	if not getgitrep():
@@ -260,6 +306,7 @@ def generate_statistics():
 	get_authors()
 	remove_fake_commits()
 	match_participants()
+	generate_git_score()
 
 def create_html():
 	print("Generating HTML file...")
@@ -324,7 +371,7 @@ def create_html():
 			f.write('            <td>%d</td>\n'%(sum(participant.lines_deleted)))
 			f.write('            <td>%d</td>\n'%(sum(participant.words_inserted)))
 			f.write('            <td>%d</td>\n'%(sum(participant.words_deleted)))
-			f.write('            <td>%d</td>\n')
+			f.write('            <td>%d</td>\n'%(participant.git_score))
 			f.write('          </tr>\n')
 
 		f.write('        </tbody>\n')
