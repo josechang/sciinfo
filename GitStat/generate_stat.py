@@ -89,13 +89,13 @@ class Participant:
 def print_Participants(arr):
 	print(">> Participants: ")
 	for i in range(len(arr)):
-			print("%3d %d %-20s\t(%s)"%(i, arr[i].semester, arr[i].participant, str(arr[i].author)))
+			print("%3d  %d  %-20s"%(i, arr[i].semester, arr[i].participant))
 	print("")
 
 def print_Authors(arr):
 	print(">> Authors Remain: ")
 	for i in range(len(arr)):
-                        print("%3d %-20s\t%s"%(i, str(arr[i].author), str(arr[i].commits)))
+                        print("%3d  %-50s\t%s"%(i, str(arr[i].author), str(arr[i].commits)))
         print("")
 
 def remove_last(arr):
@@ -143,19 +143,21 @@ def get_words_data():
 		author_list[i].add_words(int(getdata(cmd1)[0]), int(getdata(cmd2)[0]))
 
 def get_authors():
+	count = 0
 	cmd = ["git --git-dir=%s shortlog -sne HEAD"%(git_dir), "/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2,$1}'"]
         author_commits = getdata(cmd)
 	print("Getting author imformations...")
         for x in author_commits:
                 (aut, com) = x.split("    ")
-		aut = aut.split(" <")[0]
+		# aut = aut.split(" <")[0]
 		author = Participant()
 		author.add_commits(aut, int(com))
 		author_list.append(author)
 	get_lines_data()
 	get_words_data()
 	for x in author_list:
-		print("\t%-20s\t%d\t%d\t%d\t%d"%(str(x.author[0]), x.lines_inserted[0], x.lines_deleted[0], x.words_inserted[0], x.words_deleted[0]))
+		count += 1
+		print("%3d  %-55s\t%d\t%d\t%d\t%d"%(count, str(x.author[0]), x.lines_inserted[0], x.lines_deleted[0], x.words_inserted[0], x.words_deleted[0]))
 	print("")
 
 def remove_fake_commits():
@@ -192,18 +194,18 @@ def remove_fake_commits():
 			count += 1
                 	(y, z) = getdata(cmd_line)[0].split(" ")
                 	(x, aut) = getdata(cmd_author)[0].split("Author: ")
-                	aut = aut.split(" <")[0]
+                	# aut = aut.split(" <")[0]
 			if commit in g:
 				for author in author_list:
 					if author.author == [aut]:
 						author.remove_commit(1, 0, int(y), int(z), ins_word, del_word)
-				print("\t%s %-20s\t%d\t%d\t%d\t%d\t(FAKE)"%(str(commit), str(aut), int(y), int(z), ins_word, del_word))
+				print("%3d  %s  %-55s\t%d\t%d\t%d\t%d\t(FAKE)"%(count, str(commit), str(aut), int(y), int(z), ins_word, del_word))
 			else:
 				for author in author_list:
                 	                if author.author == [aut]:
         	                                author.remove_commit(0, 1, int(y), int(z), ins_word, del_word)
-	                        print("\t%s %-20s\t%d\t%d\t%d\t%d"%(str(commit), str(aut), int(y), int(z), ins_word, del_word))
-	print("\tTotal fake commits: %d/%d\n"%(count, len(f)))
+	                        print("%3d  %s  %-55s\t%d\t%d\t%d\t%d"%(count, str(commit), str(aut), int(y), int(z), ins_word, del_word))
+	print("Total fake commits: %d/%d\n"%(count, len(f)))
 
 def create_participant(semester, participant_name, author_name):
 	participant = Participant()
@@ -219,29 +221,32 @@ def create_participant(semester, participant_name, author_name):
 
 def match_participants():
 	# Not matched: ['Liucempc'], ['Elison Liu']
-	create_participant(2016, 'Jacky Wu', [['Jacky Wu'], ['Yu-An Wu']])
-	create_participant(2016, 'Eric Lee', [['Eric Lee']])
-	create_participant(2016, 'Eric Chang', [['Yu-Kai'], ['Eric Chang']])
-	create_participant(2016, 'Karthik Mani', [['KARTHIK']])
-	create_participant(2016, 'U-Cheng Chen', [['UCheng Chen']])
-	create_participant(2016, 'Dexter Chen', [['DexterChen'], ['unknown'], ['unknown'], ['Dexter Chen']])
-	create_participant(2016, 'Kevin Lo', [['Kevin Lo']])
-	create_participant(2016, 'I-Chieh Lin', [['l0989553696']])
-	create_participant(2016, 'Chinweze', [['Chinweze'], ['chinweze']])
-	create_participant(2016, 'Jones', [['JSGY']])
-	create_participant(2016, 'Ray', [['leoc0426']])
-	create_participant(2016, 'Henry Peng', [['Henry-Peng'], ['Henry']])
-	create_participant(2016, 'Piyarul Hoque', [['Piyarul Hoque'], ['Piyarul'], ['Piyarul1993']])
-	create_participant(2016, 'Tim Hsia', [['Feng Chun Hsia'], ['FengChunHsia']])
-	create_participant(2016, 'Kenny Hsu', [['Kenny Hsu']])
-	create_participant(2016, 'Phat', [['TPhat'], ['Lam Tan Phat'], ['Tan Phat']])
-	create_participant(2016, 'Jim Lan', [['Jim_Lan'], ['Your NameJim_Lan']])
-	create_participant(2016, 'Hoang Tan', [['HoangTan'], ['tony']])
-	create_participant(2016, 'Wei', [['Wei'], ['4A02C014'], ['\xe5\x93\xb2\xe5\x81\x89 \xe5\xbc\xb5']])
-	create_participant(2016, 'Bernie Huang', [['Bernie Huang'], ['Bo Han Huang']])
-	create_participant(2016, 'Rahul Aditya', [['Rahul']])
-	create_participant(2016, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling']])
-	create_participant(2016, 'Yu-Sin Lin', [['kurumalin']])
+	create_participant(2016, 'Jacky Wu', [['Jacky Wu <Jacky@youande-MacBook-Pro.local>'], ['Yu-An Wu <jackywugogo@gmail.com>']])
+	create_participant(2016, 'Eric Lee', [['Eric Lee <crazyeric890119@gmail.com>']])
+	create_participant(2016, 'Eric Chang', [['Yu-Kai <ehero80425@gmail.com>'], ['Eric Chang <ehero80425@gmail.com>']])
+	create_participant(2016, 'Karthik Mani', [['KARTHIK <mani.karthick.181190@gmail.com>']])
+	create_participant(2016, 'U-Cheng Chen', [['UCheng Chen <pt10026@gmail.com>']])
+	create_participant(2016, 'Dexter Chen', [['DexterChen <owesdexter2011@gmail.com>'], ['unknown <geminielf9@gmail.com>'], \
+		['unknown <you@example.com>'], ['Dexter Chen <owesdexter2011@gmail.com>']])
+	create_participant(2016, 'Kevin Lo', [['Kevin Lo <owl3808@gmail.com>']])
+	create_participant(2016, 'I-Chieh Lin', [['l0989553696 <l0989553696@gmail.com>']])
+	create_participant(2016, 'Chinweze', [['Chinweze <chinwezeubadigha@gmail.com>'], ['chinweze <chinwezeubadigha@gmail.com>']])
+	create_participant(2016, 'Jones', [['JSGY <ndslgood@hotmail.com>']])
+	create_participant(2016, 'Ray', [['leoc0426 <emanual0426@gmail.com>']])
+	create_participant(2016, 'Henry Peng', [['Henry-Peng <kkvvy12@gmail.com>'], ['Henry <kkvvy12@gmail.com>']])
+	create_participant(2016, 'Piyarul Hoque', [['Piyarul Hoque <piyarulhoque1993@gmail.com>'], ['Piyarul <piyarulhoque1993@gmail.com.com>'], \
+		['Piyarul1993 <piyarulhoque1993@gmail.com>'], ['Piyarul <piyarulhoque1993@gmail.com>']])
+	create_participant(2016, 'Tim Hsia', [['Feng Chun Hsia <tim.hsia@nordlinglab.org>'], ['FengChunHsia <tim.hsia@nordlinglab.org>']])
+	create_participant(2016, 'Kenny Hsu', [['Kenny Hsu <tei1004@yahoo.com.tw>'], ['Kenny Hsu <teii1004@yahoo.com.tw>']])
+	create_participant(2016, 'Tan Phat', [['TPhat <geminielf9@gmail.com>'], ['Lam Tan Phat <geminielf9@gmail.com>'], ['Tan Phat <geminielf@gmail.com>']])
+	create_participant(2016, 'Jim Lan', [['Jim_Lan <jb0929n@gmail.com>'], ['Your NameJim_Lan <jb0929n@gmail.com>']])
+	create_participant(2016, 'Hoang Tan', [['HoangTan <lopcatia@gmail.com>'], ['tony <lopcatia@gmail.com>']])
+	create_participant(2016, 'Wei', [['Wei <4A02C014@stust.edu.tw>'], ['4A02C014 <4A02C014@stust.edu.tw>'], \
+		['\xe5\x93\xb2\xe5\x81\x89 \xe5\xbc\xb5 <4a02c014@stust.edu.tw>']])
+	create_participant(2016, 'Bernie Huang', [['Bernie Huang <bernie6430@gmail.com>'], ['Bo Han Huang <bernie6430@gmail.com>']])
+	create_participant(2016, 'Rahul Aditya', [['Rahul <adi.rahul171294@gmail.com>']])
+	create_participant(2016, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling <tn@nordron.com>'], ['Torbj\xc3\xb6rn Nordling <tn@kth.se>']])
+	create_participant(2016, 'Yu-Sin Lin', [['kurumalin <pallacanestro159@gmail.com>']])
 	create_participant(2017, 'Lewis Hsu', [])
 	
 	print_Participants(participant_list)	
