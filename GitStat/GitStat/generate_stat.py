@@ -350,7 +350,7 @@ def create_html():
 		f.write('          <th>Semester</th>\n')
 		f.write('          <th>Fake Commits</th>\n')
 		f.write('          <th>Large Commits</th>\n')
-		f.write('          <th>Total Commits</th>\n')
+		f.write('          <th>Valid Commits</th>\n')
 		f.write('          <th>Line Inserted</th>\n')
 		f.write('          <th>Line Deleted</th>\n')
 		f.write('          <th>Word Inserted</th>\n')
