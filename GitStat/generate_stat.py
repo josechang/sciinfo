@@ -167,7 +167,7 @@ def get_authors():
 
 def remove_fake_commits():
 	count = 0
-	threshold = 2000
+	threshold = 3000
 	cmd1 = ["git log --all", "grep '^commit '"]		
 	f = getdata(cmd1)
 	for i, c in enumerate(f):
@@ -350,7 +350,7 @@ def create_html():
 		f.write('          <th>Semester</th>\n')
 		f.write('          <th>Fake Commits</th>\n')
 		f.write('          <th>Invalid Commits</th>\n')
-		f.write('          <th>Total Commits</th>\n')
+		f.write('          <th>Valid Commits</th>\n')
 		f.write('          <th>Line Inserted</th>\n')
 		f.write('          <th>Line Deleted</th>\n')
 		f.write('          <th>Word Inserted</th>\n')
