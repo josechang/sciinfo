@@ -297,6 +297,8 @@ def generate_git_score():
 			participant.set_git_score(commits[index]*wt[0]+lines_inserted[index]*wt[1]+lines_deleted[index]*wt[2]+ \
 				words_inserted[index]*wt[3]+words_deleted[index]*wt[4])
 			index += 1
+		else:
+			participant.set_git_score(70)
 
 def generate_statistics():
 	if not getgitrep():
