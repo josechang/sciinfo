@@ -301,7 +301,7 @@ def generate_git_score():
 def generate_statistics():
 	if not getgitrep():
 		print("Lack of git repository parameter!!")
-		return False
+		sys.exit()
 	updaterep()
 	get_authors()
 	remove_fake_commits()
@@ -349,7 +349,7 @@ def create_html():
 		f.write('          <th>Authors</th>\n')
 		f.write('          <th>Semester</th>\n')
 		f.write('          <th>Fake Commits</th>\n')
-		f.write('          <th>Large Commits</th>\n')
+		f.write('          <th>Invalid Commits</th>\n')
 		f.write('          <th>Total Commits</th>\n')
 		f.write('          <th>Line Inserted</th>\n')
 		f.write('          <th>Line Deleted</th>\n')
