@@ -176,7 +176,10 @@ def remove_fake_commits():
                 (a, b) = c.split("commit")
                 f[i] = b
 
-	cmd2 = ["grep 'commits/' fake_commits.txt"]
+	script_dir = os.path.dirname(__file__)
+        relative_path = "fake_commits.txt"
+        absolute_path = os.path.join(script_dir, relative_path)
+	cmd2 = ["grep 'commits/' "+absolute_path]
         g = getdata(cmd2)
         for i, c in enumerate(g):
                 c = c.replace("\r","")
