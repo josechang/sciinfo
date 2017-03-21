@@ -168,7 +168,7 @@ def get_authors():
 def remove_fake_commits():
 	count = 0
 	threshold = 3000
-	cmd1 = ["git log --all", "grep '^commit '"]		
+	cmd1 = ["git --git-dir=%s log --all"%(git_dir), "grep '^commit '"]		
 	f = getdata(cmd1)
 	for i, c in enumerate(f):
                 c = c.replace("\r","")
