@@ -256,6 +256,11 @@ def match_participants():
 	create_participant(2016, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling <tn@nordron.com>'], ['Torbj\xc3\xb6rn Nordling <tn@kth.se>']])
 	create_participant(2016, 'Yu-Sin Lin', [['kurumalin <pallacanestro159@gmail.com>']])
 	create_participant(2017, 'Lewis Hsu', [])
+	create_participant(2017, 'Dickson Lee', [])
+	create_participant(2017, 'Rain Wu', [])
+	create_participant(2017, 'Sareddy Reddy', [])
+	create_participant(2017, 'Paul Lin', [])
+	create_participant(2017, 'Van Tam Ngo', [])
 
 	print_Participants(participant_list)	
 	print_Authors(author_list)
