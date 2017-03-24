@@ -29,36 +29,6 @@ This README would normally document whatever steps are necessary to get your app
 * Other community or team contact
 
 
-### Create a user on Centos ###
-
-* Step 1: Find the URL.
-
-		adduser <username>
-		
-* Step 2: Set the password of the user.
-
-		passwd <username>		
-		
-* Step 3: Execute the following command.
-		
-		/usr/sbin/visudo
-		
-* Step 4: Add the user to sudo list.
-		
-	Find: 
-	
-		## Allow root to run any commands anywhere
-		root	ALL=(ALL)	ALL
-		
-	Change to:
-		
-		## Allow root to run any commands anywhere
-		root	ALL=(ALL)	ALL
-		<username>	ALL=(ALL)	ALL
-		
-* Step 5: Re-login with the new username.
-
-
 ### Set up git ###
 
 * Step 1: Install git on Centos.
