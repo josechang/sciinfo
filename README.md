@@ -123,7 +123,7 @@ This README would normally document whatever steps are necessary to get your app
 	
 ### Install Django with Postgres, Nginx and Gunicorn in docker ###
 
-* Step 1: Copy directory (Django)[https://bitbucket.org/nordron/nordron-sciinfo/src/master/Django/] and the files within from nordron-sciinfo to your own account
+* Step 1: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Django/) and the files within from nordron-sciinfo to your own account
 
 * Step 2: Configure the port with
 
