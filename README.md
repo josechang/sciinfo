@@ -144,7 +144,10 @@ This README would normally document whatever steps are necessary to get your app
 			  
 	then change "9000:7000" into "<port you want>:7000"
 	e.g. "2345:7000"
-	
+
+* Step 2.5
+	install Docker and run Docker first
+
 * Step 3: Save the file and run
 
 		docker-compose up -depends_on
