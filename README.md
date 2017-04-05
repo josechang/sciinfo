@@ -154,8 +154,8 @@ This README would normally document whatever steps are necessary to get your app
 
 	if the above command is not working, use
 
-                docker-compose up -d
+        docker-compose up -d
 
-	instead
+	instead.
 
 * Step 4: Check your website at "localhost:<port you set>"
