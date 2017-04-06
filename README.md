@@ -123,9 +123,13 @@ This README would normally document whatever steps are necessary to get your app
 	
 ### Install Django with Postgres, Nginx and Gunicorn in docker ###
 
-* Step 1: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Django/) and the files within from nordron-sciinfo to your own account
+* Step 1: Install docker engine
 
-* Step 2: Configure the port with
+		sudo yum install docker-engine
+
+* Step 2: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Django/) and the files within from nordron-sciinfo to your own account
+
+* Step 3: Configure the port with
 
 		vim <Django directory>/docker-compose.yml
 		
@@ -145,10 +149,7 @@ This README would normally document whatever steps are necessary to get your app
 	then change "9000:7000" into "<port you want>:7000"
 	e.g. "2345:7000"
 
-* Step 2.5
-	install Docker and run Docker first
-
-* Step 3: Save the file and run
+* Step 4: Save the file and run
 
 		docker-compose up -depends_on
 
@@ -158,4 +159,4 @@ This README would normally document whatever steps are necessary to get your app
 
 	instead.
 
-* Step 4: Check your website at "localhost:<port you set>"
+* Step 5: Check your website at "localhost:<port you set>"
