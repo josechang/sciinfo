@@ -159,10 +159,5 @@ This README would normally document whatever steps are necessary to get your app
 
 	instead.
 
-        If still error, use 
-        
-        sudo docker-compose up -d
-        
-        to run it.
 
 * Step 5: Check your website at "localhost:<port you set>"
