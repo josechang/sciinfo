@@ -151,7 +151,7 @@ def get_authors():
 	count = 0
 	cmd = ["git --git-dir=%s shortlog -sne HEAD"%(git_dir), "/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2,$1}'"]
         author_commits = getdata(cmd)
-	print("Getting author imformations...")
+	print("Getting author information...")
         for x in author_commits:
                 (aut, com) = x.split("    ")
 		# aut = aut.split(" <")[0]
