@@ -127,7 +127,7 @@ This README would normally document whatever steps are necessary to get your app
 
 		sudo yum install docker-engine
 
-* Step 2: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Django/) and the files within from nordron-sciinfo to your own account
+* Step 2: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Code/Django/) and the files within from nordron-sciinfo to your own account
 
 * Step 3: Configure the port with
 
