@@ -1,0 +1,30 @@
+version: '2'  
+services:  
+  nginx:
+    image: nginx:latest
+    container_name: ng02
+    ports:
+      - "9000:7000"
+    volumes:
+      - ./src:/src
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+    restart: always
+
+  web:
+    build: .
+    container_name: dg
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn mydjango.wsgi -b 0.0.0.0:7000"
+    depends_on:
+      - db
+    volumes:
+      - ./src:/src
+    expose:
+      - "7000"
+    restart: always
+
+  db:
+    image: postgres:latest
+    container_name: ps
+    restart: always
