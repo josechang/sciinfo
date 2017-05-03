@@ -13,10 +13,12 @@ pdfs = []
 
 def geturllist(url, offset, numpage):
 	for i in range(1, numpage):
-		offsetstring = str(offset*i)
-		curl = url.replace('__', offsetstring) 
+		offsetstring = str(offset*i) #The str() function is meant to return representations of values which are fairly human-readable,
+		curl = url.replace('__', offsetstring) #replace __ to offsetstring
 		urls.append(curl)
-	#print urls
+		#print urls
+		#print "curl %r" %curl
+		#print offsetstring
 
 
 def getpdflist():

@@ -3,39 +3,41 @@ import textract
 ###################
 #convert the files
 ###################
-text = textract.process('file_1.pdf', method='pdfminer')
+X = "Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.pdf"
+text = textract.process(X, m='pdfminer')
 
-search="Predicting"
+
+search="Predicting" #?????
 ###################
 #ignore the useless character
 ###################
-def delect_special(a):
+def delect_special(a):  #delete all non-meaningful words
     b=a.replace(".","").replace("!","").replace("@","").replace("#","").replace("~","").replace(",","")
     return b
 
-search1=delect_special(search).split(" ")
+search1=delect_special(search).split(" ") #split article
 
 #######################
 #open and write the txt file
 #######################
 
-xml=open('pdf_1.txt','w')
+xml=open('Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.txt','w')
 
 for i in xrange(len(text)):
     xml.write(text[i])
 xml.close()
 
-myfile = open("pdf_1.txt")
+myfile = open("Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.txt")
 
 
-xml=open('pdf_1.txt','w')
+xml=open('Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.txt','w')
 
 for i in xrange(len(text)):
     xml.write(text[i])
 xml.close()
 
 
-myfile = open("pdf_1.txt")
+myfile = open("Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.txt")
 
 #------------------------------------------------------------------------------------------------------------------------------
 ###########################################
@@ -43,35 +45,35 @@ myfile = open("pdf_1.txt")
 ###########################################
 def abstract_start(a):
     arr=['ABSTRACT']
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def abstract_end(a):
     arr=['1.INTRODUCTION',"I.INTRODUCTION","INTRODUCTION"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 ###########################################
 #define the start and the end of the introduction part
 ###########################################
-    
+
 def introduction_start(a):
     arr=['1.INTRODUCTION',"I.INTRODUCTION","INTRODUCTION"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def introduction_end(a):
     arr=["II.METHODS","METHODS","2.METHODS","THEORET","MATERIAL"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
@@ -80,54 +82,54 @@ def introduction_end(a):
 ###########################################
 def theoretical_start(a):
     arr=["THEORETICAL"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def theoretical_end(a):
     arr=["II.METHODS","METHODS","2.METHODS","MATERIAL","EXPERIME"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 ###########################################
 #define the start and the end of the method part
 ###########################################
-    
+
 def method_start(a):
     arr=["II.METHODS","METHODS","2.METHODS","MATERIAL","EXPERIME"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def method_end(a):
     arr=["III.RESULTS","RESULTS","3.RESULTS"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 ###########################################
 #define the start and the end of the result part
 ###########################################
-    
+
 def result_start(a):
     arr=["III.RESULTS","RESULTS","3.RESULTS"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def result_end(a):
-    
+
     arr=["IV.DISCUSSION","DISCUSSION","4.DISCUSSION"]
-    if(a.strip().upper() in arr):     
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
@@ -137,40 +139,40 @@ def result_end(a):
 ###########################################
 def discussion_start(a):
     arr=["IV.DISCUSSION","DISCUSSION","4.DISCUSSION"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def discussion_end(a):
-    
+
     arr=["REFERENCES","CONCLUSI","SUMMARYA","SUMMARY"]
-    if(a.strip().upper() in arr):     
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 ###########################################
 #define the start and the end of the conclusion part
 ###########################################
-    
+
 def conclusion_start(a):
     arr=["CONCLUSI","SUMMARYA","SUMMARY"]
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def conclusion_end(a):
-    
+
     arr=["REFERENCES"]
-    if(a.strip().upper() in arr):     
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
-    
+
 #------------------------------------------------------------------------------------------------------------------------------
 #set the list for store the extracted information
 c=0
@@ -191,13 +193,13 @@ conclusion1=[]
 
 #abstract extraction
 for i in myfile.readlines():
-    
+
   if(abstract_start(i.strip().replace(" ","")) or abstract_start(i.strip().replace(" ","")[0:8])):
 
      c+=1
   elif(abstract_end(i.strip().replace(" ","")) or abstract_end(i.strip().replace(" ","")[0:8])):
      c=0
-     
+
   if c > 0 :
      a1.append(i)
   #########################################################################################################
@@ -207,18 +209,18 @@ for i in myfile.readlines():
      c1+=1
   elif(introduction_end(i.strip().replace(" ","")) or introduction_end(i.strip().replace(" ","")[0:8])):
      c1=0
-     
+
   if c1 > 0 :
      introduction1.append(i)
 
   #########################################################################################################
   #theory extraction
-     
+
   if(theoretical_start(i.strip().replace(" ","")) or theoretical_start(i.strip().replace(" ","")[0:8])):
      c2_1+=1
   elif(theoretical_end(i.strip().replace(" ","")) or theoretical_end(i.strip().replace(" ","")[0:8])):
      c2_1=0
-     
+
   if c2_1 > 0 :
      theoretical1.append(i)
 
@@ -229,45 +231,45 @@ for i in myfile.readlines():
      c2+=1
   elif(method_end(i.strip().replace(" ","")) or method_end(i.strip().replace(" ","")[0:7])):
      c2=0
-     
+
   if c2 > 0 :
      method1.append(i)
   #########################################################################################################
   #result extraction
-     
+
   if(result_start(i.strip().replace(" ","")) or result_start(i.strip().replace(" ","")[0:7])):
      c3+=1
   elif(result_end(i.strip().replace(" ","")) or result_end(i.strip().replace(" ","")[0:8])):
      c3=0
-     
+
   if c3 > 0 :
      result1.append(i)
   #########################################################################################################
   #discussion extraction
-     
+
   if(discussion_start(i.strip().replace(" ","")) or discussion_start(i.strip().replace(" ","")[0:8])):
      c3+=1
   elif(discussion_end(i.strip().replace(" ","")) or discussion_end(i.strip().replace(" ","")[0:8])):
      c3=0
-     
+
   if c3 > 0 :
      discussion1.append(i)
 
   #########################################################################################################
   #conclusion extraction
-     
+
   if(conclusion_start(i.strip().replace(" ","")) or conclusion_start(i.strip().replace(" ","")[0:8])):
      c3_1+=1
   elif(conclusion_end(i.strip().replace(" ","")) or conclusion_end(i.strip().replace(" ","")[0:8])):
      c3_1=0
-     
+
   if c3_1 > 0 :
      conclusion1.append(i)
 
 
 
 
-     
+
 #------------------------------------------------------------------------------------------------------------------------------
 #this part is for searching, the sequence is as same as the above function(from the abstract to conclusion)
 a2=''.join(a1).split('.')
@@ -275,11 +277,12 @@ a3=[]
 for i in xrange(len(a2)):
     a4=0
     for j in xrange(len(search1)):
-        
+
        if search1[j].upper() in a2[i].upper():
            a4+=1
     if a4 == len(search1) :
        a3.append(a2[i])
+#print(len(search1))
 #####################################################
 
 introduction2=''.join(introduction1).split('.')
@@ -287,7 +290,7 @@ introduction3=[]
 for i in xrange(len(introduction2)):
     introduction4=0
     for j in xrange(len(search1)):
-        
+
        if search1[j].upper() in introduction2[i].upper():
            introduction4+=1
     if introduction4 == len(search1) :
@@ -299,7 +302,7 @@ theoretical3=[]
 for i in xrange(len(theoretical2)):
     theoretical4=0
     for j in xrange(len(search1)):
-        
+
        if search1[j].upper() in theoretical2[i].upper():
            theoretical4+=1
     if theoretical4 == len(search1) :
@@ -311,20 +314,20 @@ method3=[]
 for i in xrange(len(method2)):
     method4=0
     for j in xrange(len(search1)):
-        
+
        if search1[j].upper() in method2[i].upper():
            method4+=1
     if method4 == len(search1) :
        method3.append(method2[i])
 
-####################################################  
+####################################################
 
 result2=''.join(result1).split('.')
 result3=[]
 for i in xrange(len(result2)):
     result4=0
     for j in xrange(len(search1)):
-        
+
        if search1[j].upper() in result2[i].upper():
            result4+=1
     if result4 == len(search1) :
@@ -336,7 +339,7 @@ discussion3=[]
 for i in xrange(len(discussion2)):
     discussion4=0
     for j in xrange(len(search1)):
-        
+
        if search1[j].upper() in discussion2[i].upper():
            discussion4+=1
     if discussion4 == len(search1) :
@@ -348,7 +351,7 @@ conclusion3=[]
 for i in xrange(len(conclusion2)):
     conclusion4=0
     for j in xrange(len(search1)):
-        
+
        if search1[j].upper() in conclusion2[i].upper():
            conclusion4+=1
     if conclusion4 == len(search1) :
@@ -393,7 +396,7 @@ if len(result3) > 0:
    ab.write(str(len(result3)) + " sentences" +"\n"+"\n")
 
    for i in xrange(len(result3)):
-       ab.write(result3[i] +"\n"+"~~~~~~~~~~~"+"\n") 
+       ab.write(result3[i] +"\n"+"~~~~~~~~~~~"+"\n")
    ab.write("\n")
 ####################################################
 if len(discussion3) > 0:
@@ -401,7 +404,7 @@ if len(discussion3) > 0:
    ab.write(str(len(discussion3)) + " sentences" +"\n"+"\n")
 
    for i in xrange(len(discussion3)):
-       ab.write(discussion3[i] +"\n"+"~~~~~~~~~~~"+"\n") 
+       ab.write(discussion3[i] +"\n"+"~~~~~~~~~~~"+"\n")
 ####################################################
 if len(conclusion3) > 0:
    ab.write("conclusion"+"   "+str(search) +"---------------------------------------------------------------------------------")
@@ -412,3 +415,5 @@ if len(conclusion3) > 0:
    ab.write("\n")
 
 ab.close()
+
+print(a1)
