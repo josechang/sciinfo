@@ -1,0 +1,1229 @@
+JOURNAL OF THE EXPERIMENTAL ANALYSIS OF BEHAVIOR
+
+2009, 92, 233–243
+
+NUMBER 2 (SEPTEMBER)
+
+EMERGENT CONDITIONAL RELATIONS IN A GO/NO-GO PROCEDURE: FIGURE–GROUND AND
+
+STIMULUS-POSITION COMPOUND RELATIONS
+
+PAULA DEBERT
+
+1, EDSON M. HUZIWARA
+
+1, ROBSON BRINO FAGGIANI
+1, MARIA EUGEˆ NIA SIMO˜ ES DE MATHIS
+2
+AND WILLIAM J. MCILVANE
+
+1,
+
+1UNIVERSITY OF SA˜ O PAULO
+
+2UNIVERSITY OF MASSACHUSETTS MEDICAL SCHOOL
+
+Past research has demonstrated emergent conditional relations using a go/no-go procedure with
+pairs of figures displayed side-by-side on a computer screen. The present study sought to extend
+applications of
+this procedure. In Experiment 1, we evaluated whether emergent conditional
+relations could be demonstrated when two-component stimuli were displayed in figure–ground
+relationships—abstract figures displayed on backgrounds of different colors. Five normally capable
+adults participated. During training, each two-component stimulus was presented successively.
+Responses emitted in the presence of some stimulus pairs (A1B1, A2B2, A3B3, B1C1, B2C2 and
+B3C3) were reinforced, whereas responses emitted in the presence of other pairs (A1B2, A1B3,
+A2B1, A2B3, A3B1, A3B2, B1C2, B1C3, B2C1, B2C3, B3C1 and B3C2) were not. During tests, new
+configurations (AC and CA) were presented, thus emulating structurally the matching-to-sample tests
+employed in typical equivalence studies. All participants showed emergent relations consistent with
+stimulus equivalence during testing. In Experiment 2, we systematically replicated the procedures
+with stimulus compounds consisting of four figures (A1, A2, C1 and C2) and two locations (left – B1
+and right – B2). All 6 normally capable adults exhibited emergent stimulus–stimulus relations.
+Together, these experiments show that the go/no-go procedure is a potentially useful alternative for
+studying emergent conditional relations when matching-to-sample is procedurally cumbersome or
+impossible to use.
+
+Key words: go/no-go procedure, compound stimuli, conditional discrimination, stimulus equivalence,
+
+figure–ground, button press, humans
+
+_______________________________________________________________________________
+
+In the vast majority of stimulus equivalence
+research studies, matching-to-sample procedures
+are used for teaching stimulus–stimulus relations
+and testing for emergent relations (e.g., Sidman,
+1994). Other procedures, however, have also
+been used in stimulus equivalence research, such
+as the contiguous pairing and recombination
+method of Leader, Barnes and Smeets (1996)
+and the go/no-go method recently reported by
+Debert, Matos, and McIlvane (2007).
+
+In the latter study, two abstract black-and-
+white figures were displayed side-by-side on the
+
+The research has been supported by Grant 479436/
+2003-7 and fellowships from Conselho Nacional de
+Desenvolvimento Cientı´fico e Tecnolo´ gico (Brazilian
+Research Council) and by FAPESP Grant 2003/09928-4.
+William J. McIlvane was supported by grants from the
+National Institute of Child Health and Human Develop-
+ment (HD25995, HD04147, and HD052947).
+
+Correspondence concerning this article may be sent to
+Paula Debert, Department of Experimental Psychology,
+University of Sa˜o Paulo, Avenida Professor Mello Moraes,
+1721, Sa˜o Paulo, SP, 05508-900, Brazil (e-mail: pdebert@
+uol.com.br)or to William McIlvane at william.mcilvane@
+umassmed.edu.
+
+doi: 10.1901/jeab.2009.92-233
+
+screen of a computer that controlled all
+experimental operations. For example, when
+A1B1 compound was displayed, A1 was a circle
+on left side and B1 was a figure similar to an
+inverted letter ‘‘L’’ on the right side. During
+go/no-go training, each two-component stimu-
+lus was presented successively for 4 s. Responses
+emitted in the presence of certain stimulus
+pairs (A1B1, A2B2, A3B3, B1C1, B2C2 and
+B3C3) were followed intermittently by reinforc-
+ers, whereas responses emitted in the presence
+of other compounds (A1B2, A2B1, A2B3, A3B1,
+A3B2, B1C2, B1C3, B2C1, B2C3, B3C1 and
+B3C2) were not. After accurate performances
+were established, probe tests in extinction
+displayed new compounds composed of differ-
+ent arrangements of the component stimuli—
+BA, CB, AC, and CA—following the logic of
+procedures used in typical equivalence studies.
+Five of six participants subsequently responded
+in a manner consistent with the ABC classes
+typical of such studies.
+
+According to Sidman’s (1994) definition,
+matching-to-sample procedures are not essen-
+tial to generate equivalence classes. Indeed, he
+wrote (p. 381) that ‘‘A potential equivalence
+
+233
+
+234
+
+PAULA DEBERT et al.
+
+relation can be thought of as a kind of bag that
+contains all the ordered pairs of events that
+constitute the relation … To document the
+relation, all we have to do is reach into the bag
+… and pull out its member pairs.’’. Following
+Sidman’s logic, given the appropriate context,
+any procedure that entails ordered pairs of
+related events might potentially establish
+equivalence relations. Nearly all studies in
+the equivalence literature, however, have used
+the same matching-to-sample context. The
+generality of equivalence class formation fol-
+lowing other types of ordered-pair relations
+has not been studied systematically, and the
+possibilities suggested by Sidman’s analogy
+have been evaluated only rarely.
+
+The robust findings of the study by Debert
+et al. (2007) inspired further efforts to assess
+the limits of
+the go/no-go procedures in
+establishing equivalence classes. We assessed
+two procedural targets: (1) classical figure–
+ground relations similar to those that con-
+cerned Lashley (1938) and (2) stimulus-
+position relations.
+
+Both experiments were conducted with
+normally capable adults. These two targets
+were selected in part to demonstrate another
+feature of go/no-go procedures’ applicability
+with stimulus relations that cannot be studied
+with straightforward matching-to-sample meth-
+ods: that
+is, that one cannot separate the
+constituent elements of
+figure–ground or
+stimulus-position compound relation into
+sample and comparison stimuli. Moreover,
+these two procedure targets seem to map well
+onto contingencies encountered outside the
+laboratory that require individuals to respond
+if and only if certain conditions are fulfilled
+and otherwise do nothing (e.g., soldiers are
+required to salute only when an officer enters
+the room). Laboratory go/no-go procedures
+may be useful as a simple way to model such
+procedures for controlled study.
+
+EXPERIMENT 1: FIGURE–
+
+GROUND RELATIONS
+
+METHOD
+
+Participants
+
+The participants were 2 males and 3 females
+aged 18–29 years. None had prior familiarity
+with the experimental analysis of behavior.
+Participants were fully debriefed when the
+experiment concluded.
+
+Apparatus
+
+All sessions were conducted individually in a
+4 m 3 3 m room. An IBM computer with 256-
+mm (14-inch) color monitor was used. Each
+participant was seated facing the monitor and
+could respond directly to stimuli by position-
+ing the mouse’s cursor anywhere on it and
+depressing the button. A program developed
+in Visual Basic controlled all experimental
+operations including stimulus presentations
+and data recording.
+
+Components of the two-component figure–
+ground stimuli could be any one of six abstract
+forms (after Markham & Dougher, 1993),
+designated as A1, A2, A3, C1, C2, and C3,
+and any one of three colors as backgrounds,
+designated as B1, B2, and B3. The designations
+were not displayed on the computer screen
+(see Figure 1). Each abstract form was cen-
+tered within a colored background displayed
+in the center of the monitor’s screen (see
+Figures 2 and 3). The experimental stimuli
+were judged physically dissimilar with respect
+to form and color; stimulus–stimulus relations
+were arbitrarily defined by the contingencies
+programmed by the experimenter.
+
+Procedure
+
+Phase I: Training baseline relations. In Phase I,
+a differential reinforcement procedure was
+used to establish button-pressing to some
+figure–ground stimuli (i.e., components to
+be related) and not pressing to others (i.e.,
+components not-to-be related). At the begin-
+ning of this phase, each participant sat facing a
+monitor that displayed the following instruc-
+tions (translated from the Portuguese):
+
+‘‘This study is not about intelligence testing,
+and will not evaluate any aspect of your
+intellectual abilities. When it is finished you
+will receive a full explanation. I will remain
+nearby to solve any technical problems that
+may arise with the equipment, but I will not be
+able to talk to you. Your goal is to attain as many
+points as possible; these points will be shown on the
+upper left of the screen. In a defined area in the
+center of the screen, there will be symbols. Your task is
+to click in this area, with the mouse, when you think
+correct symbols are shown, and not to click when
+incorrect ones are shown. In the beginning, you
+will receive points whenever you click correct
+symbols; later on, you will sometimes receive
+and sometimes not receive such points. The
+task will increase in difficulty as it goes along.
+
+EMERGENT RELATIONS IN GO/NO-GO PROCEDURES
+
+235
+
+Fig. 1. Colored backgrounds and abstract form stimuli and their designations (A1, B1, C1, A2, B2, C2, A3, B3, C3) in
+
+Experiment 1.
+
+Fig. 2.
+
+Illustration of the screen during one example of a trial in Experiment 1. The drawing on the left shows the
+screen after a participant clicked the ‘‘OK’’ button. The drawing on the right shows the screen after a participant’s
+correct response. The point counter is shown at the upper-left corner of the screen, and an example of a figure–ground
+stimulus (A1B1) is shown at its center.
+
+236
+
+PAULA DEBERT et al.
+
+Fig. 3. Stimuli presented in each phase of Experiment 1. Stimuli with components To-Be-Related are underlined.
+
+Thus, pay attention even when the task seems
+very simple. Please, repeat to me the instruc-
+tions you just read.’’
+
+When participants indicated that they un-
+derstood the instructions, they received the
+following further instruction (also translated):
+‘‘When I tell you to start, click where it says
+‘OK’. Thank you very much for your partici-
+pation!’’
+
+When the participants clicked the OK area,
+the experimenter left the room and training
+began. A two-component figure–ground stim-
+ulus was presented in the center of the screen,
+and the counter (initially set at zero) was
+displayed in the left upper corner (see
+Figure 2). Eighteen different figure–ground
+stimuli resulted from combinations of one of
+
+the six abstract forms and one of the three
+colored backgrounds (see Figure 3). ‘‘Relat-
+ed’’ components were A1B1, A2B2, A3B3,
+B1C1, B2C2 and B3C3. ‘‘Not-related compo-
+nents’’ were A1B2, A1B3, A2B1, A2B3, A3B1,
+A3B2, B1C2, B1C3, B2C1, B2C3, B3C1 and
+B3C2.
+
+Each figure–ground stimulus with related
+and not-related components was presented for
+4 s on each trial, independent of participant
+behavior following the procedure used by
+Debert et al. (2007). During each trial,
+participants could click one or many times
+with the mouse. In order to count as a valid
+response, however, the mouse cursor had to be
+positioned within the figure–ground stimulus
+and not in the surrounding area.
+
+EMERGENT RELATIONS IN GO/NO-GO PROCEDURES
+
+237
+
+Table 1
+
+Compound abstract stimuli presented in each of
+phases in Experiment 1.
+
+the
+
+PHASE I
+TRAIN
+
+PHASE II
+
+TEST
+
+Related
+
+Not-Related
+
+Related
+
+Not-Related
+
+A1B1
+A2B2
+A3B3
+B1C1
+B2C2
+B3C3
+
+A1B2
+A1B3
+A2B1
+A2B3
+A3B2
+A3B1
+B1C2
+B1C3
+B2C1
+B2C3
+B3C1
+B3C2
+
+A1C1
+A2C2
+A3C3
+C1A1
+C2A2
+C3A3
+
+A1C2
+A1C3
+A2C1
+A2C3
+A3C1
+A3C2
+C1A2
+C1A3
+C2A1
+C2A3
+C3A1
+C3A2
+
+The order of presentation of each trial type
+varied unsystematically across trials. The order
+was restricted such that no trial type could be
+presented more than three times successively.
+Each figure–ground stimulus with related
+components was presented twice in a block
+of trials, while each of the not-related figure–
+ground stimuli was presented once (see
+Table 1). Via this balancing procedure, also
+used by Debert et al. (2007), related and not-
+related figure–ground stimuli appeared equal-
+ly often in a block. Sessions consisted of 12
+blocks of 24 trials each (288 trials per session)
+and lasted about 30 min.
+
+Valid responses to figure–ground stimuli
+with related components were followed by the
+sound of tokens falling and by the addition of
+10 points on a counter positioned on the
+upper-left corner of the computer monitor.
+When points were added, the total accumula-
+tion flashed for 1.5 s. All trials were separated
+by an intertrial interval of 2 s. There were no
+stimuli displayed and no programmed conse-
+quences for responding during the intertrial
+interval.
+
+During the first 36 trials, button presses to
+related figure–ground stimuli were immedi-
+ately followed by points;
+thereafter, points
+came on a conjunctive fixed-ratio 1 variable-
+time 2.5 s schedule (i.e., at least one response
+was made to the related stimuli and 2.5 s, on
+average, had elapsed). The conjunctive sched-
+ule was used in order to discourage very rapid
+responding that might
+interfere with the
+development of stimulus control by the fig-
+
+ure–ground stimuli. When not-related compo-
+nents were displayed, behavior was never
+followed by points.
+
+Phase I ended when participants completed
+a full session of responding to virtually all of
+related figure–ground stimuli and made virtu-
+ally no responses to stimuli with not-related
+components (see Results).
+
+Phase II: Equivalence tests. This phase was
+implemented to test for equivalence relations
+with the go/no-go procedure under extinction
+conditions involving new compounds with A
+and C components. We followed the general
+logic of defining equivalence in a manner
+consistent with the analysis of Stromer, McIl-
+vane, and Serna (1993) and the ‘‘combined’’
+tests
+for equivalence relations and their
+defining properties (i.e., reflexivity, symmetry,
+and transitivity) as outlined by Sidman and
+Tailby (1982). Equivalence relations would be
+shown if participants (1) responded to pairs of
+forms that had appeared with the same colors
+on figure–ground training trials (i.e., A1C1,
+A2C2, A3C3, C1A1, C2A2 and C3A3) and (2)
+did not respond to form pairs
+that had
+appeared with different color on such trials.
+
+At the beginning of Phase II, the instruc-
+tions were: ‘‘This is a new phase and your task
+will be modified. Work according to what you
+have learned. No sounds or points will be
+presented. When you are ready to start, click
+the ‘OK’ button’’. When the participants
+clicked the OK area, the experimenter left
+the room and testing began.
+
+Phase II was conducted for one session only.
+Table 1 shows all trial types presented in this
+phase. Form stimuli were presented in side-by-
+side pairs within a neutral background on the
+screen (see Figure 3). Eighteen different
+stimulus pairs resulted from the combinations
+of all six forms (see Table 1). The order of
+presentation of stimulus pairs varied unsys-
+tematically across trials, again with the restric-
+tion that no trial type could appear more than
+three times in succession. Each stimulus pair
+with related components was presented twice
+in a block of trials, while each of the not-
+related components was presented once, again
+equating related and not-related component
+pairs within a block.
+
+All test trials started with 8-s presentations of
+a two-component
+stimulus. Following the
+procedure suggested by Debert et al. (2007),
+the duration of stimulus presentation was
+
+238
+
+PAULA DEBERT et al.
+
+Percentage of correct performances in each session for all participants of Experiment 1.*
+
+Table 2
+
+PARTICIPANT
+
+J
+
+M
+
+K
+
+F
+
+L
+
+TRAIN
+
+TEST
+
+Session 1
+Session 2
+Session 3
+Session 4
+Session 1
+
+71,8 (207/288)
+96,5 (278/288)
+99,3 (286/288)
+99,3 (286/288)
+99,3 (143/144)
+
+59,0 (170/288)
+93,8 (270/288)
+98,9 (285/288)
+100 (288/288)
+100 (144/144)
+
+73,0 (210/288)
+94,5 (272/288)
+100 (288/288)
+
+66,7 (192/288)
+97,2 (280/288)
+100 (288/288)
+
+------
+
+------
+
+78,9 (227/288)
+99,6 (287/288)
+
+------
+------
+
+100 (144/144)
+
+100 (144/144)
+
+99,3 (143/144)
+
+* Values in parentheses represent the number of trials with correct responses and number of trials per session.
+
+increased in testing from 4 s to 8 s in order to
+capture responding that was merely delayed
+due to the appearance of new trial types in
+testing. Again, participants could click once or
+many times with the mouse, and valid respons-
+es had to be within the area of stimulus
+presentation and not in the surrounding area.
+Six blocks of 24 trials were presented in a
+test
+session of about 30 min. The point
+counter was not displayed on any such trials.
+
+RESULTS AND DISCUSSION
+
+Table 2 shows the percentage of correct
+performances during training and testing for
+each participant (i.e., the number of trials with
+one or more responses
+to figure–ground
+components defined as related added to the
+number of
+trials on which there were no
+responses to figure–ground components de-
+fined as not-related divided by the total
+number of trials). Three participants required
+three to four sessions to achieve 100% correct
+trials during training. Perfect performance was
+not required for 2 other participants ( J and
+L), because each spontaneously verbalized
+correctly that they recalled making one or
+two errors in their session. These participants
+achieved accuracy levels of 99.3% correct and
+in their fourth and second
+99.6% correct
+sessions respectively. All participants,
+then,
+immediately showed the emergence of equiv-
+alence relations within one testing session.
+
+The positive findings are strongly in line
+with the ‘‘separable compound’’ account
+proposed by Stromer et al. (1993), who argued
+that equivalence relations could arise at the
+level of the three-term contingency (see Sid-
+man, 2000, for further consideration of the
+relevant issues). Like the participants in the
+study by Debert et al. (2007), the present
+participants exhibited emergent behavior and
+equivalence relations with novel combinations
+of stimulus components (i.e.,
+the figures)
+
+this application of
+
+presented contiguously with other compo-
+the grounds) during training.
+nents (i.e.,
+Indeed,
+the go/no-go
+procedures was even more successful than in
+our first report, due perhaps to the procedure
+modification of allowing somewhat more time
+(8 s instead of 4 s) to respond on the test trials
+with related components.
+
+In concluding discussion of this experiment,
+we note that
+the go/no-go trial balancing
+procedure used here was not the only balanc-
+ing procedure possible. We balanced the trials
+such that requiring a ‘‘go’’ response occurred
+about equally often as those requiring a ‘‘no-
+go’’ response. As a mathematical consequence
+of presenting every trial type, stimulus pairs
+displayed on ‘‘go’’ trials appeared twice as
+often as pairs displayed on ‘‘no-go’’
+trials
+during training. The alternative would have
+been presenting twice as many ‘‘no-go’’ trials
+to arrange that every trial type appear equally
+often, potentially introducing a bias toward
+‘‘no-go’’ responding. With our normally capa-
+ble participants, this bias potential was small,
+in part because the overall number of training
+trials was small. Moreover, our participants
+responded appropriately from the outset in a
+manner consistent with equivalence of certain
+ordered pairs and the nonequivalence of
+others, before the greater frequency of the
+former was detectable. Thus, our balancing
+procedure here appears to have been the
+appropriate choice. With other populations
+that would likely show less rapid acquisition
+(e.g., nonhumans), however, the potential for
+introducing response bias via the nature of
+balancing may be a greater concern.
+
+EXPERIMENT 2: FORM–
+POSITION COMPOUNDS
+
+This experiment addressed further exten-
+the go/no-go procedure to study
+
+sion of
+
+EMERGENT RELATIONS IN GO/NO-GO PROCEDURES
+
+239
+
+Fig. 4. Abstract form stimuli, their positions, and their designations (A1, B1, C1, A2, B2, C2) in Experiment 2.
+
+potentially emergent behavior using form–
+position compound stimuli. The positions
+served the same role in this experiment as
+the colored grounds in Experiment 1, but
+there was no added stimulus component—the
+nodal stimulus was merely the position of the
+form in the display.
+
+Participants
+
+METHOD
+
+Participants were 2 males and 4 females
+aged 20–26 years. None had prior familiarity
+with the experimental analysis of behavior and
+were debriefed afterwards.
+
+Apparatus and Stimuli
+
+Apparatus was the same as in Experiment 1.
+Compound stimuli were composed of four
+abstract forms (designated A1, C1, A2 and C2)
+presented on the left position (designated B1)
+or right position (designated B2) on the
+computer monitor (see Figure 4). Each ab-
+stract
+form was presented in left or right
+location centered in an area at the bottom of
+the monitor’s screen (see Figure 5).
+
+Procedure
+
+This experiment had the same two-phase
+structure as Experiment 1: Phase I – Training
+and Phase II – Equivalence Tests. The differ-
+ence was the number of compounds and trials.
+In Phase I, eight different compound
+stimuli resulted from the combinations of
+one of the four abstract forms and one of
+the two locations (see Figure 5). Compounds
+with related components were A1B1, A2B2,
+B1C1 and B2C2. Compounds with not-related
+
+components were A1B2, A2B1, B1C2 and
+B2C1. Each compound appeared equally often
+within a block. Sessions consisted of 12 blocks
+of 8 trials (96 trials per
+session). Each
+compound was presented for 4 s and each
+session lasted for about 10 min.
+
+the first
+
+side-by-side for
+
+In Phase II, the equivalence tests displayed
+two forms
+time.
+Compounds with related components were
+A1C1, A2C2, C1A1 and C2A2. Compounds
+with not-related components were A1C2,
+A2C1, C1A2, and C2A1. Eight different com-
+pound stimuli resulted from the combinations
+of the four abstract forms (see Table 3). Eight
+equivalence tests were intermixed in unsys-
+tematic order within each of 12 test blocks
+(i.e., 96 total test
+trials). These tests were
+conducted under extinction conditions. Each
+compound was presented for 8 s and each
+session lasted for about 13 min.
+
+RESULTS AND DISCUSSION
+
+Table 4 shows the percentage of correct
+performances during training and testing for
+each participant
+in Experiment 2. Correct
+performance was defined in the same manner
+as in Experiment 1.
+
+Participants took from two to six sessions to
+reach 100% of correct performances during
+training. All participants showed the emer-
+gence of equivalence relations within one or
+two testing sessions. Unlike the results of
+Experiment 1, however, 3 participants (A, E,
+G) achieved initially low scores (25%) on
+Equivalence Test trials presented in the first
+test session. Table 5 presents an analysis of
+responding in this session, which shows that all
+participants responded to C1A2 and A1C2 and
+
+240
+
+PAULA DEBERT et al.
+
+Fig. 5. Stimuli presented in each phase in Experiment 2. Stimuli with components To-Be-Related are underlined.
+
+not to any of the other pairs of forms. These
+orderly data may have been due in part to
+effects of the training and the circumstances of
+testing. Test trials presented forms on the left
+and right positions for the first time. Partici-
+pants A, E, and G responded initially only to
+displays in which the left and right positioning
+of the stimuli were compatible with previously
+reinforced choices. That is, both C1 and A1 on
+the right and A2 and C2 on the left were on
+
+the
+
+response
+
+the positions that they were on trials that were
+followed by reinforcers. In the second test
+session, however,
+pattern
+changed abruptly. Participants A, E and G
+immediately displayed performances that were
+100% consistent with the form–position-based
+equivalence relations. One question may be
+why the other 3 participants apparently ig-
+nored the conflict. Perhaps the participants as
+a group were presented with two equally
+
+Compound abstract stimuli presented in each of the phases in Experiment 2.
+
+Table 3
+
+PHASE I
+TRAIN
+
+PHASE II
+
+TEST
+
+Related
+
+A1B1
+A2B2
+B1C1
+B2C2
+
+Not-Related
+
+A1B2
+A2B1
+B1C2
+B2C1
+
+Related
+
+A1C1
+A2C2
+C1A1
+C2A2
+
+Not-Related
+
+A1C2
+A2C1
+C1A2
+C2A1
+
+EMERGENT RELATIONS IN GO/NO-GO PROCEDURES
+
+241
+
+Percentage of correct performances in each session for all participants in Experiment 2.*
+
+Table 4
+
+PARTICIPANT
+
+A
+
+B
+
+C
+
+D
+
+E
+
+G
+
+TRAIN
+
+TEST
+
+Session 1
+Session 2
+Session 3
+Session 4
+Session 5
+Session 6
+Session 1
+Session 2
+
+65,6 (63/96)
+94,8 (91/96)
+94,8 (91/96)
+100 (96/96)
+
+50,0 (48/96)
+70,0 (67/96)
+83,0 (80/96)
+100 (96/96)
+
+55,2 (53/96)
+70,0 (67/96)
+99,0 (95/96)
+100 (96/96)
+
+------
+------
+
+------
+------
+
+------
+------
+
+25,0 (24/96)
+100 (96/96)
+
+94,8 (91/96)
+
+100 (96/96)
+
+------
+
+------
+
+50,0 (48/96)
+39,6 (38/96)
+55,2 (53/96)
+94,8 (91/96)
+95,9 (92/96)
+100 (96/96)
+100 (96/96)
+
+------
+
+74,0 (71/96)
+94,8 (91/96)
+94,8 (91/96)
+99,0 (95/96)
+96,9 (93/96)
+100 (96/96)
+25,0 (24/96)
+100 (96/96)
+
+75,0 (72/96)
+100 (96/96)
+
+------
+------
+------
+------
+
+25,0 (24/96)
+100 (96/96)
+
+* Values in parentheses represent the number of trials with correct responses and number of trials per session.
+
+possible solutions to the test trial challenges:
+(1) ignore the conflict and respond accord-
+ing to the form–position history, or (2)
+match the behavior to the conflict situation
+by responding only when the stimulus display
+presented no conflicts with past
+training.
+Perhaps it is not surprising that there was a
+50%-50% split in the initial responding. Why
+the 3 participants who initially exhibited the
+latter behavior pattern immediately switched
+to the former pattern in the second test
+session is not immediately obvious. Perhaps
+the entire test session of extinction for the
+latter pattern was a variable in occasioning
+that switch.
+
+In future studies with the go/no-go proce-
+dure and form–position compounds,
+the
+conflict situation in the present test proce-
+dures and perhaps the delayed emergence
+might be avoided by presenting test stimuli in
+a central vertical position or perhaps closely
+spaced horizontally in the center of
+the
+display. In both cases, the procedure would
+avoid presenting specific test stimuli in exactly
+the same positions as they appeared during
+
+training, perhaps reducing or eliminating the
+conflict created by stimulus-position com-
+pounding.
+Results
+
+from this experiment and from
+another
+recent
+study (Perez, Campos, &
+Debert, in press) address the trial-balancing
+issue that was raised in Experiment 1. These
+data demonstrate that emergent
+stimulus
+equivalence relations can be established even
+when ‘‘go’’ and ‘‘no-go’’ trials are presented
+equally often. Together with the immediate
+emergence of stimulus equivalence relations
+shown in Experiment 1,
+the data from
+Experiment 2 support
+the suggestion that
+unbalanced procedures are not the source of
+emergent equivalence relations in go/no-go
+procedures. As noted earlier, however, this
+assertion may depend upon our use of
+normally capable humans as participants.
+Indeed, other populations will be needed to
+address the role of preexperimental history,
+for example,
+the ability to label positions
+independently of the stimuli that appear in
+them (an important generalized skill
+in
+human development and functioning).
+
+Percentage of compound stimuli to which Participants A, E and G responded in the first session
+of Phase II of Experiment 2.*
+
+Table 5
+
+A1C1
+A1C2
+A2C2
+A2C1
+C1A1
+C1A2
+C2A2
+C2A1
+
+Participant A
+
+0 (0/12)
+100 (12/12)
+0 (0/12)
+0 (0/12)
+0 (0/12)
+100 (12/12)
+0 (0/12)
+0 (0/12)
+
+Participant E
+
+0 (0/12)
+100 (12/12)
+0 (0/12)
+0 (0/12)
+0 (0/12)
+100 (12/12)
+0 (0/12)
+0 (0/12)
+
+Participant G
+
+0 (0/12)
+100 (12/12)
+0 (0/12)
+0 (0/12)
+0 (0/12)
+100 (12/12)
+0 (0/12)
+0 (0/12)
+
+* Values in parentheses represent the number of trials with responses and number of trials per session.
+
+242
+
+PAULA DEBERT et al.
+
+GENERAL DISCUSSION
+
+sample procedure. On their face, such proce-
+dures seem to have the advantage of simplicity
+in the stimulus displays—one reason that they
+were deemed attractive in early research in
+comparative cognition (Mallot, Mallot, Svi-
+nicki, Kladder, & Ponicki, 1971; Zentall &
+Hogan, 1975). Whether these procedures will
+prove ultimately satisfactory is a cause for some
+concern in their
+future applications with
+nonhuman and very young and/or nonverbal
+humans given some possible complicating
+factors (e.g.,
+to avoid re-
+sponding largely or entirely on no-go trials).
+That acknowledged, go/no-go procedures
+have not received the same very extensive
+study and methodological development as
+matching-to-sample procedures. Perhaps a
+program of research focusing on these proce-
+dures specifically might overcome these possi-
+ble complicating factors, permitting their
+other possible advantages to come to the
+forefront.
+
+the requirement
+
+REFERENCES
+
+Cumming, W. W., & Berryman, R. (1965). The complex
+discriminated operant: Studies of matching to sample
+and related problems. In D. I. Mostofsky (Ed.),
+Stimulus generalization (pp. 284–329). Stanford, CA:
+Stanford University Press.
+
+Debert, P., Matos, M. A., & McIlvane, W. J. (2007).
+Conditional relations with compound abstract stimuli.
+the Experimental Analysis of Behavior, 87,
+Journal of
+89–96.
+
+Lashley, K. S. (1938). Conditional discriminations in rats.
+
+Journal of Psychology, 6, 311–324.
+
+Leader, G., Barnes, D., & Smeets, P. M. (1996). Establish-
+ing equivalence relations using a respondent-type
+training procedure. The Psychological Record, 46,
+685–706.
+
+Mallot, R. W., Mallot, K., Svinicki, J. G., Kladder, F., &
+Ponicki, E. (1971). An analysis of matching and
+nonmatching behavior using a single key,
+free
+operant procedure. The Psychological Record, 21,
+545–564.
+
+Markham, M. R., & Dougher, M. J. (1993). Compound
+stimuli in emergent stimulus relations: Extending the
+scope of stimulus equivalence. Journal of the Experimen-
+tal Analysis of Behavior, 60, 529–542.
+
+Perez, W. F., Campos, H. C., & Debert, P. (in press).
+Procedimento go/no-go com estı´mulos compostos e a
+emergeˆncia de duas classes com treˆs estı´mulos. Acta
+Comportamentalia.
+
+Sidman, M. (1986). Functional analysis of emergent verbal
+classes. In T. Thompson, & M. D. Zeiler (Eds.),
+Analysis and integration of behavioral units, Hillsdale, NJ:
+Erlbaum.
+
+Sidman, M. (1994). Equivalence relations and behavior: A
+
+research story. Boston: Authors Cooperative.
+
+functions
+
+for
+
+functions
+
+The present results further support
+
+the
+suggestion by Debert et al. (2007) that one
+might profitably reexamine analyses of sepa-
+rate discriminative stimulus
+for
+sample and comparison stimuli in matching-
+samples may act as
+to-sample procedures:
+‘‘selectors’’ of
+the discriminative stimulus
+functions of comparisons (Cumming & Berry-
+man, 1965) in a conditional discrimination.
+Previous investigators have argued on the
+basis of parsimony that one need not posit
+that conditional discrimination tasks such as
+matching-to-sample involve separately de-
+fined conditional and discriminative stimuli
+with special and different
+functions (cf.
+Stromer et al., 1993; Thomas & Schmidt,
+1989). This issue seems highly relevant in
+the present
+considering the findings of
+for
+experiments. How would one assign,
+example, different
+figure–
+ground stimuli or form–position compounds
+in our two experiments? If separately de-
+fined sample and comparison functions are
+not
+logically necessary in our procedures,
+why should they be postulated in standard
+matching-to-sample procedures of the type
+studied by Sidman and Tailby (1982) and
+many others?
+from both
+experiments described here and from re-
+search
+discriminations
+question whether going beyond the three-
+term contingency relations is necessary to
+the analysis of equivalence relations (Sid-
+man, 2000). As Sidman has
+suggested,
+however, certain preparations and behavior-
+al histories may in fact require analysis in
+terms of 4-, 5-, and perhaps n-term contin-
+gencies (Sidman, 1986). Studies of the type
+reported here may help in conceptualizing
+such higher-level
+when specification of
+contingencies are and are not
+logically
+necessary.
+
+Indeed,
+
+results
+
+involving
+
+simple
+
+Clearly, the go/no-go procedure succeeds as
+an alternative to matching-to-sample for study
+of emergent stimulus–stimulus relations when
+training involves stimuli of the type employed
+in the present experiments. An issue for future
+research is whether procedures of the type
+reported here will produce similar results
+when used with nonhumans or humans with
+developmental
+limitations that tend not to
+show emergent relations with matching-to-
+
+EMERGENT RELATIONS IN GO/NO-GO PROCEDURES
+
+243
+
+Sidman, M. (2000). Equivalence relations and the rein-
+the Experimental
+
+Journal of
+
+forcement contingency.
+Analysis of Behavior, 74, 127–146.
+
+Sidman, M., & Tailby, W. (1982). Conditional discrimina-
+tion vs. matching to sample: An expansion of testing
+paradigm.
+the Experimental Analysis of
+Behavior, 37, 5–22.
+
+Journal of
+
+Stromer, R., McIlvane, W. J., & Serna, R. W. (1993).
+Complex stimulus control and equivalence. The
+Psychological Record, 43, 585–598.
+
+Thomas, D. R., & Schmidt, E. K. (1989). Does conditional
+discrimination learning by pigeons necessarily involve
+hierarchical relationships? Journal of the Experimental
+Analysis of Behavior, 52, 249–260.
+
+Zentall, T. R., & Hogan, D. E. (1975). Concept learning in
+the pigeon: transfer to new matching and nonmatch-
+ing stimuli. American Journal of Psychology, 88, 233–244.
+
+Received: September 20, 2008
+Final Acceptance: April 17, 2009
+
+

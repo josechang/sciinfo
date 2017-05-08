@@ -1,0 +1,557 @@
+ 
+
+Psicológica (2014), 35, 139-148. 
+
+ 
+
+Simultaneous stimulus preexposure enhances human 
+
+tactile perceptual learning 
+
+Gabriel Rodríguez* and Rocío Angulo 
+Universidad del País Vasco (UPV/EHU) 
+
+ 
+
+An  experiment  with  human  participants  established  a  novel  procedure  to 
+assess  perceptual  learning  with  tactile  stimuli.    Participants  received 
+unsupervised exposure to two sandpaper surfaces differing in roughness (A 
+and B). The ability of the participants to discriminate between the stimuli 
+was subsequently assessed on a same/different test. It was found that prior 
+exposure to the stimuli led to more accurate judgements on the different-
+trials.  Furthermore,  simultaneous  exposure  to  the  stimuli  enhanced  this 
+accuracy  more  than  sequential  exposure  (A,  B,  A,  B…).  These  findings 
+extend recent results from visual studies to the tactile modality, confirming 
+that simultaneous exposure produces a marked perceptual learning effect. 
+ 
+ 
+Exposure 
+
+stimuli  can 
+
+similar 
+
+to 
+
+two 
+
+facilitate 
+
+subsequent 
+discrimination  between  them  (i.e.,  can  reduce  the  extent  to  which 
+generalization occurs between them). Examples of this perceptual learning 
+effect have been extensively observed in a wide variety of procedures and 
+species (see Mitchell & Hall, in press, for a recent review). In order to get a 
+better  understanding  of  the  mechanisms  involved  in  this  phenomenon, 
+researchers  have  attempted  to  determine  which  conditions  of  stimulus 
+exposure are most optimal in generating perceptual learning. In this regard, 
+several  studies,  with  both  human  and  nonhuman  animals,  have  been 
+specifically  designed  to  test  the  notion  that  perceptual  learning  is  more 
+likely 
+that  favour  stimulus 
+comparison (Gibson, 1969).  
+
+to  occur  under  preexposure  conditions 
+
+                                                 
+*  This  research  was  supported  by  grants  from  the  Spanish  Ministerio  de  Economía  y 
+Competitividad  (PSI2011-2431),  and  Gobierno  Vasco  (IT-276-07).    Correspondence 
+concerning this article should be addressed to Gabriel Rodríguez, Facultad de Psicología, 
+Universidad  del  País  Vasco,  San  Sebastián,  Guipuzkoa,  20018,  Spain.  E-mail: 
+gabriel.rodriguez@ehu.es 
+
+ 
+
+140 
+ 
+
+G. Rodríguez & R. Angulo 
+
+Most of the human studies addressing this issue have involved visual 
+stimuli, and have produced data that seem to confirm the beneficial effect of 
+stimulus comparison in generating the perceptual learning effect. Perhaps 
+the  clearest  effect  supporting  this  notion  is  the  finding  that  simultaneous 
+presentation  of  two  stimuli  produces  better  discrimination  than  does 
+sequential exposure (Angulo & Alonso, 2012; Mundy, Honey, & Dwyer, 
+2007; 2009). The generality of this effect has been well established across a 
+variety of visual stimuli (e.g., Arabic symbols in the study by Angulo and 
+Alonso,  and  morphed  pictures  of  human  faces  and  black-and-white 
+checkerboard patterns in the studies by Mundy et al.). It is clear, however, 
+that further research involving other sensory modalities in addition to vision 
+is necessary to establish whether or not stimulus comparison has general 
+relevance for human perceptual learning. The aim of the present experiment 
+was to contribute to this issue, extending the study of this simultaneous-
+sequential preexposure effect to a human procedure using tactile stimuli. 
+
+The design and the logic of the experiment were very similar to that 
+employed in previous studies with human (e.g., Mundy et al., 2009) and 
+nonhuman animals (e.g., Rodríguez & Alonso, 2008; Rodríguez, Blair, & 
+Hall, 2008).  It consisted of two phases (see Table 1). In the first phase, the 
+opportunity  to  compare  two  tactile  stimuli  was  manipulated  across 
+conditions. Two sandpaper surfaces differing in roughness were used as the 
+stimuli  (A  and  B).  Participants  in  Group  SIM  received  simultaneous 
+preexposure to both surfaces. On each preexposure trial, these participants 
+were allowed to touch both A and B at the same time, each one with an 
+index  finger.  Participants  in  Group  SEQ  received  the  same  number  of 
+presentations of A and B, but sequentially rather than simultaneously. On 
+each preexposure trial, these participants were allowed to touch only one 
+surface (A or B) with the index finger of their dominant hand. Presentations 
+of A and B were alternated across this sequential schedule (e.g., A, B, A, 
+B…). Finally, Group CTRL provided a control condition for which there 
+was no preexposure to the stimuli.  
+
+On  the  subsequent  test  phase,  the  ability  of  all  the  participants  to 
+discriminate  between  the  stimuli  was  assessed  with  a  same/different 
+judgement  task  (e.g.,  Dwyer,  Hodder,  &  Honey,  2004).  Each  test  trial 
+consisted of the sequential presentation of two surfaces. At the end of each 
+test trial, participants were asked to judge whether or not the two surfaces 
+which they had just touched, were the same or different. There were 4 test 
+trials: 2 “same” trials (A-A, and B-B), and 2 “different” trials (A-B, and B-
+A).  According  to  the  hypothesis  that  stimulus  comparison  facilitates 
+perceptual learning, and on the basis of previous studies using visual cues 
+(e.g., Mundy et al., 2009), we expected to find that the groups that were 
+
+Tactile Perceptual Learning 
+
+141 
+
+allowed to compare the stimuli during preexposure, Groups SIM and SEQ, 
+would perform better on the test (would discriminate between the stimuli) 
+than  the  nonpreexposed  control  group.  In  addition,  since  it  seems 
+reasonable to assume that simultaneous exposure offers the most optimal 
+conditions  for  stimulus  comparison  to  occur  (e.g.,  Gibson  1969,  p.145; 
+Mundy et al., 2007; 2009), we also expected to find better test performance 
+in Group SIM than in Group SEQ. 
+
+METHOD 
+
+Participants. A total of 42 participants, 34 female and 8 male, were 
+recruited from the School of Psychology at the University of the Basque 
+Country. All were right-handed and ranged in age from 20 to 33 years. They 
+were  graduate  students  who  did  not  receive  any  financial  incentive  to 
+participate.  Participants  were  randomly  assigned,  in  equal  numbers,  to 
+groups SIM, SEQ, and CTRL. 
+
+ 
+Stimuli. Squares of 10 x 10 cm made from commercially produced 
+sandpapers (Debray, Barcelona, Spain) differing in roughness were used as 
+the stimuli (grit grade “4” as the rougher surface, and grit grade “6” as the 
+smoother surface). For half of the participants, the rougher surface served as 
+stimulus A and the smoother surface as stimulus B. For the remainder this 
+arrangement was reversed. 
+
+ 
+Procedure  and 
+
+instructions.  Participants 
+
+the 
+preexposure and test trials in a single session. They were trained and tested 
+individually. Prior to the beginning of the experiment, the participants were 
+asked  to  sit  comfortably  at  a  table  facing  the  experimenter.  The 
+experimenter then read the following instructions: 
+
+received  all 
+
+ 
+You are about to participate in an experiment concerning the sense of 
+touch.  Therefore,  you  will  be  blindfolded  in  order  to  eliminate  any 
+information coming from your sense of vision. In the experiment, you will 
+use the index fingers of your hands only. I will guide your fingers toward 
+some innocuous surfaces. I will allow you to touch them freely for some 
+time. I will also indicate to you when you have to stop touching them, by 
+lifting your fingers. This procedure will be repeated several times.  
+
+ 
+
+142 
+ 
+
+G. Rodríguez & R. Angulo 
+
+Once  the  experimenter  had  ensured  that  the  participants  had 
+understood  the  instructions,  the  experiment  began.  Participants  were 
+blindfolded and rested their wrists on a desktop, with their fingers elevated. 
+On  each  trial,  the  experimenter  guided  the  corresponding  finger  of  the 
+participants to the corresponding surface. Once the distal segment of the 
+finger made contact with the surface, the participants were allowed to freely 
+touch the surface during a 5-second period. The interval between trials was 
+15 seconds. No explicit separation occurred between the preexposure and 
+test phases. No feedback was provided during the experiment. 
+
+ 
+Preexposure. For Group SIM, this phase consisted of 4 trials. On each 
+trial, participants in this group were allowed to touch simultaneously the A 
+and B surfaces, each one with the index finger of each hand. The position of 
+the surfaces for the left and right hands was counterbalanced.  For Group 
+SEQ,  this  phase  consisted  of  8  trials.  On  each  trial,  participants  were 
+allowed to touch one surface with the index finger of their dominant hand. 
+Half of the participants in this group received the following sequence of 
+surface presentations: A, B, A, B, A, B, A, B. The other half received the 
+opposite sequence: B, A, B, A, B, A, B, A. Group CTRL  did not receive 
+any training prior to the test phase. 
+
+ 
+Test. For all of the groups, this phase consisted of 4 trials. Each trial 
+consisted  of  the  sequential  presentation  of  two  sandpaper  surfaces.  We 
+chose the sequential procedure on test to help avoid trivial explanations for 
+the  superior  performance  of  the  simultaneous  group.    Participants  in  the 
+sequential group should have an advantage because there was no change in 
+procedure between training and testing.  For that, superior performance on 
+the test of the simultaneous group should not be due to the test procedure. 
+As  with  the  preexposure  phase,  the  duration  of  the  presentation  of  each 
+surface was 5 seconds, and the interval between the first and the second 
+presentation was 15 seconds. There were 4 test trials, 2 “same” trials (A-A, 
+B-B), and 2 “different” trials (A-B, B-A). The order of presentation of these 
+trials was randomized for each participant.  At the end of each test trial, 
+participants were asked to judge whether the two surfaces which they had 
+just touched, were the same or different. The scores for the two “same” test 
+trials and the two “different” test trials were combined to produce a mean 
+score for the “same” and “different” conditions, respectively. 
+
+ 
+ 
+ 
+
+Table 1. Experimental Design 
+ 
+
+ 
+
+Preexposure 
+
+ 
+
+ 
+SIM group 
+ 
+
+ 
+SEQ group 
+ 
+
+ 
+CTRL group 
+ 
+
+A&B-A&B-A&B-A&B 
+
+A-A, B-B        A-B, B-A 
+
+A-B-A-B-A-B-A-B 
+
+A-A, B-B        A-B, B-A 
+
+A-A, B-B        A-B, B-A 
+
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+Tactile Perceptual Learning 
+
+143 
+
+ 
+
+Same-different test 
+
+ 
+             
+
+Note: A and B refer to sandpaper surfaces differing in roughness. Stimuli separated by an 
+ampersand (&) were presented simultaneously within the same trial, and those separated by 
+a dash (-) were presented sequentially, with an interval of 15 sec between them. 
+
+ 
+
+RESULTS 
+
+Figure 1 shows the mean proportions of correct responses on “same” 
+and “different” test trials. Inspection of the figure suggests that accuracy on 
+trials  in  which  two  surfaces  with  the  same  roughness  were  presented 
+(“same”  test  trials)  was  higher  than  that  on  trials  in  which  two  different 
+surfaces  were  presented.  It  is  also  apparent  from  the  figure  that  on  the 
+“different” test trials, accuracy was higher in Group SIM than in Groups 
+SEQ and CTRL, and higher in Group SEQ than in Group CTRL. However, 
+there were no apparent differences among the groups on the “same” trials. 
+A Group (SIM, SEQ, CTRL) by Trial type (different vs. same) analysis of 
+variance (ANOVA) confirmed these impressions. It revealed a borderline 
+effect of Group, F(2, 39) = 2.78, MSE = .084, and a significant effect of 
+trial type, F(1, 39) = 5.21, MSE = .128 (here and elsewhere a significance 
+level of p <.05 was adopted). The interaction between these variables was 
+also significant, F(2, 36) = 5.63, MSE = .128. In order to explore the source 
+of this interaction, a simple main effects analysis was conducted. It revealed 
+a group effect on the “different” trials, F(2, 39) = 7.1, MSE = .125,  but not 
+
+144 
+ 
+
+G. Rodríguez & R. Angulo 
+
+on the “same” trials, F(2, 39) < 1, MSE =.088. Pairwise comparisons using 
+Duncan tests showed that performance in the “different” trials was better in 
+Group SIM than in Groups INT and CTRL, and better in Group INT than 
+Group CTRL.  
+ 
+
+SIM SEQ CTRL
+
+s
+t
+n
+e
+m
+e
+g
+d
+u
+
+j
+ 
+t
+c
+e
+
+r
+r
+
+o
+c
+
+ 
+f
+
+ 
+
+o
+n
+o
+i
+t
+r
+
+r
+
+o
+p
+o
+p
+n
+a
+e
+M
+
+ 
+
+1
+
+0,8
+
+0,6
+
+0,4
+
+0,2
+
+0
+
+Same
+
+Different
+
+Figure 1. Mean proportion of correct responses on same and different 
+test trials. Training conditions are illustrated in Table 1 and described 
+in the text.  Vertical bars represent the standard errors of the means 
+(SEMs). 
+
+DISCUSSION 
+
+The present data provide clear evidence of a perceptual learning effect 
+on a same-different test, using a novel procedure involving tactile stimuli 
+differing in roughness. Stimuli A and B were judged to be different with 
+more accuracy (i.e., were more easily discriminated) after brief preexposure 
+to  them.  In  addition,  the  schedule  by  which  the  stimuli  were  presented 
+(simultaneous vs. sequential) influenced the degree to which preexposure 
+facilitated discrimination. We found that discrimination was enhanced more 
+by simultaneous preexposure than by sequential preexposure. These results 
+thus seem to support the general relevance of the hypothesis that motivated 
+
+ 
+
+Tactile Perceptual Learning 
+
+145 
+
+the  present  study:  perceptual  learning  is  enhanced  by  preexposure 
+conditions most favouring stimulus comparison. This hypothesis was first 
+proposed by Gibson (1969), in her influential theory of perceptual learning. 
+She  suggested  that  stimulus  comparison  fosters  a  differentiation  process, 
+which increases the perceptual effectiveness or salience of the distinctive 
+features of the stimuli (in our experiment, the roughness of the sandpaper 
+surfaces), and reduces that of their common features (in our experiment, all 
+the  other  characteristics  shared  by  the  sandpaper  surfaces).  This  would 
+allow one to detect and process the distinctive features more easily, thus 
+enhancing  the  perceptual  dissimilarity  of  the  stimuli  and  reducing 
+generalization between them. What Gibson did not specify, however, was 
+the  learning  mechanism  responsible  for  these  changes  in  the  stimulus 
+salience.  
+
+In order to mend this lack of specification, several authors (e.g., Hall, 
+2001; Honey & Bateson, 1996; Mackintosh, 2009; Mitchell, 2010; Mitchell 
+& Hall, in press; Mundy et al., 2007; 2009) have offered similar analyses 
+appealing to the phenomenon of habituation. More specifically, they have 
+taken into consideration the short-term habituation mechanism proposed by 
+Wagner (1981).  
+
+According to Wagner (1981), presentation of a given stimulus results 
+in habituation to its constituent elements, which makes them less likely to 
+be  fully  processed  when  they  are  presented  again  after  a  relatively  short 
+interval.  Any  two  similar  stimuli,  A  and  B,  might  be  conceptualized  as 
+compound  stimuli,  ax  and  bx,  where  x  represents  those  features  that  are 
+common to both stimuli, and a and b represent the features that are unique 
+to A and B, respectively. In our experiment, the two surfaces A and B can 
+similarly be conceptualized as ax and bx, where x would represent all the 
+features  presented  in  both  surfaces  of  sandpaper,  and  a  and  b  would 
+represent the unique roughness of each surface. Following this elemental 
+approach, it has been noted that alternating preexposure to A and B (i.e., to 
+ax and bx) results in the interval between presentations of the distinctive 
+features  being  twice  that  of  the  interval  between  presentations  of  the 
+common features. This difference would allow the short-term habituation 
+mechanism to modulate differentially the salience of the distinctive and the 
+common features. For example, the first presentation of stimulus A would 
+produce  short-term  habituation  to  the  a  and  the  x  features.  Thus,  when 
+stimulus  B  is  subsequently  presented,  the  x  features  would  still  be 
+habituated thus commanding relatively little processing, and the available 
+(and  supposedly  limited)  processing  resources  would  tend  to  be  fully 
+devoted to the distinctive b features. This salience-modulation mechanism 
+should  be  particularly  effective  in  alternating  preexposure  schedules  in 
+
+146 
+ 
+
+G. Rodríguez & R. Angulo 
+
+thus  enhance 
+
+which the interval between the stimulus presentations is very short. Under 
+these conditions, the common features are highly preexposed and thus their 
+habituation (and the related enhancement of the processing of the distinctive 
+features)  should  be  increased.  It  has  been  argued  that  simultaneous 
+presentations of the stimuli are precisely the conditions under which this 
+mechanism could most readily be engaged (e.g., Mundy et al., 2007; 2009). 
+Simultaneous presence of the two stimuli would allow the participants to do 
+a series of rapid alternations between them on each preexposure trial. For 
+instance,  participants  in  our  simultaneous  condition  might  alternate  very 
+rapidly between the stimuli, sampling one surface and then another on each 
+preexposure trial. Clearly, this alternation would happen faster than in the 
+case  in  which  participants  experience  the  stimuli  sequentially  with  an 
+interval of 15 seconds between them.  
+Short-term  habituation  would 
+
+the  salience  and 
+consequently the processing of the differential roughness of A and B, and it 
+would  do  so  more  efficiently  during  simultaneous  than  sequential 
+preexposure. But how might this short-lived effect have an enduring impact 
+on  stimulus  discriminability  on  the  subsequent  test?  In  answering  this 
+question,  it  has  been  suggested  that  short-term  habituation  must  interact 
+with some sort of higher-level process, the nature of which is still unclear. 
+Different  representational  (e.g.,  Mundy  et  al.,  2009),  attentional  (e.g., 
+Mackintosh, 2009; Mundy et al., 2009) or mnemonic (e.g., Mitchell, 2010) 
+processes  have  been  proposed  as  candidates.  Although  these  specific 
+proposals differ in many ways, they share the central assumption that less 
+short-term  habituation  to  the  distinguishing  stimulus  features  results  in  a 
+better representation of them, which will enhance stimulus discriminability. 
+These  accounts  offer  a  satisfactory  explanation  for  the  simultaneous-
+sequential effect in humans. However, it is still unclear as to what aspect of 
+the supposed interaction between low and high level processes is absent, 
+and thus fails to generate the effect, in the case of the animal studies (for 
+further  discussion  on  this  matter,  see  Mitchell  &  Hall,  in  press).  Further 
+research is required in order to specify the nature of this interaction. At the 
+very  least,  the  present  study  has  established  a  simple  and  convenient 
+procedure for addressing these and other issues using the tactile modality 
+with  humans.  Moreover,  the  simplicity  and  brevity  of  this  task  makes  it 
+ideally  suited  to  the  use  of,  for  example,  neuroimaging  techniques  that 
+could add to existing knowledge based on behavioural findings. 
+
+ 
+
+Tactile Perceptual Learning 
+
+147 
+
+RESUMEN 
+
+La  preexposición  simultánea  a  los  estímulos  favorece  el  aprendizaje 
+perceptivo  táctil  en  humanos.  Se  validó  un  nuevo  procedimiento  para 
+medir aprendizaje perceptivo con estímulos táctiles y participantes humanos. 
+Los participantes recibieron exposición no supervisada a dos superficies de 
+lija con diferente rugosidad (A y B). Posteriormente, a través de una prueba 
+de juicios de igual-diferente se valoró la habilidad de los participantes para 
+discriminar entre los estímulos. Se encontró que la exposición previa a los 
+estímulos  produjo  un  aumento  en  la  exactitud  de  los  juicios  “diferentes”. 
+Además, este aumento fue mayor cuando los estímulos fueron expuestos de 
+forma simutánea que cuando fueron expuestos de forma secuencial. Estos 
+resultados  extienden  a  la  modalidad  táctil  otros  resultados  recientes  con 
+estímulos visuales y confirman que la exposoción simultánea aumenta los 
+efectos de aprendizaje perceptivo. 
+
+REFERENCES 
+
+Angulo, R., & Alonso, G. (2012). Human perceptual learning: The effect of preexposure 
+schedule depends on tasks demands. Behavioural Processes, 91, 244–252. 
+Dwyer, D. M., Hodder, K. I., & Honey, R. C. (2004). Perceptual learning in humans: Roles 
+of pre-exposure schedule, feedback and discrimination assay. Quarterly Journal of 
+Experimental Psychology, 57B, 245–259. 
+Gibson,  E.  J.  (1969).  Principles  of  perceptual  learning  and  development.  New  York: 
+Appleton-Century-Crofts. 
+Hall, G (2001).  Perceptual learning: Association and differentiation. In R. R. Mowrer & S. 
+B.  Klein  (Eds.),  Handbook  of  contemporary  learning  theories  (pp.  367–407). 
+Mahwah, NJ: Erlbaum. 
+Honey, R.C., & Bateson, P. (1996). Stimulus comparison and perceptual learning: Further 
+evidence  and  evaluaton  from  an  imprinting  procedure.  Quarterly  Journal  of 
+Experimental Psychology, 49B, 259–269. 
+Mackintosh, N.J. (2009). Varieties of perceptual learning. Learning & Behavior, 37, 119-
+125. 
+Mitchell, C. J. (2010). Attention and memory in human learning. In C. J. Mitchell & E. Le 
+Pelley  (Eds.),  Attention  and  associative  learning  (pp.  245–272).  Oxford:  Oxford 
+University Press. 
+Mitchell,  C.  J.,  &  Hall,  G.  (in  press).  Can  theories  of  animal  discrimination  explain 
+perceptual learning in humans? Psychological Bulletin.   
+Mundy, M. E., Honey, R. C., & Dwyer, D. M. (2007). Simultaneous presentation of similar 
+stimuli  produces  perceptual  learning  in  human  picture  processing.  Journal  of 
+Experimental Psychology: Animal Behavior Processes, 33, 124–138. 
+Mundy, M. E., Honey, R. C., & Dwyer, D. M. (2009). Superior discrimination between 
+similar  stimuli  after  simultaneous  exposure  .  Quarterly  Journal  of  Experimental 
+Psychology, 62, 18–25. 
+Rodríguez, G., & Alonso, G. (2008). Stimulus comparison in perceptual learning: Roles of 
+sensory preconditioning and latent inhibition. Behavioural Processes, 77, 400-404. 
+
+148 
+ 
+
+G. Rodríguez & R. Angulo 
+
+Rodríguez,  G.,  Blair,  C.A.J.,  &  Hall,  G.  (2008).  The  role  of  comparison  in  perceptual 
+learning:  Effects  of  concurrent  exposure  to  similar  stimuli  on  the  perceptual 
+effectiveness of their unique features. Learning & Behavior, 36, 75-81. 
+Wagner, A. R. (1981). SOP: A model of automatic memory processing in animal behavior. 
+In N. E. Spear & R. R. Miller (Eds.), Information processing in animals: Memory 
+mechanisms (pp. 5–47). Hillsdale, NJ: Erlbaum. 
+
+ 
+ 
+ 
+
+ 
+
+(Manuscript  received: 7 June 2013; accepted: 25 September 2013) 
+
+

@@ -1,0 +1,694 @@
+ 
+
+Psicológica (2013), 34, 313-326. 
+
+ 
+
+Presentation format and syllogistic reasoning  
+
+Orlando Espino* and Carlos Santamaría 
+
+Universidad de La Laguna (Spain) 
+
+ 
+
+Figural  effect  is  a  response  bias  that  depends  on  the  arrangement  of  the 
+terms  in  syllogisms.  The  usual  pattern  in  construction  tasks  is  that 
+participants tend to give A-C responses when the syllogisms are in figure 
+4(A-B/B-C),  while  the  majority  of  their  conclusions  are  in  the  opposite 
+direction  (C-A)  for  syllogisms  in  figure  1  (B-A/C-B).  We  report  on  one 
+experiment  that  examines  the  role  of  the  presentation  format  of  premises 
+(two-line  presentation  vs.  one-line  presentation)  in  categorical  syllogisms. 
+The  experiment  showed  that  when  premises  were  presented  in  one-line 
+presentation format, participants generated more A-C than C-A conclusions 
+in all syllogistic figures. However, when premises were presented in two-
+line  presentation  format,  participants  generated  more  A-C  conclusions  in 
+figure 4 and more C-A conclusions in figure 1, while there were no reliable 
+differences for either figure 2 (A-B/C-B) or figure 3(B-A/B-C). We discuss 
+the implications of these results for different theories of reasoning.  
+ 
+ 
+Logic problems are often presented in a format not commonly used in 
+ordinary language, with a separate line being employed for each proposition 
+or  premise.  This  format  might  lead  reasoners  to  take  each  premise  as  a 
+separate source of information and might therefore affect the way they draw 
+conclusions. The aim of the present research is to examine whether certain 
+reasoning effects could have been influenced by the practice of using such 
+an atypical presentation format. Current reasoning theories acknowledge the 
+particular  relevance  of  superficial  factors  (Evans,  2003;  Johnson-Laird, 
+                                                 
+* Acknowledgements: This research was supported by the Spanish Ministry for Science and 
+Innovation with grant no. PSI2011-26386. We are thankful to Phil Johnson-Laird and an 
+anonymous  reviewer  for  their  helpful  comments  to  a  previous  draft  of  this  paper. 
+Correspondence  should  be  addressed  to  Orlando  Espino.  Departamento  de  Psicología 
+Cognitiva,  Social  y  Organizacional.  Facultad  de  Psicología.  Universidad  de  la  Laguna. 
+Campus de Guajara. 38205 Tenerife (Spain). Fax 34 922317461. Phone 34 922317505.    
+E-mail: oespinom@ull.es 
+ 
+
+ 
+
+314 
+ 
+
+O. Espino & C. Santamaría 
+
+2006;  Kahneman,  2011;  Stanovich,  1999).  However,  there  has  been  no 
+study conducted to date exploring the effect that this traditional separation 
+of the declarative sentences known as premises may have on the reasoning 
+process.  In  this  paper,  we  will  present  a  direct  comparison  between  this 
+traditional  presentation  format  (two-line  presentation)  and  one-line 
+presentation. In particular, we will investigate how the presentation format 
+(two-line  presentation  versus  one-line  presentation)  affects  the  reasoning 
+process and the figural effect in syllogistic problems.   
+
+Syllogisms are arguments with two premises leading to a conclusion. 
+
+For example: 
+
+ 
+  premise 1 :    All of the A are B 
+  premise 2 :    All of the B are C 
+  -------------------------------------- 
+  conclusion:  All of the A are C 
+ 
+Both premises and conclusion are statements that use quantifiers of 
+
+one of four types or moods:  
+
+ 
+  - All A are B    
+  - Some A are B  
+  - No A are B   
+  - Some A are not B 
+ 
+
+(A) 
+(I) 
+(E) 
+(O) 
+
+where the letters in parentheses are the traditional abbreviations for each 
+kind of proposition.  Each statement in the premises contains two terms: one 
+(the middle term B), occurs in both premises, while the other two (A and C) 
+are  the  end  terms.  The  arrangement  of  the  middle  terms  in  each  of  the 
+premises of a syllogism gives rise to a four-way classification, known as the 
+figures of the syllogism: 
+
+ 
+Figure 1  
+ 
+B – A 
+C – B 
+ 
+ 
+
+Figure 2 
+A – B   
+C – B   
+
+Figure 3 
+B – A   
+B – C   
+
+Figure 4 
+A - B 
+B - C 
+
+Presentation format and syllogistic reasoning  
+
+315 
+
+ 
+
+to  generate 
+
+Early  studies  showed  that  these  figures  generate  different  levels  of 
+difficulty (Dickstein, 1978; Fraser, 1968; Pezzoli & Fraser, 1968; Roberge, 
+1970). In some of these studies, it was found that syllogisms in figure 4 
+were more difficult to resolve than those in figure 1, while figures 2 and 3 
+had an intermediate difficulty (Dickstein, 1978). This author proposed that 
+figure  4  was  the  most  difficult,  because  people  have  to  process  the 
+information  backward,  while  in  figure  1  syllogisms,  they  process  the 
+information forward. In figures 2 and 3, they can process both forward and 
+backward. However, the reason why people had more difficulty with figure 
+4  than  with  figure  1  was  that  the  conclusion  was  framed  according  to 
+Scholastic logic: subject-predicate (with the subject being the end term of 
+the  second  premise  and  the  predicate  the  end  term  of  the  first  premise). 
+However,  when  participants  were  allowed 
+their  own 
+conclusions, it was found that in figure 4 syllogisms, there was a preference 
+to  build  A-C  conclusions,  while  in  figure  1  syllogisms,  there  was  a 
+preference  to  build  C-A  conclusions  (Johnson-Laird  &  Steedman,  1978, 
+experiment  2).  Also,  it  was  found  that  when  the  syllogism  had  a  valid 
+conclusion in one direction but not the other (experiment 2), participants 
+found  the  syllogisms  in  which  the  valid  conclusion  coincided  with  the 
+figure (for example, an A-C conclusion in a figure 4 syllogism) easier to 
+resolve  than  when  the  conclusion  did  not  coincide  with  the  figure  (for 
+example, a C-A conclusion in a figure 4 syllogism). These results have been 
+replicated in a later study (Johnson-Laird & Bara, 1984). There, the authors 
+found  (experiment  3)  that  in  figure  1  there  was  a  preference  to  build 
+conclusions  in  the  order  C-A  (63%),  while  in  figure  4  there  was  a 
+preference to build conclusions in the order A-C (78%). These results led 
+Johnson-Laird to introduce the Mental Model theory to explain the figural 
+effect  (Johnson-Laird,  1983).  However,  other  authors  offer  different 
+explanations  for  the  figural  effect  (Chater  &  Oaksford  1999;  Dickstein, 
+1978; Ford, 1995; Johnson-Laird & Bara, 1984; Oberauer & Wilhelm, 2000; 
+Oberauer,  Hörnig,  Weidenfeld  &  Wilhelm,  2005;  Polk  &  Newell,  1995; 
+Stenning  &  Oberlander,  1995;  Stenning  &  Yule,  1997;  Wetherick  & 
+Gilhooly, 1990).  
+
+  Wetherick  &  Gilhooly  (1990)  argue  that  the  figural  effect  arises 
+from  the  tendency  to  use  a  term  that  has  appeared  as  the  grammatical 
+subject of one of the premises as the first term in the conclusion. In figure 4 
+(A-B/B-C), “A” is the subject of the first premise, so the preferred order of 
+the end terms in the conclusion will be: A-C. In figure 1 (B-A/C-B), “C” is 
+the subject of the second premise, so C-A will be more frequent.  
+
+ 
+
+316 
+ 
+
+O. Espino & C. Santamaría 
+
+Chater  &  Oaksford  (1999)  proposed  a  Probability  Heuristic  Model 
+(PHM) to explain the figural effect. The most relevant heuristics in PHM to 
+explain  the  “response  bias”  are  the  min-heuristic  and  the  attachment-
+heuristic. The min-heuristic chooses the quantifier of the conclusion to be 
+same as the quantifier in the least informative premise (the min-premise). 
+The  attachment-heuristic  fixes  conclusion  order  using  the  following 
+procedure: if the min-premise has an end term as its subject, use this as the 
+subject of the conclusion. Otherwise, use the end term of the max-premise 
+as the subject of the conclusion. PHM predicts that the conclusion order is 
+determined by the conclusion type. In other words, “the order of the end 
+term is decided after conclusion type is selected” (Chater & Oaksford, 1999, 
+p. 212).  
+
+Ford (1995) has proposed that some individuals (verbal reasoners) use 
+set-theoretic principles, whereas others (spatial reasoners) use Euler circles 
+when solving syllogisms. She found that in both groups, there was an effect 
+of the figure in figure 1 and figure 4 syllogisms. Her conclusions for the 
+spatial  reasoner  were  that  “more  work  needs  to  be  carried  out  to  reveal 
+subtle  factors  affecting  the  order  of  terms  in  conclusions”  (Ford,  1995, 
+p.69). However, her predictions are more precise for the verbal reasoner.  
+She argues that the participants manipulate the verbal form of the syllogism 
+as an algebraic problem, by taking one premise as having a term that needs 
+to be substituted with another term, and the other premise as providing a 
+value  for  that  substitution.  The  premise  that  provides  the  values  for 
+substitution acts as a rule relating membership of class ‘C’ to a property ‘P’, 
+while the premise containing the term that needs to be substituted acts as a 
+case of specific objects, ‘O’, whose status with regard to either ‘C’ or ‘P’ is 
+known.  She  proposed  four  principles  that  are  supposed  to  govern 
+substitutions (Ford, 1995, page. 21). In relation to the figural effect, Ford 
+claimed  that  the  occurrence  of  a  position  effect  or  figural  effect  may  be 
+dependent on which part of the principle is being applied. 
+
+Oberauer  &  Wilhelm  (2000)  and  Oberauer  et.  al.  (2005)  have 
+proposed  different  factors  to  explain  the  figural  effect  during  both  the 
+integration  of  premises  and  the  inference  stage.  In  the  integration  of  the 
+premises,  they  proposed  two  factors  to  explain  the  figural  effect:  the 
+relatum (given principle) and the given-new principle. The relatum (given 
+principle)  arises  from  the  directionality  between  relatum  (or  reference 
+object) and target (target object) and the ensuing the order of construction 
+of a mental model. In a sentence, the relatum is the reference object, while 
+the term that is described relative to the relatum is the target object. For 
+example,  in  the  sentence  “if  p,  then  q”,  “p”  is  the  reference  object  or 
+relatum  and  “q”  is  the  term  that  is  relative  to  it.  Oberauer  et  al.  (2005) 
+
+ 
+
+postulated  that  people  prefer  to  build  the  mental  model  of  the  premises 
+starting with the relatum term and add the target object to the relatum. In 
+others words, there is an inherent directionality in every sentence that goes 
+from the relatum object to the target object. The second factor is the given-
+new  principle,  according  to  which  the  assignment  of  an  anaphoric 
+expression to its antecedent is easier when the anaphor is mentioned before 
+a new term. Also, Oberauer et al. (2000, 2005) have proposed two factors to 
+explain the directional effect during the inference stage. The first factor is 
+the inherent directionality of the relation between the target object and the 
+relatum, which is preserved in the integrated mental model if, and only if, it 
+is needed to preserve a semantic asymmetry. The other factor is a recency 
+effect of working memory (Espino, Santamaría & García Madruga, 2000a). 
+These  authors  have  found  that  participants  attempt  to  attach  incoming 
+information  to  the  last  element  of  the  model.  Recently,  proponents  of 
+Mental Model theory have claimed that the definitive account of the figural 
+effect ‘is a semantic one due to Oberauer and his colleagues’ (Khemlani & 
+Johnson-Laird, 2012, page 431). 
+
+  The anterior explanation of Mental Model theory (Johnson-Laird & 
+Bara,  1984;  Johnson-Laird  &  Byrne,  1991)  of  the  figural  effect  was  the 
+‘FIFO  principle’.  In  this  paper,  we  adopt  this  hypothesis  to  explain  our 
+results.  It  provides  an  explanation  of  the  figural  effect  based  on  two 
+assumptions.  First,  the  account  proposes  that  in  order  to  construct  an 
+integrated  model  of  the  two  premises,  reasoners  attempt  to  bring  middle 
+terms (Bs) together. Second, it proposes that the way to state a conclusion is 
+based  on  the  principle  “first  in,  first  out”  (henceforth,  FIFO;  Broadbent, 
+1958): the first piece of information entering the integrated model of the 
+premises will be the first element in the conclusion. If the two middle terms 
+of the premises occur in sequence (for example, the syllogism A-B/B-C), 
+then the Mental Model theory proposes that the two premises can be easily 
+combined to form an integrated model. In the syllogism A-B/B-C (figure 4), 
+the first term in the integrated model is “A” and consequently, by the FIFO 
+principle,  the  most  frequent  conclusion  will  be  in  the  direction  A-C. 
+However, if the middle terms are not in sequence, additional operations will 
+be  necessary  in  order  to  bring  together  the  middle  terms.  According  to 
+Johnson-Laird & Bara (1984), when the middle terms are not in sequence 
+(as in figure 1: B-A/C-B), reasoners could use two different procedures to 
+build the integrated mental model of the premises. First, the order of the 
+terms within the first premise (B-A) and the second premise (C-B) could be 
+switched round. For example, if the interpretation of “All A is B” is switched 
+round, then it takes the form: 
+
+Presentation format and syllogistic reasoning  
+
+317 
+
+ 
+
+318 
+ 
+
+O. Espino & C. Santamaría 
+
+[a] 
+[a] 
+
+B 
+B 
+   … 
+
+   
+   
+   
+ 
+Johnson-Laird  (1983)  affirms  that  “switching  round  an  interpretation 
+must not be confused with the operation of converting a premise, …, the idea 
+of switching round an interpretation concerns only the order of the information 
+in working memory” (page 107). Switching round the terms in both premises 
+in figure 1 brings the two middle terms together (A-B/B-C). Once the terms of 
+the premises are in sequence, reasoners would select the conclusion, and the 
+FIFO principle would determine the direction. As “A” is the first end term in 
+the integrated model, it fills the first position in the conclusion.   
+
+The second strategy to build the integrated model consists in reversing 
+(renewing) the order of the two models of the two premises. The way to 
+proceed is to construct a model of the second premise (C-B) and then add 
+the information from the first premise (B-A). Now the middle terms are in 
+sequence (C-B/B-A) and the reasoner can build an integrated model. Once 
+the  terms  of  premises  are  in  sequence,  reasoners  would  select  the 
+conclusion, and the FIFO principle would determine the direction. As “C” is 
+the first end term in the integrated model, it fills the first position in the 
+conclusion.  
+
+It is not clear what mechanism might lead reasoners to choose one or 
+the  other  strategy.  However,  this  selection  may  well  be  influenced  by 
+superficial  factors.  Our  prediction  is  that,  in  order  to  built  the  integrated 
+model, participants will prefer to switch round the terms of premises (first 
+strategy) for one-line presentation, and to reverse (or renew) the order of the 
+premises  (second  strategy)  for  two-line  presentation.  Our  prediction  is 
+founded  in  the  idea  that  in  one-line  presentation,  the  placement  of  the 
+premises prevents reasoners from treating them as separate units. In figure 4 
+(A-B/B-C),  participants  do  not  need  to  use  any  strategy  to  build  the 
+integrated model, because the middle terms are in sequence. However, for 
+the remaining figures (figure 1, figure 2 and figure 3), if they want to build 
+the integrated model, they have to use the first strategy in the first premise 
+(figure 3), the second premise (figure 2) or both (figure 1). For example, in 
+figure  1  (B-A/C-B)  participants  should  use  the  first  strategy  in  the  first 
+premise (converting B-A in A-B) and in the second premise (converting C-
+B  in  B-C).  The  consequence  of  using  the  first  strategy,  plus  the  FIFO 
+strategy, in one-line presentation will be an increment of A-C conclusions 
+in all figures as compared to two-line presentation. Also, we predict that in 
+
+Presentation format and syllogistic reasoning  
+
+319 
+
+ 
+
+one-line  presentation,  participants  will  produce  more  A-C  than  C-A 
+conclusions in all figures. 
+
+When  the  format  used  is  two-line  presentation,  we  predict  that 
+participants will prefer to renew or reverse the order of premises (second 
+strategy) as their first strategy and they will only switch round the terms of 
+the premises (first strategy) as a secondary or complementary strategy. In 
+figure 4 (A-B/B-C), participants do not need to use any strategy to built the 
+integrated model, because the middle terms are in sequence. In this case, we 
+predict that participants will produce more A-C than C-A conclusions. In 
+figure 1 syllogisms (B-A/C-B), the easier way to build the integrated model 
+is by using mainly the second strategy (C-B/B-A). In this case, we predict 
+for figure 1 that reasoners will produce less A-C conclusions in two-line 
+presentation than in one-line presentation.  
+
+In figure 2 and figure 3 (the symmetrical figures), there are two ways 
+to  obtain  the  integrated  model.  One  procedure  starts  with  the  second 
+strategy  (the  preferred  one),  after  which  the  first  strategy  needs  to  be 
+applied to obtain the integrated model. In that case, according to the FIFO 
+principle,  participants  will  produce  more  C-A  than  A-C  conclusions. 
+However, there is a second way to obtain the integrated model:  using only 
+the first strategy in figure 2 (in the second premise) and figure 3 (in the first 
+premise).  In  this  case,  according  to  the  FIFO  principle,  participants  will 
+produce more A-C than C-A conclusions. Because either procedure could 
+be used to obtain the integrated model in the symmetric figures, we do not 
+predict any differences for the direction of the answer (A-C versus C-A).  
+
+EXPERIMENT 
+
+Our main objective in this experiment was to study the influence of 
+the presentation format in a syllogistic reasoning task. Two formats were 
+used: two-line presentation and one-line presentation (for example, All of 
+the A are B. All of the B are C). In relation to the presentation format, we 
+have  postulated  that  when  the  premises  are  presented  on  a  single  line, 
+participants  will  prefer  to  switch  round  the  terms  of  the  premises  (first 
+strategy)  than  to  reverse  (or  renew)  the  order  of  the  premises  (second 
+strategy), whereas when the premises are presented on two lines (separate 
+premises),  participants  will  prefer  to  reverse  (or  renew)  the  order  of  the 
+premises (second strategy) than to switch round the terms of the premises 
+(first  strategy).  As  a  result,  we  predict  that  the  reasoners  should  present 
+more A-C than C-A conclusions for the one-line presentation format. Also, 
+we predict that in two-line presentation, reasoners should present more A-C 
+
+320 
+ 
+
+O. Espino & C. Santamaría 
+
+than C-A conclusions in figure 4 and more C-A than A-C conclusions in 
+figure 1. No difference is predicted for figures 2 and 3. 
+
+METHOD 
+
+Participants and design. A total of 78 students at the “Universidad 
+de La Laguna” volunteered to participate. A mixed 2x4 design was used. 
+The between-participant factor was the presentation format with two levels: 
+one-line and two-line presentation. The second factor was the figure and 
+had  the  four  levels  corresponding  to  the  four  figures.  The  dependent 
+variable was the direction of responses (A-C or C-A).  
+
+ 
+Materials and procedure. Each participant received a total of eight 
+experimental  problems:  two  problems  for  each  figure.  The  experimental 
+syllogisms used were: AI1, EA1, EA2, AE2, IA3, AI3, IA4, AE4. All were 
+one-model problems with valid conclusions in both directions (see Johnson-
+Laird and Byrne, 1991). In Table 1 we present an example of each type of 
+presentation format and figure. 
+
+Participants  were  tested  in  a  quiet  room  in  groups  of  eight  to  ten. 
+Their task was to consider a series of problems, and to draw a conclusion 
+for each of the problems that had to be true, given that the premises were 
+true.  The  problems  were  presented  in  random  order  to  the  individual 
+participants in the form of booklets. Two types of booklets were used. In 
+one,  participants  received  the  premises  of  the  syllogisms  in  the  one-line 
+presentation format. In the second, participants received the second premise 
+below  the  first  premise  in  the  traditional  format  (two-line  presentation). 
+There was no time limit set for performing the task. 
+
+The  participants  wrote  down 
+
+their  own  conclusions.  These 
+conclusions were labelled A-C when the first term in the conclusion was the 
+end term in the first premise, and C-A when the first term in the conclusion 
+was the end term in the second premise.  
+
+RESULTS 
+
+Table 2 presents the percentages of valid and invalid conclusions in 
+the A-C and C-A direction for each of the four figures and two presentation 
+formats. Only those responses that included the middle term and one end 
+term were eliminated (1%). We analysed the results for valid and invalid 
+responses in an ANOVA carried out on the endorsements of inferences with 
+the  following  factors:  figure  (figure  1,  figure  2,  figure  3  and  figure  4), 
+direction of response (A-C versus C-A) and presentation format (one-line 
+
+Presentation format and syllogistic reasoning  
+
+321 
+
+ 
+
+presentation versus two-line presentation), with repeated measures on the 
+first two factors and the last acting as a between-participant variable. The 
+Greenhouse-Geisser  correction  for  the  violation  of  sphericity  assumption 
+was  used  in  this  analysis.  This  analysis  revealed  an  interaction  between 
+direction of response and figure (F (3,228) = 5.51, Mse = .14, p < .001,    
+2  =  .07)  but  not  between  figure  and  presentation  format  (F  (2.157, 
+ηp
+163.917) = .52, Mse = .00, p = .67, ηp
+2 = .01). There was no main effect for 
+the figure (F (2.157, 163.917) = 1.28, Mse = .00, p = .28, ηp
+2 = .02). There 
+were main effects for direction of response (F (1, 76) = 29.05, Mse = .31,    
+p < .001,  ηp
+2 = .28) and the interaction was reliable between direction of 
+response and presentation format (F (1, 76) = 10.55, Mse = .31, p < .002, 
+2 = .12). There were no effects for the triple interaction between figure, 
+ηp
+presentation format and direction of response (F (3, 228) = 1.54, Mse = .14, 
+2  =  .12).  There  were  no  effects  for  the  between-participant 
+p  =  .20,  ηp
+2 = .00).  
+variable (F (1, 76) = .15, Mse = .00, p = .70, ηp
+in  one-line  presentation, 
+that 
+participants gave more A-C than C-A conclusions in figure 4 (76% versus 
+23%; z= 3.94, p <  .001), figure 1 (66% versus 34%; z= 3.03, p < .003) 
+figure 2 (67% versus 33%; z= 2.83, p <  .006) and figure 3 (68% versus 
+31%;  z=  3.32,  p  <  .002).  A  further  analysis  showed  that  in  two-line 
+presentation, participants gave more A-C than C-A conclusions in figure 4 
+(66% versus 34%; z= 2.68, p < .006) but they gave more C-A than A-C 
+conclusions in figure 1 (58% versus 40%; z=  1.93,  p = .053), although the 
+differences were not reliable. No reliable differences were found between 
+the percentage of A-C and C-A responses in figure 2 (59% versus 41%;    
+z= 1.60, p = .10) and figure 3 (53% versus 45%; z= .99, p = .32).  
+
+A  subsequent  analysis  showed 
+
+DISCUSSION 
+
+In this paper, we have reported a consistent result that is new in the 
+psychology of reasoning. The classical figural effect can be reversed (figure 
+1 in one-line presentation) by simply arranging the premises in a different 
+way:  participants  generate  more  A-C  than  C-A  conclusions  in  figure  1 
+syllogisms when a one-line presentation is used. Also, a new effect could be 
+obtained  for  figure  2  and  figure  3  in  the  sense  that  participants  produce 
+more A-C than C-A conclusions with this presentation format. It is worth 
+mentioning  that  in  previous  studies  in  which  two-line  presentation  was 
+used, no directionality effect was found for figures 2 and 3 (Johnson-Laird 
+& Bara, 1984).  
+ 
+
+322 
+ 
+
+O. Espino & C. Santamaría 
+
+Table 1. Examples of materials from Experiment 1. 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+Presentation format and syllogistic reasoning  
+
+323 
+
+ 
+
+Table  2.  Percentages  of  valid  and  invalid  responses  A-C  and  C-A 
+according  to  the  presentation  format  (one-line  presentation  and  two-
+line presentation) and figure type (figure 1, figure 2, figure 3, figure 4). 
+In parentheses, the percentages of correct responses. 
+
+ 
+
+ 
+ 
+On the other hand, with the traditional presentation format (two-line 
+presentation)  we  have  obtained  results  that  confirm  the  figural  bias:  in 
+figure  1  syllogisms,  participants  gave  more  C-A  than  A-C  conclusions, 
+while  in  figure  4  syllogisms,  participants  gave  more  A-C  than  C-A 
+conclusions.  Consequently,  this  result  confirms  the  usual  findings  in  this 
+field (Johnson-Laird & Bara, 1984; Ford, 1995; Polk & Newell, 1995). For 
+example, Johnson-Laird & Bara (1984; Experiment 1, 60-sec. presentation 
+condition), using the two-line format presentation, found that the accuracy 
+of the performance for the same problems that we used in this experiments 
+was 93%, while in our study it was 90% (Table 2).  
+To  explain  this  new  pattern,  we  have  suggested  that  in  a  one-line 
+presentation, participants are more prompted to use the ‘switching strategy’, 
+because  they  see  the  premises  as  one  unit.  However,  in  two-line 
+presentation, the two premises could be seen as separate units. In this case, 
+we suggest that participants can use the two strategies: the ‘renew strategy’ 
+and the ‘switching strategy’. They apply the ‘renew strategy’ when they see 
+the premises as separate units and they apply the switching strategy when 
+the ‘renew strategy’ cannot be used.  
+
+324 
+ 
+
+O. Espino & C. Santamaría 
+
+This explanation is consistent with the FIFO explanation, because this 
+point  of  view  claims  that  reasoners  can  use  two  different  strategies  to 
+rearrange  the  elements  in  syllogisms  and  produce  conclusions.  This 
+explanation points out that the position of the end terms in the conclusion is 
+determined by their position in the integrated model. For example, if the 
+participants reverse the order of the premises in figure 1 syllogisms, then 
+‘C’ will be the first term in the integrated model and it will appear as the 
+first term in the conclusion. Conversely, if they switch round the individual 
+premises,  ‘A’  will  be  the  first  term  in  the  integrated  model  and  it  will 
+initiate  the  conclusion.  According  to  the  FIFO  explanation,  it  could  be 
+maintained that with one-line presentation, the participants gave priority to 
+the  switching  round  strategy  within  premises  over  a  strategy  that  went 
+between premises. It is reasonable to assume that the latter strategy is more 
+difficult  to  envisage  and  perform  when  the  superficial  cues  of  premise 
+position are not given. 
+
+Other  theories  (Chater  &  Oaksford,  1999;  Ford,  1995:  Oberauer  & 
+Wilhelm, 2000; Oberauer et. al, 2005; Polk & Newell, 1995; Wetherick & 
+Gilhooly, 1990) cannot explain the order of the end terms in the conclusion 
+when the syllogism is presented in one-line presentation. For the syntactic 
+hypotheses (Wetherick & Gilhooly, 1990; Polk & Newell, 1995), the order 
+of the terms in the conclusion is determined by the syntactic role that each 
+term plays in the premises: if the end term is the subject of the premise, then 
+reasoners use that term as the subject of the conclusion. As our variations of 
+the presentation format did not affect the syntactic role of each end term, 
+syntactic theories cannot explain our results, and this implies that the figural 
+effect usually found in figure 1 (reproduced in our two-line presentation) 
+remains unexplained from this point of view. The syntactic factors cannot 
+be affected by the superficial placement of the premises. 
+
+  The  Probabilistic-Heuristic  Model  (Chater  &  Oaksford,  1999) 
+suggests  that  conclusion  order  is  determined  by  the  attachment-heuristic. 
+The prediction of this model for figure 1 syllogisms is that participants will 
+tend to draw conclusions in the direction “C-A”. Although this prediction 
+could  explain  the  results  obtained  in  traditional  two-line  presentation,  it 
+does not fit our one-line presentation results where participants constructed 
+conclusions in the “A-C” direction. 
+
+  Ford (1995) proposed an explanation of the figural effect in terms of 
+set-theoretical principles. Once again, our manipulation of the presentation 
+format should not affect the set-theoretical principles that could be applied, 
+so this theory is unable to explain our results.  
+
+Presentation format and syllogistic reasoning  
+
+325 
+
+ 
+
+Finally, Oberauer & Wilhelm (2000) and Oberauer et al. (2005) have 
+proposed  an  explanation  of  the  figural  effect  during  the  inference  stage 
+based on two factors: a)  
+
+the inherent directionality of the relation between the target object and 
+the relatum and b) the recency effect of working memory. However, our 
+manipulation of the presentation format should affect (or not affect) both 
+factors in the same way, so this theory is unable to explain the results we 
+obtained when the one-line presentation is used.  
+
+In  summary,  the  results  reported  in  this  paper,  taken  together  with 
+other  recent  results  achieved  using  different  methodologies,  such  as 
+measuring the activation of the end terms (Espino, Santamaría & García-
+Madruga, 2000a), reading time of premises (Espino, Santamaría & García-
+Madruga,  2000b)  or  eye-movement  monitoring  (Espino,  Santamaría, 
+Meseguer & Carreiras, 2005), give a clear primacy to the FIFO explanation 
+to account for the figural effect. 
+
+RESUMEN 
+
+Formato  de  presentación  y  razonamiento  silogístico.  El  efecto  de  la 
+figura  es  un  sesgo  de  respuesta  que  depende  de  la  disposición  de  los 
+términos  en  los  silogismos.  El  resultado  más  usual,  en  una  tarea  de 
+construcción,  es  que  los  participantes  tienden  a  dar  la  respuesta  en  la 
+dirección A-C cuando los silogismos son de la figura 4 (A-B/B-C), mientras 
+que la mayoría de sus conclusiones son en la dirección opuesta (C-A) en la 
+figura 1 (B-A/C-B). Presentamos un experimento que estudia el papel del 
+tipo  de  formato  de  las  premisas  (presentación  en  dos  líneas  versus 
+presentación  en  una  línea)  en  silogismos  categóricos.  Los  resultados 
+obtenidos  muestran  que  cuando  la  presentación  de  las  premisas  fue  en  el 
+formato de una línea, los participantes generaban más respuestas A-C que 
+respuestas  C-A  en  todas  las  figuras  silogísticas.  Sin  embargo,  cuando  la 
+presentación de las premisas fue en dos líneas, los participantes generaban 
+más respuestas A-C en los silogismos de la figura 4 y más respuestas C-A en 
+los  silogismos  de  la  figura  1,  pero  no  se  encontraron  diferencias 
+significativas ni en los silogismos de la figura 2 (A-B/C-B) ni en los de la 
+figura  3  (B-A/B-C).  En  este  artículo  discutimos  las  implicaciones  de  los 
+resultados para las distintas teorías de razonamiento. 
+
+REFERENCES 
+
+Broadbent, D. (1958). Perception and communication. New York: Pergamon Press. 
+Chater,  N.  &  Oaksford,  M.  (1999).  The  probability  heuristics  model  of  syllogistic 
+Dickstein,  L.  S.  (1978).  The  effect  of  figure  on  syllogistic  reasoning.  Memory  and 
+
+reasoning. Cognitive Psychology , 38, 191-258. 
+Cognition, 6, 76-83.  
+
+326 
+ 
+
+O. Espino & C. Santamaría 
+
+syllogistic reasoning. Thinking and Reasoning, 6, 67-89.  
+syllogistic reasoning. Current Psychology of Cognition, 19, 417-428. 
+in syllogistic reasoning: evidence from eye-movements. Cognition, 98, B1-B9. 
+Cognitive Sciences, 7, 454-9,  
+reasoning. Cognition, 54, 1-71.  
+Psychology, 76, 407-412. 
+Press. 
+
+Espino, O., Santamaría, C. & García-Madruga, J.A. (2000a). Activation of end-terms in 
+Espino,  O.,  Santamaría,  C.  &  García-Madruga,  J.A.  (2000b).  Figure  and  difficulty  in 
+Espino, O., Santamaría, C., Meseguer, E., & Carreiras, M. (2005). Early and late processes 
+Evans,  St.  B.  T  (2003).  In  two  minds:  Dual  process  accounts  of  reasoning.  Trend  in 
+Ford, M. (1995). Two modes of mental representation and problem solution in syllogistic 
+Fraser, L. T. (1968). Associative factors in syllogistic reasoning. Journal of Experimental 
+Johnson-Laird, P. N. (1983). Mental models. Cambridge, UK: Cambridge University Press. 
+Johnson-Laird, P. N. (2006). How we reason. Oxford, University Press; 
+Johnson-Laird, P. N., & Bara, B. G. (1984). Syllogistic Inference. Cognition, 16, 1-62. 
+Johnson-Laird, P. N., & Byrne, R. M. J. (1991). Deduction. Hillsdale, New Jersey: LEA. 
+Johnson-Laird,  P.  N.,  &  Steedman,  M.  (1978).  The  psychology  of  the  syllogisms. 
+Kahneman, D. (2011). Thinking, fast and slow. Penguin books, England. 
+
+Cognitive Psychology, 10, 64-98. 
+
+Khemlani, S., & Johnson-­‐Laird, P.N. (2012). Theories of the syllogism: A meta-analysis. 
+
+Psychological Bulletin, 138, 427-­‐457. 
+
+Oberauer, K. , Hörnig, R., Weidenfeld, A. & Wilhelm, O. (2005). Effects of directionality in 
+deductive reasoning: II. Premise integration and conclusion evaluation. The Quarterly 
+Journal of Experimental Psychology, 58A (7), 1225-1247. 
+Oberauer, K., & Wilhelm, O. (2000). Effects of directionality in deductive reasoning: I. The 
+comprehension of a single relational premises. Journal of Experimental Psychology: 
+Learning, Memory and Cognition, 26, 1702-1712. 
+Pezzoli, J. F. & Fraser, L. T. (1968). Mediated facilitation of syllogistic reasoning. Journal 
+of Experimental Psychology, 78, 228-232. 
+Polk, T. A., & Newell, A. (1995). Deduction as verbal reasoning. Psychological Review, 
+102, 533-566.  
+Roberge, J.J. (1970). A reexamination of the interpretations of error in formal syllogistic 
+reasoning. Psychonomic Science, 10, 331-333. 
+Stanovich, K. E. (1999). Who is rational? Studies of individual differences in reasoning. 
+Lawrence Elrbaum Associates, Mahwah, NJ.,  
+Stenning,  K.  &  Oberlander,J.  (1995).  A  cognitive  theory  of  graphical  and  linguistic 
+reasoning: logic and implementation. Cognitive Science, 19, 97-140. 
+Stenning,  K.  &  Yule,  P.  (1997).  Image  and  language  in  human  reasoning:  a  syllogistic 
+illustration. Cognitive Psychology, 34, 109-159.  
+Wetherick, N., & Gilhooly, K. (1990). Syllogistic reasoning: effects of premise order. In 
+K.Gilhooly, M. T. G. Keane, R. Logie, & G. Erdos, Lines of thought: Reflections on 
+the psychology of thinking, Vol. 1, London: Wiley. 
+
+ 
+ 
+
+ 
+
+(Manuscript  received: 15 November 2012; accepted: 28 January 2012) 
+
+

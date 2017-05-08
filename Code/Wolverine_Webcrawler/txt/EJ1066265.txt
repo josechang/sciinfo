@@ -1,0 +1,1829 @@
+319  Journal of International Students 
+
+ 
+
+Peer-Reviewed Article 
+ 
+
+ISSN: 2162-3104 Print/ ISSN: 2166-3750 Online  
+Volume 5, Issue 4 (2015), pp. 319-333 
+© Journal of International Students  
+http://jistudents.org/ 
+
+ 
+
+ 
+Nonresident Undergraduates’ Performance in English Writing Classes— 
+
+Hierarchical Linear Modeling Analysis 
+
+ 
+
+Allison A. Vaughn, PhD 
+
+San Diego State University (USA) 
+
+ 
+
+Matthew Bergman and Barry Fass-Holmes, PhD 
+
+University of California, San Diego (USA) 
+
+ 
+
+Abstract 
+
+ 
+
+ 
+
+Do  undergraduates  whose  native  language  is  not  English  have  writing  deficiencies  leading  to 
+academic struggles? The present study showed that the answer to this question was “no” at an 
+American  West  Coast  public  university.  This  university’s  nonresident  undergraduates  on 
+average  earned  B-  to  B+  in  their  colleges’  English  intensive-writing  programs’  classes,  C  in 
+community college English classes, and term grade point averages between 2.5 (C+ to B-) and 
+3.2  (B)  in  the  fall  term  of  the  five  most  recent  academic  years.  Hierarchical  linear  modeling 
+analyses showed that the predictors with the largest effect sizes were English writing programs 
+and class level; however, each predictor accounted for less than 25% of the total variance.  
+ 
+Keywords: Academic success, English as a second language, international undergraduates, 
+permanent residents, TOEFL, writing
+
+ 
+
+How  can  American  universities  maximize  the  academic  success  of  their  nonresident 
+undergraduates  whose  native  language  is  not  English?  This  question  has  become  increasingly 
+important  in  recent  years  due  to  the  dramatic  increase  in  the  nonimmigrant  international 
+undergraduate  population  attending  American  universities  (Institute  for  International  Education 
+[IIE],  2013a).  Universities’  admissions  offices  potentially  could  maximize  the  likelihood  that 
+admitted applicants will succeed academically by establishing appropriate entrance requirements. 
+One  entrance  requirement  that  many  American  universities  have  been  using  to  predict 
+applicants’  academic  success  is  the  Test  of  English  as  a  Foreign  Language  (TOEFL). 
+Approximately 260 American universities require nonresident applicants whose native language 
+is  not  English  to  submit  TOEFL  scores  (American  Exam  Services,  2013);  TOEFL  scores  are 
+used as an indicator of English proficiency to predict future academic success (Andrade, 2006). 
+
+If English proficiency is a valid predictor of academic success for nonresident applicants 
+who are not native English speakers (Andrade, 2006), then admitted applicants who subsequently 
+
+ 
+ 
+
+Journal of International Students  | 320 
+
+struggle with English—despite having acceptable TOEFL scores—might be expected to struggle 
+academically. To the contrary, a recent study (Fass-Holmes & Vaughn, 2014) demonstrated that 
+at one American university the majority of nonimmigrant international undergraduates succeeded 
+academically  (term  grade  point  averages  [GPA]  above  2.0  [C])  despite  showing  evidence  of 
+struggling  with  English.  The  evidence  was  that  a  majority  of  these  students  failed  the 
+university’s  mandatory  English  writing  proficiency  exam,  and  they  were  required  to  attend 
+community college classes in English Composition and/or English as a Second Language (ESL).  
+Nonresident  undergraduates’  English  proficiency  and  academic  success  could  be 
+influenced by numerous variables, some of which are student-specific and readily accessible for 
+statistical analysis (e.g., students’ citizenship country, class level, etc.), others are school-specific 
+(e.g., classes which are taught in a particular academic term versus ones that span across several 
+academic  terms,  majors  within  academic  departments,  colleges  within  universities,  etc.),  and 
+others are unknown and/or cost-prohibitive to collect (e.g., parents’ English proficiency, parents’ 
+highest  level  of  education,  etc.)  (Osborne,  2000;  Raudenbush  &  Bryk,  2002).  Such  variables 
+need to be managed properly, and hierarchical linear modeling (HLM) offers many advantages in 
+this  regard.  HLM  analyzes  data  that  are  nested  at  multiple  levels,  computes  an  estimation  of 
+individual effects, partitions variance across levels, determines how much variance is accounted 
+for at individual and group levels (Raudenbush & Bryk, 2002), uses full-information maximum 
+likelihood estimation to handle missing data (Little & Rubin, 2002) and avoids the need to use 
+multiple imputations (Little & Rubin, 2002). This statistical technique is more advantageous than 
+ordinary  least  squares  (OLS)  regression,  another  predictive  statistical  technique,  because  OLS 
+regression assumes independence of observations; nested data rarely fulfill this key assumption 
+(Ker,  2014;  Raudenbush  &  Bryk,  2002).  Consequently,  OLS  regression  tends  to  underestimate 
+level 2 effects (in the present study, individual level) whereas HLM does not (Osborne, 2000). 
+
+HLM analyses previously have shown that country of origin and major department were 
+significant predictor variables for term GPAs of the aforementioned international undergraduates 
+who  succeeded  academically  despite  failing  an  English  proficiency  exam  (Fass-Holmes  & 
+Vaughn,  2014).  Each  of  these  variables  accounted  for  less  than  5%  of  the  total  variance—
+“small”  effect  sizes  (Cohen,  1988;  Raudenbush  &  Bryk,  2002),  indicating  that  they  did  not 
+explain the students’ academic success in spite of English struggles. The present study took the 
+opposite  approach  by  using  an  indicator  of  English  struggles  (academic  marks  in  required 
+English  intensive-writing  classes)  instead  of  an  indicator  of  academic  success  (term  GPAs)  in 
+HLM analyses.   
+
+If  nonresident  undergraduates  with  acceptable  TOEFL  scores  do  have  English 
+deficiencies,  they  might  be  expected  to  struggle  in  English  intensive-writing  classes.  This 
+hypothesis was tested in the present study. Specifically, this study’s  goals were to evaluate the 
+degree to which nonresident undergraduates attending a West Coast public university (hereafter 
+referred to  as “University”) struggled in English intensive-writing  classes, and to use HLM for 
+identifying what variables predict struggles in these classes. 
+
+The present study’s goals originated from a request by the University’s College Writing 
+Programs’  directors  for  a  longitudinal  analysis  of  nonresident  (nonimmigrant  international, 
+permanent resident [PR], and undocumented [OT]) undergraduates’ academic performance in the 
+programs’  required  English  intensive-writing  classes.  The  issue/concern  which  prompted  the 
+request was whether or not these students were progressing satisfactorily through these classes. 
+The directors’ concern arose because of a generalization repeated by faculty, administrators, and 
+advisors  that  the  University’s  undergraduates  whose  native  language  was  not  English,  as  a 
+
+September/October 2015                                  http://jistudents.org                        Volume 5•Issue 4 
+ 
+ 
+
+321  Journal of International Students 
+
+ 
+
+whole,  had  deficient  English  skills  which  were  inadequate  to  meet  the  University’s  academic 
+requirements. The University’s academic requirements, beyond the minimum TOEFL score for 
+admission (83 or higher on the internet-based version), included the following: 
+
+ 
+•  Demonstrating  a  minimum  level  of  English  writing  proficiency—The  University’s 
+undergraduates (including domestic students) must fulfill this requirement during their freshman 
+year by scoring above a specified level on various standardized college entrance exams or on the 
+University’s proprietary writing exam, earning at least a C in a transferable college-level English 
+composition class, or scoring above a specified level on an advanced placement English exam. 
+Any  undergraduate  who  fails  this  requirement  must  attend  a  writing  program  consisting  of 
+English  Composition  (EC)  and  ESL  classes,  earn  a  C  or  above,  and  pass  an  exit  exam.  These 
+classes are taught on the University’s campus by instructors from a local community college. 
+
+ 
+• Successfully  complete  College  Writing  Program  classes—After  fulfilling  the  English 
+writing  proficiency  requirement,  the  University’s  undergraduates  also  must  take  two  of  the 
+College  Writing  Programs’  classes.  Each  student  belongs  to  one  of  the  University’s  colleges, 
+each  of  which  has  its  own  unique  writing  program  with  distinctive  number,  content,  and 
+sequence of intensive writing classes. This is a graduation-related requirement. 
+
+ 
+
+Literature Review 
+
+ 
+American  universities  have  admitted  an  increasing  number  of  international  undergraduates  in 
+recent  years.  According  to  IIE’s  annual  Open  Doors  snapshot  survey  (IIE,  2013a),  the  total 
+number  of  international  students  enrolled  in  fall  2013  (FA13)  was  higher  than  in  fall  2012 
+(FA12)  at  72%  (274)  of  the  American  universities  that  participated  in  the  survey.  IIE’s  Open 
+Doors  report  for  academic  year  (AY)  2012–13  showed  an  increase  in  the  total  number  of 
+international students in American higher education. This was the seventh consecutive year that 
+the  number  increased.  The  7.2  %  increase  in  new  internationals  who  enrolled  in  AY2012–13 
+compared  with  2011–12  was  largely  due  to  Chinese  undergraduates  studying  in  the  United 
+States. Enrollment of Chinese undergraduates increased 21% from AY2011–12 to 2012–13 (IIE, 
+2013b). 
+
+An  increase  in  the  number  of  international  undergraduates  also  has  occurred  at  the 
+University  that  is  the  focus  of  the  present  study  (IIE,  2013a,b).  This  University  is  located  in  a 
+large city’s suburbs; it has more than 20,000 undergraduates; it has earned national recognition 
+for academic and research excellence (U.S. News and  World Report’s top ten); and it is one of 
+380 universities that participate in IIE’s Open Doors snapshot survey. Snapshot survey data show 
+that  the  number  of  international  undergraduates  enrolled  at  the  University  increased  19.7%  in 
+FA13  compared  to  FA12,  and  enrollment  increased  87.6%  in  FA12  compared  to  fall  2011 
+(FA11) (IIE, 2013a). 
+
+The  University’s  increase  in  international  undergraduates  has  been  accompanied  by  a 
+campus-wide  generalization  that  these  students,  as  a  whole,  are  struggling  academically  due  to 
+deficient English skills which are inadequate to meet the University’s academic requirements and 
+challenges  (cf.  Bretag,  2007).  If  international  undergraduates  experience  academic  struggles 
+which are due to deficient English skills, then one and the same internationals who struggle with 
+English would be expected to struggle academically also. This expectation has some support in the 
+research literature on the TOEFL. TOEFL scores not only have been used in making admissions 
+
+ 
+ 
+
+Journal of International Students  | 322 
+
+decisions  (Oliver,  Vanderford  &  Grote,  2012),  but  also  in  predicting  English  proficiency  (Ling, 
+Powers  &  Adler,  2014)  and  academic  success  (reviewed  by  Andrade,  2006;  Graham,  1987; 
+Stoynoff,  1997).  For  instance,  Johnson  (1988)  found  that  international  undergraduates  whose 
+TOEFL scores were below 500 earned significantly lower grades than counterparts whose TOEFL 
+scores were at or above 500. Johnson concluded that the lower a student’s English proficiency (as 
+reflected by the TOEFL  score), the more important its role in academic success. Johnson (1988) 
+also found that international undergraduates whose TOEFL score was at the low end of its range 
+were  more  successful  academically  in  courses  that  required  a  low  level  of  English  skills  than  in 
+ones that required a high level. These findings suggest that international undergraduates’ English 
+struggles (as indicated by low TOEFL scores) are associated with academic struggles (as indicated 
+by low grades) at American universities. 
+
+Although  the  research  literature  provides  some  support  for  using  TOEFL  scores  in 
+predicting  English  proficiency  and  academic  success  (Ling,  Powers  &  Adler,  2014),  it  also 
+provides  some  contradictory  evidence.  Several  studies  have  shown  no  correlation  between 
+TOEFL  scores  and  international  undergraduates’  GPA  at  American  universities  (Chen  &  Sun, 
+2006;  Fass-Holmes  &  Vaughn,  2014;  Wongtriat,  2010).  The  absence  of  a  correlation  between 
+TOEFL scores and academic success might signify that the scores meet admissions requirements 
+due  to  non-native  English  speaking  students’  having  attended  test  preparation  classes  (Hamp-
+Lyons, 1998; Raimes, 1990) and/or cheating (Jung, 2013), but they do not reflect the students’ 
+English  proficiency.  TOEFL  scores  therefore  might  have  limited  usefulness  in  resolving  the 
+question of whether international undergraduates’ English struggles are associated with academic 
+struggles at American universities (Des Brisay, 1994; Fass-Holmes & Vaughn, 2014). 
+
+Instead  of  using  TOEFL  scores  as  an  indicator  of  English  proficiency  that  predicts 
+academic  success,  a  recent  study  (Fass-Holmes  &  Vaughn,  2014)  compared  the  percentage  of 
+degree-seeking  international  freshmen  who  were  required  to  take  EC  and/or  ESL  community 
+college classes (i.e., struggling with English) with the percentage whose term GPAs during their 
+first academic year were below 2.0 (struggling academically). More than one-third of the cohort 
+that  entered  the  University  in  FA09,  almost  one-half  of  the  cohort  that  entered  in  FA10,  and 
+almost  two-thirds  of  the  cohort  that  entered  in  FA11  were  required  to  take  the  community 
+college classes. Five percent of the FA09 cohort, 10% of the FA10 cohort, and 42% of the FA11 
+cohort  earned  D  or  F  (struggled)  in  these  classes.  However,  these  same  students  earned  mean 
+GPAs  between  3.2  and  3.3  (succeeded  academically)  and  less  than  10%  earned  term  GPAs 
+below 2.0 (struggled academically) in their University classes. These findings therefore suggest 
+that  a  majority  of  the  international  freshmen  succeeded  academically  despite  evidence  of 
+struggling with English. 
+
+ 
+
+Research Method 
+
+ 
+To  fulfill  the  request  by  the  College  Writing  Programs’  directors,  demographic  and  academic 
+achievement  data  for  AY2009–10  through  2013–14,  inclusive,  were  extracted  from  the 
+University’s student information system using structured query language (SQL) programs (only 
+fall  terms’  results  are  reported  below;  other  terms’  results  are  available  from  the  authors  upon 
+request). The demographic data included academic status (good vs. not good; not good included 
+probation,  subject  to  dismissal,  and  dismissed),  admit  term  (which  was  used  to  compute  a 
+calculated field enrollment history indicating whether each student was new or continuing), class 
+level  (freshman,  sophomore,  etc.),  citizenship  country,  course  title,  department,  major,  subject 
+
+September/October 2015                                  http://jistudents.org                        Volume 5•Issue 4 
+ 
+ 
+
+323  Journal of International Students 
+
+ 
+
+code  (which  was  used  to  compute  a  calculated  field  English  intensive-writing  programs  to 
+distinguish  students  who  attended  College  Writing  Programs’  classes  from  students  who 
+attended  the  community  college  writing  classes),  and  visa  status  (United  States  Department  of 
+State,  n.d.).  Academic  achievement  data  included  marks  in  the  College  Writing  Programs’ 
+(CWP)  and  community  college’s  (CC)  English  intensive-writing  classes  plus  term  GPAs.  The 
+SQL programs also extracted each undergraduate’s unique campus ID and first and last names to 
+facilitate  accurate  organization  (using  IRB-approved  procedures)  of  all  data  within  records 
+within  data  files.  The  extractions  excluded  only  domestic  students  because  of  their  lack  of 
+relevance to this study’s goals. 
+
+Descriptive statistical analyses were performed (using spreadsheet and PSPP software) on 
+the  data  files  to  characterize  the  undergraduates  and  to  determine  the  extent  to  which  they 
+struggled  (earned  marks  below  C)  in  the  CWP  or  CC  classes.  HLM  analyses  were  performed 
+(using STATA 13 software; StataCorp, 2013) to evaluate the role of individual-level variables on 
+academic marks.  All of the present study’s models were run with one predictor at a time (or set 
+of predictors, in the case of multiple groups like citizenship country or department). The outcome 
+variable  (academic  marks)  was  nested  within  student;  therefore,  writing  classes’  marks  were 
+level 1 whereas the students’ more stable traits (e.g., citizenship country) were level 2. Most of 
+the  categorical  predictors  were  dummy-coded,  including  citizenship  country  (i.e.,  China  vs.  all 
+others;  South  Korea  vs.  all  others;  these  were  the  citizenship  countries  of  the  University’s  two 
+largest nonresident populations), English intensive-writing programs (i.e., CWP vs. CC classes), 
+enrollment history (i.e., new student vs. continuing), immigration status (i.e., F-1 vs. all others; 
+PR  vs.  all  others;  United  States  Department  of  State,  n.d.),  and  major  departments  (i.e., 
+Economics vs. all others; engineering vs. all others; science vs. all others; these specific major 
+departments  were  chosen  because  of  campus-wide  generalizations  that  undergraduates  whose 
+native language was not English gravitated toward majors which were less sensitive to English 
+weaknesses; cf. Johnson, 1988). Class level retained its ordinal form (i.e., freshman, sophomore, 
+junior, senior). 
+
+ 
+
+Results 
+
+ 
+Descriptive Analyses—Demographics 
+ 
+The  total  number  and  demographic  characteristics  of  nonresident  undergraduates  attending  the 
+CWP’s  and  CC’s  English  intensive-writing  classes  in  the  fall  terms  of  AY2009–10  through 
+2013–14,  inclusive,  are  shown  in  Table  1.  Several  noteworthy  trends  are  evident.  While  PR 
+accounted  for  about  two-thirds  of  these  undergraduates  in  FA09  and  FA10,  F-1  accounted  for 
+about two-thirds in FA12 and FA13. China was the citizenship country for less than 25% of the 
+writing classes’ participants in FA09 and FA10, then it increased to almost 50% by FA13. Also 
+in FA13, about one-third of the nonresident undergraduates attending writing classes were in the 
+CC’s; this value was up from less than 20% in FA09. Engineering and science majors comprised 
+approximately  half  of  the  undergraduates  in  the  writing  classes  between  FA09  and  FA13,  and 
+less than 10% of participants in these classes were in bad academic status. 
+
+The  annual  change  in  numbers  of  nonresident  undergraduates  attending  the  English 
+intensive-writing  classes  between  FA09  and  FA13,  inclusive,  is  shown  in  Figure  1. 
+Approximately  the  same  number  of  these  students  attended  in  FA10  as  in  FA09.  However,  in 
+FA11,  participation  in  these  writing  classes  increased  by  about  10%,  then  by  almost  a  third  in 
+
+ 
+ 
+
+Journal of International Students  | 324 
+
+FA12 and in FA13. These increases were largely attributable to  year-over-year increases in the 
+number  of  F-1  undergraduates  attending  these  classes  (Figure  2)  and  the  number  whose 
+citizenship country was China (Figure 3). 
+ 
+Table 1: Demographic Characteristics of Nonresident Students in English Intensive-
+Writing Classes 
+ 
+Characteristics 
+
+FA13 
+
+FA09 
+
+FA10 
+
+FA11 
+
+FA12 
+
+F-1 
+
+OT 
+
+PR 
+
+N 
+
+ % 
+
+N 
+
+% 
+
+N 
+
+% 
+
+N 
+
+% 
+
+N 
+
+% 
+
+142  18.0 
+
+190 
+
+24.3 
+
+405 
+
+45.4 
+
+745 
+
+63.9 
+
+1,016  66.8 
+
+33 
+
+4.2 
+
+25 
+
+3.2 
+
+28 
+
+3.1 
+
+25 
+
+2.1 
+
+43 
+
+2.8 
+
+551  70.0 
+
+486 
+
+62.1 
+
+403 
+
+45.1 
+
+342 
+
+29.3 
+
+418 
+
+27.5 
+
+Other visa categories 
+
+61 
+
+7.8 
+
+81 
+
+10.4 
+
+57 
+
+6.4 
+
+54 
+
+4.6 
+
+44 
+
+2.9 
+
+China 
+
+South Korea 
+
+other countries 
+
+148  18.8 
+
+155 
+
+19.8 
+
+312 
+
+34.9 
+
+482 
+
+41.3 
+
+736 
+
+48.4 
+
+209  26.6 
+
+227 
+
+29.0 
+
+208 
+
+23.3 
+
+247 
+
+21.2 
+
+252 
+
+16.6 
+
+430  54.6 
+
+400 
+
+51.2 
+
+373 
+
+41.8 
+
+437 
+
+37.5 
+
+533 
+
+35.0 
+
+community college 
+
+133  16.9 
+
+128 
+
+16.4 
+
+262 
+
+29.3 
+
+376 
+
+32.2 
+
+490 
+
+32.2 
+
+other writing programs  654  83.1 
+
+654 
+
+83.6 
+
+631 
+
+70.7 
+
+790 
+
+67.8 
+
+1,031  67.8 
+
+economics majors 
+
+136  17.3 
+
+131 
+
+16.8 
+
+172 
+
+19.3 
+
+239 
+
+20.5 
+
+316 
+
+20.8 
+
+engineering majors 
+
+151  19.2 
+
+158 
+
+20.2 
+
+206 
+
+23.1 
+
+283 
+
+24.3 
+
+360 
+
+23.7 
+
+science majors 
+
+other majors 
+
+246  31.3 
+
+234 
+
+29.9 
+
+225 
+
+25.2 
+
+278 
+
+23.8 
+
+482 
+
+31.7 
+
+254  32.3 
+
+259 
+
+33.1 
+
+290 
+
+32.5 
+
+366 
+
+31.4 
+
+363 
+
+23.9 
+
+good academic status 
+
+735  93.4 
+
+724 
+
+92.6 
+
+813 
+
+91.0 
+
+1,050  90.1 
+
+1,415  93.0 
+
+bad academic status 
+
+52 
+
+6.6 
+
+58 
+
+7.4 
+
+80 
+
+9.0 
+
+116 
+
+9.9 
+
+106 
+
+7.0 
+
+TOTAL 
+
+787  100 
+
+782 
+
+100 
+
+893 
+
+100 
+
+1,166  100 
+
+1,521  100 
+
+ 
+Abbreviations: FA09=fall 2009; FA10=fall 2010; FA11=fall 2011; FA12=fall 2012; FA13=fall 
+2013;  N=number  of  nonresident  undergraduates;  F-1=degree-seeking  internationals  (United 
+States Department of State, n.d.); OT=undocumented undergraduates; PR=permanent residents 
+ 
+
+ 
+
+September/October 2015                                  http://jistudents.org                        Volume 5•Issue 4 
+ 
+ 
+
+325  Journal of International Students 
+
+ 
+
+ 
+Figure 1. The annual percentage change in the number of nonresident undergraduates attending the 
+University’s  English  intensive-writing  classes  amounted  to  almost  a  third  in  each  of  the  two  most 
+recent  fall  terms  for  which  data  were  available  at  the  time  of  this  study.  Values  above  each  bar 
+represent percentage change from the previous fall term. Abbreviations: FA09=fall 2009; FA10=fall 
+2010; FA11=fall 2011, FA12=fall 2012 
+ 
+
+ 
+
+ 
+Figure  2.  The  annual  percentage  change  in  the  number  of  nonresident  undergraduates  attending  the 
+University’s  English  intensive-writing  classes  (Figure  1)  was  largely  attributable  to  F-1  (degree-
+seeking,  nonimmigrant)  students.  Values  above  or  below  each  bar  represent  percentage  change  from 
+the  previous  fall  term.  Abbreviations:  FA09=fall  2009;  FA10=fall  2010;  FA11=fall  2011;  FA12=fall 
+2012; OT=undocumented undergraduates; PR=permanent residents 
+
+ 
+
+Figure  3.  The  annual  percentage  change  in  the  number  of  nonresident  undergraduates  attending  the 
+University’s  English  intensive-writing  classes  (Figure  1)  is  largely  attributable  to  Chinese  students. 
+Values  above  each  bar  represent  percentage  change  from  the  previous  fall  term.  Abbreviations: 
+FA09=fall 2009; FA10=fall 2010; FA11=fall 2011; FA12=fall 2012 
+
+ 
+
+ 
+ 
+
+Journal of International Students  | 326 
+
+Descriptive Analyses—Performance in English Intensive-Writing Classes 
+ 
+
+Figure 4 shows nonresident undergraduates’ academic marks in English intensive-writing 
+classes for FA09 through FA13, inclusive. F-1, OT, and PR undergraduates’ average marks were 
+at or above C+ in these classes (aggregated over all citizenship countries and writing programs). 
+Nonresident  undergraduates’  average  marks  were  between  B-  and  B  in  the  CWP  classes 
+(aggregated over all citizenship countries and visa categories; United States Department of State, 
+n.d.).  However,  their  average  marks  ranged  between  C-  and  C+  in  the  CC  classes  (same 
+aggregations),  thus  indicative  of  some  struggles  in  EC  and/or  ESL.  Chinese  undergraduates’ 
+average  marks  were  between  C+  and  B-,  while  nonresidents  from  all  other  countries  averaged 
+between  B-  and  B  in  the  English  intensive-writing  classes  (aggregated  over  all  visa  categories 
+and writing programs). 
+
+ 
+
+Figure  4.  Nondomestic 
+undergraduates’  average 
+academic  marks 
+in 
+English  intensive-writing 
+classes between fall 2009 
+and  fall  2013  (inclusive) 
+are disaggregated by visa 
+category in the top graph, 
+by  writing  programs  in 
+the  middle  graph,  and  by 
+citizenship country in the 
+bottom  graph.  Only  the 
+average  marks  for 
+the 
+community 
+college 
+classes  show  evidence  of 
+struggling  (below  2.0). 
+Values  above  each  bar 
+represent  average  marks 
+(A=4;  B=3;  C=2;  D=1; 
+F=0);  values  at  the  base 
+of  each  bar 
+represent 
+and 
+counts 
+standard 
+Abbreviations: 
+errors. 
+FA09=fall 
+2009, 
+FA10=fall 
+2010, 
+FA11=fall  2011,  FA12= 
+2012,  FA13=fall 
+fall 
+2013; 
+OT=undocumented; 
+
+PR=permanent resident 
+ 
+ 
+
+ 
+
+September/October 2015                                  http://jistudents.org                        Volume 5•Issue 4 
+ 
+ 
+
+327  Journal of International Students 
+
+ 
+
+Frequency distributions of the nonresident undergraduates’ marks in the most recent fall 
+
+term’s (FA13) English intensive-writing classes are shown in Figure 5.  
+ 
+
+fall 
+
+classes 
+
+Figure  5.  The  frequency 
+distributions  of  academic 
+marks  which  nonresident 
+undergraduates  earned  in 
+the 
+College  Writing 
+Programs’ 
+2013 
+(FA13)  English  intensive-
+writing 
+(upper 
+graph)  are  skewed  to  the 
+right  with  modal  values 
+between  B  and  B+.  By 
+contrast,  the  corresponding 
+frequency  distribution  for 
+the 
+college 
+program’s  FA13  classes 
+(lower  graph)  resembles  a 
+bell  curve  with  a  modal 
+value of C. 
+ 
+
+community 
+
+Whereas  the  CWPs’  frequency  distributions  are  skewed  to  the  right,  the  CC  program’s 
+frequency distribution approximates a bell curve. Out of 1,033 marks issued by the FA13 CWPs’ 
+classes,  87.6%  were  at  or  above  C;  the  modal  mark  was  B  (N=222;  21.5%  of  the  total).  The 
+corresponding  values  for  the  FA13  CC  program’s  classes  were  698,  74.1%,  and  C  (N=351; 
+50.3% of the total), respectively. Frequency distributions for the other academic years’ fall terms 
+show a similar pattern and are available from the authors upon request. 
+
+ 
+
+ 
+
+Descriptive Analyses—GPAs 
+ 
+
+The  University  considers  students  with  a  term  GPA  below  2.0  (C)  to  be  struggling 
+academically.  GPA  analyses  showed  that  nonresident  undergraduates  who  participated  in  the 
+English  intensive-writing  classes  earned  term  GPAs  which  averaged  between  2.7  (B-)  and  3.2 
+(between B and B+) in FA09 through FA13, inclusive. Disaggregating the data by visa category, 
+the fall average GPAs ranged from 2.98 to 3.17 for F-1, 2.55 to 2.93 for OT, and 2.92 to 3.01 for 
+PR.  Disaggregating  by  writing  programs,  the  fall  average  GPAs  ranged  from  2.92  to  3.04  for 
+nonresident  undergraduates  who  participated  in  CWP  classes  (the  University  includes  these 
+classes’  academic  marks  in  term  GPAs),  and  2.95  to  3.14  for  participants  in  CC  classes  (the 
+University  excludes  these  classes’  academic  marks  from  term  GPAs).  Chinese  undergraduates’ 
+fall  average  GPAs  ranged  from  3.13  to  3.25,  South  Koreans’  from  2.72  to  2.96,  and  other 
+countries’ from 2.94 to 3.03. The corresponding fall average GPAs for Economics majors ranged 
+from  2.79  to  2.97,  for  engineering  majors  from  3.00  to  3.07,  for  science  majors  from  3.06  to 
+3.21, and for other majors from 2.95 to 3.07. Tables and graphs of these data are available from 
+the authors upon request. 
+ 
+
+ 
+ 
+
+Journal of International Students  | 328 
+
+ HLM Analyses 
+ 
+
+The  data  extracted  for  the  HLM  analyses  yielded  1,189  nonresident  undergraduates’ 
+records  for  AY2009–10  CWP  and  CC  classes,  and  these  undergraduates  had  a  total  of  2,331 
+writing  classes’  marks  used  in  the  HLM  analyses.  On  average,  each  undergraduate  in  AY0910 
+had about two writing classes’ marks (M = 1.9). The corresponding values for AY2010–11 were 
+1,254  nonresident  undergraduates,  2,262  writing  classes’  marks,  and  an  average  of  almost  two 
+writing  classes’  marks  per  student  (M  =  1.8).  For  AY2011–12,  1,366  nonresident 
+undergraduates, 2,526 writing classes’ marks, and an average of almost two classes’ marks (M = 
+1.8)  per  student.  For  AY2012–13,  1,703  nonresident  undergraduates,  3,514  writing  classes’ 
+marks,  and  an  average  of  two  classes’  marks  per  student  (M  =  2.1).  Lastly,  for  AY2013–14, 
+2,150 nonresident undergraduates, 4,296 writing classes’ marks, and an average of two classes’ 
+marks per student (M = 2.0). 
+
+In the current study, all of our models were run with one predictor (or set of predictors – 
+in the case of dummy-coded predictors)  at a time on two-level models.  Writing classes’ marks 
+(the outcome variable) are considered a lower level (level 1 or time-varying) variable, whereas 
+the various predictors are considered higher level (level 2 or individual, stable) variables. These 
+included citizenship country, class level, enrollment history, English intensive-writing programs, 
+major  department,  and  visa  category  (United  States  Department  of  State,  n.d.).  An  example 
+model is shown below. 
+
+ 
+Level 1: Grade = β0j + rij 
+Level 2: β0j = γ00 + γ01 (class level) + µ 0j 
+
+ 
+ 
+ 
+
+For each HLM model, only statistically significant results (p<.05) are presented in Table 
+2.  This  table  shows  that  class  level  was  a  significant  predictor  of  AY2009–10  writing  classes’ 
+marks—as  class  level  increased,  these  marks  also  increased.  Citizenship  country,  English 
+intensive-writing  programs,  enrollment  history,  major  department,  and  visa  category  all  were 
+significant predictors of writing classes’ marks—Chinese and South Koreans, CWP participants, 
+and continuing nonresident undergraduates had higher writing classes’ marks compared to other 
+nationalities, CC writing classes’ participants, and new nonresident undergraduates. Economics 
+and engineering majors and F-1 undergraduates had lower writing classes’ marks compared to all 
+other majors and visa categories.  The HLM results for AY2010–11 writing classes’ marks were 
+the same with one exception—only Economics  majors had lower  grades when  compared to all 
+other majors (engineering majors were not significantly different from the rest). The results for 
+AY2011–12  were  also  the  same  as  AY2009–10’s  except  that  major  department  was  not  a 
+significant predictor at all. AY2012–13’s results were similar to AY2010–11‘s except that only 
+Economics  majors  had  lower  marks  in  writing  classes  when  compared  to  all  other  majors 
+(engineering  majors  were  not  significantly  different  from  the  rest).  AY2013–14’s  HLM  results 
+were  similar  to  AY2009–10’s  with  two  exceptions—enrollment  history  was  not  a  significant 
+predictor  and  only  Economics  majors  had  lower  marks  when  compared  to  all  other  majors 
+(engineering majors were not significantly different from the rest). 
+
+Although the HLM analyses revealed that the aforementioned predictors were statistically 
+significant, most of them accounted for only a small portion of the total variance (less than 6%; 
+small effect sizes) in writing classes’ marks. However, two exceptions were notable—class level 
+explained 3–18% (small effect size) of the total variance in writing classes’ marks, and English 
+
+September/October 2015                                  http://jistudents.org                        Volume 5•Issue 4 
+ 
+ 
+
+329  Journal of International Students 
+
+ 
+
+intensive-writing  programs  (CC  and  CWP)  explained  9–27%  (small  effect  size)  of  the  total 
+variance in writing classes’ marks. 
+ 
+Table 2: Statistically Significant Univariate Predictors of English Intensive-Writing 
+Programs’ Grades (HLM Analyses) 
+ 
+AY 
+
+Predictor 
+
+SE β 
+
+p 
+
+sr2 
+
+β 
+
+ 
+
+.139 
+
+.229 
+
+.098 
+
+.404 
+
+.065 
+
+ 
+
+-.137 
+
+-.114 
+
+ 
+
+ 
+
+.058 
+
+.048 
+
+.017 
+
+.044 
+
+.029 
+
+ 
+
+.060 
+
+.056 
+
+ 
+
+ 
+
+.016 
+
+<.001 
+
+<.001 
+
+ 
+
+ 
+
+<.001 
+
+.026 
+
+ 
+
+.024 
+
+.044 
+
+ 
+
+ 
+
+.005 
+
+.015 
+
+.028 
+
+.093 
+
+<.001 
+
+.010 
+
+.007 
+
+.006 
+
+ 
+
+-.172 
+
+.081 
+
+.034 
+
+.004 
+
+ 
+
+.222 
+
+.325 
+
+.137 
+
+ 
+
+.774 
+
+.234 
+
+ 
+
+ 
+
+.056 
+
+.050 
+
+.018 
+
+ 
+
+.043 
+
+.043 
+
+ 
+
+ 
+
+<.001 
+
+<.001 
+
+<.001 
+
+ 
+
+<.001 
+
+<.001 
+
+ 
+
+ 
+
+.009 
+
+.027 
+
+.046 
+
+ 
+
+.189 
+
+.015 
+
+ 
+
+-.106 
+
+.053 
+
+.044 
+
+.004 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-.158 
+
+.051 
+
+.002 
+
+.008 
+
+ 
+
+.453 
+
+.354 
+
+.229 
+
+.204 
+
+ 
+
+ 
+
+.050 
+
+.054 
+
+.018 
+
+.045 
+
+ 
+
+ 
+
+<.001 
+
+<.001 
+
+<.001 
+
+<.001 
+
+ 
+
+ 
+
+.050 
+
+.025 
+
+.084 
+
+.010 
+
+ 
+
+   College Writing Programs 
+
+.948 
+
+.039 
+
+<.001 
+
+.267 
+
+Visa category 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2009–10 
+
+Citizenship country 
+
+   China 
+
+   South Korea 
+
+Class level 
+
+English intensive-writing programs 
+
+ 
+
+ 
+
+   College Writing Programs 
+
+Enrollment history 
+
+Major department 
+
+   Economics 
+
+   Engineering 
+
+Visa category 
+
+   F-1 
+
+2010–11 
+
+Citizenship country 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   China 
+
+   South Korea 
+
+Class level 
+
+English intensive-writing programs 
+
+   College Writing Programs 
+
+Enrollment history 
+
+Major department 
+
+   Economics 
+
+Visa category 
+
+   F-1 
+
+2011–12 
+
+Citizenship country 
+
+   China 
+
+   South Korea 
+
+Class level 
+
+Enrollment history 
+
+English intensive-writing programs 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+   F-1 
+
+2012–13 
+
+Citizenship country 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   China 
+
+   South Korea 
+
+Class level 
+
+English intensive-writing programs 
+
+   College Writing Programs 
+
+Enrollment history 
+
+Major department 
+
+   Economics 
+
+Visa category 
+
+   F-1 
+
+2013–14 
+
+Citizenship country 
+
+   China 
+
+   South Korea 
+
+Class level 
+
+English intensive-writing programs 
+
+Journal of International Students  | 330 
+
+-.313 
+
+.045 
+
+<.001 
+
+.031 
+
+ 
+
+.533 
+
+.404 
+
+.202 
+
+ 
+
+.744 
+
+.203 
+
+ 
+
+ 
+
+.043 
+
+.050 
+
+.017 
+
+ 
+
+.034 
+
+.041 
+
+ 
+
+ 
+
+<.001 
+
+<.001 
+
+<.001 
+
+ 
+
+<.001 
+
+<.001 
+
+ 
+
+ 
+
+.067 
+
+.023 
+
+.054 
+
+ 
+
+.188 
+
+.007 
+
+ 
+
+-.230 
+
+.055 
+
+<.001 
+
+.009 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-.454 
+
+.039 
+
+<.001 
+
+.060 
+
+ 
+
+.542 
+
+.355 
+
+.175 
+
+ 
+
+ 
+
+.037 
+
+.049 
+
+.016 
+
+ 
+
+ 
+
+<.001 
+
+<.001 
+
+<.001 
+
+ 
+
+ 
+
+.068 
+
+.018 
+
+.175 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   College Writing Programs 
+
+.886 
+
+.029 
+
+<.001 
+
+.232 
+
+Major department 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   Economics 
+
+Visa category 
+
+   F-1 
+
+-.227 
+
+.050 
+
+<.001 
+
+.006 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-.383 
+
+.076 
+
+<.001 
+
+.047 
+
+ 
+Note. Abbreviations: AY = academic  year; β = regression coefficient;  SE β = standard error of 
+the  regression  coefficient;  p  =  probability  (significance  level);  sr2  =  semi-partial  correlation 
+squared (analogous to R2), the proportion of variance accounted for; effect size. 
+ 
+
+Discussion and Conclusions 
+
+ 
+
+The present study tested the hypothesis that if the University’s nonresident undergraduates had 
+English  deficiencies  despite  having  a  TOEFL  score  that  was  acceptable  for  admission,  they 
+might  be  expected  to  struggle  (earn  Ds  or  Fs)  in  English  intensive-writing  classes.  To  the 
+contrary,  this  study  showed  that  a  sizable  majority  of  these  students  earned  C  or  better  in 
+AY2009–10 through 2013–14, inclusive. 
+
+One  of  the  goals  in  testing  this  hypothesis  was  to  evaluate  the  degree  to  which  the 
+University’s  nonresident  undergraduates  struggle  in  English  intensive-writing  classes.  The  only 
+evidence of English struggles in this study was the average academic marks in the CC program’s 
+classes (EC and ESL) in FA11 and FA13. Otherwise, this study’s results indicate that, regardless 
+of how the data were disaggregated, the University’s nonresident undergraduates earned at least 
+C on average in the English intensive-writing classes; in many cases instead, these students’ 
+ average marks in the English intensive-writing classes were at or above B-. 
+
+September/October 2015                                  http://jistudents.org                        Volume 5•Issue 4 
+ 
+ 
+
+331  Journal of International Students 
+
+ 
+
+This study’s other goal was to use HLM for identifying what variables predict struggles in the 
+English  intensive-writing  classes.  The  HLM  results  showed  that  the  predictor  variable  English 
+intensive-writing  programs  was  statistically  significant  and  explained  a  larger  percentage—9–
+27%—of the total variance in writing classes’ marks than any of the other significant predictor 
+variables. While this predictor’s coefficient suggests a difference of about one letter grade (e.g., 
+D vs. C; B vs. A), the percentage of the total variance that it explains is considered a small effect 
+size  (Cohen,  1988). It  might  be  sufficiently  compelling  for  use  in  decision  making  about 
+implementing or changing policies and programs that target nonresident undergraduates at risk of 
+bad academic status, but it might not be sufficiently compelling for nonresident undergraduates 
+who  are  earning  B  or  A.  All  of  the  other  significant  predictor  variables  in  the  HLM  analyses 
+explained  even  smaller  percentages  of  the  total  variance  and  thus  might  not  be  sufficiently 
+compelling (Kirk, 1996). 
+
+What  accounts  for  the  finding  that  nonresident  undergraduates’  marks  are  significantly 
+worse in CC classes than in CWP counterparts? CC and CWP classes are similar in that they all 
+are  taught  on  the  same  university  campus.  These  classes  are  dissimilar,  however,  in  that  the 
+former  are  administered  and  taught  by  CC  instructors  whereas  the  latter  are  administered  and 
+taught by the University’s faculty (cf. Callahan & Chumney, 2009). One possible explanation for 
+the HLM results, then, is that CC instructors teach and/or grade English writing differently than 
+the University’s faculty. Another possibility is that CC classes (EC and ESL) are focused more 
+on  fundamental  English  skills  and  those  classes’  grades  consequently  are  more  reflective  of 
+struggles  with  English,  whereas  the  CWP  classes  are  more  focused  on  writing  in  a  particular 
+field  (e.g.,  humanities)  and  those  classes’  grades  consequently  are  less  reflective  of  struggles 
+with English. A third possibility is that students might invest less time and effort in CC classes 
+than in CWP classes because the University excludes the former and includes the latter in GPA 
+calculations. Further research will be necessary to evaluate these possibilities. 
+
+The  present  findings  further  refute  campus  generalizations  that  the  University’s 
+nonresident  undergraduates  collectively  struggle  academically,  and  that  the  academic  struggles 
+are  due  to  English  deficiencies  (cf.  Fass-Holmes  &  Vaughn,  2014).  These  generalizations  of 
+extensive academic struggles and English deficiencies cannot readily be attributed to insufficient 
+assistance and/or support; the University historically has delivered a diverse range of programs 
+and  services—academic  and  immigration  advising,  intramural  sports,  mentoring  and  transition 
+programs,  one-on-one  English  tutoring,  social  and  cultural  events,  student  organizations, 
+welcoming  events,  etc.—to  promote 
+its  non-native  English  speaking  undergraduates’ 
+engagement, retention,  and satisfaction. However, the present findings do not refute or address 
+additional  generalizations  about  nonresident  undergraduates’  behaviors  that  violate  academic 
+integrity policies (e.g., cheating, collaboration, plagiarism, etc.). Further studies will be needed to 
+determine  the  extent  to  which  such  behaviors  account  for  nonresident  undergraduates’ 
+performance in English intensive-writing classes. 
+
+The present study’s findings additionally rule out two alternative explanations for alleged 
+English  deficiencies:  (a)  the  struggling  undergraduates  include  immigrant  students  (applicants 
+for  permanent  residency,  amnesty-seekers,  asylees,  refugees,  OT,  and/or  PR)  rather  than  or  in 
+addition  to  non-immigrant  (international)  students;  and  (b)  continuing,  rather  than  new, 
+international  undergraduates  are  the  ones  who  struggle.  This  study  showed  that  OT  and  PR 
+undergraduates had better marks in the English intensive-writing classes than non-immigrant F-1 
+counterparts  (Figure  4;  Table  2),  and  that  continuing  nonresident  undergraduates  had  better 
+marks  than  new  counterparts  (Table  2).  These  findings  are  the  opposite  of  what  would  be 
+
+ 
+ 
+
+Journal of International Students  | 332 
+
+expected if the above alternatives were correct. Instead, a recent study provided evidence that the 
+University’s  generalizations  are  more  likely  attributable  to  annual  increases  in  international 
+undergraduates entering the University. As international undergraduate enrollment has increased, 
+the number of these students who struggle academically also has increased proportionally (Fass-
+Holmes & Vaughn, 2014). 
+
+ 
+
+In  conclusion,  only  a  minority  of  the  University’s  nonresident  undergraduates  has 
+struggled  in  English  intensive-writing  classes  and/or  academically.  This  finding  is  contrary  to 
+expectations  originating  from  campus-wide  generalizations  about  nonresident  undergraduates. 
+Policies  and  programs  intended  to  promote  undergraduates’  academic  success  would  be  most 
+cost effective if they focused on the specific students with demonstrable deficiencies rather than 
+all who are not native English writers. 
+
+ 
+
+REFERENCES 
+
+ 
+American  Exam  Services.  (2013).  TOEFL  Scores—USA  Universities.  Retrieved  from 
+
+http://www.americanexamservices.com/about-the-toefl/toefl-scores-usa-universities  
+
+Andrade,  M.  S.  (2006).  International  students  in  English-speaking  universities:  Adjustment 
+
+factors. Journal of Research in International Education, 5(2), 131–154. 
+
+Bretag,  T.  (2007).  The  emperor's  new  clothes:  Yes,  there  is  a  link  between  English  language 
+
+competence and academic standards. People and Place, 15(1), 13–21. 
+
+Callahan, M. K., & Chumney, D. (2009). “Write like college”: How remedial writing courses at 
+a community college and a research university position “at-risk” students in the field of 
+higher education. Teachers College Record, 111(7), 1619–1664. 
+
+Chen,  Y.,  &  Sun,  C.  (2006).  Language  proficiency  and  academic  performance.  Proceedings  of 
+the 11th Conference of Pan-Pacific Association of Applied Linguistics, Korea, 11, 58–72. 
+Cohen, J. (1988). Statistical Power Analysis for the Behavioral Sciences (2nd ed.). Hillsdale, NJ: 
+
+Erlbaum. 
+
+Des  Brisay,  M.  (1994).  Problems  in  developing  an  alternative  to  the  TOEFL.  TESL  Canada 
+
+Journal, 12(1), 47–57. 
+
+Fass-Holmes,  B.,  &  Vaughn,  A.  A.  (2014).  Are  international  undergraduates  struggling 
+
+academically? Journal of International Students, 4(1), 60–73. 
+
+Graham,  J.  G.  (1987).  English  language  proficiency  and  the  prediction  of  academic  success. 
+
+TESOL Quarterly, 21(3), 505–521. 
+
+Hamp-Lyons,  L.  (1998).  Ethical  test  preparation  practice:  The  case  of  the  TOEFL.  TESOL 
+
+Quarterly, 32(2), 329–337. 
+
+Institute for  International Education. (2013a). Fall 2013 snapshot survey finds strong growth in 
+from  http://www.iie.org/Who-We-Are/News-and-
+
+international 
+Events/Press-Center/Press-Releases/2013/2013-11-11-Open-Doors-Fall-Snapshot-Survey 
+
+students.  Retrieved 
+
+Institute  for  International  Education.  (2013b).  Open  Doors  2013:  International  students  in  the 
+United States and study abroad by American students are at all-time high. Retrieved from 
+http://iie.org/Who-We-Are/News-and-Events/Press-Center/Press-Releases/2013/2013-11-
+11-Open-Doors-Data 
+
+Johnson,  P.  (1988).  English  language  proficiency  and  academic  performance  of  undergraduate 
+
+international students. TESOL Quarterly, 22(1), 164–168. 
+
+Jung,  M-H.  (2013).  Cheating  rampant  for  TOEFL,  other  English  tests.  The  Korea  Times. 
+
+Retrieved from http://koreatimes.co.kr/www/news/culture/2013/10/135_144334.html 
+
+September/October 2015                                  http://jistudents.org                        Volume 5•Issue 4 
+ 
+ 
+
+333  Journal of International Students 
+
+ 
+
+Ker,  H.W.  (2014).  Application  of  hierarchical  linear  models/linear  mixed-effects  models  in 
+school  effectiveness  research.  Universal  Journal  of  Educational  Research,  2(2),  173–
+180. 
+
+Kirk,  R.  E.  (1996).  Practical  significance:  A  concept  whose  time  has  come.  Educational  and 
+
+Psychological Measurement, 56(5), 746–759. 
+
+Ling, G., Powers, D. E. & Adler, R. M. (2014). Do TOEFL iBT® scores reflect improvement in 
+English-language  proficiency?  Extending  the  TOEFL  iBT  validity  argument.  (Research 
+Report No.  RR-14-09). Princeton, NJ: Educational Testing Service. 
+
+Little,  R.  J.  A.,  &  Rubin,  D.  B.  (2002).  Statistical  Analysis  with  Missing  Data  (2nd  ed.).  New 
+
+York, NY: John Wiley. 
+
+Oliver,  R.,  Vanderford,  S.  &  Grote,  E.  (2012).  Evidence  of  English  language  proficiency  and 
+academic achievement of non-English-speaking  background students.  Higher  Education 
+Research & Development, 31(4), 541–555 
+
+Osborne,  J.  W.  (2000).  Advantages  of  hierarchical  linear  modeling.  Practical  Assessment, 
+
+Research, and Evaluation, 7(1), 1–3. 
+
+Raimes, A. (1990). The TOEFL test of written English: Causes for concern. TESOL Quarterly, 
+
+24(3), 427–442. 
+
+Raudenbush,  S.  W.,  &  Bryk,  A.  S.  (2002).  Hierarchical  Linear  Models.  Newbury  Park,  CA: 
+
+Sage. 
+
+StataCorp. (2013). Stata Statistical Software: Release 13. College Station, TX: StataCorp LP. 
+ Stoynoff,  S.  (1997).  Factors  associated  with  international  students’  academic  achievement. 
+
+Journal of Instructional Psychology, 24(1), 56–68. 
+
+United 
+
+States 
+
+Department 
+
+of 
+
+State. 
+
+(n.d.). 
+
+Student 
+
+visas. 
+
+Retrieved 
+
+from http://travel.state.gov/visa/temp/types/types_1268.html 
+
+Wongtriat, R. (2010). English language proficiency and academic achievement of international 
+students: A meta-analysis. (Doctoral dissertation). Retrieved from ProQuest Dissertations 
+and Theses. (UMI Number 3417016) 
+
+ 
+
+ 
+
+AUTHORS 
+ 
+ALLISON  A.  VAUGHN,  PhD,  is  an  assistant  professor  of  psychology.  Her  research  interests 
+include social relationships, mental health (anxiety, depression), physical health (cardiovascular 
+functioning), and student achievement. Email: avaughn@mail.sdsu.edu  
+ 
+MATTHEW  BERGMAN  is  a  doctoral  candidate  in  political  science.  His  research  interests 
+include  comparative  institutions,  comparative  politics,  international  relations,  and  student 
+achievement. Email: mebergma@ucsd.edu 
+ 
+BARRY  FASS-HOLMES,  PhD,  is  an  analytical  studies  coordinator.  His  research  focuses  on 
+international  students’  academic  achievement.  We  thank  Lynn  C.  Anderson,  Dulce  Amor  L. 
+Dorado, and Dr. Kirk Simmons for their helpful suggestions. Email: bfholmes@ucsd.edu 
+ 
+ 
+
+*** 
+
+ 
+ 
+
+

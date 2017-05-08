@@ -1,0 +1,1578 @@
+Journal  of  Education  and  Training  Studies 
+Vol.  4,  No.  1;  January  2016 
+ISSN  2324-805X      E-ISSN  2324-8068 
+Published  by  Redfame  Publishing 
+URL:  http://jets.redfame.com 
+
+Experiences and Future Expectations towards Online Courses 
+
+–An Empirical Study of the B2C-and B2B-Segments 
+
+Andreas Krämer1, Sandra Böhrs2 
+
+1BiTS-Business and Information Technology School GmbH, University of Applied Sciences, Iserlohn, Germany and 
+exeo Strategic Consulting AG, Bonn, Germany 
+2Simpleshow S.A., Luxembourg 
+Correspondence: Andreas Krämer, BiTS-Business and Information Technology School GmbH, Reiterweg 26b, 58636 
+Iserlohn, Germany 
+ 
+Received: August 28, 2015      Accepted: September 18, 2015          Online Published: September 24, 2015 
+doi:10.11114/jets.v4i1.1104                    URL: http://dx.doi.org/10.11114/jets.v4i1.1104 
+ 
+Abstract 
+This article explores the future potential for the development of online courses. The findings are based on an empirical 
+study with 3 sample groups: (1) B2C segment in Germany, (2) B2C segment in the United States, and (3) B2B segment 
+(international).  In  the first  step  the  status quo of  the use of  e-learning  in general  and online  courses  in particular  is 
+presented. Subsequently, the expectations of potential users concerning the design of online courses are determined. 
+Respondents  were  segmented  according  to  their  basic  needs,  based  on  ten  distinct  attributes  relevant  for  the 
+decision-making process. Thirdly, an innovative concept for online courses is reviewed as part of a concept test. Since 
+people increasingly watch (short) videos instead of reading documents, the authors emphasize that creators of online 
+courses  can  take  advantage  of  this  development,  provided  they  adapt  their  formats  to  the  changed  communication 
+behavior of potential users. 
+Keywords: e-learning, online courses, customer satisfaction, willingness to pay, innovative formats 
+1. Introduction 
+According to Androulla Vassiliou - European Commissioner for Education, Culture, Multilingualism and Youth - “the 
+online and open education world is changing how education is resourced, delivered and taken up. Over the next 10 
+years,  e-learning  is  projected  to  grow  fifteen-fold,  accounting  for  30%  of  all  educational  provision”  (European 
+Commission, 2014). Among the instruments of e-learning, online courses are regarded as a subsector with particularly 
+strong growth. The dream of the “democratization of knowledge” might soon be fulfilled: as stated by Fozdar (2015), 
+ODL (Open and Distance Learning) may be the solution for overcoming the gap between those who have had access to 
+science and technology education and those who have not.   
+“Massive Open Online Courses” (MOOCs) represent an important step in this direction. These are online courses with 
+scientific content and a large number of participants – in some cases tens of thousands. A typical online course includes 
+digital lectures with interactive elements such as discussions in forums and multiple-choice questions. Enrollment to the 
+course is usually free, or very cheap. By December 2014 the number of universities offering MOOCs has exceeded 400, 
+and the cumulative number of courses offered has reached 2,400. Courses are often financed by venture capital firms, 
+nonprofit  organizations,  profit  oriented  companies,  and  universities  (Holdaway,  2015).  Alsadhan,  Alhomod  &  Shaf 
+(2014) express themselves less euphoric about the future potential of online courses when stating that “there is a little 
+doubt that e-learning courses are becoming more popular each day with thousands of students joining the new courses 
+each day. A survey of online courses reveals that most of the courses are mostly text-based.” Also, growing interest in 
+video  format  can  be  recognized  with  regard  to  the  development  of  YouTube  video  hosting.  The  average  upload  of 
+videos to YouTube per minute, boosted from 8 hours in 2007 to 300 hours in 2014 (Statista, 2014). 
+1.1 Broad Application of Online Courses 
+In addition to the academic field, today e-learning plays a significant role in other areas. It offers the prospect of a 
+substantial scalability that is not limited to the classical school or university environment (teacher in a classroom). The 
+scalability in turn includes the opportunity to offer online courses on various topics to a broad range of the population at 
+
+ 
+
+23 
+
+Journal  of  Education  and  Training  Studies                                                                                          Vol.  4,  No.  1;  January  2016 
+
+a  relatively  low  price  or  even  for  free.  During  the  last  3  years  “…  MOOCs  have  largely  moved  from  pedagogy  to 
+promotion and are now more used to advance institutional reputation than any serious drive to reinvent the institution” 
+(Stewart, Khare & Schatz, 2015).   
+However, if online courses are also of interest for a wider range of segments (B2C or B2B) and offer a significant value 
+proposition,  they  do not necessarily  have  to be  free of  charge.  Consequently, platforms  like  Udemy  offer both: free 
+online courses and courses with prices of up to USD 500 (on average USD 75).1 
+1.2 Study Background and Objectives 
+The  Simpleshow  Company  (hereinafter  TSC)  is  a  media  company  (founded  in  2008),  which  is  specialized  in  the 
+production of explanatory videos (2 – 4 minutes length) in the business sector. With an accumulated production volume 
+of approximately 5,000 videos, TSC has a leading position in the worldwide market. As explanatory videos strongly 
+compress information and achieve high recall values due to their unique presentation style, there are opportunities to 
+use  these  advantages  as  one  of  several  key  elements  of  an  online  course.  Short  videos  (e.g.  10  minutes  length),  at 
+discrete  intervals  during  the  week,  presented  to  stimulate  students,  can  be  more  effective  than  long  one  hour 
+monologues (University of London, 2013). This corresponds with the finding that it is particularly common for students 
+to complain about the workload on new courses (Mason and Weller, 2000), and that the length of the course plays a 
+crucial role. 
+The  general  objective  of  the  study  is  to  explore  the  future  prospects  of  online  courses  using  a  quantitative  and 
+representative survey and to measure the acceptance of innovative online courses (concept testing). Within the global 
+market of e-learning, Western Europe (16 %) and North America (53%) are key markets (Docebo, 2014). Therefore 
+Germany and the U.S. were selected as focus regions. In addition to the B2C perspective, the segment of B2B contacts 
+of TSC has been included in the study. In particular it is assumed that the affinity to online courses and explanatory 
+videos is above average in the B2B segment. 
+1.3 Research Questions 
+
+1.  What  are  relevant  customer  segments  for  e-learning  in  general  and  online  courses  in  particular?  Which 
+
+differences are prevalent across the sample groups? 
+
+2.  How  were  online  courses  used  in  the  past  (customer  groups,  topics,  formats)  and  evaluated  in  terms  of 
+
+customer satisfaction? Which areas offer opportunities for improvements? 
+
+3.  What are the key requirements to using online courses in the future? Is there a willingness to pay for online 
+
+courses? 
+
+4.  How do potential users of online courses evaluate new formats of online courses (30 min, change of style, 
+sequence of 3 min explanation/explanatory videos etc.)? How does the explanatory video style influence the 
+overall evaluation of the online course concept? 
+
+5.  How does product-category expertise influence the results of the concept test? Do the results differ between 
+
+B2C and B2B respondents? 
+
+2. Method 
+2.1 Procedures and Methodology 
+In order to answer the research questions, an empirical study was developed and carried out. It allows getting insights to 
+regional differences in the B2C sector as well as differences between the B2B and B2C segments.   
+To map the B2B segment, TSC´s contact data was provided by the company's CRM system and was used for the survey. 
+As the study aims to ensure a representative description of the status quo for important target countries (B2C markets), 
+the survey utilized contacts that have been made available through two online access panels. In addition to the economic 
+benefits of an online research study this survey type also has further substantive advantages for concept testing. This is 
+particularly true when different types of information such as videos and graphics will be presented during the interview. 
+As the assessment of innovative formats of online courses is relevant for the study, online market research becomes 
+particularly favorable. 
+The online survey - representing 3 different groups (n=1.176) - was conducted in July 2015 and was focused on B2C as 
+well as B2B segments (see Table 1). 
+ 
+ 
+                                                        
+1    In the meanwhile, there are indications that the commercial sector marketing faces increasing price pressure. This could explain 
+
+why Udemy introduced an upper price limit of $ 300 in June 2015. 
+
+ 
+
+24 
+
+Journal  of  Ed
+
+ducation  and  T
+
+Training  Studies
+
+s                       
+
+                         
+
+                       
+
+                Vol.  4
+
+4,  No.  1;  Janu
+
+uary  2016 
+
+Interview time
+egion, internet u
+in Age, sex, re
+ 12.0 mi
+in Age, sex, re
+egion, internet u
+ 13.0 mi
+--
+in
+ 22.9 mi
+--
+stic short interview
+w time (< 2 minute
+es) were eliminate
+
+Weight 
+
+usage2 
+usage 
+
+ed.   
+
+Table 1. Samp
+Sampl
+# 1 B2
+# 2 B2
+# 3 B2
+*    Sample quota
+2.2 Structure o
+According to 
+previous  expe
+satisfaction, in
+with  regard  t
+expectations  e
+innovative for
+The test was c
+short  explanat
+TSC has deve
+interview, in t
+an innovative 
+changing form
+use, the willin
+ensure the va
+invited to part
+expertise  enh
+experimental 
+segments (“ex
+
+s 
+d characteristic
+ple groups and 
+Respo
+le group 
+ondents
+491* 
+n=4
+2C, Germany 
+489* 
+n=4
+2C, U.S. 
+96 
+l 
+n=1
+2B, International
+00 cases. Respond
+a were set to n=50
+dents with unrealis
+of the Study 
+the purpose of
+erience  in  the 
+ntention to use
+to  the  develo
+etc.).  In  the  th
+rmat of online 
+carried out in 
+tory video (3 
+eloped its own 
+the subsequent
+online course 
+ms of presentat
+ngness to pay 
+alidity of the c
+ticipate in a co
+hances  a  respo
+design  shown
+xperts”) on pro
+
+f the study, the
+field  of  onlin
+e online cours
+opment,  design
+hird  part  of  th
+courses (see G
+a two-stage ap
+minutes), whi
+style (hands, 
+t step the actu
+was presented
+tion; final test;
+for the TSC f
+concept test re
+oncept test sho
+ondent's  abilit
+n  by  the  resea
+oduct innovatio
+
+e designed sur
+ne  courses  (to
+ses in the futur
+n  and  creatio
+he  interview  a
+Giannakos et al
+pproach: in th
+ich presented 
+scribbles, etc.)
+ual concept test
+d (explanatory 
+; total length o
+format, and th
+esults, Schoorm
+ould possess a
+ty  to  evaluate
+archers.  Hence
+on are examine
+
+rveys are divid
+opics,  number
+re etc.). The s
+n  of  online  c
+a  concept  test
+l., 2014).   
+e first stage, th
+complicated  c
+). After displa
+t was carried o
+video as an es
+of about 30 min
+e willingness 
+mans, Ortt, & 
+a degree of pr
+e  concepts  in 
+e,  the  reaction
+ed in more det
+
+ded into three p
+r  of  online  co
+second area re
+courses  (topic
+t  was  carried 
+
+parts: the first
+ourses  attended
+elates to the cu
+cs  of  interest,
+out  with  a  sp
+
+t section deals 
+d,  degree  of  c
+ustomer's requ
+,  customer  ne
+pecial  focus  o
+
+with the 
+customer 
+irements 
+eeds  and 
+n  a  new 
+
+he TSC video 
+content  in ver
+aying an exemp
+out. During th
+ssential input; 
+nutes). With re
+to recommend
+de Bont (199
+oduct knowled
+a  test  of  ma
+ns  of  B2C  tar
+ail. 
+
+ format was p
+ry  condensed  a
+plary video in 
+his concept test
+a speaker lead
+egard to the co
+d have been re
+95) suggest th
+dge. The idea,
+ajor  innovatio
+rget  group  (“n
+
+presented. It in
+and  compresse
+this format du
+t the basic stru
+ding through th
+oncept, the inte
+ecorded (Figur
+hat consumers 
+, that product-
+ons,  was  supp
+no  experts”)  a
+
+cluded a 
+ed  form. 
+uring the 
+ucture of 
+he topics; 
+ention to 
+re 1). To 
+who are 
+category 
+ported  in 
+and  B2B 
+
+In addition to
+interview dem
+for weighting 
+                     
+2    Since the re
+average Inte
+available st
+
+Fig
+ the core area
+mographic char
+the raw data a
+                      
+ecruitment of res
+ernet usage, and
+atistics and seco
+
+gure 1. Concep
+s of the study,
+racteristics we
+and adjusting th
+             
+spondents relies
+d hence a potenti
+ondary informat
+
+pt test: Explain
+, there is a scr
+ere recorded, w
+hose to represe
+
+ner video and n
+reening part at
+which later ser
+entative structu
+
+new online cou
+t the beginning
+rved as descrip
+ures. 
+
+urse concept 
+g of the interv
+ptive variables
+
+view. At the en
+s as well as pa
+
+nd of the 
+rameters 
+
+s on online acces
+ial bias for the s
+ion. 
+
+ss panels, there 
+study topic is giv
+
+is a particular ri
+ven. Therefore, 
+
+isk that interview
+Internet usage w
+
+wees show an ab
+was weighted ba
+
+bove 
+ased on 
+
+ 
+
+25 
+
+Journal  of  Education  and  Training  Studies                                                                                          Vol.  4,  No.  1;  January  2016 
+
+2.3 Data Analysis 
+To examine the significance within the three sample groups and to statistically evaluate background characteristics, the 
+repeated measures ANOVA, given its ability to perform overall comparisons, as well Chi-Square distribution tests were 
+used. Hierarchical clustering to determine the number of clusters and K-Means-Clustering were used for segmentation. 
+All analytical work was done by SPSS version 22.   
+3. Results 
+3.1 Experiences with e-learning and Online Courses in the Past 
+As shown in Table 2, the level of involvement in e-learning reaches 45 % in the U.S., compared to 38 % in Germany. In 
+contrast,  83  %  of  B2B  respondents  already  experienced  e-learning.  Differences  are  significant,  when  performing 
+Chi-Square Test (p=0.001). Overall, experience with e-learning is strongly correlated with age: all sample groups have 
+shown lower level of involvement if respondents are seniors (60+ years).   
+Table 2. Experiences with e-learning according to sample group 
+
+Question 
+Experience   
+with e-learning*   
+
+B2C 
+
+(Germany)
+62 % (81 %)
+38 % (19 %)
+
+B2C 
+(U.S.)
+55 % (60 %) 
+45 % (40 %) 
+
+No
+Yes
+
+B2B 
+
+(International)
+
+17 % (25 %)
+83 % (75 %)
+
+* Question: Do you already have experience with e-learning in general, and have you also used digital learning applications? Values in ( ): 60+ years 
+Respondents who confirmed e-learning experience were asked to indicate which digital learning applications were used. 
+Here, the usage of online references (for example Wikipedia) ranks number 1 (see Table 3). While blended learning 
+plays a minor role in Germany, its relevance increases in the U.S. B2C and the B2B segments. Since the term "online 
+course" is not clearly defined, the following definition has been used in the study: users of YouTube training videos, 
+online trainings or learning applications. Overall, 75 % of the B2B contacts completed at least one online course in the 
+past, followed by the B2C segment in the U.S. (34%) and the B2C segment in Germany (29%). At the same time about 
+one third of all users of online courses did not complete one or more online courses. When asked for the reasons (open 
+question) it turned out that length (“course was too long”, 38 % of responses) as well as style and pedagogy (32 % of 
+responses) were the main factors. Among all respondents students showed the highest drop-out rate.   
+Table 3. Digital learning applications according to sample group 
+
+Used digital learning applications 
+
+Online references 
+Computer training 
+Learning forums 
+YouTube training video (=online course) 
+Online training (=online course) 
+Learning apps (=online course) 
+Game-based apps 
+Blended learning 
+
+B2C 
+
+(Germany)
+77% 
+50%
+21%
+56%
+56%
+25%
+15%
+15%
+
+B2C 
+(U.S.)
+
+67%
+53%
+32%
+52%
+65%
+18%
+15%
+33%
+
+B2B 
+
+(International)
+
+89%
+60%
+40%
+83%
+82%
+39%
+29%
+44%
+
+* Question: Which digital learning applications did you use? (Multiple responses). 
+Online courses cover a broad range of topics. Here, business and professional topics play a dominant role (especially in 
+the B2B segment). The relevance of language courses strongly differs between the B2C segments in the U.S. (13 %) 
+and Germany (45 %).3  Similarly, the length of the courses shows a wide range.4  B2B respondents prefer rather short 
+online courses (51 % up to 1 hour). Between 15 % (B2B contacts) and 22 % (B2C, Germany) of respondents paid for 
+the last online course. The median price is approximately USD 90 in the B2C segments and is significantly higher in the 
+B2B segment (median: USD 550). 
+The degree of customer satisfaction with online course reaches 48 % (top-2) in Germany and is significantly lower in 
+the U.S. (29 %), while the highest level is recorded in the B2B segment (45 %, differences are significant, p<0.000). 
+                                                        
+3    Other sources confirm that there is a wide gap of speaking foreign languages in the U.S. compared to Europa. The National 
+Journal reports that only 10% of native-born Americans can speak a second language, compared to 56% of European Union 
+citizens (Czekalinski, 2012). The MLA's newest report, released this month, highlights a drastic fallout in foreign language 
+studies: roughly 100,000 fewer students took language classes in 2013 than did in 2009, the last time the association surveyed 
+students (Ferdman, 2015). 
+
+4    In order to obtain a neutral picture as possible on the use of online courses and to capture the memory of respondents as 
+
+concretely as possible, the interview focused on the last online course conducted by the respondent. 
+
+ 
+
+26 
+
+Journal  of  Education  and  Training  Studies                                                                                          Vol.  4,  No.  1;  January  2016 
+
+Therefore  it  can  be  assumed  that  there  is  considerable  room  for  improvement  in  the  market.  Concerning  potential 
+drivers, the length of a course does not significantly influence customer satisfaction (p=0.055); neither do the number of 
+courses booked (p=0.340), and the topic of the course (p=0.340). The customer satisfaction level is below average for 
+business  topics  and  is  above  average  for  languages  and  leisure  topics.  However,  the  satisfaction  level  significantly 
+depends  on  age  groups  (p=0.001).  Furthermore,  there  are  indications  that  the  style  of  the  video  and  its  format  are 
+relevant factors as well. Pictures, video sequences, and text pages appear significantly more frequently in those courses 
+that were rated "satisfying" by their customers. In particular respondents in the age of up to 30 years are less euphoric 
+about their last online course (top-2: 29 %, low-2: 30 %). 
+Since many possibilities for the distribution of online courses exist (Holdaway, 2015), further questions focused on the 
+awareness and use of the most important marketing and distribution platforms. As it turned out the market for online 
+courses  is  strongly  fragmented:  Khan  academy  reaches  24  %  in  terms  of  awareness  (recognition).  All  other  online 
+platforms rank lower. 
+3.2 Consumer Expectations and Drivers of the Decision for Online Courses 
+Most respondents see online courses as a good option/opportunity to get further training in interesting subject areas. The 
+evaluation of statements concerning online courses is especially positive within the B2B segment, as well as the group 
+of respondents with usage of online courses in the past. 
+Overall, approximately one fourth of the respondents have used online courses in the past and have indicated usage in 
+the  future.  Typically,  those  interviewees  have  a  relatively  high  degree  of  customer  satisfaction  (49  %  top-2)  and 
+intensively book online courses. More than 80 % of them are employed and 58 % are willing to pay for online courses. 
+Concerning the B2B segment the share of this subgroup is 64 %. 
+To  identify  the  decision  drivers  when  selecting  online  courses,  a  3-steps-design  was  chosen.  At  the  beginning  the 
+preferred type of course was defined (language, business topics etc.). Afterwards ten decision criteria were presented. 
+These  attributes  were  explained  by  incremental  changes  in  the  characteristics,  which  have  been  referred  to  as 
+improvements. Respondents were asked to identify the most important feature from their point of view. Finally, they 
+were  asked  to  distribute  a  total  of  100  points  according  to  the  importance  of  the  individual  attribute.  This 
+3-steps-approach was developed to ensure a realistic decision-making including typical trade-offs (Netzer & Srinivasan, 
+2007). The authors have successfully implemented this approach in other research fields (see Kalt, Bongaerts & Krämer, 
+2013). The evaluation of the individual criteria seems to be balanced: on average weights were specified at 5.5 out of 10 
+possible criteria, a clear indicator that respondents more intensively have set itself apart with the attributes shown. This 
+is confirmed by the measured answer time in the interview. 
+Table 4. Weight of different decision criteria (Mean and SD) 
+
+Decision criteria and incremental   
+change in attribute levels* 
+Duration: 30 instead of 300 min 
+Price: US-$ 50 instead of US-$ 100 
+Instructor / tutor / sender: known expert instead of unknown
+Mobile availability instead of mobile option not available
+Entertainment: very entertaining instead of not very entertaining
+With test of knowledge at the end instead of without test
+Certificate: With certificate instead of without certificate
+Concise description instead of detailed description
+High design quality instead of simple quality 
+Discussion forums available for the course instead of no exchange
+
+B2C 
+
+(Germany)
+11.8 (18.5)
+15.0 (18.3)
+8.0 (12.6)
+8.6 (15.1)
+12.1 (17.2)
+10.3 (13.6)
+16.6 (20.7)
+4.8 (8.2)
+8.1 (10.8)
+4.8 (11.3)
+
+B2C   
+(U.S.) 
+14.6 (17.7) 
+17.5 (18.2) 
+10.7 (14.3) 
+5.9 (9.5) 
+10.2 (15.7) 
+7.3 (9.9) 
+13.4 (18.1) 
+4.7 (6.8) 
+9.8 (15.1) 
+6.0 (12.9) 
+
+B2B 
+(Intern.)
+16.7 (20.3)
+8.2 (10.9)
+9.0 (12.8)
+10.8 (16.0)
+14.6 (14.4)
+8.4 (10.4)
+8.8 (12.5)
+9.0 (13.9)
+9.1 (9.8)
+5.4 (8.9)
+
+* Question: Below we would like to ask you a few questions about the decision-making criteria for selecting online courses in the field of … (most 
+relevant topic for the interviewee is embedded) Various improvements are shown below. First, please tell us the most important improvement for 
+selecting a course. Please allocate 100 points to the improvements according to their weight. ( ) Standard  Deviation; Basis: Respondents, who 
+generally consider to book online courses (n=680). 
+
+While  “providing  a  certificate”  and  “offering  lower  prices”  rank  top  among  decision  criteria  in  the  B2C  segments, 
+“reduced duration” and “high level of entertainment” are the most relevant factors in the B2B segment (Table 4). Due to 
+classification  of  respondents  3  different  clusters  can  be  identified:  (1)  focus  on  a  wide  range  of  criteria  (called 
+“Indifferent”), (2)  focus  on  time  and  (3) focus  on  certificate.  Provided key  customer  needs  are  met,  almost  70% of 
+respondents in Germany and U.S. (B2C) indicate a willingness to pay (B2B segment: 96 %). Interviewees, who are 
+already planning to book online courses in the future, show a particularly high willingness to pay for online courses. 
+Strong variances of recorded values in addition to the calculated mean values can be recognized. This suggests that 
+behind those mean values different subgroups can be identified respectively - each of which has a focus on specific 
+
+ 
+
+27 
+
+Journal  of  Ed
+
+ducation  and  T
+
+Training  Studies
+
+s                       
+
+                         
+
+                       
+
+                Vol.  4
+
+4,  No.  1;  Janu
+
+uary  2016 
+
+customer bene
+identified with
+  Focu
+weig
+  Focu
+ 
+Indif
+Ther
+
+efits. Therefor
+h homogeneou
+us on time: this
+ght). Also, the p
+us on certificate
+fferent: in this
+e is no clear fo
+
+re, a clustering
+us customer ex
+s segment attac
+price plays an 
+e: the custome
+ segment, the 
+ocus on few cu
+
+g of respondent
+xpectations: 
+ches special im
+above-average
+er in this segme
+ relevance of 
+ustomer benefi
+
+mportance to a 
+e role (29 % w
+ent values a ce
+different attri
+its. 
+
+ts was carried 
+
+out in a furthe
+
+er step. As a re
+
+esult, 3 segme
+
+nts were 
+
+reduction of t
+
+the length of th
+
+he online cour
+
+se (36 % 
+
+weight). 
+ertificate for on
+ibutes is distri
+
+nline courses. 
+ibuted relative
+
+(47 % weight)
+). 
+ely equally dis
+stributed. 
+
+Figure
+
+e 2. Customer 
+
+segmentation b
+
+based on need
+ds 
+
+Figure 2 rev
+
+3.3 Evaluation
+As presented i
+the interview.
+generally  kno
+Approximatel
+expected corre
+the  group  of
+Chi-Square-te
+In a second ste
+30  %  of  resp
+(respondents w
+significantly d
+good  evaluati
+p<0.000). 
+In  addition  th
+comparable  to
+(Table  5).  Typ
+willingness to
+high probabili
+segments are 
+                     
+5    To measure
+measuremen
+their WTP (
+certain situa
+
+veals that the d
+online co
+n of Innovative
+in Figure 1 a c
+ TSC´s video 
+own  in  the  B2
+ly  50  %  of  all
+esponding resu
+f  respondents 
+ests differences
+ep the structur
+ondents  in  the
+with intention 
+driven by the 
+ion  of  the  vid
+
+distribution of s
+ourses in the fu
+e Online Cours
+concept test co
+format plays 
+2C  segments. 
+l  respondents 
+ults for the B2
+with  the  ge
+s across group
+re of an innova
+e  U.S.  show  a
+to book onlin
+assessment of
+deo  indicated 
+
+segments acco
+uture (p=0.189
+se Formats 
+oncerning an in
+a crucial role 
+Therefore  a  v
+in  Germany  a
+2B segment we
+eneral  intentio
+s are indicated
+ative online co
+a  high  probabi
+ne courses in th
+f the TSC vid
+67  %  probab
+
+ording to a sam
+9) are relatively
+
+mple group (p=
+y equal across 
+
+=0.055) as well
+all three samp
+
+l as intention to
+ples. 
+
+o book 
+
+nnovative onlin
+in this this co
+video  example 
+and  the  U.S.  r
+ere more favor
+on  to  book  o
+d to be signific
+urse format wa
+ility  to  book  a
+he future: 50 %
+deo format, wh
+bility  to  use  th
+
+ne course form
+oncept and it 
+  was  shown  i
+rate  the  TSC 
+rable (82 % top
+online  courses
+ant (p<0.000) 
+as described. 2
+an  online  cour
+%). The evalua
+hich was show
+he  online  cou
+
+cted in the fina
+mat was conduc
+that this form
+was assumed 
+ep  of  the  conc
+in  the  first  ste
+resting  (%  top
+video  as  inter
+re increases to
+p-2). This shar
+s  in  the  futur
+re.  When  per
+s. 
+for both splits
+ndents in Germ
+25 % of respon
+ted  in  the  con
+rse  as  present
+nline course co
+ation of the on
+wn before. Res
+spondents wit
+erest:  7  %  pro
+urse  (low  inte
+
+al part of 
+mat is not 
+cept  test. 
+p-2)  –  as 
+67 % in 
+rforming 
+
+many and 
+cept  test 
+oncept is 
+h a very 
+obability, 
+
+he  interviewee
+o  the  style  as 
+pically,  TSC  c
+o pay for the o
+ity to use and 
+lower and rea
+                      
+e the retention pr
+nt. Recent resea
+(Lowe, Lowe an
+ation, but also a 
+
+es  were  also  r
+presented.5  B
+contacts  (B2B
+online course c
+a willingness
+ach 20 % in th
+             
+rice a direct que
+arch suggests mo
+nd Lynch, 2013)
+robust one (Krä
+
+requested  to  i
+Based  on  thes
+B)  show  a  hig
+concept. Almo
+s to pay 10 US
+he U.S. and 1
+
+indicate  wheth
+se  responses  in
+gher  level  of  i
+ost 45 % of the
+SD or more pe
+3 % in Germ
+
+her  they  are  w
+nterviewees  w
+interest,  a  high
+e respondents 
+er course. The
+many (Table 5)
+
+willing  to  pay
+were  allocated 
+her  probability
+within the B2
+e correspondin
+. Overall, diff
+
+y  for  an  onlin
+to  3  differen
+y  to  use  and 
+2B segment ind
+ng figures for 
+ferences across
+
+e  course 
+t  groups 
+a  higher 
+dicated a 
+the B2C 
+s sample 
+
+estion was used i
+ood and environ
+). Therefore it is 
+ämer, 2015). 
+
+instead of a rath
+nment can delive
+not only decisiv
+
+her complex and
+er major benefit
+ve to use a valid
+
+d time-consumin
+s in encouraging
+d instrument to m
+
+ng methods like 
+g consumers to i
+measure the WT
+
+conjoint 
+increase 
+TP in a 
+
+ 
+
+28 
+
+Journal  of  Education  and  Training  Studies                                                                                          Vol.  4,  No.  1;  January  2016 
+
+groups  as  well  as  groups  with  different  intention  to  book  online  courses  in  the  future  show  a  strong  significance 
+(p<0.00). 
+Table 5. Intention to use and willingness to pay for 30 min online course (concept test) 
+B2C 
+(U.S.)
+69.7 %
+10.1 % 
+
+Low-medium intention to use** 
+High intention to use and willingness to pay 
+
+(International)
+34.6 %
+20.1 % 
+
+Used digital learning applications* 
+
+B2C 
+
+(Germany)
+75.1 %
+12.0 % 
+
+B2B 
+
+High  intention to  use  and  willingness  to  pay 
+
+< USD 10 per course 
+
+USD 10+ per course 
+
+12.9 % 
+
+20.2 % 
+
+44.9 % 
+
+*  Question: Now imagine an online course consisting of several three-minute chapters. Each chapter can follow different formats such as the TSC 
+
+video you have just seen, but also traditional elements. Would you book such an online course? (Scale from 0=not at all to 10=very probable, 
+How much would you pay to participate in this online course (30 min.)? 
+
+**  Scale points 0–7 (on the 0-10 scale) used to define low probability to book an online course as presented. 
+4. Discussion 
+The  study  results  show  that  the  use  of  online  courses  has  become  popular  among  the  population  and  is  not  only  a 
+subject for academic training. Free of charge offers do not necessarily have a high quality. This also applies to online 
+courses. On the one hand the number of users of online courses increases. On the other hand a relatively low degree of 
+customer satisfaction suggests that there is a considerable room for improvement. Correspondingly, dropout rates are 
+high. For 2014 Stanford University reported a completion rate of just 5 – 10 % (Walsh, 2015). This is consistent with 
+the results of our study, showing an above-average proportion of not completed courses in the group of students. For 
+other target groups, this is also true. Studies with focus on the business environment underline also that employees only 
+weakly  participate  in  online  courses  (IBIS  Capital,  2013).  A  lack  of  incentives,  failure  to  understand  the  content 
+material, having no one to turn to for help, and having other priorities to fulfill, are the main reason for drop out, as Hew 
+and Cheung (2014) point out. The authors conclude, “quality of MOOC education and MOOC business model are some 
+unresolved issues”. Other studies show that course completers tend to be more interested in the course content, whereas 
+non-completers tend to be more interested in MOOCs as a type of learning experience (Wang & Baker, 2015). 
+As described by Shah (2014), most popular subjects of online courses are IT/software-use (Java coding, Excel, Adobe), 
+business (entrepreneurship, project management, investing and others), and science (Biology, Physics, Medicine). This 
+does  not  contradict  the  empirical  results  presented  in  our  study.  However,  a  special  feature  is  the  importance  of 
+languages as a topic for online courses in Germany. In this case, significant differences between the study regions arise. 
+With  regard  to  the  requirements  of  the  potential  benefits  to  the  design  of  online  courses,  it  becomes  evident  that  a 
+special sub-segment, in particular, expects a strong reduction in the length of online courses. This may be explained by 
+two factors. On the one hand, shorter courses provide more options to fit the course in the time schedule. On the other 
+hand, such courses are compressed in terms of content and detail. Here, videos can play a crucial role. Since video 
+content is easy to understand and learners often retain more by watching a video than by reading a document (Abeer & 
+Miri,  2014),  the  video  format  is  one  option  to  compress  content  in  order  to  reduce  the  length  of  an  online  course. 
+Further examining the possibilities of use and the learning efficiency of explanatory videos help identifying a rule of 
+thumb: shorter videos are more engaging than longer videos. It should be strived to make the content as concise as 
+possible  to  achieve  the  highest  engagement.  The  longer  the  video  is,  the  higher  the  dropout  rates  (Hornung,  2014). 
+However, this relationship is not linear. Usually higher dropout rates arise when thresholds are exceeded: 2-3 min, and 
+10 min, respectively (Ruedlinger, 2012). 
+As presented by Sun, et al. (2008) “course quality is the most important concern in this e-learning environment. Course 
+content should be carefully designed and presented sparingly. Technological design plays an important role in students’ 
+perceived usefulness and ease of use of a course and will have an impact on students’ satisfaction.” Taking into account 
+the  low  degree  of  satisfaction  concerning  the  quality  of  online  courses  (students  and  other  target  groups)  and  an 
+increasing demand for stronger compression of the content, it is consistent that the concept test shows positive results 
+for an online course format, which is based on a reduction in the duration of the course and the use of different elements 
+(Instructor, charts, videos, etc.). Format and design are two factors among others that determine the quality of online 
+courses. Further factors, which make up the quality, are the right content and the educational concept. This is consistent 
+with findings of Lister (2014), which suggest that there are four main considerations when designing e-learning and 
+online courses: i) course structure, ii) content presentation, iii) collaboration and interaction, and iv) timely feedback. 
+Overall,  the  study  shows  a  high  interest  in  innovative  online  courses  concept  and  good  chances  of  success.  The 
+presented design is strongly focused on the inclusion of short explanatory videos. Increasingly, people do not take the 
+time to read documents - they watch videos instead (Bowley, 2015). Considering this, suppliers of online courses can 
+
+ 
+
+29 
+
+Journal  of  Education  and  Training  Studies                                                                                          Vol.  4,  No.  1;  January  2016 
+
+also  take  advantage  of  this  development  provided  they  are  able  to  adapt  formats  to  the  changed  requirements  of 
+potential users. In addition to the concept test in September 2015 a market test will start, wherein a fully developed 
+online course (according to the design featured in interview) is offered on a well-known online platform. 
+Acknowledgments 
+The  authors  are  grateful  to  Rogator  AG,  Nurnberg,  for  the  provision  of  survey  software,  the  programming  of  the 
+questionnaire  and  the  complete  data  management.  Many  thanks  also  to  Susanne  Schmidt  (Simpleshow),  Dr.  Gerd 
+Wilger and Dr. Robert Bongaerts (exeo) for substantive input to the study.   
+References 
+Abeer,  W.,  &  Miri,  B.  (2014).  Students’  Preferences  and  Views  about  Learning  in  a  MOOC.  Procedia-Social  and 
+
+Behavioral Sciences, (152), 318–323, http://dx.doi.org/10.1016/j.sbspro.2014.09.203 
+
+Alsadhan,  A.  O.,  Alhomod,  S.,  &  Shaf,  M.  M.  (2014).  Multimedia  Based  E-learning:  Design  and  Integration  of 
+
+Multimedia Content in E-learning. IJET, 3(9), 26-30, http://dx.doi.org/10.3991/ijet.v9i3.3308   
+
+Bowley, 
+
+J. 
+
+(2015). 
+
+Two  Minds 
+
+Are 
+
+Better 
+
+Than 
+
+One. 
+
+Chief 
+
+Learning 
+
+Officer. 
+
+http://www.clomedia.com/articles/6396-two-minds- are-better-than-one. 
+
+Czekalinski, S. (2012). Uplifting Languages. 
+
+http://www.nationaljournal.com/thenextamerica/uplifting-languages-20120723. 
+& 
+
+E-Learning 
+
+Market: 
+
+(2014). 
+
+Trends 
+
+Docebo 
+
+Forecast 
+
+2014–2016. 
+
+www.docebo.com/landing/contactform/elearning-market-trends-and-forecast-2014-2016-docebo-report.pdf 
+
+European   Commission (2014). Modernization of Higher Education - New modes of learning and teaching in higher 
+education. Report to the European Commission on “New modes of learning and teaching in higher education”. 
+http://ec.europa.eu/education/library/reports/modernisation-universities_en.pdf 
+
+Ferdman,  A. 
+
+(2015).  Americans 
+
+languages. 
+http://www.washingtonpost.com/news/wonkblog/wp/2015/02/19/americans-are-beginning-to-lose-their-love-for-fo
+reign-languages/ 
+
+beginning 
+
+foreign 
+
+their 
+
+love 
+
+lose 
+
+are 
+
+for 
+
+to 
+
+Fozdar,  B. I.  (2015). Open  and  Distance  Learning  (ODL):  A  Strategy  of Development  through  its  Potential  Role in 
+
+Improving Science & Technology Knowledge. IJET, 2(10), 9-16. http://dx.doi.org/10.3991/ijet.v10i2.4176 
+
+Giannakos,  M.  et  al. 
+
+(2014).  Video-Based  Learning  and  Open  Online  Courses. 
+
+IJET,  9(1),  4-7. 
+
+http://dx.doi.org/10.3991/ijet.v9i1.3354   
+
+Hew,  K.  F.,  &  Cheung  W.  S.  (2014).  Students’  and  instructors’  use  of  massive  open  online  courses  (MOOCs): 
+45–58. 
+
+Educational 
+
+Research 
+
+Review, 
+
+June, 
+
+(12) 
+
+Motivations 
+http://dx.doi.org/10.1016/j.edurev.2014.05.001 
+
+challenges. 
+
+and 
+
+Holdaway, 
+
+X. 
+
+(2015).  Major 
+
+Players 
+
+in 
+
+the  MOOC 
+
+Universe. 
+
+Retrieved 
+
+from 
+
+http://chronicle.com/article/The-Major-Players-in-the-MOOC/138817/ 
+
+IBIS 
+
+Hornung,  Y.  (2014).  The  optimal  length  for  video  marketing  content?  As  short  as  possible.  Retrieved  from 
+
+http://thenextweb.com/socialmedia/2014/05/02/optimal-length-video-marketing-content-short-possible 
+Retrieved 
+
+from 
+http://www.smarthighered.com/wp-content/uploads/2013/02/IBIS-Capital-E-Learning-Lessons-for-the-Future.pdf 
+Kalt,  M.,  Bongaerts,  R.,  &  Krämer,  A.  (2013).  Value-to-Value-Segmentierung  im  praktischen  Einsatz.  Planung  und 
+
+E-Learning 
+
+Investment 
+
+Review. 
+
+(2013). 
+
+Capital 
+
+Global 
+
+Analyse, 6(40), 21-24. 
+
+Krämer, A. (2015). Pricing in a VUCA World - How to Optimize Prices, if the Economic, Social and Legal Framework 
+Changes  Rapidly.  In:  Mack  et  al.  (ed.),  Managing  in  a  VUCA  World.  Springer,  New  York,  115–128. 
+http://dx.doi.org/10.1007/978-3-319-16889-0 
+
+Lister, M. (2014). Trends in the Design of E-Learning and Online Learning. MERLOT Journal of Online Learning and 
+
+Teaching, 4(10), 671–680. 
+
+Lowe, B., Lowe, J., & Lynch, D. (2013). Behavioral Aspects of Pricing. In: Hinterhuber, A., Liozu, S. (eds.), Innovation 
+
+in Pricing, Abingdon, 357-375. 
+
+Mason,  R.,  &  Weller,  M.  (2000).  Factors  affecting  students’  satisfaction  on  a  web  course.  Australian  Journal  of 
+
+Educational Technology, 16(2), 173-200. http://www.ascilite.org.au/ajet/ajet16/mason.html 
+
+Netzer, O., & Srinivasan, V. (2011). Adaptive Self- Explication of Multi-Attribute Preferences. Journal of Marketing 
+
+ 
+
+30 
+
+Journal  of  Ed
+
+ducation  and  T
+
+Training  Studies
+
+s                       
+
+                         
+
+                       
+
+                Vol.  4
+
+4,  No.  1;  Janu
+
+uary  2016 
+
+Reasearc
+Ruedlinger,  B
+video-2k
+Schoormans, J
+of Produc
+
+ch, 1(48), 140-
+B.  (2012).  Do
+k12-edition 
+J., Ortt, R., & 
+ct Innovation M
+
+Shah,  D. 
+
+(2014). 
+
+https://ww
+
+ww.edsurge.co
+). YouTube-St
+statista.com/st
+
+156, http://dx.
+oes  Length  M
+
+doi.org/10.150
+Matter?  Retriev
+
+09/jmkr.48.1.1
+ved  from  http
+
+40 
+p://wistia.com/
+
+/blog/does-len
+
+ngth-matter-it-d
+
+does-for- 
+
+1995). Enhanc
+de Bont, C. (
+2(12), 153–16
+Management, 
+in
+n 
+MOOCs 
+4-12-26-moocs
+om/news/2014
+, Hamburg. Re
+tatista-Dossier,
+tatistik/daten/s
+studie/207321/
+
+2014: 
+
+cing Concept T
+62. http://dx.do
+
+Breaking 
+
+s-in-2014-break
+etrieved from
+/umfrage/uploa
+
+Test Validity b
+oi.org/10.1111/
+Down 
+the 
+king-down-the
+
+by Using Expe
+/1540-5885.12
+Numbers. 
+
+e-numbers 
+
+ert Consumers
+220153 
+
+. Journal 
+
+Retrieved 
+
+from 
+
+Statista (2015
+http://de.
+reihe/ 
+
+Stewart, B., K
+
+Mack 
+http://dx.
+Sun, P. C., Ts
+investiga
+http://dx.
+
+University 
+
+http://ww
+Walsh,  L.  (
+http://issu
+Wang, Y., & B
+Learning
+
+in 
+
+al. 
+
+5). Volatility, U
+Uncertainty, Co
+a
+ging 
+a  VUCA 
+-16889-0_16
+Y. Y., & Yeh, 
+influencing  le
+2006.11.007
+Massive 
+
+chatz, R. (2015
+Khare, A., & Sc
+ds.):  Manag
+(e
+et 
+.doi.org/10.100
+07/978-3-319-
+ger, G., Chen, Y
+sai, R. J., Fing
+ritical  factors  i
+ation  of  the  cr
+.doi.org/10.10
+16/j.compedu.
+of 
+Londo
+n 
+(2013). 
+k/sites/default/
+rnational.ac.uk
+ww.londoninter
+Back  to  L
+ging  MOOCs 
+2015).  Bring
+/docs/co0215_
+uu.com/human
+ncapitalmedia/
+15). Content or
+r platform: W
+Baker, R. (201
+. 
+g and Teaching
+g, 1(11), 17-30.
+
+D. (2008). W
+earner  satisfact
+
+Open 
+
+On
+nline 
+Cour
+nts/mooc_repor
+/files/documen
+Life.  Chief  L
+Learning  Offi
+_r1_digital 
+Why do students
+
+s complete MO
+
+ad-von-videom
+
+material-bei-yo
+
+outube-pro-min
+
+nute-zeit
+
+omplexity and
+World. 
+Spr
+
+d Ambiguity in
+ringer,  New
+
+n Higher Educa
+ation. In: 
+2
+w  York, 
+241–250. 
+
+What drives a su
+tion.  Compute
+
+uccessful E-L
+ers  &  Educatio
+
+earning? An e
+on,  4(50),  118
+
+empirical 
+83–1202. 
+
+(MOOC
+C) 
+
+se 
+rt-2013.pdf 
+ficer.  February
+
+Report 
+
+2013. 
+
+y  2015,  pp. 
+
+26–29. 
+
+OOCs? MERL
+
+LOT Journal o
+
+of Online 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+This work is l
+
+ 
+
+ 
+ 
+
+icensed under 
+
+a Creative Co
+
+ommons Attrib
+
+ution 3.0 Licen
+
+nse. 
+
+31 
+
+

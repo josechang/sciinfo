@@ -1,0 +1,1192 @@
+ 
+
+ 
+
+ 
+
+Should Discipline Hurt? Shifting American Spanking Beliefs and Implications for School 
+
+Corporal Punishment Policies 
+
+ 
+
+ 
+
+ 
+
+Lauren A. Menard 
+
+Northwestern State University 
+
+07/07/2012 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Abstract 
+
+2 
+
+American opinion on spanking has shifted. Most Americans agreed with the necessity of 
+
+sometimes spanking children, but proportions disagreeing increased 15 percentage point (94% 
+
+overall) between 1986 (16%) and 2010 (31%). Growing proportions disagreed with spanking in 
+
+each consecutive decade for all significant generational cohorts, with the greatest increase 
+
+against spanking for Silent Generation. In a logistic regression model, Poverty Level became an 
+
+insignificant predictor for agreement with spanking. Top predictors in the logistic regression 
+
+model employed in the current study were South Central Region of United States (b=.835), 
+
+African American Race (b=.795), Rural Residence Type (b=.565), Male Gender (b=.446), and 
+
+High School Diploma or Less Educational Attainment Level (b=.422). Findings inform corporal 
+
+punishment policies affecting thousands of students.   
+
+ 
+
+ 
+
+ 
+
+ 
+
+Should Discipline Hurt? Shifting American Spanking Beliefs and Implications for School 
+
+Corporal Punishment Policies 
+
+Corporal punishment (CP) policies develop within a macro context of American spanking 
+
+3 
+
+beliefs (Figure 1). A central purpose of the study was to investigate American spanking beliefs 
+
+over time. An apposite opportunity for examining spanking beliefs was presented by the survey 
+
+prompt: “Do you strongly agree, agree, disagree, or strongly disagree that it is sometimes 
+
+necessary to discipline a child with a good, hard, spanking?” (Smith, Marsden, Hout, & Kim, 
+
+1972-2010). Spanking was described as an old-fashioned behavior (Gershoff, 2010), and survey 
+
+responses were investigated by generational cohort and decade. A secondary query regarding 
+
+associations between spanking and a rich collection of predictors was also investigated. Three 
+
+research questions guided the investigation:  
+
+1.  Do a majority of Americans agree it is sometimes necessary to discipline a child “with a 
+
+good, hard, spanking” (Smith, et al., 1972-2010), and how have opinions changed over 
+
+time? 
+
+2.  How do American beliefs on spanking change by generational cohort and over time 
+
+within generational cohorts?                                                                                                         
+
+3.  What associations are evident between belief in spanking and Educational Attainment 
+
+Level, Gender, Number of Children, Poverty Level, Race, Region of United States, and 
+
+Residence Setting (i.e., rural, urban)? 
+
+Literature Review 
+
+ 
+
+Many generations-old practices and parenting techniques were antiquated by changing 
+
+times, but physically disciplining children is a withstanding hallmark of old-fashioned American 
+
+childrearing (Gershoff, 2010). Twenty-one states in the United States permit CP in schools, and 
+
+4 
+
+ 
+
+223,190 American students in 2005-2006 were subjected to spanking or paddling at school at 
+
+least once (The Center for Effective Discipline, 2011). Eighty-five percent of American middle 
+
+and high school students were physically disciplined by parents (Gershoff, 2010), and most 
+
+parents report spanking their children (Gershoff, 2002; Larzelere & Baumrind, 2010; Marinescu, 
+
+2010; Straus & Paschall, 2009). A majority of Americans agrees spanking or paddling children is 
+
+sometimes a necessity (Lansford, Wager, Bate, Pettit, & Dodge, 2012; Marinescu, 2010; Nolen, 
+
+2010; Strassberg, Dodge, Pettit, & Bates, 1994). 
+
+ 
+
+American tolerance of CP in schools is at odds with 106 nations, including 19 European 
+
+countries, banning CP (ACLU/Human Rights Watch, 2008; Nolen, 2010). The Council of 
+
+Europe, the European Union, the United Nations, as well as 45 American organizations—
+
+including the American Academy of Pediatrics, the American Council of Exceptional Children, 
+
+and the Society for Adolescent Medicine—oppose CP of students (The Center for Effective 
+
+Discipline, 2008). An estimated one to two percent of students disciplined with CP, 
+
+approximately 10,000-20,000 students, will sustain injuries requiring medical treatment 
+
+(Greydanus, et al., 2003; Poole, et al., 1991; Wasserman, 2011). Higher incarceration rates, 
+
+lower ACT composites, and lower graduation rates are associated with states permitting CP (The 
+
+Center for Effective Discipline, 2008a). According to Nolen (2010), detrimental effects of CP for 
+
+the individual child include “increased crime, suicidal thoughts, individual fear, racial prejudice, 
+
+gender bias, and child abuse” (p.526).  Straus and Paschall (2009) observed a relationship 
+
+between the physical discipline of children and lagging cognitive ability. An association between 
+
+spanking and increased aggression has frequently been reported (Bates, 1994; Greydanus, et al., 
+
+2003; Hicks-Pass, 2009; Strassberg, et al., 1994). The abundance of literature against CP 
+
+notwithstanding, the physical discipline of children is routine and broadly accepted as a method 
+
+ 
+
+of maintaining school discipline in some American schools, particularly in the South (Nolen, 
+
+2010).  Alternatively, a growing number of states and school districts are banning CP (Larzelere 
+
+5 
+
+& Baumrind, 2010).  
+
+ 
+
+Educational Attainment Level, Gender, Number of Children, Poverty Level, Race, 
+
+Region of United States, and Residence Setting (i.e., rural, urban) 
+
+Theoretical Framework 
+
+ 
+
+A hypothesis of shifting spanking views over time was investigated (Figure 1). Individual 
+
+spanking beliefs may depend on generation and historical times. Characterizations of spanking as 
+
+an old-fashioned, generational practice guided observations by generational cohorts. Individual 
+
+beliefs on spanking may also be influenced by other factors. Relationships between spanking and 
+
+Educational Attainment Level, Gender, Number of Children, Poverty Level, Race, Region of 
+
+United States, and Residence Setting were identified in previous literature. 
+
+ 
+
+National, state, and district level CP policies reflect American collective conscious on 
+
+spanking (Figure 1). American spanking beliefs have voice in discussions on the physical 
+
+discipline of students at school. An overarching study hypothesis was American views on 
+
+spanking have shifted. A practical assumption being, as American spanking beliefs shift, so to 
+
+should CP policies change. Observations of CP bans in other developed countries and a trend 
+
+towards large school districts banning CP guided comparisons over time.  
+
+ 
+
+6 
+
+ Figure 1. Theoretical Design 
+
+ 
+
+Corporal punishment policies reflect the broader structure of American beliefs on 
+
+spanking.  
+
+ 
+
+                                                                                                                                                         American  Spanking BeliefsUnited StatesCorporal Punishment PoliciesEducationGenderNumber of ChildrenPoverty RaceRegionResidenceGeneration Time  
+
+ 
+
+Analysis procedures differed by research question and included frequency cross-
+
+Methodology 
+
+7 
+
+tabulations, comparing means, and logistic regressions. Descriptive statistics for study variables 
+
+and a Log Odds Ratio Matrix for variables are available in a supplemental file. To answer 
+
+Research Question One and Research Question Two, in part, percentages, frequencies, Pearson 
+
+Chi-Squares, significance levels, and population were reported in cross-tabulation tables for 
+
+American spanking belief (Table 1) and spanking belief over time by generational cohort (Table 
+
+2). A stratified cluster sample design was employed with a Taylor series approximation method. 
+
+Samples were complex and a Rao-Scott adjustment was applied, with F statistics factored. 
+
+Specifically, significance levels were from F statistics. An experimental survey weight 
+
+(FORMWT) was applied to analyses. Statistics exclude missing-data and out-of-range values. To 
+
+further answer Research Question One and Research Question Two, spanking belief means were 
+
+charted over time (Figure 2) and by generational cohorts (Figure 2). Pearson Chi-Squares, 
+
+significance levels, population, and range were reported in figure notations. A 95% confidence 
+
+level was applied throughout, and a threshold of .05 determined statistical significance.    
+
+      Logistic regressions investigated associations between agreement with spanking and 
+
+independent predictors (Research Question Three). All variables were dichotomized. Spanking, 
+
+the dependent variable, was dichotomized for favoring spanking (Agree and Strongly Agree). 
+
+Predictors were dichotomized by observing category or categories with largest proportion 
+
+agreeing with spanking or categories connected by previous literature with favoring spanking. To 
+
+better understand and quantify effects of targeted predictors, associations between agreement 
+
+with spanking and predictors were observed independently and in a model. To compare the 
+
+strength of predictors, a logistic regression model was built by adding predictors in the order of 
+
+ 
+
+strongest to weakest independent predictor. Regression coefficients /B/ were reported and 
+
+measure one unit change effect in the independent variable on the dependent variable logit. 
+
+Coefficients, Standard Errors, single parameter t-tests, and p values were reported in Table 3. 
+
+The exponential of logistic regression coefficients (Exp [B]) estimated odds ratios for observing 
+
+8 
+
+outcomes (Table 3). 
+
+Table 1.  American Belief in Spanking by First and Last Survey Year: Percentages 
+
+(Frequencies) 
+
+           
+
+ 
+
+1986 
+
+2010 
+
+ 
+
+ 
+
+ 
+
+ 
+
+         
+
+            
+
+  Agree/strongly agree 
+
+84 (1,220) 
+
+69 (983) 
+
+  Disagree/strongly disagree 
+
+16 (240) 
+
+31 (434) 
+
+  Total 
+
+100 (1,460) 
+
+100 (8,693) 
+
+ 
+
+        Chi-sq (p)=  83.22( p≤.001) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+                                                                 
+
+           N=  20,456* 
+
+ 
+
+                                   Note: *N includes one group of all other survey years, which is not displayed. 1986 was  
+
+                                   the first year the spanking prompt was included in the survey and 2010 is the most recent  
+
+                                   survey year. See footnote 2. 
+                                   Source: General Social Survey 1972-2010 Cumulative Datafile, CSM, UC Berkeley 
+
+Data Source 
+
+                                                                                           
+
+Research questions were examined with the 1972-2010 General Social Survey (GSS) Datafile 
+
+from the National Opinion Research Center (Smith, et al., 1972-2010). The survey was accessed 
+
+through the Computer-assisted Survey Methods Program at the University of California, 
+
+Berkley. The GSS tracks attitudinal and other measures on non-institutionalized, English 
+
+speaking Americans over the age of 18 (Inter-University Consortium for Political and Social 
+
+Research [ICPSR], 2007). Spanish speaking Americans were included in the GSS target 
+
+9 
+
+ 
+
+population since 2006 (Smith, Marsden, Hout, & Kim, 2011). Thousands of variables are 
+
+included in the GSS replicating core and special interest topic modules. The same spanking 
+
+prompt was part of the replicating GSS core since 1986. Full probability sampling was utilized 
+
+(ICPSR, 2007). Surveys 2004 and after sub-sampled non-respondents, and surveys 2006-2010 
+
+utilized sampling based on the United States Census (ICPSR, 2007). Response rates varied 
+
+slightly for each survey year, with a total response rate of approximately 71% (ICPSR, 2007).  
+
+Total GSS sample size for years of the current study was 36,501. 
+
+Research Question One 
+
+Results 
+
+ 
+
+Most Americans agreed or strongly agreed with spanking in 1986 and 2010 (Table 3). 
+
+However, the proportion of Americans disagreeing or strongly disagreeing with spanking 
+
+increased 14 percentage point (82%) overall between 1986 (17%) and 2010 (31%). The trend 
+
+towards disagreeing with spanking is observed on Figure 2 as a rising spanking mean trend line 
+
+between 1986 and 2010.  
+
+2.2 
+
+2.1 
+
+2 
+
+1.9 
+
+1.8 
+
+Americans 
+
+Linear (Americans) 
+
+1986 1988 1989 1990 1991 1993 1994 1996 1998 2000 2002 2004 2006 2008 2010 
+
+ 
+
+Notes: N= 20,456; Chi-sq = 243.81(p≤.001); SD range: .73 (1986)-.90 (2000). See footnote 2. 
+
+Source: General Social Survey 1972-2010 Cumulative Datafile, CSM, UC Berkeley                                                                                                   
+
+Figure 2. Mean of Belief in Spanking by Survey Year: Strongly Agree (1)-Strongly 
+Disagree (4) 
+
+ 
+
+Table 2.  American Spanking Belief by Age and Decade: Percentages (Frequencies) 
+
+10 
+
+ 
+
+Lost /G.I. 
+
+Silent 
+
+Baby 
+
+Generation 
+
+Generations 
+
+Generation 
+
+Boomers 
+
+X/Millennias 
+
+(1883-1924) 
+
+(1925-1942) 
+
+(1943-1960) 
+
+(1961-1992) 
+
+ 
+
+1980’s 
+
+ 
+
+ 
+
+ 
+
+Agree/strongly agree 
+
+81 (592) 
+
+82 (603) 
+
+81 (1,113) 
+
+Disagree/strongly disagree 
+
+19 (142) 
+
+18 (133) 
+
+19 (261) 
+
+Total 
+
+100 (734) 
+
+100 (736) 
+
+100 (1,374) 
+
+(577) 
+
+1990’s 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Agree/strongly agree 
+
+77(831) 
+
+77 (1,330) 
+
+73(2,410) 
+
+Disagree/strongly disagree 
+
+23(245) 
+
+23 (389) 
+
+27(893) 
+
+ 
+
+- 
+
+- 
+
+ 
+
+- 
+
+- 
+
+ 
+
+- 
+
+- 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Total 
+
+100(1,076) 
+
+100(1,719) 
+
+100(3,303) 
+
+(2,577) 
+
+2000’s 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Agree/strongly agree 
+
+74(242) 
+
+72 (927) 
+
+71 (1,895) 
+
+Disagree/strongly disagree 
+
+26(86) 
+
+28 (362) 
+
+29 (779) 
+
+Total 
+
+  n 
+
+100(328) 
+
+100 (1,289)  
+
+100 (2,674) 
+
+(4,010) 
+
+2,138 
+
+3,744 
+
+7,351 
+
+7,164 
+
+  Chi-sq (p) 
+
+6.74(p=.05) 
+
+27.74(p≤.001)  49.82(p≤.001)  ns 
+
+  SD 
+
+.42 
+
+.42 
+
+.44 
+
+- 
+
+Note: 1986 was the first year the spanking prompt was included in the survey and 1992 was the most recent birth year. See footnote 2. 
+
+Source: General Social Survey 1972-2010 Cumulative Datafile, CSM, UC Berkeley 
+
+ 
+
+ 
+
+ 
+
+Research Question Two 
+
+11 
+
+ 
+
+A shift towards disagreement with spanking in each consecutive generation is observed 
+
+as a rising spanking mean trend line on Figure 3. For significant cohorts, a pattern of greater 
+
+proportions disagreeing with spanking in each generation in each consecutive decade was 
+
+observed (Table 2). Proportions disagreeing with spanking for Lost and G.I. Generations rose seven 
+
+percentage points or 37% overall between the 1980’s (19%) and 2000’s (26%). A 10 percent point or 
+
+55% overall increase in the proportion of Silent Generation was evident between the 1980’s (18%) 
+
+and 2000’s (28%). The proportion of Baby Boomers disagreeing with spanking was slightly higher 
+
+(one-four percentage points) than that of Silent Generation in each decade. The increase in 
+
+proportions disagreeing with spanking was similar, however, for Baby Boomers and the Silent 
+
+Generation (10 percentage points or 53% overall)  
+
+2.07 
+
+2.08 
+
+2.09 
+
+1.97 
+
+2 
+
+Americans 
+
+Linear (Americans) 
+
+2.14 
+
+2.04 
+
+1.94 
+
+1.84 
+
+1.74 
+
+1.64 
+
+1.66 
+
+Lost 
+
+G.I. 
+
+Silent 
+
+Generation 
+(1883-1900) 
+
+Generation 
+(1901-1904) 
+
+Generation 
+(1925-1942) 
+
+Baby 
+
+Boomers 
+
+Generation X 
+(1961-1981) 
+
+Millennias 
+(1982-2000) 
+
+(1943-1960) 
+
+ 
+
+Notes: N= 20,397; Chi-sq = 65.31 (p≤.001); SD range: .55 (Lost Generation)-.87 (Baby Boomers, Millennias).  See footnote 2.                                                             
+
+Source: General Social Survey 1972-2010 Cumulative Datafile, CSM, UC Berkeley 
+
+Figure 3. Belief in Spanking Mean by Generations: Strongly Agree (1)-Strongly Disagree 
+
+(4)            
+
+ 
+
+ 
+
+Research Question Three 
+
+12 
+
+ 
+
+Predictors were added to the model from strongest to weakest independent predictor in the 
+
+following order: Region of United States (1), Race (2), Residence Type (i.e., rural, urban) (3), 
+
+Educational Attainment (4), Gender (5), Number of Children (6), Poverty Level (7), and 
+
+Generational Cohorts (8). Low Poverty Level was expected to be a significant predictor, but was 
+
+insignificant when added and removed. Four or More Children (b=.173) and Lost /G.I. 
+
+Generational Cohorts (b=.139) were expected to be more strongly correlated, based on previous 
+
+literature. The top five predictors for agreement with spanking revealed by analysis used in the 
+
+current study were South Central Region of United States (b=.835), African American Race 
+
+(b=.795), Rural Residence Type (b=.565), Male Gender (b=.446), and High School Diploma or 
+
+Less Level of Educational Attainment (b=.422). (Table 3) 
+
+Conclusion and Discussion 
+
+ 
+
+Study findings support a notion of shifting belief on spanking. A glance towards 
+
+European nations may suggest to Americans that in today’s contemporary world where some 
+
+school environments are overburdened by the types and intensity of social ills alien to other 
+
+generations and times, spanking may have outgrown its effectiveness. More importantly, 
+
+educational institutions may have evolved beyond the paddle.   
+
+ 
+
+Future research may identify factors behind the shift in spanking views. Do relationships 
+
+exist between school environments in academic turnaround, increased CP incidences, and greater 
+
+disagreement with spanking?  Do parents and educators have growing concerns over detrimental 
+
+effects? Is ineffectiveness of CP a growing opinion among parents and educators? School discipline 
+
+and CP should be specifically explored in future research. Even with awareness of correlational 
+
+research limitations, justifying CP with maintaining discipline may be difficult if schools with higher 
+
+incidences of CP have greater discipline and dropout problems. Effective discipline in those school 
+
+ 
+
+districts banning CP, however, makes this point moot. Qualitative research giving voice to students 
+
+13 
+
+subjected to frequent paddling may prove insightful.  
+
+Table 3. Logistic Regression Model for Agreement with Spanking 
+
+Logit Coefficients Test That Each Coefficient = 0 
+
+ 
+
+B 
+
+SE(B)  Exp(B)  T-statistic 
+
+P 
+
+East South Central region of United States 
+
+.835 
+
+.087 
+
+2.305 
+
+9.609 
+
+.000 
+
+African American race 
+
+.795 
+
+.058 
+
+2.213 
+
+13.658 
+
+.000 
+
+Rural residence type 
+
+.565 
+
+.060 
+
+1.760 
+
+9.380 
+
+.000 
+
+High school diploma or less level of education 
+
+.422 
+
+.035 
+
+1.525 
+
+12.006 
+
+.000 
+
+Male gender 
+
+.446 
+
+.034 
+
+1.561 
+
+13.142 
+
+.000 
+
+Four or more children 
+
+.173 
+
+.049 
+
+1.189 
+
+3.536 
+
+.000 
+
+Lost /G.I. generational cohorts 
+
+.139 
+
+.057 
+
+1.149 
+
+2.459 
+
+.014 
+
+Constant 
+
+.387 
+
+.032 
+
+1.472 
+
+11.958 
+
+.000 
+
+ 
+
+ 
+
+ 
+
+Log Likelihood =   -11,078.814 
+
+Pseudo R-sq =   .037 
+
+ 
+
+ 
+
+Global Tests for Groups of Variables                                  P = Probability that all B's equal 0 
+
+Group 
+
+Wald  
+
+Numerator    Denominator                 
+
+Adjusted  
+
+P 
+
+Chi-sq 
+
+Wald F 
+
+All independent variables  739.485  7 
+
+20302 
+
+105.609 
+
+.000 
+
+Note: Effects of all coefficients > 2.0 See footnote 2.  Source: General Social Survey 1972-2010 Cumulative Datafile, CSM, UC Berkeley 
+
+ 
+
+ 
+
+The dilemma of differentiating cruel and unusual punishment from acceptable punishment 
+
+14 
+
+has been noted (Palmer, 2010), and individual student characteristics may be determining factors. 
+
+Without better understandings of effectiveness, populations where CP may be most harmful and least 
+
+effective may be subjected to higher incidences of CP (i.e., students with disabilities, disadvantaged 
+
+or at risk students).  
+
+ 
+
+A theoretical underpinning of CP in schools appears to need clarity—is freedom from CP a 
+
+right, and if so, at what age is it gained? Perhaps CP is a right exclusive to the educational system?  
+
+Corporal punishment in American penal institutions has been held unconstitutional (violating Eighth 
+
+and Fourteenth Amendments) (Palmer, 2010). Why do rights of older students, albeit all students, in 
+
+American k-12 schools appear more diminished than the rights of prisoners? Considering the shifting 
+
+collective conscience on spanking, school boards may have been granted too much discretion. Wide 
+
+district to district variance for discipline consequences is out of step with a national movement 
+
+towards common academic standards.  
+
+Significance of the Study 
+
+ 
+
+Findings amplify a call to inform policymakers with research on an issue with capacity 
+
+for affecting thousands of American students. Stakeholders are more aware of undercurrents 
+
+affecting school environments with greater understandings of shifting American spanking belief. 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+References 
+
+15 
+
+American Civil Liberties Union/Human Rights Watch (2008). A violent education: Corporal 
+
+punishment of children in US public schools. Retrieved from 
+
+http://www.hrw.org/sites/default/files/reports/us0808webwcover.pdf 
+
+Bates, E. (1994). Spanking in the home and children's subsequent aggression toward 
+
+kindergarten peers. Development and Psychopathology, 6, pp 445-461 doi: 
+
+10.1017/S0954579400006040 
+
+Gershoff, E. (2002). Corporal punishment by parents and associated child behaviors and 
+
+ 
+
+experiences: A meta-analytic and theoretical review. Psychological Bulletin, 128(4), 539-
+
+579. 
+
+Gershoff, E. (2010). More harm than good: A summary of scientific research on the intended and 
+
+unintended effects of corporal punishment on children. Law and Contemporary 
+
+Problems, 71, 31-56. 
+
+Greydanus, D.E., Pratt, H.D., Spates, C.R., Blake-Dreher, A.E., Greydanus-Gearhart, M.A., 
+
+Patel, D.R. (2003). Corporal punishment in schools: Position paper of the Society for 
+
+Adolescent Medicine. Journal of Adolescent Health, 32(5), 385-393. Retrieved from: 
+
+ 
+
+http://www.adolescenthealth.org/AM/Template.cfm?Section=Position_Papers&Template
+
+=/CM/ContentDisplay.cfm&ContentID=1467. 
+
+Hicks-Pass, S. (2009). Corporal punishment in America today: Spare the rod, spoil the child? A 
+
+systematic review of the literature. Best Practice in Mental Health, 5(2), 71-88. 
+
+Inter-University Consortium for Political and Social Research (ICPSR) (2007). Description & 
+
+Citation--Study No. 4697. Retrieved from  
+
+http://www.icpsr.umich.edu/icpsrweb/ICPSR/studies/04697/detail#methodology 
+
+ 
+
+Lansford, J. E., Wager, L. B., Bates, J. E., Pettit, G. S., & Dodge, K. A. (2012). Forms of 
+
+spanking and children's externalizing behaviors. Family Relations, 61(2), 224-236. 
+
+16 
+
+doi:10.1111/j.1741-3729.2011.00700.x. 
+
+Larzelere, R. E., & Baumrind, D. (2010). Are spanking injunctions scientifically supported? Law 
+
+& Contemporary Problems, 73(2), 57-87. 
+
+Marinescu, R. (2010). Mediators of the effects of past corporal punishment experiences on the 
+
+intent to use corporal punishment. (Doctoral dissertation). Retrieved from 
+
+https://papyrus.bib.umontreal.ca/jspui/bitstream/1866/5012/6/Marinescu_Remus_2010_t
+
+hese.pdf 
+
+Nolen, T.J. (2010). Smacking lesson: How the Council of Europe’s ban on corporal 
+
+ 
+
+punishment could serve as a model for the United States. Cardozo Journal of Law & 
+
+Gender, 519 (16), 519-548. 
+
+Palmer, J. W. (2010). Constitutional rights of prisoners. New Providence, NJ: Anderson 
+
+Publishing. 
+
+Poole, S. R., Ushkow, M. C., Nader, P. R., Bradford, B. J., Asbury, J. R., Worthington, D. C., & 
+
+... Carruth, T. (1991). The role of the pediatrician in abolishing corporal punishment in 
+
+schools. Pediatrics, 88(1), 162-167. 
+
+Smith, T. W, Marsden, P., Hout, M., & Kim, J. (1972-2010). General social surveys [machine-
+
+readable data file; NORC ed. Chicago]. Tom W. Smith [Principal Investigator]; Peter V. 
+
+Marsden [Co-Principal Investigator]; Michael Hout [Co-Principal Investigator]. National 
+
+Science Foundation. National Opinion Research Center, Storrs, CT [producer]; The 
+
+Roper Center for Public Opinion Research, University of Connecticut [distributor]. 
+
+ 
+
+Smith, T. W, Marsden, P., Hout, M., & Kim, J. (2011). General social surveys: Appendix A 
+
+17 
+
+(sampling design and weighting). Tom W. Smith [Principal Investigator]; Peter V. 
+
+Marsden [Co-Principal Investigator]; Michael Hout [Co-Principal Investigator]. National 
+
+Opinion Research Center (National Data Program for the Social Sciences  Series, no. 
+
+21). Retrieved from: http://publicdata.norc.org:41000/gss/Documents/Codebook/A.pdf 
+
+Strassberg, Z., Dodge, K.A., Pettit. G.S, & Bates, J.E. (1994). Spanking in the home and 
+
+children's subsequent aggression toward kindergarten peers. Development and 
+
+Psychopathology, 6, pp 445-461 doi: 10.1017/S0954579400006040 
+
+Straus, M. A., & Paschall, M. J. (2009). Corporal punishment by mothers and development of 
+
+children's cognitive ability: A Longitudinal study of two nationally representative age 
+
+cohorts. Journal of Aggression, Maltreatment & Trauma, 18(5), 459-483. doi: 
+
+10.1080/10926770903035168. 
+
+The Center for Effective Discipline (2010). Discipline at school (NCACPS). Retrieved from: 
+
+http://www.stophitting.com/index.php?page=statesbanning. 
+
+The Center for Effective Discipline (2008). National organizations that oppose corporal 
+
+punishment in schools. Retrieved from: 
+
+http://www.stophitting.com/index.php?page=usorgs. 
+
+The Center for Effective Discipline (2008a). Discipline at school (NCACPS): Facts vs. Opinion: 
+
+School Corporal Punishment. Retrieved from: 
+
+http://www.stophitting.com/index.php?page=factsvsopinions. 
+
+Wasserman, L. M. (2011). Corporal punishment in K-12 public school settings: Reconsideration 
+
+of its constitutional dimensions thirty years after Ingraham v. Wright. Touro Law Review. 
+
+ 
+
+26 (4), 1029-1101. Retrieved from: 
+
+http://digitalcommons.tourolaw.edu/lawreview/vol26/iss4/1. 
+
+18 
+
+
