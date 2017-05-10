@@ -229,6 +229,7 @@ def create_participant(semester, participant_name, author_name):
 
 def match_participants():
 	# Not matched: ['Liucempc'], ['Elison Liu']
+	create_participant(2015, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling <tn@nordron.com>'], ['Torbj\xc3\xb6rn Nordling <tn@kth.se>']])
 	create_participant(2016, 'Jacky Wu', [['Jacky Wu <Jacky@youande-MacBook-Pro.local>'], ['Yu-An Wu <jackywugogo@gmail.com>']])
 	create_participant(2016, 'Eric Lee', [['Eric Lee <crazyeric890119@gmail.com>']])
 	create_participant(2016, 'Eric Chang', [['Yu-Kai <ehero80425@gmail.com>'], ['Eric Chang <ehero80425@gmail.com>']])
@@ -253,7 +254,6 @@ def match_participants():
 		['\xe5\x93\xb2\xe5\x81\x89 \xe5\xbc\xb5 <4a02c014@stust.edu.tw>']])
 	create_participant(2016, 'Bernie Huang', [['Bernie Huang <bernie6430@gmail.com>'], ['Bo Han Huang <bernie6430@gmail.com>']])
 	create_participant(2016, 'Rahul Aditya', [['Rahul <adi.rahul171294@gmail.com>']])
-	create_participant(2016, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling <tn@nordron.com>'], ['Torbj\xc3\xb6rn Nordling <tn@kth.se>']])
 	create_participant(2016, 'Yu-Sin Lin', [['kurumalin <pallacanestro159@gmail.com>']])
 	create_participant(2017, 'Lewis Hsu', [['Huan-wei Hsu <qqps4487@gmail.com>']])
 	create_participant(2017, 'Dickson Lee', [['ds lee <dickson.lee@nordlinglab.org>'], ['Dickson Lee <dickson.lee@nordlinglab.org>']])
@@ -338,8 +338,9 @@ def create_html():
 		f.write('    <script type="text/javascript" src="jquery.tablesorter.js"></script>\n')
 		f.write('    <script type="text/javascript">\n')
 		f.write('    $(document).ready(function() {\n')
-		f.write('      $("#statistic").tablesorter();\n')
-		f.write('      $("#score").tablesorter();\n')
+		f.write('      $(\'#statistic\').tablesorter();\n')
+		f.write('      $(\'#score\').tablesorter();\n')
+		f.write('      $(\'td:contains("2015")\').parent().children().css(\'background-color\', \'rgb(216, 218, 220)\');\n')
 		f.write('      }\n')
 		f.write('    );\n')
 		f.write('    </script>\n')
