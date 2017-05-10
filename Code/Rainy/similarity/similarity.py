@@ -16,6 +16,6 @@ index = similarities.MatrixSimilarity(lsi[corpus]) # transform corpus to LSI spa
 index.save('../tmp/deerwester.index') # save similarity index
 
 sims = index[vec_lsi] # perform a similarity query against the corpus
-print(list(enumerate(sims)))
-# sims = sorted(enumerate(sims), key=lambda item: -item[1]) # calculate sorted similarity
-# print(sims) # print sorted (document number, similarity score) 2-tuples
+sims = sorted(enumerate(sims), key=lambda item: -item[1]) # calculate sorted similarity
+# print(list(enumerate(sims)))
+print(sims) # print sorted (document number, similarity score) 2-tuples
