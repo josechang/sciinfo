@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Team:
 % EagleUnit
-% Members:
+% Members: 
 % Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang
 % Relative files:
 % Main.tex, Background_EagleUnit.tex, Library.bib, EagleUnit_Background_Chart_1.png
@@ -14,21 +14,21 @@
 We are going to construct a public, user friendly web site, which provides service of scientific article searching.
 To achieve this goal, we separate our responsibility into parts:\\
 \begin{itemize}
-	\item Build up the web server.
+	\item Build up the web server.	
 	\item Build a web page with a search bar.
 	\item Place a list on the webpage which shows the search results.
-	\item Build up the APIs. The search bar should send the search string and the result list to the search system,
+	\item Build up the APIs. The search bar should send the search string and the result list to the search system, 
 	then the system receive the results of searching. finally, display it.
 \end{itemize}
 This article will provide a review through the tools and methodologies we use to achieve each work.
 \subsubsection{Web Server}
 For any web page, a web server is necessary.
-There are three web server systems used in our project.
-They play the role as web page framework, reverse proxy server,
-and database management, respectively.
-Consider the ease to use and the generality of Python language, we choose Django, a Python based web server works on CentOS 7, as our web page framework. A server system based on Django was then built by using PostgresSQL (database management application),
-Nginx (traffic control and security),
-Gunicorn (interface to translate clients requests in HTTP to python calls that Django can understand),
+There are three web server systems used in our project. 
+They play the role as web page framework, reverse proxy server, 
+and database management, respectively. 
+Consider the ease to use and the generality of Python language, we choose Django, a Python based web server works on CentOS 7, as our web page framework. A server system based on Django was then built by using PostgresSQL (database management application), 
+Nginx (traffic control and security),  
+Gunicorn (interface to translate clients requests in HTTP to python calls that Django can understand), 
 and Python WSGI HTTP Server (used to create entry sock for Django)
 thus making a robust web server.
 
@@ -52,7 +52,7 @@ there are many features as follow:
 	\item Automatic process management
 \end{itemize}
 \subsubsection*{Django  --  \normalfont{web page framework}}
-Django is one of the most well-known python web framework in now days. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus.
+Django is one of the most well-known python web framework in now days. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus. 
 It has many features as follow:
 \begin{itemize}
 	\item Free and open-source web framework
@@ -64,8 +64,8 @@ It has many features as follow:
 	\item Incredibly versatile
 \end{itemize}
 
-A Djago based web page designing was done by by four key parts, which dominate the reactions
-\& functions, outlooks, linking traffic, and the database schema, respectively.
+A Djago based web page designing was done by by four key parts, which dominate the reactions 
+\& functions, outlooks, linking traffic, and the database schema, respectively. 
 The following is a brief view of each of them:
 \begin{itemize}
 	\item[] \textbf{views.py}
@@ -75,9 +75,9 @@ The following is a brief view of each of them:
 	\item[] \textbf{templates}
 	Templates is file which consist of some HTML/CSS desiged webpage. Therefore, the view funtions can call these webpage for a request.
 	\item[] \textbf{model.py}
-	Nowadays, webpages usally interact with users, in order to store the information input by users, we need to connect with database.
+	Nowadays, webpages usally interact with users, in order to store the information input by users, we need to connect with database. 
 	The model file define the schema of database and make it easy to synchronize information.\\
 \end{itemize}
-With the basic knowledge above, we can start to build a functional and complete website in Django.
-After we build up a Django application, we will set up a PostgresSQL database to replace the default SQLite database.
+With the basic knowledge above, we can start to build a functional and complete website in Django. 
+After we build up a Django application, we will set up a PostgresSQL database to replace the default SQLite database. 
 Then, We will use Gunicorn sever to be an interface. Finally, We will make use of Nginx as a reverse proxy to enhance security and performance of our website.
