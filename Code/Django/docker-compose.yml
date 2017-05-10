@@ -8,43 +8,23 @@ services:
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
-      - web
     depends_on:
       - web
-    links:
-      - web:web
     restart: always
-    build: ./nginx/
+
   web:
-    build: ./web/
-    container_name:
-    -  dg
-    - ./web/
-    command:
-    -  bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn mydjango.wsgi -b 0.0.0.0:7000"
-    - /usr/bin/gunicorn mydjango.wsgi:application -w 2 -b :7000  
+    build: .
+    container_name: dg
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn mydjango.wsgi -b 0.0.0.0:7000"
     depends_on:
       - db
     volumes:
       - ./src:/src
-      - ./web:/data/web
     expose:
       - "7000"
-    links:
-      - postgres:prostgres
-      - redis:redis
-    env_file: envfile
     restart: always
 
-  Postgres:
-    restart: always
+  db:
     image: postgres:latest
-    volumes_from:
-     - ./postgres/dorker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-     -./backups/postgresql:/backup
-    env_file:
-     - envfile
-    expose:
-     - "5432"
     container_name: ps
-    
+    restart: always
