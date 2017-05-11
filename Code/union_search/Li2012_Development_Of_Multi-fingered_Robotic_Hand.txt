@@ -1,0 +1,834 @@
+See discussions, stats, and author profiles for this publication at: https://www.researchgate.net/publication/255712921
+
+Development of multi-fingered robotic hand
+with coupled and directly self-adaptive grasp
+Article in International Journal of Humanoid Robotics · April 2012
+DOI: 10.1142/S021984361250034X
+
+CITATIONS
+
+READS
+
+14
+
+109
+
+3 authors, including:
+Wenzeng Zhang
+Tsinghua University
+121 PUBLICATIONS 317 CITATIONS
+SEE PROFILE
+
+Some of the authors of this publication are also working on these related projects:
+
+Compliant Continuum Manipulator with Omni-directional Bending View project
+
+All content following this page was uploaded by Wenzeng Zhang on 10 April 2017.
+The user has requested enhancement of the downloaded file. All in-text references underlined in blue are added to the original document
+and are linked to publications on ResearchGate, letting you access and read them immediately.
+
+International Journal of Humanoid Robotics
+Vol. 9, No. 4 (2012) 1250034 (18 pages)
+c World Scienti¯c Publishing Company
+°
+DOI: 10.1142/S021984361250034X
+
+DEVELOPMENT OF MULTI-FINGERED ROBOTIC HAND
+WITH COUPLED AND DIRECTLY SELF-ADAPTIVE GRASP
+
+GUOXUAN LI*, HAN LIU and WENZENG ZHANG†
+Department of Mechanical Engineering, Tsinghua University,
+Beijing 100084, China
+Key Laboratory for Advanced Materials Processing Technology,
+Ministry of Education, China
+*ligx11@mails.tsinghua.edu.cn
+†
+wenzeng@tsinghua.edu.cn
+Received 4 September 2011
+Accepted 1 July 2012
+Published 26 December 2012
+
+This paper presents a coupled and directly self-adaptive underactuated (CDSA) grasp mode,
+which has hybrid functions: coupled grasp and directly self-adaptive grasp. A novel multipulley-belt ¯nger mechanism with springs is designed based on CDSA grasp mode. Compared
+with traditional coupled underactuated ¯ngers or directly self-adaptive underactuated ¯ngers,
+the grasp process of the new ¯nger is more humanoid and its stability is better. Force analysis
+and size optimization rules of the ¯nger are given. A multi-¯ngered robotic hand, CDSA hand,
+based on the CDSA ¯nger is developed, whose control system adopts a digital signal processor
+(DSP) circuit module with a keyboard as its communication interface. The CDSA hand has ¯ve
+¯ngers, six DC motors, and 15 joint DOF, nine of which are CDSA joint DOF. The appearance
+and actions of CDSA hand imitate human hand, whose size is 1.5 times of human hand. CDSA
+hand weighs 1.6 kg and can grasp objects up to 0.5 kg. Simulation and experimental results show
+that CDSA hand is able to realize CDSA grasp mode e®ectively.
+Keywords: Multi-¯ngered robotic hand; grasp mode; underactuated grasp; coupled ¯nger; selfadaptive ¯nger.
+
+1. Introduction
+Various kinds of robots have been widely used in the industrial processes. Service
+robots1,2 are being developed for the handicapped and medical applications. To carry
+out a variety of service activities, a robot needs at least one hand that can grasp and
+manipulate various objects.3 Humanoid robotic hands become focus of intelligent
+robot research for some characteristics of it, like many degrees of freedom (DOF),
+small volume, powerful output and complex control. For these and other reasons, the
+study of multi-¯ngered robot hands has greatly interested the research community
+since the early days of robotics.
+
+1250034-1
+
+G. Li, H. Liu & W. Zhang
+
+Over the past three decades, research on dexterous hand has gained lot of
+achievements. Generally speaking, a dexterous hands has 3  5 robot ¯ngers with
+2  4 DOF each ¯nger, whose joints are mostly driven by actuators actively.
+Examples of dexterous hands include Stanford/JPL Hand,4 Utah/MIT Hand,5 DLR
+series hands,6,7 Robonaut Hand,8 Shadow series hands, UB hands,9 BH series hands
+by Beihang University and DLR/HIT series hands1012 by Harbin Institute of
+Technology. Dexterous hands highly depend on the sensors, algorithms and
+control systems. The complexity of dexterous hands makes them high cost and low
+reliability.
+Underactuated robot hands can overcome some drawbacks of dexterous hands. In
+recent 10 years, they become more and more important in the ¯eld of robot hand
+research.
+Generally speaking, an underactuated robot hand consists of a palm and several
+underactuated ¯ngers. The number of actuators of an underactuated ¯nger is less
+than its DOF.
+On the basis of grasp mode of traditional underactuated ¯ngers, they could be
+classi¯ed into two kinds: coupled underactuated ¯ngers and directly self-adaptive
+underactuated ¯ngers.
+Take a two-joint coupled ¯nger as an example to explain the action process of them.
+If the ¯rst joint rotates, the second joint will rotate by an angle with a ¯xed proportion
+to the rotational angle of the ¯rst joint. The rotational proportion of the ¯rst joint and
+the second joint is determined by the coupled mechanisms. Typical coupled hands
+include Southampton Hand,13 MANUS-Hand,14 TBM Hand15 and SDM Hand.1618
+The adaptation is designed as a main function of directly self-adaptive underactuated ¯ngers. This kind of robot ¯ngers can self-adapt to di®erent sizes and
+shapes of objects. Typical self-adaptive underactuated hands include SARAH
+Hand,19 underactuated hands designed by HIT, LARM Hand,20 underactuated
+hands designed by BH University,21 TH-3R Hand22 and GCUA Hand.23
+Brie°y, the grasp ability of directly self-adaptive underactuated hands is better
+than coupled underactuated hands while the grasp motion of coupled underactuated
+hands is more similar to human hands.
+This paper studies on underactuated grasp mode under unstructured environment and low cost underactuated robotic hands.
+2. Principle of CDSA Function
+In this section, the traditional underactuated ¯ngers' features will be discussed ¯rst.
+Then, a coupled and directly self-adaptive underactuated (CDSA) grasp mode is
+presented. The relationship of coupled and self-adaptive underactuated (COSA)
+grasp mode, CDSA grasp mode, coupled and indirectly self-adaptive underactuated
+(CISA) grasp mode is introduced next. Fourth, a CDSA mechanism is designed to
+realize the CDSA grasp mode. At the end of this section, force analysis and size
+optimization rules of the CDSA mechanism are given.
+1250034-2
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+2.1. The characteristics of traditional underactuated grasp modes
+During the grasp process of a coupled ¯nger, all joints of it rotate at the same time.
+The grasp motion of coupled ¯ngers is closely similar to human ¯ngers. In addition,
+coupled ¯ngers are good at grasping objects with pinch motion.
+However, coupled underactuated ¯ngers cannot self-adapt to di®erent sizes and
+shapes of objects, while they cannot closely wrap objects. The upper phalanges may
+not touch the objects when the lower phalanges are blocked by the objects, which are
+shown in Fig. 1. Thus, this type of hands is not a good universal gripper.
+Directly self-adaptive underactuated ¯ngers can adjust their motion to the
+di®erent sizes and shapes of objects. This kind of ¯ngers has a good adaptability. The
+self-adaption is the main virtue of them. Compared with coupled underactuated
+¯ngers, the grasp ability of directly self-adaptive underactuated ¯ngers is improved.
+But directly self-adaptive underactuated ¯ngers cannot bend the middle joints
+before contacting the grasped objects, which limits its appearance during grasping
+objects and ability to grasp small objects. The grasp process of directly self-adaptive
+underactuated ¯ngers is shown in the Fig. 2.
+2.2. CDSA grasp mode
+Aiming to overcome the shortcomings and combining the merits of traditional
+underactuated hands, this paper presents a CDSA grasp mode.
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Fig. 1. Grasp process of two-joint coupled underactuated ¯nger.
+
+θ
+θ
+
+(a)
+Fig. 2.
+
+(b)
+
+(c)
+
+(d)
+
+Grasp process of two-joint directly self-adaptive underactuated ¯nger.
+
+1250034-3
+
+G. Li, H. Liu & W. Zhang
+
+(a)
+
+(b)
+Fig. 3.
+
+(c)
+
+(d)
+
+(e)
+
+Underactuated grasp process of the CDSA ¯nger.
+
+The CDSA grasp mode includes two stages: coupled grasp and directly selfadaptive grasp. It means that the joints of robot ¯nger rotate at the same time when
+the ¯nger approaches the objects gradually, which makes the motion of ¯nger very
+human-like. After the robot ¯nger touches objects, it can self-adapt to di®erent
+objects, which improves the ¯nger's adaptability.
+Therefore, the robot ¯ngers with CDSA grasp mode have self-adaption and
+coupled function. Their grasp ability and motion appearance are better than traditional underactuated ¯ngers. CDSA robot ¯ngers represent a new path for innovation in robotic ¯nger design. Figure 3 is the grasp process of CDSA mode.
+2.3. The relationship of COSA, CDSA, CISA
+Aiming to overcome some drawbacks of traditional underactuated grasp mode,
+COSA grasp mode, CDSA grasp mode and CISA grasp mode are proposed. Figure 4
+shows the relationship among them.
+Based on the di®erences of self-adaption grasp process, the COSA grasp mode
+could be classi¯ed to CISA grasp mode and CDSA grasp mode. For example, a twojoint ¯nger of CISA grasp mode has one receiver in the ¯rst phalanx. Before the
+receiver touches objects, ¯nger moves with coupled grasp mode. As soon as the ¯rst
+phalanx is blocked by objects, receiver will drive the second phalanx rotate. It is a
+kind of indirect self-adaption, because there must be receivers in the CISA ¯ngers.
+Compared with CISA ¯ngers, two-joint CDSA ¯ngers do not need receivers in
+them. As soon as the ¯rst phalanx is blocked by objects, the two-joint CDSA ¯nger
+can self-adapt to the shapes of objects without receivers. CDSA grasp mode has
+direct self-adaption.
+2.4. CDSA mechanism
+The components of the CDSA mechanism are shown in Fig. 5.
+The motor is ¯xed in the base. The ¯rst shaft is located within the base and
+revolves both within the base and the lower part of the ¯rst phalanx; the second shaft
+is located further from the base and revolves within the upper part of the ¯rst
+phalanx and the second phalanx.
+1250034-4
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+Fig. 4. The relationship of COSA, CDSA, CISA.
+
+Fig. 5. CDSA mechanism. (1) the ¯rst shaft; (2) the second shaft; (3) the ¯xed pulley; (4) the ¯rst belt;
+(5) the ¯rst passive pulley; (6) the second active pulley; (7) the second belt; (8) the second passive pulley;
+(9) the ¯rst spring; (10) the second spring; (11) the third spring; (A) coupled mechanism; (B) directly
+self-adaptive mechanism.
+
+1250034-5
+
+G. Li, H. Liu & W. Zhang
+
+The ¯xed pulley envelops the ¯rst shaft and is ¯xed to the base; the ¯rst passive
+pulley envelops the second shaft and is ¯xed to it; the ¯rst belt connects the ¯xed
+pulley and the ¯rst passive pulley. These are the main components of the coupled
+mechanism.
+The second active pulley envelops the ¯rst shaft and is ¯xed to it; the second
+passive pulley envelops the second shaft and is ¯xed to it; the second belt connects
+the second active pulley and the second passive pulley. These are the main components of directly self-adaptive mechanism.
+Besides pulley-belt mechanism, linkage mechanism, gear mechanism, gear-rack
+mechanism, sprocket-chain mechanism and tendon mechanism also can be applied to
+make up coupled mechanism and directly self-adaptive mechanism.
+In addition, the ¯rst spring connects the ¯rst shaft and the ¯rst phalanx; the
+second spring connects the second shaft and the ¯rst passive pulley; the third spring
+connects the second shaft and the second passive pulley.
+Here is the working process of CDSA mechanism. This paper supposes that the
+second spring and the third spring have the same elasticity in order to explain the
+function process of the CDSA mechanism clearly.
+When the motor starts to rotate, it will drive the ¯rst shaft to rotate by an angle
+. The ¯rst phalanx rotates by the same angle . The second shaft rotates by the
+same angle  as a result of the coupled mechanism functioning. At the same time, the
+directly self-adaptive mechanism keeps the second phalanx static relative to the ¯rst
+phalanx. There is a con°ict here. For the existence of the springs between the two
+mechanisms, the ¯nal e®ect is that the second shaft rotates by the angle of /2. The
+second and the third springs deform both. The ¯rst phalanx cannot rotate until the
+¯nger is in contact with the object. The motor continues rotating and drives the ¯rst
+shaft to rotate. Under the action of the ¯rst spring, the ¯rst phalanx will wrap around
+an object more and more tightly. The coupled mechanism cannot work any longer
+while the directly self-adaptive mechanism can keep on working. The second active
+pulley drags the second passive pulley through the second belt. The second passive
+pulley is connected with the second shaft by the third spring. The deformation of the
+third spring gradually becomes smaller and will ultimately be opposite to its original
+deformation. In this process, because the second spring keeps on deforming, the
+coupled mechanism will not block rotation of the second shaft. The second phalanx,
+¯xed with the second shaft, rotates until it also touches the object. At this time, the
+CDSA ¯nger completes the grasp task.
+2.5. Force analysis of CDSA mechanism
+The grasp process of CDSA mechanism consists of coupled grasp and directly
+self-adaptive grasp. The following force analyses are based on these two modes.
+Figure 6(a) shows the static force analysis of coupled grasp mode. Figure 6(b) shows
+the force analysis of directly self-adaptive grasp mode. O1 O2 stands for the ¯rst
+phalanx, O2 B stands for the second phalanx. O1 and O2 are the centers of the ¯rst
+1250034-6
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+(a) Coupled grasp process
+
+(b) Directly self-adaptive grasp process
+
+Fig. 6. The force analysis of CDSA mechanism. (1) base; (2) ¯rst phalanx; (3) second phalanx; (4) ¯xed
+pulley; (5) ¯rst belt; (6) ¯rst passive pulley; (7) second active pulley; (8) second belt; (9) second passive pulley.
+
+and second shafts. O1 O2 ¼ l1 and O2 B ¼ l2 .
+f1 -the force exerted on the ¯rst phalanx by the object, N;
+f2 -the force exerted on the second phalanx by the object, N;
+TM -the torque of the motor exerts on the second active pulley in relation to O1 ,
+Nmm;
+TS2 -the torque of the second spring between the distal shaft and the ¯rst passive
+pulley to the distal shaft in relation to O2 , Nmm;
+TS3 -the torque of the third spring between the distal shaft and the second passive
+pulley to the distal shaft in relation to O2 , Nmm;
+fM 1 -the force exerted on the ¯rst passive pulley by the ¯rst belt, N;
+fM 2 -the force exerted on the second passive pulley by the second belt, N;
+r1 , r2 , r3 , r4 -the radius of the ¯xed pulley, the ¯rst passive pulley, the second active
+pulley, the second passive pulley, mm;
+h1 -the arm of force of f1 relative to O1 , mm;
+h2 -the arm of force of f2 relative to O2 , mm.
+According to the principle of virtue work, the following relationship is arrived at
+T  ¼ FV ;
+
+ð1Þ
+
+where T is the input torque vector by the motor and the springs, F is the grasp force
+vector by the two phalanxes of the ¯nger and V is the velocity vector of the contact
+points.
+T ¼ ðTM
+
+TS2 þ TS3 Þ ¼ ðTM
+F ¼ ðf1
+
+f2 Þ;
+
+1250034-7
+
+K2 2 þ K3 Þ;
+
+ð2Þ
+ð3Þ
+
+G. Li, H. Liu & W. Zhang
+
+where K2 and K3 are the elasticity of the second spring and third spring, Nmm/rad; 
+is the rotational angle of the second phalanx after the ¯rst phalanx is blocked by
+objects, rad;
+
+" : #
+1
+h1
+0
+V ¼
+ð4Þ
+l1 cos 2 þ h2 h2 :
+2
+
+¼
+
+": #
+M
+
+:
+
+ð5Þ
+
+2
+
+M is the rotational angle of the motor, rad; 1 is the rotational angle of the ¯rst
+phalanx, rad; 2 is the rotational angle of the second phalanx relative to the ¯rst
+phalanx, rad. Let
+
+
+0
+h1
+AV ¼
+ð6Þ
+l1 cos 2 þ h2 h2
+Considering the function process of CDSA mechanism, the following relationship
+is arrived at:
+
+
+r
+r r
+r
+M ¼ 1 þ  4 ¼ 1  1 4 1 þ 4 2
+ð7Þ
+r3
+r2 r3
+r3
+Di®erentiating Eq. (7), the following relationship holds:
+
+
+:
+r1 r4 :
+r :
+M ¼ 1 
+ þ 4
+r2 r3 1 r3 2
+
+ð8Þ
+
+Combining Eqs. (5) and (8), the following relationship holds:
+ ¼ A 
+In Eq. (9),
+¼
+
+:
+:
+
+1
+2
+
+0
+
+!
+;
+
+A ¼ @
+
+ð9Þ
+1
+r1 r4 r4
+r2 r3 r3 A
+0
+1
+
+1
+
+Combining all the equations, the following relationship is arrived at:
+TA ¼ FAV
+
+ð10Þ
+
+Then the following relationship is arrived at:
+F ¼ TA A 1
+V
+
+ð11Þ
+
+Let AC ¼ A A 1
+V , the following relation holds:
+F ¼ TAC
+1250034-8
+
+ð12Þ
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+The following relationship is arrived at:
+
+0 
+1
+1
+r1 r4
+r4
+r4
+1
+
+ðl
+cos
+
+þ
+h
+Þ
+
+2
+2
+Bh
+r2 r3
+r 3 h1 h 2 1
+r3 h 2 C
+B 1
+C
+AC ¼ B
+C
+@
+1
+1 A
+
+ðl cos 2 þ h 2 Þ
+h1 h 2 1
+h2
+
+ð13Þ
+
+Combining all the above equations, the following relation is arrived at:
+
+
+
+3
+2
+TM
+1 r 1 K3
+r2 r4 TM
+2
+
+ðl
+cos
+
+þ
+h
+Þ
+
+þ
+þ
+
+ðK
+þ
+K
+Þ
+  6
+1
+2
+2
+2
+3
+h1 r 2 h 2 1
+r1 r3 h 2
+h2 7
+F1
+6 h1
+7
+¼6
+7
+
+
+4
+5
+F2
+r1 K3
+r2 r4 TM
+2
+1 þ
+þ
+ ðK2 þ K3 Þ
+r2 h 2
+r1 r3 h 2
+h2
+ð14Þ
+When TM ¼ 300 Nmm, r1 ¼ r2 ¼ r3 ¼ r4 , the range of 1 and 2 from 0  90  ,
+h1 ¼ 50 mm, l1 ¼ 100 mm, h 2 ¼ 30 mm, l2 ¼ 60 mm, K2 ¼ K3 ¼ 0:5 Nmm/rad, then
+the relationships of f1 , f2 , 1 and 2 are shown in Fig. 7. The conclusions from these
+¯gures are listed below.
+(i) When 1 and 2 increase, f1 and f2 will change slightly and continuously.
+(ii) For 1 and 2 of any value, f1 and f2 will always remain positive and the values of
+them will be su±ciently large for the ¯ngers to e®ectively grasp objects stably.
+These simulation results show that the CDSA ¯nger is e®ective: it can grasp objects
+stably.
+
+(a) f1 as a function of θ1 and θ2
+Fig. 7. The relationship of values.
+1250034-9
+
+G. Li, H. Liu & W. Zhang
+
+(b) f2 as a function of θ1 and θ2
+Fig. 7. (Continued )
+
+2.6. Elasticity of springs
+The second spring and the third spring coordinate the movements of coupled
+mechanism and directly self-adaptive mechanism when the CDSA mechanism works.
+Springs are key components of CDSA mechanism. The elasticity of springs applied in
+¯ngers will a®ect the stability of CDSA mechanism and even the grasp ability of
+CDSA ¯ngers. The selecting of springs is an important step during design of ¯ngers.
+Depending on the above analysis, the relationship is arrived at:
+
+
+r 1 K3
+r2 r4 TM
+
+f2 ¼
+1 þ
+þ
+ ðK2 þ K3 Þ 2
+ð15Þ
+r2 h 2
+r1 r3 h 2
+h2
+When TM ¼ 300 Nmm, r1 ¼ r2 ¼ r3 ¼ r4 , 1 is 45  , the range of 2 is 0  90  , the
+range of K2 and K3 are 0  10 Nmm/rad, h 2 ¼ 30 mm, l 2 ¼ 60 mm, then the
+relationships of K2 , 2 and f2 are shown in Fig. 8(a) and the relationships of K3 , 2
+and f2 in Fig. 8(b).
+In Fig. 7(a), when value of 2 has been identi¯ed, softer the second spring gets
+more powerful f2 . Compared with values of f2 , when value of 2 has been identi¯ed,
+tougher the third spring gets the more powerful f2 , which is shown in Fig. 7(b). It
+means the third spring should be tougher than the second spring. Considering the
+working process of a two-joint CDSA ¯nger to understand these analysis results,
+the second spring makes the coupled mechanism work and the third spring makes
+the directly self-adaptive mechanism work. After the ¯rst phalanx touches objects
+while the second phalanx does not touch objects, the second spring makes the second
+phalanx rotate forward but the third spring makes the second phalanx rotate
+backward. At the end of the two-joint CDSA ¯nger's grasp process, the deformations
+of second spring and third spring are opposite with each other. So the third spring
+should be tougher than the second spring for better grasp stability.
+1250034-10
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+(a) f2 as a function of k2 and θ2
+
+(b) f2 as a function of k3 and θ2
+Fig. 8.
+
+The selecting of springs.
+
+3. Design of CDSA Hand
+This section will describe the design of CDSA hand which is based on the CDSA
+grasp mode and multi-pulley-belt mechanism.
+3.1. Structural design of the two-joint finger
+The components of the two-joint CDSA ¯nger are shown in Fig. 9. This ¯nger has
+one embedded motor to drive two joints of it. There is only one CDSA mechanism in
+it. In addition, the output shaft of motor is ¯xed with the ¯rst bevel gear, which is
+meshing with the second bevel gear. The second bevel gear is ¯xed with the ¯rst
+
+1250034-11
+
+G. Li, H. Liu & W. Zhang
+
+(a) Front
+cutaway
+view
+
+(b) Front
+cutaway
+view
+
+(c) 3D transmission
+mechanism
+
+(d) Front
+view of
+two-joint
+CDSA ¯nger
+
+(e) Structure
+of 2-joint
+CDSA ¯nger
+
+Fig. 9. The CDSA ¯nger with two joints. (1) motor; (2) base; (3) the ¯rst phalanx; (4) the second
+phalanx; (5) reducer; (6) the CDSA mechanism.
+
+shaft. Modules of ¯rst bevel gear and second bevel gear are 1while number of teeth of
+them is 16. The two-joint CDSA ¯nger has two DOF, one of which is CDSA joint
+DOF. It is 1.5 times the size of human hand's thumb, with ¯nger length of 89 mm,
+¯nger width of 22 mm, ¯nger thickness of 20 mm and rotation angle range of 0   90 
+for all joints.
+3.2. Structural design of the three-joint finger
+Design of the three-joint CDSA ¯nger is shown in Fig. 10. The three-joint CDSA
+¯nger has the same design principle like two-joint CDSA ¯nger. This ¯nger has one
+embedded motor to drive three joints of it. There are two CDSA mechanisms in it.
+The four three-joint ¯ngers of CDSA hand have the same structure at di®erent sizes.
+The three-joint CDSA ¯nger has three DOF, two of which are CDSA joint DOF. The
+middle ¯nger is 1.5 times the size of human hand's middle ¯nger, with ¯nger length of
+132 mm, ¯nger width of 22 mm, ¯nger thickness of 20 mm and rotation angle range of
+0   90  for all joints. Every ¯nger of CDSA hand can grasp objects independently
+with CDSA grasp mode.
+1250034-12
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+(a) Front
+cutaway view
+
+(b) Front cutaway
+view
+
+(c) 3D transmission
+mechanism
+
+(d) Front
+view of
+three-joint
+CDSA ¯nger
+
+(e) Structure
+of three-joint
+CDSA ¯nger
+
+Fig. 10. Three-joint CDSA ¯nger. (1) motor; (2) base; (3) the ¯rst phalanx; (4) the second phalanx;
+(5) reducer; (6) the CDSA mechanism; (7) the third phalanx.
+
+3.3. Freedom planning and modular design of CDSA hand
+The CDSA hand has ¯ve ¯ngers and 15 joint DOF (six active joint DOF, nine CDSA
+joint DOF), which is shown in Fig. 11. In Fig. 11(a), dark cylinders stand for active
+joint DOF and light-colored cylinders stand for CDSA joint DOF. Figure 11(b) is the
+motor distribution inside the CDSA hand.
+In Fig. 12(a), module A is the CDSA module. Module B is the active foot joint of
+¯ve ¯ngers with one embedded actuator, reducer and gear transmission. Module C is
+the swing joint of the thumb in which there is one embedded actuator. Figure 12(b) is
+the outward appearance of CDSA hand.
+The four three-joint ¯ngers have the same structure at di®erent sizes, with one
+motor driving three joints. The palm has one motor driving the lateral swing of the
+base of the thumb, while the thumb has one motor driving two joints.
+CDSA hand is 1.5 times the size of an adult's hand, with length of 250 mm, palm
+length of 144 mm, palm width of 106 mm, palm thickness of 45 mm with rotation
+angle range of 0   90  for all joints.
+1250034-13
+
+G. Li, H. Liu & W. Zhang
+
+(a) Freedom planning of CDSA hand
+
+(b) Motor distribution inside the CDSA hand
+
+Fig. 11. CDSA hand's schematic diagram and motor distribution.
+
+(a)
+
+(b)
+
+Fig. 12. Module division of CDSA hand.
+
+4. Operating and Grasp Experiments of CDSA Hand
+Figures 13(a)13(c) show some pictures of the CDSA hand's ¯sting process.
+Figure 13(d)13(f) show some pictures of the CDSA hand's pinching process. During
+the CDSA's action process of ¯sting and pinching, the robot hand can move like a
+1250034-14
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+(a)
+
+(b)
+
+(d)
+
+(c)
+
+(e)
+
+(f)
+
+Fig. 13. CDSA hand's ¯sting process and pinching process.
+
+(a)
+
+(b)
+
+(c)
+
+Fig. 14. CDSA hand's grasp process.
+
+1250034-15
+
+(d)
+
+G. Li, H. Liu & W. Zhang
+
+(e)
+
+(f)
+
+(g)
+
+(h)
+
+Fig. 14. (Continued )
+
+human hand. Before ¯ngers are blocked by objects, all the shafts rotate simultaneously. The CDSA hand can self-adapt to di®erent objects.
+Figure 14 shows some pictures of the CDSA hand's grasp process. CDSA hand can
+self-adapt to objects of di®erent sizes and shapes and can grasp the objects stably.
+The experiments prove that the new CDSA grasp mode is e®ective and the CDSA
+hand can stably grasp di®erent objects with the CDSA mode. The motion appearance of CDSA hand is highly anthropopathic and the hand can self-adaptively grasp
+objects stably.
+5. Conclusion
+This paper presents a CDSA grasp mode, which can achieve coupled grasp and
+directly self-adaptive grasp at the same time.
+Based on the CDSA grasp mode, this paper designs a CDSA ¯nger with multi-pulleybelt mechanism and gives the optimization rules and force analysis of CDSA ¯nger.
+A multi-¯ngered robotic hand, CDSA hand, based on the CDSA ¯nger is developed, whose control system adopts a digital signal processor (DSP) circuit module
+with a keyboard as its communication interface. CDSA hand has ¯ve ¯ngers, 15 joint
+DOF (nine of them are CDSA joint DOF). Grasp experimental results show CDSA
+hand is able to realize CDSA grasp mode e®ectively and grasps objects stably.
+Acknowledgments
+This paper was supported by the National Natural Science Foundation of China
+(No. 50905093).
+References
+1. Y. Sakagami, R. Watanabe and C. Aoyama, The intelligent ASIMO: System overview
+and integration, in Int. Conf. Intelligent Robots and Systems (IEEE Press, Lausanne,
+Switzerland, 2002), pp. 24782483.
+1250034-16
+
+Development of Multi-Fingered Robotic Hand with Coupled and Directly Self-Adaptive Grasp
+
+2. I. W. Park, J. Y. Kim and J. G. Lee, Mechanical design of the humanoid robot platform:
+HUBO, Adv. Robot. 21(11) (2007) 13051322.
+3. E. H. Kim, S. W. Lee and Y. K. Lee, A dexterous robot hand with a bio-mimetic
+mechanism, Int. J. Prec. Eng. Manuf. 12(2) (2011) 227235.
+4. J. K. Salisbury and J. J. Craig, Articulated hands: Force control and kinematic issues, Int.
+J. Robot. Res. 1(1) (1982) 417.
+5. S. Jacobsen, E. Iversen and D. Knutti, Design of the Utah/MIT dexterous hand, in Int.
+Conf. Robotics and Automation (IEEE Press, Los Alamitos, USA, 1986), pp. 15201532.
+6. M. Gorner, T. Wimbock and A. Baumann, The DLR-crawler: A testbed for actively
+compliant hexapod walking based on the ¯ngers of DLR-hand II, in Int. Conf. Intelligent
+Robots and Systems (IEEE Press, Nice, Frence, 2008), pp. 15251531.
+7. S. Haidacher, J. Butterfass and M. Fischer, DLR hand II: Hard- and Software Architecture for Information Processing, in International Conference on Robotics and Automation (IEEE Press, Taibei, Taiwan, 2003), pp. 684689.
+8. C. Lovchik, H. Aldridge and M. Diftler, Design of the NASA Robonaut Hand, in ASME
+Dynamics and Control Division (New York, USA, 1999), pp. 813830.
+9. F. Lotti, P. Tiezzi and G. Vassura, Development of UB hand 3: Early results, in Int. Conf.
+Robotics and Automation (IEEE Press, Barcelona, Spain, 2005), pp. 44884493.
+10. R. Wei, X. H. Gao and M. H. Jin, FPGA based hardware architecture for HIT/DLR
+hand, in Int. Conf. Intelligent Robots and Systems (IEEE Press, Alberta, Canada, 2005),
+pp. 32333238.
+11. H. Liu, K. Wu and P. Meusel, Multisensory ¯ve-¯nger dexterous hand: The DLR/HIT
+hand II, in Int. Conf. Intelligent Robots and Systems (IEEE Press, Nice, Frence, 2008),
+pp. 36923697.
+12. Z. P. Chen, Y. Lii Neal and T. Wimboeck, Experimental study on impedance control for
+the ¯ve-¯nger dexterous robot hand DLR-HIT II, in Int. Conf. Intelligent Robots and
+Systems (IEEE Press, Taipei, Taiwan, 2010), pp. 58675874.
+13. V. N. Dubey, R. M. Crowder, Grasping and control issues in adaptive end e®ectors, in
+ASME Design Engineering Technical Conf. and Computers and Information in Engineering Conf. (IEEE Press, New York, USA, 2004), pp. 19.
+14. J. L. Pons, E. Rocon, R. Ceres et al., The Manus-hand dexterous robotics upper limb
+prothesis: Mechanical and manipulation aspects, Auton. Robot. 16(1) (2004) 143163.
+15. N. Dechev, W. Cleghorn and S. Naumann, Multiple ¯nger, passive adaptive grasp
+prosthetic hand, Mech. Mach. Theory 36(4) (2001) 11571173.
+16. A. M. Dollar and R. D. Howe, Towards grasping in unstructured environments: Grasper
+compliance and con¯guration optimization, Adv. Robot. 19(5) (2005) 523543.
+17. A. M. Dollar and R. D. Howe, The SDM hand as a prosthetic terminal device: A feasibility
+study, in Int. Conf. Rehabilitation Robotics (IEEE Press, Noordwijk, The Netherlands,
+2007), pp. 978983.
+18. A. M. Dollar and R. D. Howe, Joint coupling design of underactuated grippers, in ASME
+Mechanism and Robot Design Conf. (IEEE Press, Philadelphia, USA, 2006), pp. 1013.
+19. T. Laliberte and C. Gosselin, Simulation and design of underactuated mechanical hands,
+Mech. Mach. Theory 33(1) (1998) 3957.
+20. L. Wu and M. A. Ceccarelli, Numerical simulation for design and operation of an
+underactuated ¯nger mechanism for LARM hand, Mech. Based Des. Struct. Mach. 37(1)
+(2009) 86112.
+21. L. Wu and M. A. Ceccarelli, Numerical simulation for design and operation of an
+underactuated ¯nger mechanism for LARM hand, Mech. Based Des. Struct. Mach. 37(1)
+(2009) 86112.
+
+1250034-17
+
+G. Li, H. Liu & W. Zhang
+
+22. W. Zhang, D. Che, H. Liu et al., Super underactuated multi-¯ngered mechanical hand
+with modular self-adaptive gear-rack mechanism, Ind. Robot. 36(3) (2009) 255262.
+23. W. Zhang, D. Che and Q. Chen et al., A dexterous and self-adaptive humanoid robot
+hand: Gesture-changeable under-actuated hand, in Intelligent Robotics and Applications
+Second Int. Conf. (IEEE Press, Singapore, Singapore, 2009), pp. 515525.
+
+Guoxuan Li, born in 1989, is currently a graduate student in
+Department of Mechanical Engineering, Tsinghua University,
+China. He received his B.E. from Department of Mechanical
+Engineering, Tsinghua University in 2011. His research interest is
+humanoid robotic hand. He has two publications. He has six
+invention patents. He received the ¯rst place award in 2011
+ASME Student Mechanism and Robot Design Competition
+(Washington D.C., USA, August 2831, 2011).
+
+Han Liu, born in 1991, is currently an undergraduate student in
+Department of Mechanical Engineering, Tsinghua University,
+China. Her research interest is humanoid robotic hand. She has
+applied two invention patents.
+
+Wenzeng Zhang, born in 1975, is currently an associate professor in Department of Mechanical Engineering, Tsinghua University, China. He received his B.E. and Ph.D. from Department
+of Mechanical Engineering, Tsinghua University in 1999 and
+2005. His research interests are in the areas of humanoid robot
+hand and robot vision. He has over 90 publications and over
+50 invention patents. He received six Best Paper Awards of
+International Conference (ICFDM2010, ICSR2010, RWIA2010,
+ICIRA2009, ICIRA2008 and ICFDM2004).
+
+1250034-18
+View publication stats
+
+
