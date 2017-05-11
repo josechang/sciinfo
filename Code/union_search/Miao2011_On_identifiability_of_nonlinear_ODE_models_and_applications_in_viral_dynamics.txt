@@ -1,0 +1,3033 @@
+SIAM REVIEW
+Vol. 53, No. 1, pp. 3â39
+
+c 2011 Society for Industrial and Applied Mathematics
+
+
+On Identifiability of Nonlinear
+ODE Models and Applications in
+Viral Dynamicsâ
+Hongyu Miaoâ 
+Xiaohua XiaâĄ
+Alan S. PerelsonÂ§
+Hulin Wuâ 
+Abstract. Ordinary diďŹerential equations (ODEs) are a powerful tool for modeling dynamic processes
+with wide applications in a variety of scientiďŹc ďŹelds. Over the last two decades, ODEs
+have also emerged as a prevailing tool in various biomedical research ďŹelds, especially
+in infectious disease modeling. In practice, it is important and necessary to determine
+unknown parameters in ODE models based on experimental data. IdentiďŹability analysis
+is the ďŹrst step in determining unknown parameters in ODE models and such analysis
+techniques for nonlinear ODE models are still under development. In this article, we
+review identiďŹability analysis methodologies for nonlinear ODE models developed in the
+past couple of decades, including structural identiďŹability analysis, practical identiďŹability
+analysis, and sensitivity-based identiďŹability analysis. Some advanced topics and ongoing
+research are also brieďŹy reviewed. Finally, some examples from modeling viral dynamics of
+HIV and inďŹuenza viruses are given to illustrate how to apply these identiďŹability analysis
+methods in practice.
+Key words. ODE modeling, structural identiďŹability, practical identiďŹability, sensitivity-based identiďŹability, viral dynamics
+AMS subject classifications. 34A30, 34A34, 34C20
+DOI. 10.1137/090757009
+
+1. Introduction. Ordinary diďŹerential equation (ODE) models have been widely
+used to model physical phenomena, engineering systems, economic behavior, and
+biomedical processes. In particular, ODE models have recently played a prominent
+role in describing both the within host dynamics and epidemics of infectious diseases
+and other complex biomedical processes (e.g., [2, 15, 59, 74, 75, 77]). Great attention
+â Received by the editors April 24, 2009; accepted for publication (in revised form) February 22,
+2010; published electronically February 8, 2011. This work was partially supported by NIAID/NIH
+research grants AI055290, AI50020, AI28433, AI078498, RR06555, the University of Rochester
+Provost Award, and the University of Rochester DCFAR (P30AI078498) Mentoring Award. The
+U.S. Government retains a nonexclusive, royalty-free license to publish or reproduce the published
+form of this contribution, or allow others to do so, for U.S. Government purposes. Copyright is
+owned by SIAM to the extent not limited by these rights.
+http://www.siam.org/journals/sirev/53-1/75700.html
+â  Department of Biostatistics and Computational Biology, University of Rochester School of
+Medicine and Dentistry, 601 Elmwood Avenue, Box 630, Rochester, NY 14642 (hongyu miao@urmc.
+rochester.edu, hwu@bst.rochester.edu).
+âĄ Department of Electrical, Electronic and Computer Engineering, University of Pretoria, Lynnwood Road, Pretoria 0002, South Africa (xxia@postino.up.ac.za).
+Â§ Theoretical Biology and Biophysics Group, MS-K710, Los Alamos National Laboratory, Los
+Alamos, NM 87545 (asp@lanl.gov).
+3
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+4
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+has been paid to the so-called forward problem or simulation problem, i.e., predicting
+and simulating the results of measurements or output variables for a given system with
+given parameters. However, less eďŹort has been devoted to the inverse problem, i.e.,
+using the measurements of some state or output variables to estimate the parameters
+that characterize the system, especially for nonlinear ODE models without closedform solutions.
+In reality, before rigorous parameter estimation methods can be applied to an
+ODE model to formally estimate the model parameters based on experimental data,
+a serious barrier to overcome is how to verify whether the model parameters are
+identiďŹable based on the measurements of output variables or their functions when
+the ODE model does not have a closed-form solution. If not all model parameters are
+identiďŹable, is a subset of parameters identiďŹable? How many measurements, at which
+time points, are necessary to identify the identiďŹable parameters? To answer these
+questions, identiďŹability analysis should be done before tackling the inverse problem.
+The literature on ODE identiďŹability analysis is found in journals from a variety of
+scientiďŹc ďŹelds such as mathematics, biomedical modeling, engineering, and statistics;
+in addition, various techniques and methodologies from these disciplines are employed
+in ODE identiďŹability studies. Therefore, it is useful to have a comprehensive review
+of these methods and approaches and their further applications, e.g., in experimental
+design [32, 70, 71, 95]. In this paper, we review identiďŹability methods with a focus
+on nonlinear ODE models for which closed-form solutions are not available. In section
+2, we review various deďŹnitions related to identiďŹability analysis. We review various
+techniques for structural identiďŹability analysis in section 3. In addition to theoretical (structural) identiďŹability, it is also important to evaluate practical identiďŹability
+when experimental data are contaminated with measurement noise. This will be reviewed in section 4. Sensitivity analysis (SA) is widely used in mathematical modeling
+to evaluate how sensitive output variables are to parameter values and input variables.
+Some SA techniques can also be used to evaluate parameter identiďŹability in ODE
+models, as will be reviewed in section 5. We illustrate identiďŹability techniques using
+examples from infectious disease modeling in section 6. We conclude this paper with
+some discussions and a summary in section 7.
+2. Definitions. A general dynamic system can be expressed as follows:
+(2.1)
+
+xĚ(t) = f (t, x(t), u(t), Î¸),
+
+(2.2)
+
+y(t) = h(x(t), u(t), Î¸),
+
+where x(t) â Rm is a vector of state variables (or dependent variables), y(t) â Rd
+the measurement or output vector, u(t) â Rp the known system input vector, and
+Î¸ â Rq the parameter vector. The system given by (2.1) is an ODE model. For the
+inverse problem, Î¸ is unknown and has to be estimated based on experimental data.
+There are three common scenarios for Î¸:
+(i) constant parameters only;
+(ii) time-varying parameters only;
+(iii) a mixture of both constant and time-varying parameters.
+Let Î¸ = (Î¸c , Î¸t ), where Î¸c denotes the constant unknown parameters and Î¸ t denotes
+the time-varying unknown parameters. Now (2.1) and (2.2) can be rewritten in the
+form
+(2.3)
+
+xĚ(t) = f (t, x(t), u(t), Î¸ c , Î¸t ),
+
+(2.4)
+
+y(t) = h(x(t), u(t), Î¸ c , Î¸t ).
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+5
+
+Before we introduce deďŹnitions of identiďŹability, we review three important and useful
+concepts developed in control theory: reachability, controllability, and observability
+[60, 111].
+Definition 2.1. Reachability: For a certain initial state x0 of interest, a state
+x1 is said to be reachable if there exists a trajectory x(t) starting from x0 which can
+achieve x1 in a ďŹnite time given an admissible system input u(t).
+Note that in the deďŹnition above, u(t) is called an admissible input (or admissible
+control) if it satisďŹes all system constraints at any time of interest and a solution of
+the dynamic system exists. The existence of such an admissible u(t) leads to the
+deďŹnition of controllability.
+Definition 2.2. Controllability: If there exists an admissible u(t) which can
+transfer an initial state of interest to a target state in a ďŹnite time, the dynamic
+system is said to be controllable.
+Controllability is an important property of a dynamic system since it indicates
+whether a system will respond to a certain input and behave as expected. One important application of this concept is stabilization of dynamic systems. In biomedical
+research, the dynamic system could be a virus, such as HIV, infecting a human and
+the system input could be antiretroviral therapy; how to control or stabilize the virus
+via intentionally designed intervention strategies is still an interesting and challenging
+research topic [1, 22, 55, 58, 81, 80, 126].
+To better understand dynamic system structure and behavior, it is also necessary
+to obtain measurements of the system output variables. However, we may not be
+able to directly measure the state variables; instead, we may be able to measure
+output variables which are functions of system input and state variables, as speciďŹed
+in (2.2) or (2.4). If it is possible to determine the system state from system output
+measurements, the system is observable according to the following deďŹnition.
+Definition 2.3. Observability: Given an initial state x0 and an admissible
+control u(t), if the current system state x(t) can be determined only through the
+system output y(t) in a ďŹnite time, the system is said to be observable.
+In the deďŹnition above, it is usually assumed that the system output y(t) can
+be measured without error. The three deďŹnitions introduced so far describe the relationships among four basic factors of a dynamic system: initial state, input, current
+state, and output. There are also other interesting concepts and deďŹnitions originating in control theory for connecting these four basic factors of dynamic systems (e.g.,
+[23, 38, 50, 111]).
+The concepts discussed above have been introduced for systems with known parameters. However, these concepts, especially controllability and observability, are
+also directly related to system (parameter) identiďŹability. A system which is controllable and observable has strong connections among input, state, and output variables,
+and such strong connections may indicate that the system is identiďŹable. The reader
+is referred to [4, 21, 20, 98, 99, 101, 110, 123] for further discussions.
+Definition 2.4. IdentiďŹability: The dynamic system given by (2.1) and (2.2) is
+identiďŹable if Î¸ can be uniquely determined from the given system input u(t) and the
+measurable system output y(t); otherwise, it is said to be unidentiďŹable.
+Limited system inputs may not result in system outputs with suďŹcient information for uniquely determining system parameters. Thus, it is also necessary to
+have informative input signals in order to identify system parameters. This idea was
+formalized by introducing the concept of a persistently exciting input [63, 65, 64].
+Simply speaking, an input is said to be persistently exciting if enough information on
+the output variables can be generated from the input to identify system parameters
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+6
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+in the sense that all estimates of system parameters converge to their true values in
+a ďŹnite time [47]. The assumption of persistently exciting inputs is a prerequisite for
+structural identiďŹability analysis [11], as will be discussed in the next section.
+Ljung and Glad [65] introduced two important concepts, global identiďŹability and
+local identiďŹability.
+Definition 2.5. Global identiďŹability: A system structure is said to be globally
+identiďŹable if for any admissible input u(t) and any two parameter vectors Î¸ 1 and Î¸ 2
+in the parameter space Î, y(u, Î¸1 ) = y(u, Î¸2 ) holds if and only if Î¸1 = Î¸2 .
+Definition 2.6. Local identiďŹability: A system structure is said to be locally
+identiďŹable if for any Î¸ within an open neighborhood of some point Î¸â in the parameter
+space, y(u, Î¸1 ) = y(u, Î¸2 ) holds if and only if Î¸1 = Î¸2 .
+Both deďŹnitions use the concept of one-to-one mapping between parameters and
+system input/output. With the development of various identiďŹability analysis techniques, more speciďŹc deďŹnitions of identiďŹability have been introduced by a number of
+authors [7, 11, 19, 54, 65, 112, 119]. For instance, Tunali and Tarn [104] introduced a
+deďŹnition of identiďŹability when an initial state is given, which was termed local strong
+identiďŹability. A similar concept was introduced in [54], called x0 -identiďŹability.
+Definition 2.7. Local strong identiďŹability (x0 -identiďŹability): For an admissible input u(t) in the time range of interest [t0 , t1 ] and a given initial state x0 = x(t0 ),
+which is independent of Î¸ and not an equilibrium point, if there exists an open set
+Î0 within the parameter space Î such that, for any two diďŹerent parameter vectors
+Î¸1 , Î¸2 â Î0 , the solutions x(t, Î¸, u) exist on [t0 , t0 + ] (t0 <  â¤ t1 â t0 ) for both Î¸ 1
+and Î¸2 , and y(t, Î¸1 , x0 , u(t)) = y(t, Î¸ 2 , x0 , u(t)) on [t0 , t0 + ], the system structure
+is said to be locally strongly identiďŹable (or x0 -identiďŹable).
+We notice that this deďŹnition is speciďŹc for diďŹerential equation systems, but it
+is stringent with respect to the initial state. More generally, Xia and Moog [119]
+introduced structural identiďŹability as follows.
+Definition 2.8. Structural identiďŹability: Let CuN [t0 , t1 ] denote the function
+space expanded by all input functions on [t0 , t1 ] which are diďŹerentiable up to the
+order N , and let M denote an open set of initial system states. The system structure
+is said to be structurally identiďŹable if there exist open and dense subsets M 0 â M ,
+Î0 â Î, and U 0 â CuN [t0 , t1 ] such that the system is locally strongly identiďŹable at Î¸
+given u for any x0 â M 0 , Î¸ â Î0 , and u â U 0 .
+This deďŹnition is also interchangeably called geometrical identiďŹability [104, 54].
+Besides these identiďŹability deďŹnitions based on one-to-one mappings between system
+parameters and system input-output, Glad [37] and Ljung and Glad [65] introduced a
+deďŹnition of identiďŹability based on the algebraic equations consisting of the system
+input and output, which was called algebraic identiďŹability. This deďŹnition is directly
+related to identiďŹability analysis techniques [29, 65, 118, 119].
+Definition 2.9. Algebraic identiďŹability: Based on algebraic equations of system
+state, input, and output, if a meromorphic function
+ÎŚ = ÎŚ(Î¸, u, uĚ, . . . , u(k) , y, yĚ, . . . , y (k) ),
+
+ÎŚ â Rq ,
+
+can be constructed after a ďŹnite number of steps of algebraic calculation or diďŹerentiation such that ÎŚ = 0 and det âÎŚ
+âÎ¸ = 0 hold in the time range of interest [t0 , t1 ]
+for any (Î¸, x0 , u) in an open and dense subset of Î Ă M Ă CuN [t0 , t1 ], where k is a
+positive integer, uĚ, . . . , u(k) the derivatives of u, and yĚ, . . . , y (k) the derivatives of y,
+the system structure is said to be algebraically identiďŹable.
+Similarly, algebraic identiďŹability with known initial conditions can be deďŹned as
+follows [119].
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+7
+
+Definition 2.10. Algebraic identiďŹability with known initial conditions: If a
++
++
+(k) +
+meromorphic function ÎŚ = ÎŚ(Î¸, x0 , u(t+
+(t0 ), y(t+
+0 ), uĚ(t0 ), . . . , u
+0 ), yĚ(t0 ), . . . ,
+(k) +
+q
+y (t0 )), ÎŚ â R , can be constructed from algebraic equations of system state, input, and output after a ďŹnite number of steps of algebraic calculation or diďŹerenti+
++
+(k) +
+ation such that ÎŚ = 0 and det âÎŚ
+(t0 ),
+âÎ¸ = 0 hold for all (Î¸, x0 , u(t0 ), uĚ(t0 ), . . . , u
++
++
++
+(k) +
+y(t0 ), yĚ(t0 ), . . . , y (t0 )), where k is a positive integer, (Î¸, x0 , u(t0 ), uĚ(t+
+),
+...,
+0
++
++
+(k) +
+u(k) (t+
+))
+is
+an
+open
+and
+dense
+subset
+of
+Î
+Ă
+M
+Ă
+U
+,
+and
+(u(t
+),
+uĚ(t
+),
+.
+.
+.
+,
+u
+(t
+0
+0
+0
+0 ))
++
++
+(k) +
+),
+yĚ(t
+),
+.
+.
+.
+,
+y
+(t
+))
+are
+the
+derivatives
+of
+u
+and
+y
+at
+time
+t
+,
+respecand (y(t+
+0
+0
+0
+0
+tively, the system structure is said to be algebraically identiďŹable with known initial
+conditions.
+A number of studies have considered system identiďŹability given initial conditions
+[27, 37, 65, 83, 104, 119] and reported that known initial conditions can help to
+identify more parameters. In particular, the work of Wu et al. [117] clariďŹed that
+giving initial conditions is equivalent to having more observations on system output
+such that parameter estimation reliability can be improved, especially for dynamic
+systems sensitive to initial conditions.
+3. Structural Identifiability Analysis. In this section, we will review structural
+identiďŹability methods in detail. We will also discuss the advantages and disadvantages of these methods in practical applications in order to help practitioners choose
+the appropriate approach for speciďŹc problems. Furthermore, we will discuss the
+minimum number of observations obtained via structural identiďŹability analysis to
+uniquely determine all identiďŹable parameters, keeping in mind that this number
+could be much higher for real problems due to the presence of measurement error or
+model uncertainty.
+The concept of structural identiďŹability was ďŹrst introduced by Bellman and
+AĚstroĚm [11]. As suggested by its name, the corresponding techniques verify system identiďŹability by exploring the system structure (that is, the model itself). Early
+structural identiďŹability analysis techniques were developed from control theories in
+the 1970s for linear models, especially compartmental models. For instance, Bellman
+and AĚstroĚm [11] proposed an analysis technique for linear ODE models based on
+Laplace transforms. Later, the method of power series expansion was proposed by
+Pohjanpalo [84], and the similarity transformation method was proposed by Walter
+and Lecourtier [114] for linear ODE models. These methods have been well summarized in [3] and [51]. In this paper, we focus on identiďŹability methods for nonlinear
+ODE models instead of linear models.
+Some of the approaches for linear ODE models such as the similarity transformation method have been extended by Vajda and Rabitz [107], Vajda, Godfrey, and
+Rabitz [106], and Chappel and Godfrey [16] to nonlinear ODE models. However,
+the extension works only for a limited number of simple nonlinear problems [7]. For
+general nonlinear models, new techniques are needed. A simple approach for this purpose, called the direct test, was proposed by Denis-Vidal and Joly-Blanchard [26] and
+Walter et al. [113]. The basic idea of this approach is to use directly the identiďŹability deďŹnition to verify parameter identiďŹability, either analytically [26] or numerically
+[113]. However, the analytical direct test is not suitable for high-dimensional problems
+and the numerical direct test also has some limitations due to the use of a cut-oďŹ value.
+Under the framework of diďŹerential algebra [91], new methods and algorithms
+have also been developed to target identiďŹability of general nonlinear models [14, 65,
+78]. The diďŹerential algebra approach can utilize the power of symbolic computations,
+which requires much less human intervention. Since the diďŹerential algebra method
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+8
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+was introduced to investigate the structural identiďŹability problem [65, 78] in the
+early 1990s, it has been successfully applied to nonlinear diďŹerential equation models,
+including models with time-varying parameters [7]. Ljung and Glad [65] summarized
+three conditions under which the system structure is globally identiďŹable, locally
+identiďŹable, or not identiďŹable, respectively; however, to verify the three conditions,
+rigorous mathematical theories need to be further developed.
+Xia and Moog [119] proposed another method based on the implicit function theorem. By taking derivatives of observable system outputs with respect to independent
+variables (e.g., time), all latent variables (unobservable system state variables) can
+be eliminated after algebraic calculations and a ďŹnite number of equations consisting
+of known system inputs, observable system outputs, and unknown parameters can
+be formed. Then a matrix (called the identiďŹcation matrix) consisting of the partial
+derivatives of these equations with respect to unknown parameters (and usually their
+derivatives with respect to independent variables) can be formed. If the identiďŹcation
+matrix is nonsingular, this system is identiďŹable. This method has the advantages of
+theoretical and practical simplicity and has been successfully applied to HIV dynamic
+models of up to six dimensions [70, 119]. However, it requires high-order derivatives;
+thus the matrix can easily become very complicated and the singularity of the matrix
+becomes diďŹcult to verify. Wu et al. [117] further extended this method by considering
+multiple time points instead of high-order derivatives to overcome the disadvantages
+of Xiaâs method. The methods based on the implicit function theorem can be applied alone to verify system identiďŹability and they can also be employed to verify the
+three conditions in the diďŹerential algebra approach. However, for dynamic models
+with time-varying parameters, the singularity of the identiďŹcation matrix is diďŹcult
+to evaluate and no reliable conclusion can be easily drawn. Therefore, in practice, the
+diďŹerential algebra approach and the implicit function theorem approach may have
+to be combined to solve a problem. In addition, if initial conditions are unknown, the
+correlation between unknown initial conditions and other model parameters cannot
+be veriďŹed by structural identiďŹability analysis unless such unknown initial conditions
+explicitly appear on the right-hand side of (2.1).
+Before moving onto the technical details, it is also helpful to mention here that
+structural identiďŹability analysis methods are not yet widely used in practice due to
+either the computational complexity or the lack of mature computer implementations.
+3.1. Power Series Expansion and Similarity Transformation. In [39] Grewal
+and Glover studied the identiďŹability problem for nonlinear ODE models by considering local linearization of nonlinear systems. However, âthe linearized system being
+identiďŹableâ is only a necessary condition for âthe nonlinear system being identiďŹableâ instead of a suďŹcient condition. Therefore, the local linear approximation
+cannot answer the question completely. Pohjanpalo [84] proposed another approach
+called power series expansion to better handle nonlinear problems.
+For the power series expansion method, the function f in (2.3) is assumed to
+be inďŹnitely diďŹerentiable with respect to time t, u, and x in the time range of
+interest [t0 , t1 ]; the same assumption is needed for x, y, and u with respect to time,
+and for h with respect to x. Such assumptions are necessary because the power series
+expansion may require derivatives of arbitrary order. The nonlinear system considered
+by Pohjanpalo [84] is of the following form:
+(3.1)
+
+xĚ = A(t, x, Î¸c )x + u,
+
+(3.2)
+
+y = C(Î¸ c )x,
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+9
+
+which is very restrictive. Consider the derivatives of system output y at time t0 ,
+ak (t0 ) = y (k) (t0 ),
+where k denotes the kth derivative of y. Therefore, the system input and output can
+be connected by their derivatives with respect to time at t0 :
+(3.3)
+(3.4)
+
+C
+
+ k
+
+i=1
+
+Cx(t0 ) = a0 (t0 ),
+
+
+(k â 1)!
+(kâi)
+(iâ1)
+(kâ1)
+A
+(t0 )x
+(t0 ) + u
+(t0 ) = ak (t0 ),
+(k â i)!(i â 1)!
+
+where k = 1, . . . , â. Since the derivatives of y are theoretically observable, they are
+considered to be known. Therefore, an inďŹnite number of equations can be obtained
+from (3.3) and (3.4) to solve for Î¸ c simultaneously. If the solution is unique, then the
+system structure is (locally) identiďŹable.
+In nature, the power series expansion method is an approach to verify the x0
+identiďŹability (or local strong identiďŹability). However, this method has a serious
+drawback: high-order derivatives are needed for a high-dimensional problem and the
+resulting equations can easily become too complicated to solve. This disadvantage
+has prevented this method from becoming popular in practice.
+Walter and Lecourtier [114] initially proposed the similarity transformation method
+for linear ODE models. The system concerned here is in the form
+(3.5)
+(3.6)
+
+xĚ = Ax + Bu,
+y = Cx,
+
+where A, B, and C are matrices of constant coeďŹcients. The basic idea of this method
+is to ďŹnd the similar matrix S = Pâ1 AP of A such that
+
+
+xĚ = Pâ1 AP x + Bu,
+(3.7)
+(3.8)
+y = Cx,
+where P is a nonsingular matrix. It is straightforward to show that if the only
+possible similarity transformation of A is P = I, the system is uniquely and globally
+identiďŹable; if a ďŹnite number of P = I can be found, the system is locally identiďŹable
+(or nonuniquely identiďŹable); otherwise, the system is unidentiďŹable.
+Vajda, Godfrey, and Rabitz [106] and Vajda and Rabitz [107] extended the work
+of Walter and Lecourtier [114] and proposed the similarity transformation method to
+tackle nonlinear ODE systems by making use of the local state isomorphism theorem
+[44, 50]. The nonlinear system considered in Vajda, Godfrey, and Rabitz [106] is of
+the following form:
+(3.9)
+
+xĚ = f (x(t, Î¸), Î¸) + u(t)g (x(t, Î¸), Î¸) ,
+
+(3.10)
+
+y = h(x(t, Î¸), Î¸).
+
+Note that although this system is a single-input system, the conclusion based on this
+system can be generalized to multiple-input systems. It is necessary to introduce the
+deďŹnition of structural equivalence before we further introduce the similarity transformation method.
+Definition 3.1. Structural equivalence: Given two systems of the family in (3.9)
+and (3.10), if there exist two parameters Î¸1 , Î¸ 2 â Î such that, for the same admissible
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+10
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+input u(t), the solution of the two systems exists for Î¸1 and Î¸ 2 , respectively, and the
+corresponding system outputs are the same, the system with parameter Î¸1 is said to
+be equivalent to the system with parameter Î¸2 , denoted by Î¸ 1 âź Î¸ 2 .
+Under the similarity transformation framework, the identiďŹability problem becomes a system equivalence problem: a system structure is identiďŹable if no equivalent
+systems exist for Î¸1 , Î¸2 â Î and Î¸1 = Î¸2 [106].
+Knowledge about Lie algebra is needed to better understand the similarity transformation method; however, Lie algebra itself is a very rich topic which will not be
+introduced in detail here. The interested reader is referred to [36]. Based on the work
+of Hermann and Krener [44], Vajda, Godfrey, and Rabitz [106] eventually proposed
+the similarity transformation approach to verify global identiďŹability, for which a set
+of partial diďŹerential equations (PDEs) needs to be formed and solved.
+In summary, before the similarity transformation method can be applied, it is
+required that the system be both controllable and observable. Furthermore, a set of
+PDEs needs to be generated and solved [106] to verify system identiďŹability. These
+two disadvantages make the similarity transformation method infeasible for general
+nonlinear systems in practice.
+3.2. Direct Test. Recalling the deďŹnition of global (or local) identiďŹability, the
+key is to verify whether the same system output will result in a unique set of parameter
+values. That is,
+y(u, Î¸1 ) = y(u, Î¸2 ) â Î¸1 = Î¸ 2
+should be satisďŹed either globally or locally if the model is identiďŹable. Based on
+this suďŹcient condition, Denis-Vidal and Joly-Blanchard [26] proposed to verify the
+identiďŹability of uncontrolled and autonomous systems by directly comparing the
+right-hand side function f in (2.1). Note that here f = f (x(t), Î¸) does not explicitly depend on t and u(t) for uncontrolled and autonomous systems. Therefore, the
+problem becomes whether
+f (x, Î¸1 ) = f (x, Î¸2 ) â Î¸1 = Î¸2
+can hold globally or locally. Denis-Vidal and Joly-Blanchard [26] used the following
+model for quantifying microbial growth [46] to illustrate the basic idea:
+(3.11)
+(3.12)
+(3.13)
+
+Âľm bl(t)x(t)
+â Kd x(t),
+Ks + bl(t)
+Ë = â Âľm l(t)x(t) ,
+l(t)
+Y (Ks + bl(t))
+x(0) = 0, l(0) = 1.
+xĚ(t) =
+
+Therefore, the right-hand-side function vector is
+
+
+Âľm blx
+Ks +bl â Kd x
+f (x, l, Î¸) =
+,
+Âľm lx
+â Y (K
+s +bl)
+and from f (x, l, Î¸1 ) = f (x, l, Î¸2 ) we have
+(3.14)
+(3.15)
+
+Âľm1 b1 lx
+Âľm2 b2 lx
+â Kd1 x =
+â Kd2 x,
+Ks1 + b1 l
+Ks2 + b2 l
+Âľm1 lx
+Âľm2 lx
+â
+=â
+.
+Y1 (Ks1 + b1 l)
+Y2 (Ks2 + b2 l)
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+11
+
+IDENTIFIABILITY OF ODE MODELS
+
+Solving the two equations above, we have
+Kd1 = Kd2 ,
+
+Âľm1 = Âľm2 ,
+
+b1
+Ks1
+Y2
+=
+=
+,
+b2
+Ks2
+Y1
+
+which indicates that parameters (Kd , Âľm ) are identiďŹable but the rest are not.
+Although the analytical direct test approach described above is conceptually simple, it usually requires advanced mathematical skills to obtain analytic solutions and
+hence is diďŹcult to apply in practice. If a certain number of state variables are not
+measured, such latent variables have to be eliminated ďŹrst (e.g., by taking higher-order
+derivatives) in order to use the analytical direct test approach. It may be necessary to
+employ computer algebra tools, instead of algebraic manipulations by hand, for complicated models, as suggested by Raksanyi et al. [87]. However, computer algebraic
+computation can easily become unfeasible for complicated nonlinear ODE models and
+Walter et al. [113] illustrated that the conclusions drawn from the analytical direct test
+approach can be misleading for certain types of models. Instead, Walter et al. [113]
+proposed the numerical direct test approach. For a model to be identiďŹable, Walter
+et al. [113] considered the following conditions which should be satisďŹed in practice:
+ â(Î¸ 1 , Î¸2 ) â Rq Ă Rq such that y(u, Î¸ 1 ) âĄ y(u, Î¸2 ) and
+
+Î¸1 â Î¸2
+
+â>
+
+Î´,
+
+where Î´ is a positive cut-oďŹ value chosen by the user. Techniques such as the algorithm
+SIVIA and forward-backward contractor for constraint satisfaction problems (CSPs)
+were employed to ďŹnd the inner and outer approximations of the solution set S, that is,
+S â S â SĚ.
+For details of the algorithms for solving CSPs (called interval arithmetic), see [53].
+Walter et al. [113] thought that if SĚ is empty, the model is identiďŹable; if S is not
+empty, then the model is not identiďŹable. However, the choice of the cut-oďŹ value
+Î´ is arbitrary, which seriously restricts the application of the numerical direct test
+method. In the parameter space of some models, there may exist a continuous and
+ďŹat hypersurface on which the objective function (a function to be minimized for an
+optimization problem which evaluates how good a solution is, e.g., the residual sum
+of squares) has the same minimum value, which suggests the unidentiďŹability of the
+model. Under such circumstances, the numerical direct test approach, however, may
+still misleadingly conclude that the model is identiďŹable. In addition, it is diďŹcult
+to verify which parameters are identiďŹable and which are not by using the numerical
+direct test method. Therefore, no useful information can be derived from S to help to
+improve mathematical models by reparameterizing unidentiďŹable parameters. Thus,
+the application of the direct test approach is very limited in practice.
+3.3. Differential Algebra. The methods discussed in the previous subsections
+are diďŹcult to apply to general nonlinear systems due to diďŹculties in developing
+suďŹcient or necessary conditions for system identiďŹability and solving the resulting
+equations corresponding to such conditions. Also, rigorous training and advanced
+mathematical skills are required to use these methods. Is it possible to leave such
+tedious algebraic calculations to a computer instead of a human? The idea has motivated the development of methods under the framework of diďŹerential algebra [91]
+and has yielded some promising results [7, 14, 65].
+Compared to other methods, the diďŹerential algebra approach has the following
+advantages: well-established theories, feasibility for general nonlinear dynamic systems, and availability of several computational algorithms (e.g., [14, 49, 57, 91]) and
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+12
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+software packages (e.g., diďŹalg in Maple by Hubert [49] and DAISY by Bellu et al.
+[12]). Theories and algorithms developed in abstract algebra and computer algebra
+are very helpful in understanding diďŹerential algebra. For details of abstract algebra
+and computer algebra, the interested reader is referred to [28] and [72]. For details of
+diďŹerential algebra, the interested reader is referred to [14, 57, 65, 78, 91]. Here we
+only review some important concepts, theories, and algorithms of diďŹerential algebra.
+The ďŹrst important concept is that of a diďŹerential polynomial . Here we give the
+deďŹnition for general dynamic systems.
+Definition 3.2. DiďŹerential polynomial: If an expression is constructed from
+variables t, x, u, and y, parameter Î¸ = (Î¸ c , Î¸t ), and constants using only the operations of addition, subtraction, multiplication, constant positive whole number exponents, and constant positive whole number derivatives, it is called a diďŹerential
+polynomial.
+For example,
+yĚ1 yĚ22 â 5xĚ1 x22 yĚ2 â 3Î¸1 y1 y2 u1 + Î¸2 y2 yĚ 2
+
+(3.16)
+
+is a valid diďŹerential polynomial. Note that for the problems considered in this paper,
+the derivatives in the deďŹnition above are with respect to time t only.
+Now the dynamic system in (2.1) and (2.2) can be rewritten as
+xĚ(t) â f (t, x(t), u(t), Î¸) = 0,
+y(t) â h(x(t), u(t), Î¸) = 0.
+
+(3.17)
+(3.18)
+
+If the left-hand sides of (3.17) and (3.18) are in the form of a diďŹerential polynomial
+after necessary algebraic computation or transformation, the structural identiďŹability
+of this system can be investigated in the diďŹerential algebra framework.
+Clearly, an inďŹnite number of diďŹerential polynomial equations can be formed
+by adding, scaling, multiplying, and diďŹerentiating both sides of (3.17) and (3.18).
+It can be easily proved that the solution to (3.17) and (3.18) is also the solution to
+all those generated equations. Therefore, the structure identiďŹability of (3.17) and
+(3.18) can be investigated from that inďŹnite number of generated equations. Let
+{v1 , v2 , . . . , vr } denote the diďŹerential polynomial ring with the diďŹerential indeterminates v1 , v2 , . . . , vr [91]. For the dynamic systems under consideration, vi â V ,
+i = 1, 2, . . . , r, can be any component of x, y, u, and Î¸, and {v1 , v2 , . . . , vr } is the
+set of the inďŹnite number of generated diďŹerential polynomials. As mentioned above,
+the derivative on the ring {v1 , v2 , . . . , vr } is with respect to time t only; such a ring
+is called an ordinary diďŹerential ring.
+Before we introduce more properties of {v1 , v2 , . . . , vr }, some deďŹnitions and
+concepts of diďŹerential indeterminates and polynomials need to be described. First,
+the order of a diďŹerential indeterminate is deďŹned as the order of the derivative of that
+indeterminate and the degree of a diďŹerential indeterminate is deďŹned as the exponent
+of that indeterminate. For example, in the ďŹrst term yĚ1 yĚ22 in (3.16), the order of y2 is
+one and the degree of yĚ2 is two. To compare multiple diďŹerential polynomials, ranking
+needs to be deďŹned [65, 91].
+Definition 3.3. Ranking: A total ordering of all the indeterminates and their
+derivatives is called a ranking if
+v âş vĚ
+
+(âv â V ),
+
+v1 âş v2 ââ vĚ1 âş vĚ2
+
+(âv1 , v2 â V ),
+
+where âş means âranks lower than.â
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+13
+
+Note that for the same indeterminate v â V , the item with a higher degree ranks
+higher, e.g., v âş v 2 . The following are two examples of ranking:
+(3.19)
+
+u âş uĚ âş Âˇ Âˇ Âˇ âş y âş yĚ âş Âˇ Âˇ Âˇ âş Î¸ âş Î¸Ě âş Âˇ Âˇ Âˇ âş x âş xĚ âş Âˇ Âˇ Âˇ ,
+
+(3.20)
+
+u âş y âş Î¸ âş x âş uĚ âş yĚ âş Î¸Ě âş xĚ âş Âˇ Âˇ Âˇ .
+
+For a given ranking over a diďŹerential polynomial ring {v1 , v2 , . . . , vr }, the highest
+ranking derivative in a diďŹerential polynomial P â {v1 , v2 , . . . , vr } is called the leader
+of P . Therefore, to rank two diďŹerential polynomials P1 and P2 , the leaders of P1 and
+P2 are compared ďŹrst, then the second highest ranked derivatives are compared if the
+leaders of P1 and P2 rank the same, and so on. To generalize this ranking concept
+to diďŹerential polynomials, the concepts of partially reduced and reduced were also
+introduced [65, 91].
+Definition 3.4. Partially reduced: For two diďŹerential polynomials P1 , P2 â ,
+letting vP1 denote the leader of P1 , P2 is said to be partially reduced with respect to
+P1 if there exists no proper derivative of vP1 in P2 .
+Definition 3.5. Reduced: For two diďŹerential polynomials P1 , P2 â , letting
+vP1 denote the leader of P1 , P2 is said to be reduced with respect to P1 if P2 is partially
+reduced with respect to P1 and the degree of vP1 in P2 is less than the degree of vP1 in
+P1 .
+With the deďŹnitions above, an autoreduced set can be introduced as follows.
+Definition 3.6. Autoreduced set: A diďŹerential polynomial set is said to be an
+autoreduced set if any two diďŹerential polynomials in this set are reduced with respect
+to each other.
+Autoreduced sets can also be ranked [65]. For two autoreduced sets A = {A1 , A2 ,
+. . . , Ar } and B = {B1 , B2 , . . . , Bs }, A ranks lower than B if there exists an integer
+k, 1 â¤ k â¤ min(r, s), such that rank Ai = rank Bi (i = 1, 2, . . . , k â 1) and Ak âş Bk .
+Consider (3.17) and (3.18) again; since an inďŹnite number of diďŹerential polynomials
+can be generated with admissible operations, an inďŹnite number of autoreduced sets
+can also be generated. Among these autoreduced sets, the set ranking the lowest is
+the most important and is called the characteristic set .
+Definition 3.7. Characteristic set: Among all the autoreduced sets formed from
+a ďŹnite number of diďŹerential polynomials, the set ranking the lowest is called a characteristic set.
+We now explain the relationship between the characteristic set and structure identiďŹability. The identiďŹability problem is to verify whether Î¸ can be uniquely determined from diďŹerential polynomials with indeterminates u, y, and Î¸ only. Obviously,
+there exists an inďŹnite number of sets of diďŹerential polynomials that can be employed
+to perform the identiďŹability analysis. However, the characteristic set has been proved
+to be the âbestâ set among all such sets [91], where the word âbestâ means the lowest
+rank. In summary, the characteristic set has the following properties:
+(i) DiďŹerential polynomials in the characteristic set satisfy (3.17) and (3.18).
+(ii) DiďŹerential polynomials in the characteristic set are in the simplest form
+possible.
+(iii) DiďŹerential polynomials in the characteristic set have the exact information
+as in (3.17) and (3.18) to verify system identiďŹability.
+A number of algorithms have been developed to ďŹnd the characteristic set, e.g.,
+the Ritt algorithm [91], the RittâKolchin algorithm [57], and the improved Rittâ
+Kolchin algorithm [14]. The implementation of such algorithms can be found in the
+diďŹgrob2 package [67] or the diďŹalg package [49]. The basic idea of these algorithms
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+14
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+is to eliminate the higher ranking variables such as x so that diďŹerential polynomials
+with indeterminates u, y, and Î¸ can be obtained via symbolic computations. The key
+operation in the elimination process is called pseudodivision. Before we discuss the
+details of pseudodivision, more deďŹnitions and notations need to be introduced. First,
+we call the coeďŹcient of the highest power of the leader the initial . In addition, for
+a diďŹerential polynomial P and its leader vP , we call the initial of PĚ the separant of
+P , denoted by SP . For example, using the ranking (3.19) combined with x1 âş xĚ1 âş
+Âˇ Âˇ Âˇ âş x2 âş xĚ2 âş Âˇ Âˇ Âˇ , the initial of (3.16) is (â5xĚ1 yĚ2 ) and the separant is (â10xĚ1 x2 yĚ2 ).
+Considering two diďŹerential polynomials P1 and P2 , assume that the leader of P2
+(k)
+is vP2 and there exists a proper derivative of vP2 , e.g., vP2 for k âĽ 1 in P1 ; then P1
+can be partially reduced by P2 as follows [49]. First, take derivatives of P2 up to the
+kth order,
+PĚ2 = SP2 vĚP2 + R1 ,
+PĚ2 = SP2 vĚP2 + R2 ,
+(k)
+P2
+
+ÂˇÂˇÂˇ
+(k)
+= SP2 vP2 + Rk ,
+
+where SP2 is the separant of P2 and Ri (i = 1, . . . , k) the rest of the terms. Second,
+(k)
+(k)
+from the last equation above, vP2 can be expressed in terms of P2 , SP2 , and Rk ,
+(k)
+
+(k)
+
+none of which contains vP2 . Finally, substitute the expression of vP2 into P1 and
+then P1 can be rewritten as
+(k)
+
+SPr 2 P1 = QP2
+
++ PĚ ,
+
+where r is an integer and Q and PĚ are diďŹerential polynomials. Furthermore, Q can be
+(k)
+called a pseudoquotient , and PĚ contains no proper derivatives of vP2 and can be called
+a pseudoremainder . The procedure described above is called pseudodivision. In this
+way, a set of diďŹerential polynomials can be reduced to generate an autoreduced set
+and, eventually, the characteristic set. More details of these computational algorithms
+can be found in [14, 49, 57]. However, we notice that the algorithms to ďŹnd the
+characteristic set are still under development and the existing software packages do
+not always work well.
+Ljung and Glad [65] concluded that each diďŹerential polynomial in the characteristic set can be in one of the following three forms if the ranking (3.19) is employed:
+A1 (u, y), . . . , Am (u, y),
+B1 (u, y, Î¸1 ), B2 (u, y, Î¸1 , Î¸2 ), . . . , Bn (u, y, Î¸1 , . . . , Î¸q ),
+C1 (u, y, Î¸, x), . . . , Cl (u, y, Î¸, x),
+where A, B, and C are diďŹerential polynomials and the subindices m, n, and l denote
+the number of diďŹerential polynomials. Ljung and Glad [65] proved the following
+theorem about {B1 , B2 , . . . , Bn } to verify structural identiďŹability.
+Theorem 3.8. Assume that no separant or initial of {B1 , B2 , . . . , Bn } is zero.
+(i) If, for some Bi , 1 â¤ i â¤ n, in the characteristic set, one has Bi = Î¸Ěi , then
+the model structure is not identiďŹable.
+(ii) If all Bi , 1 â¤ i â¤ n, in the characteristic set are of order zero and degree
+one in Î¸i , and there exists nondegenerate solution (y, u, Î¸ â , x) for some Î¸â , the model
+structure is globally identiďŹable at Î¸â .
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+15
+
+(iii) If all Bi , 1 â¤ i â¤ n, in the characteristic set are of order zero in Î¸i , some Bj
+is of degree greater than one in Î¸j , and there exists nondegenerate solution (y, u, Î¸â , x)
+for some Î¸â , the model structure is locally identiďŹable at Î¸â .
+Although the results in Ljung and Glad [65] are for time-invariant parameters,
+they can be easily extended to time-varying parameter cases by treating Î¸ t as state
+variables or system inputs [7].
+3.4. Implicit Function Theorem. Another approach based on the implicit function theorem was proposed by Xia and Moog [119]. For a general introduction to the
+implicit function theorem, the reader is referred to [73]. The theorem for identiďŹability
+analysis based on the implicit function theorem is given as follows [119].
+Theorem 3.9. Let ÎŚ : Rd+p+q â Rq denote a function of model parameter
+Î¸ â Rq , system input u â Rn , system output y â Rd , and their derivatives, that is,
+ÎŚ = ÎŚ(Î¸, u, uĚ, . . . , u(k) , y, yĚ, . . . , y (k) ),
+where k is a nonnegative integer. Assume that ÎŚ has continuous partial derivatives
+with respect to Î¸. The system structure is said to be locally identiďŹable at Î¸ â if there
+(k)
+(k)
+exists a point (Î¸â , uâ , uĚâ , . . . , uâ , y â , yĚ â , . . . , y â ) â Rd+p+q such that
+
+
+ âÎŚ 
+(k)
+(k)
+ = 0.
+ÎŚ(Î¸ â , uâ , uĚâ , . . . , uâ , y â , yĚ â , . . . , y â ) = 0 and 
+âÎ¸â 
+We can easily prove this theorem by considering the Taylor expansion of ÎŚ at Î¸ â ,
+ÎŚ â ÎŚ(Î¸ â ) + (Î¸ â Î¸â )
+
+âÎŚ
+;
+âÎ¸â
+
+ âÎŚ 
+ âÎŚ â1
+ = 0), a unique solution of Î¸ exists and
+exists (i.e.,  âÎ¸
+since ÎŚ(Î¸â ) = 0 and âÎ¸
+â
+â
+the system is locally identiďŹable at Î¸â .
+Carefully examining this theorem, we ďŹnd that it is the same as the algebraic identiďŹability deďŹnition (DeďŹnition 2.9). The implicit function theorem method can be
+employed alone to verify system identiďŹability, and it can also be used as a supplement
+to the diďŹerential algebra method. Theorem 3.8 suggests verifying system identiďŹability by examining speciďŹc forms of diďŹerential polynomials B = {B1 , B2 , . . . , B n } in the
+
+characteristic set. However, a more rigorous approach is to verify whether  âÎŚ
+âÎ¸ = 0,
+as suggested by the implicit function theorem method, where ÎŚ is generated from
+B = {B1 , B2 , . . . , Bn }.
+Xia and Moog [119] and JeďŹrey and Xia [54] proposed a method to generate
+the function ÎŚ by taking higher-order derivatives of system output y to eliminate all
+latent (unobservable) state variables. For example, consider the following HIV model
+[80]:
+(3.21)
+(3.22)
+(3.23)
+
+dT
+= Îť â ĎT â Î˛T V, T (0) = T0 ,
+dt
+â
+dT
+= Î˛T V â Î´T â , T â (0) = T0â ,
+dt
+dV
+= N Î´T â â cV, V (0) = V0 ,
+dt
+
+where T is the number of uninfected T cells susceptible to infection (target cells), T â
+the number of infected T cells, and V the viral load. Using the method of Xia and
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+16
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+Moog [119], we can take the third-order derivative of V to obtain
+
+(3.24)
+
+V
+
+(3)
+
+=
+
+VĚ
+â Ď â Î˛V
+V
+
+
+[VĚ + (Î´ + c)VĚ + Î´cV ] + N ÎťÎ´Î˛V â Î´cVĚ â (Î´ + c)VĚ .
+
+Therefore, we can deďŹne
+
+
+VĚ
+â Ď â Î˛V
+V
+
+f=
+(3.25)
+(3.26)
+
+
+[VĚ + (Î´ + c)VĚ + Î´cV ]
+
++ N ÎťÎ´Î˛V â Î´cVĚ â (Î´ + c)VĚ â V (3) ,
+ÎŚ=
+
+f
+
+f (1)
+
+f (2)
+
+f (3)
+
+f (4)
+
+T
+
+,
+
+such that ÎŚ = 0 is automatically satisďŹed. If âÎŚ
+âÎ¸ = 0, then Î¸ = (Î˛, Ď, Î˝, Âľ, Îˇ) can be
+identiďŹed according to the implicit function theorem, where Î˝ = Î´c, Âľ = Î´ + c, and
+Îˇ = N ÎťÎ˛Î´. That is, if
+ďŁŽ
+
+(3.27)
+
+ďŁŻ
+ďŁŻ
+ďŁŻ
+ďŁŻ
+âÎŚ
+Rank
+= Rank ďŁŻ
+ďŁŻ
+âÎ¸
+ďŁŻ
+ďŁŻ
+ďŁ°
+
+âf
+âÎ˛
+âf (1)
+âÎ˛
+âf (2)
+âÎ˛
+âf (3)
+âÎ˛
+âf (4)
+âÎ˛
+
+âf
+âĎ
+âf (1)
+âĎ
+âf (2)
+âĎ
+âf (3)
+âĎ
+âf (4)
+âĎ
+
+âf
+âÎˇ
+âf (1)
+âÎˇ
+âf (2)
+âÎˇ
+âf (3)
+âÎˇ
+âf (4)
+âÎˇ
+
+âf
+âÂľ
+âf (1)
+âÂľ
+âf (2)
+âÂľ
+âf (3)
+âÂľ
+âf (4)
+âÂľ
+
+âf
+âÎ˝
+âf (1)
+âÎ˝
+âf (2)
+âÎ˝
+âf (3)
+âÎ˝
+âf (4)
+âÎ˝
+
+ďŁš
+ďŁş
+ďŁş
+ďŁş
+ďŁş
+ďŁş = 5,
+ďŁş
+ďŁş
+ďŁş
+ďŁť
+
+we can identify the ďŹve parameters (Î˛, Ď, Î˝, Âľ, Îˇ) in the model; furthermore, in the
+original model, N and Îť cannot be identiďŹed separately. The identiďŹcation function ÎŚ
+involves the seventh-order derivative of V , which requires at least eight measurements
+of V to evaluate. Such information, a by-product of identiďŹability analysis, is useful
+to design new experiments.
+Note that with a high-dimensional parameter space, as in the example we are
+considering here, the matrix âÎŚ
+âÎ¸ can become very complicated to derive and its rank
+diďŹcult to evaluate. For example, one element in the matrix (3.27) is
+âf (4)
+= V (â5) [Î˛V (5) V 6 + 10Î˛ VĚ V (3) V 5 + 5Î˛ VĚ V (4) V 5 + ĎV (5) V 5 + V (6) V 5
+âÂľ
+â 6(V (3) )2 V 4 â 8VĚ V (4) V 4 â 2VĚ V (5) V 4 + 12VĚ 3 V 3 + 44VĚ VĚ V (3) V 3
++ 9VĚ 2 V (4) V 3 â 78VĚ 2 VĚ 2 V 2 â 32VĚ 3 V (3) V 2 + 84VĚ 4 VĚ V â 24VĚ 6 ].
+Thus, it is not easy to evaluate the rank of the above matrix. To avoid such complexity in evaluation of the high-order derivatives, an alternative method for formulating the identiďŹcation functions ÎŚ(Âˇ) was proposed by Wu et al. [117]. Suppose
+we have the quantities (V, VĚ , VĚ , V (3) ) at ďŹve distinct time points t1 , . . . , t5 . De(3)
+note the values of (V, VĚ , VĚ , V (3) ) at t = ti as (Vi , VĚi , VĚi , Vi ) for i = 1, . . . , 5. Let
+(3)
+(3)
+f1 = f (t1 , Î¸â , V1 , VĚ1 , VĚ1 , V1 ), . . . , f5 = f (t5 , Î¸â , V5 , VĚ5 , VĚ5 , V5 ), where f is speciďŹed
+in (3.25). Then we have
+(3.28)
+
+ÎŚâ = [f1 , f2 , f3 , f4 , f5 ]T = 0.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+17
+
+IDENTIFIABILITY OF ODE MODELS
+
+If
+
+(3.29)
+
+
+
+
+
+ â  
+ âÎŚ  
+
+
+ âÎ¸  = 
+
+
+
+
+
+âf1
+âÎ˛
+âf2
+âÎ˛
+âf3
+âÎ˛
+âf4
+âÎ˛
+âf5
+âÎ˛
+
+âf1
+âĎ
+âf2
+âĎ
+âf3
+âĎ
+âf4
+âĎ
+âf5
+âĎ
+
+âf1
+âÎˇ
+âf2
+âÎˇ
+âf3
+âÎˇ
+âf4
+âÎˇ
+âf5
+âÎˇ
+
+âf1
+âÂľ
+âf2
+âÂľ
+âf3
+âÂľ
+âf4
+âÂľ
+âf5
+âÂľ
+
+âf1
+âÎ˝
+âf2
+âÎ˝
+âf3
+âÎ˝
+âf4
+âÎ˝
+âf5
+âÎ˝
+
+
+
+
+
+
+
+
+ = 0,
+
+
+
+
+
+
+by the implicit function theorem, there exists a unique solution of Î¸. Assuming that
+â
+Î˛ = 0, some algebra shows that the rank of ( âÎŚ
+âÎ¸ ) is equal to the rank of
+ďŁš
+ďŁŽ
+V1 (VĚ1 + ÂľVĚ1 ) VĚ1 + ÂľVĚ1 V1 V12 VĚ1 (V1â1 VĚ1 â Ď â Î˛V1 ) â VĚ1
+ďŁş
+ďŁŻ
+â1
+ďŁŻ V2 (VĚ2 + ÂľVĚ2 ) VĚ2 + ÂľVĚ2 V2 V22 VĚ2 (V2 VĚ2 â Ď â Î˛V2 ) â VĚ2 ďŁş
+ďŁş
+ďŁŻ
+â1
+2
+ďŁş
+(3.30) ÎŁ = ďŁŻ
+ďŁŻ V3 (VĚ3 + ÂľVĚ3 ) VĚ3 + ÂľVĚ3 V3 V3 VĚ3 (V3 VĚ3 â Ď â Î˛V3 ) â VĚ3 ďŁş .
+ďŁş
+ďŁŻ
+â1
+ďŁ° V4 (VĚ4 + ÂľVĚ4 ) VĚ4 + ÂľVĚ4 V4 V42 VĚ4 (V4 VĚ4 â Ď â Î˛V4 ) â VĚ4 ďŁť
+V5 (VĚ5 + ÂľVĚ5 )
+
+VĚ5 + ÂľVĚ5
+
+V5
+
+V52
+
+VĚ5 (V5â1 VĚ5 â Ď â Î˛V5 ) â VĚ5
+
+â
+
+As long as det(ÎŁ) = 0, we have det( âÎŚ
+âÎ¸ ) = 0. Note that in (3.30), the matrix ÎŁ
+also involves unknown parameters (Âľ, Ď, Î˛); thus, to numerically determine ÎŁâs rank,
+nominal values of these parameters (i.e., obtained from literature) are needed.
+Note that although V (3) is not involved in the matrix ÎŁ, V (3) should exist at any
+time point. For evaluating V (3) at one time point, at least four measurements of V are
+needed. In order to form the ďŹve identiďŹcation equations, at least eight measurements
+of V are necessary. This conclusion is consistent with that of the method proposed by
+Xia and Moog [119]. Note that this model is more likely to be locally identiďŹable than
+globally identiďŹable, since ÎŁ also contains unknown parameters. Compared to the
+method of Xia and Moog [119], the method of Wu et al. [117] is less computationally
+intensive and easier to implement, since only the lower-order derivatives (the thirdor lower-order derivatives in our case) of V need to be evaluated.
+In this section, as a by-product of structural identiďŹability analysis, we illustrate
+how to calculate the minimum number of observation points for parameter identiďŹability, which is an important issue in experimental design. Thorough and in-depth
+discussions of experimental design for dynamic systems are beyond the scope of this
+document, so we only brieďŹy discuss the inďŹuence of the observation timing on identiďŹability here. Sontag [100] reported a very general and simple conclusion: for any
+ODE model with q unknown constant parameters, 2q + 1 experimental observations
+are suďŹcient for identiďŹcation of the q parameters if measurements are absolutely
+accurate. Sontag [100] explained that the number 2q + 1 is frequently met in geometry and dynamical system theory and it is both the embedding dimension in
+Whitneyâs theorem [115, 116] for abstract manifolds and the embedding dimension of
+q-dimensional attractors [102]. However, an intuitive explanation for the number 2q
+is that each parameter in the right-hand side of an ODE model is used to quantify
+the change of the state variables (like a slope) and at least two data points are needed
+to determine a slope. As to the inďŹuence of the observation times on identiďŹability,
+the work of Sontag [100] indicated that increasing the number of data points will not
+help to identify more parameters of a dynamic model once the model enters its steady
+state and produces only ďŹat responses all the time. In principle, data points collected
+to capture violent nonlinear behavior of the dynamic system will be more informative
+for determining parameter values, as suggested in [103].
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+18
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+4. Practical Identifiability Analysis. Before we introduce various techniques of
+practical identiďŹability analysis, note that structural identiďŹability analysis provides
+a theoretical ground for practical identiďŹability analysis. If the structural analysis
+suggests that a model is not theoretically identiďŹable, the practical analysis is not necessary since theoretical unidentiďŹability must imply practical unidentiďŹability. Thus,
+only theoretically identiďŹable models need further practical identiďŹability analysis.
+Structural identiďŹability analysis can be done without any actual experimental observation, so it is also called prior identiďŹability analysis. There are two basic assumptions upon which structural identiďŹability analysis heavily relies: model structures are
+absolutely accurate and measurements are exact (no measurement errors). However,
+these two assumptions are clearly not valid in practice. For instance, in biomedical
+research, both model uncertainty and measurement error are usually large. Therefore,
+even when structural identiďŹability analysis suggests that model parameters can be
+uniquely identiďŹed, the estimates of model parameters may still be unreliable. Thus,
+it is necessary to evaluate whether structurally identiďŹable parameters can be reliably
+estimated with acceptable accuracy from noisy data. This is so-called practical identiďŹability analysis or posterior identiďŹability analysis. It is strongly recommended
+to perform both structural and practical identiďŹability analyses in practice to ensure
+the reliability of parameter estimation. For the rest of this section, we assume our
+measurement or output model to have measurement errors as follows:
+(4.1)
+
+y(t) = h(x(t), u(t), Î¸) + Îľ(t),
+
+where Îľ(t) is measurement error with mean 0 and variance Ď 2 (t).
+4.1. Monte Carlo Simulation. The history of Monte Carlo simulations can be
+traced back to the work of Metropolis and Ulam [69]. As implied by its name, this
+method is a sampling technique using random numbers and probability distributions.
+More speciďŹcally, the Monte Carlo simulation method deďŹnes possible inputs ďŹrst
+(e.g., measurement noise level), then randomly generates inputs according to certain
+probability distributions (e.g., normal distribution with zero mean), then uses the
+inputs to do certain calculations (e.g., add random errors to data and ďŹt the model to
+the simulated noisy data), and ďŹnally aggregates individual computation results (e.g.,
+the average error in parameter estimates). It is not only useful for practical identiďŹability analysis but also helpful for experimental design. Monte Carlo simulation is
+very popular and is widely used to assess the performance of statistical estimation
+methods in the statistical literature.
+Once parameters or a subset of parameters of a model are determined to be
+theoretically (structurally) identiďŹable, one can use Monte Carlo simulations to evaluate whether the theoretically identiďŹable parameters can be reliably estimated with
+acceptable accuracy from noisy data. Obviously, in order to evaluate the practical
+(statistical) identiďŹability, statistical estimation methods, such as the least squares
+approach, need to be readily available. However, statistical parameter estimation
+for nonlinear ODE models is beyond the scope of this review paper and will not be
+reviewed here.
+Monte Carlo simulations allow us to simulate various scenarios with diďŹerent
+numbers of observations at diďŹerent levels of noise or measurement error for diďŹerent
+experimental designs, although such designs may not be feasible for practical experiments. The simulated data can be used to evaluate whether model parameters or a
+subset of parameters can be reliably estimated under diďŹerent conditions. In general,
+a Monte Carlo simulation procedure can be outlined as follows:
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+19
+
+(i) Determine the nominal parameter values Î¸0 for simulation studies, which
+can be obtained by ďŹtting the model to experimental data if available. Otherwise,
+they can be obtained from the literature or other resources.
+(ii) Use the nominal parameter values to numerically solve the ODE model to
+get the solution of the output or measurement variables at the experimental design
+time points.
+(iii) Generate N sets (e.g., 1000) of simulated data from the output or measurement model (4.1) with a given measurement error level.
+(iv) Fit the ODE model to each of the N simulated data sets to obtain parameter
+estimate Î¸Ěi , i = 1, 2, . . . , N .
+(v) Calculate the average relative estimation error (ARE) for each element of Î¸
+as
+
+
+N Î¸ (k) â Î¸Ě (k) 
+
+0
+i
+1
+
+
+(4.2)
+ARE = 100% Ă
+,
+ (k) 
+N i=1
+Î¸0 
+(k)
+
+(k)
+
+where Î¸0 is the kth element of Î¸0 and Î¸Ěi is the kth element of Î¸Ěi .
+The ARE can be used to assess whether or not each of the parameter estimates is
+acceptable. For a very small measurement error, the parameter estimates should be
+close to the true values and the ARE should be close to 0. When the measurement
+error increases, the ARE of the parameter estimates will also increase. However, the
+ARE for some of the parameter estimates may increase signiďŹcantly and some others
+may just increase a little. However, for a reasonable or practical level of measurement
+error, if the ARE of a parameter estimate is unacceptably high, we claim that this
+parameter is not practically or statistically identiďŹable. In practical applications,
+some parameters may not be sensitive to measurement errors and can always be well
+estimated, some other parameters may be quite sensitive to measurement errors and
+their AREs are large even for a small measurement error, and, at the same time, some
+parameters may lie in the middle ground [70]. In addition, there is no clear cut rule
+on how high the AREs need to be before they are claimed to be âunacceptableâ for
+a particular problem. Thus, practical identiďŹability relies on the underlying problem
+and judgment of the investigators. Also, notice that various statistical estimation
+approaches can be employed to obtain the parameter estimates, and the ARE may
+depend on the estimation methods.
+Monte Carlo simulations can also be used to design better practical experiments.
+DiďŹerent designs for diďŹerent sample sizes under diďŹerent conditions can be evaluated
+using the AREs. The best design and the necessary sample size can be determined
+based on the Monte Carlo simulation results. We will illustrate the application of this
+method in section 6.1.
+4.2. Correlation Matrix. Although the Monte Carlo simulation approach is easy
+to understand and simple to implement, the associated computational cost is high
+since a large number of model ďŹts to data need to be performed. Rodriguez-Fernandez
+et al. [92, 93] proposed an alternative approach for practical identiďŹability analysis
+of ODE models by examining the correlations between model parameters. This requires much less computation and is relatively simple if measurement errors follow an
+identical and independent distribution (i.i.d.).
+The idea behind this approach is straightforward. Assume that the parameter
+estimate Î¸Ě = [Î¸Ě1 , Î¸Ě2 , . . . , Î¸Ěq ]T has been obtained after ďŹtting a model to experimental
+data. The correlation matrix of the parameter estimates can then be calculated based
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+20
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+on the Fisher information matrix (FIM) [33, 109] in the following form:
+ďŁš
+ďŁŽ
+r11 (Î¸Ě1 , Î¸Ě1 ) r12 (Î¸Ě1 , Î¸Ě2 ) Âˇ Âˇ Âˇ r1q (Î¸Ě1 , Î¸Ěq )
+ďŁŻ r (Î¸Ě , Î¸Ě ) r (Î¸Ě , Î¸Ě ) Âˇ Âˇ Âˇ r (Î¸Ě , Î¸Ě ) ďŁş
+22 2 2
+1q 2 q ďŁş
+ďŁŻ 21 2 1
+(4.3)
+R=ďŁŻ
+ďŁş,
+..
+ďŁť
+ďŁ°
+.
+rq1 (Î¸Ěq , Î¸Ě1 )
+
+rq2 (Î¸Ěq , Î¸Ě2 )
+
+ÂˇÂˇÂˇ
+
+rqq (Î¸Ěq , Î¸Ěq )
+
+where rij (i, j = 1, 2, . . . , q and â1 â¤ rij â¤ 1) is the correlation coeďŹcient between
+parameter estimates Î¸Ěi and Î¸Ěj . If there exists a strong positive correlation between
+parameter estimates Î¸Ěi and Î¸Ěj , that is, the correlation coeďŹcient rij is close to 1,
+parameters Î¸i and Î¸j are said to be practically indistinguishable. A strong correlation
+between two parameters indicates that one parameter depends strongly on the other
+parameter and these two parameters cannot be separately estimated.
+A derivation of the expression for the correlation matrix was provided by Rodriguez-Fernandez, Egea, and Banga [92]. For simplicity, the measurement errors were
+assumed to be uncorrelated and follow an identical normal distribution with mean
+zero, that is, N (0, Ď 2 ). In this case, for a general dynamic system (2.1) and (2.2), the
+FIM can be given as
+
+T
+
+N 
+
+â yĚ i
+â yĚ i
+â1
+(4.4)
+F IM =
+V
+,
+â Î¸Ě
+â Î¸Ě
+i=1
+where the subscript i denotes the ith time point of experimental observation, N the
+total number of observations, yĚ i the model approximation of observation, Î¸Ě the model
+parameter estimate, and V a known positive deďŹnite matrix of weights on variances.
+It can be proved that the covariance matrix C is equal to the inverse of the FIM
+according to the CrameĚrâRao theorem [89], that is,
+(4.5)
+
+C = F IM â1 .
+
+Finally, the element rij of the correlation matrix can be deďŹned as
+Cij
+rij = 
+(4.6)
+, i = j,
+Cii Cjj
+(4.7)
+
+rij = 1,
+
+i = j.
+
+Guedj, ThieĚbaut, and Commenges [40] tackled the practical identiďŹability problem of HIV dynamic models. They developed their approach under the framework of
+maximum likelihood estimation instead of least squares estimation, but their results
+are still based on the FIM and the idea is similar to that in [92].
+A limitation of the correlation matrix approach is that it requires not only the
+parameters but also their correlation matrix to be reliably estimated. This may be a
+problem for a model with most parameters unidentiďŹable since the correlation matrix
+estimate may depend strongly on the parameter estimates. If any two parameters
+are not distinguishable, the parameter estimates and their correlation matrix estimate may be poor. In addition, the correlation matrix approach allows one only to
+check whether or not any pair of parameters is distinguishable; to evaluate correlations between more than two parameters, the sensitivity-based identiďŹability analysis
+techniques (e.g., eigendecomposition of the sensitivity matrix) should be considered,
+as described in the next section.
+5. Sensitivity-Based Identifiability Analysis. Sensitivity analysis (SA) itself is a
+rich topic. The interested reader is referred to the comprehensive survey by Saltelli,
+Chan, and Scott [94] and Cacuci [13]. SA is often used to assess the variation of
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+21
+
+system output induced by diďŹerent input factors including model parameters. The
+SA idea can also be used to evaluate the identiďŹability of unknown parameters.
+Sensitivity-based identiďŹability analysis is similar to the structural analysis approach in the sense that neither approach requires actual experimental data (although
+the sensitivity-based method could require the number and locations of measurement
+time points; see details below), and both approaches assume that measurements are
+precise without error. However, the sensitivity-based method does not directly use
+the model structure information, which is a critical diďŹerence between the structural
+and sensitivity-based approaches. The sensitivity-based method is similar to the practical analysis approach in the sense that both methods require prespeciďŹed parameter
+values (either nominal or actual estimates), and both need to know the number and
+locations of measurement time points. However, the sensitivity-based method is different from the practical analysis approach in the sense that the sensitivity-based
+method does not take measurement error into account. Thus, the sensitivity-based
+method is a technique between structural (theoretical) identiďŹability and practical
+identiďŹability analyses. We review such methods in this section.
+A nominal parameter value is required for the sensitivity-based approach. Thus,
+parameter identiďŹability is evaluated with respect to a speciďŹc point in the parameter
+space by sensitivity-based methods. For this reason, the concept of at-a-point identiďŹability was introduced by Ljung and Glad [65] and Quaiser and MoĚnnigmann [86]
+as follows.
+Definition 5.1. Globally at-a-point identiďŹable: Let Î¸â denote a ďŹxed point in
+the parameter space Î. A system is said to be globally at-a-point identiďŹable if, for
+any admissible input u(t) and any parameter vector Î¸ â Î, y(u, Î¸) = y(u, Î¸â ) implies
+Î¸ = Î¸â .
+Definition 5.2. Locally at-a-point identiďŹable: Let Î¸ â denote a ďŹxed point in
+the parameter space Î. A system is said to be locally at-a-point identiďŹable if, for any
+admissible input u(t) and any parameter vector Î¸ within an open neighborhood of Î¸â ,
+y(u, Î¸) = y(u, Î¸â ) implies Î¸ = Î¸â .
+The sensitivity-based identiďŹability analysis techniques reviewed in this section
+examine at-a-point identiďŹability only. The sensitivity of measurable system responses
+with respect to parameter values is used to assess the identiďŹability of unknown parameters by these methods. More speciďŹcally, assume that the locations and the number
+of time points at which the system responses or state variables will be measured have
+been given, denoted by t1 â¤ t2 â¤ Âˇ Âˇ Âˇ â¤ tN ; then the sensitivity coeďŹcient at each
+time point tk (k = 1, 2, . . . , N ) for a given nominal parameter vector Î¸â is deďŹned as
+(5.1)
+
+sij (tk ) =
+
+âyi (tk , Î¸ â )
+,
+âÎ¸j
+
+where yi (i = 1, 2, . . . , d) denotes the ith component of y (y â Rd ) and Î¸j the jth
+(j = 1, 2, . . . , q) component of Î¸ (Î¸ â Rq ). Thus, the sensitivity matrix for all time
+points is deďŹned as
+ďŁš
+ďŁŽ
+s11 (t1 ) Âˇ Âˇ Âˇ s1q (t1 )
+.
+ďŁş
+ďŁŻ ÂˇÂˇÂˇ
+..
+ÂˇÂˇÂˇ
+ďŁş
+ďŁŻ
+ďŁŻ s (t ) Âˇ Âˇ Âˇ s (t ) ďŁş
+dq 1
+ďŁş
+ďŁŻ d1 1
+ďŁş
+ďŁŻ
+..
+..
+..
+(5.2)
+SdN Ăq = ďŁŻ
+ďŁş.
+.
+.
+.
+ďŁş
+ďŁŻ
+ďŁŻ s11 (tN ) Âˇ Âˇ Âˇ s1q (tN ) ďŁş
+ďŁş
+ďŁŻ
+..
+ďŁť
+ďŁ°
+.
+ÂˇÂˇÂˇ
+ÂˇÂˇÂˇ
+sd1 (tN ) Âˇ Âˇ Âˇ sdq (tN )
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+22
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+A number of identiďŹability analysis techniques have been developed based on
+this sensitivity matrix. Simply speaking, the larger the sensitivity coeďŹcients, the
+more notable the system responses or measurable state variables are with respect
+to the changes of parameters. In that sense, a parameter is likely to be identiďŹable
+if the system output is highly sensitive to a small perturbation of that parameter;
+otherwise, the parameter is likely to be unidentiďŹable. In addition, if there exists a
+strong correlation between any two parameters, those two parameters are very likely
+to be indistinguishable from each other. Such parameter dependence can also be
+evaluated by examining the dependence of the sensitivity matrix columns. We review
+four typical methods along this line in detail: the correlation method [51, 93, 122],
+the principal component analysis (PCA) method [24, 34, 56], the orthogonal method
+[35, 120, 121], and the eigenvalue method [85, 86, 95, 108].
+5.1. Correlation Method. The correlation method was ďŹrst proposed by Jacquez
+and Greif [52]. The method was originally developed to study identiďŹability for linear
+compartment models and the derivation was given for a single output system only
+(that is, y â R). However, this method is not limited to linear models and single
+output systems.
+Consider the ďŹrst-order Taylor expansion of the system output near the prespeciďŹed nominal parameter vector Î¸â ,
+y k (Î¸) = y(x(tk ), u(tk ), Î¸)
+(5.3)
+
+
+ây(x(tk ), u(tk ), Î¸) 
+â y(x(tk ), u(tk ), Î¸ ) +
+
+âÎ¸
+â
+
+Î¸=Î¸ â
+
+Âˇ (Î¸ â Î¸â ),
+
+where k = 1, 2, . . . , N denotes the index of the measurement time points. Let rk
+denote the measurement at tk without errors and Î¸ = Î¸ â Î¸â ; then the residual sum
+of squares between the exact measurements and the linear approximation is
+
+ây(x(tk ), u(tk ), Î¸) 
+RSS(Î¸) =
+Âˇ Î¸
+r k â y k (Î¸ ) â
+
+âÎ¸
+Î¸=Î¸ â
+k=1
+
+N
+2
+
+ây(x(tk ), u(tk ), Î¸) 
+=
+Âˇ
+Î¸
+,
+
+âÎ¸
+Î¸=Î¸â
+N
+
+
+(5.4)
+
+â
+
+2
+
+k=1
+
+where rk â y k (Î¸ â ) = 0 based on our assumptions. Finally, we can rewrite (5.4) in
+terms of the sensitivity matrix,
+(5.5)
+
+RSS(Î¸) = (SÎ¸)T Âˇ SÎ¸,
+
+where S is the sensitivity matrix deďŹned in (5.2). Obviously, the minimum of RSS(Î¸)
+is reached at ST S Âˇ Î¸ = 0. If ST S is of full rank, the unique solution of ST S Âˇ Î¸ = 0
+is Î¸Ě = Î¸â , which indicates that the model parameters Î¸ are locally identiďŹable at
+Î¸â . If ST S is singular, then there exists at least one nontrivial solution Î¸Ě = Î¸â such
+that the model parameters are not identiďŹable at Î¸â . Two important issues should be
+noticed: ďŹrst, a similar expression can be derived under the framework of maximum
+likelihood estimation [40], so the derivation is not limited to ordinary least squares;
+second, only local identiďŹability can be inferred based on the rank of ST S since the
+linear approximation (5.3) is used [86].
+It is also desirable to determine which parameters are not identiďŹable if ST S is not
+of full rank. For this purpose, the correlations between parameters can be calculated
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+23
+
+based on the sensitivity matrix. More speciďŹcally, if we examine the columns of the
+sensitivity matrix deďŹned in (5.2), it is clear that each column is the sensitivity of the
+system responses at all time points with respect to one particular parameter. Thus,
+the sample correlation of two columns is an estimate of the correlation between two
+parameters that can be calculated as
+corr(S Âˇi , S Âˇj ) =
+
+(5.6)
+
+cov(S Âˇi , S Âˇj )
+,
+Ď(S Âˇi )Ď(S Âˇj )
+
+where S Âˇi (or S Âˇj ) denotes the ith (or jth) column of the sensitivity matrix S,
+cov(S Âˇi , S Âˇj ) the sample covariance between S Âˇi and S Âˇj , and Ď(S Âˇi ) and Ď(S Âˇj ) the
+sample standard deviations of S Âˇi and S Âˇj , respectively. If the calculated correlation
+coeďŹcient between any two parameters is close to 1, these two parameters are not
+distinguishable. However, such a decision always involves a pair of parameters. Is it
+possible to determine which parameter in this pair is more problematic and should
+be ďŹxed or removed from the model? Quaiser and MoĚnnigmann [86] proposed the
+concept of total correlation for this question,
+(5.7)
+
+ctot
+i =
+
+q
+
+
+|corr(S Âˇi , S Âˇj )| Âˇ I(|corr(S Âˇi , S Âˇj )| âĽ 1 â Î´),
+
+j=1,j =i
+
+where I denotes the indicator function and Î´ â (0, 1) the cut-oďŹ value speciďŹed by
+the user. The parameter with the highest total correlation is the ďŹrst candidate to be
+ďŹxed or removed from the model.
+If we compare the correlation method with the correlation matrix method for
+practical identiďŹability analysis described in the previous section [92], we ďŹnd that the
+FIM and the sensitivity matrix are somehow similar; however, the ways of calculating
+correlations are diďŹerent.
+5.2. Tuning Importance Method and PCA. This category of methods, such
+as the tuning importance method [24, 96, 105] and PCA [24, 34, 56], has been developed to reduce model complexity by discarding nonsigniďŹcant parameters. More
+speciďŹcally, both methods rank all parameters ďŹrst and then these parameters are
+determined as identiďŹable or unidentiďŹable according to their ranks.
+One important and interesting feature of the tuning importance and PCA methods is that they are based on the normalized sensitivity matrix, which is diďŹerent
+from the sensitivity matrix deďŹned in (5.2). To construct the normalized sensitivity
+matrix, the dimensionless sensitivity coeďŹcient was deďŹned as [24, 30]
+(5.8)
+
+sik,j =
+
+Î¸j âyi (tk , Î¸)
+â ln yi (tk , Î¸)
+Âˇ
+=
+,
+yi
+âÎ¸j
+â ln Î¸j
+
+where i â {1, 2, . . . , d} denotes the index of system outputs, j â {1, 2, . . . , q} the index
+of parameters, and k â {1, 2, . . . , N } the index of measurement time points. Then the
+normalized sensitivity matrix for each yi is deďŹned as
+ďŁŽ
+
+(5.9)
+
+SiN Ăq
+
+si1,1
+ďŁŻ ..
+=ďŁ° .
+siN,1
+
+ÂˇÂˇÂˇ
+..
+.
+ÂˇÂˇÂˇ
+
+ďŁš
+si1,q
+.. ďŁş .
+. ďŁť
+siN,q
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+24
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+For the tuning importance method, the following objective function was introduced by Seigneur, Stephanopoulos, and Carr [96] and TuraĚnyi [105]:
+(5.10)
+
+e(Î¸j ) =
+
+N 
+d
+
+yi (tk , Î¸âj , Î¸j + Î¸j ) â yi (tk , Î¸)
+yi (tk , Î¸)
+i=1
+
+2
+
+,
+
+k=1
+
+where Î¸ âj denotes the parameter vector with the jth component removed. By following the same procedure as the correlation method in the last subsection, the overall
+sensitivity can be obtained and expressed in terms of the dimensionless sensitivity
+coeďŹcients,
+  â ln yi (tk , Î¸)
+âe
+=
+â ln Î¸j
+â ln Î¸j
+i=1
+d
+
+N
+
+(5.11)
+
+os(Î¸j ) =
+
+2
+
+=
+
+d
+N 
+
+ i 2
+sk,j .
+k=1 i=1
+
+k=1
+
+Thus, the larger the overall sensitivity of one parameter, the more sensitive the system
+response is with respect to small perturbations of this parameter. Since all the parameters can be ranked according to their overall sensitivities, the parameters ranking
+the lowest are candidates to be unidentiďŹable and to be discarded.
+T
+For the PCA method, the eigenvalues and eigenvectors of the matrix Si Si are
+calculated to provide information for model reduction. Let Îťij denote the eigenvalues
+which are ordered nondecreasingly,
+(5.12)
+
+|Îťi1 | â¤ |Îťi2 | â¤ Âˇ Âˇ Âˇ â¤ |Îťiq |.
+
+Also, let the corresponding eigenvectors be denoted by
+ďŁŽ
+
+ÂˇÂˇÂˇ
+..
+.
+ÂˇÂˇÂˇ
+
+i
+Îł1,1
+ďŁŻ ..
+i
+i
+i
+i
+Î = (Îł 1 , Îł 2 , . . . , Îł q ) = ďŁ° .
+i
+Îłq,1
+
+ďŁš
+i
+Îł1,q
+.. ďŁş .
+. ďŁť
+i
+Îłq,q
+
+Three strategies examining the eigenvalues and eigenvectors were proposed by JolliďŹe
+[56] to rank all the parameters:
+(i) Starting with the eigenvector corresponding to the smallest absolute eigenvalue, loop over each eigenvector to locate the component with the maximum absolute
+value and mark the corresponding parameter at the maximum component location as
+unidentiďŹable and to be removed if it has not been marked before. This procedure is
+summarized as follows:
+
+
+m1 = arg max |Îłj,1 | ,
+(5.13)
+
+ďŁŤ
+ml = arg ďŁ­
+
+1â¤jâ¤q
+
+max
+
+1â¤jâ¤q
+j =m1 ,...,mlâ1
+
+ďŁś
+|Îłj,l |ďŁ¸ for l > 1.
+
+(ii) Starting with the eigenvector corresponding to the smallest absolute eigenvalue again, loop over each row of matrix Îi and calculate the sum of squares of all
+components in each row. The parameter corresponding to the location of the row with
+the largest sum of squares is determined as unidentiďŹable for removal. This procedure
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+is summarized as follows:
+
+
+
+m1 = arg
+(5.14)
+
+max
+
+ďŁŤ
+
+1â¤jâ¤q
+
+ml = arg ďŁ­
+
+q
+
+
+25
+
+
+2
+Îłj,h
+
+,
+ďŁś
+
+h=1
+
+max
+
+q
+
+
+1â¤jâ¤q
+j =m1 ,...,mlâ1 h=1
+
+2 ďŁ¸
+Îłj,h
+for l > 1.
+
+(iii) Starting with the eigenvector corresponding to the largest absolute eigenvalue, loop over each eigenvector component to locate the largest one and mark the
+parameter if it has not been marked before. The marked parameter is not selected as
+an unidentiďŹable parameter immediately; instead, a rank is assigned to this parameter. Eventually, all parameters are ranked and the parameters ranking the lowest are
+determined to be unidentiďŹable. This procedure is summarized as follows:
+
+
+m0 = arg max |Îłj,q | ,
+(5.15)
+
+ďŁŤ
+ml = arg ďŁ­
+
+1â¤jâ¤q
+
+max
+
+1â¤jâ¤q
+j =m0 ,...,mlâ1
+
+ďŁś
+|Îłj,qâl |ďŁ¸ for l > 0.
+
+Froemel [34] proposed a simple strategy to integrate the rankings from all three
+strategies described above. Further details are given in [34] and [86].
+5.3. Orthogonal Method. The orthogonal method was proposed by Yao et al.
+[120]. The basic idea of this approach is to examine the (nearly) linear dependencies
+of columns of the sensitivity matrix S deďŹned in (5.2). Thus, both the sensitivity
+of system response with respect to parameter values and the dependency between
+parameters regarding their eďŹects on the system responses can be simultaneously
+evaluated to determine a set of identiďŹable parameters.
+Unlike the correlation method, the orthogonal method does not calculate the correlation between diďŹerent columns of S. Instead, the perpendicular distance of one
+column to the vector space spanned by the other columns is calculated as a measurement of the linear dependency. This is an iterative procedure. More speciďŹcally, at the
+ďŹrst iteration, the column of S with the largest sum of squares is removed from S and
+selected as the ďŹrst element of an empty set SI . At the (j + 1)th (j â {1, . . . , q â 1})
+iteration, j columns have been removed from S and selected into SI , and a vector
+space spanned by all the columns in SI is denoted by VSI . For column S h still in S,
+the orthogonal projection S proj
+of this column on the vector space VSI is calculated
+h
+and the perpendicular is then obtained as
+(5.16)
+
+proj
+SâĽ
+.
+h = Sh â Sh
+
+In the work of Yao et al. [120], the norm S âĽ
+h was proposed as the measurement of
+nearly linear dependency between the vector S h and the vector space VSI , since the
+shorter the distance, the larger the dependence. For a norm S âĽ
+which is nearly
+h
+zero, the corresponding column S h is thought to be nearly linearly dependent and
+thus is not identiďŹable. At the ďŹrst iteration, the column of S with the largest norm is
+criterion is to consider the
+selected into SI . However, another reasonable alternative
+ S h ÂˇS proj 
+proj
+h
+(that is, arccos S Âˇ S proj ), since this criterion can
+angle between S h and S h
+h
+
+h
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+26
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+select the best candidate even if the norms of diďŹerent columns are orders of magnitude
+diďŹerent. Finally, at each iteration, a prespeciďŹed cut-oďŹ value Î´ will be used for the
+perpendicular distance or the angle of all columns in S. Once the distance or angle
+of one column is smaller than Î´, this column is thought to be linearly dependent
+and is removed from S and
+on VSI ; therefore, the column with the largest S âĽ
+h
+selected into the set SI . This procedure is repeated until S becomes empty. The
+vectors in SI determine which parameters are identiďŹable, which is the primary goal
+of the orthogonal method (i.e., ďŹnd the identiďŹable rather than the unidentiďŹable
+parameters).
+Since the cut-oďŹ value Î´ in this method is an arbitrary value speciďŹed by users,
+the number of unidentiďŹable parameters strongly depends on the selection of Î´. Due
+to this problem, Quaiser and MoĚnnigmann [86] proposed to rank all the parameters
+based on the values of norms or angles instead of simply dividing them into identiďŹable
+or unidentiďŹable groups.
+5.4. Eigenvalue Method. The eigenvalue method was ďŹrst proposed by Vajda et
+al. [108] and then further developed by Quaiser, Marquardt, and MoĚnnigmann [85],
+Schittkowski [95], and Quaiser and MoĚnnigmann [86]. This approach is based on the
+properties of eigenvalues and eigenvectors of ST S, where S is the sensitivity matrix
+deďŹned in (5.2). To illustrate this method, consider the residual sum of squares (RSS)
+between system outputs and experimental measurements,
+(5.17)
+
+RSS(Î¸) =
+
+N
+
+
+2
+
+[rk â y k (Î¸)] ,
+
+k=1
+
+and let Îť1 â¤ Îť2 â¤ Âˇ Âˇ Âˇ â¤ Îťq denote the eigenvalues of ST S in a nondecreasing order
+and (Îł 1 , Îł 2 , . . . , Îł q ) the corresponding normalized eigenvectors. Note that since ST S
+is symmetric and positive semideďŹnite, all its eigenvalues are real and nonnegative.
+Given a nominal parameter vector Î¸â , the Taylor expansion of the RSS at Î¸â along
+an eigenvector is approximately
+(5.18)
+
+1
+RSS(Î¸â + ÎąÎł j ) â RSS(Î¸â ) + âRSS(Î¸â ) Âˇ ÎąÎł j + Îą2 Îł Tj Âˇ ST S Âˇ Îł j ,
+2
+
+where Îą is an arbitrary small constant and âRSS(Î¸â ) is the gradient of RSS at Î¸ â .
+Although âRSS(Î¸â ) is not necessarily zero if rk is not an exact measurement, since
+Î¸â is a nominal parameter vector that may not minimize RSS, the second-order term
+T
+1 2 T
+2 Îą Îł j Âˇ S S Âˇ Îł j can become zero if the eigenvalue Îťj corresponding to Îł j is equal
+to zero, since ST S Âˇ Îł j = Îťj Îł j and Îł Tj Îł j = 1. That is, along the direction of Îł j with
+Îťj = 0, the change of RSS is expected to be nearly zero. The selection criterion for
+unidentiďŹable parameters is given by
+
+
+(5.19)
+m = arg max (|Îł j,h |) .
+1â¤hâ¤q
+
+In practice, Îťj is usually not exactly zero; therefore, a cut-oďŹ value Î´ needs to be
+speciďŹed. For a detailed implementation algorithm, the interested reader is referred
+to [86].
+The four sensitivity-based identiďŹability analysis methods described above were
+also reviewed and compared in Quaiser and MoĚnnigmann [86]. In general, all four
+approaches are applicable to general ODE models; however, the eigenvalue method
+and the orthogonal method are better designed to globally evaluate and compare the
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+27
+
+inďŹuences of parameter values on system outputs so that these two methods outperform the correlation method and the PCA method. In addition, both the eigenvalue
+method and the orthogonal method are easy to implement. Note that the method proposed in [86] made the assumption that the nominal parameter vector Î¸â minimizes
+the objective function, which should be interpreted as rk = y k (Î¸â ) as in (5.4) for
+the correlation method. In addition, it should be mentioned that, in practice, if the
+sensitivity matrix is of full rank but with eigenvalues of diďŹerent orders of magnitude,
+the parameters corresponding to the smallest eigenvalues are theoretically identiďŹable
+but likely to be practically unidentiďŹable. Under such a circumstance, the sensitivitybased approaches are still useful in the sense of determining practically unidentiďŹable
+parameters.
+Finally, it is also interesting to combine the sensitivity-based approaches with the
+practical identiďŹability methods introduced in section 4 to study the identiďŹability
+of a dynamic system. Notice that the sensitivity-based approaches do not require
+statistical estimation of unknown parameters, which can be done before the practical
+identiďŹability analysis.
+6. Application Examples. In this section, we illustrate the applications of both
+structural and practical identiďŹability analysis techniques through examples in modeling viral dynamics. We summarize the identiďŹability analysis results for popular
+models of HIV and inďŹuenza infection.
+6.1. HIV Model with Constant Parameters. Miao et al. [70] proposed the following model to describe a growth competition assay to quantify HIV replication
+ďŹtness:
+(6.1)
+(6.2)
+(6.3)
+(6.4)
+
+dT
+dt
+dTm
+dt
+dTw
+dt
+dTmw
+dt
+
+= (Ď â km Tm â kw Tw â kR Tmw )T,
+= (Ďm + km T â qm Tw )Tm + 0.25kR Tmw T,
+= (Ďw + kw T â qw Tm )Tw + 0.25kR Tmw T,
+= (Ďmw + 0.5kR T )Tmw + (qm + qw )Tm Tw ,
+
+where T , Tm , Tw , and Tmw are the numbers of uninfected cells, cells infected by
+mutant viruses, cells infected by wild-type viruses, and cells infected by both mutant
+and wild-type viruses (dual-infection). Let (Îť, Îťm , Îťw , Îťmw ) represent the proliferation rates of T , Tm , Tw , and Tmw and (Î´, Î´m , Î´w , Î´mw ) the death rates of T , Tm ,
+Tw , and Tmw , respectively. Then Ď = Îť â Î´, Ďm = Îťm â Î´m , Ďw = Îťw â Î´w , and
+Ďmw = Îťmw â Î´mw are the net growth rates of T , Tm , Tw , and Tmw , which are the
+diďŹerences between the corresponding proliferation rates and death rates. Parameters
+(km , kw , kR ) are infection rates of a mutant virus, a wild-type virus, and a recombinant
+virus, respectively, and qm and qw are dual infection rates.
+For this example, the implicit function method of Xia and Moog [119] is employed
+to investigate the structural identiďŹability. Since all state variables (T, Tm , Tw , Tmw )
+are experimentally measurable, the outputs of the system are
+(6.5)
+
+y1 = T, y2 = Tm , y3 = Tw , y4 = Tmw .
+
+By taking derivatives of one of the four equations in this HIV viral ďŹtness model, the
+structural identiďŹability of the model can be evaluated. To demonstrate this, here we
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+28
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+start with the ďŹrst equation,
+yĚ1 = Ďy1 â km y1 y2 â kw y1 y3 â kR y1 y4 .
+
+(6.6)
+
+By taking higher orders (up to the fourth order) of derivatives on both sides of (6.6),
+we get
+(6.7)
+
+yĚ1 = ĎyĚ1 â km (y1 y2 )(1) â kw (y1 y3 )(1) â kR (y1 y4 )(1) ,
+
+(6.8)
+
+y1 = ĎyĚ1 â km (y1 y2 )(2) â kw (y1 y3 )(2) â kR (y1 y4 )(2) ,
+
+(6.9)
+
+y1 = Ďy1 â km (y1 y2 )(3) â kw (y1 y3 )(3) â kR (y1 y4 )(3) .
+
+(3)
+(4)
+
+(3)
+
+When (6.7)â(6.9) are written in matrix
+ďŹable if
+ďŁŽ
+ây1 y2
+y1
+ďŁŻ yĚ1 â(y1 y2 )(1)
+(6.10)
+Rank ďŁŻ
+ďŁ° yĚ1 â(y1 y2 )(2)
+(3)
+y1
+â(y1 y2 )(3)
+
+form, we ďŹnd that the parameters are identiây1 y3
+â(y1 y3 )(1)
+â(y1 y3 )(2)
+â(y1 y3 )(3)
+
+ďŁš
+ây1 y4
+(1) ďŁş
+â(y1 y4 )
+ďŁş = 4.
+â(y1 y4 )(2) ďŁť
+â(y1 y4 )(3)
+
+Note that the rank of this matrix can be evaluated numerically if the analytical form
+is not available, and nominal parameter values are not needed for this case since the
+matrix above involves no parameters. Since the left-hand side of (6.9) has a derivative
+(4)
+of order 4, at least ďŹve measurements of y1 = T are needed to evaluate y1 , and at
+least four measurements of y2 = Tm , y3 = Tw , and y4 = Tmw are needed to evaluate
+their derivatives of order 3. Since km and kR can be identiďŹed from (6.7)â(6.9) if
+(6.10) holds, (6.2) can be rewritten as
+(6.11)
+
+yĚ2 â km y1 y2 â 0.25kR y1 y4 = Ďm y2 â qm y2 y3 .
+
+Similarly, by taking the higher derivatives of (6.11), the parameters (Ďm , qm ) are
+identiďŹable if
+(6.12)
+
+Rank
+
+y2
+yĚ2
+
+ây2 y3
+â(y2 y3 )(1)
+
+= 2.
+
+By the same token, the parameters (Ďw , qw ) are identiďŹable if
+(6.13)
+
+Rank
+
+y3
+yĚ3
+
+ây2 y3
+â(y2 y3 )(1)
+
+= 2.
+
+Finally, Ďmw is identiďŹable if
+(6.14)
+
+Rank [y4 ] = 1.
+
+In summary, all parameters (Ď, Ďm , Ďw , Ďmw , km , kw , kR , qm , qw ) are structurally
+identiďŹable if at least ďŹve measurements of y1 = T and four measurements of y2 = Tm ,
+y3 = Tw , and y4 = Tmw are available and if all coeďŹcient matrices (6.10), (6.12),
+(6.13), and (6.14) are of full rank at least for some local time points.
+Monte Carlo simulations were also performed to evaluate the practical identiďŹability of this HIV viral ďŹtness model by Miao et al. [70]. The AREs of all nine parameters
+for three measurement error levels (0%, 5%, and 30%) are duplicated in Table 6.1.
+Note that in this simulation study, we assumed that there were 1000 replicates of
+data at each time point, although this may not be feasible in practical experiments.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+29
+
+IDENTIFIABILITY OF ODE MODELS
+
+Table 6.1 Practical identiďŹability analysis by Monte Carlo simulations. The ARE is calculated
+based on 1000 simulation runs; 1000 replicates at each time point are generated for each
+simulated data set (Table 6 in Miao et al. [70]).
+
+Error
+level (%)
+0
+5
+30
+
+Ď
+(%)
+0.002
+1.1
+6.5
+
+Ďm
+(%)
+0.017
+10.8
+49.1
+
+Ďw
+(%)
+0.034
+39.0
+201.4
+
+Ďmw
+(%)
+0.400
+555.7
+2062
+
+km
+(%)
+0.003
+2.9
+12.7
+
+kw
+(%)
+0.004
+4.6
+23.1
+
+kR
+(%)
+0.026
+28.3
+106
+
+qm
+(%)
+0.003
+4.2
+21.3
+
+qw
+(%)
+0.009
+12.0
+59.1
+
+Table 6.2 Practical identiďŹability analysis using Monte Carlo simulations based on 1000 simulation
+runs with the measurement error level Ď = 1.5% (Table 7 in Miao et al. [70]).
+Time
+point
+5
+5
+5
+5
+9
+9
+9
+9
+
+Replicate
+3
+6
+9
+100
+3
+6
+9
+100
+
+Ď
+(%)
+6.28
+3.91
+3.15
+1.01
+4.10
+3.10
+2.72
+0.76
+
+Ďm
+(%)
+52.7
+34.7
+30.0
+8.11
+37.9
+27.9
+21.5
+6.94
+
+Ďw
+(%)
+187
+142
+133
+40.1
+146
+118
+85.6
+28.74
+
+Ďmw
+(%)
+2130
+1402
+1396
+459.8
+1786
+1301
+1190
+410
+
+km
+(%)
+13.5
+8.99
+8.18
+2.32
+10.1
+7.2
+5.84
+1.79
+
+kw
+(%)
+22.0
+16.8
+15.3
+4.70
+16.8
+13.1
+10.1
+3.43
+
+kR
+(%)
+108
+77.5
+73.9
+25.2
+88.6
+66.7
+61.5
+22.26
+
+qm
+(%)
+21.1
+14.4
+13.7
+3.72
+16.1
+10.3
+9.24
+2.98
+
+qw
+(%)
+54.9
+37.5
+32.3
+10.3
+36.7
+29.5
+26.1
+7.71
+
+But this will help us to evaluate whether the unknown parameters are practically
+identiďŹable when the sample size of the data (with noise) is large enough. We can
+see that when there is no measurement error (Ď = 0%), all nine parameters can be
+well identiďŹed (the maximum ARE is 0.4%), which conďŹrms our theoretical identiďŹability analysis results. This also indicates that the parameter estimation method is
+good and the parameter estimates converges to the true parameter values when the
+sample size is large enough and the measurement error is small enough. However,
+when the measurement error increases to 5% and 30%, the ARE of parameter Ďmw
+rapidly increases to 556% and 2062%, respectively. The ARE of Ďw also increases
+to 39% and 201%, while the ARE of kR increases to 28% and 106%, respectively.
+The AREs of parameters (qw , Ďm ) are reasonable for the case of small measurement
+error (Ď = 5%), but increase to 49% and 59% for the large measurement error case
+(Ď = 30%), respectively. The AREs for the other four parameters (Ď, km , kw , qm ) are
+reasonable for all cases.
+To further investigate the practical identiďŹability of unknown parameters under practical experimental conditions, we performed more simulations for diďŹerent
+numbers of time points and diďŹerent numbers of replicates at each time point. The
+simulation results are given in Table 6.2. One can see that the ARE of parameter
+Ďmw ranges from 410% to 2130%. This, combined with the results in Table 6.1, indicates that the Ďmw is practically unidentiďŹable. Considering the practical case of
+nine time points and nine replicates for each time point, the ARE of parameter Ďw is
+86%, which indicates that it may be diďŹcult to accurately identify the parameter Ďw
+unless the sample size is unrealistically large (say, 100 replicates for each time point).
+For parameter kR , the AREs are also large (ranging from 62% to 108%) for practical
+cases (the number of replicates is 3, 6, or 9). For parameters (Ďm , qw ), the AREs are
+reasonable (ranging from 22% to 38%) for most reasonable sample sizes; thus (Ďm , qw )
+can be considered to be reasonably identiďŹable. The parameters (Ď, km , kw , qm ) are
+very well identiďŹed (the AREs ranging from 3% to 22%) in all cases.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+30
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+6.2. HIV Model with Constant and Time-Varying Parameters. In this section,
+we consider another dynamic system that is widely used to describe HIV dynamics in
+HIV-infected patients with antiretroviral treatment [17, 48, 82]:
+d
+TU (t) = Îť â ĎTU (t) â Îˇ(t)TU (t)V (t),
+dt
+d
+TI (t) = Îˇ(t)TU (t)V (t) â Î´TI (t),
+(6.16)
+dt
+d
+V (t) = N Î´TI (t) â cV (t),
+(6.17)
+dt
+where TU is the concentration of uninfected target cells, TI the concentration of
+infected cells, V (t) the viral load, Îť the source rate of uninfected T cells, Ď the death
+rate of uninfected T cells, Îˇ(t) the time-varying infection rate, which is a function
+antiviral treatment eďŹcacy, Î´ the death rate of infected cells, c the clearance rate of
+free virions, and N the average number of virions produced by a single infected cell
+over its lifetime. TU (t), TI (t), and V (t) are state variables and (Îť, Ď, N, Î´, c, Îˇ(t))T are
+unknown dynamic parameters.
+The diďŹerential algebra approach for structural identiďŹability analysis (section
+3.3) requires one to eliminate the latent (unobservable) state variables from the dynamic equation in order to evaluate the identiďŹability. The concept of ranking is
+introduced such that computer algorithms can be designed to eliminate variables or
+their derivatives with higher rank. For notation simplicity, let x1 , x2 , and x3 denote
+TU , TI , and V , respectively. In the dynamic model (6.15)â(6.17), we can measure
+viral load (x3 = V ) and total CD4+ T cell counts (x1 + x2 = TU + TI ). Let y1 and y2
+denote the measurable variables x1 + x2 and x3 , respectively. We adopt the ranking
+(6.15)
+
+Îˇ âş y2 âş y2 âş Î¸ âş x3 âş x2 âş x1 ,
+
+(6.18)
+
+where Î¸ = [Îť, Ď, N, Î´, c]T is the vector of constant unknown parameters. We can
+eliminate x1 , x2 , and x3 using the ranking (6.18) to obtain
+(6.19)
+(6.20)
+
+yĚ1 + (Ď + Î´)yĚ1 + Î´Ďy1 â Î´Îť + Îˇ(t)y2 (yĚ1 + Î´y1 â Îť) = 0,
+yĚ2 + (Î´ + c)yĚ2 + Î´cy2 â Îˇ(t)y2 (N Î´y1 â yĚ2 â cy2 ) = 0.
+
+Note Îˇ(t) can be expressed in terms of measurable state variables and other unknown
+constant parameters either from (6.19) as
+(6.21)
+
+Îˇ(t) =
+
+yĚ1 + (Ď + Î´)yĚ1 + Î´Ďy1 â Î´Îť
+ây2 (yĚ1 + Î´y1 â Îť)
+
+or from (6.20) as
+(6.22)
+
+Îˇ(t) =
+
+yĚ2 + (Î´ + c)yĚ2 + Î´cy2
+.
+y2 (N Î´y1 â yĚ2 â cy2 )
+
+Thus, the time-varying parameter Îˇ(t) is identiďŹable if all the constant parameters
+are identiďŹable.
+To verify the identiďŹability of constant parameters Î¸, (6.21) and (6.22) can be
+combined to obtain
+yĚ1 y2 yĚ2 â yĚ1 y2 yĚ2 â Î´y1 y2 yĚ2 + Îťy2 yĚ2 â (Î´ + c)yĚ1 y2 yĚ2
++ (ĎÎ´ + Ď + Î´ â Î´ 2 â Î´c)y1 y2 yĚ2 + cy2 yĚ2 + ĎcyĚ1 y2 2 + (ĎÎ´c â Î´ 2 c)y1 y2 2
+â N Î´y1 yĚ1 y2 + cyĚ1 y2 2 â N Î´(Ď + Î´)y1 yĚ1 y2
+(6.23)
+
+â N Î´ 2 Ďy1 2 y2 + N Î´ 2 Îťy1 y2 = 0.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+31
+
+The above equation involves just measurable state variables and constant parameters.
+Equation (6.23) is of order 0 and of degree > 1 in Î¸, so it satisďŹes the third situation in
+Theorem 3.8 (see [65]) in section 3.3, and thus Î¸ = (Îť, Ď, N, Î´, c)T is locally identiďŹable.
+Consequently, Îˇ(t) is also locally identiďŹable. In addition, the identiďŹability of Î¸
+can also be easily veriďŹed using the implicit function method based on (6.23). The
+identiďŹability of other similar HIV dynamic models has been studied in [54, 117, 119].
+6.3. Influenza A Virus Infection. The purpose of this section is to illustrate
+possible problems if identiďŹability analysis is ignored by considering inďŹuenza infection
+in humans, an important infectious disease. Baccam et al. [8] proposed a target celllimited model for inďŹuenza A virus infection:
+(6.24)
+(6.25)
+(6.26)
+
+dT
+= âÎ˛T V,
+dt
+dI
+= Î˛T V â Î´I,
+dt
+dV
+= pI â cV,
+dt
+
+where T is the number of uninfected target cells (epithelial cells), I is the number of
+productively infected cells, and V is the infectious viral titer expressed in TCID50 /ml
+and is the only state variable to be measured. Since this is a low-dimension nonlinear
+dynamic system, the implicit function method can be employed.
+Considering the case that only V can be measured (and thus, for example, the
+initial number of target cells T (0) is not known), we can derive the following equation
+from (6.24)â(6.26) by eliminating the unmeasurable state variables:
+
+
+(6.27)
+V (3) = VĚ + Î´cV + (Î´ + c)VĚ (V â1 VĚ â Î˛V ) â Î´cVĚ â (Î´ + c)VĚ .
+Obviously, only the parameters (Î˛, Î´, c) can be identiďŹed and the minimum number
+of required measurements of V is 6, and the parameter p is not identiďŹable in this
+case. Similarly, we consider the cases in which both I and V are measured, both
+T and V are measured, or all three state variables are measured. For the cases
+that any two or more state variables are measured, all four parameters (Î˛, Î´, c, p) are
+structurally (theoretically) identiďŹable. We summarize the structural identiďŹability
+analysis results for all cases in Table 6.3.
+Baccam et al. [8] further proposed another target cell-limited inďŹuenza model
+with delayed virus production as follows:
+(6.28)
+(6.29)
+(6.30)
+(6.31)
+
+dT
+dt
+dI1
+dt
+dI2
+dt
+dV
+dt
+
+= âÎ˛T V,
+= Î˛T V â kI1 ,
+= kI1 â Î´I2 ,
+= pI2 â cV,
+
+where I1 is the number of latent infected epithelial cells that are not yet producing
+virus and I2 the number of productively infected epithelial cells. Again, we can
+use the implicit function theorem method to investigate the structural (theoretical)
+identiďŹability of this model. We summarize the identiďŹability analysis results in Table
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+32
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+Table 6.3 Structural identiďŹability of the target cell-limited inďŹuenza model in Baccam et al. [8].
+
+Measured variables
+V
+V and I
+V and T
+V , I, and T
+
+IdentiďŹable parameters
+(Î˛, Î´, c)
+(Î˛, Î´, c, p)
+(Î˛, Î´, c, p)
+(Î˛, Î´, c, p)
+
+Minimum number of measurements
+6 of V
+3 of V , 4 of I
+5 of V , 2 of T
+3 of V , 2 of I, 2 of T
+
+Table 6.4 Structural identiďŹability of the target cell-limited inďŹuenza model with delayed virus production in Baccam et al. [8].
+
+Measured variables
+V
+V and T
+V and I1
+V and I2
+V , I1 , and I2
+V , T , I1 , and I2
+
+IdentiďŹable parameters
+(Î˛, Î´, c, k)
+(Î˛, Î´, c, k, p)
+(Î˛, Î´, c, k, p)
+(Î˛, Î´, c, k, p)
+(Î˛, Î´, c, k, p)
+(Î˛, Î´, c, k, p)
+
+Minimum number of measurements
+8 of V
+7 of V , 2 of T
+5 of V , 4 of I1
+2 of V , 6 of I2
+3 of V , I1 , and I2
+3 of V , 2 of T , I1 , and I2
+
+6.4. For this model, if only V is measured, four parameters (Î˛, Î´, c, k) are identiďŹable
+and parameter p is not identiďŹable. However, if any two or more of the four state
+variables (T, I1 , I2 , V ) are measured, all ďŹve parameters (Î˛, Î´, c, k, p) are theoretically
+identiďŹable. We also summarize the minimum number of required measurements for
+each of the state variables in Table 6.4.
+In the paper by Baccam et al. [8], only the virus titers were measured at eight time
+points during days 1â8 of infection for six patients, but some of these measurements
+were below detection. According to the identiďŹability analysis in Tables 6.3 and 6.4,
+p is not identiďŹable. To ďŹt the four-dimensional model (6.28)â(6.31), all eight data
+points need to be used; otherwise more parameters may be unidentiďŹable. However,
+since the identiďŹcation equation (6.27) does not involve the unidentiďŹable parameter
+p, one may ďŹx p, which does not aďŹect the estimates of other parameters. Since
+the identiďŹability analysis was not considered, the estimates of kinetic parameters in
+Baccam et al. [8] should be interpreted with caution since the authors [8] ďŹxed T (0)
+to avoid the identiďŹability problem and T (0)âs value was not taken directly from data.
+InďŹuenza infection in humans is a very complex problem, and so much more complicated models have been proposed; however, the problem is that such work usually
+overparameterizes the model and ignores parameter identiďŹability, which makes it
+diďŹcult to directly ďŹt such models to data. For example, Hancioglu, Swigon, and
+Clermont [43] proposed a ten-equation model for inďŹuenza A virus infection (details
+not shown). We can show that, to verify the identiďŹability of all the 27 parameters
+in that model, almost all the ten state variables need to be measured, which is nearly
+impossible to do in practice due to technical and ethical limitations. In summary,
+when ďŹtting a model to data, models with parameter identiďŹability veriďŹed should be
+considered.
+7. Discussion and Conclusion. ODEs are an important tool for quantifying a
+dynamic process in many scientiďŹc ďŹelds, and recently they have been widely used
+in modeling biomedical processes, in particular for modeling infectious diseases and
+viral dynamics. It is critical to estimate the unknown kinetic parameters in ODE
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+33
+
+models from experimental data in biomedical applications. However, it is not trivial
+and not apparent whether the unknown parameters in general nonlinear ODE models
+are identiďŹable based on the experimental data. Thus, an identiďŹability analysis
+is a prerequisite before any statistical method is applied to estimate the unknown
+parameters from the experimental data.
+Three main categories of identiďŹability techniques have been developed for general ODE models. The ďŹrst is structural (theoretical) identiďŹability analysis, which
+can be used to evaluate whether all parameters can be theoretically identiďŹed by
+manipulating the model structure. Two assumptions are needed for such analysis:
+(1) the model structure is absolutely accurate; and (2) measurement is exact (no
+measurement error). Although these two assumptions are not realistic in practice, it
+is still necessary to study theoretical identiďŹability. The second type of identiďŹability analysis is practical identiďŹability analysis, in which both model uncertainty and
+practical measurement errors are considered. Structural identiďŹability analysis can
+be done before experiments for data collection are designed. In fact, the structural
+identiďŹability analysis can provide useful information, such as the minimum number
+of measurements at distinct time points, for experimental design. If an ODE model
+turns out to be unidentiďŹable or only a subset of model parameters are identiďŹable via
+structural identiďŹability analysis, the model may need to be modiďŹed or some of the
+parameters may need to be ďŹxed before statistical methods are applied to estimate
+the unknown parameters. Otherwise, statistical estimates may not be reliable. Even
+though some parameter estimates can be obtained from an unidentiďŹable model, the
+estimates may be local or form an arbitrary set of estimates that can overďŹt the observation data. If the structural identiďŹability analysis conďŹrms that an ODE model
+is globally or locally identiďŹable, practical identiďŹability analysis should be done to
+check the reliability and sensitivity of estimates to measurement errors and model
+uncertainty. Based on the results of practical identiďŹability analysis, a model can be
+further reďŹned by model selection techniques [71]. Practical identiďŹability analysis
+can also be used to better design future experiments. The third type of identiďŹability
+analysis technique is based on the sensitivity matrix. Similar to structural identiďŹability analysis, sensitivity-based methods do not require experimental observations and
+cannot account for model uncertainty and measurement errors. Like practical identiďŹability analysis, sensitivity-based methods also require at least one nominal value
+of each parameter. Note that so far it is still diďŹcult to do structural identiďŹability
+analysis for high-dimensional ODEs or complicated ODEs. In this case, the practical
+identiďŹability analysis may not be reliable since the structural (theoretical) identiďŹability of the model is unknown. The class of sensitivity-based methods, which is a
+technique between structural (theoretical) identiďŹability and practical identiďŹability
+analyses, can be used in such cases.
+Besides the identiďŹability analysis techniques for ODEs, the identiďŹability analysis
+of delay diďŹerential equation (DDE) models should also be discussed. A general form
+of a DDE system is given as follows:
+(7.1)
+(7.2)
+(7.3)
+
+MxĚ(t) = f (t, x(t), x[Ď (t, x)], xĚ(t), xĚ[Ď (t, x)], u(t), Î¸),
+y(t) = h(x(t), x[Ď (t, x)], u(t), Î¸),
+x(t0 ) = x(t0 , u(t0 ), Î¸),
+
+where t0 is the starting value of the independent variable, x(t) â Rm is a vector
+of state variables, y(t) â Rd is the measurable system output vector, u(t) â Rp is
+the known system input vector, Î¸ â Rq is the parameter vector, M is a constant
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+34
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+coeďŹcient matrix (or mass matrix), and Ď (t, x) is a vector of delay functions. It is
+required that
+(7.4)
+
+Ď (t, x) â¤ t,
+
+that is, the value of delay functions should always be smaller than or equal to the
+current time, which is reasonable since the future value is yet unknown. Another
+important assumption is that
+ 
+âh
+(7.5)
+rank
+= d,
+âx
+which implies that none of the d system outputs is trivial (e.g., a linear combination
+of other outputs). Since Ď (t, x) â¤ t, it is necessary to know the value of x(t) when
+t â¤ t0 , i.e., the history function,
+(7.6)
+
+x(t) = g(t, Î¸) if t â¤ t0 ,
+
+where x(t), t â¤ t0 , is a function only of time and parameters. It is obvious that
+the DDE system described here is much more complicated than an ODE system,
+and currently it is still impossible to numerically solve a very general DDE model.
+However, for some relatively simple DDE models, a number of numerical methods have
+been proposed and implemented. For details of such algorithms, the reader is referred
+to the work by Ascher and Petzold [6], Bellen and Zennaro [10], Guglielmi and Hairer
+[41, 42], and Shampine and Thompson [97]. In particular, Guglielmi and Hairer [41,
+42] proposed and implemented a comparatively general solver (called Radau IIA) for
+DDE models, which is recommended for practical applications due to its eďŹciency and
+stability. For examples of DDE modeling of HIV infection, the reader is referred to [90]
+and [76]. A number of independent studies have tackled the identiďŹability problem for
+DDE models [4, 5, 25, 31, 66, 68, 79, 125, 124]. However, most of these previous works
+deal with very simple and speciďŹc DDE models (e.g., [68]), and the generalizability
+of these results is limited due to a lack of understanding of the important feature
+of DDE models: the propagation of a discontinuity at t0 or in the history functions
+from lower- to higher-order derivatives of state variables, if there is any. Such a
+feature means that DDE models easily become bifurcated or just unsolvable [10, 41,
+42]. The identiďŹability conclusions based on model structure manipulation are not
+reliable unless analytical solutions of DDE models can be obtained and analyzed.
+However, it is surprising that almost all the existing work has attempted to tackle
+the identiďŹability problem by manipulating model structures (e.g., [5]). Generally, for
+complicated systems as described in (7.1)â(7.3), it is extremely diďŹcult to manipulate
+the model structures to study identiďŹability problems. Thus, the methodologies for
+DDE model identiďŹability are still in their infancy, and promising approaches are
+likely to be numerical methods such as the practical or sensitivity-based methods
+(e.g., [9]), although this may require development and reliable realization of DDE
+numerical algorithms.
+In addition, it should be mentioned that some of the identiďŹability techniques
+such as the diďŹerential algebra method can be extended to study the identiďŹability of
+PDE models (e.g., [49]), but the identiďŹability analysis for more complicated models
+such as PDEs or stochastic diďŹerential equations is beyond the scope of this paper.
+Finally, after the identiďŹability analysis is done, statistical estimation methods
+should be used to estimate the unknown parameters in the model. The practical
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+35
+
+identiďŹability analysis also requires that reliable parameter estimation methods be
+available. Recently statistical estimation methods for ODE models have attracted a
+great deal of attention from statisticians. Some novel and eďŹcient estimation methods
+particularly for nonlinear ODE models have been published in the statistical literature [17, 18, 40, 48, 61, 62, 88]. Besides the standard least squares approach [70, 71],
+more reliable and computationally eďŹcient estimation methods and their theoretical
+foundations have been developed [17, 18, 62, 88]. However, the topic of statistical estimation methods for ODE, DDE, and PDE models is beyond the scope of this paper.
+REFERENCES
+[1] B. M. Adams, H. T. Banks, H. D. Kwon, and H. T. Tran, Dynamic multidrug therapies
+for HIV: Optimal and STI control approaches, Math. Biosci. Eng., 1 (2004), pp. 223â241.
+[2] S. Aluru, Handbook of Computational Molecular Biology, Chapman & Hall/CRC Comput.
+Inf. Sci. Ser., Chapman & Hall/CRC, Boca Raton, FL, 2005.
+[3] D. H. Anderson, Compartmental Modeling and Tracer Kinetics, Lecture Notes in
+Biomath. 50, Springer, Berlin, 1983.
+[4] M. Anguelova, Observability and IdentiďŹability of Nonlinear Systems with Applications in
+Biology, Ph.D. thesis, Department of Mathematical Sciences, Chalmers University of
+Technology, and GoĚteborg University, GoĚteborg, Sweden, 2007.
+[5] M. Anguelova and B. Wennberg, State elimination and identiďŹability of the delay parameter for nonlinear time-delay systems, Automatica, 44 (2008), pp. 1373â1378.
+[6] U. M. Ascher and L. R. Petzold, The numerical solution of delay-diďŹerential-algebraic
+equations of retarded and neutral type, SIAM J. Numer. Anal., 32 (1995), pp. 1635â1657.
+[7] S. Audoly, G. Bellu, L. DâAngio, M. P. Saccomani, and C. Cobelli, Global identiďŹability
+of nonlinear models of biological systems, IEEE Trans. Biomed. Eng., 48 (2001), pp. 55â
+65.
+[8] P. Baccam, C. Beauchemin, C. A. Macken, F. G. Hayden, and A. S. Perelson, Kinetics
+of inďŹuenza A virus infection in humans, J. Virol., 80 (2006), pp. 7590â7599.
+[9] H. T. Banks and D. M. Bortz, A parameter sensitivity methodology in the context of HIV
+delay equation models, J. Math. Biol., 50 (2005), pp. 607â625.
+[10] A. Bellen and M. Zennaro, Numerical Solution of Delay DiďŹerential Equations, Oxford
+University Press, Oxford, 2003.
+[11] R. Bellman and K. J. AĚstroĚm, On structural identiďŹability, Math. Biosci., 7 (1970), pp. 329â
+339.
+[12] G. Bellu, M. P. Saccomani, S. Audoly, and L. DâAngi, DAISY: A new software tool to test
+global identiďŹability of biological and physiological systems, Comput. Methods Programs
+Biomed., 88 (2007), pp. 52â61.
+[13] D. G. Cacuci, Sensitivity and Uncertainty Analysis: Theory, Vol. 1, Chapman & Hall/CRC,
+Boca Raton, FL, 2003.
+[14] G. CarraâFerro and V. P. Gerdt, Improved Kolchin-Ritt algorithm, Program. Comput.
+Soft., 29 (2003), pp. 83â87.
+[15] C. Castillo-Chavez, S. Blower, P. vande Driessche, D. Kirschner, and A. A. Yakubu,
+Mathematical Approaches for Emerging and Reemerging Infectious Diseases: Models,
+Methods, and Theory, Springer, New York, 2002.
+[16] M. J. Chappel and K. R. Godfrey, Structural identiďŹability of the parameters of a nonlinear
+batch reactor model, Math. Biosci., 108 (1992), pp. 245â251.
+[17] J. Chen and H. Wu, Estimation of time-varying parameters in deterministic dynamic models
+with application to HIV infections, Statist. Sinica, 18 (2008a), pp. 987â1006.
+[18] J. Chen and H. Wu, EďŹcient local estimation for time-varying coeďŹcients in deterministic dynamic models with applications to HIV-1 dynamics, J. Amer. Statist. Assoc., 103
+(2008b), pp. 369â384.
+[19] C. Cobelli, A. Lepschy, and R. Jacur, IdentiďŹability of compartmental systems and related
+structural properties, Math. Biosci., 44 (1979), pp. 1â18.
+[20] C. Cobelli, A. Polo, and G. Romanin-Jacur, A computer program for the analysis of
+controllability, observability and structural identiďŹability of biological compartmental systems, Comput. Programs Biomed., 7 (1977), pp. 21â36.
+[21] C. Cobelli and G. Romanin-Jacur, Controllability, observability and structural identiďŹability of multi input and multi output biological compartmental systems, IEEE Trans.
+Biomed. Eng., 23 (1976), pp. 93â100.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+36
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+[22] J. M. Coffin, HIV population dynamics in vivo: Implications for genetic variation, pathogenesis, and therapy, Science, 267 (1995), pp. 483â489.
+[23] E. J. Davidson, Connectability and structural controllability of composite systems, Automatica, 13 (1997), pp. 109â123.
+[24] D. Degenring, C. Froemel, G. Dikta, and R. Takors, Sensitivity analysis for the reduction
+of complex metabolism models, J. Proc. Cont., 14 (2004), pp. 729â745.
+[25] L. Denis-Vidal, C. Jauberthie, and G. Joly-Blanchard, IdentiďŹability of a nonlinear
+delayed-diďŹerential aerospace model, IEEE Trans. Automat. Control, 51 (2006), pp. 154â
+158.
+[26] L. Denis-Vidal and G. Joly-Blanchard, An easy to check criterion for (un)identiďŹability
+of uncontrolled systems and its applications, IEEE Trans. Automat. Control, 45 (2000),
+pp. 768â771.
+[27] L. Denis-Vidal, G. Joly-Blanchard, and C. Noiret, Some eďŹective approaches to check
+the identiďŹability of uncontrolled nonlinear systems, Math. Comput. Simul., 57 (2001),
+pp. 35â44.
+[28] W. E. Deskins, Abstract Algebra, Dover, New York, 1996.
+[29] S. Diop and M. Fliess, On nonlinear observability, in Proceedings of the First European
+Control Conference, Hermes, Paris, 1991, pp. 152â157.
+[30] E. P. Dougherty, J. T. Hwang, and H. Rabitz, Further developments and applications of
+the Greenâs function method of sensitivity analysis in chemical kinetics, J. Chem. Phys.,
+71 (1979), pp. 1794â1808.
+[31] G. Ferretti, C. Maffezzoni, and R. Scattolini, On the identiďŹability of the time delay
+with least squares methods, Automatica, 32 (1996), pp. 449â453.
+[32] R. A. Filter, X. Xia, and C. M. Gray, Dynamic HIV/AIDS parameter estimation with
+application to a vaccine readiness study in Southern Africa, IEEE Trans. Biomed. Eng.,
+52 (2005), pp. 784â791.
+[33] B. R. Frieden, Science from Fisher Information, Cambridge University Press, New York,
+2004.
+[34] C. Froemel, Parameterreduktion in stoďŹwechselmodellen mit methoden der statistik, Master
+thesis, Fachhochschule Aachen, Abteilung Juelich, Fachbereich Physikalische Technik,
+Studienrichtung Technomathematik, 2003.
+[35] K. G. Gadkar, R. Gunawan, and F. J. Doyle, Iterative approach to model identiďŹcation
+of biological networks, BMC Bioinform., 6 (2005), pp. 155â175.
+[36] R. Gilmore, Lie Groups, Lie Algebras, and Some of Their Applications, Dover, New York,
+2006.
+[37] S. T. Glad, Solvability of diďŹerential algebraic equations and inequalities: An algorithm, in
+Proceedings of the Fourth European Control Conference, Brussels, 1997.
+[38] W. J. Grantham and T. L. Vincent, Modern Control Systems Analysis and Design, Wiley,
+New York, 1993.
+[39] M. Grewal and K. Glover, IdentiďŹability of linear and nonlinear dynamical systems, IEEE
+Trans. Automat. Control, 21 (1976), pp. 833â837.
+[40] J. Guedj, R. ThieĚbaut, and D. Commenges, Practical identiďŹability of HIV dynamics models, Bull. Math. Biol., 69 (2007), pp. 2493â2513.
+[41] N. Guglielmi and E. Hairer, Implementing Radau IIA methods for stiďŹ delay diďŹerential
+equations, Computing, 67 (2001), pp. 1â12.
+[42] N. Guglielmi and E. Hairer, Computing breaking points in implicit delay diďŹerential equations, Adv. Comput. Math., 29 (2008), pp. 229â247.
+[43] B. Hancioglu, D. Swigon, and G. Clermont, A dynamical model of human immune response to inďŹuenza A virus infection, J. Theoret. Biol., 246 (2007), pp. 70â86.
+[44] R. Hermann and A. J. Krener, Nonlinear controllability and observability, IEEE Trans.
+Automat. Control, 22 (1977), pp. 728â740.
+[45] D. D. Ho, A. U. Neumann, A. S. Perelson, W. Chen, J. M. Leonard, and M. Markowitz,
+Rapid turnover of plasma virions and CD4 lymphocytes in HIV-1 infection, Nature, 373
+(1995), pp. 123â126.
+[46] A. Holmberg, On the practical identiďŹability of microbial growth models incorporating
+Michaelis-Menten type nonlinearities, Math. Biosci., 62 (1982), pp. 23â43.
+[47] K. Hsu, C. Novara, T. Vincent, M. Milanese, and K. Poolla, Parametric and nonparametric curve ďŹtting, Automatica, 42 (2006), pp. 1869â1873.
+[48] Y. Huang, D. Liu, and H. Wu, Hierarchical Bayesian methods for estimation of parameters
+in a longitudinal HIV dynamic system, Biometrics, 62 (2006), pp. 413â423.
+[49] E. Hubert, Essential components of algebraic diďŹerential equations, J. Symbolic Comput.,
+28 (1999), pp. 657â680.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+37
+
+[50] A. Isidori, Nonlinear Control Systems, 3rd ed., Springer, New York, 1995.
+[51] J. A. Jacquez, Compartmental Analysis in Biology and Medicine, 2nd ed., The University
+of Michigan Press, Ann Arbor, MI, 1985.
+[52] J. A. Jacquez and P. Greif, Numerical parameter identiďŹability and estimability: Integrating identiďŹability, estimability, and optimal sampling design, Math. Biosci., 77 (1985),
+pp. 201â227.
+[53] L. Jaulin, M. Kieffer, O. Didrit, and E. Walter, Applied Interval Analysis, Springer,
+London, 2001.
+[54] A. M. Jeffrey and X. Xia, IdentiďŹability of HIV/AIDS model, in Deterministic and Stochastic Models of AIDS Epidemics and HIV Infections with Intervention, W. Y. Tan and H.
+Wu, eds., World ScientiďŹc, Hackensack, NJ, 2005, pp. 255â286.
+[55] A. M. Jeffrey, X. Xia, and I. K. Craig, When to initiate HIV therapy: A control theoretic
+approach, IEEE Trans. Biomed. Eng., 50 (2003), pp. 1213â1220.
+[56] I. T. Jolliffe, Discarding variables in a principal component analysis. I: ArtiďŹcial data, J.
+Roy. Statist. Soc. Ser. C Appl. Statist., 21 (1972), pp. 160â172.
+[57] E. Kolchin, DiďŹerential Algebra and Algebraic Groups, Academic Press, New York, 1973.
+[58] O. Krakovska and L. M. Wahl, Optimal drug treatment regimens for HIV depend on
+adherence, J. Theoret. Biol., 246 (2007), pp. 499â509.
+[59] D. A. Lauffenburger and J. L. Linderman, Receptors: Models for Binding, TraďŹcking,
+and Signaling, Oxford University Press, Oxford, 1993.
+[60] W. S. Levine, The Control Handbook, CRC Press, Boca Raton, FL, 1996.
+[61] L. Li, M. B. Brown, K. H. Lee, and S. Gupta, Estimation and inference for a splineenhanced population pharmacokinetic model, Biometrics, 58 (2002), pp. 601â611.
+[62] H. Liang and H. Wu, Parameter estimation for diďŹerential equation models using a framework of measurement error in regression models, J. Amer. Statist. Assoc., 103 (2008),
+pp. 1570â1583.
+[63] L. Ljung, Convergence analysis of parametric identiďŹcation methods, IEEE Trans. Automat.
+Control, 23 (1978), pp. 770â783.
+[64] L. Ljung, System IdentiďŹcation: Theory for the User, 2nd ed., PrenticeâHall, Upper Saddle
+River, NJ, 1999.
+[65] L. Ljung and T. Glad, On global identiďŹability for arbitrary model parametrizations, Automatica, 30 (1994), pp. 265â276.
+[66] S. M. V. Lunel, Parameter identiďŹability of diďŹerential delay equations, Internat. J. Adapt.
+Control Signal Process., 15 (2001), pp. 655â678.
+[67] E. L. Mansfield and P. A. Clarkson, Applications of the diďŹerential algebra package
+diďŹgrob2 to classical symmetries of diďŹerential equations, J. Symbolic Comput., 23
+(1997), pp. 517â533.
+[68] J. A. Merino, J. D. Biasi, Y. Plusquellec, and G. Houin, Local identiďŹability for two and
+three-compartment pharmacokinetic models with time-lags, Med. Eng. Phys., 20 (1998),
+pp. 261â268.
+[69] N. Metropolis and S. Ulam, The Monte Carlo method, J. Amer. Statist. Assoc., 44 (1949),
+pp. 335â341.
+[70] H. Miao, C. Dykes, L. M. Demeter, A. S. Perelson, and H. Wu, Modeling and estimation
+of kinetic parameters and replication ďŹtness of HIV-1 from ďŹow-cytometry-based growth
+competition experiments, Bull. Math. Biol., 70 (2008), pp. 1749â1771.
+[71] H. Miao, C. Dykes, L. M. Demeter, and H. Wu, DiďŹerential equation modeling of HIV viral
+ďŹtness experiments: Model identiďŹcation, model selection, and multi-model inference,
+Biometrics, 65 (2009), pp. 292â300.
+[72] B. Mishra, Algorithmic Algebra, Springer, New York, 1993.
+[73] J. R. Munkres, Analysis on Manifolds, Addison-Wesley, Redwood City, CA, 1991.
+[74] J. D. Murray, Mathematical Biology I: An Introduction, Springer, New York, 2002.
+[75] J. D. Murray, Mathematical Biology II: Spatial Models and Biomedical Applications,
+Springer, New York, 2003.
+[76] P. W. Nelson and A. S. Perelson, Mathematical analysis of delay diďŹerential equation
+models of HIV-1 infection, Math. Biosci., 179 (2002), pp. 73â94.
+[77] M. A. Nowak and R. M. May, Virus Dynamics: Mathematical Principles of Immunology
+and Virology, Oxford University Press, Oxford, 2000.
+[78] F. Ollivier, Le probleĚme de lâidentiďŹabiliteĚ globale: eĚtude theĚ orique, meĚthodes eďŹectives et
+bornes de complexiteĚ, Ph.D. thesis, EĚcole Polytechnique, Paris, France, 1990.
+[79] Y. Orlov, L. Belkoura, J. P. Richar, and M. Dambrine, On identiďŹability of linear
+time-delay systems, IEEE Trans. Automat. Control, 47 (2002), pp. 1319â1324.
+[80] A. S. Perelson, Modelling viral and immune system dynamics, Nat. Rev. Immunol., 2 (2002),
+pp. 28â36.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+38
+
+H. MIAO, X. XIA, A. S. PERELSON, AND H. WU
+
+[81] A. S. Perelson, P. Essunger, Y. Cao, M. Vesanen, A. Hurley, K. Saksela,
+M. Markowitz, and D. D. Ho, Decay characteristics of HIV-1-infected compartments
+during combination therapy, Nature, 387 (1997), pp. 188â191.
+[82] A. S. Perelson and P. W. Nelson, Mathematical analysis of HIV-1 dynamics in vivo, SIAM
+Rev., 41 (1999), pp. 3â44.
+[83] M. Pia Saccomani, S. Audoly, and L. DâAngi, Parameter identiďŹability of nonlinear systems: The role of initial conditions, Automatica, 39 (2003), pp. 619â632.
+[84] H. Pohjanpalo, System identiďŹability based on the power series expansion of the solution,
+Math. Biosci., 41 (1978), pp. 21â33.
+[85] T. Quaiser, W. Marquardt, and M. MoĚnnigmann, Local identiďŹability analysis of large
+signaling pathway models, in 2nd Conference Foundation of Systems Biology in Engineering, Proceedings Plenary and Contributed Papers, F. Allgoewer and M. Reuss, eds.,
+Fraunhofer IRB Verlag, Stuttgart, Germany, 2007, pp. 465â470.
+[86] T. Quaiser and M. MoĚnnigmann, Systematic identiďŹability testing for unambiguous mechanistic modeling: Application to JAK-STAT, MAP kinase, and NF-ÎşB signaling pathway
+models, BMC Syst. Biol., 3 (2009), pp. 50â71.
+[87] A. Raksanyi, Y. Lecourtier, E. Walter, and E. Venot, IdentiďŹability and distinguishability testing in computer algebra, Math. Biosci., 77 (1985), pp. 245â266.
+[88] J. O. Ramsay, G. Hooker, D. Campbell, and J. Cao, Parameter estimation for diďŹerential
+equations: A generalized smoothing approach (with discussions), J. R. Stat. Soc. Ser. B
+Stat. Methodol., 69 (2007), pp. 741â796.
+[89] C. R. Rao, Information and the accuracy attainable in the estimation of statistical parameters, Bull. Calcutta Math. Soc., 37 (1945), pp. 81â91.
+[90] V. C. Rebecca and S. Ruan, A delay-diďŹerential equation model of HIV infection of CD4+
+T-cells, Math. Biosci., 165 (2000), pp. 27â39.
+[91] J. F. Ritt, DiďŹerential Algebra, AMS, Providence, RI, 1950.
+[92] M. Rodriguez-Fernandez, J. A. Egea, and J. R. Banga, Novel metaheuristic for parameter
+estimation in nonlinear dynamic biological systems, BMC Bioinform., 7 (2006a), pp. 483â
+500.
+[93] M. Rodriguez-Fernandez, P. Mendes, and J. R. Banga, A hybrid approach for eďŹcient and robust parameter estimation in biochemical pathways, Biosystems, 83 (2006b),
+pp. 248â265.
+[94] A. Saltelli, K. Chan, and M. Scott, Sensitivity Analysis, Wiley Series in Probability and
+Statistics, John Wiley & Sons, New York, 2000.
+[95] K. Schittkowski, Experimental design tools for ordinary and algebraic diďŹerential equations,
+Ind. Eng. Chem. Res., 46 (2007), pp. 9137â9147.
+[96] C. Seigneur, G. Stephanopoulos, and R. W. Carr, Dynamic sensitivity analysis of chemical reaction system: A variational method, Chem. Eng. Sci., 37 (1982), pp. 845â853.
+[97] L. F. Shampine and S. Thompson, Solving DDEs in MATLAB, Appl. Numer. Math., 37
+(2001), pp. 441â458.
+[98] E. D. Sontag, On the observability of polynomial systems, I: Finite-time problems, SIAM J.
+Control Optim., 17 (1979), pp. 139â151.
+[99] E. D. Sontag, Spaces of observables in nonlinear control, in Proceedings of the International
+Congress of Mathematicians, Vols. 1 and 2 (ZuĚrich, 1994), BirkhaĚuser Verlag, Basel, 1995,
+pp. 1532â1545.
+[100] E. D. Sontag, For diďŹerential equations with r parameters, 2r + 1 experiments are enough
+for identiďŹcation, J. Nonlinear Sci., 12 (2002), pp. 553â583.
+[101] E. D. Sontag, Y. Wang, and A. Megretski, Input classes for identiďŹcation of bilinear
+systems, IEEE Trans. Automat. Control, 54 (2009), pp. 195â207.
+[102] F. Takens, Detecting strange attractors in turbulence, in Proceedings of the Symposium on
+Dynamical Systems and Turbulence, D. A. Rand and L. S. Young, eds., Springer, Berlin,
+1981, pp. 366â381.
+[103] K. Thomaseth and C. Cobelli, Generalized sensitivity functions in physiological system
+identiďŹcation, Ann. Biomed. Eng., 27 (1999), pp. 607â616.
+[104] T. Tunali and T. J. Tarn, New results for identiďŹability of nonlinear systems, IEEE Trans.
+Automat. Control, 32 (1987), pp. 146â154.
+[105] T. TuraĚnyi, Sensitivity analysis of complex kinetic systems. Tools and applications, J. Math.
+Chem., 5 (1990), pp. 203â248.
+[106] S. Vajda, K. Godfrey, and H. Rabitz, Similarity transformation approach to identiďŹability
+analysis of nonlinear compartmental models, Math. Biosci., 93 (1989a), pp. 217â248.
+[107] S. Vajda and H. Rabitz, State isomorphism approach to global identiďŹability of nonlinear
+systems, IEEE Trans. Automat. Control, 34 (1989), pp. 220â223.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+IDENTIFIABILITY OF ODE MODELS
+
+39
+
+[108] S. Vajda, H. Rabitz, E. Walter, and Y. Lecourtier, Qualitative and quantitative identiďŹability analysis of nonlinear chemical kinetic-models, Chem. Eng. Commun., 83 (1989b),
+pp. 191â219.
+[109] H. L. Van Trees, Detection, Estimation, and Modulation Theory. Part I, Wiley, New York,
+1968.
+[110] R. Vidal, A. Chiuso, and S. Soatto, Observability and identiďŹcation of jump linear systems, in Proceedings of the 41st IEEE Conference on Decision and Control, IEEE 2002,
+pp. 3614â3619.
+[111] T. L. Vincent and W. J. Grantham, Nonlinear and Optimal Control Systems, WileyInterscience, New York, 1997.
+[112] E. Walter, IdentiďŹability of Parametric Models, Pergamon Press, Oxford, 1987.
+[113] E. Walter, I. Braems, L. Jaulin, and M. Kieffer, Guaranteed numerical computation
+as an alternative to computer algebra for testing models for identiďŹability, in Numerical
+Software with Result VeriďŹcation, Lecture Notes in Comput. Sci. 2991, Springer, Berlin,
+2004, pp. 124â131.
+[114] E. Walter and Y. Lecourtier, UnidentiďŹable compartmental models: What to do?, Math.
+Biosci., 56 (1981), pp. 1â25.
+[115] H. Whitney, DiďŹerentiable manifolds, Ann. of Math. (2), 37 (1936), pp. 645â680.
+[116] H. Whitney, The self-intersections of a smooth n-manifold in 2n-space, Ann. of Math. (2),
+45 (1944), pp. 220â246.
+[117] H. Wu, H. Zhu, H. Miao, and A. S. Perelson, IdentiďŹability and statistical estimation
+of dynamic parameters in HIV/AIDS dynamic models, Bull. Math. Biol., 70 (2008),
+pp. 785â799.
+[118] X. Xia, Estimation of HIV/AIDS parameters, Automatica, 39 (2003), pp. 1983â1988.
+[119] X. Xia and C. H. Moog, IdentiďŹability of nonlinear systems with applications to HIV/AIDS
+models, IEEE Trans. Automat. Control, 48 (2003), pp. 330â336.
+[120] K. Z. Yao, B. M. Shaw, B. Kou, K. B. McAuley, and D. W. Bacon, Modeling ethylene/butene copolymerization with multi-site catalysts: Parameter estimability and experimental design, Polym. React. Eng., 11 (2003), pp. 563â588.
+[121] H. Yue, M. Brown, J. Knowles, H. Wang, D. S. Broomhead, and D. B. Kell, Insights
+into the behaviour of systems biology models from dynamic sensitivity and identiďŹability
+analysis: A case study of an NF-ÎşB signalling pathway, Mol. BioSyst., 2 (2006), pp. 640â
+649.
+[122] D. E. Zak, G. E. Gonye, J. S. Schwaber, and F. J. Doyle, Importance of input perturbations and stochastic gene expression in the reverse engineering of genetic regulatory
+networks: Insights from an identiďŹability analysis of an in silico network, Genome Res.,
+13 (2003), pp. 2396â2405.
+[123] R. M. Zazworsky and H. K. Knudsen, Comments on âControllability, observability and
+structural identiďŹability of multi input and multi output biological compartmental systems,â IEEE Trans. Biomed. Eng., 24 (1977), pp. 495â496.
+[124] J. Zhang and X. Xia, IdentiďŹability problems of time-delay HIV models, in Proceedings of
+the 17th IFAC World Congress, Seoul, Korea, 2008.
+[125] J. Zhang, X. Xia, and C. H. Moog, Parameter identiďŹability of nonlinear systems with
+time-delay, IEEE Trans. Automat. Control, 51 (2006), pp. 371â 375.
+[126] R. Zurakowski and A. R. Teel, A model predictive control based scheduling method for
+HIV therapy, J. Theoret. Biol., 238 (2006), pp. 368â382.
+
+Copyright ÂŠ by SIAM. Unauthorized reproduction of this article is prohibited.
+
+Reproduced with permission of the copyright owner. Further reproduction prohibited without permission.
+
+
