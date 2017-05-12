@@ -1,0 +1,352 @@
+From 9577d69048093ce0bb86c61fd2795a22341c762c Mon Sep 17 00:00:00 2001
+From: ds lee <dickson.lee@nordlinglab.org>
+Date: Thu, 11 May 2017 22:11:43 +0800
+Subject: [PATCH] modularization of /similarity and make it in test_module.py
+
+---
+ Code/Rainy/extraction/PDF2txtfull.py          | 68 ---------------------
+ Code/Rainy/extraction/README.md               |  1 -
+ Code/Rainy/extraction/getbold.py              | 88 ---------------------------
+ Code/Rainy/extraction/stringextract.py        | 11 ----
+ Code/Rainy/similarity/README.md               |  1 -
+ Code/Rainy/similarity/similarity.py           | 21 -------
+ Code/Rainy/similarity/transformation.py       | 33 ----------
+ Code/Rainy/similarity/vector_space_convert.py | 54 ----------------
+ 8 files changed, 277 deletions(-)
+ delete mode 100644 Code/Rainy/extraction/PDF2txtfull.py
+ delete mode 100644 Code/Rainy/extraction/README.md
+ delete mode 100644 Code/Rainy/extraction/getbold.py
+ delete mode 100644 Code/Rainy/extraction/stringextract.py
+ delete mode 100644 Code/Rainy/similarity/README.md
+ delete mode 100644 Code/Rainy/similarity/similarity.py
+ delete mode 100644 Code/Rainy/similarity/transformation.py
+ delete mode 100644 Code/Rainy/similarity/vector_space_convert.py
+
+diff --git a/Code/Rainy/extraction/PDF2txtfull.py b/Code/Rainy/extraction/PDF2txtfull.py
+deleted file mode 100644
+index 573de38..0000000
+--- a/Code/Rainy/extraction/PDF2txtfull.py
++++ /dev/null
+@@ -1,68 +0,0 @@
+-from pdfminer.pdfparser import PDFParser
+-from pdfminer.pdfpage import PDFPage
+-from pdfminer.pdfdocument import PDFDocument
+-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+-from pdfminer.converter import PDFPageAggregator
+-from pdfminer.layout import LAParams, LTTextBox,LTChar, LTFigure
+-import sys
+-class PdfMinerWrapper(object):
+-    """
+-    Usage:
+-    with PdfMinerWrapper('simple1.pdf') as doc:
+-        for page in doc:
+-           #do something with the page
+-    """
+-    def __init__(self, pdf_doc, pdf_pwd=""):
+-        self.pdf_doc = pdf_doc
+-        self.pdf_pwd = pdf_pwd
+-
+-    def __enter__(self):
+-        #open the pdf file
+-        self.fp = open(self.pdf_doc, 'rb')
+-        # create a parser object associated with the file object
+-        parser = PDFParser(self.fp)
+-        # create a PDFDocument object that stores the document structure
+-        doc = PDFDocument(parser, password=self.pdf_pwd)
+-        # connect the parser and document objects
+-        parser.set_document(doc)
+-        self.doc=doc
+-        return self
+-
+-    def _parse_pages(self):
+-        rsrcmgr = PDFResourceManager()
+-        laparams = LAParams(char_margin=3.5, all_texts = True)
+-        device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+-        interpreter = PDFPageInterpreter(rsrcmgr, device)
+-
+-        for page in PDFPage.create_pages(self.doc):
+-            interpreter.process_page(page)
+-            # receive the LTPage object for this page
+-            layout = device.get_result()
+-            # layout is an LTPage object which may contain child objects like LTTextBox, LTFigure, LTImage, etc.
+-            yield layout
+-    def __iter__(self):
+-        return iter(self._parse_pages())
+-
+-    def __exit__(self, _type, value, traceback):
+-        self.fp.close()
+-def main():
+-    with PdfMinerWrapper(sys.argv[1]) as doc:
+-        for page in doc:
+-            #print 'Page no.', page.pageid, 'Size',  (page.height, page.width)
+-            for tbox in page:
+-                #if not isinstance(tbox, LTTextBox):
+-                    #continue
+-                #print ' '*1, 'Block', 'bbox=(%0.2f, %0.2f, %0.2f, %0.2f)'% tbox.bbox
+-                for obj in tbox:
+-                    #print ' '*2, obj.get_text().encode('UTF-8')[:-1], '(%0.2f, %0.2f, %0.2f, %0.2f)'% tbox.bbox
+-                    for c in obj:
+-                        if not isinstance(c, LTChar):
+-                            continue
+-                        print c.get_text().encode('UTF-8'),c.fontname
+-                        #print fontname
+-                        #print c.get_text().encode('UTF-8'), '(%0.2f, %0.2f, %0.2f, %0.2f)'% c.bbox, c.fontname, c.size,
+-                        #string = c.fontname
+-                        #print("this is answer %r") %string
+-                    #print
+-if __name__=='__main__':
+-    main()
+diff --git a/Code/Rainy/extraction/README.md b/Code/Rainy/extraction/README.md
+deleted file mode 100644
+index fb3fd93..0000000
+--- a/Code/Rainy/extraction/README.md
++++ /dev/null
+@@ -1 +0,0 @@
+-the folder contains the extraction method of an article of information retrieval course 2017
+diff --git a/Code/Rainy/extraction/getbold.py b/Code/Rainy/extraction/getbold.py
+deleted file mode 100644
+index f61ca95..0000000
+--- a/Code/Rainy/extraction/getbold.py
++++ /dev/null
+@@ -1,88 +0,0 @@
+-from pdfminer.pdfparser import PDFParser
+-from pdfminer.pdfpage import PDFPage
+-from pdfminer.pdfdocument import PDFDocument
+-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+-from pdfminer.converter import PDFPageAggregator
+-from pdfminer.layout import LAParams, LTTextBox,LTChar, LTFigure
+-import sys
+-import re
+-class PdfMinerWrapper(object):
+-    """
+-    Usage:
+-    with PdfMinerWrapper('file.pdf') as doc:
+-        for page in doc:
+-           #do something with the page
+-    """
+-    def __init__(self, pdf_doc, pdf_pwd=""):
+-        self.pdf_doc = pdf_doc
+-        self.pdf_pwd = pdf_pwd
+-
+-    def __enter__(self):
+-        #open the pdf file
+-        self.fp = open(self.pdf_doc, 'rb')
+-        # create a parser object associated with the file object
+-        parser = PDFParser(self.fp)
+-        # create a PDFDocument object that stores the document structure
+-        doc = PDFDocument(parser, password=self.pdf_pwd)
+-        # connect the parser and document objects
+-        parser.set_document(doc)
+-        self.doc=doc
+-        return self
+-
+-    def _parse_pages(self):
+-        rsrcmgr = PDFResourceManager()
+-        laparams = LAParams(char_margin=3.5, all_texts = True)
+-        device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+-        interpreter = PDFPageInterpreter(rsrcmgr, device)
+-
+-        for page in PDFPage.create_pages(self.doc):
+-            interpreter.process_page(page)
+-            # receive the LTPage object for this page
+-            layout = device.get_result()
+-            # layout is an LTPage object which may contain child objects like LTTextBox, LTFigure, LTImage, etc.
+-            yield layout
+-    def __iter__(self):
+-        return iter(self._parse_pages())
+-
+-    def __exit__(self, _type, value, traceback):
+-        self.fp.close()
+-def main():
+-    with PdfMinerWrapper(sys.argv[1]) as doc:
+-        for page in doc:
+-            #print 'Page no.', page.pageid, 'Size',  (page.height, page.width)
+-            for tbox in page:
+-                #if not isinstance(tbox, LTTextBox):
+-                    #continue
+-                #print ' '*1, 'Block', 'bbox=(%0.2f, %0.2f, %0.2f, %0.2f)'% tbox.bbox
+-                for obj in tbox:
+-                    #print ' '*2, obj.get_text().encode('UTF-8')[:-1], '(%0.2f, %0.2f, %0.2f, %0.2f)'% tbox.bbox
+-                    for c in obj:
+-                        if not isinstance(c, LTChar):
+-                            continue
+-                        #print c.get_text().encode('UTF-8')
+-###############find bold word###############################
+-                        word = c.get_text().encode('UTF-8') #every single word
+-                        text = c.fontname
+-                        m = re.search('Bold',text)
+-                        return 1,2 #the way you return two thing
+-                        #while m != None:
+-                            #found = m.group(0)
+-                            #word = c.get_text().encode('UTF-8')
+-                            #print found
+-                            #print word
+-                            #break
+-                        #else:
+-                            #print "no"
+-
+-                        #found = m.group(0)
+-                        #print found
+-                        #print c.fontname
+-                        raw_input('>')
+-                        #print c.get_text().encode('UTF-8'), '(%0.2f, %0.2f, %0.2f, %0.2f)'% c.bbox, c.fontname, c.size,
+-                        #string = c.fontname
+-                        #print("this is answer %r") %string
+-                    #print
+-if __name__=='__main__':
+-    a,b = main()
+-    print a
+-    print b
+diff --git a/Code/Rainy/extraction/stringextract.py b/Code/Rainy/extraction/stringextract.py
+deleted file mode 100644
+index 9579962..0000000
+--- a/Code/Rainy/extraction/stringextract.py
++++ /dev/null
+@@ -1,11 +0,0 @@
+-import re
+-
+-text = 'AAA1234ZZZuijjk'
+-
+-m = re.search('1234', text)
+-found = m.group(0)
+-print found
+-
+-#m = re.match('he', 'hello')
+-#found = m.group(0)
+-#print found
+diff --git a/Code/Rainy/similarity/README.md b/Code/Rainy/similarity/README.md
+deleted file mode 100644
+index 9240c04..0000000
+--- a/Code/Rainy/similarity/README.md
++++ /dev/null
+@@ -1 +0,0 @@
+-this folder the similarity comparison function of information retrieval course 2017
+diff --git a/Code/Rainy/similarity/similarity.py b/Code/Rainy/similarity/similarity.py
+deleted file mode 100644
+index 10d34c9..0000000
+--- a/Code/Rainy/similarity/similarity.py
++++ /dev/null
+@@ -1,21 +0,0 @@
+-import logging
+-from gensim import corpora, models, similarities
+-
+-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+-
+-dictionary = corpora.Dictionary.load('../tmp/deerwester.dict')
+-corpus = corpora.MmCorpus('../tmp/deerwester.mm') # comes from vecter_space_convert.py, "From strings to vectors"
+-
+-lsi = models.LsiModel(corpus, id2word=dictionary, num_topics=2)
+-
+-doc = "System Identifiability, structural, biology, control, computational"
+-vec_bow = dictionary.doc2bow(doc.lower().split())
+-vec_lsi = lsi[vec_bow] # convert the query to LSI space
+-
+-index = similarities.MatrixSimilarity(lsi[corpus]) # transform corpus to LSI space and index it
+-index.save('../tmp/deerwester.index') # save similarity index
+-
+-sims = index[vec_lsi] # perform a similarity query against the corpus
+-sims = sorted(enumerate(sims), key=lambda item: -item[1]) # calculate sorted similarity
+-# print(list(enumerate(sims)))
+-print(sims) # print sorted (document number, similarity score) 2-tuples
+diff --git a/Code/Rainy/similarity/transformation.py b/Code/Rainy/similarity/transformation.py
+deleted file mode 100644
+index 4c21030..0000000
+--- a/Code/Rainy/similarity/transformation.py
++++ /dev/null
+@@ -1,33 +0,0 @@
+-import logging
+-import os
+-from gensim import corpora, models, similarities
+-
+-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+-
+-'''
+-transform documents from one vector representation into another.
+-This process serves two goals:
+-
+-1. To bring out hidden structure in the corpus,
+-discover relationships between words and use them to describe the documents in a new and (hopefully) more semantic way.
+-
+-2. To make the document representation more compact.
+-This both improves efficiency (new representation consumes less resources) and efficacy (marginal data trends are ignored, noise-reduction).
+-
+-'''
+-
+-if (os.path.exists("../tmp/deerwester.dict")):
+-    dictionary = corpora.Dictionary.load('../tmp/deerwester.dict')
+-    corpus = corpora.MmCorpus('../tmp/deerwester.mm')
+-    print("Used files generated from vecter_space_convert.py")
+-else:
+-    print("Please generate data set")
+-
+-tfidf = models.TfidfModel(corpus) # step 1 -- initialize a model
+-
+-corpus_tfidf = tfidf[corpus] # step 2 -- use the model to transform vectors
+-
+-lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2) # initialize an LSI transformation
+-corpus_lsi = lsi[corpus_tfidf] # create a double wrapper over the original corpus: bow->tfidf->fold-in-lsi
+-
+-lsi.save('../tmp/model.lsi') # same for tfidf, lda, ...
+diff --git a/Code/Rainy/similarity/vector_space_convert.py b/Code/Rainy/similarity/vector_space_convert.py
+deleted file mode 100644
+index 180c3a2..0000000
+--- a/Code/Rainy/similarity/vector_space_convert.py
++++ /dev/null
+@@ -1,54 +0,0 @@
+-import logging
+-from gensim import corpora
+-from stop_words import get_stop_words
+-from collections import defaultdict
+-from pprint import pprint  # pretty-printer
+-from six import iteritems
+-import codecs
+-import re
+-
+-def file_read(filename):
+-    file = codecs.open(filename, 'r', 'utf-8')
+-    content = file.read()
+-    return content
+-
+-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO) # see logging events
+-
+-# test filename
+-filename = ['../papers/Cobelli1979_Identifiability_of_compartmental_systems_and_related_structural_properties.txt',
+-            '../papers/Li2012_Development_Of_Multi-fingered_Robotic_Hand.txt',
+-            '../papers/Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.txt',
+-            '../papers/Vajad1989_Similarity_transformation_approach_to_identifiability_a_alysis_of_nonlinear_compartmental_models.txt',
+-            '../papers/Villaverde2016_Structural_Identifiability_of_Dynamic_Systems_Biology_Models.txt']
+-
+-documents = [] # list for storing documents
+-
+-# read file
+-for count in range(0, 5):
+-    documents.append(file_read(filename[count]))
+-
+-# remove common words and tokenize
+-stop_words = get_stop_words('english') # getting english stop_words
+-texts = [[word for word in document.lower().split() if word not in stop_words]
+-         for document in documents]
+-
+-# remove words that appear only once
+-frequency = defaultdict(int)
+-for text in texts:
+-    for token in text:
+-        frequency[token] += 1
+-texts = [[token for token in text if frequency[token] > 1] for text in texts]
+-
+-texts = [[re.sub('[^A-Za-z]', '', token) for token in text] for text in texts] # regular expression removing non-alphabet character
+-texts = [filter(None, text) for text in texts] # remove empty entry of a list
+-
+-dictionary = corpora.Dictionary(texts)
+-once_ids = [tokenid for tokenid, docfreq in iteritems(dictionary.dfs) if docfreq == 1]
+-dictionary.filter_tokens(once_ids)  # remove stop words and words that appear only once
+-dictionary.compactify()  # remove gaps in id sequence after words that were removed
+-print(dictionary)
+-dictionary.save('../tmp/deerwester.dict')  # store the dictionary, for future reference
+-
+-
+-corpus = [dictionary.doc2bow(text) for text in texts]
+-corpora.MmCorpus.serialize('../tmp/deerwester.mm', corpus)  # store to disk, for later use
+-- 
+2.11.0.windows.1
+
