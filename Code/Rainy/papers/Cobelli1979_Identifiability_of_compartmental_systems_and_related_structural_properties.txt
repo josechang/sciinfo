@@ -1,0 +1,1359 @@
+Identifiability of Compartmental Systems
+and Related Structural Properties
+C. COBELLI*, A. LEPSCHY, ANDG. ROMANIN JACUR
+Laboratorio per Ricer& di Dinamica dei Sistemi e di Bioingegneria
+de1 CNR, Padova, Ita&
+and
+Istituto di Eletirotecnica e di Elettronica,
+Universitci di Paalma, Padow, Italy.
+Received November
+
+1977; revised 29 June 1978
+
+ABSTRACT
+The paper deals with the relations between a priori identifiability and other structural
+properties and with identifiability conditions for compartmental systems. Reference is
+made to the notions of fixed structure system and of structural property. Structural
+controllability and observability and input and output connectability of compartmental
+systems are defined, and their relation discussed. Formal definitions are given for
+structural identifiability and unique structural identifiability. A newly formulated set of
+conditions for structural identifiability of compartmental systems is given that can be
+tested in an easy way directly on the compartmental diagram. Some observations reported
+in recent literature are discussed.
+
+1.
+
+INTRODUCTION
+
+Identifiability
+of biological compartmental
+systems has recently received
+much attention.
+Identifiability
+deals with the problem of determining
+a
+priori
+whether a planned input-output
+identification
+experiment is able to
+supply the desired information
+about the unknown
+parameters
+of the
+compartmental
+system; such a problem is to be faced on the basis of the
+chosen compartmental
+structure and of the planned input-output
+experiment. The literature on the matter presents many recent results, particularly
+on the class of linear time invariant compartmental
+systems (e.g. [l-11]).
+In the analysis of structural identifiability
+and other related properties
+(e.g. structural controllability
+and observability) 1different/definitions
+have
+
+*Address correspondence
+Padova, Italy.
+MATHEMATICAL
+
+to C. Cobelli, LADSEBCNR,
+
+BIOSCIENCES
+
+QElsevier North Holland, Inc., 1979
+
+P.O. Box 1075, 35100
+
+1
+
+44: 1-18 (1979)
+
+0025-5564/79/030001+
+
+18$02.25
+
+C. COBELLI, A. LEPSCHY, AND G. ROMANIN JACUR
+
+2
+
+been implicitly referred to and some misunderstandings
+have arisen about
+the validity of suggested identifiability
+conditions.
+In this paper we analyze the relations between apriori identifiability and
+other structural properties and present a newly formulated set of necessary
+conditions for structural identifiability of compartmental
+systems. In particular, use is made of the notions of fixed structure system and of structural
+property (Sec. 2). For the case of compartmental
+systems structural controllability and observability, input and output connectability,
+and their interrelations are considered (Sec. 3). Formal definitions are given for structural
+identifiability
+and unique structural identifiability
+(Sec. 4). The relations
+among the above structural properties are clearly outlined (Sec. 5). Newly
+formulated
+conditions
+for identifiability
+of compartmental
+systems are
+given; the first condition is proved via a heuristic procedure which is valid
+also for time varying and/or nonlinear compartmental
+systems. The proposed identifiability
+test may be performed in an easy way directly on the
+compartmental
+diagram (Sec. 6). Finally, some observations
+reported in
+recent literature are discussed by referring to notions and definitions ,of
+Sets. 2-6.
+2.
+
+COMPARTMENTAL
+AND STRUCTURAL
+
+SYSTEMS, FIXED
+PROPERTIES.
+
+STRUCTURE
+
+SYSTEMS
+
+Let us consider a compartmental
+system made up of n compartments
+described by the mass balance equation
+
+Qi=
+
+2 R, - i
+
+Rji,
+
+i= 1,n
+
+(1)
+
+j-0
+jii
+
+j-0
+j#i
+
+Qi,
+
+where Rij (‘j#O) represents the intercompartmental
+material flow from
+compartmentj
+to compartment i, and Rio, Roi represent the flows into i from
+the environment and from i to the environment
+respectively.
+An input-output first order perturbation experiment on a constant steady
+state compartmental
+system described by (1) leads to the linear time
+invariant equations [ 121
+nB
+ii
+
+=
+
+k,x,+
+
+i
+j=
+
+1
+
+jii
+
+2
+I-1
+
+b,u,-
+
+i
+
+kjixi,
+
+i= 1,n 3
+
+j=O
+
+j#i
+
+(2)
+y,=
+
+5 &Xi,
+i=l
+
+m= l,n,,
+
+where xi is the deviation of Qi from its steady state value, u1 is the Ith
+perturbation
+input, kg is the transport rate constant from compartment
+j
+
+IDENTIFIABILITY
+
+OF COMPARTMENTAL
+
+3
+
+SYSTEMS
+
+into i, y,,, is the mth output (measurement),
+and n, and n, are the numbers
+of perturbation inputs and of measurement outputs respectively. In identification of compartmental
+systems, a physiologically based structure of the
+model is chosen a priori by stating explicitly which of the k,‘s are assumed
+to be different from zero; moreover, the design of the experiment defines
+the input-output
+configuration
+by stating the coefficients b,, and c,,,; which
+are different from zero. The equations (2) correspond to a particular case of
+input-state-output
+equations of a linear time invariant dynamical system:
+i=Ax+Bu,
+y=cx,
+
+(3)
+
+where A, B, and C are matrices of suitable dimensions.
+Some notions useful for the following will now be presented.
+alizing a definition given in [ 131, we have
+DEFINITION
+
+By gener-
+
+I
+
+A system is said to be a fixed structure system if the identically null
+parameters of a suitable analytical description of it are stated a priori, while
+other parameters are free and mutually independent.
+For a fixed structure system, the free parameters may be ordered in a
+parametrization vector, whose value corresponds to a point in the parameter
+space P and characterizes a particular model among all other ones having
+the same structure.
+DEFINITION
+
+2
+
+A property of a fixed structure system is said to be a structural property if
+it holds almost everywhere in the parameter space P.
+As a consequence, all information concerning structural properties may
+be derived from a graphical representation of the system, as for instance the
+compartmental
+diagram associated with the equations (2) or in general the
+signal flow graph associated with the equations (3).
+In the compartmental
+case, the parametrization
+vector is formed by the
+non a priori null coefficients kg, bir, c,,,:, which are actually independent of
+each other. If compartmental
+equations are rearranged in the general form
+(3) the coefficients ag are not mutually independent,
+as they are related to
+the coefficients kG by
+au = kti
+
+for i#j;
+
+a,, = - i
+
+k,i - koi,
+
+(4)
+
+j=l
+
+and if koi =0 for some i, then the corresponding
+on all other entries of the same column of A.
+
+entry a,, depends
+
+linearly
+
+C. COBELLI, A. LEPSCHY, AND G. ROMANIN
+
+4
+3.
+
+JACUR
+
+STRUCTURAL
+CONTROLLABILITY
+AND OBSERVABILITY,
+INPUT AND OUTPUT CONNECTABILITY,
+AND THEIR
+RELATIONS.
+
+In the framework of system theory a very important role is played by the
+properties of controllability and observability. In order to give intuitive
+insight into such properties, controllability
+may be considered as the possibility of influencing
+each state variable independently
+by means of the
+control inputs, and observability
+may be considered as the possibility of
+reconstructing
+each state variable from the knowledge of the outputs.
+Two important structural properties are related to controllability
+and
+observability: structural controllability and structural observability [ 13, 141. A
+fixed structure system is said to be structurally controllable
+(structurally
+observable)
+if it is controllable
+(observable)
+almost everywhere in the
+parameter space.
+Other interesting structural properties have been recently defined in [ 151,
+i.e., input and output connectability. With reference to a graphical representation of the analytical description of the system [for instance the compartmental diagram for Eq. (2) or in general a signal flow graph for Eq. (3)], a
+state variable is said to be input (output) connectable if there exists a path
+from an input to the considered state (from the considered state to an
+output). A fixed structure system is said to be input (output) connectable if
+all its state variables are input (output) connectable.
+The corresponding
+notions for nonlinear systems have been defined in [16] as input (output)
+reachability.
+From an intuitive point of view, the difference between structural controllability and input connectability
+lies in the fact that in the second case,
+state variables are influenced by the inputs but not necessarily in independent ways. Similarly, output connectability
+assures the influence of each
+state variable on at least one output, but does not assure the possibility of
+reconstructing
+the individual value of each state variable from the knowledge of the outputs as in the case of structural observability. The relations
+between structural controllability
+(observability)
+and input (output) connectability may be put in a formal way by means of the following theorem
+given in [15].
+THEOREM
+
+1
+
+A fixed structure system is structurally controllable (observable) if and on&
+if the following conditions both hold:
+(i) the Jystem is input (output) connectable,
+(ii) rank( A j B ) = n (rank -s- = n),
+( 1
+almost everywhere in the parameter space P.
+
+IDENTIFIABILITY
+
+OF COMPARTMENTAL
+
+SYSTEMS
+
+bl
+
+4
+
+FIG. 1. Example of an input connectable but not structurally controllable compartmental system.
+
+Clearly input (output) connectability
+is a necessary but not sufficient
+condition for structural controllability
+(observability). As an example let US
+consider the compartmental
+system of Fig. 1. Compartments
+2 and 3 form a
+closed subsystem, as there is no outflow from it; it is evident that it is
+impossible to influence in an independent way the compartmental
+quantity
+4 and the sum of the compartmental
+quantities 2 and 3, by means of the
+input in compartment
+1. Formally, if condition (ii) is tested, we have
+rank( A / B ) ~4, as uz2= - u32 and uJ3= - uz3 [see Eq. (4)]. For compartmental systems, the general case of not structurally controllable but input
+connectable systems corresponds to a situation where a single compartment
+(or a single input) feeds more than one closed subsystem.
+An example of output connectable but not structurally observable compartmental
+system is given in Fig. 2. The general case corresponds to a
+situation where a single measurement is taken on compartments
+belonging
+to more than one closed subsystem.
+4.
+
+STRUCTURAL
+
+IDENTIFIABILITY
+
+Structural identifiability is another structural property. As is well known,
+the analysis of structural identifiability
+allows us to test upriori whether all
+the unknown parameters of the system considered can be estimated via the
+planned input-output
+experiment. In order to rigorously define structural
+
+-Y
+
+FIG. 2.
+
+Example of output connectable but not structurally observable system.
+
+C. COBELLI,
+
+6
+
+A. LEPSCHY,
+
+AND G. ROMANIN
+
+JACUR
+
+identifiability
+we will now formalize some preliminary concepts (see also
+[6]) by using the notion of output distinguishability
+[17].
+Given a fixed structure system, two parametrization
+vectors p’ and p” in
+P are said to be (output) indistinguishable if the outputs of the corresponding systems y(p’) and y(p”) are identical for every input u and every initial
+state x,, = x(0). Otherwise the two parametrization
+vectors are said to be
+(output) distinguishable.
+A fixed structure system is said to be locally identifiable in p’ if there
+exists a neighborhood e(p’) such that, for everyp” +p’ in it, the pair (p’,p”)
+is distinguishable;
+it is said to be globally identifiabIe in p’ if, for every
+p”#p’ in the whole space P, the pair (p’,p”) is distinguishable.
+A fixed
+structure system is said to be almost everywhere locally (globally) identifiable
+if it is locally (globally) identifiable in every p’ of the space P, except at
+most in a subspace of zero measure (that is excepting) at most a line in a
+bidimensional
+parameter space, at most a surface in tridimensional
+space,
+etc.).
+With reference to the problem of structural identifiability
+of compartmental systems, on the basis of the above concepts we are now able to state
+the following definitions:
+DEFINITION
+
+3
+
+A compartmental
+system is said to be structurally
+almost everywhere locally identifiable.
+DEFINITION
+
+identifiable
+
+if it is
+
+4
+
+A compartmental
+system is said to be uniquely structurally identifiable if
+it is almost everywhere globally identifiable.
+
+5.
+
+RELATIONS
+AND OTHER
+
+BETWEEN
+STRUCTURAL
+STRUCTURAL
+PROPERTIES
+
+IDENTIFIABILITY
+
+In some previous papers [2-51, the authors gave conditions for structural
+identifiability
+of linear, time invariant compartmental
+systems (in the sense
+of Definition 3). The first of the given conditions required a property which
+is actually identical to input and output connectability;
+however, as the
+above papers were written before the introduction
+of this notion, the
+original formulation of the identifiability
+criterion was referred to structural
+controllability
+and observability and to an “extension” of them. As the use
+of input and output connectability
+shows many advantages (in particular, it
+may be tested directly on the compartmental
+diagram without making use
+of more complex notions derived from system theory), here we will express
+the first structural identifiability
+condition in terms of input and output
+connectability
+and give a new heuristic proof of it.
+
+IDENTIFIABILITY
+
+THEOREM
+
+OF COMPARTMENTAL
+
+SYSTEMS
+
+7
+
+2
+
+Input and output connectability
+identifiability.
+
+are necessaty
+
+conditions for structural
+
+ProoJ We decompose the system in a way which is similar, but not
+identical, to the canonical decomposition
+by Kalman [18]. The system is
+split into four parts, as in Fig. 3:
+i.c. and O.C. subsystem, formed by the compartments
+which are both
+input- and output-connectable;
+n.i.c. and O.C. subsystem, formed by the non-input-connectable
+but
+output-connectable
+compartments;
+i.c. and n.o.c. subsystem, formed by input- but non-output-connectable
+compartments;
+n.i.c. and n.o.c. subsystem, formed by non-inputand non-outputconnectable compartments.
+
+U
+
+a)
+
+b]
+FIG. 3. Decomposition
+connectability.
+
+of a compartmental
+
+system with reference
+
+to input and output
+
+8
+
+C. COBELLI,
+
+A. LEPSCHY,
+
+AND G. ROMANIN
+
+JACUR
+
+Each subsystem may be formed by more than one compartment,
+and
+therefore each directed arc in Fig. 3(a) represents the whole set of nonzero
+transport rate constants connecting compartments
+of a subsystem to compartments of another subsystem or to the environment.
+Similarly the set of
+perturbation
+inputs and the set of measurement outputs are represented by
+a single arrow for each subsystem.
+The input-output relation of the system of Fig. 3(a) remains unchanged if
+we eliminate the compartments not belonging to the i.c. and O.C. subsystem
+together with the transport rate constants outgoing from them [Fig. 3(b)]. In
+fact, taking into account the equations (2), it is easy to realize that any
+variation in the measured outputs is determined only by a variation of
+output connectable compartments,
+while a variation in any compartmental
+quantity may be induced by perturbation
+inputs only if the corresponding
+compartment
+is input connectable.
+As a consequence,
+the transport rate
+parameters we have thus eliminated
+cannot appear in the input-output
+relations, and therefore they cannot be estimated via the designed experiment. Thus the above theorem is proved.
+It may be remarked that for a strongly connected compartmental
+system
+[2, 191 the above necessary conditions hold for any planned experimental
+
+a)
+
+b)
+
+FIG. 4.
+
+Decomposition
+
+of a six compartment
+
+system.
+
+IDENTIFIABILITY
+
+OF COMPARTMENTAL
+
+SYSTEMS
+
+bll
+Ul
+
+1
+
+I
+
+FIG. 5.
+
+Example
+
+but identifiable
+
+of an input and output connectable,
+
+compartmental
+
+not structurally
+
+controllable,
+
+system.
+
+configuration,
+as by definition each compartment
+is connected to each
+other one by at least one path. As an example, let us consider the
+compartmental
+system of Fig. 4(a), where the four subsystems of Fig. 3 are
+displayed. Figure (4b) shows the i.c. and O.C. subsystem, that is, the only
+part of the original compartmental
+system for which the necessary identifiability condition is satisfied; the input-output
+experiment shown in Fig. 4
+
+\
+
+\
+
+=12’,
+'(7
+
+Ul
+
+,+,I---Yl
+/
+
+2
+
+/: ‘Cl3
+
+G(s)=
+
+(C12k21+c13k31)bll
+s(s+k2,+k3,)
+
+FIG. 6.
+identifiable
+
+Example of an input and output
+compartmental
+system.
+
+connectable,
+
+not structurally
+
+observable,
+
+but
+
+10
+
+C. COBELLI,
+
+does not allow the evaluation
+
+A. LEPSCHY,
+
+of any transport
+
+AND G. ROMANIN
+
+rate parameter
+
+JACUR
+
+other than
+
+k,,, k,,, k,,.
+The extension of the above Theorem 2 is straightforward. Let us consider
+the case where some parameters kij of the equations (2) are not constant but
+are functions of time (time varying compartmental systems) and/or of the
+quantities associated to the compartments
+(nonlinear compartmental TSterns). It is easy to recognize that the above theorem holds in this case too:
+in fact, the analytical expressions for those parameters that correspond to
+graph arcs outgoing from non-input- and/or non-output-connectable
+compartments do not affect any input-output
+relation.
+As far as relations between structural identifiability
+and structural controllability and observability are concerned, two simple examples will show
+that the latter are not necessary conditions for structural identifiability.
+Let us first consider the system of Fig. 5, where the input and output
+coefficients b, ,, ci2, and cz3 are assumed to be known. The system is input
+and output connectable
+but not structurally
+controllable
+(see Sec. 3);
+however it is structurally identifiable, as can be easily seen by the analysis
+of the transfer matrix G(s). In fact the numerators allow the estimation of
+k,, and k,, respectively, while k,, can be estimated from the denominator.
+A similar example is shown in Fig. 6, where the input and output
+coefficients b, ,, ciz, and cl3 (ci2#c,J
+are assumed to be known. The system
+is input and output connectable, not structurally observable (see Sec. 3), but
+
+FIG. 7. Verm diagram of the relations among input-output connectable systems (ioc),
+structurally controllable and observable systems (SW), and structurally identifiable systems (si).
+
+11
+
+IDENTIFIABILITY OF COMPARTMENTAL SYSTEMS
+
+structurally identifiable, as may be seen by analyzing the transfer function
+G(s): the numerator and denominator
+give two independent
+relations beThe relations among the classes
+tween the unknowns kZ, and k3, if c,,#c,,.
+of input and output connectable systems (ioc), structurally controllable and
+observable systems (sco) and structurally identifiable systems (si) may be
+perceived by using the Venn diagram of Fig. 7.
+6.
+
+ANOTHER
+
+NECESSARY
+
+CONDITION
+
+Input and output connectability
+is
+tion for structural identifiability
+of
+systems. Another necessary condition
+which lies on the fact that it can be
+diagram.
+The condition can be presented in
+
+a necessary, but not sufficient, condilinear time invariant compartmental
+has been proved in [6], the interest of
+directly tested on the compartmental
+the form
+
+(9
+where n, is the number of unknown parameters and n, is evaluated
+compartmental
+diagram by means of the relation
+k=n,
+
+k=n,
+h=n,
+
+h=n,
+
+n,=n-n’+
+
+z
+h=l
+k=l
+
+from the
+
+whk-
+
+x
+h=l
+k=l
+
+zhk,
+
+where
+is the number of compartments;
+is the number of closed subsystems (only directly measured closed
+subsystems not containing
+other closed subsystems are taken into
+account);
+whkis an addendum concerning the hk subsystem and equals the difference
+between the number of compartments connectable both to input k and
+to output h, minus the number of arcs forming the shortest path from a
+compartment
+directly entered by input k and a compartment
+directly
+measured via output h;
+zhk is different from zero only if there exists a common cascade part (ccp)
+between subsystem hk and a previously considered one, and is equal to
+the number of compartments
+inside the ccp minus the number of arcs
+forming the shortest path from input compartment to output compartment of the ccp minus 1.
+n
+
+n’
+
+As an example of the computation of n, let us consider the compartmental
+system and experiment configuration
+of Fig. 8. The number n of compartments is 8, while n’ = 1, as the only closed subsystem, is formed by
+compartments
+6 and 7. The computation
+of each w,, and zhhkis detailed in
+
+12
+
+FIG. 8.
+
+Example
+
+C. COBELLI,
+
+A. LEPSCHY,
+
+of application
+
+of the structural
+
+AND
+
+G. ROMANIN
+
+identifiability
+
+JACUR
+
+test.
+
+Table 1 (compartments
+3, 4, 5 form a cascade part which is common to
+subsystems 11, 12, 21). Therefore, n, = 15. If input and output matrices B
+and C are assumed to be known, then n, = 17 and condition (5) is not
+satisfied; therefore, the designed experiment does not allow the identification of the considered system.
+Condition (5) is based on the following considerations.
+The information
+that can be achieved from the experiment on the system is contained in the
+transfer matrix, i.e., in the nsnc transfer functions relating each input to an
+output. The coefficients of numerator and denominator polynomials of the
+transfer functions depend on the unknown parameters of the system and
+supply a certain number of (nonlinear) relations among them. These relations are in general not independent
+on each other; therefore, the problem
+has to be faced of determining
+the number of independent
+equations in
+order to compare it with the number n, of unknowns.
+The number n, of condition (5) is a number of equations obtained after
+having removed certain dependencies.
+In particular, the following causes of dependency are taken into account:
+all transfer functions in the nonreduced
+form have the same denominator, i.e., the n degree polynomial det(sZ-A)
+some coefficients are a pviori null, and therefore, supply no information; this can happen for the n’ lower degree coefficients of the
+denominator
+polynomial
+and for the higher degree coefficients of
+some numerators
+common factors may exist between numerator
+and denominator
+(when some compartments
+are not connectable to the input or to the
+output of the considered transfer function)
+common factors may exist among numerators
+of different transfer
+functions (when cascade common parts are present).
+Dependency
+among equations may arise due to other causes. Two
+examples are presented in Figs. 9 and 10, where dependency is not due to
+
+1
+2
+1
+2
+
+1
+1
+2
+2
+
+n,=17;
+
+k
+
+h
+
+n,=8-l+lO-2=15.
+
+134567
+234567
+13458
+23458
+
+Compartments
+inside hk
+subsystem
+
+6
+6
+5
+5
+
+Number of
+compartments of
+hk subsystem
+4
+4
+3
+1
+
+Length
+of the shortest
+hk path
+h
+
+1
+
+k
+
+211
+2
+12
+2 2 1
+422
+10
+
+whk
+
+TABLE
+
+34567
+1345
+-
+
+Compartments
+inside
+c.c.p.
+5
+4
+
+Number of
+compartments of
+c.c.p.
+
+3
+2
+
+Length
+of the shortest
+c.c.p.
+path
+
+1
+1
+2
+
+-
+
+zhk
+
+C. COBELLI,
+
+14
+
+A. LEPSCHY,
+
+AND G. ROMANIN
+
+JACUR
+
+the above mentioned causes. The second example has been provided to us
+by H. Pohjanpalo [20]. For the system of Fig. 9 we have: n =2; n’=O;
+w,, = wz2= 2; w,* = w2, = 1; zij = 0, therefore n, = 8, but the 8 equations which
+relate unknown parameters to the transfer function coefficients are not
+independent, as
+
+P,”
+
+Pd’
+a,=--+--,
+(yo=
+
+In Fig.
+input-single
+
+PI” P:’
+Pd‘LG’- Pd2P,2’
+Pl’W2
+.
+
+10, a three-compartment
+model is considered with a single
+output experiment. In this case, n, = 3 but the three equations
+
+G,,(s)=; = $+“,“d:
+1
+G,,(s)=;
+
+I
+
+=
+2
+
+s2+t;+a
+I
+
+0
+
+I
+
+32+:;+a
+I
+
+0
+
+Gz,(s)=~=
+
+G22(~)=
+
+0
+
+&2
+
+=
+2
+
+sfra',y;
+I
+
+0
+
+where:
+aI=
+
+kz,+ko,+k,2+k02
+
+ao=Wo,+ko,k,2+ko,ko2
+
+Pd2=b22c,,k,2
+A?=b,,&z,
+
+Pd'=h,c,,(k,2+ko2)
+
+t%f2=b22c22(k2,+ko,)
+
+P:'=b,,c,,
+
+Pf2=b22c22
+
+A two compartment
+model and four one-input-oneG, ,, G,2, G2,, and Gz2 are the transfer functions of the considered
+FIG. 9.
+
+output experiments.
+experiments.
+
+IDENTIFIABILITY
+
+OF COMPARTMENTAL
+
+k 21
+
+bll
+“11
+
+b
+
+-
+
+15
+
+SYSTEMS
+
+-
+
+2
+
+k32
+
+w
+
+3
+
+-
+
+Cl3
+- -v,
+
+k 12
+
+b,,c,,k,,k,,
+
+C&L
+I
+
+s(s2+(k2,+ kn+ k&+ W,,)
+
+FIG. 10. A three compartment model and a one -input-one-output
+
+experiment.
+
+connecting
+the unknown parameters
+to the coefficients of the transfer
+function are not independent, as the coefficient of the numerator is proportional to the first-degree coefficient of the denominator
+for each value of
+b,,c,, (assumed to be known).
+Presently, no rules have been worked out to detect directly on the
+compartmental
+diagram (without writing symbolically
+input-output
+relations) dependency situations of the type of Figs. 9 and 10. In any case,
+input-output
+connectability
+and condition (5) are very useful in the experiment design: in fact, they can be easily tested on the diagram, thus allowing
+us to immediately rule out those experiments which structurally cannot be
+successful. They also give us some suggestions on possible modifications,
+either on the model or on the input-output
+configuration.
+7.
+
+DISCUSSION
+
+In this paper, previous results obtained by the authors [2-5, 211 are
+updated by proposing a newly stated set of necessary conditions
+for
+structural identifiability of linear time invariant compartmental
+systems (see
+also IS]). The conditions are:
+(i) the system has to be input and output connectable;
+(ii) the number n, of unknown parameters does not exceed the number n,
+of equations among them.
+Both conditions may be easily tested directly on the compartmental
+diagram in a rapid manual way, as seen in the example of Fig. 8; for
+complex systems a computer program has been developed for a multiinput-multi output configuration
+[22].
+Testing input and output connectability
+is very easy and a negative
+answer of this test avoids a lot of useless analytical computation, while the
+diagram structure suggests suitable modifications
+of the planned experiment. On the other hand, if one needs the analytical expression of the
+transfer function matrix, the analysis of input and output connectability
+avoids the computation of the transfer functions in a nonreduced form (i.e.,
+with common factors between numerator and denominator).
+As an exam-
+
+16
+
+c. COBELLI, A. LEPSCHY, AND G. ROMANIN
+
+JACUR
+
+ple, by looking at Fig. 4 it can be noticed that the minimal form of the
+transfer function is the one corresponding to the system of Fig. 4(b) which
+requires an inversion of a matrix of dimension two; if, on the contrary, the
+system of Fig. 4(a) is considered, an inversion of a matrix of order six is
+required to obtain the same transfer function in nonreduced form. Conditions (i) and (ii) refer to identifiability as defined in Sec. 4, i.e., to (local or
+global) identifiability almost everywhere in the parameter space (which
+includes the possibly a priori known input or output parameters). Therefore
+there may exist a zero measure subspace of the parameter space where the
+system having the considered structure (elsewhere identifiable) is not
+identifiable. A typical case is the one of Fig. 6: if c,* and cl3 are a priori
+assumed to be equal; in this case numerator and denominator supply
+nonindependent relations between the unknown parameters kZ, and k3,. If,
+on the contrary, they are different, no dependence between the equations
+occurs. In the parameter space (k,,, k31,c,2,c,3), the points where c,~= c,a
+form a zero measure set. The considered example is a particular case of the
+situation where an output measurement is the equally weighted sum of all
+compartments of a closed subsystem.
+While, in the above example, the critical situation may be easily detected
+a priori by looking at the compartmental diagram and output configuration,
+other critical cases of similar type may be detected a priori only by
+evaluating the rank of the Jacobian of the Markov parameters [ 171.
+The above comments allow us to clarify some misunderstandings recently reported in [8, 10, 111.
+In [8], Di Stefano made some comments on the relationships between
+structural identifiability and controllability and observability properties.
+Such relationships were discussed in [21] and have been clearly analyzed in
+Sets. 4, 5 by resorting also to the properties of input and output connectability. It is to be noted however that Di Stefano presents an example which
+is to be considered a case of a constrained identification experiment as the
+system is made up of two isolated one-parameter subsystems, one of which
+is neither input nor output connectable but is assumed a priori to be equal
+to the other.
+In [ 10, 111, Delforge made some comments about our previous work. His
+considerations of comment 3 of [lo] and comment 2 of [ 1 l] refer to unique
+structural identifiability (see our definition 4 of Sec. 4). In comment 1 of
+[lo] Delforge asserts that even if the number n, of equations is less than the
+number n,, of unknown parameters a solution is possible if exact relations
+exist among the parameters. Obviously, giving exact relations among
+parameters is equivalent to adding an independent equation to the ones
+obtained by the transfer function matrix. Comment 2 of [lo] and comment
+1 of [ 1 l] state that the condition n, = n, assures a finite number of solutions
+only if the equations are independent. This is correct, as stated also in Sec. 6
+
+IDENTIFIABILITY
+
+OF COMPARTMENTAL
+
+17
+
+SYSTEMS
+
+with reference to the systems of Figs. 9 and 10. However one example is
+reported by Delforge in [ 10, 1 l] on this matter which is not relevant as
+dependence
+between two equations is due to a particular value of the
+elements of output matrix C, i.e. cl1 = cl2 as in the case of Fig. 6. The system
+with the given structure is identifiable almost everywhere in the parameter
+space but it is not identifiable for the particular values of output coefficients
+considered by Delforge. This type of nonidentifiability
+in a zero measure
+region of the parameter space is already taken into account by Definition 3.
+8.
+
+CONCLUSIONS
+
+In this paper structural identifiability
+of linear time invariant compartmental systems and related structural properties have been investigated.
+Structural controllability
+and observability
+as well as input and output
+connectability
+of compartmental
+systems have been considered by themselves and in their relations. Relevance of these properties with respect to
+structural identifiability
+is discussed; in particular input and output connectability is proved to be a necessary condition for structural identifiability
+(also valid for time variant and/or nonlinear systems). A newly formulated
+set of necessary identifiability
+conditions is presented which can be applied
+easily and directly from the knowledge of the compartmental
+structure and
+of the designed experiment (without computing the symbolic expression of
+the transfer function matrix). Some observations reported in recent literature have been discussed.
+
+REFERENCES
+
+1 R. Bellman and K. J. Astrom,
+2
+3
+
+4
+
+5
+
+6
+
+7
+
+(1970).
+C. Cobelli
+
+and
+
+G. Romanin
+
+On structural
+Jacur,
+
+Structural
+
+identifiability,
+identifiability
+
+Math.
+
+Biosci. 7:329-339
+
+of strongly
+
+connected
+
+biological compartmental
+systems, Med. Biol. Eng. 13:831-838
+(1975).
+C. Cobelh and G. Romanin
+Jacur, Controllability,
+observability
+and structural
+identifiability
+of multiinput and multioutput
+biological compartmental
+systems, IEEE
+Tran.~. Biomed. Eng. 23:93-100 (1976).
+C. Cobelli and G. Romanin Jacur, On structural identifiability
+of biological compartmental systems in a general input-output
+configuration,
+Math. Biosci. 30:139-151
+(1976).
+C. Cobelli, A. Lepschy,
+and G. Romanin
+Jacur, On identifiability
+problems
+in
+biological systems, in Preprints IV IFAC Symp. on Identification and System Parameter Estimation, Tbilisi, U.S.S.R., Part I, 1976, pp. 390400.
+C. Cobelli, A. Lepschy, and G. Romanin
+Jacur, Structural
+identifiability
+of linear
+compartmental
+models, in Theoretical Systems Ecology (E. Halfon, Ed.), Academic
+Press, New York, to appear.
+J. J. DiStefano,
+Tracer experiment
+design for unique identification
+physiological
+systems, Amer. J. Physiol. 230:476-485 (1976).
+
+of nonlinear
+
+18
+
+C. COBELLI, A. LEPSCHY, AND G. ROMANIN JACUR
+J. J. DiStefano, On the relationship between structural identifiability and controllability, observability properties, IEEE Trans. Automatic Control 22:652 (1977).
+J. J. DiStefano and F. Mori, Parameter identifiability and experiment design:
+thyroid hormone metabolism parameters. Amer. J. Physiol. 233:Rl34-R144 (1977).
+J. Delforge, The problem of structural identifiability of a linear compartment
+system: solved or not?, Math. Biosci. 36: 119- 125 (1977).
+J. Delforge, Comments on “Controllability, observability and structural identifiability
+of multi input and multi output biological compartmental systems”, IEEE Trms.
+Eiotned. Engn
+
+25:400-402
+
+(1978).
+
+12 J. A. Jacquez, Compartmental Analysis in Biology and Medicine, Elsevier, Amsterdam,
+1972.
+13 C. T. Lin, Structural controllability, IEEE Truns. Automatic Control 19:201-208
+(1974).
+
+14 K. Glover and L. M. Silverman, Characterization
+Trans. Automatic
+
+Control 21:534-537
+
+15 E. J. Davidson, Connectability
+Automptica
+
+13:10!-123
+
+of structural controllability, IEEE
+
+(1976).
+
+and structural controllability of composite systems,
+
+(1977).
+
+16 J. D. Siljak, On reachability of dynamic systems, Intern&. J. Systems Sci. 8:321-338
+(1977).
+
+17 M. S. Grewal and K. Glover, Identifiability of linear and nonlinear dynamical
+systems, IEEE Truns. Automatic Control 21:833-837 (1976).
+18 R. E. Kalman, Mathematical description of linear dynamical systems, SIAM J.
+Control 1: 152-192 (1963).
+19 A. Rescigno and G. Segre, Drug and Tracer Kinetics, Blaisdell, Waltham, 1966.
+20 H. Pohjanpalo, Private communication (1978).
+21 C. Cobelli, A. Lepschy, and G. Romanin Jacur, Comments on “On the relationshiPs
+between structural identifiability and the controllability, observability properties,”
+IEEE
+
+Trans. Automatic
+
+Control 23~965-966
+
+(1978).
+
+22 C. Cobelli, A. Polo, and G. Romanin Jacur, A computer program for the analysis of
+controllability, observability and structural identifiability of biological compartmental
+systems, Comput. Progr. in Biomed. 7:21-36 (1977).
+
+
