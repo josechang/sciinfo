@@ -17,3 +17,38 @@ Technical terms of Review articles of LSA:
 •	minimum error classification
 •	cosine distance metric
 •	term-weighting schemes 
+
+    2)Vector based Natural Language call routing:
+•	Statistical discriminating power
+•	Speech recognition errors
+•	Query generation module
+•	Vector based information retrieval techniques
+•	Text categorization
+•	Boolean formula minimization algorithm
+•	Response generation
+•	Term extraction
+•	Single value decomposition and vector representation
+•	Cosine score as the basis for our similarity measure
+•	Pseudo document generation
+•	Automatic speech recognizer
+•	Annotated correct destination
+•	Automatically cluster words
+
+3)Mining Large-scale Event Knowledge from Web Text
+•	annotated text 
+•	explicit connective markers
+•	event-argument extraction
+•	causality measurement
+•	causality knowledge
+•	the extraction of cause and effect pairs
+•	the measure of   extracted relations.
+•	automatic causality extraction from texts,
+•	locally coherent text
+•	co-occurrence feature and object sharing feature
+•	point-wise mutual information
+•	semantic constraints
+•	predicate-argument structure
+•	contiguous or noncontiguous words
+•	labeling tasks
+•	Causal Strength
+•	semantic role labeling
