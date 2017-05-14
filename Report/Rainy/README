@@ -52,3 +52,18 @@ Technical terms of Review articles of LSA:
 •	labeling tasks
 •	Causal Strength
 •	semantic role labeling
+
+4)Latent Semantic Analysis Parameters for Essay Evaluation using Small-Scale       Corpora:
+•	semantic spaces
+•	dimensional matrix
+•	unique digitalized word (term)
+•	weighting functions
+•	term-document matrix
+•	occurrence matrix
+•	synonymy and homonymy better.
+•	inverse document frequency
+•	little variability of terms (only technical terms are found).
+•	Unstructured corpus
+•	distance corrector effect
+•	dimensionality reduction.
+
