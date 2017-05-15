@@ -33,7 +33,6 @@ and Python WSGI HTTP Server (used to create entry sock for Django)
 thus making a robust web server.
 
 \subsubsection*{NGINX  --  \normalfont{traffic control and security}}
-
 Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. When compared to Apache, Nginx is light-weight and has minimal hardware requirements to deal with web traffic. It has many features as follow:
 \begin{itemize}
 	\item Fastest and the best for serving static files
@@ -51,6 +50,7 @@ there are many features as follow:
 	\item Simple Python configuration
 	\item Automatic process management
 \end{itemize}
+
 \subsubsection*{Django  --  \normalfont{web page framework}}
 Nowadays Django is one of the most well-known python web framework. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus. 
 It has many features as follow:
@@ -78,6 +78,23 @@ The following is a brief view of them:
 	Nowadays, webpages usually interact with users, in order to store the information input by users, we need to connect with database. 
 	The model file defines the schema of database and makes it easy to synchronize information.\\
 \end{itemize}
+
+\subsubsection*{Docker}
+The idea of Docker is to provide a comprehensive abstraction
+layer that allows developers to “containerize” or “package” 
+any application and have it run on any infrastructure. The 
+use of container here refers more to the consistent, standard 
+packaging of applications rather than referring to any underlying 
+technology. Docker containers provide a standard, consistent way 
+of packaging just about any application. 
+\begin{itemize}
+	\item Docker leverages LXC (Linux Containers)
+	\item Docker leverages a copy-on-write files ystem which allows Docker to instantiate container very quickly
+	\item Docker containers are easily “linked” to other containers
+	\item Docker uses a “plain text” configuration language to control the configuration of an application container
+\end{itemize}
+
+
 With the basic knowledge above, we can start to build a website in Django. 
 After we build up a Django application, we will set up a PostgresSQL database to replace the original SQLite database. 
 Then, We will use Gunicorn server to be an interface. Finally, We will make the use of Nginx as a reverse proxy to enhance security and performance of our website.
