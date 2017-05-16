@@ -144,7 +144,7 @@ for i in xrange(len(article1)):
     xml1.write(article1[i])
 
 xml1.close()
-
+#-------------------------------------------------------------
 # xml2=open('pdf_2.txt','w')
 #
 # for i in xrange(len(text2)):
@@ -166,12 +166,6 @@ myfile1 = open("pdf_1.txt")
 # myfile3 = open("pdf_3.txt")
 
 a1=[]
-a2=[]
-a3=[]
-a4=[]
-a5=[]
-a6=[]
-
 c1=0
 for i in myfile1.readlines():
 
@@ -183,6 +177,8 @@ for i in myfile1.readlines():
   if c1 > 0 :
      a1.append(i)
 
+myfile1 = open("pdf_1.txt")
+a2=[]
 c2=0
 for i in myfile1.readlines():
 
@@ -217,9 +213,10 @@ ab.write("\n"+"\n")
 
 
 intr= open('introduction1.txt','w')
-ab.write("file-2"+"\n")
+
+intr.write("file-2"+"\n")
 for i in xrange(len(a2)):
-   ab.write(a2[i])
+   intr.write(a2[i])
 
 # ab.write("\n"+"\n")
 #
@@ -230,3 +227,4 @@ for i in xrange(len(a2)):
 # ab.write("\n"+"\n")
 
 ab.close()
+intr.close()
