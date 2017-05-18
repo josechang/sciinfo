@@ -11,11 +11,8 @@ from .forms import TextForm
 import imp
 
 vc = imp.load_source('vector_space_convert', '../nordron-sciinfo/Code/Rainy/code/vector_space_convert.py')
-vc.MyClass()
 sim = imp.load_source('similarity', '../nordron-sciinfo/Code/Rainy/code/similarity.py')
-sim.MyClass()
 tf = imp.load_source('transformation', '../nordron-sciinfo/Code/Rainy/code/transformation.py')
-tf.MyClass()
 
 # Create your views here.
 def get_text(request):
