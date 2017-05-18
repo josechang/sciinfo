@@ -10,7 +10,7 @@ def similarity_compare():
 
     lsi = models.LsiModel(corpus, id2word=dictionary, num_topics=2)
 
-    doc = "System Identifiability, structural, biology, control, computational"
+    doc = "Identifiability"
     vec_bow = dictionary.doc2bow(doc.lower().split())
     vec_lsi = lsi[vec_bow] # convert the query to LSI space
 
