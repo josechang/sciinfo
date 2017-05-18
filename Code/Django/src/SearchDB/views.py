@@ -8,11 +8,9 @@ from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from .models import Article
 from .forms import TextForm
 
-import imp
-
-vc = imp.load_source('vector_space_convert', '../nordron-sciinfo/Code/Rainy/code/vector_space_convert.py')
-sim = imp.load_source('similarity', '../nordron-sciinfo/Code/Rainy/code/similarity.py')
-tf = imp.load_source('transformation', '../nordron-sciinfo/Code/Rainy/code/transformation.py')
+import vector_space_convert_cp1 as vc
+import transformation_cp1 as tf
+import similarity_cp1 as sim
 
 # Create your views here.
 def get_text(request):
