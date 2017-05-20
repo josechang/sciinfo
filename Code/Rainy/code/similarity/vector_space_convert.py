@@ -17,21 +17,21 @@ def file_read(filename):
 
 def vector_space_convert(documents):
 
-'''
+
     # test filename
-    filename = ['../../papers/Cobelli1979_Identifiability_of_compartmental_systems_and_related_structural_properties.txt',
-                '../../papers/Li2012_Development_Of_Multi-fingered_Robotic_Hand.txt',
-                '../../papers/Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.txt',
-                '../../papers/Vajad1989_Similarity_transformation_approach_to_identifiability_a_alysis_of_nonlinear_compartmental_models.txt',
-                '../../papers/Villaverde2016_Structural_Identifiability_of_Dynamic_Systems_Biology_Models.txt']
+#    filename = ['../../papers/Cobelli1979_Identifiability_of_compartmental_systems_and_related_structural_properties.txt',
+#                '../../papers/Li2012_Development_Of_Multi-fingered_Robotic_Hand.txt',
+#                '../../papers/Miao2011_On_identifiability_of_nonlinear_ODE_models_and_applications_in_viral_dynamics.txt',
+#                '../../papers/Vajad1989_Similarity_transformation_approach_to_identifiability_a_alysis_of_nonlinear_compartmental_models.txt',
+#                '../../papers/Villaverde2016_Structural_Identifiability_of_Dynamic_Systems_Biology_Models.txt']
 
 
-    documents = [] # list for storing documents
+#    documents = [] # list for storing documents
 
     # read file
-    for count in range(0, 5):
-        documents.append(file_read(filename[count]))
-'''
+#    for count in range(0, 5):
+#        documents.append(file_read(filename[count]))
+
 
     document = documents
 
