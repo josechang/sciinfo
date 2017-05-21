@@ -1,1 +1,94 @@
 ﻿All information retreival  data is recorded.
+
+
+Similarity threshold
+The similarity threshold is a lower limit for the similarity of two data records that belong to the same cluster. 
+For example, if you set the similarity threshold to 0.25, data records with field values that are 25% similar are likely to be assigned to the same cluster.
+If you specify a similarity threshold of 1.0, you are insisting that, for customers to appear in the same group, their characteristics must be identical.
+You might have a large number of customer characteristic variables, or the variables might take a wide range of values.
+The right setting is somewhere in between, but where? You have to preserve a balance between the number of clusters that is acceptable and the degree of similarity.
+There is another important factor that the Distribution-based Clustering algorithm has to consider.
+A situation might occur where you try to give the Distribution-based Clustering algorithm a similarity threshold,and you do not limit the number of clusters that it can produce.
+In this case, it will keep trying to find the minimum number of clusters that satisfy the similarity threshold, because this also maximizes the Condorcet value.
+In a different situation, you might have limited the number of clusters with the result that, after all the possible clusters are created, a record does not have a similarity above the threshold with any of them.
+In this case, the record will be assigned to the cluster with the best similarity, even if the similarity threshold is not reached.
+
+
+Distribution-based Clustering
+Distribution-based Clustering provides fast and natural clustering of very large databases.
+It automatically determines the number of clusters to be generated.
+Typically, demographic data consists of large amounts of categorical variables. 
+Therefore the mining function works best with data sets that consist of this type of variables.
+You can also use numerical variables. 
+The Distribution-based Clustering algorithm treats numerical variables almost like categorical variables by categorizing their values into buckets.
+Distribution-based Clustering is an iterative process over the input data. 
+Each input record is read in succession. 
+The similarity of each record with each of the currently existing clusters is calculated. 
+Initially, no clusters exist. 
+If the biggest calculated similarity is above a given threshold, the record is added to the relevant cluster. 
+This cluster's characteristics change accordingly.
+If the calculated similarity is not above the threshold, or if there is no cluster, a new cluster is created, containing the record alone.
+You can specify the maximum number of clusters, as well as the similarity threshold.
+Distribution-based Clustering uses the statistical Condorcet criteria to manage the calculation of the similarity between records and other records, between records and clusters, and between clusters and other clusters. 
+The Condorcet criteria evaluates how homogeneous each discovered cluster is (in that the records it contains are similar) and how heterogeneous the discovered clusters are among each other. 
+The iterative process of discovering clusters stops after one or more passes over the input data if there is no time remaining to do another pass or if the improvement of the clusters according to the Condorcet criteria would not justify a new pass.
+
+Similarity scale
+The similarity between two data records sums the similarities between each pair of values of these records.
+For a categorical field, the similarity is 0 if both values are different, and 1 if they are equal.
+For a numerical field, the similarity depends on the difference between the two values compared with the similarity scale of the field. 
+If the two values are equal, the similarity is 1. If the two values are distant from the similarity scale, the similarity is 0.5. 
+Other values of the similarity are calculated using a Gaussian curve passing through these two reference points.
+You can choose to specify a similarity scale or not. 
+You specify the similarity scale as an absolute number. The specification is considered only for active numerical fields. If you do not specify a similarity scale, the default value (half of the standard deviation) is used.
+
+Similarity matrices
+For each categorical field, you can define a similarity matrix that contains user-defined similarities between two field values.
+A similarity matrix is represented as a reference to a database table containing three columns. 
+Two columns contain the field values to be compared, and the third column contains the similarity (between 0 and 1) for these field values.
+You can specify the similarity for each pair of possible values. 
+A pair of possible values can be used only once. 
+The similarity of the inverse pair is the same
+
+Field weighting
+Field weighting gives more or less weight to certain input fields during a Clustering training run.
+For example, to identify different types of shoppers, you might not want to give too much weight to the strong correlation between the number of purchases and the total purchase amount. 
+Therefore you assign a smaller weight to the fields Number of purchases and Total purchase amount.
+The following table shows the decreased field weights for the fields Number of purchases and the Total purchase amount.
+
+Value weighting
+Value weighting deals with the fact that particular values in a field might be more common than other values in that field. 
+The coincidence of rare values in a field adds more to the overall similarity than the coincidence of frequent values.
+For example, most people do not have a Gold credit card. 
+It is not very significant if two people do not have one, however, if they do, it is significant. 
+Therefore, the coincidence of people not having a Gold credit card adds less to their overall similarity than the coincidence of people having one.
+You can use one of the following types of value weighting:
+
+Probability weighting
+Probability weighting assigns a weight to each value according to its probability in the input data. Rare values carry a large weight, while common values carry a small weight. This weight is used for both matching and non-matching records.
+Probability weighting uses a factor of 1/√p, where p is the probability of a value.
+
+Logarithmic weighting
+Logarithmic weighting assigns a weight to each value according to the logarithm of its probability in the input data.
+ Rare values carry a large weight, while common values carry a small weight. 
+This weight is used for both matching and non-matching records.
+Logarithmic weighting assigns a value of √(-log(p)) to both the agreement information content value and the disagreement information content value. 
+The number p is the probability of a value.
+Each type of value weighting looks at a problem from a different angle.
+Depending on the value distribution, using one type or the other might lead to very different results. 
+For example, if a supermarket is located in a retirement community, a Senior discount field has a high probability of having the value Yes. 
+You might use probabilistic value weighting to assign a weight to the values in the Senior discount field that is equal to its probability in the input data.
+Value weighting has the additional effect of emphasizing fields with many values because their values are less frequent than those of fields with fewer possible values. 
+By default, the mining function does not compensate for this additional effect.
+You can select whether you want to compensate for the value weighting applied to each field. 
+If you compensate for value weighting, the overall importance of the weighted field is equal to that of an unweighted field. 
+This is so regardless of the number of possible values. 
+Compensated weighting affects only the relative importance of coincidences within the set of possible values.
+
+Maximum number of distribution-based clusters
+You can control the number of clusters to be created during a Clustering training run by specifying a value for the maximum number of clusters.
+ Limiting the number of clusters prevents the production of many small clusters, and thus saves run time.
+By default, the Distribution-based Clustering algorithm does not create an unlimited number of clusters but sets itself a limit.
+If the mining function cannot continue to create clusters because the cluster limit is reached, this may prevent further improvement in the accuracy of the model.
+Increasing the number of clusters improves the likelihood of finding market niches.
+
