@@ -98,7 +98,8 @@ def pdf_title(filename):
     return os.path.basename(os.path.splitext(filename)[0])
 
 if __name__ == "__main__":
-    opts, args = getopt.getopt(sys.argv[1:], 'nd:', ['dry-run', 'rename'])
+    #os.listdir('C:\Users\Wu\Downloads\data')
+    opts, args = getopt.getopt(os.listdir('.'), 'nd:', ['dry-run', 'rename'])
 
     dry_run = False
     rename = False
@@ -127,4 +128,5 @@ if __name__ == "__main__":
                 else:
                     os.rename(filename, new_name)
         else:
+            print '\n'
             print title
