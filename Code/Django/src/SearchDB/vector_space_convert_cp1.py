@@ -17,7 +17,7 @@ def file_read(filename):
 
 def vector_space_convert(documents):
 
-'''
+    '''
     # test filename
     filename = ['../../papers/Cobelli1979_Identifiability_of_compartmental_systems_and_related_structural_properties.txt',
                 '../../papers/Li2012_Development_Of_Multi-fingered_Robotic_Hand.txt',
@@ -31,7 +31,7 @@ def vector_space_convert(documents):
     # read file
     for count in range(0, 5):
         documents.append(file_read(filename[count]))
-'''
+    '''
 
     document = documents
 
