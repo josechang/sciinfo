@@ -19,16 +19,18 @@ def get_text(request):
     if 'user_query' in request.GET:
         # Access the database to do searching
         article_all = Article.objects.all()
-        vector = SearchVector('content')
+        vector = SearchVector('content', weight='A')
         query = SearchQuery(str(request.GET['user_query']))
         uq = request.GET['user_query']
-        ran = range(5)
 
         # implement searching function and ranks
         #vc.vecter_space_convert(article_all)
         #tf.transformation()
         #rank_score = sim.similarity_compare(query)
-        result = Article.objects.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+        result = Article.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.3).order_by('-rank')
+        resultTitle = []
+        for i in result:
+            resultTitle.append(i)
         return render_to_response('SearchDB/result.html', locals())
         #return HttpResponse('Your search string is: '+request.GET['user_query']
 

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
+<html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 <head>
-				<title>Result page{{ form.value }}</title>
+	<title>Result page</title>
 </head>
 <body>
-Your search string is: {{uq}} <br>
+Your search string is:<br>
+<textarea rows="4" cols="50">{{ uq }}</textarea><br>
 The result listed below:<br>
-<li>{{ result.0.title }}</li>
-<li>{{ result.1.title }}</li>
-<li>{{ result.2.title }}</li>
-<li>{{ result.3.title }}</li>
-<li>{{ result.4.title }}</li>
-
+	{% for i in resultTitle %}
+	<div>
+		<li>
+			{{ i }}
+		</li>
+	</div>
+	{% endfor %}
 </body>
+</html>
+
