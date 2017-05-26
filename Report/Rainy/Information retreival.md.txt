@@ -92,3 +92,46 @@ By default, the Distribution-based Clustering algorithm does not create an unlim
 If the mining function cannot continue to create clusters because the cluster limit is reached, this may prevent further improvement in the accuracy of the model.
 Increasing the number of clusters improves the likelihood of finding market niches.
 
+UNIFIED MODELING LANGUAGE
+Introduction to OMG UML by Dr. Jon Siegel, OMG
+Large enterprise applications-the ones that execute core business applications, and keep a company going-must be more than just a bunch of code modules. 
+They must be structured in a way that enables scalability, security, and robust execution under stressful conditions, and their structure - frequently referred to as their architecture - must be defined clearly enough that maintenance programmers can (quickly!). 
+find and fix a bug that shows up long after the original authors have moved on to other projects. 
+That is, these programs must be designed to work perfectly in many areas, and business functionality is not the only one (although it certainly is the essential core).
+Of course a well-designed architecture benefits any program, and not just the largest ones as we've singled out here. 
+We mentioned large applications first because structure is a way of dealing with complexity.
+so the benefits of structure (and of modeling and design, as we'll demonstrate) compound as application size grows large. 
+Another benefit of structure is that it enables code reuse: Design time is the easiest time to structure an application as a collection of self-contained modules or components.
+Eventually, enterprises build up a library of models of components, each one representing an implementation stored in a library of code modules. 
+When another application needs the same functionality, the designer can quickly import its module from the library. 
+At coding time, the developer can just as quickly import the code module into the application. 
+
+Modeling is the designing of software applications before coding. 
+Modeling is an Essential Part of large software projects, and helpful to medium and even small projects as well. 
+A model plays the analogous role in software development that blueprints and other plans (site maps, elevations, physical models) play in the building of a skyscraper.
+Using a model, those responsible for a software development project's success can assure themselves that business functionality is complete and correct, end-user needs are met, and program design supports requirements for scalability, robustness, security, extendibility, and other characteristics, before implementation in code renders changes difficult and expensive to make.
+Surveys show that large software projects have a huge probability of failure - in fact, it's more likely that a large software application will fail to meet all of its requirements on time and on budget than that it will succeed. 
+If you're running one of these projects, you need to do all you can to increase the odds for success, and modeling is the only way to visualize your design and check it against requirements before your crew starts to code.
+
+YOU CAN DO OTHER USEFUL THINGS WITH UML TOO
+some tools analyze existing source code (or, some claim, object code!) and reverse-engineer it into a set of UML diagrams. 
+Another example: Some tools on the market execute UML models, typically in one of two ways: Some tools execute your model interpretively in a way that lets you confirm that it really does what you want, but without the scalability and speed that you'll need in your deployed application. 
+Other tools (typically designed to work only within a restricted application domain such as telecommunications or finance) generate program language code from UML, producing most of a bug-free, deployable application that runs quickly if the code generator incorporates best-practice scalable patterns for, e.g., transactional database operations or other common program tasks. 
+(OMG members are working on a specification for Executable UML now.) 
+Our final entry in this category: A number of tools on the market generate Test and Verification Suites from UML models. 
+
+MODELS VS. METHODOLOGIES
+The process of gathering and analyzing an application's requirements, and incorporating them into a program design, is a complex one and the industry currently supports many methodologies that define formal procedures specifying how to go about it. 
+One characteristic of UML - in fact, the one that enables the widespread industry support that the language enjoys - is that it is methodology-independent. 
+Regardless of the methodology that you use to perform your analysis and design, you can use UML to express the results. 
+And, using XMI® (XML™ Metadata Interchange, another OMG standard), you can transfer your UML model from one tool into a repository, or into another tool for refinement or the next step in your chosen development process. 
+These are the benefits of standardization!.
+
+WHAT CAN YOU MODEL WITH UML?
+UML 2.0 defines thirteen types of diagrams, divided into three categories: Six diagram types represent static application structure; three represent general types of behavior; and four represent different aspects of interactions:
+Structure Diagrams:  include the Class Diagram, Object Diagram, Component Diagram, Composite Structure Diagram, Package Diagram, and Deployment Diagram.
+Behavior Diagrams:  include the Use Case Diagram (used by some methodologies during requirements gathering); Activity Diagram, and State Machine Diagram. 
+Interaction Diagrams:  all derived from the more general Behavior Diagram, include the Sequence Diagram, Communication Diagram, Timing Diagram, and Interaction Overview Diagram.
+  We don't intend this introductory web page to be a complete UML tutorial, so we're not going to list any details of the different diagram types here. 
+To learn more, you can check out one of the many on-line tutorials, or buy a book. (The last time we checked, typing "UML" into the search box for the major on-line booksellers returned a list of more than 100  titles!) Or, if you're technical and want the whole story, you can download the UML specification itself from the OMG website. 
+It's free, of course, but it's also highly technical, terse, and very difficult for beginners to understand. 
