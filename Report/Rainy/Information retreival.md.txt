@@ -135,3 +135,28 @@ Interaction Diagrams:  all derived from the more general Behavior Diagram, inclu
   We don't intend this introductory web page to be a complete UML tutorial, so we're not going to list any details of the different diagram types here. 
 To learn more, you can check out one of the many on-line tutorials, or buy a book. (The last time we checked, typing "UML" into the search box for the major on-line booksellers returned a list of more than 100  titles!) Or, if you're technical and want the whole story, you can download the UML specification itself from the OMG website. 
 It's free, of course, but it's also highly technical, terse, and very difficult for beginners to understand. 
+
+I'M ABOUT TO START MY FIRST UML-BASED DEVELOPMENT PROJECT. WHAT DO I NEED TO DO?
+Three things, probably (but not necessarily) in this order:
+1)Select a methodology: A methodology formally defines the process that you use to gather requirements, analyze them, and design an application that meets them in every way. 
+There are many methodologies, each differing in some way or ways from the others. 
+There are many reasons why one methodology may be better than another for your particular project: For example, some are better suited for large enterprise applications while others are built to design small embedded or safety-critical systems. 
+On another axis, some methods better support large numbers of architects and designers working on the same project, while others work better when used by one person or a small group
+OMG, as a vendor-neutral organization, does not have an opinion about any methodology.
+
+2)Select a UML Development Tool: Because most (although not all) UML-based tools implement a particular methodology, in some cases it might not be practical to pick a tool and then try to use it with a methodology that it wasn't built for. (For other tool/methodology combinations, this might not be an issue, or might be easy to work around.) 
+But, some methodologies have been implemented on multiple tools so this is not strictly a one-choice environment.
+You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
+As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. These will help you get started making your choice. 
+You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. 
+If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. 
+Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. 
+If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
+As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
+These will help you get started making your choice.
+
+3)Get Training: You and your staff (unless you're lucky enough to hire UML-experienced architects) will need training in UML. 
+It's best to get training that teaches how to use your chosen tool with your chosen methodology, typically provided by either the tool supplier or methodologist. 
+If you decide not to go this route, check out OMG's training page for a course that meets your needs. Once you've learned UML, you can become an OMG-certified UML Professional-check here for details.
+As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
+These will help you get started making your choice. 
