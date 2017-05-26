@@ -160,3 +160,20 @@ It's best to get training that teaches how to use your chosen tool with your cho
 If you decide not to go this route, check out OMG's training page for a course that meets your needs. Once you've learned UML, you can become an OMG-certified UML Professional-check here for details.
 As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
 These will help you get started making your choice. 
+
+UML 2.0 - A MAJOR UPGRADE
+The "Available" version of the UML 2.0 Superstructure specification (that is, the version that has finished its first maintenance release and been built into vendor products) has been completed, and is available to everyone for free download. 
+Three separate parts of UML 2.0 - the Infrastructure (that is, the meta-metamodel), Object Constraint Language, and Diagram Interchange - are still undergoing their first maintenance and will become Available Specifications when this completes. 
+There's a description of the current state of all four specifications, and links to all of them, here. 
+
+WHAT'S NEW IN UML 2.0
+We've already integrated the new features into this writeup, but here's a summary: 
+1)Nested Classifiers: This is an extremely powerful concept. In UML, almost every model building block you work with (classes, objects, components, behaviors such as activities and state machines, and more) is a classifier. 
+In UML 2.0, you can nest a set of classes inside the component that manages them, or embed a behavior (such as a state machine) inside the class or component that implements it. 
+This capability also lets you build up complex behaviors from simpler ones, the capability that defines the Interaction Overview Diagram. 
+You can layer different levels of abstraction in multiple ways: For example, you can build a model of your Enterprise, and zoom in to embedded site views, and then to departmental views within the site, and then to applications within a department. 
+Alternatively, you can nest computational models within a business process model. 
+OMG's Business Enterprise Integration Domain Task Force (BEI DTF) is currently working on several interesting new standards in business process and business rules. 
+2)Improved Behavioral Modeling: In UML 1.X, the different behavioral models were independent, but in UML 2.0, they all derive from a fundamental definition of a behavior (except for the Use Case, which is subtly different but still participates in the new organization). 
+3)Improved relationship between Structural and Behavioral Models: As we pointed out under Nested Classifiers, UML 2.0 lets you designate that a behavior represented by (for example) a State Machine or Sequence Diagram is the behavior of a class or a component. 
+
