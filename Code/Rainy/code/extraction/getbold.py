@@ -64,10 +64,15 @@ def main():
                         word = c.get_text().encode('UTF-8') #every single word
                         text = c.fontname
                         m = re.search('Bold',text)
-                        if m != None:
+                        return 1,2 #the way you return two thing
+                        #while m != None:
                             #found = m.group(0)
-                            subhead = subhead.append([1])
-                            print subhead
+                            #word = c.get_text().encode('UTF-8')
+                            #print found
+                            #print word
+                            #break
+                        #else:
+                            #print "no"
 
                         #found = m.group(0)
                         #print found
@@ -78,5 +83,6 @@ def main():
                         #print("this is answer %r") %string
                     #print
 if __name__=='__main__':
-    subhead = []
-    main()
+    a,b = main()
+    print a
+    print b

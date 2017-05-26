@@ -128,7 +128,7 @@ def getgitrep():
 
 def updaterep():
 	print("\nUpdating git repository...")
-	p = subprocess.Popen("git --git-dir=%s pull"%(git_dir), shell=True)
+	p = subprocess.Popen("git --git-dir=%s pull origin"%(git_dir), shell=True)
 	p.wait()
 	print("")
 
@@ -255,11 +255,12 @@ def match_participants():
 	create_participant(2016, 'Bernie Huang', [['Bernie Huang <bernie6430@gmail.com>'], ['Bo Han Huang <bernie6430@gmail.com>']])
 	create_participant(2016, 'Rahul Aditya', [['Rahul <adi.rahul171294@gmail.com>']])
 	create_participant(2016, 'Yu-Sin Lin', [['kurumalin <pallacanestro159@gmail.com>']])
+	create_participant(2016, 'Elison Liu', [['Liucempc <liucempc@hotmail.com>'], ['Elison Liu <liucempc@hotmail.com>']])
 	create_participant(2017, 'Lewis Hsu', [['Huan-wei Hsu <qqps4487@gmail.com>']])
 	create_participant(2017, 'Dickson Lee', [['ds lee <dickson.lee@nordlinglab.org>'], ['Dickson Lee <dickson.lee@nordlinglab.org>']])
 	create_participant(2017, 'Rain Wu', [['Rain Wu <Rain.Wu@nordlinglab.org>']])
-	create_participant(2017, 'Sareddy Reddy', [])
-	create_participant(2017, 'Paul Lin', [])
+	create_participant(2017, 'Sareddy Reddy', [['sareddy17 <sareddy.kullaireddy3173@gmail.com>'], ['sareddy kullai reddy <sareddy.kullaireddy3173@gmail.com>']])
+	create_participant(2017, 'Paul Lin', [['linpohsien <a4839500@gmail.com>']])
 	create_participant(2017, 'Van Tam Ngo', [['Tamnv14 <ngovantam.haui@gmail.com>']])
 
 	print_Participants(participant_list)	

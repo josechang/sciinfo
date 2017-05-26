@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<head>
+	<title>Result page</title>
+</head>
+<body>
+Your search string is:<br>
+<textarea rows="4" cols="50">{{ uq }}</textarea><br>
+The result listed below:<br>
+	{% for i in resultTitle %}
+	<div>
+		<li>
+			{{ i }}
+		</li>
+	</div>
+	{% endfor %}
+</body>
+</html>
+

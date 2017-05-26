@@ -1,0 +1,1462 @@
+RESEARCH ARTICLE
+
+Structural Identifiability of Dynamic
+Systems Biology Models
+Alejandro F. Villaverde1,2¤*, Antonio Barreiro2, Antonis Papachristodoulou1
+1 Department of Engineering Science, University of Oxford, Oxford, United Kingdom, 2 Department of
+Systems & Control Engineering, University of Vigo, Vigo, Spain
+¤ Current address: Bioprocess Engineering Group, IIM-CSIC, Vigo, Spain
+* afvillaverde@iim.csic.es
+
+a11111
+
+Abstract
+
+OPEN ACCESS
+Citation: Villaverde AF, Barreiro A,
+Papachristodoulou A (2016) Structural
+Identifiability of Dynamic Systems Biology Models.
+PLoS Comput Biol 12(10): e1005153. doi:10.1371/
+journal.pcbi.1005153
+Editor: Satoru Miyano, University of Tokyo, JAPAN
+Received: June 6, 2016
+Accepted: September 19, 2016
+Published: October 28, 2016
+Copyright: © 2016 Villaverde et al. This is an open
+access article distributed under the terms of the
+Creative Commons Attribution License, which
+permits unrestricted use, distribution, and
+reproduction in any medium, provided the original
+author and source are credited.
+
+A powerful way of gaining insight into biological systems is by creating a nonlinear differential equation model, which usually contains many unknown parameters. Such a model is
+called structurally identifiable if it is possible to determine the values of its parameters from
+measurements of the model outputs. Structural identifiability is a prerequisite for parameter
+estimation, and should be assessed before exploiting a model. However, this analysis is
+seldom performed due to the high computational cost involved in the necessary symbolic
+calculations, which quickly becomes prohibitive as the problem size increases. In this
+paper we show how to analyse the structural identifiability of a very general class of nonlinear models by extending methods originally developed for studying observability. We present results about models whose identifiability had not been previously determined, report
+unidentifiabilities that had not been found before, and show how to modify those unidentifiable models to make them identifiable. This method helps prevent problems caused by lack
+of identifiability analysis, which can compromise the success of tasks such as experiment
+design, parameter estimation, and model-based optimization. The procedure is called
+STRIKE-GOLDD (STRuctural Identifiability taKen as Extended-Generalized Observability
+with Lie Derivatives and Decomposition), and it is implemented in a MATLAB toolbox which
+is available as open source software. The broad applicability of this approach facilitates the
+analysis of the increasingly complex models used in systems biology and other areas.
+
+Data Availability Statement: All relevant data are
+within the paper and its Supporting Information
+files.
+Funding: AFV acknowledges funding from the
+Galician government (Xunta de Galiza, Consellerı́a
+de Cultura, Educación e Ordenación Universitaria
+http://www.edu.xunta.es/portal/taxonomy/term/
+206) through the I2C postdoctoral program,
+fellowship ED481B2014/133-0. AB and AFV were
+partially supported by grant DPI2013-47100-C2-2P from the Spanish Ministry of Economy and
+Competitiveness (MINECO). AFV acknowledges
+additional funding from the European Union’s
+Horizon 2020 research and innovation programme
+
+Author Summary
+Advances in computing power have facilitated the development of increasingly larger
+dynamic models of biological processes, which usually have many unknown parameters.
+Often times, such models contain parameters that are structurally unidentifiable, i.e., they
+cannot be uniquely determined from experiments. Any parameter estimation algorithm
+will fail when trying to estimate unidentifiable parameters, leading to waste of resources
+and possibly wrong model predictions. Hence, it is essential to assess structural identifiability before exploiting a model. However, performing such analysis can be hard, especially
+as models become increasingly complicated. To address this challenge, we developed a
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+1 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+under grant agreement No 686282 (CanPathPro).
+AP was partially supported through EPSRC
+projects EP/M002454/1 and EP/J012041/1 The
+funders had no role in study design, data collection
+and analysis, decision to publish, or preparation of
+the manuscript.
+Competing Interests: The authors have declared
+that no competing interests exist.
+
+methodology for structural identifiability analysis that aims at generality—it can handle
+any analytic model written as a set of ordinary differential equations—and computational
+efficiency—it includes features that facilitate the analysis of large systems. We provide an
+implementation of the methodology as a MATLAB toolbox called STRIKE-GOLDD. We
+illustrate its applicability to systems biology models of genetic, signalling, metabolic, and
+pharmacokinetic networks, showing which of them are unidentifiable and how they can
+be made identifiable.
+
+This is a PLOS Computational Biology Methods paper
+
+Introduction
+Mathematical modelling has become a fundamental tool in present day biology [1], and system
+identification is one of the key tasks of this process [2]. Building a dynamic model usually
+requires establishing the values of some unknown parameters, which raises the issue of parameter identifiability [3]. A model is structurally identifiable if it is possible to determine the values of its parameters from observations of its outputs and knowledge of its dynamic equations
+[4]. While the related concept of practical identifiability refers to quantifying the uncertainty in
+parameter values when estimated from noisy measurements, structural identifiability does not
+take into account limitations caused by the quality or availability of experimental data. It is,
+however, a necessary (a priori) condition for practical identifiability, which, in turn, is a prerequisite for model calibration, also known as parameter estimation [5]. Any identification efforts
+aimed at estimating unidentifiable parameters will fail, leading to wrong estimates, waste of
+resources, and possibly misleading model predictions [6]. Furthermore, if structural unidentifiability is mistaken for practical unidentifiability, it may lead to trying to overcome it by
+investing additional efforts in designing and performing new experiments [7], which will nevertheless be sterile. Hence it is essential to assess the structural identifiability of any unknown
+parameters in a model before attempting to calibrate it. As stressed in the conclusions of a
+recent parameter estimation challenge [8], “modelers must avoid creating structurally unidentifiable parameters that can never be estimated”. However, in real applications structural identifiability is seldom checked before performing parameter estimation [9]. This is at least partly
+due to the computational complexity of the problem: structural identifiability methods generally require symbolic manipulations, which can quickly give rise to long expressions as the system size increases [10].
+This is a major challenge in systems biology, as the models constructed are increasingly
+complex, large [11], and more difficult to identify [8]. However, the development of structural
+identifiability tools has been lagging behind, and, despite the wide variety of methods developed for this task (some of which have publicly available implementations [12–16]), the analysis of some models remains elusive. For example, although recent improvements in efficiency
+[16, 17] have enabled the analysis of increasingly large rational models (those that can be
+expressed as fractions of polynomial functions), non-rational systems such as those including
+trigonometric expressions or Hill-type kinetics (which are common in mechanical and biochemical models, respectively) can currently be analysed only for small sizes. While in certain
+cases non-rational models can be rewritten in rational form, by introducing additional
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+2 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+variables and equations, it is not always possible or convenient to do so. Furthermore, the
+results obtained for the rational counterpart are not necessarily valid for the original non-rational model in the case of unidentifiability [18]. Recent studies [9, 10, 19–21] show that, in general, the choice of a structural identifiability method involves trade-offs between generality of
+the application, computational cost, and level of detail of the results. In conclusion, there is currently a lack of structural identifiability methods of the sufficient generality and robustness to
+be applied to nonlinear models of general form and realistic size [21, 22].
+To address this issue, we propose a methodology applicable in principle to any analytic system and geared towards computational efficiency. This method approaches local structural
+identifiability as a generalized version of observability, a classic concept in systems and control
+theory [23]. A system is observable if it is possible to determine its internal state from output
+measurements in finite time. If the model parameters are considered as state variables with
+zero dynamics, structural identifiability analysis can be recast as a generalization of observability analysis [17, 24, 25]. In this way it is possible to assess the structural identifiability of nonlinear systems using results from differential geometry [21]. Essentially, identifiability is
+determined by calculating the rank of a generalized observability-identifiability matrix, which
+is constructed using Lie derivatives. When this rank test classifies a model as unidentifiable, the
+procedure determines the subset of identifiable parameters. In some cases it is also possible to
+find identifiable combinations of the remaining parameters. This approach is directly applicable to many models of small and medium size; larger systems can be analysed using additional
+features of the method. One of them is decomposition into more tractable submodels, which is
+performed with a combinatorial optimization metaheuristic as in [26]. Another possibility is to
+build identifiability matrices with a reduced number of Lie derivatives. In some cases these
+additional procedures allow to determine the identifiability of every parameter in the model
+(complete case analysis); when such result cannot be achieved, at least partial results—i.e. identifiability of a subset of parameters—can be obtained.
+We illustrate the applicability of this method to systems biology models of different types,
+including genetic, signalling, metabolic, and pharmacokinetic networks. Some of them are nonrational systems exhibiting Hill kinetics, that is, with expressions containing terms of the form
+k1xn/(k2 + xn), such as the Goodwin model of transcriptional repression [27], the mitogen-activated protein kinase (MAPK) signalling cascade [28], and the genetic network that controls the
+circadian clock in Arabidopsis thaliana [29]. Other models analysed here include drug uptake
+into hepatocytes [19], NF-κB [30] and JAK/STAT [31] signalling pathways, and the central carbon metabolism of Chinese hamster ovary cells [32]. These case studies include models whose
+identifiability had not been previously determined, and for some of them we found unidentifiabilities that had not been reported before. In those cases, we obtained identifiable reparameterizations by removing redundant parameters and fixing the values of other parameters a priori.
+
+Methods
+We consider dynamic models described by ordinary differential equations of the following general form:
+8
+_
+xðtÞ
+¼ f ½xðtÞ; uðtÞ; p;
+>
+<
+M : yðtÞ ¼ g½xðtÞ; p;
+ð1Þ
+>
+:
+x0
+¼ xðt0 ; pÞ
+where f and g are analytic (and therefore infinitely differentiable) vector functions, p 2 Rq is a
+real-valued vector of parameters, uðtÞ 2 Rr is the input vector, xðtÞ 2 Rn the state variable vector, and yðtÞ 2 Rm the measurable output, also called the observables vector. In Eq (1) the
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+3 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+dependence on the parameters p is made explicit, but it will be usually dropped for ease of notation. Parameter pi is structurally globally identifiable (s.g.i.) if it can be uniquely determined
+from the system output, that is, if for almost any p 2 Rq (i.e., for any p except those belonging
+to a set of measure zero) the following property holds [5, 33]:
+yðt; p^Þ ¼ yðt; p Þ ) p^i ¼ pi
+
+ð2Þ
+
+A parameter pi is structurally locally identifiable (s.l.i.) if for almost any p there is a neighbourhood V(p ) in which Eq (2) holds. A model M is said to be s.g.i. if all its parameters are
+s.g.i., and s.l.i. if all its parameters are s.l.i. If Eq (2) does not hold in any neighbourhood of p ,
+parameter pi is structurally unidentifiable (s.u.), and a model M is s.u. if at least one of its
+parameters is s.u.
+
+Observability of nonlinear systems
+In this work we consider identifiability as an augmented observability property. We begin the
+description of the approach by defining observability and showing how it can be assessed. A
+system is (locally) observable at a state x0 if there exists a neighbourhood N of x0 such that
+every other state x1 2 N is distinguishable from x0. Two states x0 6¼ x1 are said to be distinguishable when there exists some input u(t) such that y(t, x0, u(t)) 6¼ y(t, x1, u(t)), where y(t, xi, u(t))
+denotes the output function of the system for the input u(t) and initial state xi(i = 0, 1).
+The concept of observability was initially formulated by Kalman for linear systems [34], and
+then extended to the nonlinear case by Hermann and Krener [23]. For a nonlinear system
+given by Eq (1) it is possible to obtain information about the states x from its outputs y by cal_ €y ; . . .. These differentiations are performed by taking Lie derivatives
+culating the derivatives y;
+of the output function g. The Lie derivative of g with respect to f is:
+Lf gðxÞ ¼
+
+@gðxÞ
+f ðx; uÞ
+@x
+
+ð3Þ
+
+For a system with n states and m outputs, @x@ gðxÞ is an m × n matrix, and Lf gðxÞ ¼ @gðxÞ
+f ðx; uÞ
+@x
+is an m × 1 column vector. The ith order Lie derivatives are recursively defined as follows:
+L2f gðxÞ
+
+¼
+
+@Lf gðxÞ
+f ðx; uÞ
+@x
+
+
+Lif gðxÞ
+
+¼
+
+ð4Þ
+@Lif 1 gðxÞ
+@x
+
+f ðx; uÞ
+
+Stacking n sub-matrices, we obtain the nonlinear observability matrix:
+0
+1
+@
+gðxÞ
+@x
+B @
+C
+B @x ðLf gðxÞÞ C
+B
+C
+B @ 2
+C
+B @x ðLf gðxÞÞ C
+OðxÞ ¼ B
+C
+B
+C
+..
+B
+C
+B
+C
+.
+@
+A
+@
+@x
+
+ð5Þ
+
+ðLnf 1 gðxÞÞ
+
+We can now formulate the Observability Rank Condition (ORC) as follows: if the system
+given by Eq (1) satisfies rankðOðx0 ÞÞ ¼ n, where O is defined by Eq (5), then it is (locally)
+observable around x0 [35].
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+4 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+The rank condition provides a result about local observability of any possible state x0. That
+is, if the matrix is full rank then for every state x0 there exists a neighbourhood N(x0) in which
+x0 can be distinguished from any other state x . In other words, every state can be distinguished
+from its neighbours, but not necessarily from other distant states. In contrast, global observability is a property that must hold for every possible N(x0). The difference is clearly shown with
+the following example [23]:
+x_ ¼ u;
+
+y1 ¼ cos ðxÞ;
+
+y2 ¼ sin ðxÞ
+
+ð6Þ
+
+While this system satisfies the observability rank condition and is therefore locally
+observable, it is not globally observable because it is impossible to distinguish between x0
+and xk = x0 + 2kπ, for any integer k.
+We remark that the observability rank condition does not require the assumption of constant inputs u; analytic differentiable input functions can be used [36, 37]. As noted in [38],
+this entails that u can be treated symbolically in rank calculations.
+
+Structural identifiability as augmented observability: The OIC
+While identifiability problems can be addressed by a number of techniques not explicitly
+related to nonlinear observability, it is possible to consider the parameters p as additional states
+with trivial dynamics p_ ¼ 0 and, in this way, the identifiability problem can be recast in the
+framework of observability [17, 21, 24]. Thus, by augmenting the state variable vector so as to
+include model parameters, x~ ¼ ½x; p, we obtain a generalized observability-identifiability
+matrix, OI ð~
+x Þ:
+0
+1
+@
+gð~
+xÞ
+@~
+x
+B @
+C
+B @~x ðLf gð~
+x ÞÞ C
+B
+C
+B @ 2
+C
+B @~x ðLf gð~
+C
+x
+ÞÞ
+OI ð~
+xÞ ¼ B
+ð7Þ
+C
+B
+C
+B
+C
+..
+B
+C
+.
+@
+A
+nþq
+1
+@
+ðL
+gð~
+x
+ÞÞ
+f
+@~
+x
+With this formulation we can define a generalized Observability-Identifiability Condition
+(OIC) as follows: if the system given by Eq (1) satisfies rankðOI ð~
+x 0 ÞÞ ¼ n þ q, it is (locally)
+observable and identifiable in a neighbourhood Nð~
+x 0 Þ of x~0 .
+Since we have recast the analysis of structural identifiability as a particular case of observability, the same remark that was made in the preceding subsection about the difference
+between local and global properties applies here.
+It has been noted [39] that in certain cases a system may become unreachable for specific
+values of the initial conditions, leading to the impossibility of determining the values of parameters classified as identifiable by structural identifiability methods. This situation can be
+detected if rankðOI ð~
+x 0 ÞÞ is calculated using a vector of specific initial conditions instead of a
+generic symbolic vector.
+Finally, we note that the idea of treating parameters and state variables similarly is also
+adopted by estimation methods such as extended Kalman filtering [40]. However, the context
+is different, since the goal of such techniques is to determine the value of states and parameters
+from data, while structural identifiability analysis aims at establishing whether such estimation
+is theoretically possible.
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+5 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Assessing the OIC efficiently
+In practice, checking the aforementioned Observability-Identifiability Condition (OIC) is often
+computationally inefficient (or even infeasible) because building OI and calculating its rank is a
+highly demanding, memory-consuming task. Fortunately, sometimes this cost can be decreased
+by building a smaller matrix. Let us first note that each of the n + q sub-matrices vertically stacked
+in the generalized observability-identifiability matrix of Eq (7) has dimension m × (n + q), and
+the full matrix OI has dimensions (m  (n + q)) × (n + q). Therefore it may not be necessary to
+calculate the n + q − 1 Lie derivatives in order to test whether OI is full rank, since full rank may
+be achieved with a lower number of derivatives. The minimum number of Lie derivatives for
+which the matrix may be full rank is
+ln þ q
+m
+nd ¼
+1
+ð8Þ
+m
+that is, the smallest integer not less than (n + q)/m − 1, where n, q, and m are the numbers of
+states, parameters, and outputs, respectively. The maximum number of Lie derivatives is also
+known a priori: derivatives of order higher than n + q − 1 cannot increase the matrix rank [38].
+Having lower and upper bounds for the necessary Lie derivatives is an advantage of this methodology compared to, e.g., power series approaches, for which the maximum number of derivatives
+is in principle infinite [10].
+Our method builds OI recursively. Once nd is reached, addition of a new Lie derivative is followed by calculation of the rank. This process is repeated until the maximum number n + q − 1
+is reached, or until adding a new Lie derivative does not increase the matrix rank; in both cases
+no further derivatives are necessary [38]. At that point, if OI is full rank the corresponding
+model is observable and identifiable, as seen in the previous subsection. If OI is not full rank, the
+algorithm proceeds to find identifiable parameters, as explained in the following subsection.
+Further improvements in the computational burden can be obtained by calculating the rank
+numerically instead of symbolically. A way in which this can be performed is by replacing the
+symbolic variables in the OI with prime numbers to minimize the risk of accidental cancellations, which would reduce the rank.
+
+Determining identifiability of individual parameters
+If OI is not full rank, the Observability-Identifiability Condition (OIC) does not inform us
+about which parameters are identifiable and which are not. This can be achieved by realizing
+that each column of OI corresponds to a parameter-to-output relation (or state-to-output):
+0 @
+1
+@
+gð~
+xÞ
+gð~
+xÞ
+   @p@q gð~
+xÞ
+@x1
+@x2
+B
+C
+@
+@
+B @ ðL gð~
+C
+ðL
+gð~
+x
+ÞÞ
+
+
+
+ðL
+gð~
+x
+ÞÞ
+B @x1 f x ÞÞ
+C
+f
+f
+@x2
+@pq
+B
+C
+B.
+C
+..
+..
+..
+B.
+C
+B.
+C
+.
+.
+.
+@
+A
+nþq
+1
+nþq
+1
+nþq
+1
+@
+@
+@
+ðL
+gð~
+x
+ÞÞ
+ðL
+gð~
+x
+ÞÞ
+
+
+
+ðL
+gð~
+x
+ÞÞ
+f
+f
+f
+@x1
+@x2
+@pq
+Therefore, if deleting the ith column of the generalized observability-identifiability matrix
+does not change its rank, then the corresponding ith state (parameter) is non-observable
+(unidentifiable). This fact can be exploited to determine which of the parameters in an unidentifiable model are identifiable and which are not, using a sequential procedure: after the matrix
+rank has been calculated and the model has been found to be unidentifiable, each of the columns in OI corresponding to a particular parameter is removed one by one and the rank is
+recalculated. In this way the identifiability of each of the parameters is evaluated.
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+6 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Finding identifiable combinations of otherwise unidentifiable parameters
+The procedure outlined in the preceding subsections classifies the model parameters as either
+identifiable of unidentifiable. A question that naturally follows is: are there combinations of the
+unidentifiable parameters which are themselves identifiable? If the answer is affirmative, the
+model can be reparameterized and converted to a structurally identifiable model. However,
+this is a difficult problem, which few methods can address, and only for models of moderate
+size. An example is COMBOS [41, 42], which is based on differential algebra. Here we suggest
+an approach based on ideas presented in [43, 44] and on the method for finding symmetries
+proposed by [38]; related work has been recently presented in [45].
+The procedure is as follows: if OI is rank-deficient, remove the columns corresponding to
+identifiable parameters and obtain a reduced submatrix, OU [38]. Then, obtain a basis for the
+kernel (null space) of this matrix, NðOU Þ (step 2 in [44]). Its coefficients define one or several
+partial differential equations whose solution(s) are the identifiable combinations (step 3 in
+[44]). This procedure is illustrated in the Methods section with the JAK/STAT signalling pathway, for which an identifiable combination of two parameters is found. While this example
+shows the potential of this procedure, it must be acknowledged that the computational complexity of calculating the kernel of OU limits its applicability to models with a moderate number of unidentifiable parameters.
+
+Decomposing large models into submodels to facilitate their analysis
+The methodology described in the previous subsections can be used to analyse the identifiability of whole models and, if the model is unidentifiable, of its parameters individually. However,
+since it relies heavily on symbolic operations, it may be computationally infeasible for large or
+complex models. It should be noted that the main limiting operations are:
+• Obtaining high order Lie derivatives to build OI ð~x Þ.
+• Calculating the rank of the resulting OI ð~x Þ.
+The minimum number of derivatives necessary for building OI ð~
+x Þ is given by nd as defined
+in Eq (8). The limit of what is computationally possible is difficult to quantify a priori, since it
+depends on the model equations and the machine used in the calculations. As a rule of thumb,
+analyses involving nd  10 are infeasible except for very small models. As model size or complexity increases, this upper bound decreases; some examples will be shown in the Results
+section.
+One solution is to decompose those models into smaller submodels whose analysis is possible computationally. Thus, we seek to decompose a model M into submodels {M1, M2, . . .}
+which require few Lie derivatives for their analysis, that is, they have a small nd. Each submodel Msub includes a subset of the model states, xsub. Its outputs, ysub, are the outputs of M
+which are functions of at least one state included in xsub. The submodel parameters and inputs
+are those appearing in the equations of xsub and ysub. There may be states that appear in the
+equations of xsub or ysub but are not part of xsub; they are considered as additional unknown
+parameters of Msub.
+The submodels can be found by optimization as follows. For each submodel Mi we select a
+subset of the states in M by performing a combinatorial optimization where we minimize nd:
+min nd ðsÞ
+
+ð9Þ
+
+s
+
+where s = {s1, s2, . . ., sn} is a binary vector of size n, whose entries sj 2 {0, 1} denote inclusion
+(sj = 1) or exclusion (sj = 0) of the corresponding state. The combinatorial optimization is
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+7 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+performed with the Variable Neighbourhood Search metaheuristic [46]. We carry out n optimizations (one per state); in the jth optimization we force sj = 1, so that each state appears in at
+least one solution. This, in turn, guarantees that all the parameters will eventually be evaluated.
+A penalty term is included in the objective function to penalize solutions that have more states
+than a chosen maximum.
+Apart from this optimization-based decomposition, it may sometimes be useful to specify a
+particular submodel in order to explore the identifiability of a specific part of the model.
+
+Assessing identifiability of decomposed models
+Let us clarify how we can conclude identifiability of a parameter from analysis of a submodel.
+As an example, consider M to be the model of Arabidopsis thaliana described in the Results
+section; its equations are given in the Supplementary Information (S1 Text). Let us consider a
+submodel Msub consisting of two states, xsub = {x1, x7}. The equations of Msub are those that correspond to the states {x1, x7}, that is:
+8
+x6a
+1
+x_ ¼ n1 g a þx
+m1 k1xþx
+þ q1 x7 uðtÞ;
+>
+a
+>
+1
+1
+6
+< 1
+7
+ð10Þ
+x_ 7 ¼ p3 m7 k xþx
+ðp3 þ q2 x7 ÞuðtÞ;
+>
+7
+7
+>
+:
+x1 ð0Þ ¼ 0; x7 ð0Þ ¼ 0
+The outputs of Msub are those outputs of M which are functions of at least one of the states in
+Msub (in this example, y1 = x1). The parameters and inputs of Msub are those present in Eq (10):
+respectively, {n1, g1, a, m1, k1, q1, p3, m7, k7, q2} and u. Additionally, we must also include as
+parameters the states that do not belong to xsub but appear in Eq (10) or in ysub (in this case, x6).
+Thus in this example the submodel parameters would be {n1, g1, a, m1, k1, q1, p3, m7, k7, q2, x6}.
+By including states such as x6 as parameters we are considering them as unknown and constant.
+In contrast, if they were included as inputs to the submodel, we would be implicitly assuming
+that they provide sufficient excitation for identification purposes. Thus, including them as
+parameters is a conservative assumption in terms of identifiability. Therefore, if a parameter is
+classified as identifiable in a submodel under these conditions, it will also be identifiable when
+considering the whole model.
+
+Building OI with less than nd Lie derivatives
+When the nd of the full model is so high that it is not feasible to build OI , one solution is to
+decompose the model into smaller submodels as described in the previous subsections.
+Another possibility is to build OI with i < nd derivatives. In this case we know that full rank
+cannot be achieved, so even if the model is identifiable we will not be able to determine it in
+this way. However, it may be possible to determine identifiability of at least some of the parameters. Note that this procedure can be helpful exactly in the same circumstances as decomposition. In some cases one approach will be more appropriate than the other, but both can be used
+to determine the identifiability of different parameters, and may therefore be complementary.
+Fig 1 shows a diagram of the methodology presented so far. The next sections discuss the
+types of analyses that can be performed with this methodology and show how to refine the
+solutions iteratively in order to obtain more complete diagnoses.
+
+Complete and partial analyses
+By assessing identifiability as explained in sections “Assessing the OIC efficiently” and “Determining identifiability of individual parameters” we are performing a “Complete Case Analysis”
+(CCA): every parameter in the model is either classified as identifiable or as unidentifiable.
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+8 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+However, it may not always possible to carry out the aforementioned procedure due to
+computational limitations, as explained in sections “Decomposing large models into submodels to facilitate their analysis” and “Building OI with less than nd Lie derivatives”, which presented two different alternatives. In certain cases these alternatives can yield incomplete
+results, that is, they may fail to determine the (un)identifiability of some parameters. For example, this may happen in the following scenarios:
+1. When, due to computational limitations, OI is calculated with less Lie derivatives than
+those needed to guarantee identifiability or lack thereof. In this case, it may happen that an
+OI calculated with more Lie derivatives would have a higher rank, and therefore reveal the
+identifiability of more parameters.
+2. When using decomposition, a parameter may not be determined as identifiable if the submodel in which it is being tested does not include some necessary states and outputs. Imagine, for
+example, that identification of a particular parameter pi requires observing two outputs, ya and
+yb, but only one of them was included in the submodel used to evaluate the identifiability of pi.
+The two cases mentioned above will be called “Partial Analyses for Identifiability” (PAI):
+some parameters are conclusively classified as identifiable, but nothing can be said about the
+rest. It is also possible to perform similar analyses to guarantee unidentifiability of some
+parameters, leading to what we will call “Partial Analyses for Unidentifiability” (PAU). In such
+tests, some parameters are classified as unidentifiable while the analysis of the rest is not conclusive. This can happen in at least two situations:
+1. Assume we are considering the full model with a full size matrix OI (i.e., a matrix built with
+as many Lie derivatives as states, n) or with a number of derivatives such that the rank of
+the matrix has stopped increasing. In this case, if we remove identifiable parameters we still
+have a CCA. However, if we remove parameters whose identifiability has not been assessed,
+the result of the subsequent rank test is conclusive only if it reports unidentifiability.
+
+Fig 1. Core elements of the structural identifiability analysis method. Further refinements are possible: in some cases more complete solutions may
+be obtained by re-running the procedure after removing parameters already classified as identifiable. The model M used as example is the Goodwin
+oscillator analysed in the Results section.
+doi:10.1371/journal.pcbi.1005153.g001
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+9 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Table 1. Types of analyses possible with this methodology.
+Analysis
+
+# states
+
+# derivatives, rank(OI )
+
+CCA
+
+s=n
+
+(i = n) OR (ranki+1 = ranki)
+
+PAI
+
+s=n
+
+(i < n) AND (ranki > ranki-1)
+
+PAI
+
+s<n
+
+PAU
+
+s=n
+
+(i = n) OR (ranki+1 = ranki)
+
+PAU
+
+s=n
+
+(i = n) OR (ranki+1 = ranki)
+
+other states
+
+parameters
+
+outputs
+
+as unknown p
+removed s.u. p
+o>m
+
+CCA: Complete Case Analysis; PAI: Partial Analysis for Identifiability; PAU: Partial Analysis for Unidentifiability; i: number of Lie derivatives used to build OI ;
+ranki: rank of OI with i derivatives; s: number of states taken into account; n: total number of states in the model; o: number of measured outputs; m: number
+of outputs in the original model; x: states; p: parameters. For detailed explanations, see section “Complete and partial analyses”. In all cases it is possible to
+remove from the model those parameters that have already been classified as identifiable, see section “Iterative refinement of the diagnosis”.
+doi:10.1371/journal.pcbi.1005153.t001
+
+2. In the situation above, if instead of removing parameters we consider more outputs than are
+actually measured in the model.
+The different types of analyses that can be performed are summarized in Table 1.
+
+Iterative refinement of the diagnosis
+As shown in the preceding subsection, for some complex problems a complete analysis—that
+is, classifying all the parameters as identifiable or unidentifiable—may not be possible, at least
+in a first approach, due to computational limitations. In such cases, one can try to obtain more
+complete diagnoses by running the procedure iteratively. At each time, the computational cost
+can be reduced by removing from the augmented state vector, x~ ¼ ½x; p, those parameters that
+were already found to be identifiable in previous steps. This operation, which leads to a smaller
+OI matrix, does not alter the result of the identifiability test, because the resulting OI is identical to the one obtained with the original vector x~ ¼ ½x; p after removing the columns corresponding to identifiable parameters—which results in a decreased rank. Note that this
+equivalence is made possible by the fact that p_ ¼ 0, so the procedure cannot be applied to the
+model states, since x_ 6¼ 0.
+In summary, if a model M is too large to be analysed as a whole—i.e. to directly calculate the
+rank of its identifiability matrix and perform a complete case analysis (CCA)—identifiability
+analysis can be approached as follows:
+1. Decompose the model, possibly (but not necessarily) using an optimization-based procedure to minimise computational effort, into several submodels, Si.
+2. Analyse identifiability of the resulting Si submodels using the generalised observabilityidentifiability rank condition. If the array is not full rank, test the identifiability of each
+parameter separately by comparing the rank before and after removing its column.
+3. Parameters found to be identifiable in a submodel Si are identifiable in the whole model M.
+4. Several decompositions can be tested, which may lead to complementary results.
+5. Additionally, as an alternative or a complement to steps (1–4), it may be possible to find
+identifiable parameters by checking the rank of a OI built with less than nd Lie derivatives.
+Steps (1–5) correspond to what we call partial analyses for identifiability (PAI).
+6. Remove all the parameters determined to be identifiable in the previous steps from the
+model M. This results in a reduction of the dimension of M which may enable its analysis
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+10 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+using the generalised observability-identifiability rank condition without resorting to
+decomposition. In that case, it will be possible to determine the identifiability of all the
+parameters (CCA) or, alternatively, to perform a PAI.
+7. For those parameters that are not classified as identifiable, try to assess their unidentifiability
+by performing the corresponding partial analysis, PAU.
+
+Implementation: The STRIKE-GOLDD toolbox
+The present method has been implemented as a MATLAB toolbox named STRIKE-GOLDD
+(STRuctural Identifiability taKen as Extended-Generalized Observability using Lie Derivatives
+and Decomposition). It is an open source tool licensed under the GNU General Public License
+version 3 (GPLv3). It is freely available from https://sites.google.com/site/strikegolddtoolbox/
+and as supplementary information accompanying this article (S1 File). It requires a MATLAB
+installation with the Symbolic toolbox. Additionally, to use optimization-based decomposition
+it is necessary to install the MEIGO toolbox [48]. The usage of the STRIKE-GOLDD software
+is discussed in detail in the manual (S2 Text); in the following lines we provide a brief description of the key options.
+The toolbox allows limiting the number of Lie derivatives that are calculated when building
+OI ð~
+x Þ. This is useful to prevent the algorithm from getting stuck in excessively lengthy calculations. To adapt this limit to the computer where the algorithm is running, it is specified as a
+machine-dependent criterion: the user can set a limit on the time invested in calculating these
+derivatives by entering it in opts.maxLietime (that is, the algorithm will not calculate the
+ith + 1 derivative if the time spent in obtaining the ith one was ti > opts.maxLietime).
+Furthermore, the user can choose what to do if this time limit is reached without OI ð~
+x Þ being
+full rank: by setting opts.decomp = 0, STRIKE-GOLDD will perform a partial analysis of the
+whole model with the current OI ð~
+x Þ; if opts.decomp = 1, it will decompose the model. It is
+also possible to enforce the use of decomposition from the start, i.e. without checking whether
+the time limit is reached, with the option opts.forcedecomp. The submodels can be found
+by optimization or specified by the user; this choice is made by opts.decomp_user.
+Another option, opts.numeric, allows deciding whether to calculate rank(OI ð~
+x Þ)
+numerically or symbolically. The symbolic calculation is always exact. It is possible to perform
+a numerical calculation by replacing the symbolic variables with prime numbers. This usually
+reduces the computational cost, although in some cases it might lead to accidental cancellations
+that decrease the rank artificially. However, the risk of obtaining a spurious result is low, and it
+can be minimized by running the procedure several times, since the substitutions are random.
+In all of the case studies analyzed in the Results section we found agreement between numeric
+and symbolic rank calculations.
+Finally, it is possible to assess identifiability for specific values of the system’s initial conditions. As mentioned in subsection “Structural identifiability as augmented observability: the
+OIC”, this can be useful in order to detect situations in which loss of reachability from particular initial conditions leads to loss of identifiability. Such pathological cases are not detected if
+rankðOI ð~
+x 0 ÞÞ is calculated using a generic symbolic vector of initial conditions. However, they
+can be tested by setting the option opts.knowninitc = 1 and entering the corresponding
+vector of initial conditions in the script that creates the model.
+
+Results
+We applied the proposed methodology to a number of published models of varying size and
+complexity [19, 27–32], some of which have been recently used to benchmark identifiability
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+11 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Table 2. Main features of the models analysed in this study.
+Nr.
+
+Description
+
+Ref.
+
+States
+
+Outputs
+
+Parameters
+
+Identifiable
+
+1
+
+Pitavastatin hepatic uptake
+
+[19]
+
+3
+
+1
+
+7
+
+yes
+
+1.b
+
+1 with steady state assumption
+
+[19]
+
+2
+
+1
+
+6
+
+yes
+
+2
+
+Goodwin oscillator
+
+[27]
+
+3
+
+1
+
+8
+
+no
+
+3
+
+MAPK with mixed feedback
+
+[28]
+
+3
+
+3
+
+14
+
+yes
+
+4
+
+NF-κB pathway
+
+[30]
+
+15
+
+6
+
+29
+
+no
+
+5
+
+JAK/STAT pathway
+
+[31]
+
+10
+
+8
+
+23
+
+no
+
+6
+
+Circadian clock A. thaliana
+
+[29]
+
+7
+
+2
+
+28
+
+no
+
+7
+
+CCM of CHO cells
+
+[32]
+
+34
+
+13
+
+117
+
+no
+
+doi:10.1371/journal.pcbi.1005153.t002
+
+analysis methods [10, 19, 20]. The main features of the models are summarized in Table 2, and
+schematic diagrams are shown in Figs 2–4. Their equations are given in the supplementary
+information. Calculations were carried out on a computer running Windows7 SP1 64bit, with
+an Intel processor at 3.40 GHz and 16 GB of RAM, using MATLAB R2015b.
+
+Pharmacokinetic model of in vitro Pitavastatin hepatic uptake
+In [19], Grandjean and coworkers proposed 18 alternative pharmacokinetic nonlinear compartmental models of the uptake process of Pitavastatin (a drug used to treat hypercholesterolaemia) into hepatocytes. They applied five different methods to analyse their structural
+identifiability: similarity transformation, differential algebra, Taylor series, and two approaches
+based on a non-differential input/output observable normal form and an algebraic input/output relationship approach. With these techniques they established the identifiability of most of
+
+Fig 2. The first three models analysed in this work. (A) Pharmacokinetic model of Pitavastatin hepatic uptake. (B) Goodwin oscillator. (C) MAPK
+cascade with mixed feedback. The upper part of the figure shows functional diagrams of the three systems. The lower part shows the connections
+between the states (blue stars), outputs (red squares), and parameters (green circles); a directed arrow from X to Y indicates that Y appears in the
+dynamic equation of X.
+doi:10.1371/journal.pcbi.1005153.g002
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+12 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Fig 3. The NF-κB model.
+doi:10.1371/journal.pcbi.1005153.g003
+
+the models. However, for several model formulations none of the methods was able to produce
+results. This was the case for two candidate models (with or without pseudo-state assumption)
+that accounted for drug metabolising within the cell.
+A diagram of these Pitavastatin uptake models is shown in panel A of Fig 2. The upper part
+of the panel shows the system’s functional diagram. The lower part shows a graph drawn following the same convention as in [47], in which a directed arrow from A to B indicates that B
+appears in the dynamic equation of A. This graphical approach was originally proposed to
+study observability, and hence in [47] only the states were shown in the graphs. Since here we
+use it for identifiability purposes, we extend it to include both states and parameters (see figure
+caption for more details).
+The method presented here determines that both Pitavastatin uptake models (with and
+without pseudo steady state assumption) are structurally identifiable.
+
+Enzymatic oscillations: The Goodwin model
+The classical model of oscillations in enzyme kinetics proposed by Goodwin in 1965 [27] and
+shown in panel B of Fig 2 is still the subject of analyses [28]. It was selected by [10] to compare
+the performance of several structural identifiability methods, considering two different scenarios or variations of the model: when the three states are measured, or when only one of them—
+the enzyme concentration, x1—can be measured. The latter situation is more realistic, but its
+analysis is particularly challenging, and none of the methods tested by [10] managed to reach a
+conclusion due to computational complexity.
+According to Eq (8), the minimum number of Lie derivatives for which the identifiability
+matrix may be full rank is nd = 10 for this model. While the subsequent rank calculation is
+very demanding, the computational cost is substantially reduced by building OI ð~
+x Þ with only
+9 Lie derivatives. In this way the method classifies four parameters as identifiable: b, σ, β, δ.
+Then, removing these parameters from the model as explained in “Iterative refinement of
+the diagnosis” enables the analysis of the remaining parameters (a, A, α, γ), which are found
+to be unidentifiable.
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+13 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Fig 4. Models of JAK/STAT (A) and Arabidopsis thaliana (B). Note that states x7 and x9 in the upper diagram of JAK/STAT do not appear in the lower
+diagram since they are expressed as functions of x6 and x8 respectively.
+doi:10.1371/journal.pcbi.1005153.g004
+
+Thus this model is unidentifiable. It can be made identifiable by considering two parameters
+as known, one from each of the pairs {A, a} and {α, γ}. For example, if we fix the values of
+{A, α}, the remaining six unknown parameters in the model are identifiable. An alternative
+solution is to measure more states, if it is experimentally possible. In this case, if all three states
+are outputs, the model is structurally identifiable. Measuring only two of the three states, however, increases the number of identifiable parameters but does not render the model fully identifiable. The subsets of unidentifiable parameters for y = {x1, x2}, y = {x1, x3}, and y = {x2, x3}
+are, respectively, {a, A, γ}, {α, γ} and {a, α}.
+
+Three-layer MAPK cascade with mixed feedback
+This model was presented in [28] as an example of a system exhibiting both oscillation and
+bistability. It is a three-layer signalling cascade with positive and negative feedback loops and
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+14 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Hill nonlinearities, shown in panel C of Fig 2. It has three states, which are the phosphorylated
+forms (x1, x2, x3), and 14 parameters (k1, k2, k3, k4, k5, k6, s1t, s2t, s3t, K1, K2, n1, n2, α).
+This system requires that all its three states are measured in order to be identifiable. However, if just one of the states is left unmeasured, some parameters become unidentifiable: if x1 is
+not measured, k3 and s1t are unidentifiable; if x2 is not measured, k5 and s2t are unidentifiable;
+and if x3 is not measured, K1, K2, and s3t are unidentifiable.
+
+NF-κB signalling pathway
+This model was presented by [30] and was used by both [10] and [16] as a benchmark for
+structural identifiability methods. In the formulation of [10], only 13 parameters are considered unknown. In that case, all of them are identifiable. The general case, in which all 29
+parameters are in principle unknown, is more challenging. For this case STRIKE-GOLDD classifies 5 parameters as unidentifiable: c1c, c2c, c3c, c4, and k2, and the remaining as identifiable.
+Part of this diagnosis can be confirmed by inspection of the connection diagram in the right
+side of Fig 3, which shows that c1c, c2c, and c3c only appear in the equation of state x15. Since x15
+is in turn “disconnected” from the rest of the model (i.e. it does not appear in the equation of
+any other state), and it is not measured, there is clearly no way of determining its value. Hence
+x15 is unobservable, and the three parameters associated with it are unidentifiable. In contrast,
+the unidentifiability of c4 and k2 is by no means apparent from the figure. However, it can be
+determined with the methodology that they are not only unidentifiable, but related: fixing any
+of the two renders the other one identifiable. In summary, this 29-parameter model can be converted into a structurally identifiable 25-parameter model by fixing the values of four parameters: c1c, c2c, c3c, and either c4 or k2.
+
+JAK/STAT signalling pathway
+This model of the IL13-Induced JAK/STAT signalling pathway was presented in [31] and later
+used in [20] to benchmark three identifiability analysis methods. The network interaction diagrams are shown in panel A of Fig 4. The results of our method coincide with those reported in
+[20], that is, five of the 23 parameters are unidentifiable, pu = [θ11, θ15, θ17, θ21, θ22]. Following
+the procedure outlined in the Methods section, it is possible to find an identifiable combination
+of unidentifiable parameters. To do this we remove the columns corresponding to identifiable
+parameters and obtain a reduced submatrix, OU . Calculation of a basis of the kernel of OU
+yields the following vector:
+
+
+y17
+v ¼ 0; 0;
+; 0; 1
+ð11Þ
+y22
+which in turn leads to the following PDE:
+y17 @F
+@F
+
+þ
+¼0
+y22 @y17 @y22
+
+)
+
+F ¼ y17  y22
+
+ð12Þ
+
+Thus, F = θ17  θ22 is an identifiable parameter combination. The methodology does not
+report any combination involving θ11, θ15, θ21. If, additionally, we fix the value of θ11 a priori,
+we obtain a structurally identifiable model with 21 unknown parameters.
+
+Circadian clock in Arabidopsis thaliana
+The genetic subnetwork that controls the circadian clock in the plant A. thaliana was modelled
+in [29]; its diagram is shown in Fig 4. This model uses both Michaelis-Menten and Hill
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+15 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+kinetics. Two Hill coefficients of transcription (a, b) were considered as known parameters in
+the original publication [29]. Although it was argued in [29] that there is evidence that b = 2,
+coefficient a was fixed to a = 1 without experimental evidence. In [10] it was reported that (for
+the case of a = 1) no global structural identifiability method was capable of successfully analysing the model; at most, identifiability of five parameters was established.
+While the choice of a = 1 makes the system rational and reduces the problem dimension,
+here we consider the more general case in which a is an unknown parameter. According to Eq
+(8), the minimum number of Lie derivatives for which OI ð~
+x Þ may be full rank is very high for
+this model (nd = 16). This is the same situation as with the previously analysed Goodwin model,
+that is, the computational cost of the construction and subsequent rank calculation of OI ð~
+xÞ
+with nd derivatives is too high. Furthermore, we found that the approach adopted for the Goodwin model—building the matrix with less than nd derivatives—was not successful in the case of
+this example, at least when performed with few derivatives. Hence we turned to the alternative
+procedure, i.e. decomposing the model using optimization. In this way, identifiability of ten
+parameters was established: a, k1, k4, m1, m4, n1, n2, q2, r2, and r4. Removing these parameters
+from the model decreases the number of required derivatives nd to 12, which is still very high;
+however, building OI ð~
+x Þ with 9 derivatives reports identifiability of an additional parameter, r1.
+By performing partial analyses for unidentifiability (PAUs) we confirmed that the model is
+indeed unidentifiable. This can be remedied in several ways. A possible solution is to measure
+more states, if it is experimentally feasible. In the model it has been assumed that only mRNA
+concentrations are measured (i.e. states x1 and x4); however, if protein concentrations (i.e. the
+remaining states) are also measured, then all the parameters become structurally identifiable.
+Alternatively, if we assume that only the original outputs can be measured, it is possible to
+obtain an identifiable reformulation of the model by fixing some parameters. For example,
+choosing fixed values for the five degradation constants that were not found to be identifiable
+(k2, k3, k5, k6, k7) yields a structurally identifiable model with 23 parameters.
+
+Metabolic model of Chinese Hamster Ovary cell (CHO)
+This large-scale model was taken from the BioPreDyn-bench collection [32], where it was
+included as benchmark B4. It models a batch fermentation process for protein production
+using Chinese Hamster Ovary cells. Its diagrams are shown in Fig 5. It contains 34 states
+(which are metabolites present in three compartments: fermenter, cytosol, and mitochondria),
+of which 13 are measured outputs. Its 32 reactions include protein product formation, the
+Embden-Meyerhof-Parnas pathway (EMP), the TCA cycle, a reduced amino acid metabolism,
+lactate production, and the electron transport chain. The reactions are modelled using lin-log
+kinetics [49], resulting in non-rational equations with 117 unknown parameters. While it was
+noted in [32] that the parameter estimation results suggested practical identifiability issues,
+possible deficiencies in structural identifiability were not mentioned. Given the size of this
+model, its analysis is very challenging.
+Using decomposition it is possible to classify most of the parameters in the model as identifiable. However, we also found that at least four parameters are structurally unidentifiable: they
+are the parameters numbered 47, 48, 55, and 57, which correspond to the following kinetic constants (elasticities): {e54, − e55, − e62, e64}. After inspecting the model, we realised that it is possible to rewrite its dynamic equations in such a way that these parameters appear as (e54 + e55)
+and (e62 + e64); clearly, the individual parameters appearing in these sums are not identifiable.
+Thus, we replaced these four parameters with two new ones, en1 = e54 + e55 and en2 = e62 + e64.
+In this way we obtained a new model with 115 parameters, and confirmed that the newly introduced ones are structurally identifiable. Overall, we determined the identifiability of 97
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+16 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Fig 5. Metabolic model of Chinese Hamster Ovary cells used in a fed-batch fermentation process.
+doi:10.1371/journal.pcbi.1005153.g005
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+17 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+parameters. While we did not manage to assess the identifiability of the remaining 18, we did
+find that fixing six of them (e.g. {p28, p72, p77, p101, p105, p115}) results in a structurally identifiable model. This action is slightly conservative, since those parameters can in principle be s.l.i.
+However, since the model has practical identifiability deficiencies [32] (as is typical of models
+of this type and size [49]), and given that it would be necessary to perform many Lie derivatives
+to relate these parameters to the model outputs, it is likely that in practice their values will be
+difficult to estimate. Therefore, fixing a subset of them appears as a reasonable solution.
+In summary, we found that: (i) this model is structurally unidentifiable, (ii) there exist two
+identifiable combinations of parameters, which convert 4 unidentifiable parameters into 2 identifiable ones, (iii) of the remaining 113 parameters, at least 95 are identifiable, and (iv) fixing the
+values of 6 parameters ensures that the remaining 12 (and the model as a whole) are identifiable.
+
+Discussion
+We have presented a methodology for analysing the structural identifiability of dynamic models described by a system of ordinary differential equations. It builds on concepts and techniques originally presented in the context of nonlinear observability analysis. More specifically,
+it adopts a differential geometry approach, which is based on building an augmented observability matrix—with the parameters considered as additional state variables—and calculating
+its rank. This formulation, as opposed to other approaches based on differential algebra, allows
+handling any analytic models, without requiring them to be in rational or polynomial form. If
+a model is structurally unidentifiable the method determines the identifiability of each parameter individually, by recalculating the matrix rank after removing the corresponding column.
+Realising that the structural identifiability analysis of nonlinear dynamic models is a challenging task, and that this difficulty increases rapidly with the problem size, our method is
+geared towards computational efficiency. To this end it includes several algorithmic developments to facilitate the analysis of models of larger size. One is the possibility of decomposing
+the model into smaller submodels, which can be found by optimization or specified by the
+user. Another is the calculation of the matrix rank with a reduced number of Lie derivatives.
+These alternatives lead in some cases to partial analyses, whose result is only conclusive if a
+parameter is classified as identifiable, but not as unidentifiable (or vice versa, depending on the
+type of analysis). In these situations the method also allows for an iterative refinement of the
+diagnosis: by removing parameters already classified as identifiable, the problem size is reduced
+and more complete analyses are made possible.
+To facilitate the application of this methodology, we have provided it as a free MATLAB
+(The MathWorks, Natick, MA) toolbox called STRIKE-GOLDD (STRuctural Identifiability
+taKen as Extended-Generalized Observability with Lie Derivatives and Decomposition),
+available under the GNU General Public License from https://sites.google.com/site/
+strikegolddtoolbox/. We expect that STRIKE-GOLDD will contribute to fill the gap between
+the complexity of current systems biology models and their usability, which can be compromised unless structural identifiability is assessed.
+We have validated the methodology using a set of nonlinear systems biology models whose
+size and/or complexity make them challenging case studies. They range from a classic model of
+enzymatic oscillations with 8 parameters proposed by Goodwin in 1965 [27] to a metabolic
+model of more than 100 parameters published in 2015 [32]. Interestingly, we found structural
+identifiability issues even in models of relatively small size, such as the aforementioned Goodwin model. Indeed, the results show that identifiability issues are likely to appear in overparameterized models (with many parameters per state), specially if only few of their states are
+available for measurement (in order words, if there are few outputs).
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+18 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+A large parameter-to-output ratio also implies that the structural identifiability of the model
+will be difficult to analyse, because it will be necessary to perform many Lie derivative calculations in order to build the augmented observability matrix, thus incurring a high computational cost. Could this common cause mean that the difficulty in analysing a model is a hint of
+lack of identifiability? We ask this question because we know that, on the other hand, it is possible to analyse models with many parameters as long as sufficient measurements are available.
+Among the models analysed here, the JAK/STAT pathway had already been studied [20],
+and for that case our method confirmed previously reported results. In other cases we established the identifiability of systems that had not been analysed before, such as the mixed feedback MAPK pathway [28] or the model of Pitavastatin hepatic uptake (which had been reported
+to resist analysis when attempted with other methods, although it was suspected that it was
+identifiable [19]). Perhaps more interestingly, we also found some unidentifiabilities that had
+not been previously reported. An example is the Goodwin oscillator [27], for which it was established that half of its parameters are structurally unidentifiable. Despite the relatively small size
+of this model (3 states and 8 parameters), the fact that it is not a rational system, combined with
+the high parameter-to-output ratio (given that only one of its states is measured) make it a very
+challenging problem. Similar issues were found in the NF-κB signalling pathway [30] and in the
+genetic subnetwork of the circadian clock in Arabidopsis thaliana [29]. In these cases it can be
+noted that the ratio of unidentifiable parameters is larger in models with a lower ratio of measured outputs. Finally, we also detected unidentifiabilities in a recently presented large-scale
+dynamic model of metabolism of Chinese Hamster Ovary cells [32] with 117 parameters.
+We have also shown how to turn unidentifiable models into identifiable ones. With the procedure described in this paper it is sometimes possible to combine several unidentifiable
+parameters into a single identifiable combination. More often the solution is to reparameterize
+the model by considering some of the unidentifiable parameters as known constants, fixing
+them to values that appear reasonable according to available knowledge. In this way the
+remaining unknown parameters are rendered identifiable. Finally, a model can also be made
+identifiable by increasing the number of its outputs, if it is experimentally possible to measure
+more of its states.
+
+Supporting Information
+S1 Text. Mathematical details of the models used as case studies.
+(PDF)
+S2 Text. STRIKE-GOLDD documentation. User manual of the toolbox.
+(PDF)
+S1 File. STRIKE-GOLDD software. The MATLAB toolbox implementing the methodology.
+It is also available at https://sites.google.com/site/strikegolddtoolbox/.
+(ZIP)
+
+Acknowledgments
+The authors acknowledge helpful discussions with Dhruva Raman, Manolis Chatzis, and James
+Anderson.
+
+Author Contributions
+Conceptualization: AFV AP.
+Methodology: AFV AB AP.
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+19 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+Software: AFV.
+Writing – original draft: AFV.
+Writing – review & editing: AFV AB AP.
+
+References
+1.
+
+DiStefano J III. Dynamic systems biology modeling and simulation. Academic Press; 2015.
+
+2.
+
+Villaverde AF, Banga JR. Reverse engineering and identification in systems biology: strategies, perspectives and challenges. J R Soc Interface. 2014; 11(91):20130505. doi: 10.1098/rsif.2013.0505
+PMID: 24307566
+
+3.
+
+Jaqaman K, Danuser G. Linking data to models: data regression. Nat Rev Mol Cell Biol. 2006; 7
+(11):813–819. doi: 10.1038/nrm2030 PMID: 17006434
+
+4.
+
+Bellman R, Åström KJ. On structural identifiability. Math Biosci. 1970; 7(3):329–339. doi: 10.1016/
+0025-5564(70)90132-X
+
+5.
+
+Walter E, Pronzato L. Identification of parametric models from experimental data. Communications
+and Control Engineering Series. London, UK: Springer; 1997.
+
+6.
+
+Heinemann T, Raue A. Model calibration and uncertainty analysis in signaling networks. Curr Opin Biotechnol. 2016; 39:143–149. doi: 10.1016/j.copbio.2016.04.004 PMID: 27085224
+
+7.
+
+Bandara S, Schlöder JP, Eils R, Bock HG, Meyer T. Optimal experimental design for parameter estimation of a cell signaling model. PLoS Comput Biol. 2009; 5(11). doi: 10.1371/journal.pcbi.1000558
+PMID: 19911077
+
+8.
+
+Karr JR, Williams AH, Zucker JD, Raue A, Steiert B, Timmer J, et al. Summary of the DREAM8 parameter estimation challenge: toward parameter identification for whole-cell models. PLoS Comput Biol.
+2015; 11(5):e1004096. doi: 10.1371/journal.pcbi.1004096 PMID: 26020786
+
+9.
+
+Miao H, Xia X, Perelson AS, Wu H. On identifiability of nonlinear ODE models and applications in viral
+dynamics. SIAM Rev. 2011; 53(1):3–39. doi: 10.1137/090757009
+
+10.
+
+Chiş OT, Banga JR, Balsa-Canto E. Structural identifiability of systems biology models: a critical comparison of methods. PLoS One. 2011; 6(11):e27755. doi: 10.1371/journal.pone.0027755 PMID:
+22132135
+
+11.
+
+Karr JR, Sanghvi JC, Macklin DN, Gutschow MV, Jacobs JM, Bolival B, et al. A whole-cell computational model predicts phenotype from genotype. Cell. 2012; 150(2):389–401. doi: 10.1016/j.cell.2012.
+05.044 PMID: 22817898
+
+12.
+
+Bellu G, Saccomani MP, Audoly S, D´ Angio L. DAISY: a new software tool to test global identifiability
+of biological and physiological systems. Comput Methods Programs Biomed. 2007; 88(1):52–61. doi:
+10.1016/j.cmpb.2007.07.002 PMID: 17707944
+
+13.
+
+Raue A, Kreutz C, Maiwald T, Bachmann J, Schilling M, Klingmüller U, et al. Structural and practical
+identifiability analysis of partially observed dynamical models by exploiting the profile likelihood. Bioinformatics. 2009; 25(15):1923–1929. doi: 10.1093/bioinformatics/btp358 PMID: 19505944
+
+14.
+
+Chiş O, Banga JR, Balsa-Canto E. GenSSI: a software toolbox for structural identifiability analysis of
+biological models. Bioinformatics. 2011; 27(18):2610–2611. doi: 10.1093/bioinformatics/btr431 PMID:
+21784792
+
+15.
+
+Szederkényi G, Banga JR, Alonso AA. CRNreals: a toolbox for distinguishability and identifiability analysis of biochemical reaction networks. Bioinformatics. 2012; 28(11):1549–1550. doi: 10.1093/
+bioinformatics/bts171 PMID: 22492646
+
+16.
+
+Karlsson J, Anguelova M, Jirstrand M. An Efficient Method for Structural Identiability Analysis of Large
+Dynamic Systems. In: 16th IFAC Symposium on System Identification. vol. 16; 2012. p. 941–946.
+
+17.
+
+Sedoglavic A. A probabilistic algorithm to test local algebraic observability in polynomial time. J Symbol
+Comput. 2002; 33:735–755. doi: 10.1006/jsco.2002.0532
+
+18.
+
+Margaria G, Riccomagno E, White LJ. Structural identifiability analysis of some highly structured families of statespace models using differential algebra. J Math Biol. 2004; 49(5):433–454. doi: 10.1007/
+s00285-003-0261-3 PMID: 15549308
+
+19.
+
+Grandjean TR, Chappell MJ, Yates JW, Evans ND. Structural identifiability analyses of candidate models for in vitro Pitavastatin hepatic uptake. Comput Methods Programs Biomed. 2014; 114(3):e60–
+e69. doi: 10.1016/j.cmpb.2013.06.013 PMID: 23870173
+
+20.
+
+Raue A, Karlsson J, Saccomani MP, Jirstrand M, Timmer J. Comparison of approaches for parameter
+identifiability analysis of biological systems. Bioinformatics. 2014; p. btt006.
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+20 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+21.
+
+Chatzis MN, Chatzi EN, Smyth AW. On the observability and identifiability of nonlinear structural and
+mechanical systems. Struct Control Health Monit. 2015; 22(3):574–593. doi: 10.1002/stc.1690
+
+22.
+
+Villaverde AF, Barreiro A. Identifiability of Large Nonlinear Models in Systems Biology: Mathematical
+and Computational Aspects. MATCH Commun Math Comput Chem. 2016; 76(2).
+
+23.
+
+Hermann R, Krener AJ. Nonlinear controllability and observability. IEEE Trans Autom Control. 1977;
+22(5):728–740. doi: 10.1109/TAC.1977.1101601
+
+24.
+
+Tunali ET, Tarn TJ. New results for identifiability of nonlinear systems. IEEE Trans Autom Control.
+1987; 32(2):146–154. doi: 10.1109/TAC.1987.1104544
+
+25.
+
+August E, Papachristodoulou A. A new computational tool for establishing model parameter identifiability. J Comput Biol. 2009; 16(6):875–885. doi: 10.1089/cmb.2008.0211 PMID: 19522669
+
+26.
+
+Villaverde AF, Barreiro A, Papachristodoulou A. Structural Identifiability Analysis via Extended Observability and Decomposition. In: 6th IFAC Conference on Foundations of Systems Biology in Engineering; 2016. p. in press.
+
+27.
+
+Goodwin BC. Oscillatory behavior in enzymatic control processes. Adv Enzyme Regul. 1965; 3:425–
+437. doi: 10.1016/0065-2571(65)90067-1 PMID: 5861813
+
+28.
+
+Nguyen LK, Degasperi A, Cotter P, Kholodenko BN. DYVIPAC: an integrated analysis and visualisation framework to probe multi-dimensional biological networks. Sci Rep. 2015; 5. doi: 10.1038/
+srep12569
+
+29.
+
+Locke J, Millar A, Turner M. Modelling genetic networks with noisy and varied experimental data: the
+circadian clock in Arabidopsis thaliana. J Theor Biol. 2005; 234(3):383–393. doi: 10.1016/j.jtbi.2004.
+11.038 PMID: 15784272
+
+30.
+
+Lipniacki T, Paszek P, Brasier AR, Luxon B, Kimmel M. Mathematical model of NF-κB regulatory module. J Theor Biol. 2004; 228(2):195–215. doi: 10.1016/j.jtbi.2004.01.001 PMID: 15094015
+
+31.
+
+Raia V, Schilling M, Böhm M, Hahn B, Kowarsch A, Raue A, et al. Dynamic mathematical modeling of
+IL13-induced signaling in Hodgkin and primary mediastinal B-cell lymphoma allows prediction of therapeutic targets. Cancer Res. 2011; 71(3):693–704. doi: 10.1158/0008-5472.CAN-10-2987 PMID:
+21127196
+
+32.
+
+Villaverde AF, Henriques D, Smallbone K, Bongard S, Schmid J, Cicin-Sain D, et al. BioPreDynbench: a suite of benchmark problems for dynamic modelling in systems biology. BMC Syst Biol. 2015;
+9(1):8. doi: 10.1186/s12918-015-0144-4 PMID: 25880925
+
+33.
+
+Ljung L, Glad T. On global identifiability for arbitrary model parametrizations. Automatica. 1994; 30
+(2):265–276. doi: 10.1016/0005-1098(94)90029-9
+
+34.
+
+Kalman RE. Contributions to the theory of optimal control. Bol Soc Mat Mex. 1960; 5(2):102–119.
+
+35.
+
+Vidyasagar M. Nonlinear systems analysis. vol. 42. SIAM; 2002.
+
+36.
+
+Wang Y, Sontag ED. On two definitions of observation spaces. Syst Control Lett. 1989; 13(4):279–
+289. doi: 10.1016/0167-6911(89)90116-3
+
+37.
+
+Sontag ED, Wang Y. I/O equations for nonlinear systems and observation spaces. In: Proceedings of
+the 30th IEEE Conference on Decision and Control. IEEE; 1991. p. 720–725.
+
+38.
+
+Anguelova M. Nonlinear observability and identifiability: General theory and a case study of a kinetic
+model for S. cerevisiae. Chalmers University of Technology and Göteborg University; 2004.
+
+39.
+
+Saccomani MP, Audoly S, D’Angiò L. Parameter identifiability of nonlinear systems: the role of initial
+conditions. Automatica. 2003; 39(4):619–632. doi: 10.1016/S0005-1098(02)00302-3
+
+40.
+
+Simon D. Optimal state estimation: Kalman, H1, and nonlinear approaches. John Wiley & Sons;
+2006.
+
+41.
+
+Meshkat N, Eisenberg M, DiStefano JJ. An algorithm for finding globally identifiable parameter combinations of nonlinear ODE models using Gröbner Bases. Math Biosci. 2009; 222(2):61–72. doi: 10.
+1016/j.mbs.2009.08.010 PMID: 19735669
+
+42.
+
+Meshkat N, Kuo CEz, DiStefano J III. On Finding and Using Identifiable Parameter Combinations in
+Nonlinear Dynamic Systems Biology Models and COMBOS: A Novel Web Implementation. PLoS One.
+2014; 9(10). doi: 10.1371/journal.pone.0110261
+
+43.
+
+Chappell MJ, Gunn RN. A procedure for generating locally identifiable reparameterisations of unidentifiable non-linear systems by the similarity transformation approach. Math Biosci. 1998; 148(1):21–41.
+doi: 10.1016/S0025-5564(97)10004-9 PMID: 9597823
+
+44.
+
+Evans ND, Chappell MJ. Extensions to a procedure for generating locally identifiable reparameterisations of unidentifiable systems. Math Biosci. 2000; 168(2):137–159. doi: 10.1016/S0025-5564(00)
+00047-X PMID: 11121562
+
+45.
+
+Stigter JD, Molenaar J. A fast algorithm to assess local structural identifiability. Automatica. 2015;
+58:118–124. doi: 10.1016/j.automatica.2015.05.004
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+21 / 22
+
+Structural Identifiability of Dynamic Systems Biology Models
+
+46.
+
+Mladenović N, Hansen P. Variable neighborhood search. Comput Oper Res. 1997; 24(11):1097–
+1100. doi: 10.1016/S0305-0548(97)00031-2
+
+47.
+
+Liu YY, Slotine JJ, Barabási AL. Observability of complex systems. Proc Natl Acad Sci USA. 2013;.
+
+48.
+
+Egea J, Henriques D, Cokelaer T, Villaverde AF, MacNamara A, Danciu DP, et al. MEIGO: an opensource software suite based on metaheuristics for global optimization in systems biology and bioinformatics. BMC Bioinf. 2014; 15:136. doi: 10.1186/1471-2105-15-136
+
+49.
+
+Berthoumieux S, Brilli M, Kahn D, De Jong H, Cinquemani E. On the identifiability of metabolic network
+models. J Math Biol. 2013; 67(6–7):1795–1832. doi: 10.1007/s00285-012-0614-x PMID: 23229063
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1005153 October 28, 2016
+
+22 / 22
+
+

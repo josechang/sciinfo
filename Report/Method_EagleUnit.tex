@@ -33,7 +33,6 @@ and Python WSGI HTTP Server (used to create entry sock for Django)
 thus making a robust web server.
 
 \subsubsection*{NGINX  --  \normalfont{traffic control and security}}
-
 Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. When compared to Apache, Nginx is light-weight and has minimal hardware requirements to deal with web traffic. It has many features as follow:
 \begin{itemize}
 	\item Fastest and the best for serving static files
@@ -51,8 +50,9 @@ there are many features as follow:
 	\item Simple Python configuration
 	\item Automatic process management
 \end{itemize}
+
 \subsubsection*{Django  --  \normalfont{web page framework}}
-Django is one of the most well-known python web framework in now days. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus. 
+Nowadays Django is one of the most well-known python web framework. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus. 
 It has many features as follow:
 \begin{itemize}
 	\item Free and open-source web framework
@@ -64,20 +64,37 @@ It has many features as follow:
 	\item Incredibly versatile
 \end{itemize}
 
-A Djago based web page designing was done by by four key parts, which dominate the reactions 
+A Djago based web page is done by four parts, which dominates the reactions 
 \& functions, outlooks, linking traffic, and the database schema, respectively. 
-The following is a brief view of each of them:
+The following is a brief view of them:
 \begin{itemize}
 	\item[] \textbf{views.py}
-	In the views file, it contain many funtions to deal with HttpRequest and  HttpResponse objects.
+	In the views file, it contains many funtions to deal with HttpRequest and  HttpResponse objects.
 	\item[] \textbf{urls.py}
 	This file defines URL configuration, which is the relationship between the view funtions and the URL.
 	\item[] \textbf{templates}
-	Templates is file which consist of some HTML/CSS desiged webpage. Therefore, the view funtions can call these webpage for a request.
+	Templates is file which consist of some HTML/CSS desiged webpages. Therefore, the view funtions can call these webpages for a request.
 	\item[] \textbf{model.py}
-	Nowadays, webpages usally interact with users, in order to store the information input by users, we need to connect with database. 
-	The model file define the schema of database and make it easy to synchronize information.\\
+	Nowadays, webpages usually interact with users, in order to store the information input by users, we need to connect with database. 
+	The model file defines the schema of database and makes it easy to synchronize information.\\
 \end{itemize}
-With the basic knowledge above, we can start to build a functional and complete website in Django. 
-After we build up a Django application, we will set up a PostgresSQL database to replace the default SQLite database. 
-Then, We will use Gunicorn sever to be an interface. Finally, We will make use of Nginx as a reverse proxy to enhance security and performance of our website.
+For references about Django program see \href{https://www.youtube.com/watch?v=yfgsklK_yFo&list=PLEsfXFp6DpzQFqfCur9CJ4QnKQTVXUsRy&index=1}{Try Django 1.9}
+\subsubsection*{Docker}
+The idea of Docker is to provide a comprehensive abstraction
+layer that allows developers to “containerize” or “package” 
+any application and have it run on any infrastructure. The 
+use of container here refers more to the consistent, standard 
+packaging of applications rather than referring to any underlying 
+technology. Docker containers provide a standard, consistent way 
+of packaging just about any application. 
+\begin{itemize}
+	\item Docker leverages LXC (Linux Containers)
+	\item Docker leverages a copy-on-write files ystem which allows Docker to instantiate container very quickly
+	\item Docker containers are easily “linked” to other containers
+	\item Docker uses a “plain text” configuration language to control the configuration of an application container
+\end{itemize}
+
+
+With the basic knowledge above, we can start to build a website in Django. 
+After we build up a Django application, we will set up a PostgresSQL database to replace the original SQLite database. 
+Then, We will use Gunicorn server to be an interface. Finally, We will make the use of Nginx as a reverse proxy to enhance security and performance of our website.

@@ -1,0 +1,2427 @@
+Similarity Transformation Approach to Identifiability Analysis of
+Nonlinear Compartmental Models
+SANDOR VAJDA
+Department of Biomathematical Sciences, Mount Sinai School of Medicine,
+New York, New York 10029
+and Department of Chemistry, Princeton University, Princeton, New Jersey 08544
+KEITH R. GODFREY
+Department of Engineering, University of Warwick, Coventty,
+
+CV4 7AL, England
+
+AND
+
+HERSCHEL
+Department
+
+RABITZ
+of Chemistry, Princeton University, Princeton, New Jersey 08544
+
+Received 8 Februav
+
+1988; revised 4 Augurt 1988
+
+ABSTRACT
+Through use of the local state isomorphism
+theorem instead of the algebraic equivalence theorem of linear systems theory, the similarity transformation
+approach is extended
+to nonlinear models, resulting in finitely verifiable sufficient and necessary conditions for
+global and local identifiability.
+The approach requires testing of certain controllability
+and
+observability
+conditions,
+but in many practical examples these conditions prove very easy
+to verify. In principle the method also involves nonlinear state variable transformations,
+but in all of the examples presented in the paper the transformations
+turn out to be linear.
+The method is applied to an unidentifiable
+nonlinear model and a locally identifiable
+nonlinear model, and these are the first nonlinear models other than bilinear models where
+the reason for lack of global identifiability
+is nontrivial. The method is also applied to two
+models with Michaelis-Menten
+elimination kinetics, both of considerable
+importance
+in
+pharmacokinetics,
+and for both of which the complicated nature of the algebraic equations
+arising from the Taylor series approach
+has hitherto
+defeated attempts
+to establish
+identifiability
+results for specific input functions.
+
+1.
+
+INTRODUCTION
+
+The analysis of structural identifiability is well established for linear,
+time-invariant models (see, for example, [6, 7, 12, 13, 31]), and although the
+tests can become tedious for complex models, there exist several finitely
+verifiable sufficient and necessary conditions both for local identifiability
+and for global identifiability.
+MATHEMATICAL
+
+BIOSCIENCES
+
+Wlsevier
+Science Publishing
+655 Avenue of the Americas,
+
+93:217-248
+
+Co., Inc., 1989
+New York, NY 10010
+
+217
+
+(1989)
+
+0025-5564/89/$03.50
+
+218
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+Results are much less definitive for nonlinear models, and fewer approaches are available. The first approach presented in the literature was
+based on linearization
+of the model along a reference trajectory and an
+identifiability
+analysis of the local linear approximation to provide sufficient
+(but not necessary) conditions for identifiability
+[9]. This gives rise to two
+main problems. First, the reference trajectory should be a stationary solution
+(otherwise the linearized system is time-variant and hence rather difficult to
+study) and a nonlinear model may have several stationary solutions, making
+the analysis far from simple to apply. Second, there can be more parameters
+in the original model than in its linearized counterpart, so the method may
+fail to confirm existing identifiability.
+The other approaches are based on series expansions of the input-output
+map of the model. For a specific (smooth) input function, or for a zero-input
+identification
+experiment, this simply means the Taylor series expansion of
+the solution [19, 201. The successive time derivatives are evaluated in terms
+of the model parameters and initial conditions at a particular time, usually
+t=o+,
+and since the Taylor coefficients are unique, the identifiability
+problem is reduced to determining the number of solutions in a set of
+nonlinear algebraic equations. The basic disadvantage of the method is that
+the structure of the resulting equations is often far from simple, so that
+identifiability
+properties are frequently very difficult to establish even for
+nonlinear compartmental
+models of moderate complexity [6, 81; this difficulty cannot always be resolved through algebraic manipulation
+languages
+WI.
+The other series expansion approach is based on the generating series or
+Volterra series coefficients, and it extends the analysis to the entire class of
+bounded and measurable input functions [15, 331. The method has a sound
+theoretical basis and in some sense generalizes the Laplace transform
+approach
+to identifiability
+of linear systems [15]. As we will discuss,
+identifiability
+in an entire class of experiment is a weaker property than
+identifiability
+in a single experiment, and evaluating the generating series
+coefficients usually results in simpler equations than those associated with
+the Taylor series coefficients [21]. In spite of its successful applications [15,
+211, the method has a serious shortcoming, both theoretical and practical,
+which is that, except for the particular cases of bilinear [27] and homogeneous polynomial [28] models, there exists no upper bound on the number of
+coefficients to be considered in the analysis; even for the exceptions, the
+bound is very high [27, 281. To prove global identifiability, one usually starts
+with a limited number of coefficients and adds further ones if necessary,
+hoping that the calculations will remain within reasonable bounds. The lack
+of an upper bound in the general case, however, means that this condition is
+only sufficient, but not necessary, for identifiability. Necessity follows only
+
+IDENTIFIABILITY
+
+OF NONLINEAR
+
+MODELS
+
+219
+
+for bilinear [15] and polynomial [27, 281 models, and the analysis is far from
+trivial in the latter case [27].
+In this paper, the similarity transformation
+(exhaustive modeling) approach for linear systems [24, 31, 321 is extended to nonlinear systems. AS
+proposed by Walter and Lecourtier [32], the method is based on the results
+of linear realization theory and appears to be applicable only to linear
+systems. However, recent developments in nonlinear realization theory, in
+particular the local state isomorphism theorem [lo, 11, 231, make it possible
+to apply a similar approach to nonlinear systems. This theorem has recently
+been used in a rather indirect way to formulate conditions for local identifiability of nonlinear models, by augmenting the model with its parameters as
+additional
+state variables [25]. In the present paper, the same results of
+nonlinear systems theory are used to provide a straightforward nonlinear
+counterpart
+of the similarity transformation
+approach of Walter and
+Lecourtier [31, 321, the only difference being that here we construct the
+family of (generally nonlinear) local state isomorphisms,
+preserving the
+original structure of the model instead of a priori restricting considerations
+to linear similarity transformations. The basic properties of the approach are
+unchanged, and it is possible to establish both local and global identifiability
+properties analogously to the linear case. While the resulting sufficient and
+necessary condition for identifiability
+may involve the solution of a set of
+partial differential equations in the general case [30], it offers an efficient
+procedure for establishing identifiability of a number of nonlinear models of
+practical interest, and its development in this paper is directed toward its
+application to nonlinear compartmental
+models; this is the main contribution of the present work.
+The paper is organized as follows. The problem is stated in Section 2,
+where its relationships to the concept of structural equivalence are emphasized. The similarity transformation
+approach requires controllability
+and
+observability
+assumptions, and a summary of the related concepts for the
+nonlinear case is given in Section 3. The main result is presented in Section
+4, and it is illustrated in Section 5 by the analysis of two simple models, one
+unidentifiable
+and the other locally identifiable. The method assumes that
+the entire class of bounded and measurable functions is available for input,
+being analogous in this respect to the generating power series approach, but
+in many practical applications, for example in biomedicine and pharmacokinetics, the input is limited to impulsive or step functions. The effects of such
+input constraints
+on identifiability
+are examined in Section 6. A simple
+condition for controllability
+and observability of nonlinear compartmental
+models, which facilitates the overall analysis procedure, is given in Section 7.
+The method is applied to two examples of compartmental
+models with
+Michaeli-Menten
+elimination kinetics in Section 8. These models are of
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+220
+
+considerable
+practical importance in pharmacokinetics,
+and the new approach copes easily with them, whereas the Taylor series approach results in
+very difficult equations in the parameters, which have so far defied solution.
+Conclusions are given in Section 9.
+2.
+
+PROBLEM
+
+STATEMENT
+
+In the first part of the paper, we consider a model of the form
+
+i(t,p)
+
+=f(X(r,P),P)+u(r)g(x(r,P),P)
+
+y(r,p) =h(x(f,P)9P)
+
+(1)
+
+4% PI = %I(PI
+extensively studied in nonlinear systems theory (see, for example, [ll, 251).
+In (l), x(t, p) E R” and y(t, p) E R” denote the state variables and the
+output, respectively, and i(t, p) = dx(t, p)/dr. It is assumed that u E
+U[O, rl], the set of bounded and measurable functions defined on the time
+interval [0, rl]. The single-input case is considered for notational simplicity;
+all results can be generalized readily.
+Let M denote a connected open subset of R” such that x E M. In
+nonlinear systems theory, M is usually a connected manifold [2, 10, 11, 23,
+251, but assuming that M has globally defined coordinates x = (xi,. . . , x,),
+it can be treated as a connected open subset of R” [lo]. In this context, the
+maps f( . , p) and g(. , p) are considered vector fields on M, assigning to
+each point x E M the tangent vectors f(x, p) and g(x, p), respectively, in
+the tangent space to M [ll]. We assume that f( . , p) and g( . , p) are real
+analytic on M for all p E 3, where G denotes the set of possible parameter
+values, i.e., a connected open set in Rq such that p E il and q is the number
+of parameters.
+Identifiability
+of (1) will be studied at some parameter value p E Q in the
+experiments specified by (x,, U[O, rJ), where the initial state x,,, while in
+general parameter-dependent,
+is well defined after selecting p. Let
+X?(P) : u( -) + y( -, p) denote the input-output
+map of (1) with the initial
+conditions x,,(p). The parameter values p, j E D are said to be indistinguishable (denoted by p - j) in the experiments (x0, U [0, r,]) if Cp(J’)( u) =
+ZZF@)(u) for all 24E U[O, r,].
+Model (1) is globally identifiable at p E 52if j - p, j E 8, implies j = p,
+and it is locally identifiable at p if there exists an open neighborhood W of
+p in D such that j - p for j E W implies j = p. These definitions should be
+generically extended for practical reasons [17, 261 so that (1) is said to be
+locally (globally) structurally identifiable if it is locally (globally) identifiable
+at all p E 9, except the points of a subset of zero measure in a.
+
+IDENTIFIABILITY
+
+221
+
+OF NONLINEAR MODELS
+
+The basic identifiability problem can now be stated as follows. Given the
+model (1) and a parameter value p E 8, find all parameter values i E G and
+the corresponding
+models of the form
+
+i(1,j.q =~(f(r,d),i)+u(r)g(~(r,~),~)
+f(O, a
+
+y(r,d) =h(qr,i),d)
+with the input-output
+
+map C?(3)
+
+=Zo(i)
+
+(2)
+
+such that
+
+for all u E [0, rl]. Although
+this is only a slight reformulation of the definition, it emphasizes that in identifiability
+analysis a problem of structural
+equivalence is being dealt with. Indeed, (2) is an equivalent representation of
+(l), and (1) is globally identifiable at p E D if and only if there exists no
+parameter value ?, E 0, j + p, generating such an equivalent representation.
+Equivalence and some related concepts are discussed in the next section.
+3.
+
+CONTROLLABILITY,
+Consider
+
+OBSERVABILITY,
+
+AND EQUIVALENCE
+
+first the linear systems
+f = Ax + bu,
+
+x(O) =x0,
+
+y=cx
+
+(4)
+
+i=Az+bi,
+
+Z(O) = 1,,
+
+p&
+
+(5)
+
+and
+
+with input-output
+maps XX0 and PO, respectively. Controllability
+and observability of (4) can be established by evaluating the controllability matrix
+Q, = [ biAbiA*bi...;A”-‘b]
+and the observability
+
+(64
+
+matrix
+
+(6b)
+
+The system is controllable if and only if rank Q, = n and is observable if and
+only if rank Q, = n (see, for example, [3]). Controllability
+and observability
+of (5) can be established similarly. Assume that (4) and (5) are controllable
+
+222
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+and observable, i.e., that they are minimal representations.
+The algebraic
+equivalence theorem [22] then applies; this states that CQ( u) = PO< u) for all
+u E U[O, tl] if and only if there exists a linear transformation
+T: R” + R”
+such that (i) T is nonsingular, (ii) TZ, = x0, and (iii) TJ= AT, T& = b, and
+d = CT. Note that the algebraic relationships follow from the fact that the
+state variables of (4) and (5) are connected by the transformation
+x = TZ.
+To study equivalence of the nonlinear systems
+
+i=f(x)+ug(x)
+
+y=h(x)
+
+x(0)
+
+i=[(E)+ug(K)
+
+y=h(z)
+
+Z(O) = 20
+
+=x0
+
+(7)
+
+and
+
+(8)
+
+with input-output
+maps Cxo and rio, respectively, use is made of the local
+state isomorphism theorem (see, for example, [lo, 23, 251) as a nonlinear
+generalization of the algebraic equivalence theorem. As for the linear case, it
+is necessary to assume that (7) and (8) are minimal representations.
+However, the problems of nonlinear controllability, observability, and minimality
+are considerably
+more difficult than in the linear case because there are
+several reasonable nonlinear generalizations of a single linear concept [14].
+Fortunately,
+to apply the local state isomorphism theorem, it is sufficient to
+show that (7) and (8) satisfy rank conditions associated with particular
+concepts of controllability
+and observability. The basic results were published in [lo] and [23] and substantially refined in [14]; a very accessible
+review is given in [2].
+3.1.
+
+CONTROLL
+
+BILITY
+
+RANK
+
+CRITERION
+
+Let X(M) denote the set of all C” vector fields defined on M. Then
+X(M) is an infinite-dimensional
+real vector space and also a Lie algebra
+under the multiplication
+defined by the Lie bracket [cpl, (p2] given by
+
+(9)
+where ‘pl, (p2 and [cpl, (~21E X(M). Elements of X(M)
+column n-vector-valued functions of x.
+For each constant control u’, define the vector field
+
+Q+(x) ‘f(x)+
+
+are represented
+
+by
+
+u’g(x).
+
+Then (pi E X(M), and we denote by 9’ the subset of X(M) consisting of all
+these vector fields. Let S denote the smallest algebra of X(M) containing
+So, i.e., S is the smallest subset of X(M) containing So that is closed
+
+IDENTIFIABILITY
+
+OF NONLINEAR MODELS
+
+223
+
+under the multiplication
+defined by the Lie bracket. A typical element of 9
+is a finite linear combination of elements of the form
+
+[d,[(P2,[
+....[cp’-‘dl~...ll].
+
+(10)
+
+As will be shown in our examples and also discussed in Section 7, 9 is
+the Lie algebra generated by the vector fields f and g (see [18]). System (7)
+is said to satisfy the controllability rank criterion (C.R.C.) at x0 if the
+dimension of 9(x,)
+is n [lo].
+3.2.
+
+OBSERVABILITY
+
+RANK
+
+CRITERION
+
+To introduce the observability rank criterion, some further concepts need
+to be introduced. Let h, denote the jth component of the output function h
+in (7); then h, E P(M),
+where C*(M) is the real vector space of C”
+functions on M. The Lie derivative of hj along the vector field (p’E X(M) is
+defined by
+L,f(h,)(x)
+
+p$f(x)rp’(x).
+
+(11)
+
+Note that the gradient dh, = dhj/dx is an n-dimensional row vector valued
+function. We denote by 9’ the subset of C”(M) consisting of h,, h,, . . . , h,
+and by 9 the smallest linear subspace of Cm(M) containing
+8’ that is
+closed with respect to Lie differentiation
+along the elements of 9’. A
+typical element of 9 is a finite linear combination of elements of the form
+
+Lq,(...( L,n(hi))
+
+. ..).
+
+024
+
+It is easily verified thdt 9 is closed under Lie differentiation
+along the
+elements of .F also.
+Note that L,,(dz) = d(L,,z)
+for all z E 9 [lo]. Define the set dS =
+{ dz, z E B }, with typical elements of the form
+
+d(L,r++(
+....(L,&)),...).
+
+(12b)
+
+Let &9(x) denote the space of vectors obtained by evaluating the elements
+of &9 at x E M. System (7) is said to satisfy the observability rank criterion
+(O.R.C.) at x0 if the dimension of &9(x,) is n [lo].
+It is readily shown that for linear systems, the C.R.C. is reduced to rank
+Q, = n and the O.R.C. is reduced to rank Q, = n.
+The nonlinear system (7) is said to be locally reduced at x0 E M if it
+satisfies both the C.R.C. and the O.R.C. at x0. This is the concept of
+minimality needed to state the following well-known result.
+
+224
+3.3.
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+LOCAL
+
+STATE
+
+ISOMORPHISM
+
+THEOREM
+
+[lo, 23, 25)
+
+Assume that (7) and (8) are locally reduced at x0 and I,, respectively.
+Then Cxo( u) = PO< u) for all u E U[O, ti] for some t, > 0 if and only if there
+exists an open neighborhood V of P, and a unique local analytic diffeomorphism X: V 4 R” defined on V c R” such that
+
+Rank
+
+aJv3
+
+T=n
+
+X(5Q
+
+(4
+
+g(z)f(q
+
+for all I E V;
+
+(13)
+
+(14
+
+=x0;
+
+=f(A(Z))
+
+(154
+
+$(i)@(Z)=g(A(i))
+
+(15b)
+
+i;(Z) =h(A(f))
+
+(154
+
+for all 2 E V.
+Note that relations (14) and (15) follow from the state variables of (7) and
+(8) being locally (i.e., on a neighborhood
+V of a,) connected
+by the
+transformation
+x = h(l), which is generally nonlinear. For the linear systems (4) and (5), X(K) = TZ is a global transformation,
+i.e., it satisfies
+(13)-(15) for all 2 E M, and the local state isomorphism theorem reduces to
+the algebraic equivalence theorem.
+4.
+
+SIMILARITY
+TRANSFORMATION
+TO IDENTIFIABILITY
+
+APPROACH
+
+Although identifiability is an equivalence problem, it is a highly restricted
+one, because not only the input-output
+map, but also the known system
+structure, must be preserved under the feasible state transformation.
+In the
+linear case, this means that in the model of (5), i= A(j),
+6 = b(j), and
+c’ = C(j) for some parameter value j E a. The structural constraints enable
+one to construct the family of feasible transformations
+and to find all values
+j such that j - p. This is the basic idea behind the similarity transformation
+approach of Walter and Lecourtier [32]. Using the same ideas and the local
+state isomorphism theorem, the following sufficient and necessary condition
+for global identifiability
+of the nonlinear model of (1) can be formulated.
+THEOREM
+
+1
+
+Assume that the model of (1) is locally reduced at x,(p)
+for all p E 8.
+Consider the parameter values p, j E L?, an open neighborhood V of x0(j)
+in
+
+IDENTIFIABILITY
+
+OF NONLINEAR MODELS
+
+225
+
+M, and any analytical mapping A: V + R” defined on V c R” such that
+
+(16)
+
+(9
+
+dW,P)
+
+=~(%dP,B)
+
+(18b)
+
+h(A(Z),p)
+
+=h(a,j)
+
+(184
+
+for all I E V. Then there exists t, > 0 such that (1) is globally identifiable at p
+
+in the experiments (x0(p),
+implyj=p.
+
+U[O, tl]) if and onb if conditions (i), (ii), and (iii)
+
+Proof. For necessity, assume that j # p, V, and h satisfy the conditions.
+Introducing
+2 = X-‘(x) into (1) gives
+
+(19)
+
+Select t, > 0 such that Z(t, p) E V for all t E [0, tl], where Z(t, p) is the
+solution of the differential equation in (19). Let C?(P) denote the input-output map of (19). The change of coordinates x = X(Z) is one-to-one on V by
+(i), and hence E?(P)(u) = C?(P) (u) for all u E U[O, t]. By (ii), &,(p) =
+A-‘(h(x,(j))
+=x0(j),
+and by (iii), models (19) and (2) are identical.
+Therefore (3) is satisfied and i - p follows.
+For sufficiency,
+assume that j # p and j - p in the experiments
+(x,(p), U[O, tI]) for some t, > 0. Then, by the local state isomorphism
+theorem, there exists an open neighborhood V of x,,(j) and a unique local
+mapping X defined on V that satisfies conditions (i), (ii), and (iii). This
+completes the proof.
+According to Theorem 1, for a globally identifiable model, the only value
+j E B that satisfies (16)-(H) is j = p. By the uniqueness of the local state
+isomorphism h, this implies that x(Z) = Z’,i.e., the identity mapping on R”.
+If the model is not globally identifiable, to every solution j # p of (16)-(18)
+there corresponds a local isomorphism A(Z) + 2. Model (1) is not locally
+identifiable at p if the number of solutions (1, X) to Equations (16)-(18) is
+uncountable.
+In formulating
+Theorem 1, it was assumed that all initial conditions
+depend on p, but in many applications at least some of the initial states are
+
+226
+known
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+so that x(0, p) may be written in the form
+
+x(O,p) = x0( p> =
+
+I
+
+x6”
+PI
+[xS’(
+
+where x$,‘) represents the parameter-independent
+condition (ii) defines the additional constraint
+
+(20)
+
+part of x0. In such cases,
+
+(21)
+on the transformation
+X. If all initial
+w
+= x0,
+then (21) is reduced to
+X0
+X(x,)
+
+states are known
+
+=x0.
+
+so that x0(p) =
+
+(22)
+
+To show that Theorem 1 is a generalization of the approach proposed by
+Walter and Lecourtier [32], assume that A, b, and C of the linear system (4)
+are parameterized by p. In the linear case, X(Z) = TZ and the conditions of
+Theorem 1 are reduced to (i) T is nonsingular, (ii) Tx,( j) = x0(p), and (iii)
+A(p)T=
+TA(j),
+b(p) = Tb(j),
+C(p)T= C(j). The linear model (4) is
+globally identifiable at p E D if and only if these equations imply j = p and
+then T = I follows, where I is the n X n identity matrix. This agrees with the
+results of [32].
+At first sight, the nonlinear similarity transformation approach appears to
+be far from simple to apply. In the linear case, at most quadratic algebraic
+equations are solved for p and the entries of T [32], whereas for the
+nonlinear model (l), X is the solution of the set (18a) and (18b) of first-order
+linear inhomogeneous
+partial differential equations, the general solution of
+which depends on arbitrary functions (see, for example, [5]). There exist,
+however, further constraints if the model is locally (globally) structurally
+identifiable. Let Q, denote any compact (i.e., bounded and closed) subset of
+nonzero measure in the parameter set D such that the model is locally
+(globally) identifiable at every p E 9,. Then the number of different solutions of Equations (16)-(18) is finite on SJ,, and hence at most a finite
+number of the solutions of (18a) and (18b) satisfy the additional constraints
+(16), (17), and (18~). Thus, if consideration is restricted to diffeomorphisms
+satisfying (16), (17), and (18c), there may be no need actually to solve partial
+differential equations. While this does not mean that Theorem 1 offers a
+practical identifiability condition for any model of form (l), it works well for
+many single-input, single-output models with functions g and h of simple
+form, as will be illustrated in the examples in Sections 5, 7, and 8.
+
+IDENTIFIABILITY
+
+OF NONLINEAR
+
+MODELS
+
+227
+
+To establish local or global structural identifiability
+of a model, it is
+possible to restrict consideration
+to a subset of 9, since identifiability
+properties do not necessarily hold at the points of a subset of zero measure.
+Thus, to apply Theorem 1, it is sufficient to show that the model of (1) is
+locally reduced at x0(p) for almost every p E 52, i.e., except the points of a
+subset of zero measure.
+5.
+
+TWO ILLUSTRATIVE
+
+EXAMPLES
+
+The main objective of this section is to illustrate the analysis of identifiability by Theorem 1, but we take the opportunity to present two examples
+of nonlinear models that are not uniquely identifiable; the model of Example
+1 is unidentifiable,
+while that of Example 2 is locally identifiable.
+Simple unidentifiable
+linear models are, of course, well known, and the
+examples presented by Bellman and Astrom [l] played a crucial role in the
+development of identifiability analysis, both by illustrating the problem and
+by providing tractable but nontrivial test examples. Pohjanpalo [19] presented several unidentifiable
+nonlinear models, but the reason for the
+unidentifiability
+is very easy to explain in each case. In his Example 3, the
+system was not input-output connectable; in Example 4, the experiment was
+performed in a (nonzero) equilibrium state; while in Example 5, constraints
+imposed on the parameters resulted in nongeneric unidentifiability.
+The
+unidentifiable
+nonlinear
+models presented in [25] were trivial, with no
+parameters in the differential equations at all; in the first example the sum
+of unknown parameters occurred in the output function h, while in the third
+example the product of unknown parameters occurred in h.
+The only nontrivial unidentifiable
+models, other than linear ones, so far
+published in the literature are the bilinear ones of Examples 6 and 8 in [15].
+In the first example below, the nonlinear model turns out to be nowhere
+locally identifiable, with quite a subtle source for the unidentifiability.
+Exampie 1. An Unidentifiable Nonlinear Model
+&= p+: + PZXlXZ + u; x,(0, p) = 0
+i, =p3x: + PqxIx2; xz(O, P) = 0
+
+(23)
+
+y=x,.
+The model is of the form (l), with g(x, p) = b and h(x, p) = cx, where
+b = [l O]r and c = [l 01. The first step is to check the controllability
+and
+observability rank conditions, using the notation
+
+cP(x)=f(x,p)+bu’
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+228
+introduced
+
+in Section 3. Then
+
+[c#,Q?]=g(f+b+g(f+bU*)
+=gb(
+
+d - 24’)
+
+=[~~~~::=::](~l-~*,.
+Select u1 - U* =l,
+
+u3 =l,
+
+(24)
+
+and consider the bracket
+
+[cp’hhcp*]](0)
+=[~[pl’,~*]]~f+b)-~[gf,cpZ](25)
+At x0 = 0, the second term of (25) vanishes and so does
+
+f,
+
+leaving
+
+[Q’3&h’21](o)
+= [$$#,~2]]ob=[2p,
+2&l’.
+(26)
+The vectors b( = [l OIT) and [2p,
+2p31r are both in .F(O), and they span
+R* if p3 # 0, so that the C.R.C. is satisfied at x0 for all p such that p3 + 0.
+To check the O.R.C., we note that h(x, p) = cx E B and evaluate
+L&x)
+
+=J$$
+
+Q? = plx: + p*x1x* + d
+
+(27)
+
+=~(~~(~~))~*=[2P~~~+~~~~i~~~~l[f+b~*l
+
+&+$(cx))
+
+=
+
+(~P,x,+
+
+wz)fi
+
++(~P,x,
+
++ ~2x2) u* +
+
+pzxlf2 (284
+
+where
+
+fi = PI4 +
+
+P2XlX2
+
+(28b)
+
+P4XlX2.
+
+(28~)
+
+and
+f2 =
+
+The
+
+row
+
+vectors d( cx) = [l
+
+P34 +
+
+0] and
+
+d(L~2(L~(CX)))x_o=[2Pl
+
+P21U2
+
+(29)
+
+are in M(O), and they span R* provided p2 # 0, so that the O.R.C. is
+satisfied for all p such that p2 z 0.
+Thus we conclude that (23) is locally reduced at x0 = 0 for all p E 0 =
+{pE
+
+R4,p2+0,p3Z0}.
+
+IDENTIFIABILITY
+
+OF NONLINEAR
+
+229
+
+MODELS
+
+The next stage is to construct all the local transformations
+X(Z) =[X,(WJ
+
+W,,#
+
+that satisfy conditions (i)-(iii) of Theorem 1. From (18c), CA(Z) = d, and
+thus
+A,(Zi,Z?,) =f,.
+Equation (18b) is reduced to
+b=
+
+[
+
+(30)
+
+ax
+1
+
+x
+
+b,
+
+which implies
+
+Hence for the model of (23), Equations (18a) are given by
+
+to be satisfied for all (Zi 2,) E V, an open neighborhood of the origin in R2.
+In the first equation of (31), the coefficients of 5ZFmust be equal so that
+pi = pi. Hence
+(32)
+from which LJX,(K,, Z,)/C?Z, = j2/p2.
+i4 = ~2~3/iz
+
+The second equation of (31) implies
+
+and
+
+$2A/P2
+
+=$2 P4/Pz.
+
+(33)
+
+Since p2 # 0 and d2 # 0, by condition (i) of Theorem 1,
+P4=p4.
+The initial state x,, = 0 is completely known, but the constraint of the form
+(22) does not further restrict the one-parameter family of feasible transformations given by (30) and (32), where j2 # 0 is an arbitrary parameter.
+Summarizing, p1 and p4 are globally identifiable, but by virtue of
+j3 = pz p3/j2, only the product p2 p3 can be found, so that the model of (23)
+is nowhere locally identifiable on 8, implying that it is not structurally
+identifiable.
+
+230
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL
+
+RABITZ
+
+The above analysis may, at first sight, seem rather lengthy, but at least the
+calculations have been kept within practical limits. The identifiability of the
+model of (23) has also been studied in [29] using the generating series
+approach for the experiments (0, U[O, ri]) and using the Taylor series approach for the zero-input experiment (x0 ,O). It is shown in [29] that even for
+this simple model, at least 15 terms of either of these series have to be
+examined before one can be certain that the model is unidentifiable,
+and
+clearly this is not a practical proposition. (Induction considerations
+were
+used in [29] to establish unidentifiability;
+this is a less satisfying procedure
+than that followed in the analysis above.)
+Example 2. A Local& Identifiable Nonlinear Model
+2, = p,x,x,
+
++ u;
+
+i2 = p2xlxz + P&i
+
+Y=
+
+x1(0, P) = P4
+x2(0, P) =x,(O)
+
++
+
+0
+
+(34)
+
+x2
+
+where x2(O) # 0 is known. As in Example 1, g(x, p) = b = [l OIT, but now
+h(x,p)=cx,
+where c=[O
+11.
+To establish the C.R.C., it is sufficient to evaluate the bracket
+
+[(d,cp’] =$b(u’-u’)=[;;:$u’-u2).
+
+(35)
+
+If p2 # 0, b and the vector (35) span R2 at x2(O) # 0. It is similarly easy to
+show that the O.R.C. holds. In addition to d(cx) = [0 11, it is necessary
+only to evaluate
+L&x)
+
+= PZXlX,
+
++
+
+PA
+
+(36)
+
+which implies
+(37)
+Therefore d(cx) and the vector (37) span R2, and the system (34) satisfies
+the O.R.C. at x,(p) for all x,(O) # 0 and all p E D = ( p E R4, p2 f O}.
+Thus we conclude that the model of (34) is locally reduced at x0(p) for
+all PEG.
+Proceeding with the identifiability
+analysis, X(x) is constructed as in
+Example 1. From (18c),
+
+IDENTIFIABILITY
+
+OF NONLINEAR MODELS
+
+231
+
+and from (Mb),
+d&(2,, 2.2)
+a%
+=l.
+Equations
+
+(38b)
+
+(18a) are reduced to
+
+1
+
+. (39)
+
+From the second equation
+
+of (39),
+
+(40)
+Using (38b), j2 = p2 and
+A,(?,,?-,)
+
+It is readily
+given by
+
+=:,+-I,.
+
+P3
+
+A -
+
+(41)
+
+P2
+
+shown that (38) and (41) satisfy constraint
+
+=p4
+
+j4+Yz2(0)
+
+(17), which is
+
+(424
+
+and
+22(O) =x2(0),
+
+(42b)
+
+the latter obviously being true because x2(O) is known. Setting (41) into the
+first equation of (39), the final constraint is
+p1P2~.1~2+p1(B3-p3)~22=P2(P1+~3-P3)3?1~2+d3(P3-P3)~.:
+
+(43)
+
+which, since p2 + 0, implies
+Pl =
+Pl(i3_P3)
+
+dl + d3 -
+
+P3
+
+=$3(P3-p3).
+
+If j& = p3, then j = p and A(E) = (I,, Z,), but for j3 f p3,
+A =
+
+~3
+
+and
+
+J3=Pl,
+
+(*a)
+(Mb)
+
+232
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+i.e., the parameters pi and Ps are interchangeable
+and only p2 is globally
+identifiable.
+Thus the model is not globally identifiable at any p E Q except the subset
+{ p E Q, p1 = pj } of zero measure, where the two solutions coincide. There
+are also two solutions for p4. Note that the model becomes globally identifiable on D if x,(O) = p4 is known, because j& = p4 implies js - p3 = 0.
+The two examples have illustrated that it is comparatively
+simple to
+construct the feasible transformations
+by the similarity transformation
+approach, but that it can be rather less simple to check the controllability and
+observability rank conditions. Fortunately, these conditions prove simple to
+check for most nonlinear models which are compartmental in structure, and
+some examples are given in Sections 7 and 8.
+In Examples 1 and 2, the specific input-output
+structure was exploited in
+constructing
+h, and the identifiability part of the analysis may prove more
+difficult with more general forms of input functions g(x, p) and output
+functions
+h(x,p).
+In most compartmental
+model applications,
+however,
+these functions do retain a simple form, so that the simplicity of constructing
+h is preserved.
+6.
+
+IDENTIFIABILITY
+
+WITH A CONSTRAINED
+
+INPUT
+
+So far, identifiability
+properties have been established for nonlinear
+models in experiments specified by (x,,(p), U[O, tl]), i.e., assuming that the
+entire set of bounded and measurable functions defined on [0, ti] is available
+for input. This is also the situation studied in the generating power series
+approach [15, 331. However, in most applications of compartmental models,
+the input u is not arbitrary but is restricted to specific input functions, most
+usually of impulsive or step function form. In this section, it will be shown
+that Theorem 1 enables identifiability
+to be studied in such experiments if
+the following restrictions hold:
+(a) g(x, p) = b(p), i.e., the input
+(b) f(0, p) = 0, i.e., with no input,
+(c) h(Z) = TZ, where T is an n X
+equivalence transformations
+are linear
+
+is multiplied by a constant vector b;
+the system stays at rest;
+n constant nonsingular
+matrix, i.e., the
+and time-invariant.
+
+Restrictions (a) and (b) are valid for most compartmental model applications. Regarding (c), in both Examples 1 and 2, the transformation
+A proved
+to be linear, and equivalence transformations
+are also known to be a priori
+linear in bilinear models [4]. This may also be valid for other classes of
+models, but at present this is an unresolved problem.
+COROLLARY
+
+I
+
+LA the model of (1) satisfy restrictions (a), (b), and (c) above. If the model
+is locally (globally) identifiable at p E D in the experiments (0, U [0, tl]), then
+
+IDENTIFIABILITY
+
+OF NONLINEAR MODELS
+
+233
+
+it is locally (globally) identifiable at p E Q in the experiment (0, u), where u is
+any specified input function that is right continuous at the origin such that
+u(o+ ) # 0.
+Proof
+Consider p, j E !J such that E;(U) = Cg( u) for some right continuous u, where Co, and C: denote the input and output maps of models (1)
+and (2), respectively, with initial states x0 = K, = 0. Let x = X(Z) connect
+the state variables of (1) and (2). With x = TZ, i = T$, so that from (2)
+k=Tf(Z(t,j),p)+uTb(p)
+while from (19),
+x=f(T%(t,j),p)+ub(p).
+Thus
+f(TZ,p)+ub(p)
+
+=Tf(%j)+uTb(F).
+
+(49
+
+For an arbitrary u E U[O, tl], (45) can be split into the equalities (18a) and
+(18b), but for a specified fixed input function, (45) is reduced at t = O+ to
+
+u(O+) b( p) = u(O+>Tb( F) ,
+the simplification
+being possible because with the initial states x0 = &, = 0
+known, X(0) = T.0 = 0, by condition (ii) of Theorem 1. Since u(O+ ) # 0, this
+implies b(p) = Tb( p), and setting this into (45) yields f (TZ, p) = Tf (2, p).
+Thus the same equations (18a) and (18b) are obtained as in the case of
+arbitrary inputs u E U[O, tl], and identifiability properties are unchanged by
+restricting the class of inputs to a single function.
+For systems obeying assumptions
+(a), (b), and (c), similarly simple
+identifiability
+results apply for zero-input, nonzero initial state experiments.
+COROLLARY
+
+2
+
+Let the model of (1) satisfy assumptions (a), (b), and (c). Then (1) is
+locally (globally) identifiable at p in the experiments (0, U [0, tl]) if and onb if
+it is locally (globally) identifiable at p in a zero-input experiment (u = 0) with
+the initial condition x,,(p) = b(p).
+
+Proof
+Since, under our assumptions, X(Z) = TZ, then x,(p) = x,,(j) =
+0 satisfies condition (ii) of Theorem 1 for the experiments (0, U[O, tl]), while
+(18b) is reduced to
+(46)
+
+234
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+Now let II = 0; then (18b) is dropped and (17) is given by
+
+%(P) =x0(P).
+If x0(p) = b(p)
+the identifiability
+
+(47)
+
+for all p E 0, then (46) and (47) are identical,
+properties in the two experiments.
+
+and so are
+
+It is important to note that the statement of Corollary 2 is valid only
+under assumptions (a) and (c) [assumption (b) can be attained by translating
+the origin of the coordinate system], and identifiability
+in the experiments
+(O,U[O, ti]) does not in general imply zero-input identifiability with x,,(p) =
+b(p). This differs from the linear case, where zero-state (i.e., transfer
+function) identifiability does imply identifiability with ZJ= 0 and initial state
+X,(P) = b(P).
+Corollaries 1 and 2 have considerable practical value because assumptions
+(a) and (c) are satisfied for many compartmental
+model applications. As
+already seen in Sections 4 and 5, Theorem 1 can be directly applied to
+establish identifiability properties in the experiments (x,, ZJ[0, ti]). If x0 = 0
+is selected and the transformation
+A turns out to be linear, then the
+identifiability
+properties are the same for any experiments with a specified
+input u with u(O+ ) # 0, as well as in a zero-input experiment with x,,(p) =
+b(p).
+The linearity of the transformation
+the local state isomorphism theorem
+[0, ti] such that Z(t, B) E V, an open
+0 < t < I,. The linear transformation
+ing Equations (16) and (18) for all
+arbitrary.
+7.
+
+CONTROLLABILITY
+COMPARTMENTAL
+
+has a further consequence. The use of
+restricts Theorem 1 to some interval
+neighborhood of x0(p) in R” for all
+x(Z) = T.f is, however, global, satisfy2 E M. Therefore the time interval is
+
+AND OBSERVABILITY
+MODELS
+
+OF NONLINEAR
+
+As shown in Section 3, to test the controllability
+rank criterion, it is
+necessary to calculate Lie brackets of the form (lo), while to test the
+observability rank criterion, it is necessary to calculate the gradients of Lie
+derivatives of the form (12). The model of (1) has a particular structure,
+called linear analytic, or affine (see, for example, [2, 11, 251) i.e., its
+right-hand side depends linearly on the control u. Then the Lie algebra 9
+introduced in Section 3 is generated by the vector fields f and g, and one
+can obtain 9 as the union of vector field $ calculated by the following
+recursion:
+
+T= {[f,mg,y],y~~-1}~
+
+j=1,2
+
+)....
+
+IDENTIFIABILITY
+
+OF NONLINEAR MODELS
+
+235
+
+These are simplified if g(x, p) = b(p). If xa( p) = 0, it is possible to take
+into account in evaluating Y(O) that in most compartmental model applications f(0, p) = 0. To test the O.R.C., the Lie differentiation
+implied by (11)
+is applied recursively. The formulas are also somewhat simplified if h (x, p)
+= C( p)x, i.e., the output function is linear (as in Examples 1 and 2).
+Symbolic manipulation
+subroutines are available for computing Lie brackets
+and Lie derivatives [18].
+The above analysis for C.R.C. and O.R.C. can in fact be avoided
+altogether when studying nonlinear compartmental
+models. It has already
+been noted that in the linear case the C.R.C. reduces to rank Q, = n, while
+the O.R.C. reduces to rank Q, = n. A compartmental
+model that is linear
+except for one Langmuir saturating pool becomes linear if the saturating
+factor is set to zero [6, 191, while a model that is linear except for one
+Michaelis-Menten
+elimination pathway is linear at Vmax= 0 [6, 81. Further,
+all these models are analytic not only in the state variables, but also in the
+parameters.
+LEMMA 1
+Consider the model of (1) such that the functions f: M x il -+ R”, g: M X D
++ R” and h: M X fl + Rm are analytic. Assume that at p* ED the model of
+(1) becomes linear, i.e., of the form (4), specified by the triple
+(A( p*), b( p*), C( p*)). If the linear system is controllable (observable), then
+(1) satisfies the C.R.C. (O.R.C.) at x,, = 0 f or all p E Q except at most for the
+points of a set of zero measure.
+Proof
+Let s(O, p) denote the set of vectors obtained by evaluating the
+elements of 9 at x = 0 and p E 52. From the assumption of the lemma, the
+nonvanishing
+vectors in s(O, p*) are the columns of Q,., and they span an
+n-dimensional
+space. Since the components of the vectors in 8(0, p) are
+analytic functions on 8, the dimension of 9(0, p) equals n at all p E Q
+except the points of a set of zero measure in a. The proof for the O.R.C. is
+analogous.
+The lemma provides only a sufficient condition, so that analysis involving
+Lie brackets and Lie derivatives may still be required, as shown in the
+following example.
+Example 3. A Compartmental Model with a Langmuir Saturating Pathway.
+Consider Example 2 of Pohjanpalo [19], with the model shown in Figure 1
+and described by
+
+[*I[
+Xl
+
+=
+
+-
+
+hl - k*,(l- s2x2)
+
+i2
+
+b,(l-
+
+s2x2)
+
+0
+x(o)
+
+4,][::];
+
+y=x,.
+
+(Pool 2 is Langmuir
+
+saturating
+
+with saturation
+
+factor sz.)
+
+=
+
+[i]
+
+(49)
+
+236
+
+SANDOR
+
+VAJDA,
+
+KEITH
+
+FIG. 1. Model with a Langmuir
+
+R. GODFREY,
+
+saturating
+
+pathway
+
+AND HERSCHEL
+
+considered
+
+in Example
+
+RABITZ
+
+3.
+
+First consider the identifiability
+of the system obtained by adding the
+term bu, b = [l O]*, to the right-hand side of the differential equation and
+the experiment (0, U[O, tl]). At sr = 0, (49) is linear.
+
+(50)
+I
+
+and rank Q, = 2 provided k,, # 0. Hence from Lemma 1, (49) satisfies the
+C.R.C. at almost every p = [k,,, kzl, k,,, sZIT E 3, where 52= { p E R4,
+p, > O}. However, at s2 = 0,
+
+Qo=[
+
+-(
+
+“1
+0
+
+’
+kol+kd
+
+(51)
+
+so that the system is not observable and Lemma 1 fails to establish whether
+the O.R.C. holds. Therefore, it is necessary to calculate the Lie derivatives of
+the form (12). Since d[cx]=[l
+0] and at x=0,
+d(L+(L,+(cx)))=
+[0 k2,s2u2], (49) satisfies the O.R.C. at x0 = 0 if k,,s, # 0.
+Theorem 1 can now be applied to study structural identifiability
+in the
+experiments (0, U[O, tr]) and construct the local state isomorphisms
+A(&,&)
+that satisfy (16)-(18).
+
+=
+
+[q&32)
+
+A2(W2)IT
+
+From (18c),
+[l
+
+O]X=[l
+
+012
+
+(54
+
+IDENTIFIABILITY
+
+OF NONLINEAR
+
+MODELS
+
+237
+
+From (18b), for g(x, p) = b,
+
+SO
+
+(53)
+Equations
+
+(18a) are given by
+(-k,,-k,,(l-S*X*(f,,~~)))~~
+k,,(l_s,X,(~*,8,))~,-k,,h*(~~,~,)
+
+From the first equation
+
+x2(1
+
+)
+
+~
+
+11
+
+of (54),
+
+=
+
+(kll+k2A-(h+~2d + i2G*-
+
+2
+k2132
+
+=X2,
+
+(55)
+
+Since x0 = T&,= 0, by (17), the first term in (55) should vanish. Therefore
+
+km+ k,, = kc,,+ k,,
+
+(56)
+
+and
+
+(57)
+From the O.R.C., k,,s, + 0, while from (16), L2,i2 # 0. Hence substituting
+(57) into the second equation of (54) gives
+
+which should be satisfied for all (Z1, Z2) on some open neighborhood
+
+of the
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+238
+origin
+
+in R*. From the coefficients of Zi,
+
+while the coefficients
+
+of Z$ and I,Z2 give
+
+k
+
+li*p*
+
+_=I;
+
+O2k,,s,
+
+i;,,F*
+O*kns,
+
+(60)
+
+k2,12.
+
+(61)
+
+and
+
+Li-
+
+i2,F2= $$
+
+21 2
+
+Since is,,?, # 0, R,,& must equal k,,s, from (61), and the only solution for
+(56) and (59)-(61) is j = p. Thus the model (49) is globally structurally
+identifiable in the experiments (0, U[O, ti]), where t, is arbitrary. The transformation
+X is linear, and so, from Corollary 2, (49) is also globally
+structurally
+identifiable
+in the experiment
+(x0, u = 0), where x0 = b
+= [l OIT.
+For this example, the analysis presented here has certainly been longer
+than that given by Pohjanpalo [19] using the Taylor series approach. However, in many cases Taylor series expansion can yield high-order polynomial
+equations for the parameters, making the uniqueness of the parameters very
+difficult to establish, whereas uniqueness is often clear from the similarity
+transformation
+approach. This important property will be exploited in the
+next section to establish identifiability results for two models of considerable
+practical interest for which the Taylor series approach has, to date, failed to
+resolve identifiability
+due to the extreme difficulty of the resulting nonlinear
+algebraic equations.
+8.
+
+COMPARTMENTAL
+MODELS WITH MICHAELIS-MENTEN
+ELIMINATION
+KINETICS
+
+In pharmacokinetics,
+doses are administered in therapeutic quantities
+rather than tracer quantities, so that nonlinear behavior occurs rather more
+often than in biomedical applications, where tracer quantities of input are
+most usual. One of the most worrying nonlinearities is when the elimination
+rate of drug is capacity-limited, because then, increasing the dose by a factor
+a increases the concentration at any time after the dose by a factor of more
+than OL,and this may lead to toxic concentrations being reached. Also, in a
+multiple dose regimen the time to reach a quasi-steady state can be substantially increased with an increase in dose.
+
+IDENTIFIABILITY
+
+OF NONLINEAR MODELS
+
+239
+
+Thishas led to considerable interest in the behavior of models with
+elimination rate described by a Michaeli-Menten
+relationship; see [8] for a
+representative list of references. Usually, no particular physiological significance is attached to the Michaelis-Menten
+parameters V,, and K,,,,
+which
+are simply used for prediction purposes. Because of the comparative ease of
+the experimental work, the main interest has been in whether the parameters
+of a model can be identified from a single dose-response
+relationship, and
+this in turn has led to analyses, using the Taylor series approach, of
+structural identifiability
+of several simple compartmental
+models with an
+elimination pathway capacity-limited with Michaeli-Menten
+kinetics.
+8.1.
+
+ONE-COMPARTMENT
+
+MODELS
+
+The following results have been obtained.
+For a model with impulsive
+input of known size D, described for t > 0 by
+
+(62)
+Vmax, K,,,, and c are globally identifiable [6, Section 9.4.2(a)]. With a suitable
+shift of time origin, this has also been used to describe the tail end of a
+response to a dose administered via an extravascular route, i.e., starting from
+a known x,(O) at a time when the “absorption
+phase” of the response is
+assumed to have finished. For a model with a constant continuous infusion
+at a known rate ki(t > 0), described by
+
+i,=*+kj;
+
+t>o;
+
+x,(O)
+
+=o
+(63)
+
+y = cx,
+a similar result applies, i.e., V,,, K,,,,
+and c are globally identifiable
+[6, Section 9.4.2(b)].
+The one-compartment
+model with input at a first-order rate may be
+regarded, in compartmental
+terms, as the model of Figure 2, described by
+the equations
+k a = - k,x,
+
++ bu;
+
+k, = k,xa -
+
+-.v,axx,
+
+y=
+
+Km
+
++
+
+x,(O) = 0
+
+x1
+
+9
+
+XI(O) = 0
+
+cx1
+
+with u(t) = OS(r);dose D known.
+shows that if bc is known, k,, V,,,
+
+Taylor series analysis [8, Example 21
+and K,,, are globally identifiable from
+
+240
+
+SANDOR
+
+VAJDA,
+
+KEITH
+
+R. GODFREY,
+
+AND HERSCHEL
+
+RABITZ
+
+bu
+
+%I
+
+FIG. 2. Model
+sidered
+
+in Example
+
+---
+
+with Michaelis-Menten
+
+elimination
+
+kinetics
+
+-oy=cx,
+
+and first-order
+
+input
+
+con-
+
+4.
+
+this experiment. The problem is that the input fraction b is probably not
+known in this application, where it represents the bioavailability fraction of
+the administered dose. If c is known, but b is not, then k, , Vmax,K,,, , and b
+are locally identifiable, but it is far from clear how many solutions there are;
+from the nature of the equations resulting from the Taylor series analysis, a
+global identifiability
+check would be exceedingly difficult.
+We will now analyze the case with b not known using the similarity
+transformation
+approach.
+Example 4. One-Compartment Model with First-Order Input Rate and
+Michaelis - Menten Elimination Kinetics. Although it is required to establish
+identifiability
+for a rapidly administered dose of quantity D to the absorption compartment
+A [i.e., u(t) = OS(t)], in the first step of the analysis, we
+assume that u E U[O, t,] is arbitrary. At V,, = 0, the model of (64) is a
+controllable and observable linear system provided k, f 0, b # 0, and c + 0;
+this can readily be shown by evaluating Q, and Q, defined by (6). Let
+P = [k,, f’rnax~ K,,,, b, clT E G!, where D = { p E R5, pi > O}. Then (64) is locally reduced at x0 = 0 for almost all p ED by Lemma 1, and hence
+Theorem 1 applies. The state isomorphism we are looking for will be
+denoted by A = (h,, h,)r, with arguments (Z,, %i)r.
+From (18c), [0, c]X = [0, c’]Z.,which implies
+
+h,(i,,Z,)
+
+=f&.
+
+(65)
+
+IDENTIFIABILITY
+
+From (18b), ah,(l,,
+
+OF NONLINEAR
+
+El)/aX,
+
+From the second equation
+
+241
+
+MODELS
+
+= b/h
+
+and Equations
+
+(18a) are given by
+
+of (66),
+
+Lx 2’1
+i,z?,--+
+K,,,+I,
+
+v,ax%
+
+K,+(c”/c)Z-,
+
+1
+
+’
+
+(67)
+
+which implies
+
+(68)
+the second equality following from the already established
+value of
+aA,(E,, ZI)/aZ,. Substituting (67) and aA,(ZO, Z,)/aZI into the first equation of (66),
+
+(69)
+
+Since any point 2 = [Z-,, ZIIT in an open neighborhood
+satisfy (69), we first set I, = 0. Multiplying by
+
+of the origin must
+
+242
+
+SANDOR VAJDA, KEITH R. GODFREY, AND HERSCHEL RABITZ
+
+and rearranging,
+
+This is a polynomial in Z1, and all its coefficients
+coefficients of Zf and $,
+
+must vanish. From the
+
+and
+f?,,, = K,c/F.
+Using (71), Equation
+
+(71b)
+
+(69) is reduced to
+t, = bc,‘i:
+
+(72)
+
+and hence (68) implies that i, = k,.
+Thus if b and c are unknown, k, is globally identifiable and V,, and
+Km are unidentifiable,
+while if either b or c is known the model becomes
+globally identifiable.
+Since X is linear for this example, then by Corollary 1 the same identifiability properties hold for u(t) = D6( r) [or, equivalently, for u(t) = 0 and
+x, (O+ ) = bD] with dose D known.
+In practice, c =1/V,, where VI is the apparent volume of distribution of
+compartment
+1, which may be known. If it is not known, then the bioavailability fraction b must be known for the model of (64) to be identified. The
+absorption rate coefficient k, is globally identifiable regardless of whether b
+and c are known.
+8.2.
+
+TWO-COMPARTMENT
+
+MODELS
+
+Consider now the two-compartment
+models shown in Figure 3, both
+having one elimination
+pathway capacity-limited
+with the saturation assumed to be describable by Michaelis-Menten
+kinetics.
+The structural identifiability of model A has been analyzed by the Taylor
+series approach [7, Section 3.3.11, with the following results for an impulsive
+input u(t) = DS( t), with D known. Parameter combinations
+k,, + k,,,
+k12k21, k12 + F&,/K,,
+and cb are globally identifiable, and if either b or c
+and K,,, are all globally identifiable. The
+is known
+kol, k2i, ki2, G,,
+analysis is lengthy, involving five derivatives of the observation y, but it
+proves tractable because the parameters occur in the derivatives in a compar-
+
+IDENTIFIABILITY
+
+c
+
+OF NONLINEAR
+
+243
+
+MODELS
+
+~=(j!+~z)&
+
+=$G=j)az
+
+MODEL A
+FIG. 3. Two-compartment
+model B is considered
+
+MODEL B
+models
+
+in Example
+
+with
+
+a Michaelis-Menten
+
+elimination
+
+pathway:
+
+5.
+
+atively simple way-for
+example, neither V,, nor K,,, appears in either of
+the first two derivatives.
+By contrast, the expressions for the parameters in the successive derivatives for model B are much more complicated. It has not so far been possible
+to solve the equations even for a reduced form of model B with b = c = 1 and
+k,, = 0 [6, Section 9.4.31, with an impulsive input u(t) = Da(t). Also, it was
+not possible to solve these equations using an algebraic manipulation
+language [21], although it was possible to solve equations resulting from the
+generating
+power series approach, which is, of course, an analysis for
+u E U[O, tt] rather than for a specific input u.
+Example 5. Two-Compartment Model with Michaelis- Menten Elimination
+Kinetics.
+In this final example, the similarity transformation
+procedure is
+used to test for identifiability of model B of Figure 3, which is described by
+V
+k,, + K,+
+
+x1 + k,,x,
+
++ bu;
+
+x,(O) = 0
+
+1
+
+22 = k,,x, - ( k,, + kc,,)x2;
+
+x*(O) = 0
+
+(73)
+
+y=cx1.
+
+The parameter vector p = [k,,, k,,, k,,, V,,, K,,,, b, clT, and it is assumed
+thatpEQ,whereB={pER7,pi>0}.
+*t &ax = 0, (73) is controllable and observable provided b + 0, k,, f 0,
+k,, # 0, and c # 0, so that the nonlinear model is locally reduced at x0 = 0
+for almost all p E 8.
+From (lSc), h,(Z-,, Zz) = (E/c&,
+while (Mb) implies
+
+SANDOR VAJDA, KEITH R. GODFREY,
+
+244
+Then
+
+AND HERSCHEL RABITZ
+
+(18a) is reduced to
+
+-
+
+1
+
+i:dX*(R,,~,)/c
+=c0
+k,,(~/c)%
+
+-(k2
+
++
+
+kI2)h2(%9~2)
+
+0
+
+(74)
+
+From the first equation of (74),
+
+whence
+
+[the second equality following
+through by
+
+from (18b), as shown above]. Multiplying
+
+gives
+
+@,I-
+
+i2J(
+
+K,+~i,i2(~,+~L)2+V,,K,(~~+PI)2
+(77)
+
+from which
+
+IDENTIFIABILITY
+This
+
+245
+
+OF NONLINEAR MODELS
+
+leaves
+
+setting these values into the second equation
+cients of Zi and Z2,
+
+il2 = k,,
+
+and
+
+of (74) and comparing
+
+Lo2 = k,, .
+
+coeffi-
+
+(79)
+
+Thus the linear rate coefficients k,,, k,,, and k,, (and the ratio V,,/K,)
+are globally structurally identifiable, while V,, and K,,, are globally structurally identifiable
+if the observation gain c (or the input fraction b) is
+kXl0Wl.l.
+
+Since the transformation
+X has turned out to be linear for this example,
+the same properties hold for u(t) = Da(t), with D known.
+It is interesting to note that both model A and model B are unidentifiable, regardless of whether b or c is known, if the capacity-limited pathway
+is replaced by a linear pathway (with rate constant k,, in model A and k,,
+in model B).
+9.
+
+CONCLUSIONS
+
+A new approach has been added to the armory of techniques for analyzing structural identifiability
+of nonlinear models-an
+armory very limited
+compared with that for similar analysis of linear models. The approach is a
+nonlinear generalization of the similarity transformation technique proposed
+by Walter and Lecourtier [32] for the analysis of linear models. As in the
+linear case, state variable transformations
+are sought that leave the
+input-output
+map and the structure of the system invariant, and these
+constraints allow all the feasible transformations
+to be constructed.
+For linear systems the transformations
+are linear, but for nonlinear
+systems their functional form is not known a priori, and hence the analysis,
+in principle, requires the solution of a set of partial differential equations.
+For general nonlinear models the need to test certain controllability
+and
+observability
+conditions presents additional problems, although it is envisaged that with the present rapid developments in algebraic manipulation
+languages (see, for example, [16]) the testing of these structural properties
+will be considerably
+aided through symbolic computation
+in the not too
+distant future. In any case, for many nonlinear compartmental
+models,
+testing for controllability
+and observability proves relatively simple, as in
+Examples 4 and 5, and so does the subsequent identifiability
+analysis, with
+the state variable transformation
+turning out to be linear.
+
+246
+
+SANDOR
+
+VAJDA,
+
+KEITH
+
+R. GODFREY,
+
+AND HERSCHEL
+
+RABITZ
+
+1t is interesting
+to compare the use of the new method on an experiment
+with a specific input function with the Taylor series approach, which is the
+only other method available for the analysis of such an experiment (without
+resorting to linearization of the model). For the model of Example 3, the
+Taylor series analysis involves rather less effort because the number of
+parameters to be identified is comparatively small (four) and they occur in a
+simple way in the successive derivatives of the observation. For the models
+of Examples 4 and 5, on the other hand, the Taylor series approach results in
+exceedingly difficult equations, and these have so far defied solution; indeed,
+the equations resulting from a reduced form of model B of Figure 3 have
+even defeated an attempted solution using an algebraic manipulation
+language [21]. This is where it is so valuable to have an additional method at
+hand, because the new approach copes with the models of Examples 4 and 5
+quite easily, so allowing the question of identifiability of these models, which
+are of considerable practical interest in pharmacokinetics,
+to be resolved.
+State variable transformations
+of the type considered in this paper are
+linear for linear, bilinear [4], and homogeneous polynomial [30] systems, but
+so far no similar results are available for (other) nonlinear systems. However,
+in aI1 the examples presented in this paper, the transformations
+haue turned
+out to be linear. It seems clear that the requirement of invariance of the
+system structure for the identifiability
+analysis involves quite a restricted
+concept of system equivalence and that the structural constraints must be
+responsible for the linearity of the resulting transformations
+in the cases
+examined. The approach would be more attractive if it were possible to
+a priori restrict consideration
+to linear transformations;
+determining
+the
+conditions for linearity of the transformation
+and the classes of nonlinear
+systems where this applies is a very interesting and worthwhile topic for
+further research.
+
+We are most grateful to Dr. M. J, Chapman (Department of Mathematics,
+Coventry Polytechnic) and Dr. M. J. Chappell (Department of Engineering,
+University of Warwick) for their vety helpfur comments on the original draft of
+this paper. One of us (H. Rabitz) would like to thank the United States
+Department of Energy for partial support of this research.
+
+REFERENCES
+1
+2
+3
+
+R. Bellman
+
+and K. J. Astram,
+
+On structural
+
+identifiability,
+
+Math. Biosci. 7:329-339
+
+(1970).
+J. L. Casti, Recent developments
+and future perspectives in nonlinear system theory,
+SIAM Reu. 24:301-330
+(1982).
+C. T. Chen, Introduction to Linear System Theory, Holt, Rinehart and Winston, New
+York, 1970.
+
+IDENTIFIABILITY
+4
+5
+6
+I
+8
+9
+10
+11
+12
+
+P. D’Alessandro,
+
+OF NONLINEAR
+A. Isidori,
+
+and
+
+A. Ruberti,
+
+Trans. Autom. Control AC-22:728-740
+(1977).
+A. Isidori, Nonlinear Control Systems: An Introduction,
+J. A. Jacquez,
+The inverse problem
+Simulation 24:452-459 (1982).
+
+14
+
+Michigan Press, Ann Arbor, Mich., 1985.
+A. J. Krener, (Ad,, a), (ad,, s) and locally
+butions,
+
+17
+
+18
+
+and
+
+Compartmental
+
+Springer,
+
+for compartmental
+
+J. A. Jacquez,
+
+16
+
+Realization
+
+structure
+
+theory
+
+of
+
+bilinear dynamical
+systems, SIAM J. Control 12:517-535
+(1974).
+L. R. Ford, Differential Equations, McGraw-Hill,
+New York, 1955.
+K. R. Godfrey,
+Compartmental Models and their Application, Academic, New York,
+1983.
+K. R. Godfrey
+and J. J. DiStefano
+III, Identifiability
+of model parameters,
+in
+Identifiability of Parametric Models, E. Walter, ed., Pergamon, Oxford, 1987, pp. l-20.
+K. R. Godfrey
+and W. R. Fitch, The deterministic
+identifiability
+of nonlinear
+pharmacokinetic
+models, J. Pharmacokin. Eiopharm. 12:177-191 (1984).
+M. S. Grewal and K. Glover, Identifiability
+of linear and nonlinear
+dynamical
+systems, IEEE Trans. Autom. Control AC-21:833-837
+(1976).
+R. Hermann
+and A. J. Krener, Nonlinear
+controllability
+and observability,
+IEEE
+
+13
+
+15
+
+247
+
+MODELS
+
+New York, 1985.
+
+systems,
+
+Math.
+
+Comput.
+
+Analysis in Biology and Medicine, 2nd ed., University
+
+SIAM J. Control Optimization
+
+(ad,, s) invariant
+
+23:523-549
+
+Y. Lecourtier, F. Lamnabhi-Lagarrigue,
+and
+series approaches
+to identifiability
+testing,
+E. Walter, ed., Pergamon, Oxford, 1987, pp.
+Y. Lecourtier and A. Raksanyi, The testing
+computation,
+in Identifiability of Parametric
+ford, 1987, pp. 75-84.
+Y. Lecourtier and E. Walter, Comments
+nonunique
+observability/reconstructability
+
+and controllability
+
+of
+
+distri-
+
+(1985).
+
+E. Walter, Volterra and generating power
+in Identifiability of Parametric Models,
+50-66.
+of structural properties through symbolic
+Models, E. Walter, ed., Pergamon, Ox-
+
+on “Parameter
+and structural identifiability:
+for identifiable systems, other ambiguities,
+
+and new definitions,”
+IEEE Trans. Autom. Control AC-26:800-801
+(1981).
+R. Marino and G. Cesareo, Nonlinear control theory and symbolic algebraic manipulation, in Mathematical Theory of Networks and Systems, P. A. Fuhrmann,
+ed., Lecture
+Notes in Control and Inf. Sci., No. 58, Springer, New York, 1984, pp. 725-740.
+
+19
+
+H. Pohjanpalo,
+System identifiability
+based
+solution, Math. Biosci. 41:21-33 (1978).
+
+20
+
+H. Pohjanpalo,
+Identifiability
+of deterministic
+differential
+models in state space,
+Research Report No. 56, Technical Research Centre of Finland, Espoo, 1982.
+A. Raksanyi, Y. Lecourtier, E. Walter, and A. Venot, Identifiability
+and distinguish-
+
+21
+22
+23
+24
+25
+26
+
+on the power
+
+ability testing via computer algebra, Math. Biosci. 77:245-266
+L. M. Silverman,
+Realization
+of linear dynamical
+systems,
+Control AC-16:554-567
+(1971).
+
+series expansion
+
+(1985).
+IEEE
+
+of the
+
+Trans. Autom.
+
+H. J. Sussmann,
+Existence and uniqueness
+of minimal realizations
+of nonlinear
+systems, Math. Syst. Theory 10:263-284
+(1977).
+C. C. Travis and G. Haddock, On structural identification,
+Math. Biosci. 56:157-173
+(1981).
+E. T. Tunali and T. J. Tarn, New results for identifiability
+of nonlinear systems, IEEE
+Trans. Autom. Control AC-32:146-154
+(1987).
+S. Vajda, Further comments on “Parameter
+and structural identifiability:
+nonunique
+observability/reconstructability
+for identifiable
+systems, other ambiguities,
+and new
+definitions,”
+IEEE Trans. Autom. Control AC-27:1136-1137
+(1982).
+
+248
+27
+
+SANDOR
+S. Vajda, Structural
+
+VAIDA,
+
+identifiability
+
+KEITH
+
+R. GODFREY,
+
+of dynamical
+
+systems,
+
+AND HERSCHEL
+
+RABITZ
+
+Int. J. Syst. Sci. 14:1229-1247
+
+29
+
+(1983).
+S. Vajda, Deterministic
+identifiability
+and algebraic invariants for polynomial systems,
+IEEE Trans. Autom. Control AC-32:182-184
+(1987).
+S. Vajda, Identifiability
+of polynomial
+systems: structural and numerical aspects, in
+
+30
+
+Identifiability of Parametric Models, E. Walter, ed., Pergamon,
+Oxford, 1987, pp.
+42-49.
+S. Vajda and H. Rabitz, State isomorphism
+approach
+to global identifiability
+of
+
+31
+
+nonlinear systems, IEEE Trans. Autom. Control, to appear.
+E. Walter, Identifiability of State Space Models, Lecture Notes in Biomathematics,
+
+32
+
+46, Springer, New York, 1982.
+E. Walter and Y. Lecourtier,
+
+28
+
+33
+
+Unidentifiable
+
+compartmental
+
+models:
+
+what
+
+Vol.
+to do?
+
+Math. Biosci. 56:1-25 (1981).
+E. Walter and Y. Lecourtier, Global approaches to identifiability
+testing for linear and
+nonlinear state space models, Math. Compur. Simulation 24:472-482 (1982).
+
+

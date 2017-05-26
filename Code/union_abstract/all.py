@@ -1,20 +1,21 @@
 import textract
-text1 = textract.process('file_1.pdf', method='pdfminer')
-text2 = textract.process('file_2.pdf', method='pdfminer')
-text3 = textract.process('file_3.pdf', method='pdfminer')
+#text1 = textract.process('file_1.pdf', method='pdfminer')
+text1 = textract.process('file_1.pdf', m='pdfminer')
+text2 = textract.process('file_2.pdf', m='pdfminer')
+text3 = textract.process('file_3.pdf', m='pdfminer')
 
 def abstract_start(a):
     arr=['ABSTRACT']
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
 
 def abstract_end(a):
     arr=['INTRODUCTION','KEYWORDS','CATEGORI']
-    
-    if(a.strip().upper() in arr):     
+
+    if(a.strip().upper() in arr):
         return 1
     else:
         return 0
@@ -23,14 +24,14 @@ xml1=open('pdf_1.txt','w')
 
 for i in xrange(len(text1)):
     xml1.write(text1[i])
-    
+
 xml1.close()
 
 xml2=open('pdf_2.txt','w')
 
 for i in xrange(len(text2)):
     xml2.write(text2[i])
-    
+
 xml2.close()
 
 
@@ -38,7 +39,7 @@ xml3=open('pdf_3.txt','w')
 
 for i in xrange(len(text3)):
     xml3.write(text3[i])
-    
+
 xml3.close()
 
 
@@ -52,7 +53,7 @@ a3=[]
 
 c1=0
 for i in myfile1.readlines():
-    
+
   if(abstract_start(i)):
      c1+=1
   elif(abstract_end(i) or abstract_end(i.strip()[0:8])):
@@ -60,10 +61,10 @@ for i in myfile1.readlines():
 
   if c1 > 0 :
      a1.append(i)
-     
+
 c2=0
 for i in myfile2.readlines():
-    
+
   if(abstract_start(i)):
      c2+=1
   elif(abstract_end(i) or abstract_end(i.strip()[0:8])):
@@ -74,7 +75,7 @@ for i in myfile2.readlines():
 
 c3=0
 for i in myfile3.readlines():
-    
+
   if(abstract_start(i)):
      c3+=1
   elif(abstract_end(i) or abstract_end(i.strip()[0:8])):
