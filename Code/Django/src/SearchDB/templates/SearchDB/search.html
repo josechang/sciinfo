@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/display.css' %}" />
+<script type="text/javascript" src="{% static 'js/display.js' %}"></script>
 	<head>
 		<title> Welcome </title>
 	</head>
@@ -9,5 +12,12 @@
 			<input id="user_query" type="text" name="user_query">
 			<input type="submit" value="Submit" />
 		</form>
+		<h3><a href="http://goo.gl/qCtsD" target="_blank">Nordling</a> Search Bar<p>Try typing <i>something</i> and press enter.</p></h3>
+
+		<form>
+		    <input id="search" type="search" name="search" />
+		    <p></p>
+		</form>
+
 	</body>
 </html>
