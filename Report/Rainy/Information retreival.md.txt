@@ -177,3 +177,14 @@ OMG's Business Enterprise Integration Domain Task Force (BEI DTF) is currently w
 2)Improved Behavioral Modeling: In UML 1.X, the different behavioral models were independent, but in UML 2.0, they all derive from a fundamental definition of a behavior (except for the Use Case, which is subtly different but still participates in the new organization). 
 3)Improved relationship between Structural and Behavioral Models: As we pointed out under Nested Classifiers, UML 2.0 lets you designate that a behavior represented by (for example) a State Machine or Sequence Diagram is the behavior of a class or a component. 
 
+List of UML Diaagrams:
+Activity Diagram.
+Class Diagram.
+Communication Diagram.
+Component Diagram.
+Deployment Diagram.
+Object Diagram.
+Package Diagram.
+Sequence Diagram.
+state Diagram.
+Use Case Diagram.
