@@ -47,9 +47,9 @@ form {
     cursor: pointer;
     display: block;
     height: 10px;
-    position: absolute;
+    position: relative;
     right: 10px;
-    top: -8px;
+    top: -45px;
     width: 4px;
     
     -moz-border-radius: 1px;
@@ -105,3 +105,11 @@ a {
 a:hover {
     text-decoration: underline;   
 }
+.box {     
+  width: 500px;                  
+  margin-right: 80px;       
+  height: 450px;
+  background:#FCFDDC;
+  float: left;
+  border: black solid 3px;
+}     

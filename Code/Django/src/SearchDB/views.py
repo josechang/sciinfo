@@ -15,7 +15,7 @@ from .forms import TextForm
 # Create your views here.
 def get_text(request):
 
-    # if the search bar gets query
+    # if the search bar gets query, using GET method
     if 'user_query' in request.GET:
         # Access the database to do searching
         article_all = Article.objects.all()
@@ -28,11 +28,10 @@ def get_text(request):
         #tf.transformation()
         #rank_score = sim.similarity_compare(query)
         result = Article.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.3).order_by('-rank')
-        resultTitle = []
+        resultlist = []
         for i in result:
-            resultTitle.append(i)
+            resultlist.append(i)
         return render_to_response('SearchDB/result.html', locals())
-        #return HttpResponse('Your search string is: '+request.GET['user_query']
 
     else:
         return render_to_response('SearchDB/search.html', locals())
