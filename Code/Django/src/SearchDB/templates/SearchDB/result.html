@@ -2,20 +2,52 @@
 <html>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet"/>
+<script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
 <head>
 	<title>Result page</title>
 </head>
 <body>
-Your search string is:<br>
-<textarea rows="4" cols="50">{{ uq }}</textarea><br>
-The result listed below:<br>
-	{% for i in resultTitle %}
-	<div>
-		<li>
-			{{ i }}
-		</li>
-	</div>
-	{% endfor %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/sciinfo/">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="searchbox">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Your search string is:<br>
+		<textarea rows="4" cols="50">{{ uq }}</textarea><br></p>
+		The result listed below:<br>
+		
+		{% for i in resultTitle %}
+		<div class="article">
+			<li>{{ i }}</li>
+		</div>
+		{% endfor %}
+        
+      </div>
+
+    </div><!-- /.container, contains user query and results -->
 </body>
 </html>
 
