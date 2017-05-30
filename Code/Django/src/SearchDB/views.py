@@ -15,13 +15,13 @@ from .forms import TextForm
 # Create your views here.
 def get_text(request):
 
-    # if the search bar gets query, using GET method
-    if 'user_query' in request.GET:
+    # if the search bar gets query, direct to result page, using GET method
+    if 'search' in request.GET:
         # Access the database to do searching
         article_all = Article.objects.all()
         vector = SearchVector('content', weight='A')
-        query = SearchQuery(str(request.GET['user_query']))
-        uq = request.GET['user_query']
+        query = SearchQuery(str(request.GET['search']))
+        uq = request.GET['search']
 
         # implement searching function and ranks
         #vc.vecter_space_convert(article_all)
@@ -31,7 +31,7 @@ def get_text(request):
         resultlist = []
         for i in result:
             resultlist.append(i)
-        return render_to_response('SearchDB/result.html', locals())
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist})
 
     else:
-        return render_to_response('SearchDB/search.html', locals())
+        return render_to_response('SearchDB/search.html')

@@ -34,16 +34,15 @@
     <div class="container">
 
       <div class="searchbox">
-        <h1>Bootstrap starter template</h1>
         <p class="lead">Your search string is:<br>
-		<textarea rows="4" cols="50">{{ uq }}</textarea><br></p>
-		The result listed below:<br>
-		
-		{% for i in resultTitle %}
-		<div class="article">
-			<li>{{ i }}</li>
-		</div>
-		{% endfor %}
+				<textarea rows="4" cols="50">{{ uq }}</textarea><br></p>
+				The result listed below:<br>
+
+				{% for i in resultlist %}
+				<div class="article">
+					<li>{{ i }}</li>
+				</div>
+				{% endfor %}
         
       </div>
 
