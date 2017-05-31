@@ -1,6 +1,9 @@
+// Define two variables
 var form = $('form'),
     search = $('#search');
 
+
+// Add some special function to the search bar
 form.submit(function(e) {
     e.preventDefault();
 
