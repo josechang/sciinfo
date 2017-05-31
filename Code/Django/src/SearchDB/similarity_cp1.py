@@ -8,6 +8,12 @@ def similarity_compare(query):
     dictionary = corpora.Dictionary.load('../../tmp/deerwester.dict')
     corpus = corpora.MmCorpus('../../tmp/deerwester.mm') # comes from vecter_space_convert.py, "From strings to vectors"
 
+    '''
+    for i in range(0, 10):
+        print corpus[i]
+        print dictionary[i]
+    '''
+
     lsi = models.LsiModel(corpus, id2word=dictionary, num_topics=2)
 
     doc = query

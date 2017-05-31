@@ -9,7 +9,7 @@ import re
 import os, sys
 
 def file_read(filename):
-    file = codecs.open(filename, 'r', 'utf-8')
+    file = codecs.open(filename, 'r', 'iso-8859-1') # using utf-8 might have problem
     content = file.read()
     return content
 
@@ -31,13 +31,19 @@ def vector_space_convert():
     for count in range(0, 5):
         documents.append(file_read(filename[count]))
     '''
-
     documents = [] # list for storing documents
+
+    # count = 0
 
     for articles in os.listdir('txt/'):
         tmp = 'txt/' + articles
+        # print file_read(tmp)
+        # print "count = %d" % count
+        # count += 1
         documents.append(file_read(tmp))
 
+    # print documents[37]
+    # print "okay"
 
     # remove common words and tokenize
     stop_words = get_stop_words('english') # getting english stop_words
@@ -58,8 +64,13 @@ def vector_space_convert():
     once_ids = [tokenid for tokenid, docfreq in iteritems(dictionary.dfs) if docfreq == 1]
     dictionary.filter_tokens(once_ids)  # remove stop words and words that appear only once
     dictionary.compactify()  # remove gaps in id sequence after words that were removed
-    print(dictionary)
-    dictionary.save('../tmp/deerwester.dict')  # store the dictionary, for future reference
+
+    '''
+    for i in range(0, 9999):
+        print dictionary[i]
+    '''
+
+    dictionary.save('../../tmp/deerwester.dict')  # store the dictionary, for future reference
 
     corpus = [dictionary.doc2bow(text) for text in texts]
-    corpora.MmCorpus.serialize('../tmp/deerwester.mm', corpus)  # store to disk, for later use
+    corpora.MmCorpus.serialize('../../tmp/deerwester.mm', corpus)  # store to disk, for later use
