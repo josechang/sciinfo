@@ -59,7 +59,7 @@ def vector_space_convert():
     dictionary.filter_tokens(once_ids)  # remove stop words and words that appear only once
     dictionary.compactify()  # remove gaps in id sequence after words that were removed
     print(dictionary)
-    dictionary.save('../../tmp/deerwester.dict')  # store the dictionary, for future reference
+    dictionary.save('../tmp/deerwester.dict')  # store the dictionary, for future reference
 
     corpus = [dictionary.doc2bow(text) for text in texts]
-    corpora.MmCorpus.serialize('../../tmp/deerwester.mm', corpus)  # store to disk, for later use
+    corpora.MmCorpus.serialize('../tmp/deerwester.mm', corpus)  # store to disk, for later use
