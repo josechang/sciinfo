@@ -31,6 +31,7 @@ def vector_space_convert():
     for count in range(0, 5):
         documents.append(file_read(filename[count]))
     '''
+
     documents = [] # list for storing documents
 
     for articles in os.listdir('txt/'):

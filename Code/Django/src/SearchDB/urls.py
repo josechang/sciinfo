@@ -3,6 +3,5 @@ from SearchDB.views import get_text
 
 app_name = 'SearchDB'
 urlpatterns = [
-    url(r'^search/$', get_text),
-#    url(r'^yourText/$', views.show_text),
+    url(r'^$', get_text), # If the user input this url, the request will be sent to get_text function in views.py
 ]

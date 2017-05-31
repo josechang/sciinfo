@@ -92,3 +92,99 @@ By default, the Distribution-based Clustering algorithm does not create an unlim
 If the mining function cannot continue to create clusters because the cluster limit is reached, this may prevent further improvement in the accuracy of the model.
 Increasing the number of clusters improves the likelihood of finding market niches.
 
+UNIFIED MODELING LANGUAGE
+Introduction to OMG UML by Dr. Jon Siegel, OMG
+Large enterprise applications-the ones that execute core business applications, and keep a company going-must be more than just a bunch of code modules. 
+They must be structured in a way that enables scalability, security, and robust execution under stressful conditions, and their structure - frequently referred to as their architecture - must be defined clearly enough that maintenance programmers can (quickly!). 
+find and fix a bug that shows up long after the original authors have moved on to other projects. 
+That is, these programs must be designed to work perfectly in many areas, and business functionality is not the only one (although it certainly is the essential core).
+Of course a well-designed architecture benefits any program, and not just the largest ones as we've singled out here. 
+We mentioned large applications first because structure is a way of dealing with complexity.
+so the benefits of structure (and of modeling and design, as we'll demonstrate) compound as application size grows large. 
+Another benefit of structure is that it enables code reuse: Design time is the easiest time to structure an application as a collection of self-contained modules or components.
+Eventually, enterprises build up a library of models of components, each one representing an implementation stored in a library of code modules. 
+When another application needs the same functionality, the designer can quickly import its module from the library. 
+At coding time, the developer can just as quickly import the code module into the application. 
+
+Modeling is the designing of software applications before coding. 
+Modeling is an Essential Part of large software projects, and helpful to medium and even small projects as well. 
+A model plays the analogous role in software development that blueprints and other plans (site maps, elevations, physical models) play in the building of a skyscraper.
+Using a model, those responsible for a software development project's success can assure themselves that business functionality is complete and correct, end-user needs are met, and program design supports requirements for scalability, robustness, security, extendibility, and other characteristics, before implementation in code renders changes difficult and expensive to make.
+Surveys show that large software projects have a huge probability of failure - in fact, it's more likely that a large software application will fail to meet all of its requirements on time and on budget than that it will succeed. 
+If you're running one of these projects, you need to do all you can to increase the odds for success, and modeling is the only way to visualize your design and check it against requirements before your crew starts to code.
+
+YOU CAN DO OTHER USEFUL THINGS WITH UML TOO
+some tools analyze existing source code (or, some claim, object code!) and reverse-engineer it into a set of UML diagrams. 
+Another example: Some tools on the market execute UML models, typically in one of two ways: Some tools execute your model interpretively in a way that lets you confirm that it really does what you want, but without the scalability and speed that you'll need in your deployed application. 
+Other tools (typically designed to work only within a restricted application domain such as telecommunications or finance) generate program language code from UML, producing most of a bug-free, deployable application that runs quickly if the code generator incorporates best-practice scalable patterns for, e.g., transactional database operations or other common program tasks. 
+(OMG members are working on a specification for Executable UML now.) 
+Our final entry in this category: A number of tools on the market generate Test and Verification Suites from UML models. 
+
+MODELS VS. METHODOLOGIES
+The process of gathering and analyzing an application's requirements, and incorporating them into a program design, is a complex one and the industry currently supports many methodologies that define formal procedures specifying how to go about it. 
+One characteristic of UML - in fact, the one that enables the widespread industry support that the language enjoys - is that it is methodology-independent. 
+Regardless of the methodology that you use to perform your analysis and design, you can use UML to express the results. 
+And, using XMI® (XML™ Metadata Interchange, another OMG standard), you can transfer your UML model from one tool into a repository, or into another tool for refinement or the next step in your chosen development process. 
+These are the benefits of standardization!.
+
+WHAT CAN YOU MODEL WITH UML?
+UML 2.0 defines thirteen types of diagrams, divided into three categories: Six diagram types represent static application structure; three represent general types of behavior; and four represent different aspects of interactions:
+Structure Diagrams:  include the Class Diagram, Object Diagram, Component Diagram, Composite Structure Diagram, Package Diagram, and Deployment Diagram.
+Behavior Diagrams:  include the Use Case Diagram (used by some methodologies during requirements gathering); Activity Diagram, and State Machine Diagram. 
+Interaction Diagrams:  all derived from the more general Behavior Diagram, include the Sequence Diagram, Communication Diagram, Timing Diagram, and Interaction Overview Diagram.
+  We don't intend this introductory web page to be a complete UML tutorial, so we're not going to list any details of the different diagram types here. 
+To learn more, you can check out one of the many on-line tutorials, or buy a book. (The last time we checked, typing "UML" into the search box for the major on-line booksellers returned a list of more than 100  titles!) Or, if you're technical and want the whole story, you can download the UML specification itself from the OMG website. 
+It's free, of course, but it's also highly technical, terse, and very difficult for beginners to understand. 
+
+I'M ABOUT TO START MY FIRST UML-BASED DEVELOPMENT PROJECT. WHAT DO I NEED TO DO?
+Three things, probably (but not necessarily) in this order:
+1)Select a methodology: A methodology formally defines the process that you use to gather requirements, analyze them, and design an application that meets them in every way. 
+There are many methodologies, each differing in some way or ways from the others. 
+There are many reasons why one methodology may be better than another for your particular project: For example, some are better suited for large enterprise applications while others are built to design small embedded or safety-critical systems. 
+On another axis, some methods better support large numbers of architects and designers working on the same project, while others work better when used by one person or a small group
+OMG, as a vendor-neutral organization, does not have an opinion about any methodology.
+
+2)Select a UML Development Tool: Because most (although not all) UML-based tools implement a particular methodology, in some cases it might not be practical to pick a tool and then try to use it with a methodology that it wasn't built for. (For other tool/methodology combinations, this might not be an issue, or might be easy to work around.) 
+But, some methodologies have been implemented on multiple tools so this is not strictly a one-choice environment.
+You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
+As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. These will help you get started making your choice. 
+You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. 
+If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. 
+Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. 
+If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
+As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
+These will help you get started making your choice.
+
+3)Get Training: You and your staff (unless you're lucky enough to hire UML-experienced architects) will need training in UML. 
+It's best to get training that teaches how to use your chosen tool with your chosen methodology, typically provided by either the tool supplier or methodologist. 
+If you decide not to go this route, check out OMG's training page for a course that meets your needs. Once you've learned UML, you can become an OMG-certified UML Professional-check here for details.
+As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
+These will help you get started making your choice. 
+
+UML 2.0 - A MAJOR UPGRADE
+The "Available" version of the UML 2.0 Superstructure specification (that is, the version that has finished its first maintenance release and been built into vendor products) has been completed, and is available to everyone for free download. 
+Three separate parts of UML 2.0 - the Infrastructure (that is, the meta-metamodel), Object Constraint Language, and Diagram Interchange - are still undergoing their first maintenance and will become Available Specifications when this completes. 
+There's a description of the current state of all four specifications, and links to all of them, here. 
+
+WHAT'S NEW IN UML 2.0
+We've already integrated the new features into this writeup, but here's a summary: 
+1)Nested Classifiers: This is an extremely powerful concept. In UML, almost every model building block you work with (classes, objects, components, behaviors such as activities and state machines, and more) is a classifier. 
+In UML 2.0, you can nest a set of classes inside the component that manages them, or embed a behavior (such as a state machine) inside the class or component that implements it. 
+This capability also lets you build up complex behaviors from simpler ones, the capability that defines the Interaction Overview Diagram. 
+You can layer different levels of abstraction in multiple ways: For example, you can build a model of your Enterprise, and zoom in to embedded site views, and then to departmental views within the site, and then to applications within a department. 
+Alternatively, you can nest computational models within a business process model. 
+OMG's Business Enterprise Integration Domain Task Force (BEI DTF) is currently working on several interesting new standards in business process and business rules. 
+2)Improved Behavioral Modeling: In UML 1.X, the different behavioral models were independent, but in UML 2.0, they all derive from a fundamental definition of a behavior (except for the Use Case, which is subtly different but still participates in the new organization). 
+3)Improved relationship between Structural and Behavioral Models: As we pointed out under Nested Classifiers, UML 2.0 lets you designate that a behavior represented by (for example) a State Machine or Sequence Diagram is the behavior of a class or a component. 
+
+List of UML Diaagrams:
+Activity Diagram.
+Class Diagram.
+Communication Diagram.
+Component Diagram.
+Deployment Diagram.
+Object Diagram.
+Package Diagram.
+Sequence Diagram.
+state Diagram.
+Use Case Diagram.

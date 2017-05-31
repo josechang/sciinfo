@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/display.css' %}" />
+<script type="text/javascript" src="{% static 'js/display.js' %}"></script>
 	<head>
 		<title> Welcome </title>
 	</head>
 	<body>
-		<form action="" method="get">
-			<label for="user_query">Your text</label>
-			<input id="user_query" type="text" name="user_query">
-			<input type="submit" value="Submit" />
-		</form>
+	<form action="" method="get">
+			<div class="box">
+			<h3><a href="http://goo.gl/qCtsD" target="_blank">Nordling</a> Search Bar<p>Try typing <i>something</i> and press enter.</p></h3>
+
+			
+			    <input id="search" type="search" name="search" />
+			    <p></p>
+			</div>
+	</form>
+		
+
 	</body>
 </html>

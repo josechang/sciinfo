@@ -25,13 +25,13 @@ SECRET_KEY = '0+u*0jths-c%b^3##v-#)dkjjagbm+^i6l@cek5$46bcyzhn3-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'SearchDB.apps.SearchdbConfig'
+    'SearchDB.apps.SearchdbConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
