@@ -5,17 +5,29 @@ from django.shortcuts import render, get_object_or_404, render_to_response
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 
+#import article model
 from .models import Article
-from .forms import TextForm
 
-#import vector_space_convert_cp1 as vc
-#import transformation_cp1 as tf
-#import similarity_cp1 as sim
+
+#import modules for vector space convert and similarity
+import logging
+import os
+import codecs
+import re
+from gensim import corpora, models, similarities
+from stop_words import get_stop_words
+from collections import defaultdict
+from pprint import pprint
+from six import iteritems
+
+from vector_space_convert_cp1 import file_read, vector_space_convert
+from transformation_cp1 import transformation
+from similarity_cp1 import similarity_compare
 
 # Create your views here.
 def get_text(request):
 
-    # if the search bar gets query, direct to result page, using GET method
+    # if the search bar gets query, redirect to the result page, using GET method
     if 'search' in request.GET:
         # Access the database to do searching
         article_all = Article.objects.all()
@@ -31,6 +43,7 @@ def get_text(request):
         resultlist = []
         for i in result:
             resultlist.append(i)
+        # return uq, resultlist to result.html
         return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist})
 
     else:
