@@ -109,7 +109,9 @@ def remove_last(arr):
 	return arr
 
 def getdata(cmd):
-	p = subprocess.Popen(cmd[0], stdout=subprocess.PIPE, shell=True)
+	y = cmd[0].decode('string_escape')
+	y = y.replace("\\", "\\\\")
+	p = subprocess.Popen(y, stdout=subprocess.PIPE, shell=True)
 	processes = [p]
 	for x in cmd[1:]:
 		p = subprocess.Popen(x, stdin=p.stdout, stdout=subprocess.PIPE, shell=True)
@@ -261,7 +263,7 @@ def match_participants():
 	create_participant(2017, 'Rain Wu', [['Rain Wu <Rain.Wu@nordlinglab.org>']])
 	create_participant(2017, 'Sareddy Reddy', [['sareddy17 <sareddy.kullaireddy3173@gmail.com>'], ['sareddy kullai reddy <sareddy.kullaireddy3173@gmail.com>']])
 	create_participant(2017, 'Paul Lin', [['linpohsien <a4839500@gmail.com>']])
-	create_participant(2017, 'Van Tam Ngo', [['Tamnv14 <ngovantam.haui@gmail.com>']])
+	create_participant(2017, 'Van Tam Ngo', [['Tamnv14 <ngovantam.haui@gmail.com>'], ['me813_Tam-PC\\me813_Tam <ngovantam.haui@gmail.com>']])
 
 	print_Participants(participant_list)	
 	print_Authors(author_list)
