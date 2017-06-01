@@ -3,9 +3,10 @@ from pyPdf import PdfFileWriter, PdfFileReader
 import os
 import re
 
+
 k = 1;
 h = 0; # number of 'none'
-os.chdir('C:\Users\Wu\Dropbox\NordlingLab_Course_ScientificInformation\Articles') #change path
+os.chdir('C:\Users\Wu\Desktop/100article') #change path
 for fileName in os.listdir('.'):
     try:
 
@@ -20,6 +21,7 @@ for fileName in os.listdir('.'):
 
         if len(input1.getDocumentInfo().title)>7 and len(z)<5:
             print "%d %s \n filename: %s" %(k,input1.getDocumentInfo().title,fileName)
+            pass
         else:
             print "%d None \n filename: %s" %(k,fileName)
             h += 1
