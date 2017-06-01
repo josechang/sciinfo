@@ -11,15 +11,16 @@ for fileName in os.listdir('.'):
     try:
 
 
-        if fileName.lower()[-3:] != "pdf": continue
+        if fileName.lower()[-3:] != "pdf": continue #read pdf file
         input1 = PdfFileReader(file(fileName, "rb"))
-####################### test #######################################
+        
+############ get arabic numerals in title #############
         z = re.findall(r'\d+', input1.getDocumentInfo().title)
         z = str(z)
         z = z.replace('u','').replace(',','').replace('[','').replace(']','').replace(' ','').replace("'",'')
-####################################################################
+#######################################################
 
-        if len(input1.getDocumentInfo().title)>7 and len(z)<5:
+        if len(input1.getDocumentInfo().title)>7 and len(z)<5: # block title which has too little words and too many arabic numerals
             print "%d %s \n filename: %s" %(k,input1.getDocumentInfo().title,fileName)
             pass
         else:
