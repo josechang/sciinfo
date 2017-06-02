@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, get_object_or_404, render_to_response
+from django.shortcuts import render, get_object_or_404, render_to_response, redirect
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 
@@ -36,7 +36,7 @@ def get_text(request):
         uq = request.GET['search']
 
         # implement searching function and ranks
-        #vc.vecter_space_convert(article_all)
+        #vc.vector_space_convert(article_all)
         #tf.transformation()
         #rank_score = sim.similarity_compare(query)
         result = Article.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.3).order_by('-rank')
@@ -48,3 +48,20 @@ def get_text(request):
 
     else:
         return render_to_response('SearchDB/search.html')
+
+def refreshDatabase(request):
+    #Define path and filename
+    ArticlePath = '../Article_txt/'
+    tmpPath = '../tmp'
+    tmpName = 'deerwester'
+
+    #Create path if it doesn't exist
+    if not os.path.exists(tmpPath):
+        os.mkdirs(tmpPath)
+
+    # If size changed, refresh dict and mm files
+    if len(Article.objects.all()) not len(os.listdir(ArticlePath)):
+        vector_space_convert(ArticlePath, tmpPath, tmpPath, tmpName)
+        transformation(tmpPath, tmpPath, tmpPath, tmpName)
+
+    return redirect('/sciinfo/')

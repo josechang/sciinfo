@@ -16,7 +16,7 @@ def file_read(filename):
 # logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO) # see logging events
 
 
-def vector_space_convert():
+def vector_space_convert(ArticlePath, DictPath, mmPath, filename):
 
     '''
     # test filename
@@ -35,12 +35,11 @@ def vector_space_convert():
 
     # count = 0
 
-    for articles in os.listdir('txt/'):
-        tmp = 'txt/' + articles
+    for articles in os.listdir(ArticlePath):
         # print file_read(tmp)
         # print "count = %d" % count
         # count += 1
-        documents.append(file_read(tmp))
+        documents.append(file_read(ArticlePath))
 
     # print documents[37]
     # print "okay"
@@ -70,7 +69,7 @@ def vector_space_convert():
         print dictionary[i]
     '''
 
-    dictionary.save('../../tmp/deerwester.dict')  # store the dictionary, for future reference
+    dictionary.save(DictPath + filename + '.dict')  # store the dictionary, for future reference
 
     corpus = [dictionary.doc2bow(text) for text in texts]
-    corpora.MmCorpus.serialize('../../tmp/deerwester.mm', corpus)  # store to disk, for later use
+    corpora.MmCorpus.serialize(mmPath + filename + '.mm', corpus)  # store to disk, for later use
