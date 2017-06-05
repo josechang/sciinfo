@@ -25,6 +25,12 @@ from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
 
 # Create your views here.
+
+#Define path and filename
+ArticlePath = '../Article_txt/'
+tmpPath = '../tmp'
+tmpName = 'deerwester'
+
 def get_text(request):
 
     # if the search bar gets query, redirect to the result page, using GET method
@@ -36,13 +42,12 @@ def get_text(request):
         uq = request.GET['search']
 
         # implement searching function and ranks
-        #vc.vector_space_convert(article_all)
-        #tf.transformation()
-        #rank_score = sim.similarity_compare(query)
-        result = Article.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.3).order_by('-rank')
+        sims = similarity_compare(uq, tmpPath, tmpPath, tmpPath, tmpName)
         resultlist = []
-        for i in result:
-            resultlist.append(i)
+        for i in range(0,len(sims)):
+            result = Article.objects.get(filename = sims[i][0])
+            resultlist.append(result)
+            
         # return uq, resultlist to result.html
         return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist})
 
@@ -50,17 +55,13 @@ def get_text(request):
         return render_to_response('SearchDB/search.html')
 
 def refreshDatabase(request):
-    #Define path and filename
-    ArticlePath = '../Article_txt/'
-    tmpPath = '../tmp'
-    tmpName = 'deerwester'
 
     #Create path if it doesn't exist
     if not os.path.exists(tmpPath):
         os.mkdirs(tmpPath)
 
     # If size changed, refresh dict and mm files
-    if len(Article.objects.all()) not len(os.listdir(ArticlePath)):
+    if len(Article.objects.all()) is not len(os.listdir(ArticlePath)):
         vector_space_convert(ArticlePath, tmpPath, tmpPath, tmpName)
         transformation(tmpPath, tmpPath, tmpPath, tmpName)
 
