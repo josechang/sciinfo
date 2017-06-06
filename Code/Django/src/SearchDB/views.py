@@ -17,20 +17,15 @@ import re
 from gensim import corpora, models, similarities
 from stop_words import get_stop_words
 from collections import defaultdict
-from pprint import pprint
 from six import iteritems
-
 from vector_space_convert_cp1 import file_read, vector_space_convert
 from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
 
+#import txt path and dict path
+from mydjango.settings import TXT_PATH, TMP_PATH
+
 # Create your views here.
-
-#Define path and filename
-ArticlePath = '../Article_txt/'
-tmpPath = '../tmp'
-tmpName = 'deerwester'
-
 def get_text(request):
 
     # if the search bar gets query, redirect to the result page, using GET method
@@ -42,7 +37,7 @@ def get_text(request):
         uq = request.GET['search']
 
         # implement searching function and ranks
-        sims = similarity_compare(uq, tmpPath, tmpPath, tmpPath, tmpName)
+        sims = similarity_compare(uq, TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
         for i in range(0,len(sims)):
             result = Article.objects.get(filename = sims[i][0])
@@ -55,14 +50,15 @@ def get_text(request):
         return render_to_response('SearchDB/search.html')
 
 def refreshDatabase(request):
-
+    # Filename for dict file
+    tmpName = 'deerwester'
     #Create path if it doesn't exist
-    if not os.path.exists(tmpPath):
-        os.mkdirs(tmpPath)
+    if not os.path.exists(TMP_PATH):
+        os.mkdirs(TMP_PATH)
 
     # If size changed, refresh dict and mm files
-    if len(Article.objects.all()) is not len(os.listdir(ArticlePath)):
-        vector_space_convert(ArticlePath, tmpPath, tmpPath, tmpName)
-        transformation(tmpPath, tmpPath, tmpPath, tmpName)
+    if len(Article.objects.all()) is not len(os.listdir(TXT_PATH)):
+        vector_space_convert(TXT_PATH, TMP_PATH, TMP_PATH, tmpName)
+        transformation(TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
 
     return redirect('/sciinfo/')
