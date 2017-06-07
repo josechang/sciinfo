@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, get_object_or_404, render_to_response, redirect
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
-
+from django.conf import settings
 #import article model
 from .models import Article
 
@@ -22,8 +22,10 @@ from vector_space_convert_cp1 import file_read, vector_space_convert
 from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
 
-#import txt path and dict path
-from mydjango.settings import TXT_PATH, TMP_PATH
+# Define path and filename for gensim
+TXT_PATH = getattr(settings, 'TXT_PATH', os.path.join(settings.BASE_DIR, 'Article_txt/'))
+TMP_PATH = getattr(settings, 'TMP_PATH', os.path.join(settings.BASE_DIR, 'tmp/'))
+tmpName = 'deerwester'
 
 # Create your views here.
 def get_text(request):
@@ -50,8 +52,6 @@ def get_text(request):
         return render_to_response('SearchDB/search.html')
 
 def refreshDatabase(request):
-    # Filename for dict file
-    tmpName = 'deerwester'
     #Create path if it doesn't exist
     if not os.path.exists(TMP_PATH):
         os.mkdirs(TMP_PATH)
