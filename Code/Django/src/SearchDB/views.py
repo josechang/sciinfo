@@ -39,7 +39,7 @@ def get_text(request):
         uq = request.GET['search']
 
         # implement searching function and ranks
-        sims = similarity_compare(uq, TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
+        sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
         for i in range(0,len(sims)):
             result = Article.objects.get(filename = sims[i][0])

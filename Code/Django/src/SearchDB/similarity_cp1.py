@@ -3,8 +3,7 @@ from gensim import corpora, models, similarities
 
 # logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-def similarity_compare(query, DictPath, mmPath, indexPath, filename):
-    Articlepath = '../Article_txt/'
+def similarity_compare(query, txt, DictPath, mmPath, indexPath, filename):
     dictionary = corpora.Dictionary.load(DictPath + filename + '.dict')
     corpus = corpora.MmCorpus(mmPath + filename + '.mm') # comes from vecter_space_convert.py, "From strings to vectors"
 
@@ -24,15 +23,13 @@ def similarity_compare(query, DictPath, mmPath, indexPath, filename):
     index.save(indexPath + filename + '.index') # save similarity index
 
     sims = index[vec_lsi] # perform a similarity query against the corpus
-    
+    sims_enu = []
     # Transform tuple data structure to list data structure and replace id to exact filename
     for i in range(0,len(sims)):
-        sims[i] = list(sims[i])
-        sims[i][0] = os.listdir(Articlepath)[i]
-
-    sims = sorted(enumerate(sims), key=lambda item: -item[1]) # calculate sorted similarity
+        sims_enu.append([txt[i], sims[i]])
+    sims_enu = sorted(sims_enu, key=lambda item: -item[1]) # calculate sorted similarity
     # print(list(enumerate(sims)))
     #print(sims) # print sorted (document number, similarity score) 2-tuples
 
 
-    return sims
+    return sims_enu
