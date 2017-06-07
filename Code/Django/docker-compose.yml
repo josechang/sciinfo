@@ -16,7 +16,7 @@ services:
   web:
     build: .
     container_name: dg
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn mydjango.wsgi -b 0.0.0.0:7000"
+    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn mydjango.wsgi -b 0.0.0.0:7000"
     depends_on:
       - db
     volumes:
