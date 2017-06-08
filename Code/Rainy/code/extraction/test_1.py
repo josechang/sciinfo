@@ -2,11 +2,12 @@ from pyPdf import PdfFileReader
 
 def dimension(arr, list):
     for i in arr:
-        for j in i:
-            if(j == []):
-                list.append(j)
-            else:
-                dimension(j, list)
+        if type(i) != type(list):
+            list.append(i)
+        else:
+            dimension(i, list)
+
+
 
 f = open('y.pdf', 'rb')
 p = PdfFileReader(f)
@@ -15,27 +16,10 @@ o = p.getOutlines()
 list = []
 dimension(o, list)
 
-'''
-list = []
-list.append(1)
-if(list == []):
-    print "hello"
-'''
 
-'''
-dimension(o, list)
-for i in list:
-    for j in i:
-        print j
-'''
 
-'''
+#for j in range(0,len(list)):
+#    print list[j]
 
-test = len(o)
-print outline
-print test
-#test =outline[0]
-#outline = outline["/Title"]
-#print outline
-'''
-
+doc = p.getDocumentInfo()
+print doc
