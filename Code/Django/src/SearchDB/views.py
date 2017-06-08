@@ -65,7 +65,7 @@ def refreshDatabase(request):
 
     # Create path if it doesn't exist
     if not os.path.exists(TMP_PATH):
-        os.mkdirs(TMP_PATH)
+        os.mkdir(TMP_PATH)
 
     # If size changed, refresh dict and mm files
     # Using diff of list for current prototype
@@ -78,7 +78,7 @@ def refreshDatabase(request):
         diff_filename = [i for i in local_filename if i not in sql_filename]
         for i in diff_filename:
             f = open(TXT_PATH + i, 'r')
-            Article.objects.Create(filename=i, content=f.read())
+            Article.objects.create(filename=i, content=f.read())
             f.close()
 
     return redirect('/sciinfo/')

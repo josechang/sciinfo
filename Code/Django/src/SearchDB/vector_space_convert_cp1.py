@@ -9,7 +9,7 @@ import re
 import os, sys
 
 def file_read(filename):
-    file = codecs.open(filename, 'r', 'iso-8859-1') # using utf-8 might have problem
+    file = codecs.open(filename, 'r', 'utf-8') # using utf-8 might have problem
     content = file.read()
     return content
 
@@ -39,7 +39,7 @@ def vector_space_convert(ArticlePath, DictPath, mmPath, filename):
         # print file_read(tmp)
         # print "count = %d" % count
         # count += 1
-        documents.append(file_read(ArticlePath))
+        documents.append(file_read(ArticlePath + articles))
 
     # print documents[37]
     # print "okay"
