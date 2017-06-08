@@ -9,7 +9,7 @@ from django.conf import settings
 from .models import Article
 
 
-#import modules for vector space convert and similarity
+#import modules for vector space convert, similarity, title extraction
 import logging
 import os
 import codecs
@@ -18,6 +18,7 @@ from gensim import corpora, models, similarities
 from stop_words import get_stop_words
 from collections import defaultdict
 from six import iteritems
+from pyPdf import PdfFileWriter, PdfFileReader
 from vector_space_convert_cp1 import file_read, vector_space_convert
 from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
@@ -52,13 +53,32 @@ def get_text(request):
         return render_to_response('SearchDB/search.html')
 
 def refreshDatabase(request):
-    #Create path if it doesn't exist
+    # Create a list with filenames in SQL database
+    sql_filename = []
+    for i in Article.objects.all():
+        sql_filename.append(i.filename)
+
+    # Create a list with filenames in local folder
+    local_filename = []
+    for i in os.listdir(TXT_PATH):
+        local_filename.append(i)
+
+    # Create path if it doesn't exist
     if not os.path.exists(TMP_PATH):
         os.mkdirs(TMP_PATH)
 
     # If size changed, refresh dict and mm files
-    if len(Article.objects.all()) is not len(os.listdir(TXT_PATH)):
+    # Using diff of list for current prototype
+    # Using numpy for better performance in the future
+    if len(sql_filename) is not len(local_filename):
+        # Dict
         vector_space_convert(TXT_PATH, TMP_PATH, TMP_PATH, tmpName)
         transformation(TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
+        # SQL
+        diff_filename = [i for i in local_filename if i not in sql_filename]
+        for i in diff_filename:
+            f = open(TXT_PATH + i, 'r')
+            Article.objects.Create(filename=i, content=f.read())
+            f.close()
 
     return redirect('/sciinfo/')
