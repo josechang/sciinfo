@@ -387,7 +387,7 @@ def create_html():
 			f.write('            <td>%d</td>\n'%(sum(participant.lines_deleted)))
 			f.write('            <td>%d</td>\n'%(sum(participant.words_inserted)))
 			f.write('            <td>%d</td>\n'%(sum(participant.words_deleted)))
-			f.write('            <td>%d</td>\n'%(participant.git_score))
+			f.write('            <td>%.2f</td>\n'%(participant.git_score))
 			f.write('          </tr>\n')
 
 		f.write('        </tbody>\n')
