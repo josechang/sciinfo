@@ -131,7 +131,6 @@ def getgitrep():
 def updaterep():
 	print("\nUpdating git repository...")
 	p = subprocess.Popen("git --git-dir=%s pull origin"%(git_dir), shell=True)
-	p = subprocess.Popen("git --git-dir=%s checkout -- ."%(git_dir), shell=True)
 	p.wait()
 	print("")
 
