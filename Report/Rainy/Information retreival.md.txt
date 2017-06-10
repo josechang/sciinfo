@@ -348,3 +348,76 @@ Royal society of chemistry style:
 Example:
 H. Yano, K. Abe, M. Nogi, A. N. Nakagaito, J. Mater. Sci., 2010, 45, 1–33.
 
+
+
+Extracting Information from Text
+
+For any given question, it's likely that someone has written the answer down somewhere. The amount of natural language text that is available in electronic form is truly staggering, and is increasing every day. 
+However, the complexity of natural language can make it very difficult to access the information in that text. The state of the art in NLP is still a long way from being able to build general-purpose representations of meaning from unrestricted text. 
+If we instead focus our efforts on a limited set of questions or "entity relations," such as "where are different facilities located," or "who is employed by what company," we can make significant progress.
+The goal of this chapter is to answer the following questions:
+
+1)How can we build a system that extracts structured data, such as tables, from unstructured text?
+2)What are some robust methods for identifying the entities and relationships described in a text?
+3)Which corpora are appropriate for this work, and how do we use them for training and evaluating our models?
+
+Along the way, we'll apply techniques from the last two chapters to the problems of chunking and named-entity recognition.
+
+Information Extraction
+Information comes in many shapes and sizes. One important form is structured data, where there is a regular and predictable organization of entities and relationships. 
+For example, we might be interested in the relation between companies and locations. Given a particular company, we would like to be able to identify the locations where it does business; conversely, given a location, we would like to discover which companies do business in that location. 
+If our data is in tabular form, such as the example in 1.1, then answering these queries is straightforward.
+
+Table 1.1
+Locations data
+OrgName	                LocationName
+Omnicom	                New York
+DDB Needham             New York
+Kaplan Thaler Group	New York
+BBDO South	        Atlanta
+Georgia-Pacific	        Atlanta
+
+If this location data was stored in Python as a list of tuples (entity, relation, entity), then the question "Which organizations operate in Atlanta?" could be translated as follows:
+>>> locs = [('Omnicom', 'IN', 'New York'),
+...         ('DDB Needham', 'IN', 'New York'),
+...         ('Kaplan Thaler Group', 'IN', 'New York'),
+...         ('BBDO South', 'IN', 'Atlanta'),
+...         ('Georgia-Pacific', 'IN', 'Atlanta')]
+>>> query = [e1 for (e1, rel, e2) in locs if e2=='Atlanta']
+>>> print(query)
+['BBDO South', 'Georgia-Pacific']
+Things are more tricky if we try to get similar information out of text.
+For example, consider the following snippet (from nltk.corpus.ieer, for fileid NYT19980315.0085).
+
+If you read through information extraction, you will glean the information required to answer the example question. But how do we get a machine to understand enough about information extraction to return the answers in 1.2? This is obviously a much harder task. Unlike 1.1, information extraction  contains no structure that links organization names with location names.
+One approach to this problem involves building a very general representation of meaning. 
+In this chapter we take a different approach, deciding in advance that we will only look for very specific kinds of information in text, such as the relation between organizations and locations. Rather than trying to use text like information extraction  to answer the question directly, we first convert the unstructured data of natural language sentences into the structured data of  Information Extraction Architecture. 
+Then we reap the benefits of powerful query tools such as SQL. 
+This method of getting meaning from text is called Information Extraction.
+
+Information Extraction has many applications, including business intelligence, resume harvesting, media analysis, sentiment detection, patent search, and email scanning. A particularly important area of current research involves the attempt to extract structured data out of electronically-available scientific literature, especially in the domain of biology and medicine.
+
+Information Extraction Architecture:
+shows the architecture for a simple information extraction system. It begins by processing a document using several of the procedures discussed in 3 and 5.: first, the raw text of the document is split into sentences using a sentence segmenter, and each sentence is further subdivided into words using a tokenizer. 
+Next, each sentence is tagged with part-of-speech tags, which will prove very helpful in the next step, named entity detection. 
+In this step, we search for mentions of potentially interesting entities in each sentence. 
+Finally, we use relation detection to search for likely relations between different entities in the text.
+To perform the first three tasks, we can define a simple function that simply connects together NLTK's default sentence segmenter [1], word tokenizer [2], and part-of-speech tagger [3]:
+>>> def ie_preprocess(document):
+...    sentences = nltk.sent_tokenize(document) [1]
+...    sentences = [nltk.word_tokenize(sent) for sent in sentences] [2]
+...    sentences = [nltk.pos_tag(sent) for sent in sentences] [3]
+Next, in named entity detection, we segment and label the entities that might participate in interesting relations with one another. Typically, these will be definite noun phrases such as the knights who say "ni", or proper names such as Monty Python. In some tasks it is useful to also consider indefinite nouns or noun chunks, such as every student or cats, and these do not necessarily refer to entities in the same way as definite NPs and proper names.
+
+Finally, in relation extraction, we search for specific patterns between pairs of entities that occur near one another in the text, and use those patterns to build tuples recording the relationships between the entities.
+
+ Chunking
+
+The basic technique we will use for entity detection is chunking, which segments and labels multi-token sequences as illustrated in Noun Phrase Chunking. The smaller boxes show the word-level tokenization and part-of-speech tagging, while the large boxes show higher-level chunking. Each of these larger boxes is called a chunk. Like tokenization, which omits whitespace, chunking usually selects a subset of the tokens. 
+Also like tokenization, the pieces produced by a chunker do not overlap in the source text.
+
+
+
+References:http://www.nltk.org/book
+
+
