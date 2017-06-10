@@ -499,9 +499,52 @@ In chunking we saw how we could interrogate a tagged corpus to extract phrases m
 (CHUNK seems/VBZ to/TO overtake/VB)
 (CHUNK want/VB to/TO buy/VB)
 
+Chinking:
+Sometimes it is easier to define what we want to exclude from a chunk. We can define a chink to be a sequence of tokens that is not included in a chunk. In the following example, barked/VBD at/IN is a chink:
+	[ the/DT little/JJ yellow/JJ dog/NN ] barked/VBD at/IN [ the/DT cat/NN ]
+
+Chinking is the process of removing a sequence of tokens from a chunk. If the matching sequence of tokens spans an entire chunk, then the whole chunk is removed; if the sequence of tokens appears in the middle of the chunk, these tokens are removed, leaving two chunks where there was only one before. 
+If the sequence is at the periphery of the chunk, these tokens are removed, and a smaller chunk remains. These three possibilities are illustrated in  Noun Phrase Chunking.
+
+Three chinking rules applied to the same chunk
+::::::    	Entire chunk	              Middle of a chunk          	End of a chunk
+Input	   [a/DT little/JJ dog/NN]	 [a/DT little/JJ dog/NN]	  [a/DT little/JJ dog/NN]
+Operation	Chink "DT JJ NN"	        Chink "JJ"	               Chink "NN"
+Pattern	           }DT JJ NN{	   	           }JJ{	                          }NN{
+Output	    a/DT little/JJ dog/NN	 [a/DT] little/JJ [dog/NN]	  [a/DT little/JJ] dog/NN
+
+we put the entire sentence into a single chunk, then excise the chinks.
+	
+  grammar = r"""
+     NP:
+        {<.*>+}          # Chunk everything
+        }<VBD|IN>+{      # Chink sequences of VBD and IN
+     """
+  sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"),
+          ("dog", "NN"), ("barked", "VBD"), ("at", "IN"),  ("the", "DT"), ("cat", "NN")]
+  cp = nltk.RegexpParser(grammar
+  >>> print(cp.parse(sentence))
+ (S
+   (NP the/DT little/JJ yellow/JJ dog/NN)
+   barked/VBD
+   at/IN
+   (NP the/DT cat/NN))
+
+Summary:
+
+>>>Information extraction systems search large bodies of unrestricted text for specific types of entities and relations, and use them to populate well-organized databases. These databases can then be used to find answers for specific questions.
+>>>The typical architecture for an information extraction system begins by segmenting, tokenizing, and part-of-speech tagging the text.
+>>>The resulting data is then searched for specific types of entity. Finally, the information extraction system looks at entities that are mentioned near one another in the text, and tries to determine whether specific relationships hold between those entities.
+>>>Entity recognition is often performed using chunkers, which segment multi-token sequences, and label them with the appropriate entity type. 
+>>>Common entity types include ORGANIZATION, PERSON, LOCATION, DATE, TIME, MONEY, and GPE (geo-political entity).
+>>>Chunkers can be constructed using rule-based systems, such as the RegexpParser class provided by NLTK; or using machine learning techniques, such as the ConsecutiveNPChunker presented in this chapter. In either case, part-of-speech tags are often a very important feature when searching for chunks.
+>>>Although chunkers are specialized to create relatively flat data structures, where no two chunks are allowed to overlap, they can be cascaded together to build nested structures.
+>>>Relation extraction can be performed using either rule-based systems which typically look for specific patterns in the text that connect entities and the intervening words; or using machine-learning systems which typically attempt to learn such patterns automatically from a training corpus.
 
 
-
-References:http://www.nltk.org/book
-
+References:
+http://www.nltk.org/book
+The popularity of chunking is due in great part to pioneering work by Abney e.g., (Church, Young, & Bloothooft, 1996). Abney's Cass chunker is described in http://www.vinartus.net/spa/97a.pdf.
+The word chink initially meant a sequence of stopwords, according to a 1975 paper by Ross and Tukey (Church, Young, & Bloothooft, 1996).
+The IOB format (or sometimes BIO Format) was developed for NP chunking by (Ramshaw & Marcus, 1995), and was used for the shared NP bracketing task run by the Conference on Natural Language Learning (CoNLL) in 1999. The same format was adopted by CoNLL 2000 for annotating a section of Wall Street Journal text as part of a shared task on NP chunking.
 
