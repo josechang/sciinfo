@@ -415,6 +415,90 @@ Finally, in relation extraction, we search for specific patterns between pairs o
 
 The basic technique we will use for entity detection is chunking, which segments and labels multi-token sequences as illustrated in Noun Phrase Chunking. The smaller boxes show the word-level tokenization and part-of-speech tagging, while the large boxes show higher-level chunking. Each of these larger boxes is called a chunk. Like tokenization, which omits whitespace, chunking usually selects a subset of the tokens. 
 Also like tokenization, the pieces produced by a chunker do not overlap in the source text.
+ Noun Phrase Chunking:
+We will begin by considering the task of noun phrase chunking, or NP-chunking, where we search for chunks corresponding to individual noun phrases. For example, here is some Wall Street Journal text with NP-chunks marked using brackets:
+	[ The/DT market/NN ] for/IN [ system-management/NN software/NN ] for/IN [ Digital/NNP ] [ 's/POS hardware/NN ] is/VBZ fragmented/JJ enough/RB that/IN [ a/DT giant/NN ] such/JJ as/IN [ Computer/NNP Associates/NNPS ] should/MD do/VB well/RB there/RB]
+As we can see, NP-chunks are often smaller pieces than complete noun phrases. For example, the market for system-management software for Digital's hardware is a single noun phrase (containing two nested noun phrases), but it is captured in NP-chunks by the simpler chunk the market. One of the motivations for this difference is that NP-chunks are defined so as not to contain other NP-chunks. Consequently, any prepositional phrases or subordinate clauses that modify a nominal will not be included in the corresponding NP-chunk, since they almost certainly contain further noun phrases.
+
+One of the most useful sources of information for NP-chunking is part-of-speech tags. This is one of the motivations for performing part-of-speech tagging in our information extraction system. 
+We demonstrate this approach using an example sentence that has been part-of-speech tagged in Tag patterns. In order to create an NP-chunker, we will first define a chunk grammar, consisting of rules that indicate how sentences should be chunked. In this case, we will define a simple grammar with a single regular-expression rule chunking. 
+This rule says that an NP chunk should be formed whenever the chunker finds an optional determiner (DT) followed by any number of adjectives (JJ) and then a noun (NN). Using this grammar, we create a chunk parser [3], and test it on our example sentence [4]. The result is a tree, which we can either print [5], or display graphically [6].
+
+ 	
+>>> sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"), [1]
+... ("dog", "NN"), ("barked", "VBD"), ("at", "IN"),  ("the", "DT"), ("cat", "NN")]
+
+>>> grammar = "NP: {<DT>?<JJ>*<NN>}" [2]
+
+>>> cp = nltk.RegexpParser(grammar) [3]
+>>> result = cp.parse(sentence) [4]
+>>> print(result) [5]
+(S
+  (NP the/DT little/JJ yellow/JJ dog/NN)
+  barked/VBD
+  at/IN
+  (NP the/DT cat/NN))
+>>> result.draw() [6]
+
+ Tag Patterns:
+ The rules that make up a chunk grammar use tag patterns to describe sequences of tagged words. A tag pattern is a sequence of part-of-speech tags delimited using angle brackets, e.g. <DT>?<JJ>*<NN>. Tag patterns are similar to regular expression patterns (3.4). Now, consider the following noun phrases from the Wall Street Journal:
+    another/DT sharp/JJ dive/NN
+    trade/NN figures/NNS
+    any/DT new/JJ policy/NN measures/NNS
+    earlier/JJR stages/NNS
+    Panamanian/JJ dictator/NN Manuel/NNP Noriega/NNP
+We can match these noun phrases using a slight refinement of the first tag pattern above, i.e. <DT>?<JJ.*>*<NN.*>+. This will chunk any sequence of tokens beginning with an optional determiner, followed by zero or more adjectives of any type (including relative adjectives like earlier/JJR), followed by one or more nouns of any type. However, it is easy to find many more complicated examples which this rule will not cover:
+    his/PRP$ Mansion/NNP House/NNP speech/NN
+    the/DT price/NN cutting/VBG
+    3/CD %/NN to/TO 4/CD %/NN
+    more/JJR than/IN 10/CD %/NN
+    the/DT fastest/JJS developing/VBG trends/NNS
+    's/POS skill/NN
+
+Chunking with Regular Expressions:
+To find the chunk structure for a given sentence, the RegexpParser chunker begins with a flat structure in which no tokens are chunked. The chunking rules are applied in turn, successively updating the chunk structure. Once all of the rules have been invoked, the resulting chunk structure is returned.
+Chunking with Regular Expressions  shows a simple chunk grammar consisting of two rules. The first rule matches an optional determiner or possessive pronoun, zero or more adjectives, then a noun. The second rule matches one or more proper nouns. We also define an example sentence to be chunked [1], and run the chunker on this input [2].
+   grammar = r"""
+       NP: {<DT|PP\$>?<JJ>*<NN>}   # chunk determiner/possessive, adjectives and noun
+           {<NNP>+}                # chunk sequences of proper nouns
+   """
+   cp = nltk.RegexpParser(grammar)
+   sentence = [("Rapunzel", "NNP"), ("let", "VBD"), ("down", "RP"), [1]
+                    ("her", "PP$"), ("long", "JJ"), ("golden", "JJ"), ("hair", "NN")]
+
+    >>> print(cp.parse(sentence)) [2]
+    (S
+      (NP Rapunzel/NNP)
+      let/VBD
+      down/RP
+      (NP her/PP$ long/JJ golden/JJ hair/NN))
+If a tag pattern matches at overlapping locations, the leftmost match takes precedence. For example, if we apply a rule that matches two consecutive nouns to a text containing three consecutive nouns, then only the first two nouns will be chunked:
+    >>> nouns = [("money", "NN"), ("market", "NN"), ("fund", "NN")]
+    >>> grammar = "NP: {<NN><NN>}  # Chunk two consecutive nouns"
+    >>> cp = nltk.RegexpParser(grammar)
+    >>> print(cp.parse(nouns))
+     (S (NP money/NN market/NN) fund/NN)
+Once we have created the chunk for money market, we have removed the context that would have permitted fund to be included in a chunk. This issue would have been avoided with a more permissive chunk rule, e.g.  NP: {<NN>+}.
+
+Exploring Text Corpora:
+In chunking we saw how we could interrogate a tagged corpus to extract phrases matching a particular sequence of part-of-speech tags. We can do the same work more easily with a chunker, as follows:
+>>> cp = nltk.RegexpParser('CHUNK: {<V.*> <TO> <V.*>}')
+>>> brown = nltk.corpus.brown
+>>> for sent in brown.tagged_sents():
+...     tree = cp.parse(sent)
+...     for subtree in tree.subtrees():
+...         if subtree.label() == 'CHUNK': print(subtree)
+...
+(CHUNK combined/VBN to/TO achieve/VB)
+(CHUNK continue/VB to/TO place/VB)
+(CHUNK serve/VB to/TO protect/VB)
+(CHUNK wanted/VBD to/TO wait/VB)
+(CHUNK allowed/VBN to/TO place/VB)
+(CHUNK expected/VBN to/TO become/VB)
+...
+(CHUNK seems/VBZ to/TO overtake/VB)
+(CHUNK want/VB to/TO buy/VB)
+
 
 
 
