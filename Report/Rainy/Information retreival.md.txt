@@ -189,6 +189,15 @@ Sequence Diagram.
 state Diagram.
 Use Case Diagram.
 
+
+Different styles of writing reference.
+1)Harvard style of referencing.
+2)American Psychological Association style (APA) .
+3)Vancouver style.
+4)MLA citation style (modern language association).
+5)The Chicago manual of style .
+6)Royal society of chemistry style.
+
 Harvard citation format:
 Harvard is a style of referencing, primarily used by university students, to cite information sources.
 In-text citations are used when directly quoting or paraphrasing a source.
@@ -273,10 +282,69 @@ Author–title[edit]
 In the author–title or author–page method, also referred to as MLA style, the in-text citation is placed in parentheses after the sentence or part thereof that the citation supports, and includes the author's name (a short title only is necessary when there is more than one work by the same author) and a page number where appropriate (Smith 1) or (Smith, Playing 1). (No "p." or "pp." prefaces the page numbers and main words in titles appear in capital letters, following MLA style guidelines.) A full citation is given in the references section.
 
 Cite the following information:
-author(s) name and initials
-title of the article (between single quotation marks)
-title of the journal (in italics)
-available publication information (volume number, issue number)
-accessed day month year (the date you last viewed the article)
-URL or Internet address (between pointed brackets) 
+1)author(s) name and initials
+2)title of the article (between single quotation marks)
+3)title of the journal (in italics)
+4)available publication information (volume number, issue number)
+5)accessed day month year (the date you last viewed the article)
+6)URL or Internet address (between pointed brackets) 
+
+
+Vancouver style:
+
+1)Author Surname followed by Initials. 
+2)Title of article followed by double quotation.
+3)Title of journal (abbreviated).
+4)Date of Publication followed by double quotation.
+5)Volume Number.
+6)Issue Number in bracket.
+7)Page Number.
+Example
+Haas AN, Susin C, Albandar JM, et al. Azithromycin as a adjunctive treatment of aggressive periodontitis: 12-months randomized clinical trial. N Engl J Med. 2008 Aug; 35(8):696-704.
+Vancouver Style does not use the full journal name, only the commonly-used abbreviation: “New England Journal of Medicine” is cited as “N Engl J Med”.   
+
+
+MLA citation style (modern language association)
+
+ 1)Authors name.
+ 2)Title of article. 
+ 3)Name of journal.
+ 4)Volume number followed by decimal & issue no. 
+ 5)Year of publication.
+ 6)Page numbers. 
+ 7)Medium of publication.
+
+Example
+Matarrita-Cascante, David. "Beyond Growth: Reaching Tourism-Led Development." Annals of Tourism Research 37.4 (2010): 1141-63. Print
+
+American Psychological Association style (APA):
+ 
+Author’s name followed by its initials.
+Year of publication.
+Article title followed by full stop.
+Name of Journal in italic form
+Volume followed by a comma
+Page no.
+Example
+Alibali, M. W., Phillips, K. M., & Fischer, A. D. (2009). Learning new problem-solving strategies leads to changes in problem representation. Cognitive Development, 24, 89-101.
+
+The Chicago manual of style :
+1)Name of author.
+2)Article title in double quotation mark.
+3)Title of journal in italic.
+4)Volume.
+5)Year of publication.
+6)Page no.
+Example
+Joshua I. Weinstein, “The Market in Plato’s ” Classical Philology, 104 (2009): 440.
+ 
+Royal society of chemistry style:
+1)INITIALS. Author’s surname.
+2)Title of journal (abbreviated).
+3)Year of publication. 
+4)Volume number.
+5)Pages no.
+
+Example:
+H. Yano, K. Abe, M. Nogi, A. N. Nakagaito, J. Mater. Sci., 2010, 45, 1–33.
 
