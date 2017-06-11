@@ -548,3 +548,56 @@ The popularity of chunking is due in great part to pioneering work by Abney e.g.
 The word chink initially meant a sequence of stopwords, according to a 1975 paper by Ross and Tukey (Church, Young, & Bloothooft, 1996).
 The IOB format (or sometimes BIO Format) was developed for NP chunking by (Ramshaw & Marcus, 1995), and was used for the shared NP bracketing task run by the Conference on Natural Language Learning (CoNLL) in 1999. The same format was adopted by CoNLL 2000 for annotating a section of Wall Street Journal text as part of a shared task on NP chunking.
 
+
+11 steps to structuring a science paper editors will take seriously:
+
+How to Prepare a Manuscript for International Journals?
+General structure of a research article
+>>>title
+>>>Abstract
+>>>keywords
+    >>Make them easy for indexing and searching!(informative, attractive, effective)
+>>>Main text (IMRAD)
+   >>Introduction
+   >>Methods
+   >>Results
+   >>And
+   >>Discussions
+      >>Journal space is not unlimited.Make your article as concises as posible.
+When you organize your manuscript, the first thing to consider is that the order of sections will be very different than the order of items on you checklist. 
+An article begins with the Title, Abstract and Keywords.
+The article text follows the IMRAD format(Introduction, Methods, Results, and Discussion), which responds to the questions below:
+>>Introduction: What did you/others do? Why did you do it?
+>>Methods: How did you do it?
+>>Results: What did you find?
+>>And
+>>Discussion: What does it all mean?
+
+The main text is followed by the Conclusion, Acknowledgements, References and Supporting Materials.
+While this is the published structure, however, we often use a different order when writing.
+
+Steps to organizing your manuscript
+1)Prepare the figures and tables.
+2)Write the Methods.
+3)Write up the Results.
+4)Write the Discussion. Finalize the Results and Discussion before writing the introduction. This is because, if the discussion is insufficient, how can you objectively demonstrate the scientific significance of your work in the introduction?
+5)Write a clear Conclusion.
+6)Write a compelling introduction.
+7)Write the Abstract.
+8)Compose a concise and descriptive Title.
+9)elect Keywords for indexing.
+10)Write the Acknowledgements.
+11)Write up the References.
+Next, I'll review each step in more detail. But before you set out to write a paper, there are two important things you should do that will set the groundwork for the entire process.
+
+>>The topic to be studied should be the first issue to be solved. Define your hypothesis and objectives (These will go in the Introduction.)
+>>Review the literature related to the topic and select some papers (about 30) that can be cited in your paper (These will be listed in the References.)
+Finally, keep in mind that each publisher has its own style guidelines and preferences, so always consult the publisher's Guide for Authors.
+
+References:
+https://www.elsevier.com/connect/11-steps-to-structuring-a-science-paper-editors-will-take-seriously
+
+
+
+
+
