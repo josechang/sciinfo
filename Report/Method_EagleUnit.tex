@@ -11,15 +11,18 @@
 \subsection{Web page Construction}
 \textit{\footnote size Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
-We are going to construct a public, user friendly web site, which provides service of scientific article searching.
+We are going to construct a public, user friendly website, which can perform scientific article searching.
 To achieve this goal, we separate our responsibility into parts:\\
-\begin{itemize}
+\begin{enumerate}
 	\item Build up the web server.	
 	\item Build a web page with a search bar.
-	\item Place a list on the webpage which shows the search results.
+	\item Build a web page which can display the search results according to the degree of revelance.
 	\item Build up the APIs. The search bar should send the search string and the result list to the search system, 
-	then the system receive the results of searching. finally, display it.
-\end{itemize}
+	then the system receives the results and displays it.
+	\item Add a CSS and javascipt file to to the search and display web page, making it looks user-friendly.
+	\item Plot a diagram on the result web page which can be seen conveniently.
+	\item Add hyperlink to the search results which can help user browse the article from original publisher.
+\end{enumerate}
 This article will provide a review through the tools and methodologies we use to achieve each work.
 \subsubsection{Web Server}
 For any web page, a web server is necessary.
