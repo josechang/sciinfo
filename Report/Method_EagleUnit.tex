@@ -9,9 +9,9 @@
 % Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Web page Construction}
-\textit{\footnote size Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
+\textit{\footnotesize Author : Chinweze Ubadigha, Feng-Chun Hsia, Henry Peng, I-Chieh Lin, Jones Hou, Piyarul Hoque, Ray Chang.}\\
 
-We are going to construct a public, user friendly website, which can perform scientific article searching.
+We are going to construct a public and user-friendly website, which can perform scientific article searching.
 To achieve this goal, we separate our responsibility into parts:\\
 \begin{enumerate}
 	\item Build up the web server.	
@@ -23,20 +23,23 @@ To achieve this goal, we separate our responsibility into parts:\\
 	\item Plot a diagram on the result web page which can be seen conveniently.
 	\item Add hyperlink to the search results which can help user browse the article from original publisher.
 \end{enumerate}
-This article will provide a review through the tools and methodologies we use to achieve each work.
+This report will provide a review through the tools and methodologies we use to achieve each work.
 \subsubsection{Web Server}
 For any web page, a web server is necessary.
 There are three web server systems used in our project. 
 They play the role as web page framework, reverse proxy server, 
 and database management, respectively. 
-Consider the ease to use and the generality of Python language, we choose Django, a Python based web server works on CentOS 7, as our web page framework. A server system based on Django was then built by using PostgresSQL (database management application), 
-Nginx (traffic control and security),  
-Gunicorn (interface to translate clients requests in HTTP to python calls that Django can understand), 
-and Python WSGI HTTP Server (used to create entry sock for Django)
-thus making a robust web server.
+Consider the ease to use and the generality of Python language, we choose Django, 
+a Python based web server works on CentOS 7, as our web page framework. A server 
+system based on Django was then built by using PostgreSQL (database management application), 
+Nginx (traffic control and security), Gunicorn (interface to translate clients 
+requests in HTTP to python calls that Django can understand), and Python WSGI HTTP 
+Server (used to create entry sock for Django), thus making a robust web server.
 
 \subsubsection*{NGINX  --  \normalfont{traffic control and security}}
-Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. When compared to Apache, Nginx is light-weight and has minimal hardware requirements to deal with web traffic. It has many features as follow:
+Nginx is a high performance web server. It can act as an HTTP and reverse proxy server. 
+When compared to Apache, Nginx is light-weight and has minimal hardware requirements 
+to deal with web traffic. It has many features as follow:
 \begin{itemize}
 	\item Fastest and the best for serving static files
 	\item Increased security of server
@@ -45,7 +48,8 @@ Nginx is a high performance web server. It can act as an HTTP and reverse proxy 
 \end{itemize}
 
 \subsubsection*{Gunicorn}
-The Gunicorn "Green Unicorn" is a Python Web Server Gateway Interface (WSGI) HTTP server. It supports Django and is an interface server between Django and Nginx.
+The Gunicorn "Green Unicorn" is a Python Web Server Gateway Interface (WSGI) HTTP server. 
+It supports Django and is an interface server between Django and Nginx.
 there are many features as follow:
 \begin{itemize}
 	\item Supports many framework like WSGI, web2py, Django and Paster
@@ -55,7 +59,8 @@ there are many features as follow:
 \end{itemize}
 
 \subsubsection*{Django  --  \normalfont{web page framework}}
-Nowadays Django is one of the most well-known python web framework. There are many famous sites was built with it, such as Pinterest, Instagram, and Disqus. 
+Nowadays Django is one of the most well-known python web framework. There are many famous 
+sites was built with it, such as Pinterest, Instagram, and Disqus. 
 It has many features as follow:
 \begin{itemize}
 	\item Free and open-source web framework
@@ -67,7 +72,7 @@ It has many features as follow:
 	\item Incredibly versatile
 \end{itemize}
 
-A Djago based web page is done by four parts, which dominates the reactions 
+A Django based web page is done by four parts, which dominates the reactions 
 \& functions, outlooks, linking traffic, and the database schema, respectively. 
 The following is a brief view of them:
 \begin{itemize}
@@ -82,6 +87,7 @@ The following is a brief view of them:
 	The model file defines the schema of database and makes it easy to synchronize information.\\
 \end{itemize}
 For references about Django program see \href{https://www.youtube.com/watch?v=yfgsklK_yFo&list=PLEsfXFp6DpzQFqfCur9CJ4QnKQTVXUsRy&index=1}{Try Django 1.9}
+
 \subsubsection*{Docker}
 The idea of Docker is to provide a comprehensive abstraction
 layer that allows developers to “containerize” or “package” 
@@ -100,4 +106,5 @@ of packaging just about any application.
 
 With the basic knowledge above, we can start to build a website in Django. 
 After we build up a Django application, we will set up a PostgresSQL database to replace the original SQLite database. 
+Beside, we will also build up Docker to make the web page can be accessed by anyone instead of only the local computere.
 Then, We will use Gunicorn server to be an interface. Finally, We will make the use of Nginx as a reverse proxy to enhance security and performance of our website.
