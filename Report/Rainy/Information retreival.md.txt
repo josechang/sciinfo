@@ -628,6 +628,24 @@ References:
 https://www.elsevier.com/connect/11-steps-to-structuring-a-science-paper-editors-will-take-seriously
 
 
+How to make figures for scientific papers?
+To make engineering diagrams (with proper image scaling) by using  Asymptote. The learning curve is steep but image quality is very good. It also works with 3D and animations. 
 
+
+
+What is the best software for making and editing scientific images for publication quality figures?
+>> Tecplot(3D and animation)
+>> Little tip
+>> GraphPad 
+>> Powerpoint
+>> Grapher
+>> Smartdraw
+>> Photo/bitmap editing
+>> Matlab
+>> drawio
+
+References:
+Researchgate.net
+https://www.publishingcampus.elsevier.com
 
 
