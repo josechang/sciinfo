@@ -9,3 +9,6 @@ step2 install pyPdf:
   pip install pyPdf
 step3 run the code:
   python pdftitle_pyPDF_PDFMiner.py "file.pdf"  #file is the name of PDF
+
+######## dot_extractor.py #########
+specify the pat of the pdf folder, The program will extract the orginal source of every pdf file in that folder and return a txt file.
