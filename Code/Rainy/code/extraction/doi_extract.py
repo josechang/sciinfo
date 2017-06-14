@@ -14,4 +14,7 @@ def doi_extract(pdf_path):
     return doi
 
 path = '/Users/dickson/tmp/pdf'
-doi_extract(path)
+doi_list = []
+doi_list = doi_extract(path)
+
+print doi_list
