@@ -149,7 +149,13 @@ This README would normally document whatever steps are necessary to get your app
 	then change "9000:7000" into "<port you want>:7000"
 	e.g. "2345:7000"
 
-* Step 4: Save the file and run
+* Step 4: For the first time setting up, run the following command to build up docker in your computer
+
+		docker-compose build
+
+	Wait for a while before it finishes collecting the required packages.
+
+* Step 5: Save the file and run
 
 		docker-compose up -depends_on
 
@@ -160,4 +166,8 @@ This README would normally document whatever steps are necessary to get your app
 	instead.
 
 
-* Step 5: Check your website at "localhost:<port you set>"
+* Step 6: Check your website at "localhost:<port you set>"
+
+* Step 7: If you make some change of this project in your computer, run the following command to restart docker in your computer
+
+		sh <Django directory>/rerundocker.sh
