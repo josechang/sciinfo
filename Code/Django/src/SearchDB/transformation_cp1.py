@@ -4,7 +4,7 @@ from gensim import corpora, models, similarities
 
 # logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-def transformation():
+def transformation(DictPath, mmPath, LsiPath, filename):
 
     '''
     transform documents from one vector representation into another.
@@ -18,9 +18,9 @@ def transformation():
 
     '''
 
-    if (os.path.exists("../../tmp/deerwester.dict")):
-        dictionary = corpora.Dictionary.load('../../tmp/deerwester.dict')
-        corpus = corpora.MmCorpus('../../tmp/deerwester.mm')
+    if (os.path.exists(DictPath + filename + '.dict')):
+        dictionary = corpora.Dictionary.load(DictPath + filename + '.dict')
+        corpus = corpora.MmCorpus(mmPath + filename + '.mm')
         print("Used files generated from vecter_space_convert.py")
     else:
         print("Please generate data set")
@@ -32,4 +32,4 @@ def transformation():
     lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2) # initialize an LSI transformation
     corpus_lsi = lsi[corpus_tfidf] # create a double wrapper over the original corpus: bow->tfidf->fold-in-lsi
 
-    lsi.save('../../tmp/model.lsi') # same for tfidf, lda, ...
+    lsi.save(LsiPath + 'model.lsi') # same for tfidf, lda, ...

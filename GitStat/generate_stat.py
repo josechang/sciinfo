@@ -109,7 +109,9 @@ def remove_last(arr):
 	return arr
 
 def getdata(cmd):
-	p = subprocess.Popen(cmd[0], stdout=subprocess.PIPE, shell=True)
+	y = cmd[0].decode('string_escape')
+	y = y.replace("\\", "\\\\")
+	p = subprocess.Popen(y, stdout=subprocess.PIPE, shell=True)
 	processes = [p]
 	for x in cmd[1:]:
 		p = subprocess.Popen(x, stdin=p.stdout, stdout=subprocess.PIPE, shell=True)
@@ -257,11 +259,11 @@ def match_participants():
 	create_participant(2016, 'Yu-Sin Lin', [['kurumalin <pallacanestro159@gmail.com>']])
 	create_participant(2016, 'Elison Liu', [['Liucempc <liucempc@hotmail.com>'], ['Elison Liu <liucempc@hotmail.com>']])
 	create_participant(2017, 'Lewis Hsu', [['Huan-wei Hsu <qqps4487@gmail.com>']])
-	create_participant(2017, 'Dickson Lee', [['ds lee <dickson.lee@nordlinglab.org>'], ['Dickson Lee <dickson.lee@nordlinglab.org>']])
+	create_participant(2017, 'Dickson Lee', [['ds lee <dickson.lee@nordlinglab.org>'], ['Dickson Lee <dickson.lee@nordlinglab.org>'], ['dickson lee <dickson.lee@nordlinglab.org>']])
 	create_participant(2017, 'Rain Wu', [['Rain Wu <Rain.Wu@nordlinglab.org>']])
 	create_participant(2017, 'Sareddy Reddy', [['sareddy17 <sareddy.kullaireddy3173@gmail.com>'], ['sareddy kullai reddy <sareddy.kullaireddy3173@gmail.com>']])
 	create_participant(2017, 'Paul Lin', [['linpohsien <a4839500@gmail.com>']])
-	create_participant(2017, 'Van Tam Ngo', [['Tamnv14 <ngovantam.haui@gmail.com>']])
+	create_participant(2017, 'Van Tam Ngo', [['Tamnv14 <ngovantam.haui@gmail.com>'], ['me813_Tam-PC\\me813_Tam <ngovantam.haui@gmail.com>']])
 
 	print_Participants(participant_list)	
 	print_Authors(author_list)
@@ -324,6 +326,7 @@ def create_html():
 	script_dir = os.path.dirname(__file__)
 	relative_path = "html/index.html"
 	absolute_path = os.path.join(script_dir, relative_path)
+	recent_semester = max([participant.semester for participant in participant_list])
 	with open(absolute_path, "w") as f:
 		format = '%Y-%m-%d %H:%M:%S'
 		f.write('<!DOCTYPE html>\n')
@@ -341,7 +344,8 @@ def create_html():
 		f.write('    $(document).ready(function() {\n')
 		f.write('      $(\'#statistic\').tablesorter();\n')
 		f.write('      $(\'#score\').tablesorter();\n')
-		f.write('      $(\'td:contains("2015")\').parent().children().css(\'background-color\', \'rgb(216, 218, 220)\');\n')
+		f.write('      $(\'td:contains("2015")\').parent().children().css(\'background-color\', \'rgb(175, 175, 175)\');\n')
+		f.write('      $(\'td:contains("%d")\').parent().children().css(\'background-color\', \'rgb(200, 200, 200)\');\n'%(recent_semester))
 		f.write('      }\n')
 		f.write('    );\n')
 		f.write('    </script>\n')
@@ -383,7 +387,7 @@ def create_html():
 			f.write('            <td>%d</td>\n'%(sum(participant.lines_deleted)))
 			f.write('            <td>%d</td>\n'%(sum(participant.words_inserted)))
 			f.write('            <td>%d</td>\n'%(sum(participant.words_deleted)))
-			f.write('            <td>%d</td>\n'%(participant.git_score))
+			f.write('            <td>%.2f</td>\n'%(participant.git_score))
 			f.write('          </tr>\n')
 
 		f.write('        </tbody>\n')
