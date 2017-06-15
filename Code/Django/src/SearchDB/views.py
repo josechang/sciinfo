@@ -22,17 +22,19 @@ from pyPdf import PdfFileWriter, PdfFileReader
 from vector_space_convert_cp1 import file_read, vector_space_convert
 from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
+from title_extraction_cp1 import title_extractor
 
 # Define path and filename for gensim
+PDF_PATH = getattr(settings, 'PDF_PATH', os.path.join(settings.BASE_DIR, 'Article_pdf/'))
 TXT_PATH = getattr(settings, 'TXT_PATH', os.path.join(settings.BASE_DIR, 'Article_txt/'))
 TMP_PATH = getattr(settings, 'TMP_PATH', os.path.join(settings.BASE_DIR, 'tmp/'))
 tmpName = 'deerwester'
 
 # Create your views here.
 def get_text(request):
-
     # if the search bar gets query, redirect to the result page, using GET method
     if 'search' in request.GET:
+
         # Access the database to do searching
         article_all = Article.objects.all()
         vector = SearchVector('content', weight='A')
@@ -74,11 +76,16 @@ def refreshDatabase(request):
         # Dict
         vector_space_convert(TXT_PATH, TMP_PATH, TMP_PATH, tmpName)
         transformation(TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
+        
         # SQL
         diff_filename = [i for i in local_filename if i not in sql_filename]
-        for i in diff_filename:
-            f = open(TXT_PATH + i, 'r')
-            Article.objects.create(filename=i, content=f.read())
-            f.close()
+        for fname in diff_filename:
+            # Load txt file, for content
+            f = open(TXT_PATH + fname, 'r')
 
+            # Load pdf file, for title
+            pdf_filename = fname.replace(".txt", ".pdf")
+            t = title_extractor(PDF_PATH, pdf_filename)
+            Article.objects.create(filename=fname, content=f.read(), title=t)
+            f.close()
     return redirect('/sciinfo/')
