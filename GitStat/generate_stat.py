@@ -4,6 +4,7 @@
 git_dir = ""
 author_list = []
 participant_list = []
+additional = " -- . ':(exclude)*.ilg' ':(exclude)*.ind' ':(exclude)*.ist' ':(exclude)*.lof' ':(exclude)*.log' ':(exclude)*.lot' ':(exclude)*.maf' ':(exclude)*.mtc' ':(exclude)*.mtc1' ':(exclude)*.out' ':(exclude)*.synctex.gz' ':(exclude)*.toc' ':(exclude)*.aux' ':(exclude)*.gz' ':(exclude)*.bbl' ':(exclude)*.blg'"
 
 import subprocess
 import datetime
@@ -136,16 +137,16 @@ def updaterep():
 
 def get_lines_data():
 	for i in range(len(author_list)):
-                cmd=["git --git-dir=%s log --numstat --author='%s'"%(git_dir, author_list[i].author[0]), \
+                cmd=["git --git-dir=%s log --numstat --author='%s'%s"%(git_dir, author_list[i].author[0], additional), \
 			'grep "^[0-9]"', "awk '{inserted+=$1;deleted+=$2} END {print inserted,deleted}'"]
                 (ins, dlt)=getdata(cmd)[0].split(" ")
 		author_list[i].add_lines(int(ins), int(dlt))
 
 def get_words_data():
 	for i in range(len(author_list)):
-                cmd1 = ["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(git_dir, author_list[i].author[0]), \
+                cmd1 = ["git --git-dir=%s log -p --word-diff=porcelain --author='%s'%s"%(git_dir, author_list[i].author[0], additional), \
 			'grep "^+[^+]"', "awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
-                cmd2 = ["git --git-dir=%s log -p --word-diff=porcelain --author='%s'"%(git_dir, author_list[i].author[0]), \
+                cmd2 = ["git --git-dir=%s log -p --word-diff=porcelain --author='%s'%s"%(git_dir, author_list[i].author[0], additional), \
 			'grep "^-[^-]"', "awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
 		author_list[i].add_words(int(getdata(cmd1)[0]), int(getdata(cmd2)[0]))
 
@@ -170,7 +171,7 @@ def get_authors():
 def remove_fake_commits():
 	count = 0
 	threshold = 3000
-	cmd1 = ["git --git-dir=%s log --all"%(git_dir), "grep '^commit '"]		
+	cmd1 = ["git --git-dir=%s log --all%s"%(git_dir, additional), "grep '^commit '"]		
 	f = getdata(cmd1)
 	for i, c in enumerate(f):
                 c = c.replace("\r","")
@@ -191,12 +192,12 @@ def remove_fake_commits():
 
 	print("Checking fake commits...")
 	for commit in f:
-		cmd_author = ["git --git-dir=%s log %s -n 1"%(git_dir, commit), "grep 'Author:'"]
-                cmd_del_word = ["git --git-dir=%s log -p --word-diff=porcelain %s -n 1"%(git_dir, commit), \
+		cmd_author = ["git --git-dir=%s log %s -n 1%s"%(git_dir, commit, additional), "grep 'Author:'"]
+                cmd_del_word = ["git --git-dir=%s log -p --word-diff=porcelain %s -n 1%s"%(git_dir, commit, additional), \
                         'grep "^-[^-]"', "awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
-                cmd_ins_word = ["git --git-dir=%s log -p --word-diff=porcelain %s -n 1"%(git_dir,commit), \
+                cmd_ins_word = ["git --git-dir=%s log -p --word-diff=porcelain %s -n 1%s"%(git_dir,commit, additional), \
                         'grep "^+[^+]"', "awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
-                cmd_line = ["git --git-dir=%s log --numstat %s -n 1"%(git_dir, commit), \
+                cmd_line = ["git --git-dir=%s log --numstat %s -n 1%s"%(git_dir, commit, additional), \
                         'grep "^[0-9]"', "awk '{inserted+=$1;deleted+=$2} END {print inserted,deleted}'"]
 		ins_word = int(getdata(cmd_ins_word)[0])
 		del_word = int(getdata(cmd_del_word)[0])
@@ -392,7 +393,10 @@ def create_html():
 
 		f.write('        </tbody>\n')
 		f.write('      </table>\n')
-		f.write('      <p id="total">Total authors: %d </p>\n'%(len(participant_list)))
+		if len(author_list) == 0:
+			f.write('      <p id="total">&#10004; Total authors: %d </p>\n'%(len(participant_list)))
+		else:
+			f.write('      <p id="total">&#10006; Total authors: %d </p>\n'%(len(participant_list)))
 		f.write('    </div>\n')
 		f.write('\n')
 		f.write('    <div class="container" id="score_div">\n')
