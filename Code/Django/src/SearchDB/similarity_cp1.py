@@ -30,11 +30,11 @@ def similarity_compare(query, txt, DictPath, mmPath, indexPath, filename):
     sims_enu = sorted(sims_enu, key=lambda item: -item[1]) # calculate sorted similarity
     # print(list(enumerate(sims)))
     #print(sims) # print sorted (document number, similarity score) 2-tuples
-    
-    # THRESHOLD 
+
+    # THRESHOLD
     sims_thres_adjust = []
     for element in sims_enu:
         if element[1] > 0.5:
-            sims_thres_adjust.append(element) 
-
+            sims_thres_adjust.append(round(element,2))
+    print sims_thres_adjust
     return sims_thres_adjust
