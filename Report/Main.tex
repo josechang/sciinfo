@@ -62,7 +62,7 @@ pdfkeywords = {Information retrieval, Metadata}}
 		Feng-Chun Hsia, Henry Peng, Hoang Tan, I-Chieh Lin, Jacky Wu, Jim Lan, \\
 		Jones Hou, Karthick Mani, Kenny Hsu, Piyarul Hoque, Rahul Aditya, Ray \\
 		Chang, Tan Phat, Wei, Yu-cheng Chen, Kenvin Lo, Dickson Lee, Rain Wu\\
-		 Sareddy Reddy, Lewis Hsu, Paul Lin, Tam-Van Ngo, Torbj�rn E. M. Nordling}  % Please add your name here in alphabetic order (except Prof. N who is last)
+		 Sareddy Reddy, Lewis Hsu, Paul Lin, Tam-Van Ngo, Torbj\"{o}rn E. M. Nordling}  % Please add your name here in alphabetic order (except Prof. N who is last)
 	\maketitle   
 	
 	\section{Introduction}
@@ -70,7 +70,7 @@ pdfkeywords = {Information retrieval, Metadata}}
 	
 	This technical report contains both general information on the state of the scientific information retrieval and processing art, and a description of the \href{https://bitbucket.org/nordron/nordron-sciinfo}{Nordron-SciInfo} software package for information retrieval and processing. 
 	This report was written by all participants of the \emph{Scientific Information Gathering and Processing for Engineering Research} course lead by Prof. Nordling at the National Cheng Kung University start from the spring semester 2016.
-	The main objectives of the course is to teach the students state of the art information retrieval and processing methods, project management, and technical writing by doing project on implementation of some methods for retrieval and processing of full text scientific articles.
+	The main objectives of the course is to teach the students state of the art information retrieval and processing methods, project management, and technical writing by doing a project on implementation of some methods for retrieval and processing of full text scientific articles.
 	The results of the student project is described in this report.
 	
 	\subsection{Aim and project structure}
@@ -78,12 +78,17 @@ pdfkeywords = {Information retrieval, Metadata}}
 
 	\todo[inline]{This section should be updated based on what you are building.}
 	
-	The final goal of this course is to construct an user friendly sientific article searching system with a critical sentence highlight function.
-	To consider the demands of user, and descibe the project goal more detailly, the following user story was defined:  
+	The final goal of this course is to construct an user friendly scientific article searching system with a critical sentence highlight function.
+	To consider the demands of user, and describe the project goal more details, the following user story was defined:
+	
+	\todo[inline]{Why do you have last years user story and not this years here: "As a researcher, I need a PDF reader where I can click on highlighted text and thereby perform a full text search in an article database and get a presentation of extracts of the most similar parts in decreasing order with the source mentioned on Harvard citation format with the title of the publication, its type and link to the publisher’s full text PDF and my library’s full text PDF, so that I rapidly can find more information about any part that interests me."}
+	
 	As A user I NEED (i) a system that include (ii) a database that (iii) has at least 10,000 articles.
 	The system also have (iv) a search engine and a webpage with (v) a search bar and (vi) can show the result as well (In another page).
-	Besides, the search results also (vii)contain the hyperlink which help the user to (viii)link to the original publisher.
+	Besides, the search results also (vii) contain the hyperlink which help the user to (viii)link to the original publisher.
 	SO THAT I can insert some keywords and have results of the search from the database, which contain 1.Title 2. Author 3. Publisher 4. Publish date 5. ISBN 6. Link to original publisher page 7. Abstract 8. Display "the most important sentence in each article based on the inserted keyword".
+	
+	\todo[inline]{The following list is hard to read in line, please make it into a list. Please only keep the parts that are relevant for the status of the web service you are building.}
 	To achieve this goal, I need:
 	(a) configuration of a web server on epsilon,
 	(b) setup of an open-source database on epsilon containing PDFs and an XML generated from each PDF,
@@ -103,6 +108,8 @@ pdfkeywords = {Information retrieval, Metadata}}
 		
 	\section{Background}
 	\label{Background}
+	
+	\todo[inline]{Please get rid of the current division of the report based on which team that did what. It should be one uniform report covering everything. You get your credit through the git score.}
 
 	\input{Background_Wolverine}
 	\input{Background_EagleUnit}
