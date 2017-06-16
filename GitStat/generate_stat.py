@@ -393,7 +393,10 @@ def create_html():
 
 		f.write('        </tbody>\n')
 		f.write('      </table>\n')
-		f.write('      <p id="total">Total authors: %d </p>\n'%(len(participant_list)))
+		if len(author_list) == 0:
+			f.write('      <p id="total">&#10004; Total authors: %d </p>\n'%(len(participant_list)))
+		else:
+			f.write('      <p id="total">&#10006; Total authors: %d </p>\n'%(len(participant_list)))
 		f.write('    </div>\n')
 		f.write('\n')
 		f.write('    <div class="container" id="score_div">\n')
