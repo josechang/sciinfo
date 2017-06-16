@@ -1,44 +1,63 @@
-Already up-to-date.
+Updating 071862f..ff93b42
+Fast-forward
+ .gitignore                                         |  19 +++++++-
+ Code/Django/src/SearchDB/similarity_cp1.py         |   8 ++--
+ .../src/SearchDB/templates/SearchDB/result.html    |   2 +-
+ Code/Django/src/SearchDB/title_extraction_cp1.py   |  48 +++++++--------------
+ Code/Django/src/SearchDB/views.py                  |  17 +++++---
+ Report/Background_EagleUnit.tex                    |   2 +-
+ Report/Background_Wolverine.tex                    |   9 ++--
+ Report/Conclusions_EagleUnit.tex                   |   3 +-
+ Report/HarvardCitation_Rcpl.tex                    |   6 ++-
+ Report/Main.tex                                    |  17 +++++---
+ Report/Method_EagleUnit.tex                        |   1 -
+ Report/Method_Wolverine.tex                        |  40 +----------------
+ Report/Rainy_Report.synctex.gz                     | Bin 4789 -> 0 bytes
+ Report/Rainy_Report.tex                            |  13 +++---
+ Report/Rainy_Sequence_diagram.png                  | Bin 0 -> 36131 bytes
+ 15 files changed, 82 insertions(+), 103 deletions(-)
+ delete mode 100644 Report/Rainy_Report.synctex.gz
+ create mode 100644 Report/Rainy_Sequence_diagram.png
 
 Updating git repository...
 
 Getting author information...
-  1  Eric Lee <crazyeric890119@gmail.com>                   	259737	21569	1704498	112429
+  1  Eric Lee <crazyeric890119@gmail.com>                   	260042	21682	1706423	112824
   2  Rahul <adi.rahul171294@gmail.com>                      	743	608	7034	5599
   3  Jacky Wu <Jacky@youande-MacBook-Pro.local>             	257	141	1109	823
   4  Wei <4A02C014@stust.edu.tw>                            	334746	5751	1497282	16484
   5  Feng Chun Hsia <tim.hsia@nordlinglab.org>              	39936	196	185109	331
   6  JSGY <ndslgood@hotmail.com>                            	3638	1046	20625	5572
   7  Kenny Hsu <tei1004@yahoo.com.tw>                       	487	276	1773	1466
-  8  Bernie Huang <bernie6430@gmail.com>                    	1787	13732	6484	66503
-  9  Huan-wei Hsu <qqps4487@gmail.com>                      	726	368	46151	966
+  8  Huan-wei Hsu <qqps4487@gmail.com>                      	768	409	46312	1120
+  9  Bernie Huang <bernie6430@gmail.com>                    	1787	13732	6484	66503
  10  TPhat <geminielf9@gmail.com>                           	633	484	7277	5634
  11  HoangTan <lopcatia@gmail.com>                          	2813	2567	22456	21569
- 12  DexterChen <owesdexter2011@gmail.com>                  	285	195	2570	1689
- 13  Jim_Lan <jb0929n@gmail.com>                            	7672	7684	50799	49723
- 14  KARTHIK <mani.karthick.181190@gmail.com>               	91	72	762	503
- 15  Rain Wu <Rain.Wu@nordlinglab.org>                      	156921	111951	531548	327537
- 16  leoc0426 <emanual0426@gmail.com>                       	1184	22541	4723	175337
- 17  ds lee <dickson.lee@nordlinglab.org>                   	203886	190995	598005	526019
+ 12  Rain Wu <Rain.Wu@nordlinglab.org>                      	157040	111959	532099	327538
+ 13  DexterChen <owesdexter2011@gmail.com>                  	285	195	2570	1689
+ 14  Jim_Lan <jb0929n@gmail.com>                            	7672	7684	50799	49723
+ 15  KARTHIK <mani.karthick.181190@gmail.com>               	91	72	762	503
+ 16  ds lee <dickson.lee@nordlinglab.org>                   	203914	191000	598116	526020
+ 17  leoc0426 <emanual0426@gmail.com>                       	1184	22541	4723	175337
  18  Piyarul Hoque <piyarulhoque1993@gmail.com>             	361	350	3763	3623
- 19  Chinweze <chinwezeubadigha@gmail.com>                  	669	289	3253	4993
- 20  Yu-Kai <ehero80425@gmail.com>                          	156	111	1769	959
- 21  l0989553696 <l0989553696@gmail.com>                    	17696	112	151948	330
- 22  tony <lopcatia@gmail.com>                              	274	123	2735	881
- 23  FengChunHsia <tim.hsia@nordlinglab.org>                	888	833	1864	1771
- 24  UCheng Chen <pt10026@gmail.com>                        	156	58	749	141
- 25  kurumalin <pallacanestro159@gmail.com>                 	1814	257	8073	609
- 26  Piyarul <piyarulhoque1993@gmail.com.com>               	55	42	870	616
- 27  linpohsien <a4839500@gmail.com>                        	223	64	772	349
- 28  Tamnv14 <ngovantam.haui@gmail.com>                     	207	38	627	55
- 29  sareddy17 <sareddy.kullaireddy3173@gmail.com>          	291	10	3395	6
- 30  chinweze <chinwezeubadigha@gmail.com>                  	147070	146520	1953022	1949362
- 31  Torbjörn Nordling <tn@nordron.com>                    	171	305	2597	3726
+ 19  sareddy17 <sareddy.kullaireddy3173@gmail.com>          	854	21	10651	13
+ 20  Chinweze <chinwezeubadigha@gmail.com>                  	669	289	3253	4993
+ 21  Yu-Kai <ehero80425@gmail.com>                          	156	111	1769	959
+ 22  l0989553696 <l0989553696@gmail.com>                    	17696	112	151948	330
+ 23  linpohsien <a4839500@gmail.com>                        	269	129	979	923
+ 24  tony <lopcatia@gmail.com>                              	274	123	2735	881
+ 25  FengChunHsia <tim.hsia@nordlinglab.org>                	888	833	1864	1771
+ 26  UCheng Chen <pt10026@gmail.com>                        	156	58	749	141
+ 27  kurumalin <pallacanestro159@gmail.com>                 	1814	257	8073	609
+ 28  Piyarul <piyarulhoque1993@gmail.com.com>               	55	42	870	616
+ 29  Tamnv14 <ngovantam.haui@gmail.com>                     	321	216	976	1736
+ 30  Torbjörn Nordling <tn@nordron.com>                    	214	359	2961	4084
+ 31  chinweze <chinwezeubadigha@gmail.com>                  	147070	146520	1953022	1949362
  32  Henry-Peng <kkvvy12@gmail.com>                         	64	37	1296	191
  33  Kevin Lo <owl3808@gmail.com>                           	212	84	1697	541
  34  unknown <geminielf9@gmail.com>                         	143	126	1080	890
  35  unknown <you@example.com>                              	118	19	665	251
- 36  me813_Tam-PC\me813_Tam <ngovantam.haui@gmail.com>      	1913	17	8583	51
+ 36  me813_Tam-PC\me813_Tam <ngovantam.haui@gmail.com>      	1916	17	8672	51
  37  Dickson Lee <dickson.lee@nordlinglab.org>              	13	4	25	1
  38  Piyarul1993 <piyarulhoque1993@gmail.com>               	33	19	231	236
  39  4A02C014 <4A02C014@stust.edu.tw>                       	3	3	4	4
@@ -175,7 +194,7 @@ Checking fake commits...
 113  748312b2c3724edda7c66d333530cb61a4c9e536  Eric Lee <crazyeric890119@gmail.com>                   	237	457	3334	4407
 114  647089b71a79b8cb9d215969cfa5d5d68d943126  Torbjörn Nordling <tn@nordron.com>                    	0	256	0	3301
 115  49e71837cf3ba735029022c216c513c06a16d0c4  Eric Lee <crazyeric890119@gmail.com>                   	54	303	217	3271
-Total fake commits: 115/1056
+Total fake commits: 115/1095
 
 >> Participants: 
   0  2015  Torbjörn Nordling  
