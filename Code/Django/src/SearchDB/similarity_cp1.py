@@ -35,6 +35,7 @@ def similarity_compare(query, txt, DictPath, mmPath, indexPath, filename):
     sims_thres_adjust = []
     for element in sims_enu:
         if element[1] > 0.5:
-            sims_thres_adjust.append(round(element,2))
-    print sims_thres_adjust
+            element[1] = round(element[1], 2)
+            sims_thres_adjust.append(element)
+            
     return sims_thres_adjust
