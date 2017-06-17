@@ -1,7 +1,14 @@
-from pyPdf import PdfFileReader
-import textract
+##############################
+#extract PDF subheading,
+#PDF to txt
+#split txt based on subheading
+##############################
 
-def dimension(arr, list):    #transfer pdf outlines into a single list
+from pyPdf import PdfFileReader
+
+
+#transfer pdf outlines into a single list
+def dimension(arr, list):
     for i in arr:
         if type(i) != type(list):
             list.append(i)
@@ -18,9 +25,13 @@ o = p.getOutlines()  #read outlines in pdf
 list = []
 dimension(o, list)
 
+#build a list of subtitle
 subheading = []
 for j in range(0,len(list)):
     sub = list[j]["/Title"]
-    subheading.append(sub) #build a list of subtitle
-article = textract.process('y.pdf', m='pdfminer') #read line
-split(article,subheading) 
+    subheading.append(sub)
+
+myfile = open("pdf_1.txt")
+part = []
+for i in myfile.readlines():
+    print o

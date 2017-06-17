@@ -1,6 +1,6 @@
 import textract
 #article1 = textract.process('file_1.pdf', method='pdfminer')
-article1 = textract.process('file_1.pdf', m='pdfminer')
+article1 = textract.process('y.pdf', m='pdfminer')
 #text2 = textract.process('file_2.pdf', m='pdfminer')
 #text3 = textract.process('file_3.pdf', m='pdfminer')
 
