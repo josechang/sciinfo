@@ -23,6 +23,7 @@ from vector_space_convert_cp1 import file_read, vector_space_convert
 from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
 from title_extraction_cp1 import title_extractor
+from doi_extract_cp1 import doi_extract
 
 # Define path and filename for gensim
 PDF_PATH = getattr(settings, 'PDF_PATH', os.path.join(settings.BASE_DIR, 'Article_pdf/'))
@@ -86,6 +87,7 @@ def refreshDatabase(request):
             # Load pdf file, for title
             pdf_filename = fname.replace(".txt", ".pdf")
             t = title_extractor(PDF_PATH, pdf_filename)
-            Article.objects.create(filename=fname, content=f.read(), title=t)
+            d = doi_extract(PDF_PATH, pdf_filename)
+            Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
     return redirect('/sciinfo/')
