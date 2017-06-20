@@ -34,13 +34,14 @@ for j in range(0,len(list)):
 #split txt file into small part
 myfile = open("pdf_1.txt")
 part = []
-line = myfile.readlines()
+line = myfile.readlines() # read txt file line by line
 c = 0
 
+# split an article into small part
 for i in range(0,len(subheading)):
     for j in line:
         try:
-            if j.find(subheading[i])>0 and len(j)-len(subheading[i])<10:
+            if j.find(subheading[i])>=0 and len(j)-len(subheading[i])<10:
                 c = 1
             if c == 1:
                 part.append(j)
@@ -50,5 +51,7 @@ for i in range(0,len(subheading)):
                     intr.write(part[i])
                 c = 0
                 part = []
+            if i+1>len(subheading):
+                print "hellow"
         except:
-            print subheading[i]
+            pass
