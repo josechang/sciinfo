@@ -31,7 +31,24 @@ for j in range(0,len(list)):
     sub = list[j]["/Title"]
     subheading.append(sub)
 
+#split txt file into small part
 myfile = open("pdf_1.txt")
 part = []
-for i in myfile.readlines():
-    print o
+line = myfile.readlines()
+c = 0
+
+for i in range(0,len(subheading)):
+    for j in line:
+        try:
+            if j.find(subheading[i])>0 and len(j)-len(subheading[i])<10:
+                c = 1
+            if c == 1:
+                part.append(j)
+            if j.find(subheading[i+1])>0 and len(j)-len(subheading[i+1])<10:
+                intr = open(subheading[i],'w')
+                for i in xrange(len(part)-1):
+                    intr.write(part[i])
+                c = 0
+                part = []
+        except:
+            print subheading[i]
