@@ -31,16 +31,15 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up git ###
 
-* Step 1: Install git on Centos.
+* Step 1: Check if Git has already been installed in CentOS computer.
+
+		git --version
+
+	If not, install Git in CentOS computer.
 
 		sudo yum install git
 		
-* Step 2: Find the URL.
-
-	Open the Browser and login to https://bitbucket.org/nordron/nordron-sciinfo/overview
-	and find the HTTPS link on the top-right of the page.
-
-* Step 3: Clone the repository.
+* Step 2: Clone the repository.
 
 	First move to the ~ directory.
 
@@ -48,13 +47,13 @@ This README would normally document whatever steps are necessary to get your app
 
 	Then clone the repository.
 
-		git clone <URL of the bitbucket>		
+		git clone https://bitbucket.org/nordron/nordron-sciinfo
 		
-* Step 4: Move into the repository.
+* Step 3: Move into the repository.
 
 		cd nordron-sciinfo
 
-* Step 5: Pull the files.
+* Step 4: Pull the files.
 
 		git pull
 		
