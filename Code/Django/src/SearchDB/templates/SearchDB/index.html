@@ -8,8 +8,7 @@
   </head>
   <body>
     <!-- Fusion Charts will render here-->
-    <div id="chart-1"></div>
+    <div id="chart-1">{{ output|safe }}</div>
     <!-- dumping JavaScript code here -->
-    {{ output|safe }}
   </body>
 </html>
