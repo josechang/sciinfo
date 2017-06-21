@@ -28,42 +28,50 @@ This README would normally document whatever steps are necessary to get your app
 * Repo owner or admin
 * Other community or team contact
 
-### Set up Yum  on CentOs7###
+### Setup Yum  on CentOs 7###
 * Step-1 (Mount the Local Media)
 
-Mount the local media like CD, DVD, USB stick or ISO image that contains CentOS 7 / RHEL 7 / SL 7 / OL 7 to your PC.
+	Mount the local media like CD, DVD, USB stick or ISO image that contains CentOS 7 / RHEL 7 / SL 7 / OL 7 to your PC.
 
 * Step-2 (Copy or Extract the Media)
 
-You need to copy the data from your physical media to your local PC where the EL distro is installed. If you have ISO images of EL based distro to root of filesystem.
+	You need to copy the data from your physical media to your local PC where the EL distro is installed. If you have ISO images of EL based distro to root of filesystem.
 		
-		 cd /
+		cd /
 
-		 mkdir localrepo
-Copy the Local Media to localrepo DIR
+		mkdir localrepo
+
+	Copy the Local Media to localrepo DIR
 
 		 cp -rv /media/* /localrepo/
 
-Extract the ISO images to the localrepo DIR
+	Extract the ISO images to the localrepo DIR
 
-Open the ISO image in Archive Manger the extract it to localrepo DIR.
+	Open the ISO image in Archive Manger the extract it to localrepo DIR.
 
 * Step-2 (Remove the Online Repository)
 
 		rm -rf /etc/yum.repos.d/*
+
 * Step-3 (Create Local Repository)
 
 		vim /etc/yum.repos.d/local.repo
-For CentOS 7
+
+	For CentOS 7
+
 		[centos7]
+
 		name=centos7
+
 		baseurl=file:///localrepo/
+
 		enabled=1
+
 		gpgcheck=0
 
 * Step-4 (Update the local Repository)
 
-If you need to add local some packages to the repo you need to add to the db of local repository.
+	If you need to add local some packages to the repo you need to add to the db of local repository.
 
 		 createrepo /localrepo/
 
@@ -77,7 +85,7 @@ If you need to add local some packages to the repo you need to add to the db of 
 
 * Step-6 (Test the local repository)
 
-Install some package to test the repository
+	Install some package to test the repository
 
 
 		yum install gimp -y
@@ -160,12 +168,19 @@ Install some package to test the repository
 	
 	
 ### Install Django with Postgres, Nginx and Gunicorn in docker ###
-*pre_install
-	+ Python 2.7.13
-	+ Install the following Python packages: 
+
+* Pre_install:
+
+	Python 2.7.13
+
+	And install the following Python packages: 
+
 		pip from http://pypi.python.org/pypi/pip
+
 		distribute from http://pypi.python.org/pypi/distribute
+
 		nose from http://pypi.python.org/pypi/nose/
+
 		virtualenv from http://pypi.python.org/pypi/virtualenv
 
 
