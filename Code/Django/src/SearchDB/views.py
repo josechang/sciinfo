@@ -25,6 +25,9 @@ from similarity_cp1 import similarity_compare
 from title_extraction_cp1 import title_extractor
 from doi_extract_cp1 import doi_extract
 
+# import fushsion charts
+from fusioncharts import FusionCharts
+
 # Define path and filename for gensim
 PDF_PATH = getattr(settings, 'PDF_PATH', os.path.join(settings.BASE_DIR, 'Article_pdf/'))
 TXT_PATH = getattr(settings, 'TXT_PATH', os.path.join(settings.BASE_DIR, 'Article_txt/'))
@@ -91,3 +94,30 @@ def refreshDatabase(request):
             Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
     return redirect('/sciinfo/')
+
+# Loading Data from a Static JSON String
+# It is a example to show a Column 2D chart where data is passed as JSON string format.
+# The `chart` method is defined to load chart data from an JSON string.
+
+def chart(request):
+# Create an object for the column2d chart using the FusionCharts class constructor
+    column2d = FusionCharts("column2d", "ex1" , "600", "400", "chart-1", "json",
+    # The data is passed as a string in the `dataSource` as parameter.
+    """{
+        "chart":{
+        "caption":"Harry\'s SuperMart",
+        "subCaption":"Top 5 stores in last month by revenue",
+        "numberPrefix":"$",
+        "theme":"ocean"
+        },
+        "data":[
+        {"label":"Bakersfield Central", "value":"880000"},
+        {"label":"Garden Groove harbour", "value":"730000"},
+        {"label":"Los Angeles Topanga", "value":"590000"},
+        {"label":"Compton-Rancho Dom", "value":"520000"},
+        {"label":"Daly City Serramonte", "value":"330000"}
+        ]
+        }""")
+
+        # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
+    return render(request, 'fusioncharts-html-template.html', {'output' : column2d.render()})
