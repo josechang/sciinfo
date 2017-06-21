@@ -105,19 +105,19 @@ def chart(request):
     # The data is passed as a string in the `dataSource` as parameter.
     """{
         "chart":{
-        "caption":"Harry\'s SuperMart",
-        "subCaption":"Top 5 stores in last month by revenue",
-        "numberPrefix":"$",
-        "theme":"ocean"
+            "caption":"Harry\'s SuperMart",
+            "subCaption":"Top 5 stores in last month by revenue",
+            "numberPrefix":"$",
+            "theme":"ocean"
         },
         "data":[
-        {"label":"Bakersfield Central", "value":"880000"},
-        {"label":"Garden Groove harbour", "value":"730000"},
-        {"label":"Los Angeles Topanga", "value":"590000"},
-        {"label":"Compton-Rancho Dom", "value":"520000"},
-        {"label":"Daly City Serramonte", "value":"330000"}
-        ]
+            {"label":"Bakersfield Central", "value":"880000"},
+            {"label":"Garden Groove harbour", "value":"730000"},
+            {"label":"Los Angeles Topanga", "value":"590000"},
+            {"label":"Compton-Rancho Dom", "value":"520000"},
+            {"label":"Daly City Serramonte", "value":"330000"}
+            ]
         }""")
 
         # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
-    return render(request, 'fusioncharts-html-template.html', {'output' : column2d.render()})
+    return render(request, 'index.html', {'output' : column2d.render()})
