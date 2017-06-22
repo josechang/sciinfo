@@ -120,4 +120,4 @@ def chart(request):
         }""")
 
         # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
-    return render(request, 'index.html', {'output' : column2d.render()})
+    return render(request, 'SearchDB/index.html', {'output' : column2d.render()})
