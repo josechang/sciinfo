@@ -28,25 +28,26 @@ This README would normally document whatever steps are necessary to get your app
 * Repo owner or admin
 * Other community or team contact
 
-### Set up Yum  on CentOs7###
+### Setup Yum  on CentOs 7###
 * Step-1 (Mount the Local Media)
 
-Mount the local media like CD, DVD, USB stick or ISO image that contains CentOS 7 / RHEL 7 / SL 7 / OL 7 to your PC.
+	Mount the local media like CD, DVD, USB stick or ISO image that contains CentOS 7 / RHEL 7 / SL 7 / OL 7 to your PC.
 
 * Step-2 (Copy or Extract the Media)
 
-You need to copy the data from your physical media to your local PC where the EL distro is installed. If you have ISO images of EL based distro to root of filesystem.
+	You need to copy the data from your physical media to your local PC where the EL distro is installed. If you have ISO images of EL based distro to root of filesystem.
 		
-cd /
+		cd /
 
-mkdir localrepo
-Copy the Local Media to localrepo DIR
+		mkdir localrepo
+
+	Copy the Local Media to localrepo DIR
 
 		 cp -rv /media/* /localrepo/
 
-Extract the ISO images to the localrepo DIR
+	Extract the ISO images to the localrepo DIR
 
-Open the ISO image in Archive Manger the extract it to localrepo DIR.
+	Open the ISO image in Archive Manger the extract it to localrepo DIR.
 
 * Step-2 (Remove the Online Repository)
 
@@ -81,6 +82,9 @@ Install some package to test the repository
 
 
 		yum install gimp -y
+
+
+
 
 ### Set up git ###
 
@@ -223,5 +227,6 @@ Install some package to test the repository
 * Step 6: Check your website at "localhost:<port you set>"
 
 * Step 7: If you make some change of this project in your computer, run the following command to restart docker in your computer
+
 
 		sh <Django directory>/rerundocker.sh
