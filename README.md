@@ -169,9 +169,9 @@ This README would normally document whatever steps are necessary to get your app
 	
 ### Install Django with Postgres, Nginx and Gunicorn in docker ###
 
-*Pre_install
+* Pre_install:
 
-	 Python 2.7.13
+	Python 2.7.13
 
 	Install the following Python packages: 
 
@@ -241,6 +241,7 @@ This README would normally document whatever steps are necessary to get your app
 * Step 6: Check your website at "localhost:<port you set>"
 
 * Step 7: If you make some change of this project in your computer, run the following command to restart docker in your computer
+
 
 
 		sh <Django directory>/rerundocker.sh
