@@ -290,6 +290,8 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 10: If you make some change of this project in your computer, run the following command to restart docker in your computer
 
+		sh <Django directory>/rerundocker.sh
+
 ###  Copy files/folders between a container and the local filesystem ###
 
 * Step 1: Get container name or short container id:
@@ -306,4 +308,4 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Setup Dynamic DNS ###
 
-	For instructions please see [video](https://www.youtube.com/watch?v=eWGmE23rXPw)
+	For instructions please see video: (https://www.youtube.com/watch?v=eWGmE23rXPw)
