@@ -187,7 +187,7 @@ This README would normally document whatever steps are necessary to get your app
 * Step 1: Install docker engine
 		yum -y update
 
-		sudo yyum -y install docker docker-registry
+		sudo yum -y install docker docker-registry
 
 	Let’s begin using Docker! Download the centos Docker image:
 		
