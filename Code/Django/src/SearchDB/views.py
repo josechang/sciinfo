@@ -37,13 +37,13 @@ tmpName = 'deerwester'
 # Create your views here.
 def get_text(request):
     # if the search bar gets query, redirect to the result page, using GET method
-    if 'search' in request.GET:
+    if 'q' in request.GET:
 
         # Access the database to do searching
         article_all = Article.objects.all()
         vector = SearchVector('content', weight='A')
-        query = SearchQuery(str(request.GET['search']))
-        uq = request.GET['search']
+        query = SearchQuery(str(request.GET['q']))
+        uq = request.GET['q']
 
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
