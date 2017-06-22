@@ -37,13 +37,13 @@ tmpName = 'deerwester'
 # Create your views here.
 def get_text(request):
     # if the search bar gets query, redirect to the result page, using GET method
-    if 'q' in request.GET:
+    if 'search' in request.GET:
 
         # Access the database to do searching
         article_all = Article.objects.all()
         vector = SearchVector('content', weight='A')
-        query = SearchQuery(str(request.GET['q']))
-        uq = request.GET['q']
+        query = SearchQuery(str(request.GET['search']))
+        uq = request.GET['search']
 
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
@@ -95,6 +95,8 @@ def refreshDatabase(request):
             f.close()
     return redirect('/sciinfo/')
 
+
+'''
 # Loading Data from a Static JSON String
 # It is a example to show a Column 2D chart where data is passed as JSON string format.
 # The `chart` method is defined to load chart data from an JSON string.
@@ -120,4 +122,62 @@ def chart(request):
         }""")
 
         # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
-    return render(request, 'SearchDB/index.html', {'output' : column2d.render()})
+    return render(request, 'index.html', {'output' : column2d.render()})
+'''
+
+
+# The `chart` function is defined to load data from a Python Dictionary. This data will be converted to
+# JSON and the chart will be rendered in the browser.
+
+def chart(request):
+    
+    dataSource = {}
+    
+    # Chart data is passed to the `dataSource` parameter, as hashes, in the form of
+    # key-value pairs.
+    dataSource['chart'] = { 
+        "caption": "Similarity score between search query and the articles in the database",
+        "subCaption": "Distribution of similarity scores",
+        "xAxisname": "percentage (%)",
+        "yAxisName": "no. of articles",
+        "numberPrefix": "$",
+        "theme": "zune"
+        }
+
+    # The `category` dict is defined inside the `categories` array with four key-value pairs
+    # that represent the x-axis labels for the four quarters.
+    dataSource["categories"] = [{
+                "category": [
+                    { "label": "90-100" },
+                    { "label": "80-90" },
+                    { "label": "70-80" },
+                    { "label": "60-70" },
+                    { "label": "50-60" }
+                ]
+            }]
+    
+    # The `data` hash contains four key-value pairs that are the values for the revenue
+    # generated in the previous year.
+
+        dataSource["dataset"] = [{
+                "seriesname": "Previous Year",
+                "data": [
+                        { "value": "10000" },
+                        { "value": "11500" },
+                        { "value": "12500" },
+                        { "value": "15000" }
+                    ]
+                }, {
+                "seriesname": "Current Year",
+                "data": [
+                        { "value": "25400" },
+                        { "value": "29800" },
+                        { "value": "21800" },
+                        { "value": "26800" }
+                    ]
+                }    
+            ]
+
+    # Create an object for the Multiseries column 2D charts using the FusionCharts class constructor
+    mscol2D = FusionCharts("mscolumn2d", "ex1" , "600", "400", "chart-1", "json", dataSource)
+    return render(request, 'index.html', {'output': mscol2D.render()})
