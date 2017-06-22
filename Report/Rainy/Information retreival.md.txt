@@ -518,16 +518,7 @@ In chunking we saw how we could interrogate a tagged corpus to extract phrases m
 ...     tree = cp.parse(sent)
 ...     for subtree in tree.subtrees():
 ...         if subtree.label() == 'CHUNK': print(subtree)
-...
-(CHUNK combined/VBN to/TO achieve/VB)
-(CHUNK continue/VB to/TO place/VB)
-(CHUNK serve/VB to/TO protect/VB)
-(CHUNK wanted/VBD to/TO wait/VB)
-(CHUNK allowed/VBN to/TO place/VB)
-(CHUNK expected/VBN to/TO become/VB)
-...
-(CHUNK seems/VBZ to/TO overtake/VB)
-(CHUNK want/VB to/TO buy/VB)
+
 
 Chinking:
 Sometimes it is easier to define what we want to exclude from a chunk. We can define a chink to be a sequence of tokens that is not included in a chunk. In the following example, barked/VBD at/IN is a chink:
