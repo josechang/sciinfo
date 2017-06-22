@@ -37,9 +37,9 @@ Mount the local media like CD, DVD, USB stick or ISO image that contains CentOS 
 
 You need to copy the data from your physical media to your local PC where the EL distro is installed. If you have ISO images of EL based distro to root of filesystem.
 		
-		 cd /
+cd /
 
-		 mkdir localrepo
+mkdir localrepo
 Copy the Local Media to localrepo DIR
 
 		 cp -rv /media/* /localrepo/
