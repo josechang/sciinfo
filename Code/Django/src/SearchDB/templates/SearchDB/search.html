@@ -9,6 +9,11 @@
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title> Welcome </title>
+		<style>
+			body{
+				padding: 50px;
+			}
+		</style>
 	</head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -33,13 +38,15 @@
     </nav>
 
     <div class="container">
-    <form action="" method="get">
-			<h3><a href="http://goo.gl/qCtsD" target="_blank">Nordling</a> Search Bar<p>Try typing <i>something</i> and press enter.</p></h3>
-
-			
-			    <input id="search" type="search" name="search" />
-			    <p></p>
-	</form>    	
+	    <div class="col-1g-12 text-center">
+	    	<h3><a href="http://goo.gl/qCtsD" target="_blank">Nordling</a> Search Bar
+	    	<p>Try typing <i>something</i> and click Search.</p></h3>
+	    </div>
+	    <form action="" method="get">
+	    	<textarea id="q" rows="5" class="form-control" name="q"></textarea>
+	    	<br>
+	    	<button type="submit" class="btn btn-default">Search</button>
+		</form>    	
     </div>
 	
 
