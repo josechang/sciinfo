@@ -514,21 +514,7 @@ Pattern	           }DT JJ NN{	   	           }JJ{	                          }NN{
 Output	    a/DT little/JJ dog/NN	 [a/DT] little/JJ [dog/NN]	  [a/DT little/JJ] dog/NN
 
 we put the entire sentence into a single chunk, then excise the chinks.
-	
-  grammar = r"""
-     NP:
-        {<.*>+}          # Chunk everything
-        }<VBD|IN>+{      # Chink sequences of VBD and IN
-     """
-  sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"),
-          ("dog", "NN"), ("barked", "VBD"), ("at", "IN"),  ("the", "DT"), ("cat", "NN")]
-  cp = nltk.RegexpParser(grammar
-  >>> print(cp.parse(sentence))
- (S
-   (NP the/DT little/JJ yellow/JJ dog/NN)
-   barked/VBD
-   at/IN
-   (NP the/DT cat/NN))
+
 
 Summary:
 
