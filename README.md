@@ -173,7 +173,7 @@ This README would normally document whatever steps are necessary to get your app
 
 	Python 2.7.13
 
-	Install the following Python packages: 
+	And install the following Python packages: 
 
 		pip from http://pypi.python.org/pypi/pip
 
@@ -241,7 +241,6 @@ This README would normally document whatever steps are necessary to get your app
 * Step 6: Check your website at "localhost:<port you set>"
 
 * Step 7: If you make some change of this project in your computer, run the following command to restart docker in your computer
-
 
 
 		sh <Django directory>/rerundocker.sh
