@@ -363,6 +363,36 @@ The goal of this chapter is to answer the following questions:
 
 Along the way, we'll apply techniques from the last two chapters to the problems of chunking and named-entity recognition.
 
+Extracting Text from PDF, MSWord, and Other Binary Formats:
+
+ASCII text and HTML text are human-readable formats. Text often comes in binary formats—such as PDF and MSWord—that can only be opened using specialized software.
+Third-party libraries such as pypdf and pywin32 provide access to these formats.
+Extracting text from multicolumn documents is particularly challenging. 
+For one-off conversion of a few documents, it is simpler to open the document with a suitable application, then save it as text to your local drive, and access it as described below. 
+If the document is already on the Web, you can enter its URL in Google’s search box.
+The search result often includes a link to an HTML version of the document, which you can save as text.
+
+Text Wrapping:
+When the output of our program is text-like, instead of tabular, it will usually be necessary
+to wrap it so that it can be displayed conveniently. Consider the following output,
+which overflows its line, and which uses a complicated print statement:
+>>> saying = ['After', 'all', 'is', 'said', 'and', 'done', ',', 'more', 'is', 'said', 'than', 'done', '.']
+>>> for word in saying:  print word, '(' + str(len(word)) + '),',
+After (5), all (3), is (2), said (4), and (3), done (4), , (1), more (4), is (2), said (4),
+
+We can take care of line wrapping with the help of Python’s textwrap module. For
+maximum clarity we will separate each step onto its own line:
+>>> from textwrap import fill
+>>> format = '%s (%d),'
+>>> pieces = [format % (word, len(word)) for word in saying]
+>>> output = ' '.join(pieces)
+>>> wrapped = fill(output)
+>>> print wrapped
+After (5), all (3), is (2), said (4), and (3), done (4), , (1), more
+(4), is (2), said (4), than (4), done (4), . (1),
+Notice that there is a linebreak between more and its following number. If we wanted to avoid this, we could redefine the formatting string so that it contained no spaces
+(e.g., '%s_(%d),'), then instead of printing the value of wrapped, we could print wrapped.replace('_', ' ').
+
 Information Extraction
 Information comes in many shapes and sizes. One important form is structured data, where there is a regular and predictable organization of entities and relationships. 
 For example, we might be interested in the relation between companies and locations. Given a particular company, we would like to be able to identify the locations where it does business; conversely, given a location, we would like to discover which companies do business in that location. 
