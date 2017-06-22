@@ -52,19 +52,26 @@ This README would normally document whatever steps are necessary to get your app
 * Step-2 (Remove the Online Repository)
 
 		rm -rf /etc/yum.repos.d/*
+
 * Step-3 (Create Local Repository)
 
 		vim /etc/yum.repos.d/local.repo
-For CentOS 7
+
+	For CentOS 7
+
 		[centos7]
+
 		name=centos7
+
 		baseurl=file:///localrepo/
+
 		enabled=1
+
 		gpgcheck=0
 
 * Step-4 (Update the local Repository)
 
-If you need to add local some packages to the repo you need to add to the db of local repository.
+	If you need to add local some packages to the repo you need to add to the db of local repository.
 
 		 createrepo /localrepo/
 
