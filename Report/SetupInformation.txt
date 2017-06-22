@@ -171,6 +171,12 @@ This README would normally document whatever steps are necessary to get your app
 
 * Pre_install:
 
+	Enable the EPEL repository so that we can get the components we need
+
+		sudo yum install epel-release
+
+		
+
 	Python 2.7.13
 
 	And install the following Python packages: 
@@ -183,11 +189,53 @@ This README would normally document whatever steps are necessary to get your app
 
 		virtualenv from http://pypi.python.org/pypi/virtualenv
 
+* Step 1: Install Django
 
-* Step 1: Install docker engine
+		sudo yum update
+		sudo pip install django
+
+* Step 2: Install PostgreSQL
+	
+	To install from the CentOS repositories, simply run:
+
+		sudo yum update
+		sudo yum install postgresql-server postgresql-contrib
+
+	Initialize your Postgres database and start PostgreSQL:
+
+		sudo postgresql-setup initdb
+		sudo systemctl start postgresql
+
+* Step 3: Install Nginx on CentOS
+
+	Add Nginx Repository
+		
+		sudo yum install epel-release
+	
+	Install Nginx
+
+		sudo yum install nginx
+
+	Start Nginx
+
+		sudo systemctl start nginx
+
+	Enable Nginx to start when your system boots
+
+		sudo systemctl enable nginx
+
+		
+* Step 4: Install Docker Engine
+	
+	Check if Docker has already been installed
+
+		docker info
+
+	if not install docker engine
+
 		yum -y update
 
-		sudo yyum -y install docker docker-registry
+		sudo yum -y install docker docker-registry
 
 	Let’s begin using Docker! Download the centos Docker image:
 		
@@ -199,9 +247,9 @@ This README would normally document whatever steps are necessary to get your app
 
 
 
-* Step 2: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Code/Django/) and the files within from nordron-sciinfo to your own account
+* Step 5: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Code/Django/) and the files within from nordron-sciinfo to your own account
 
-* Step 3: Configure the port with
+* Step 6: Configure the port with
 
 		vim <Django directory>/docker-compose.yml
 		
@@ -221,13 +269,13 @@ This README would normally document whatever steps are necessary to get your app
 	then change "9000:7000" into "<port you want>:7000"
 	e.g. "2345:7000"
 
-* Step 4: For the first time setting up, run the following command to build up docker in your computer
+* Step 7: For the first time setting up, run the following command to build up docker in your computer
 
 		docker-compose build
 
 	Wait for a while before it finishes collecting the required packages.
 
-* Step 5: Save the file and run
+* Step 8: Save the file and run
 
 		docker-compose up -depends_on
 
@@ -238,6 +286,6 @@ This README would normally document whatever steps are necessary to get your app
 	instead.
 
 
-* Step 6: Check your website at "localhost:<port you set>"
+* Step 9: Check your website at "localhost:<port you set>"
 
-* Step 7: If you make some change of this project in your computer, run the following command to restart docker in your computer
+* Step 10: If you make some change of this project in your computer, run the following command to restart docker in your computer
