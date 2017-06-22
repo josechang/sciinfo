@@ -377,7 +377,7 @@ to wrap it so that it can be displayed conveniently. Consider the following outp
 which overflows its line, and which uses a complicated print statement:
 >>> saying = ['After', 'all', 'is', 'said', 'and', 'done', ',', 'more', 'is', 'said', 'than', 'done', '.']
 >>> for word in saying:  print word, '(' + str(len(word)) + '),',
-After (5), all (3), is (2), said (4), and (3), done (4), , (1), more (4), is (2), said (4),
+
 
 We can take care of line wrapping with the help of Python’s textwrap module. 
 For  maximum clarity we will separate each step onto its own line:
