@@ -168,12 +168,19 @@ This README would normally document whatever steps are necessary to get your app
 	
 	
 ### Install Django with Postgres, Nginx and Gunicorn in docker ###
-*pre_install
-	+ Python 2.7.13
-	+ Install the following Python packages: 
+
+*Pre_install
+
+	 Python 2.7.13
+
+	Install the following Python packages: 
+
 		pip from http://pypi.python.org/pypi/pip
+
 		distribute from http://pypi.python.org/pypi/distribute
+
 		nose from http://pypi.python.org/pypi/nose/
+
 		virtualenv from http://pypi.python.org/pypi/virtualenv
 
 
