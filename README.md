@@ -85,7 +85,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step-6 (Test the local repository)
 
-Install some package to test the repository
+	Install some package to test the repository
 
 
 		yum install gimp -y
