@@ -102,11 +102,6 @@ This README would normally document whatever steps are necessary to get your app
 	If not, install Git in CentOS computer.
 
 		sudo yum install git
-
-	Set Up Git
-		
-		git config --global user.name "Your Name"
-		git config --global user.email "you@example.com"
 	
 	To confirm that these configurations were added successfully
 		
@@ -230,6 +225,10 @@ This README would normally document whatever steps are necessary to get your app
 		yum -y update
 
 		sudo yum -y install docker docker-registry
+
+	Install docker-compose
+
+		pip install docker-compose
 
 	Let’s begin using Docker! Download the centos Docker image:
 		
