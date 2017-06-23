@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, get_object_or_404, render_to_response, redirect
-from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, render_to_response, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.conf import settings
 #import article model
@@ -50,7 +50,7 @@ def get_text(request):
         resultlist = []
         for i in range(0,len(sims)):
             result = Article.objects.get(filename = sims[i][0])
-            resultlist.append([result.filename, sims[i][1]])
+            resultlist.append([str(result.filename), sims[i][1]])
             
         # return uq, resultlist to result.html
         return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist})
@@ -93,7 +93,7 @@ def refreshDatabase(request):
             d = doi_extract(PDF_PATH, pdf_filename)
             Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
-    return redirect('/sciinfo/')
+    return redirect('/')
 
 
 '''
