@@ -181,13 +181,7 @@ This README would normally document whatever steps are necessary to get your app
 
 	And install the following Python packages: 
 
-		pip from http://pypi.python.org/pypi/pip
-
-		distribute from http://pypi.python.org/pypi/distribute
-
-		nose from http://pypi.python.org/pypi/nose/
-
-		virtualenv from http://pypi.python.org/pypi/virtualenv
+		sudo yum install python-pip
 
 * Step 1: Install Django
 
