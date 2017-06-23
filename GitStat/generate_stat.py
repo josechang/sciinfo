@@ -231,7 +231,6 @@ def create_participant(semester, participant_name, author_name):
 	# participant.print_info()
 
 def match_participants():
-	# Not matched: ['Liucempc'], ['Elison Liu']
 	create_participant(2015, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling <tn@nordron.com>'], ['Torbj\xc3\xb6rn Nordling <tn@kth.se>']])
 	create_participant(2016, 'Jacky Wu', [['Jacky Wu <Jacky@youande-MacBook-Pro.local>'], ['Yu-An Wu <jackywugogo@gmail.com>']])
 	create_participant(2016, 'Eric Lee', [['Eric Lee <crazyeric890119@gmail.com>']])
@@ -264,7 +263,7 @@ def match_participants():
 	create_participant(2017, 'Rain Wu', [['Rain Wu <Rain.Wu@nordlinglab.org>']])
 	create_participant(2017, 'Sareddy Reddy', [['sareddy17 <sareddy.kullaireddy3173@gmail.com>'], ['sareddy kullai reddy <sareddy.kullaireddy3173@gmail.com>']])
 	create_participant(2017, 'Paul Lin', [['linpohsien <a4839500@gmail.com>']])
-	create_participant(2017, 'Van Tam Ngo', [['Tamnv14 <ngovantam.haui@gmail.com>'], ['me813_Tam-PC\\me813_Tam <ngovantam.haui@gmail.com>']])
+	create_participant(2017, 'Van Tam Ngo', [['Tamnv14 <ngovantam.haui@gmail.com>'], ['me813_Tam-PC\\me813_Tam <ngovantam.haui@gmail.com>'], ['van tam ngo <ngovantam.haui@gmail.com>']])
 
 	print_Participants(participant_list)	
 	print_Authors(author_list)
@@ -279,6 +278,7 @@ def score_func(arr, val):
 
 def generate_git_score():
 	index = 0
+	highest_score = 1 # The index of the highest score to use
 	wt = [0.3, 0.2, 0.15, 0.2, 0.15]
 	prof = []
 	commits = []
@@ -297,13 +297,29 @@ def generate_git_score():
 			lines_deleted.append(score_func(participant.lines_deleted, prof[2]))
 			words_inserted.append(score_func(participant.words_inserted, prof[3]))
 			words_deleted.append(score_func(participant.words_deleted, prof[4]))
-	maximum = [max(commits), max(lines_inserted), max(lines_deleted), max(words_inserted), max(words_deleted)]
+	sorted_list = [sorted(commits, reverse=True), sorted(lines_inserted, reverse=True), sorted(lines_deleted, reverse=True), sorted(words_inserted, reverse=True), sorted(words_deleted, reverse=True)]
+	maximum = [i[highest_score] for i in sorted_list]
 	for i in range(len(participant_list)-1):
-		commits[i] = 70+30*(commits[i]/float(maximum[0]))
-		lines_inserted[i] = 70+30*(lines_inserted[i]/float(maximum[1]))
-		lines_deleted[i] = 70+30*(lines_deleted[i]/float(maximum[2]))
-		words_inserted[i] = 70+30*(words_inserted[i]/float(maximum[3]))
-		words_deleted[i] = 70+30*(words_deleted[i]/float(maximum[4]))
+		if commits[i] <= maximum[0]:
+			commits[i] = 70+30*(commits[i]/float(maximum[0]))
+		else:
+			commits[i] = 100
+		if lines_inserted[i] <= maximum[1]:
+			lines_inserted[i] = 70+30*(lines_inserted[i]/float(maximum[1]))
+                else:
+                        lines_inserted[i] = 100
+		if lines_deleted[i] <= maximum[2]:
+			lines_deleted[i] = 70+30*(lines_deleted[i]/float(maximum[2]))
+                else:
+			lines_deleted[i] = 100
+		if words_inserted[i] <= maximum[3]:
+			words_inserted[i] = 70+30*(words_inserted[i]/float(maximum[3]))
+                else:
+			words_inserted[i] = 100
+		if words_deleted[i] <= maximum[4]:
+			words_deleted[i] = 70+30*(words_deleted[i]/float(maximum[4]))
+                else:
+			words_deleted[i] = 100
 	for participant in participant_list:
                 if not participant.participant == 'Torbj\xc3\xb6rn Nordling':
 			participant.set_git_score(commits[index]*wt[0]+lines_inserted[index]*wt[1]+lines_deleted[index]*wt[2]+ \
