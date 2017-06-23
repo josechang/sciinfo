@@ -1,17 +1,47 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+# Copyright 2017 Nordron AB
+# Authors: Wei-Yu Lee, Yu-Sin Lin, Torbjorn Nordling
+# Email: weiyu.lee@gmail.com, tn@nordron.com
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Initialize the variables
 git_dir = ""
 author_list = []
 participant_list = []
+
+# The extension to exclude from git log with the format of ... ':(exclude)*.xxx'
 additional = " -- . ':(exclude)*.ilg' ':(exclude)*.ind' ':(exclude)*.ist' ':(exclude)*.lof' ':(exclude)*.log' ':(exclude)*.lot' ':(exclude)*.maf' ':(exclude)*.mtc' ':(exclude)*.mtc1' ':(exclude)*.out' ':(exclude)*.synctex.gz' ':(exclude)*.toc' ':(exclude)*.aux' ':(exclude)*.gz' ':(exclude)*.bbl' ':(exclude)*.blg'"
 
+# Threshold for the words in invalid commits
+threshold = 3000
+
+# The index of the highest score to use, use 0 for the maximum
+highest_score = 1 
+
+# The weighting of [commits, lines_inserted, lines_deleted, words_inserted, words_deleted]
+wt = [0.3, 0.2, 0.15, 0.2, 0.15]
+
+# Import packages
 import subprocess
 import datetime
 import sys
 import math
 import os
 
+# Setup the structure of participant
 class Participant:
 	def __init__(self):
 		self.participant = []
@@ -92,23 +122,27 @@ class Participant:
 		print("Words deleted:\t%s"%(str(self.words_deleted)))
 		print("")
 
+# Print out current participants
 def print_Participants(arr):
 	print(">> Participants: ")
 	for i in range(len(arr)):
 			print("%3d  %d  %-20s"%(i, arr[i].semester, arr[i].participant))
 	print("")
 
+# Print out the authors which is not assigned to the participants in git log
 def print_Authors(arr):
 	print(">> Authors Remain: ")
 	for i in range(len(arr)):
                         print("%3d  %-50s\t%s"%(i, str(arr[i].author), str(arr[i].commits)))
         print("")
 
+# Remove the last item in a list
 def remove_last(arr):
 	length = len(arr)
 	arr = arr[:length-1]
 	return arr
 
+# Get data from cmd command
 def getdata(cmd):
 	y = cmd[0].decode('string_escape')
 	y = y.replace("\\", "\\\\")
@@ -122,6 +156,7 @@ def getdata(cmd):
 	output = p.communicate()[0]
 	return  remove_last(output.split("\n"))
 
+# Get git repository
 def getgitrep():
 	if len(sys.argv) < 2:
 		return False
@@ -129,12 +164,14 @@ def getgitrep():
 	git_dir = sys.argv[1]
 	return True
 
+# Pull the latest version in git
 def updaterep():
 	print("\nUpdating git repository...")
 	p = subprocess.Popen("git --git-dir=%s pull origin"%(git_dir), shell=True)
 	p.wait()
 	print("")
 
+# Get the information about the lines inserted and deleted
 def get_lines_data():
 	for i in range(len(author_list)):
                 cmd=["git --git-dir=%s log --numstat --author='%s'%s"%(git_dir, author_list[i].author[0], additional), \
@@ -142,6 +179,7 @@ def get_lines_data():
                 (ins, dlt)=getdata(cmd)[0].split(" ")
 		author_list[i].add_lines(int(ins), int(dlt))
 
+# Get the information about the words inserted and deleted
 def get_words_data():
 	for i in range(len(author_list)):
                 cmd1 = ["git --git-dir=%s log -p --word-diff=porcelain --author='%s'%s"%(git_dir, author_list[i].author[0], additional), \
@@ -150,6 +188,7 @@ def get_words_data():
 			'grep "^-[^-]"', "awk '{count+= NF}END{if(count==NULL){print 0}else{print count}}'"]
 		author_list[i].add_words(int(getdata(cmd1)[0]), int(getdata(cmd2)[0]))
 
+# Get the authors in git history
 def get_authors():
 	count = 0
 	cmd = ["git --git-dir=%s shortlog -sne HEAD"%(git_dir), "/usr/bin/awk 'BEGIN{FS=\"\t\"}{print $2,$1}'"]
@@ -168,9 +207,9 @@ def get_authors():
 		print("%3d  %-55s\t%d\t%d\t%d\t%d"%(count, str(x.author[0]), x.lines_inserted[0], x.lines_deleted[0], x.words_inserted[0], x.words_deleted[0]))
 	print("")
 
+# Remove fake and invalid commits
 def remove_fake_commits():
 	count = 0
-	threshold = 3000
 	cmd1 = ["git --git-dir=%s log --all%s"%(git_dir, additional), "grep '^commit '"]		
 	f = getdata(cmd1)
 	for i, c in enumerate(f):
@@ -218,6 +257,7 @@ def remove_fake_commits():
 	                        print("%3d  %s  %-55s\t%d\t%d\t%d\t%d"%(count, str(commit), str(aut), int(y), int(z), ins_word, del_word))
 	print("Total fake commits: %d/%d\n"%(count, len(f)))
 
+# Create participants
 def create_participant(semester, participant_name, author_name):
 	participant = Participant()
 	participant.set_participant(participant_name)
@@ -230,6 +270,7 @@ def create_participant(semester, participant_name, author_name):
 	participant_list.append(participant)
 	# participant.print_info()
 
+# Match participants to authors with the form of create_participant(year, 'participant', [author1, author2, ...])
 def match_participants():
 	create_participant(2015, 'Torbj\xc3\xb6rn Nordling', [['Torbj\xc3\xb6rn Nordling <tn@nordron.com>'], ['Torbj\xc3\xb6rn Nordling <tn@kth.se>']])
 	create_participant(2016, 'Jacky Wu', [['Jacky Wu <Jacky@youande-MacBook-Pro.local>'], ['Yu-An Wu <jackywugogo@gmail.com>']])
@@ -268,6 +309,7 @@ def match_participants():
 	print_Participants(participant_list)	
 	print_Authors(author_list)
 
+# Calculate the score of each participant
 def score_func(arr, val):
 	arr_sum = sum(arr)
 	if arr_sum > 0:
@@ -276,10 +318,9 @@ def score_func(arr, val):
 		score = -10
 	return score
 
+# Calculate git score with git log
 def generate_git_score():
 	index = 0
-	highest_score = 1 # The index of the highest score to use
-	wt = [0.3, 0.2, 0.15, 0.2, 0.15]
 	prof = []
 	commits = []
 	lines_inserted = []
@@ -328,6 +369,7 @@ def generate_git_score():
 		else:
 			participant.set_git_score(70)
 
+# Generate the statistics
 def generate_statistics():
 	if not getgitrep():
 		print("Lack of git repository parameter!!")
@@ -338,6 +380,7 @@ def generate_statistics():
 	match_participants()
 	generate_git_score()
 
+# Create the html file
 def create_html():
 	print("Generating HTML file...")
 	script_dir = os.path.dirname(__file__)
