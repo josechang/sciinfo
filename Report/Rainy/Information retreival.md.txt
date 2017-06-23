@@ -581,8 +581,15 @@ The more often two words co-occur near each other on a web page, the higher is t
 Large text collections are statistically analyzed to get the distributional similarity. DISCO is a method that computes distributional similarity between words by using a simple context window of size ±3 words for counting co-occurrences. 
 When two words are subjected for exact similarity DISCO simply retrieves their word vectors from the indexed data, and computes the similarity according to Lin measure. 
 If the most distributionally similar word is required; DISCO returns the second order word vector for the given word. 
+
 DISCO has two main similarity measures DISCO1 and DISCO2; DISCO1 computes the first order similarity between two input words based on their collocation sets. 
 DISCO2 computes the second order similarity between two input words based on their sets of distributionally similar words.
+
+Conclusion
+The  text similarity approaches is concluded  and also discussed.
+Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. 
+Nine algorithms were explained; HAL, LSA, GLSA, ESA, CL-ESA, PMI-IR, SCO-PMI, NGD and DISCO.
+Nine algorithms were introduced; Six of them were based on semantic similarity -res, lin, jcn, lch, wup and path- while the other three were based on semantic relatedness -hso, lesk and vector-. Some of these algorithms were combined together in many researches. Finally useful similarity packages were mentioned such as SimMetrics, WordNet::Similarity and NLTK.
 
 
 References:
