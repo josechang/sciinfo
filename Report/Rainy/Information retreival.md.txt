@@ -1,20 +1,19 @@
 ﻿All information retreival  data is recorded.
 
 
-Similarity threshold
+Similarity threshold:
 The similarity threshold is a lower limit for the similarity of two data records that belong to the same cluster. 
-For example, if you set the similarity threshold to 0.25, data records with field values that are 25% similar are likely to be assigned to the same cluster.
+>>For example, if you set the similarity threshold to 0.25, data records with field values that are 25% similar are likely to be assigned to the same cluster.
 If you specify a similarity threshold of 1.0, you are insisting that, for customers to appear in the same group, their characteristics must be identical.
 You might have a large number of customer characteristic variables, or the variables might take a wide range of values.
-The right setting is somewhere in between, but where? You have to preserve a balance between the number of clusters that is acceptable and the degree of similarity.
+The right setting is somewhere in between, but where?... You have to preserve a balance between the number of clusters that is acceptable and the degree of similarity.
 There is another important factor that the Distribution-based Clustering algorithm has to consider.
 A situation might occur where you try to give the Distribution-based Clustering algorithm a similarity threshold,and you do not limit the number of clusters that it can produce.
 In this case, it will keep trying to find the minimum number of clusters that satisfy the similarity threshold, because this also maximizes the Condorcet value.
 In a different situation, you might have limited the number of clusters with the result that, after all the possible clusters are created, a record does not have a similarity above the threshold with any of them.
 In this case, the record will be assigned to the cluster with the best similarity, even if the similarity threshold is not reached.
 
-
-Distribution-based Clustering
+Distribution-based Clustering:
 Distribution-based Clustering provides fast and natural clustering of very large databases.
 It automatically determines the number of clusters to be generated.
 Typically, demographic data consists of large amounts of categorical variables. 
@@ -33,7 +32,7 @@ Distribution-based Clustering uses the statistical Condorcet criteria to manage 
 The Condorcet criteria evaluates how homogeneous each discovered cluster is (in that the records it contains are similar) and how heterogeneous the discovered clusters are among each other. 
 The iterative process of discovering clusters stops after one or more passes over the input data if there is no time remaining to do another pass or if the improvement of the clusters according to the Condorcet criteria would not justify a new pass.
 
-Similarity scale
+Similarity scale:
 The similarity between two data records sums the similarities between each pair of values of these records.
 For a categorical field, the similarity is 0 if both values are different, and 1 if they are equal.
 For a numerical field, the similarity depends on the difference between the two values compared with the similarity scale of the field. 
@@ -42,37 +41,37 @@ Other values of the similarity are calculated using a Gaussian curve passing thr
 You can choose to specify a similarity scale or not. 
 You specify the similarity scale as an absolute number. The specification is considered only for active numerical fields. If you do not specify a similarity scale, the default value (half of the standard deviation) is used.
 
-Similarity matrices
+Similarity matrices:
 For each categorical field, you can define a similarity matrix that contains user-defined similarities between two field values.
 A similarity matrix is represented as a reference to a database table containing three columns. 
 Two columns contain the field values to be compared, and the third column contains the similarity (between 0 and 1) for these field values.
 You can specify the similarity for each pair of possible values. 
 A pair of possible values can be used only once. 
-The similarity of the inverse pair is the same
+The similarity of the inverse pair is the same.
 
-Field weighting
+Field weighting:
 Field weighting gives more or less weight to certain input fields during a Clustering training run.
-For example, to identify different types of shoppers, you might not want to give too much weight to the strong correlation between the number of purchases and the total purchase amount. 
+>>For example, to identify different types of shoppers, you might not want to give too much weight to the strong correlation between the number of purchases and the total purchase amount. 
 Therefore you assign a smaller weight to the fields Number of purchases and Total purchase amount.
 The following table shows the decreased field weights for the fields Number of purchases and the Total purchase amount.
 
-Value weighting
+Value weighting:
 Value weighting deals with the fact that particular values in a field might be more common than other values in that field. 
 The coincidence of rare values in a field adds more to the overall similarity than the coincidence of frequent values.
-For example, most people do not have a Gold credit card. 
+>>For example, most people do not have a Gold credit card. 
 It is not very significant if two people do not have one, however, if they do, it is significant. 
 Therefore, the coincidence of people not having a Gold credit card adds less to their overall similarity than the coincidence of people having one.
 You can use one of the following types of value weighting:
 
-Probability weighting
+Probability weighting:
 Probability weighting assigns a weight to each value according to its probability in the input data. Rare values carry a large weight, while common values carry a small weight. This weight is used for both matching and non-matching records.
-Probability weighting uses a factor of 1/√p, where p is the probability of a value.
+Probability weighting uses a factor of 1/root of p, where p is the probability of a value.
 
-Logarithmic weighting
+Logarithmic weighting:
 Logarithmic weighting assigns a weight to each value according to the logarithm of its probability in the input data.
  Rare values carry a large weight, while common values carry a small weight. 
 This weight is used for both matching and non-matching records.
-Logarithmic weighting assigns a value of √(-log(p)) to both the agreement information content value and the disagreement information content value. 
+Logarithmic weighting assigns a value of root of (-log(p)) to both the agreement information content value and the disagreement information content value. 
 The number p is the probability of a value.
 Each type of value weighting looks at a problem from a different angle.
 Depending on the value distribution, using one type or the other might lead to very different results. 
@@ -85,14 +84,14 @@ If you compensate for value weighting, the overall importance of the weighted fi
 This is so regardless of the number of possible values. 
 Compensated weighting affects only the relative importance of coincidences within the set of possible values.
 
-Maximum number of distribution-based clusters
+Maximum number of distribution-based clusters:
 You can control the number of clusters to be created during a Clustering training run by specifying a value for the maximum number of clusters.
  Limiting the number of clusters prevents the production of many small clusters, and thus saves run time.
 By default, the Distribution-based Clustering algorithm does not create an unlimited number of clusters but sets itself a limit.
 If the mining function cannot continue to create clusters because the cluster limit is reached, this may prevent further improvement in the accuracy of the model.
 Increasing the number of clusters improves the likelihood of finding market niches.
 
-UNIFIED MODELING LANGUAGE
+UNIFIED MODELING LANGUAGE:
 Introduction to OMG UML by Dr. Jon Siegel, OMG
 Large enterprise applications-the ones that execute core business applications, and keep a company going-must be more than just a bunch of code modules. 
 They must be structured in a way that enables scalability, security, and robust execution under stressful conditions, and their structure - frequently referred to as their architecture - must be defined clearly enough that maintenance programmers can (quickly!). 
@@ -113,14 +112,14 @@ Using a model, those responsible for a software development project's success ca
 Surveys show that large software projects have a huge probability of failure - in fact, it's more likely that a large software application will fail to meet all of its requirements on time and on budget than that it will succeed. 
 If you're running one of these projects, you need to do all you can to increase the odds for success, and modeling is the only way to visualize your design and check it against requirements before your crew starts to code.
 
-YOU CAN DO OTHER USEFUL THINGS WITH UML TOO
+YOU CAN DO OTHER USEFUL THINGS WITH UML TOO:
 some tools analyze existing source code (or, some claim, object code!) and reverse-engineer it into a set of UML diagrams. 
-Another example: Some tools on the market execute UML models, typically in one of two ways: Some tools execute your model interpretively in a way that lets you confirm that it really does what you want, but without the scalability and speed that you'll need in your deployed application. 
+>>Another example: Some tools on the market execute UML models, typically in one of two ways: Some tools execute your model interpretively in a way that lets you confirm that it really does what you want, but without the scalability and speed that you'll need in your deployed application. 
 Other tools (typically designed to work only within a restricted application domain such as telecommunications or finance) generate program language code from UML, producing most of a bug-free, deployable application that runs quickly if the code generator incorporates best-practice scalable patterns for, e.g., transactional database operations or other common program tasks. 
 (OMG members are working on a specification for Executable UML now.) 
 Our final entry in this category: A number of tools on the market generate Test and Verification Suites from UML models. 
 
-MODELS VS. METHODOLOGIES
+MODELS VS. METHODOLOGIES:
 The process of gathering and analyzing an application's requirements, and incorporating them into a program design, is a complex one and the industry currently supports many methodologies that define formal procedures specifying how to go about it. 
 One characteristic of UML - in fact, the one that enables the widespread industry support that the language enjoys - is that it is methodology-independent. 
 Regardless of the methodology that you use to perform your analysis and design, you can use UML to express the results. 
@@ -139,21 +138,21 @@ It's free, of course, but it's also highly technical, terse, and very difficult 
 I'M ABOUT TO START MY FIRST UML-BASED DEVELOPMENT PROJECT. WHAT DO I NEED TO DO?
 Three things, probably (but not necessarily) in this order:
 1)Select a methodology: A methodology formally defines the process that you use to gather requirements, analyze them, and design an application that meets them in every way. 
-There are many methodologies, each differing in some way or ways from the others. 
-There are many reasons why one methodology may be better than another for your particular project: For example, some are better suited for large enterprise applications while others are built to design small embedded or safety-critical systems. 
-On another axis, some methods better support large numbers of architects and designers working on the same project, while others work better when used by one person or a small group
-OMG, as a vendor-neutral organization, does not have an opinion about any methodology.
+>>There are many methodologies, each differing in some way or ways from the others. 
+>>There are many reasons why one methodology may be better than another for your particular project: For example, some are better suited for large enterprise applications while others are built to design small embedded or safety-critical systems. 
+>>On another axis, some methods better support large numbers of architects and designers working on the same project, while others work better when used by one person or a small group
+>>OMG, as a vendor-neutral organization, does not have an opinion about any methodology.
 
 2)Select a UML Development Tool: Because most (although not all) UML-based tools implement a particular methodology, in some cases it might not be practical to pick a tool and then try to use it with a methodology that it wasn't built for. (For other tool/methodology combinations, this might not be an issue, or might be easy to work around.) 
-But, some methodologies have been implemented on multiple tools so this is not strictly a one-choice environment.
-You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
-As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. These will help you get started making your choice. 
-You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. 
-If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. 
-Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. 
-If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
-As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
-These will help you get started making your choice.
+>>But, some methodologies have been implemented on multiple tools so this is not strictly a one-choice environment.
+>>You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
+>>As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. These will help you get started making your choice. 
+>>You may find a tool so well-suited to your application or organization that you're willing to switch methodologies in order to use it. 
+>>If that's the case, go ahead - our advice to pick a methodology first is general, and may not apply to a specific project. 
+>>Another possibility: You may find a methodology that you like, which isn't implemented in a tool that fits your project size, or your budget, so you have to switch. 
+>>If either of these cases happens to you, try to pick an alternative methodology that doesn't differ too much from the one you preferred originally. 
+>>As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
+>>These will help you get started making your choice.
 
 3)Get Training: You and your staff (unless you're lucky enough to hire UML-experienced architects) will need training in UML. 
 It's best to get training that teaches how to use your chosen tool with your chosen methodology, typically provided by either the tool supplier or methodologist. 
@@ -161,7 +160,7 @@ If you decide not to go this route, check out OMG's training page for a course t
 As with methodologies, OMG doesn't have an opinion or rating of UML-based modeling tools, but we do have links to a number of lists here. 
 These will help you get started making your choice. 
 
-UML 2.0 - A MAJOR UPGRADE
+UML 2.0 - A MAJOR UPGRADE:
 The "Available" version of the UML 2.0 Superstructure specification (that is, the version that has finished its first maintenance release and been built into vendor products) has been completed, and is available to everyone for free download. 
 Three separate parts of UML 2.0 - the Infrastructure (that is, the meta-metamodel), Object Constraint Language, and Diagram Interchange - are still undergoing their first maintenance and will become Available Specifications when this completes. 
 There's a description of the current state of all four specifications, and links to all of them, here. 
@@ -178,19 +177,19 @@ OMG's Business Enterprise Integration Domain Task Force (BEI DTF) is currently w
 3)Improved relationship between Structural and Behavioral Models: As we pointed out under Nested Classifiers, UML 2.0 lets you designate that a behavior represented by (for example) a State Machine or Sequence Diagram is the behavior of a class or a component. 
 
 List of UML Diaagrams:
-Activity Diagram.
-Class Diagram.
-Communication Diagram.
-Component Diagram.
-Deployment Diagram.
-Object Diagram.
-Package Diagram.
-Sequence Diagram.
-state Diagram.
-Use Case Diagram.
+1)Activity Diagram.
+2)Class Diagram.
+3)Communication Diagram.
+4)Component Diagram.
+5)Deployment Diagram.
+6)Object Diagram.
+7)Package Diagram.
+8)Sequence Diagram.
+9)state Diagram.
+10)Use Case Diagram.
 
 
-Different styles of writing reference.
+Different styles of writing reference:
 1)Harvard style of referencing.
 2)American Psychological Association style (APA) .
 3)Vancouver style.
@@ -202,7 +201,8 @@ Harvard citation format:
 Harvard is a style of referencing, primarily used by university students, to cite information sources.
 In-text citations are used when directly quoting or paraphrasing a source.
 They are located in the body of the work and contain a fragment of the full citation.
-Parenthetical referencing also known as Harvard referencing,is a citation style in which partial citations—for example, "(Smith 2010, p. 1)"—are enclosed within parentheses and embedded in the text, either within or after a sentence.
+Parenthetical referencing also known as Harvard referencing,is a citation style in which partial citations.
+>>for example, "(Smith 2010, p. 1)"—are enclosed within parentheses and embedded in the text, either within or after a sentence.
 They are accompanied by a full, alphabetized list of citations in an end section, usually titled "references", "reference list", "works cited", or "end-text citations".
 
 There are two styles of parenthetical referencing:
@@ -213,7 +213,7 @@ Author–Date:
 In the author–date method (Harvard referencing), the in-text citation is placed in parentheses after the sentence or part thereof that the citation supports. 
 The citation includes the author's name, year of publication, and page number(s) when a specific part of the source is referred to (Smith 2008, p. 1) or (Smith 2008:1). A full citation is given in the references section: Smith, John (2008). Name of Book. Name of Publisher.
 
-How to cite[edit]
+How to cite:
 The structure of a citation under the author–date method is the author's surname, year of publication, and page number or range, in parentheses, as illustrated in the Smith example near the top of this article.
 
 1)The page number or page range is omitted if the entire work is cited. The author's surname is omitted if it appears in the text. Thus we may say: "Jones (2001) revolutionized the field of trauma surgery."
@@ -229,7 +229,7 @@ The structure of a citation under the author–date method is the author's surna
 11)Note that "[t]he 'Harvard System' is something of a misnomer, as there is no official institutional connection. It's another name for the author/date citation system, the custom of using author and date in parentheses, e.g. (Robbins 1987) to refer readers to the full bibliographic citations in appended bibliographies. Some Harvard faculty were among the first practitioners in the late 19th century, and the name stuck, particularly in England and the Commonwealth countries."[8]
 12)Also note that there is no official guide to Harvard citation style,[9] consequently variations occur across various online Harvard citation and referencing guides. For example, some universities instruct students to type a book's publication date without parentheses in the reference list
 
-Examples[edit]
+Examples:
 An example of a journal reference:
 Heilman, J. M. and West, A. G. (2015). Wikipedia and Medicine: Quantifying Readership, Editors, and the Significance of Natural Language. Journal of Medical Internet Research, 17(3), p.e62. doi:10.2196/jmir.4069.
 
@@ -254,21 +254,21 @@ In giving the city of publication, an internationally well-known city (such as L
 An example of a newspaper reference:
 Bowcott, Owen (October 18, 2005). "Protests halt online auction to shoot stag", The Guardian.
 
-Advantages[edit]
+Advantages:
 1)The principal advantage of the author–date method is that a reader familiar with a field is likely to recognize a citation without having to check in the references section. This is most useful in fields whose works are commonly known by their date of publication (for example, the sciences and social sciences in which one cites, say, "the 2005 Johns Hopkins study of brain function"), or if the author cited is notorious (for example, HIV denialist Peter Duesberg on the cause of AIDS).
 2)The use of author–date systems helps the reader easily identify sources that may be outdated.
 3)If the same source is cited more than once, even a reader unfamiliar with the author may remember the name. It quickly becomes obvious if the publication is relying heavily on a single author or single publication. When many different pages of the same work are cited, the reader does not need to flip back and forth to footnotes or endnotes full of "ibid." citations to discover this fact.
 4)With the author–date method, there is no renumbering hassle when the order of in-text citations is changed, which can be a scourge of the numbered endnotes system if house style or project style insists that citations never appear out of numerical order. (Computerized reference-management software automates this aspect of the numbered system [for example, Microsoft Word's endnote system, Wikipedia's <ref> system, LaTeX/BibTeX, or various applications marketed to professionals].)
 5)Parenthetical referencing works well in combination with substantive notes. When the note system is used for source citations, two different systems of note marking and placement are needed—in Chicago Style, for instance, "the citation notes should be numbered and appear as endnotes. The substantive notes, indicated by asterisks and other symbols, appear as footnotes" ("Chicago Manual of Style" 2003, 16.63-64). This approach can be cumbersome in any circumstances. When it is not possible to use footnotes altogether probably because of the publisher's policy, it results in two parallel series of endnotes, which can be confusing to readers. Using parenthetical referencing for sources avoids such a problem.
 
-Advantages[edit]
+Advantages:
 The principal advantage of the author–date method is that a reader familiar with a field is likely to recognize a citation without having to check in the references section. This is most useful in fields whose works are commonly known by their date of publication (for example, the sciences and social sciences in which one cites, say, "the 2005 Johns Hopkins study of brain function"), or if the author cited is notorious (for example, HIV denialist Peter Duesberg on the cause of AIDS).
 The use of author–date systems helps the reader easily identify sources that may be outdated.
 If the same source is cited more than once, even a reader unfamiliar with the author may remember the name. It quickly becomes obvious if the publication is relying heavily on a single author or single publication. When many different pages of the same work are cited, the reader does not need to flip back and forth to footnotes or endnotes full of "ibid." citations to discover this fact.
 With the author–date method, there is no renumbering hassle when the order of in-text citations is changed, which can be a scourge of the numbered endnotes system if house style or project style insists that citations never appear out of numerical order. (Computerized reference-management software automates this aspect of the numbered system [for example, Microsoft Word's endnote system, Wikipedia's <ref> system, LaTeX/BibTeX, or various applications marketed to professionals].)
 Parenthetical referencing works well in combination with substantive notes. When the note system is used for source citations, two different systems of note marking and placement are needed—in Chicago Style, for instance, "the citation notes should be numbered and appear as endnotes. The substantive notes, indicated by asterisks and other symbols, appear as footnotes" ("Chicago Manual of Style" 2003, 16.63-64). This approach can be cumbersome in any circumstances. When it is not possible to use footnotes altogether probably because of the publisher's policy, it results in two parallel series of endnotes, which can be confusing to readers. Using parenthetical referencing for sources avoids such a problem
 
-Disadvantages[edit]
+Disadvantages:
 1)The principal disadvantage of parenthetical references is they take up space in the main body of the text and are distracting to a reader, especially when many works are cited in a single place (which often occurs when reviewing a large body of previous work). Numbered footnotes or endnotes, by contrast, can be combined into a range, e.g. "[27–35]". However this disadvantage is offset by the fact that parenthetical referencing may be economical for the overall document since, for instance, "(Smith 2008: 34)" takes up a small amount of space in a paragraph, whereas the same information would require a whole line in a footnote or endnote.
 2)In many disciplines in the arts and humanities, date of publication is often not the most important piece of information about a particular work. Thus, in author–date references such as "(Dickens 2003: 10)", the date is essentially redundant or meaningless when read on the page, since works may go through numerous editions or translations long after the original publication. Compare a reference in a science discipline such as "The last survey indicated that four hundred were left in the wild (Jones et al. 2003)", where the date is meaningful. The reader of certain forms of arts and humanities scholarship may thus be better aided by the use of author–title referencing styles such as MLA: for example, "(Dickens Oliver, 10)", where meaningful information is given on the page. Historical scholarship is an exception, since, when citing a primary source, date of publication is meaningful, though in most branches of history footnotes are preferred on other grounds. Generally speaking, however, it is instructive that author–date systems such as Harvard were devised by scientists, whereas author–title systems such as MLA were devised by humanities scholars.
 3)Similarly, because works are frequently reprinted in many arts and humanities disciplines, different author–date references might refer to the same work. For example, "(Spivak 1985)", "(Spivak 1987)", and "(Spivak 1996)" might all refer to the same essay — and might be better rendered in author–title style as "(Spivak 'Subaltern')". Such ambiguities may be resolved by adding an original date of publication, for example, "(Spivak 1985/1996)", though this is cumbersome and exacerbates the principal disadvantage of parenthetical referencing, namely its distraction for the reader and unattractiveness on the page.
@@ -278,7 +278,7 @@ Disadvantages[edit]
 7)The mixing of text with frequent parentheses and long strings of numbers is typographically inelegant.
 8)Most historical journals (apart from economic and social history) use footnotes because of the need for maximum flexibility. Primary source references to archives, etc., involve long and complex information, all of which may be immediately relevant to a serious reader. An interesting example of this arose with the famous work of the anthropologists John and Jean Comaroff, Of Revelation and Revolution which treated historical events from anthropological perspective: although parenthetical references were used for scholarly sources, the authors found it necessary to use notes for the historical archive material they were also using.
 
-Author–title[edit]
+Author–title:
 In the author–title or author–page method, also referred to as MLA style, the in-text citation is placed in parentheses after the sentence or part thereof that the citation supports, and includes the author's name (a short title only is necessary when there is more than one work by the same author) and a page number where appropriate (Smith 1) or (Smith, Playing 1). (No "p." or "pp." prefaces the page numbers and main words in titles appear in capital letters, following MLA style guidelines.) A full citation is given in the references section.
 
 Cite the following information:
@@ -299,7 +299,7 @@ Vancouver style:
 5)Volume Number.
 6)Issue Number in bracket.
 7)Page Number.
-Example
+Example:
 Haas AN, Susin C, Albandar JM, et al. Azithromycin as a adjunctive treatment of aggressive periodontitis: 12-months randomized clinical trial. N Engl J Med. 2008 Aug; 35(8):696-704.
 Vancouver Style does not use the full journal name, only the commonly-used abbreviation: “New England Journal of Medicine” is cited as “N Engl J Med”.   
 
@@ -314,8 +314,8 @@ MLA citation style (modern language association)
  6)Page numbers. 
  7)Medium of publication.
 
-Example
-Matarrita-Cascante, David. "Beyond Growth: Reaching Tourism-Led Development." Annals of Tourism Research 37.4 (2010): 1141-63. Print
+Example:
+Matarrita-Cascante, David. "Beyond Growth: Reaching Tourism-Led Development." Annals of Tourism Research 37.4 (2010): 1141-63. 
 
 American Psychological Association style (APA):
  
@@ -325,7 +325,7 @@ Article title followed by full stop.
 Name of Journal in italic form
 Volume followed by a comma
 Page no.
-Example
+>>Example:
 Alibali, M. W., Phillips, K. M., & Fischer, A. D. (2009). Learning new problem-solving strategies leads to changes in problem representation. Cognitive Development, 24, 89-101.
 
 The Chicago manual of style :
@@ -335,7 +335,7 @@ The Chicago manual of style :
 4)Volume.
 5)Year of publication.
 6)Page no.
-Example
+>>Example:
 Joshua I. Weinstein, “The Market in Plato’s ” Classical Philology, 104 (2009): 440.
  
 Royal society of chemistry style:
@@ -344,13 +344,12 @@ Royal society of chemistry style:
 3)Year of publication. 
 4)Volume number.
 5)Pages no.
-
-Example:
+>>Example:
 H. Yano, K. Abe, M. Nogi, A. N. Nakagaito, J. Mater. Sci., 2010, 45, 1–33.
 
 
 
-Extracting Information from Text
+Extracting Information from Text:
 
 For any given question, it's likely that someone has written the answer down somewhere. The amount of natural language text that is available in electronic form is truly staggering, and is increasing every day. 
 However, the complexity of natural language can make it very difficult to access the information in that text. The state of the art in NLP is still a long way from being able to build general-purpose representations of meaning from unrestricted text. 
@@ -362,6 +361,36 @@ The goal of this chapter is to answer the following questions:
 3)Which corpora are appropriate for this work, and how do we use them for training and evaluating our models?
 
 Along the way, we'll apply techniques from the last two chapters to the problems of chunking and named-entity recognition.
+
+Extracting Text from PDF, MSWord, and Other Binary Formats:
+
+ASCII text and HTML text are human-readable formats. Text often comes in binary formats—such as PDF and MSWord—that can only be opened using specialized software.
+Third-party libraries such as pypdf and pywin32 provide access to these formats.
+Extracting text from multicolumn documents is particularly challenging. 
+For one-off conversion of a few documents, it is simpler to open the document with a suitable application, then save it as text to your local drive, and access it as described below. 
+If the document is already on the Web, you can enter its URL in Google’s search box.
+The search result often includes a link to an HTML version of the document, which you can save as text.
+
+Text Wrapping:
+When the output of our program is text-like, instead of tabular, it will usually be necessary
+to wrap it so that it can be displayed conveniently. Consider the following output,
+which overflows its line, and which uses a complicated print statement:
+>>> saying = ['After', 'all', 'is', 'said', 'and', 'done', ',', 'more', 'is', 'said', 'than', 'done', '.']
+>>> for word in saying:  print word, '(' + str(len(word)) + '),',
+
+
+We can take care of line wrapping with the help of Python’s textwrap module. 
+For  maximum clarity we will separate each step onto its own line:
+>>> from textwrap import fill
+>>> format = '%s (%d),'
+>>> pieces = [format % (word, len(word)) for word in saying]
+>>> output = ' '.join(pieces)
+>>> wrapped = fill(output)
+>>> print wrapped
+After (5), all (3), is (2), said (4), and (3), done (4), , (1), more
+(4), is (2), said (4), than (4), done (4), . (1),
+Notice that there is a linebreak between more and its following number. If we wanted to avoid this, we could redefine the formatting string so that it contained no spaces
+(e.g., '%s_(%d),'), then instead of printing the value of wrapped, we could print wrapped.replace('_', ' ').
 
 Information Extraction
 Information comes in many shapes and sizes. One important form is structured data, where there is a regular and predictable organization of entities and relationships. 
@@ -488,16 +517,7 @@ In chunking we saw how we could interrogate a tagged corpus to extract phrases m
 ...     tree = cp.parse(sent)
 ...     for subtree in tree.subtrees():
 ...         if subtree.label() == 'CHUNK': print(subtree)
-...
-(CHUNK combined/VBN to/TO achieve/VB)
-(CHUNK continue/VB to/TO place/VB)
-(CHUNK serve/VB to/TO protect/VB)
-(CHUNK wanted/VBD to/TO wait/VB)
-(CHUNK allowed/VBN to/TO place/VB)
-(CHUNK expected/VBN to/TO become/VB)
-...
-(CHUNK seems/VBZ to/TO overtake/VB)
-(CHUNK want/VB to/TO buy/VB)
+
 
 Chinking:
 Sometimes it is easier to define what we want to exclude from a chunk. We can define a chink to be a sequence of tokens that is not included in a chunk. In the following example, barked/VBD at/IN is a chink:
@@ -514,21 +534,7 @@ Pattern	           }DT JJ NN{	   	           }JJ{	                          }NN{
 Output	    a/DT little/JJ dog/NN	 [a/DT] little/JJ [dog/NN]	  [a/DT little/JJ] dog/NN
 
 we put the entire sentence into a single chunk, then excise the chinks.
-	
-  grammar = r"""
-     NP:
-        {<.*>+}          # Chunk everything
-        }<VBD|IN>+{      # Chink sequences of VBD and IN
-     """
-  sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"),
-          ("dog", "NN"), ("barked", "VBD"), ("at", "IN"),  ("the", "DT"), ("cat", "NN")]
-  cp = nltk.RegexpParser(grammar
-  >>> print(cp.parse(sentence))
- (S
-   (NP the/DT little/JJ yellow/JJ dog/NN)
-   barked/VBD
-   at/IN
-   (NP the/DT cat/NN))
+
 
 Summary:
 
@@ -540,6 +546,43 @@ Summary:
 >>>Chunkers can be constructed using rule-based systems, such as the RegexpParser class provided by NLTK; or using machine learning techniques, such as the ConsecutiveNPChunker presented in this chapter. In either case, part-of-speech tags are often a very important feature when searching for chunks.
 >>>Although chunkers are specialized to create relatively flat data structures, where no two chunks are allowed to overlap, they can be cascaded together to build nested structures.
 >>>Relation extraction can be performed using either rule-based systems which typically look for specific patterns in the text that connect entities and the intervening words; or using machine-learning systems which typically attempt to learn such patterns automatically from a training corpus.
+
+Text Similarity Approaches:
+Measuring the similarity between words, sentences, paragraphs and documents is an important component in various tasks such as information retrieval, document clustering, word-sense disambiguation, automatic essay scoring, short answer grading, machine translation and text summarization. 
+This survey discusses the existing works on text similarity through partitioning them into three approaches; String-based, Corpus-based and Knowledge-based similarities. 
+Furthermore, samples of combination between these similarities are presented.
+Text similarity measures play an increasingly important role in text related research and applications in tasks such as information retrieval, text classification, document clustering, topic detection, topic tracking, questions generation, question answering, essay scoring, short answer scoring, machine translation, text summarization and others. 
+Finding similarity between words is a fundamental part of text similarity which is then used as a primary stage for sentence, paragraph and document similarities. 
+Words can be similar in two ways lexically and semantically. Words are similar lexically if they have a similar character sequence. Words are similar semantically if they have the same thing, are opposite of each other, used in the same way, used in the same context and one is a type of another. 
+Lexical similarity is introduced in this survey though different String-Based algorithms, Semantic similarity is introduced through Corpus-Based and Knowledge-Based algorithms. 
+String-Based measures operate on string sequences and character composition. A string metric is a metric that measures similarity or dissimilarity (distance) between two text strings for approximate string matching or comparison. 
+Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. 
+Knowledge-Based similarity is a semantic similarity measure that determines the degree of similarity between words using information derived from semantic networks. The most popular for each type will be presented briefly.
+
+Corpus-Based Similarity:
+Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. A Corpus is a large collection of written or spoken texts that is used for language research. Figure 2 shows the Corpus-Based similarity measures.
+Hyperspace Analogue to Language (HAL) [13,14] creates a semantic space from word co-occurrences. A word-by-word matrix is formed with each matrix element is the strength of association between the word represented by the row and the word represented by the column. The user of the algorithm then has the option to drop out low entropy columns from the matrix. 
+As the text is analyzed, a focus word is placed at the beginning of a ten word window that records which neighboring words are counted as co-occurring. 
+Matrix values are accumulated by weighting the co-occurrence inversely proportional to the distance from the focus word; closer neighboring words are thought to reflect more of the focus word's semantics and so are weighted higher. HAL also records word-ordering information by treating the co-occurrence differently based on whether the neighboring word appeared before or after the focus word.
+
+Latent Semantic Analysis (LSA) is the most popular technique of Corpus-Based similarity. LSA assumes that words that are close in meaning will occur in similar pieces of text. A matrix containing word counts per paragraph (rows represent unique words and columns represent each paragraph) is constructed from a large piece of text and a mathematical technique which called singular value decomposition (SVD) is used to reduce the number of columns while preserving the similarity structure among rows. Words are then compared by taking the cosine of the angle between the two vectors formed by any two rows.
+>>Generalized Latent Semantic Analysis (GLSA)  is a framework for computing semantically motivated term and document vectors. It extends the LSA approach by focusing on term vectors instead of the dual document-term representation. GLSA requires a measure of semantic association between terms and a method of dimensionality reduction. The GLSA approach can combine any kind of similarity measure on the space of terms with any suitable method of dimensionality reduction. The traditional term document matrix is used in the last step to provide the weights in the linear combination of term vectors.
+>>Explicit Semantic Analysis (ESA) is a measure used to compute the semantic relatedness between two arbitrary texts. The Wikipedia-Based technique represents terms (or texts) as high- dimensional vectors; each vector entry presents the TF-IDF weight between the term and one Wikipedia article. 
+The semantic relatedness between two terms (or texts) is expressed by the cosine measure between the corresponding vectors.
+The cross-language explicit semantic analysis (CL-ESA)  is a multilingual generalization of ESA. CL-ESA exploits a document-aligned multilingual reference collection such as Wikipedia to represent a document as a language-independent concept vector. 
+The relatedness of two documents in different languages is assessed by the cosine similarity between the corresponding vector representations.
+>>Pointwise Mutual Information - Information Retrieval (PMI-IR)  is a method for computing the similarity between pairs of words, it uses AltaVista's Advanced Search query \ syntax to calculate probabilities.
+The more often two words co-occur near each other on a web page, the higher is their PMI-IR similarity score.
+>>Normalized Google Distance (NGD)  is a semantic similarity measure derived from the number of hits returned by the Google search engine for a given set of keywords. Keywords with the same or similar meanings in a natural language sense tend to be "close" in units of Google distance, while words with dissimilar meanings tend to be farther apart. 
+  If the two search terms x and y never occur together on the same web page, but do occur separately, the normalized Google distance between them is infinite. If both terms always occur together, their NGD is zero, or equivalent to the coefficient between x squared and y squared.
+The more often two words co-occur near each other on a web page, the higher is their PMI-IR similarity score.
+
+>>Extracting DIStributionally similar words using CO-occurrences (DISCO)  Distributional similarity between words assumes that words with similar meaning occur in similar context. 
+Large text collections are statistically analyzed to get the distributional similarity. DISCO is a method that computes distributional similarity between words by using a simple context window of size ±3 words for counting co-occurrences. 
+When two words are subjected for exact similarity DISCO simply retrieves their word vectors from the indexed data, and computes the similarity according to Lin measure. 
+If the most distributionally similar word is required; DISCO returns the second order word vector for the given word. 
+DISCO has two main similarity measures DISCO1 and DISCO2; DISCO1 computes the first order similarity between two input words based on their collocation sets. 
+DISCO2 computes the second order similarity between two input words based on their sets of distributionally similar words.
 
 
 References:

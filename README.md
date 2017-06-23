@@ -102,11 +102,6 @@ This README would normally document whatever steps are necessary to get your app
 	If not, install Git in CentOS computer.
 
 		sudo yum install git
-
-	Set Up Git
-		
-		git config --global user.name "Your Name"
-		git config --global user.email "you@example.com"
 	
 	To confirm that these configurations were added successfully
 		
@@ -181,13 +176,7 @@ This README would normally document whatever steps are necessary to get your app
 
 	And install the following Python packages: 
 
-		pip from http://pypi.python.org/pypi/pip
-
-		distribute from http://pypi.python.org/pypi/distribute
-
-		nose from http://pypi.python.org/pypi/nose/
-
-		virtualenv from http://pypi.python.org/pypi/virtualenv
+		sudo yum install python-pip
 
 * Step 1: Install Django
 
@@ -236,6 +225,10 @@ This README would normally document whatever steps are necessary to get your app
 		yum -y update
 
 		sudo yum -y install docker docker-registry
+
+	Install docker-compose
+
+		pip install docker-compose
 
 	Let’s begin using Docker! Download the centos Docker image:
 		
@@ -290,6 +283,22 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 10: If you make some change of this project in your computer, run the following command to restart docker in your computer
 
-
-
 		sh <Django directory>/rerundocker.sh
+
+###  Copy files/folders between a container and the local filesystem ###
+
+* Step 1: Get container name or short container id:
+		
+		sudo  docker ps
+
+* Step 2: Get full container id:
+
+		sudo docker inspect -f   '{{.Id}}'  SHORT_CONTAINER_ID-or-CONTAINER_NAME
+
+* Step 3: Copy file:
+		
+		$ sudo cp path-file-host /var/lib/docker/aufs/mnt/FULL_CONTAINER_ID/PATH-NEW-FILE
+
+### Setup Dynamic DNS ###
+
+	For instructions please see video: https://www.youtube.com/watch?v=eWGmE23rXPw
