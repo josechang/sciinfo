@@ -1,5 +1,6 @@
 ﻿All information retreival  data is recorded.
 
+Elements of Text similarity:
 
 Similarity threshold:
 The similarity threshold is a lower limit for the similarity of two data records that belong to the same cluster. 
@@ -92,7 +93,9 @@ If the mining function cannot continue to create clusters because the cluster li
 Increasing the number of clusters improves the likelihood of finding market niches.
 
 UNIFIED MODELING LANGUAGE:
+
 Introduction to OMG UML by Dr. Jon Siegel, OMG
+
 Large enterprise applications-the ones that execute core business applications, and keep a company going-must be more than just a bunch of code modules. 
 They must be structured in a way that enables scalability, security, and robust execution under stressful conditions, and their structure - frequently referred to as their architecture - must be defined clearly enough that maintenance programmers can (quickly!). 
 find and fix a bug that shows up long after the original authors have moved on to other projects. 
@@ -188,6 +191,7 @@ List of UML Diaagrams:
 9)state Diagram.
 10)Use Case Diagram.
 
+Refering styles:
 
 Different styles of writing reference:
 1)Harvard style of referencing.
@@ -558,6 +562,16 @@ Lexical similarity is introduced in this survey though different String-Based al
 String-Based measures operate on string sequences and character composition. A string metric is a metric that measures similarity or dissimilarity (distance) between two text strings for approximate string matching or comparison. 
 Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. 
 Knowledge-Based similarity is a semantic similarity measure that determines the degree of similarity between words using information derived from semantic networks. The most popular for each type will be presented briefly.
+
+>>Volume of text resources have been increasing in digital libraries and internet. 
+Organizing these text documents has become a practical need. 
+For organizing great number of objects into small or minimum number of coherent groups automatically, Clustering technique is used. 
+These documents are widely used for information retrieval and Natural Language processing tasks. 
+Different Clustering algorithms require a metric for quantifying how dissimilar two given documents are. 
+This difference is often measured by similarity measure such as Euclidean distance, Cosine similarity etc. The similarity measure process in text
+mining can be used to identify the suitable clustering algorithm for a specific problem. 
+This survey discusses the existing works on text similarity by partitioning them into three significant approaches; String-based, Knowledge based and Corpus-based similarities.
+
 
 Corpus-Based Similarity:
 Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. A Corpus is a large collection of written or spoken texts that is used for language research. Figure 2 shows the Corpus-Based similarity measures.
