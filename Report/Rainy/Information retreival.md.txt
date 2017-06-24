@@ -673,6 +673,24 @@ The steps of algorithm are as follows:
 (2) Get feature words of text LA and LB .
 (3) Use the formula to calculate the text similarity.
 
+Semantic Similarity between Sentences:
+Sentences are made up of words, so it is reasonable to represent a sentence using the words in the sentence. 
+The most relevant research area, to our task, is information retrieval. 
+Classical information retrieval methods use a set of a pre-determined index terms (words or collocations) that are used to represent a document in the form of document-term vector. 
+Vector similarity is then used to identify documents that are most related to the query.
+Because the index terms are pre-determined and in large numbers, this kind of strategy is inappropriate for computing sentence similarity. 
+A sentence represented using such a large number of pre-determined terms will result in a very sparse vector, i.e., the vector has a very small number of non-zero elements.
+On the other hand, some important words in a sentence may be missed because of the limits of term set. 
+Unlike classical methods our method dynamically forms the representing semantic vectors solely based on the compared sentences. 
+Recent research achievements in semantic analysis are also adapted to accomplish an efficient semantic vector for a sentence.
+
+Word Similarity:
+Given two words: w1 and w2, we need to find the semantic similarity of sw(w1, w2) for these two words. 
+In WordNet (Miller 1995) words are organised into synonym sets (synsets), with semantic and relation pointers to other synsets (arcs). 
+We can find the first class in the hierarchical semantic network that subsumes the two synsets for the compared words and take the distance in arcs traversed. 
+It is apparent that words at upper layers of the hierarchy have more general semantics and less similarity between them, 
+while words at lower layers have more concrete semantics and more similarity and so the depth of word in the hierarchy is taken into account.
+
 Applications Of Text Mining:
 >>Similarity measures in Text mining are increasing function of common features and decreasing function of dissimilar features. 
 The Similarity measures will be applied in various fields and for different purposes in Text mining domain. 
