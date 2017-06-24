@@ -496,10 +496,8 @@ Chunking with Regular Expressions  shows a simple chunk grammar consisting of tw
            {<NNP>+}                # chunk sequences of proper nouns
    """
    cp = nltk.RegexpParser(grammar)
-   sentence = [("Rapunzel", "NNP"), ("let", "VBD"), ("down", "RP"), [1]
-                    ("her", "PP$"), ("long", "JJ"), ("golden", "JJ"), ("hair", "NN")]
-
-    >>> print(cp.parse(sentence)) [2]
+   sentence = [("Rapunzel", "NNP"), ("let", "VBD"), ("down", "RP"), "her", "PP$"), ("long", "JJ"), ("golden", "JJ"), ("hair", "NN")]
+ >>> print(cp.parse(sentence))
     (S
       (NP Rapunzel/NNP)
       let/VBD
