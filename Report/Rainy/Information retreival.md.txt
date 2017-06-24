@@ -614,12 +614,19 @@ If the most distributionally similar word is required; DISCO returns the second 
 DISCO has two main similarity measures DISCO1 and DISCO2; DISCO1 computes the first order similarity between two input words based on their collocation sets. 
 DISCO2 computes the second order similarity between two input words based on their sets of distributionally similar words.
 
+Applications Of Text Mining:
+>>Similarity measures in Text mining are increasing function of common features and decreasing function of dissimilar features. 
+The Similarity measures will be applied in various fields and for different purposes in Text mining domain. 
+Unstructured text mining is an area which is gaining significant importance in adoptions for business applications. 
+Text mining is being applied to answer various business questions and to optimize day-to-day operational efficiencies and used for improving long-term strategic decisions. 
+Following are the practical real-world instances where text mining has been successfully applied.
 
 References:
 http://www.nltk.org/book
 The popularity of chunking is due in great part to pioneering work by Abney e.g., (Church, Young, & Bloothooft, 1996). Abney's Cass chunker is described in http://www.vinartus.net/spa/97a.pdf.
 The word chink initially meant a sequence of stopwords, according to a 1975 paper by Ross and Tukey (Church, Young, & Bloothooft, 1996).
-The IOB format (or sometimes BIO Format) was developed for NP chunking by (Ramshaw & Marcus, 1995), and was used for the shared NP bracketing task run by the Conference on Natural Language Learning (CoNLL) in 1999. The same format was adopted by CoNLL 2000 for annotating a section of Wall Street Journal text as part of a shared task on NP chunking.
+The IOB format (or sometimes BIO Format) was developed for NP chunking by (Ramshaw & Marcus, 1995), and was used for the shared NP bracketing task run by the Conference on Natural Language Learning (CoNLL) in 1999. 
+The same format was adopted by CoNLL 2000 for annotating a section of Wall Street Journal text as part of a shared task on NP chunking.
 
 
 11 steps to structuring a science paper editors will take seriously:
