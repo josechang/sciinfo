@@ -401,7 +401,7 @@ Information comes in many shapes and sizes. One important form is structured dat
 For example, we might be interested in the relation between companies and locations. Given a particular company, we would like to be able to identify the locations where it does business; conversely, given a location, we would like to discover which companies do business in that location. 
 If our data is in tabular form, such as the example in 1.1, then answering these queries is straightforward.
 
-Table 1.1
+Table
 Locations data
 OrgName	                LocationName
 Omnicom	                New York
@@ -431,6 +431,7 @@ This method of getting meaning from text is called Information Extraction.
 Information Extraction has many applications, including business intelligence, resume harvesting, media analysis, sentiment detection, patent search, and email scanning. A particularly important area of current research involves the attempt to extract structured data out of electronically-available scientific literature, especially in the domain of biology and medicine.
 
 Information Extraction Architecture:
+
 shows the architecture for a simple information extraction system. It begins by processing a document using several of the procedures discussed in 3 and 5.: first, the raw text of the document is split into sentences using a sentence segmenter, and each sentence is further subdivided into words using a tokenizer. 
 Next, each sentence is tagged with part-of-speech tags, which will prove very helpful in the next step, named entity detection. 
 In this step, we search for mentions of potentially interesting entities in each sentence. 
@@ -458,20 +459,20 @@ We demonstrate this approach using an example sentence that has been part-of-spe
 This rule says that an NP chunk should be formed whenever the chunker finds an optional determiner (DT) followed by any number of adjectives (JJ) and then a noun (NN). Using this grammar, we create a chunk parser [3], and test it on our example sentence [4]. The result is a tree, which we can either print [5], or display graphically [6].
 
  	
->>> sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"), [1]
+>>> sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"), 
 ... ("dog", "NN"), ("barked", "VBD"), ("at", "IN"),  ("the", "DT"), ("cat", "NN")]
 
->>> grammar = "NP: {<DT>?<JJ>*<NN>}" [2]
+>>> grammar = "NP: {<DT>?<JJ>*<NN>}" 
 
->>> cp = nltk.RegexpParser(grammar) [3]
->>> result = cp.parse(sentence) [4]
->>> print(result) [5]
+>>> cp = nltk.RegexpParser(grammar)
+>>> result = cp.parse(sentence)
+>>> print(result)
 (S
   (NP the/DT little/JJ yellow/JJ dog/NN)
   barked/VBD
   at/IN
   (NP the/DT cat/NN))
->>> result.draw() [6]
+>>> result.draw() 
 
  Tag Patterns:
  The rules that make up a chunk grammar use tag patterns to describe sequences of tagged words. A tag pattern is a sequence of part-of-speech tags delimited using angle brackets, e.g. <DT>?<JJ>*<NN>. Tag patterns are similar to regular expression patterns (3.4). Now, consider the following noun phrases from the Wall Street Journal:
@@ -537,17 +538,6 @@ Output	    a/DT little/JJ dog/NN	 [a/DT] little/JJ [dog/NN]	  [a/DT little/JJ] d
 
 we put the entire sentence into a single chunk, then excise the chinks.
 
-
-Summary:
-
->>>Information extraction systems search large bodies of unrestricted text for specific types of entities and relations, and use them to populate well-organized databases. These databases can then be used to find answers for specific questions.
->>>The typical architecture for an information extraction system begins by segmenting, tokenizing, and part-of-speech tagging the text.
->>>The resulting data is then searched for specific types of entity. Finally, the information extraction system looks at entities that are mentioned near one another in the text, and tries to determine whether specific relationships hold between those entities.
->>>Entity recognition is often performed using chunkers, which segment multi-token sequences, and label them with the appropriate entity type. 
->>>Common entity types include ORGANIZATION, PERSON, LOCATION, DATE, TIME, MONEY, and GPE (geo-political entity).
->>>Chunkers can be constructed using rule-based systems, such as the RegexpParser class provided by NLTK; or using machine learning techniques, such as the ConsecutiveNPChunker presented in this chapter. In either case, part-of-speech tags are often a very important feature when searching for chunks.
->>>Although chunkers are specialized to create relatively flat data structures, where no two chunks are allowed to overlap, they can be cascaded together to build nested structures.
->>>Relation extraction can be performed using either rule-based systems which typically look for specific patterns in the text that connect entities and the intervening words; or using machine-learning systems which typically attempt to learn such patterns automatically from a training corpus.
 
 Text Similarity Approaches:
 Measuring the similarity between words, sentences, paragraphs and documents is an important component in various tasks such as information retrieval, document clustering, word-sense disambiguation, automatic essay scoring, short answer grading, machine translation and text summarization. 
@@ -704,6 +694,17 @@ The cons of semantic analysis done in QASs are as follows:
 >>Current QASs operate at lexical and sentence level for deducing the meaning of the text. 
 To the best of our knowledge, we don’t find any work which does semantic analysis at document level.
 >>The problems observed in co-reference resolution, name entity recognition, relation extraction, parts of speech tagging etc. makes the task of performing the semantic analysis of text difficult.
+
+Summary:
+
+>>>Information extraction systems search large bodies of unrestricted text for specific types of entities and relations, and use them to populate well-organized databases. These databases can then be used to find answers for specific questions.
+>>>The typical architecture for an information extraction system begins by segmenting, tokenizing, and part-of-speech tagging the text.
+>>>The resulting data is then searched for specific types of entity. Finally, the information extraction system looks at entities that are mentioned near one another in the text, and tries to determine whether specific relationships hold between those entities.
+>>>Entity recognition is often performed using chunkers, which segment multi-token sequences, and label them with the appropriate entity type. 
+>>>Common entity types include ORGANIZATION, PERSON, LOCATION, DATE, TIME, MONEY, and GPE (geo-political entity).
+>>>Chunkers can be constructed using rule-based systems, such as the RegexpParser class provided by NLTK; or using machine learning techniques, such as the ConsecutiveNPChunker presented in this chapter. In either case, part-of-speech tags are often a very important feature when searching for chunks.
+>>>Although chunkers are specialized to create relatively flat data structures, where no two chunks are allowed to overlap, they can be cascaded together to build nested structures.
+>>>Relation extraction can be performed using either rule-based systems which typically look for specific patterns in the text that connect entities and the intervening words; or using machine-learning systems which typically attempt to learn such patterns automatically from a training corpus.
 
 CONCLUSION:
 Text Mining is a significant research area which is gaining an increasing popularity in the recent years. 
