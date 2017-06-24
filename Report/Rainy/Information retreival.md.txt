@@ -643,6 +643,36 @@ words is low. The steps of calculating word semantic distance are as follows:
 Then, we calculate the distances between central words and other words in the word library via Cosine Law.
 To improve the convenience of calculating semantic distance, we make vectors divided by their vector length.
 
+Semantic Text Similarity Computing:
+
+This paper explores the calculating of semantic text similarity via word vector, we use the word vector mentioned above to calculate the semantic text similarity. 
+The main thought of calculating text similarity is to compare the similarities of texts by calculating the semantic similarity of feature words. 
+In this paper, the whole process is divided into two parts: text pre-processing and similarity calculation.
+We should participle the texts via software of word cutting, and get word frequency of each word. 
+After that, we use feature words to represent the text, assign the evaluation parameter a . 
+The feature words can be obtained if its word frequency is bigger than  "a" .
+
+The steps of algorithm are as follows:
+(1) Get the vocabulary of texts.
+(2) Statistic the word frequency and excluding lowfrequency
+words.
+(3) Produce the feature words prepared for the calculating
+of similarity.
+
+After obtaining the feature words of texts, we use word
+vector to calculate the distance between them. Assuming the
+threshold k , get the number of words which are bigger than k .
+In the end, we use the formula to get text similarity.
+
+The formula of calculating similarity:
+
+Similarity = 2 * Length / LengthA + LengthB
+ 
+The steps of algorithm are as follows:
+(1) Load the binary vector model.
+(2) Get feature words of text LA and LB .
+(3) Use the formula to calculate the text similarity.
+
 Applications Of Text Mining:
 >>Similarity measures in Text mining are increasing function of common features and decreasing function of dissimilar features. 
 The Similarity measures will be applied in various fields and for different purposes in Text mining domain. 
