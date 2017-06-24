@@ -572,6 +572,22 @@ This difference is often measured by similarity measure such as Euclidean distan
 mining can be used to identify the suitable clustering algorithm for a specific problem. 
 This survey discusses the existing works on text similarity by partitioning them into three significant approaches; String-based, Knowledge based and Corpus-based similarities.
 
+>>Document clustering is a process that involves a computational burden in measuring the similarity between document pairs. 
+Similarity measure is the function which assigns a real number between  0 and 1 to the documents. 
+A zero value means that the documents are dissimilar completely whereas one indicates that the documents are identical practically. 
+Vector-based models have  been used for computing the similarity in document, traditionally. 
+The Different features presented in the documents are represented by vector- based models.
+Text similarity measures play an increasingly vital role in text related research and applications in several tasks such as text classification, information retrieval, topic tracking, document clustering,
+questions generation, question answering, short answer scoring, machine translation, essay scoring, text summarization, topic detection and others.
+Finding similarity between words is a necessary part of text similarity. 
+It is the primary stage for sentence and document similarities. 
+Words can be possibly similar in two ways lexically and semantically. 
+Words are lexically similar if they have a similar character sequence. 
+If the words have same theme, then they are semantically similar and if they have dissimilar theme but used in same context, then they are not related to each other. 
+String-Based algorithms are used to measure Lexical similarity; Corpus-Based and Knowledge-Based algorithms are based on Semantic similarity.
+String-Based measures operate on sequence of strings and composition of characters. 
+For measuring the similarity and dissimilarity between the text strings, String metric is used. 
+It is used for string matching or comparison but it is approximate. 
 
 Corpus-Based Similarity:
 Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. A Corpus is a large collection of written or spoken texts that is used for language research. Figure 2 shows the Corpus-Based similarity measures.
