@@ -504,13 +504,7 @@ Chunking with Regular Expressions  shows a simple chunk grammar consisting of tw
       let/VBD
       down/RP
       (NP her/PP$ long/JJ golden/JJ hair/NN))
-If a tag pattern matches at overlapping locations, the leftmost match takes precedence. For example, if we apply a rule that matches two consecutive nouns to a text containing three consecutive nouns, then only the first two nouns will be chunked:
-    >>> nouns = [("money", "NN"), ("market", "NN"), ("fund", "NN")]
-    >>> grammar = "NP: {<NN><NN>}  # Chunk two consecutive nouns"
-    >>> cp = nltk.RegexpParser(grammar)
-    >>> print(cp.parse(nouns))
-     (S (NP money/NN market/NN) fund/NN)
-Once we have created the chunk for money market, we have removed the context that would have permitted fund to be included in a chunk. This issue would have been avoided with a more permissive chunk rule, e.g.  NP: {<NN>+}.
+
 
 Exploring Text Corpora:
 In chunking we saw how we could interrogate a tagged corpus to extract phrases matching a particular sequence of part-of-speech tags. We can do the same work more easily with a chunker, as follows:
@@ -647,9 +641,8 @@ words.
 (3) Produce the feature words prepared for the calculating
 of similarity.
 
-After obtaining the feature words of texts, we use word
-vector to calculate the distance between them. Assuming the
-threshold k , get the number of words which are bigger than k .
+After obtaining the feature words of texts, we use word vector to calculate the distance between them. 
+Assuming the threshold k , get the number of words which are bigger than k .
 In the end, we use the formula to get text similarity.
 
 The formula of calculating similarity:
