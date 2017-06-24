@@ -633,6 +633,16 @@ During the process of training, the size of the learning rate has a great impact
 If its value is too small, the training rate is low. If high, it may cause oscillation or diverging. 
 The value of learning rate is set 0.025 at the beginning.
 In order to optimize learning rate, we adjust the learning rate after training 1000 words.
+
+
+Calculating Semantic Distance
+The word semantic distance is the degree of conformity words. In this paper, if its distance is long, the degree of conformity words is high; if short, the degree of conformity
+words is low. The steps of calculating word semantic distance are as follows:
+(1) Load model and get the word vector trained.
+(2) Calculate the semantic distance. We firstly get the central words and their word vectors.  
+Then, we calculate the distances between central words and other words in the word library via Cosine Law.
+To improve the convenience of calculating semantic distance, we make vectors divided by their vector length.
+
 Applications Of Text Mining:
 >>Similarity measures in Text mining are increasing function of common features and decreasing function of dissimilar features. 
 The Similarity measures will be applied in various fields and for different purposes in Text mining domain. 
