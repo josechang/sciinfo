@@ -614,6 +614,25 @@ If the most distributionally similar word is required; DISCO returns the second 
 DISCO has two main similarity measures DISCO1 and DISCO2; DISCO1 computes the first order similarity between two input words based on their collocation sets. 
 DISCO2 computes the second order similarity between two input words based on their sets of distributionally similar words.
 
+Building of Word Vector Model:
+The steps of word vector model building in this paper are as follows:
+(1) Get words form the exercise texts.
+(2) Get the word frequency, initial the word vector and then put them into the hash table.
+(3) Construct the Huffman tree, get the Huffman tree path of every word.
+(4) Remove high-frequency words, get word vectors and optimize objective function.
+(5) Count the number of trained words and update the learning rate when it is greater than 1000.
+(6) Store word vectors.
+>>To optimize word vectors, we need to calculate delta.( w) X . For easy operation, we use approximate calculation method. 
+>>The range interval [6,6] is divided into 1000 equal parts, which are called 0 1 2 1000 x , x , x ,......, x . Sigmoid Function valuesare calculated at each k x and will be stored in the memory. 
+>>We assume the sum of a word context word vectors equals x .
+>>When x<= -6 , delta (x)= 0.
+>>When x>=6, delta (x)=1.
+>>When -6 < x > 6 , delta  (x) ~ delta (Xk). We can get the value from the table directly.
+
+During the process of training, the size of the learning rate has a great impact on network convergence rate and training results. 
+If its value is too small, the training rate is low. If high, it may cause oscillation or diverging. 
+The value of learning rate is set 0.025 at the beginning.
+In order to optimize learning rate, we adjust the learning rate after training 1000 words.
 Applications Of Text Mining:
 >>Similarity measures in Text mining are increasing function of common features and decreasing function of dissimilar features. 
 The Similarity measures will be applied in various fields and for different purposes in Text mining domain. 
