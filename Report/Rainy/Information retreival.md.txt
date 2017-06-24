@@ -696,6 +696,15 @@ Unstructured text mining is an area which is gaining significant importance in a
 Text mining is being applied to answer various business questions and to optimize day-to-day operational efficiencies and used for improving long-term strategic decisions. 
 Following are the practical real-world instances where text mining has been successfully applied.
 
+The pros of semantic analysis done in QASs are as follows:
+>>Semantic analysis solves problems of finding semantic class of questions and answer types.
+>>Semantic analysis based searching provides effective searching for answers in contrast with keyword based searching.
+
+The cons of semantic analysis done in QASs are as follows:
+>>Current QASs operate at lexical and sentence level for deducing the meaning of the text. 
+To the best of our knowledge, we don’t find any work which does semantic analysis at document level.
+>>The problems observed in co-reference resolution, name entity recognition, relation extraction, parts of speech tagging etc. makes the task of performing the semantic analysis of text difficult.
+
 CONCLUSION:
 Text Mining is a significant research area which is gaining an increasing popularity in the recent years. 
 Measuring the similarity between the text documents is an important operation of text mining. 
