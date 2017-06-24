@@ -621,6 +621,17 @@ Unstructured text mining is an area which is gaining significant importance in a
 Text mining is being applied to answer various business questions and to optimize day-to-day operational efficiencies and used for improving long-term strategic decisions. 
 Following are the practical real-world instances where text mining has been successfully applied.
 
+CONCLUSION:
+Text Mining is a significant research area which is gaining an increasing popularity in the recent years. 
+Measuring the similarity between the text documents is an important operation of text mining. 
+In this survey, three text similarity approaches such as String-based, Corpus-based and Knowledge-based similarities are discussed. 
+String-Based measures are operated on character composition and string sequences. 
+Corpus-Based similarity is a semantic similarity measure which determines the similarity between words based on the information gained from large corpus. 
+A semantic similarity measures known as Knowledge-Based similarity is based on the degree of similarity between the words and concepts. 
+Some of these algorithms were combined together in many researches and they are hybrid similarity measures. 
+Useful similarity packages such as SimMetrics, WordNet Similarity and NLTK were mentioned. 
+The System architecture for an advanced text mining system and the functionalities of various components are described.
+
 References:
 http://www.nltk.org/book
 The popularity of chunking is due in great part to pioneering work by Abney e.g., (Church, Young, & Bloothooft, 1996). Abney's Cass chunker is described in http://www.vinartus.net/spa/97a.pdf.
