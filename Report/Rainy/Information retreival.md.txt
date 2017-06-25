@@ -718,6 +718,52 @@ The IOB format (or sometimes BIO Format) was developed for NP chunking by (Ramsh
 The same format was adopted by CoNLL 2000 for annotating a section of Wall Street Journal text as part of a shared task on NP chunking.
 
 
+Classification based on types of matching functions used in different retrieval models:
+
+We classify QASs based on types of matching functions used in  different retrieval models. The different categories are: 
+(1) set theoretic models, 
+(2) algebraic models, 
+(3) probability models,
+(4) feature based models, 
+(5) expected answer type analysis, and 
+(6) conceptual graph based models.
+
+Set theoretic models:
+Set theoretic models treat documents as sets of words or phrases. 
+Matching is performed on the basis of operation carried out in between sets. 
+Some of the set theoretic models are dealt in the following subsections.
+
+>>Standard Boolean model. The pros of the Boolean model in QASs are as follows:
+* Easy implementation: As Boolean operator is used in making
+a query, hence the keyword matching is easy to implement.
+The cons of Boolean model in QASs are as follows:
+* Partial matching of query with document is not done here
+i.e., Systems face inability to rank the output if there is a little
+matching in between document words and keywords of
+questions.
+* Users have to formulate Boolean expression in their questions
+which could be difficult for most users.
+* The Boolean model generally provides either too few or too
+many documents which is not desirable.
+
+Algebraic models:
+This model represents source documents and users’ questions
+as vectors, matrixes, or tuples. The matching is performed as
+a scalar value.
+* Vector space.
+* Generalized vector space model.
+* Topic based vector space model.
+* Latent semantic indexing.
+* Extended Boolean model.
+
+
+
+
+
+
+
+
+
 11 steps to structuring a science paper editors will take seriously:
 
 How to Prepare a Manuscript for International Journals?
