@@ -28,71 +28,6 @@ This README would normally document whatever steps are necessary to get your app
 * Repo owner or admin
 * Other community or team contact
 
-### Setup Yum  on CentOs 7###
-* Step-1 (Mount the Local Media)
-
-	Mount the local media like CD, DVD, USB stick or ISO image that contains CentOS 7 / RHEL 7 / SL 7 / OL 7 to your PC.
-
-* Step-2 (Copy or Extract the Media)
-
-	You need to copy the data from your physical media to your local PC where the EL distro is installed. If you have ISO images of EL based distro to root of filesystem.
-		
-		cd /
-
-		mkdir localrepo
-
-	Copy the Local Media to localrepo DIR
-
-		 cp -rv /media/* /localrepo/
-
-	Extract the ISO images to the localrepo DIR
-
-	Open the ISO image in Archive Manger the extract it to localrepo DIR.
-
-* Step-2 (Remove the Online Repository)
-
-		rm -rf /etc/yum.repos.d/*
-
-* Step-3 (Create Local Repository)
-
-		vim /etc/yum.repos.d/local.repo
-
-	For CentOS 7
-
-		[centos7]
-
-		name=centos7
-
-		baseurl=file:///localrepo/
-
-		enabled=1
-
-		gpgcheck=0
-
-* Step-4 (Update the local Repository)
-
-	If you need to add local some packages to the repo you need to add to the db of local repository.
-
-		 createrepo /localrepo/
-
-* Step-5 (Enable the Local Repository)
-
-		 yum clean all
-
-		 yum repolist all
-		
-		 yum update
-
-* Step-6 (Test the local repository)
-
-	Install some package to test the repository
-
-
-		yum install gimp -y
-
-
-
-
 ### Set up git ###
 
 * Step 1: Check if Git has already been installed in CentOS computer.
@@ -126,7 +61,10 @@ This README would normally document whatever steps are necessary to get your app
 
 		git pull
 		
-		
+### Install pip ###
+
+		sudo yum update
+		sudo yum install python-pip		
 	
 ### Convert pdfs into txts ###
 
@@ -169,52 +107,8 @@ This README would normally document whatever steps are necessary to get your app
 	Enable the EPEL repository so that we can get the components we need
 
 		sudo yum install epel-release
-
 		
-
-	Python 2.7.13
-
-	And install the following Python packages: 
-
-		sudo yum install python-pip
-
-* Step 1: Install Django
-
-		sudo yum update
-		sudo pip install django
-
-* Step 2: Install PostgreSQL
-	
-	To install from the CentOS repositories, simply run:
-
-		sudo yum update
-		sudo yum install postgresql-server postgresql-contrib
-
-	Initialize your Postgres database and start PostgreSQL:
-
-		sudo postgresql-setup initdb
-		sudo systemctl start postgresql
-
-* Step 3: Install Nginx on CentOS
-
-	Add Nginx Repository
-		
-		sudo yum install epel-release
-	
-	Install Nginx
-
-		sudo yum install nginx
-
-	Start Nginx
-
-		sudo systemctl start nginx
-
-	Enable Nginx to start when your system boots
-
-		sudo systemctl enable nginx
-
-		
-* Step 4: Install Docker Engine
+* Step 1: Install Docker Engine
 	
 	Check if Docker has already been installed
 
@@ -222,31 +116,19 @@ This README would normally document whatever steps are necessary to get your app
 
 	if not install docker engine
 
-		yum -y update
-
 		sudo yum -y install docker docker-registry
+		sudo systemctl start docker
 
-	Install docker-compose
+* Step 2: Install docker-compose
 
 		pip install docker-compose
 
-	Let’s begin using Docker! Download the centos Docker image:
-		
-		docker pull centos
 
-	Run a Docker Container
-
-		docker run -i -t centos /bin/bash
-
-
-
-* Step 5: Copy directory [Django](https://bitbucket.org/nordron/nordron-sciinfo/src/master/Code/Django/) and the files within from nordron-sciinfo to your own account
-
-* Step 6: Configure the port with
+* Step 3: Configure the port with
 
 		vim <Django directory>/docker-compose.yml
 		
-	find followin lines
+	find the following lines
 	
 		  nginx:
 			image: nginx:latest
@@ -262,13 +144,13 @@ This README would normally document whatever steps are necessary to get your app
 	then change "9000:7000" into "<port you want>:7000"
 	e.g. "2345:7000"
 
-* Step 7: For the first time setting up, run the following command to build up docker in your computer
+* Step 4: For the first time setting up, run the following command to build up docker in your computer
 
 		docker-compose build
 
 	Wait for a while before it finishes collecting the required packages.
 
-* Step 8: Save the file and run
+* Step 5: Save the file and run
 
 		docker-compose up -depends_on
 
@@ -279,9 +161,9 @@ This README would normally document whatever steps are necessary to get your app
 	instead.
 
 
-* Step 9: Check your website at "localhost:<port you set>"
+* Step 6: Check your website at "localhost:<port you set>"
 
-* Step 10: If you make some change of this project in your computer, run the following command to restart docker in your computer
+* Step 7: If you make some change of this project in your computer, run the following command to restart docker in your computer
 
 		sh <Django directory>/rerundocker.sh
 
