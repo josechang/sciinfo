@@ -94,8 +94,6 @@ Increasing the number of clusters improves the likelihood of finding market nich
 
 UNIFIED MODELING LANGUAGE:
 
-Introduction to OMG UML by Dr. Jon Siegel, OMG
-
 Large enterprise applications-the ones that execute core business applications, and keep a company going-must be more than just a bunch of code modules. 
 They must be structured in a way that enables scalability, security, and robust execution under stressful conditions, and their structure - frequently referred to as their architecture - must be defined clearly enough that maintenance programmers can (quickly!). 
 find and fix a bug that shows up long after the original authors have moved on to other projects. 
@@ -191,6 +189,8 @@ List of UML Diaagrams:
 9)state Diagram.
 10)Use Case Diagram.
 
+References:
+1) Introduction to OMG UML by Dr. Jon Siegel, OMG
 Refering styles:
 
 Different styles of writing reference:
@@ -360,9 +360,9 @@ However, the complexity of natural language can make it very difficult to access
 If we instead focus our efforts on a limited set of questions or "entity relations," such as "where are different facilities located," or "who is employed by what company," we can make significant progress.
 The goal of this chapter is to answer the following questions:
 
-1)How can we build a system that extracts structured data, such as tables, from unstructured text?
-2)What are some robust methods for identifying the entities and relationships described in a text?
-3)Which corpora are appropriate for this work, and how do we use them for training and evaluating our models?
+  1)How can we build a system that extracts structured data, such as tables, from unstructured text?
+  2)What are some robust methods for identifying the entities and relationships described in a text?
+  3)Which corpora are appropriate for this work, and how do we use them for training and evaluating our models?
 
 Along the way, we'll apply techniques from the last two chapters to the problems of chunking and named-entity recognition.
 
@@ -402,13 +402,13 @@ For example, we might be interested in the relation between companies and locati
 If our data is in tabular form, such as the example in 1.1, then answering these queries is straightforward.
 
 Table
-Locations data
-OrgName	                LocationName
-Omnicom	                New York
-DDB Needham             New York
-Kaplan Thaler Group	New York
-BBDO South	        Atlanta
-Georgia-Pacific	        Atlanta
+>>Locations data
+>>OrgName	                LocationName
+>>Omnicom	                New York
+>>DDB Needham                   New York
+>>Kaplan Thaler Group	        New York
+>>BBDO South	                Atlanta
+>>Georgia-Pacific	        Atlanta
 
 If this location data was stored in Python as a list of tuples (entity, relation, entity), then the question "Which organizations operate in Atlanta?" could be translated as follows:
 >>> locs = [('Omnicom', 'IN', 'New York'),
@@ -430,6 +430,7 @@ This method of getting meaning from text is called Information Extraction.
 
 Information Extraction has many applications, including business intelligence, resume harvesting, media analysis, sentiment detection, patent search, and email scanning. A particularly important area of current research involves the attempt to extract structured data out of electronically-available scientific literature, especially in the domain of biology and medicine.
 
+
 Information Extraction Architecture:
 
 shows the architecture for a simple information extraction system. It begins by processing a document using several of the procedures discussed in 3 and 5.: first, the raw text of the document is split into sentences using a sentence segmenter, and each sentence is further subdivided into words using a tokenizer. 
@@ -445,8 +446,7 @@ Next, in named entity detection, we segment and label the entities that might pa
 
 Finally, in relation extraction, we search for specific patterns between pairs of entities that occur near one another in the text, and use those patterns to build tuples recording the relationships between the entities.
 
- Chunking
-
+ Chunking:
 The basic technique we will use for entity detection is chunking, which segments and labels multi-token sequences as illustrated in Noun Phrase Chunking. The smaller boxes show the word-level tokenization and part-of-speech tagging, while the large boxes show higher-level chunking. Each of these larger boxes is called a chunk. Like tokenization, which omits whitespace, chunking usually selects a subset of the tokens. 
 Also like tokenization, the pieces produced by a chunker do not overlap in the source text.
  Noun Phrase Chunking:
