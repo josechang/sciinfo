@@ -102,11 +102,6 @@ This README would normally document whatever steps are necessary to get your app
 	If not, install Git in CentOS computer.
 
 		sudo yum install git
-
-	Set Up Git
-		
-		git config --global user.name "Your Name"
-		git config --global user.email "you@example.com"
 	
 	To confirm that these configurations were added successfully
 		
@@ -181,13 +176,7 @@ This README would normally document whatever steps are necessary to get your app
 
 	And install the following Python packages: 
 
-		pip from http://pypi.python.org/pypi/pip
-
-		distribute from http://pypi.python.org/pypi/distribute
-
-		nose from http://pypi.python.org/pypi/nose/
-
-		virtualenv from http://pypi.python.org/pypi/virtualenv
+		sudo yum install python-pip
 
 * Step 1: Install Django
 
@@ -236,6 +225,10 @@ This README would normally document whatever steps are necessary to get your app
 		yum -y update
 
 		sudo yum -y install docker docker-registry
+
+	Install docker-compose
+
+		pip install docker-compose
 
 	Let’s begin using Docker! Download the centos Docker image:
 		

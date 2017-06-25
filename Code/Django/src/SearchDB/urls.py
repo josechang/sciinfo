@@ -1,10 +1,11 @@
 from django.conf.urls import url
 from SearchDB.views import get_text, refreshDatabase
+from Chart import chart
 # from.import views 
 
 app_name = 'SearchDB'
 urlpatterns = [
     url(r'^$', get_text),
     url(r'^update/$', refreshDatabase),
-#    url(r'^test/$', chart, name = 'demo'),
+    url(r'^test/$', chart, name = 'demo'),
 ]

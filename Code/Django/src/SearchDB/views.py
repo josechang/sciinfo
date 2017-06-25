@@ -27,6 +27,7 @@ from doi_extract_cp1 import doi_extract
 
 # import fushsion charts
 from fusioncharts import FusionCharts
+from Chart import chart
 
 # Define path and filename for gensim
 PDF_PATH = getattr(settings, 'PDF_PATH', os.path.join(settings.BASE_DIR, 'Article_pdf/'))
@@ -53,7 +54,7 @@ def get_text(request):
             resultlist.append([str(result.filename), sims[i][1]])
             
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist}), chart(sims)
 
     else:
         return render_to_response('SearchDB/search.html')
