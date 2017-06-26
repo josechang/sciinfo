@@ -1,9 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Background
+% Year:
+% 2016、2017
 % Team:
-% Wolverine
+% Wolverine、RCPL
 % Members: 
-% Dexter Chen, Eric Chang, Eric Lee, Jacky Wu, Karthick Mani, Kenvin Lo, Yu-cheng Chen
+% Dexter Chen(Wolverine/2016), Eric Chang(Wolverine/2016), Eric Lee(Wolverine/2016), 
+% Jacky Wu(Wolverine/2016), Karthick Mani(Wolverine/2016), Kenvin Lo(Wolverine/2016), 
+% Yu-cheng Chen(Wolverine/2016), Paul Lin(RCPL/2017)
+% (Format:Name(Team/Year))
 % Relative files:
 % Main.tex, Background_Information_retrieval_on_existing_database.tex, Library.bib, Wolverine_Background_Chart_1.png
 % Note: 
@@ -11,49 +16,37 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 \subsection{Information retrieval on existing database}
-
-
-We live in the time when technology develops rapidly. Information grows in a exponential rate. $Tague, Beheshti, \& Rees-Potter, (1981)$ forecasted the further into the future we go, the fewer the additional number of first-rate publications. We are moving from an exponential growth past to a linear growth future. Thus we can't rely on the old ways to find the things we want. 
-We need new information retrieval methods to handle the big amount of data systematically.
-But most of the information retrieval methods such as search engine can't really search everything on the web. 
-$Grehan (2002)$ claimed a search engine can only search the subset of the web which it has ‘captured’ and included in its own database. Thus, we need to create a database to store these data and automatically update them.
-
-There are several online libraries currently available for us to get the academic articles or periodicals we need.
-And they can be roughly divided into three groups according to the way they store articles based on the division used by National Taiwan University Library.
+	We live in the time when technology develops rapidly. Information grows in an exponential rate. \cite{Tague1981} forecasted the further into the future we go, the fewer the additional number of first-rate publications. The information develops from linear growth to exponential growth. Thus we can't rely on the old ways to find the information we need. We need new information retrieval methods to handle the big amount of data systematically. Howeverm, most of the information retrieval methods such as search engine can not search everything on the web. 
+	\cite{Grehan2002} claimed a search engine which can only search the subset of the web it has ‘captured’ and included in its own database. Thus, we need to create a database to store these data and automatically update them.
+	There are several online libraries currently available for us to get the academic articles or periodicals we need.
+	Besides, they can be roughly divided into three groups according to the way they store articles based on the division used by National Taiwan University Library.
 
 \paragraph{Index libraries}
-
-	These kind of libraries stores the index and abstract of the articles.
-	They don't provide the full-text documents directly, but may give the linkage to the publisher websites of articles.
-	And they can be categorized by the type of articles they include.
+	These kind of libraries store the index and abstract of the articles.
+	They don't provide the full-text documents directly, but they may give the linkage to the publisher websites of articles.
+	Besides, they can be categorized by the type of articles they include.
 	
-	\begin{itemize}
-		
+	\begin{itemize}		
 		\item\textbf{Comprehensive topics}\\Libraries such as Web of Science, Scopus, Google Scholar...
-		\item\textbf{Specialized topics}\\Libraries such as Compendex, BIOSIS Previews, PubMed, MEDline...
-		
+		\item\textbf{Specialized topics}\\Libraries such as Compendex, BIOSIS Previews, PubMed, MEDline...		
 	\end{itemize}
 	
 \paragraph{Publisher libraries}
-
-	These libraries are created by the publishers themselves, so they provide the newest and complete documents directly.
-	And can also be categorize by the type of articles they include.
+	These libraries are created by the publishers themselves, so they provide the newest and complete the documents directly.
+	Besides, they can also be categorize by the type of articles they include.
 	
-	\begin{itemize}
-		
+	\begin{itemize}		
 		\item\textbf{Comprehensive topics}\\Libraries such as Science Direct, Springer Link, Wiley Online Library...
-		\item\textbf{Specialized topics}\\Libraries such as Nature.com, Emerald Management Xtra, IEEE Xplore...
-		
+		\item\textbf{Specialized topics}\\Libraries such as Nature.com, Emerald Management Xtra, IEEE Xplore...	
 	\end{itemize}
 	
 \paragraph{Aggregator libraries}
-
-	These libraries do not publish the articles by themselves, but they still sometimes provide the full-text articles to the user.
+	These libraries do not publish the articles by themselves, but they still sometimes provide the user with the full-text articles.
 	The way they do this is to negotiate with some of the publisher libraries and get the authorization of the articles.
 	Libraries such as EBSCOhost, ProQuest, JSTOR...
 
-The comparison between three kinds of library can be found on Figure \ref{WBC1}.
-On the next section we'll discuss about more details about some of the existing libraries.
+	The comparison between these libraries can be found on Figure \ref{WBC1}.
+	On the next section we will discuss about more details about some of the existing libraries.
 
 \begin{figure*}[htb]
 	\begin{center}
@@ -63,33 +56,29 @@ On the next section we'll discuss about more details about some of the existing 
 \end{figure*}
 \newpage
 
-\subsubsection{Introduction to libraries }\todo{Consider to change the title.}
+\subsubsection{Introduction to libraries }
 
 \begin{enumerate}
 	
 	\item\textbf{PubMed}
 	\setlength{\parindent}{1em}
-	 PMC (PubMed Central) is launched in 2000.
-	 PubMed citations often include links to the full-text article on the publishers' Web sites or in PMC and the Bookshelf.
+	 PMC (PubMed Central) was launched in 2000.
+	 PubMed citations often include links to the full-text article on the publishers' web sites or in PMC and the Bookshelf.
 	 PubMed is a free library which is used for searching reference papers and abstracts related to the biomedical topics.
 	 The largest subset of PubMed is MEDLINE, which is a bibliographic database containing life sciences and biomedical information.
-	 Both of them are built by National Library of Medicine.You may limit your search to MEDLINE only in PubMed.
-	 
+	 Both of them are built by National Library of Medicine. You may limit your search to MEDLINE only in PubMed.
 	 A strong feature of PubMed is its ability to link MeSH(Medical Subject Headings) terms automatically. 
 	 It is useful for people who want to find the medical articles. 
-     Simple searches on PubMed can be carried out by entering tje key words of a subject into PubMed's search window.
+     Simple searches on PubMed can be carried out by entering the key words of a subject into PubMed's search window.
      PubMed translates this initial search formulation and automatically adds field names.
-	 Like several libraries, one can find the specific result he desires by addding relevant MeSH terms, synonyms and Boolean operators.
-	 
-	 The design philosophy of PubMed is based on full-text XML files, which are readable by both the machines, humans and moreover technology independent.
-	 PubMed is classified into Index libraries, which is the prime reason that it is not able to provide full text in some papers.
-	 For the type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of 
-	 the archives such as XML, images, PDF files supplementary, etc.
+	 Like several libraries, people can find the specific result they desire by adding relevant MeSH terms, synonyms and Boolean operators.	 
+	 The design philosophy of PubMed is based on full-text XML files, which are readable by machines, humans and moreover technology independent.
+	 PubMed is classified into Index libraries, which is the prime reason that it is not able to provide full text for some papers.
+	 The type of database used by PubMed is Microsoft SQL server, which is a relational database to store all of the archives such as XML, images, and PDF files supplementary.
 	  
 		
 	\item\textbf{IEEE Xplore}
-	\setlength{\parindent}{1em}
-	
+	\setlength{\parindent}{1em}	
 	The IEEE is an acronym for Institute of Electrical and Electronics Engineers, which is one of the leading standard organizations in the world 
 	It is one of the most professional organization devoted to advancing technology for the benefit of humanity.
 	There are more than 420,000 IEEE members in over 160 countries.
