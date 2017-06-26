@@ -1,0 +1,2 @@
+# Introduction
+This readme file contains the subheadings and sources about the video which had been done by the all participants of the Scientific Information Gathering and Processing for Engineering Research course led by Professor Nordling at the National Cheng Kung University in the spring semester of 2016.
