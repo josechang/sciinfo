@@ -733,34 +733,58 @@ Set theoretic models treat documents as sets of words or phrases.
 Matching is performed on the basis of operation carried out in between sets. 
 Some of the set theoretic models are dealt in the following subsections.
 
->>Standard Boolean model. The pros of the Boolean model in QASs are as follows:
-* Easy implementation: As Boolean operator is used in making
-a query, hence the keyword matching is easy to implement.
+>>Standard Boolean model. 
+The pros of the Boolean model in QASs are as follows:
+* Easy implementation: As Boolean operator is used in making a query, hence the keyword matching is easy to implement.
+
 The cons of Boolean model in QASs are as follows:
-* Partial matching of query with document is not done here
-i.e., Systems face inability to rank the output if there is a little
-matching in between document words and keywords of
-questions.
-* Users have to formulate Boolean expression in their questions
-which could be difficult for most users.
-* The Boolean model generally provides either too few or too
-many documents which is not desirable.
+* Partial matching of query with document is not done here i.e., 
+Systems face inability to rank the output if there is a little matching in between document words and keywords of questions.
+* Users have to formulate Boolean expression in their questions which could be difficult for most users.
+* The Boolean model generally provides either too few or too many documents which is not desirable.
 
 Algebraic models:
-This model represents source documents and users’ questions
-as vectors, matrixes, or tuples. The matching is performed as
-a scalar value.
+This model represents source documents and users’ questions as vectors, matrixes, or tuples. 
+The matching is performed asa scalar value.
+
 * Vector space.
 * Generalized vector space model.
 * Topic based vector space model.
 * Latent semantic indexing.
 * Extended Boolean model.
 
+Probability models:
+Probability model treats documents and questions in terms of probability relevance.
+* Binary independence model.
+* Probabilistic relevance model.
+* Uncertain inference.
+* Language models.
 
+The pros related to vector space and probability model QASs are as follows:
+* Ranked list of documents: these models generate a ranked list of documents after performing matching with a question  hence better results are presented to the users.
+* Use of natural language: the input query language is simple.
+* Hence, it is convenient for the common users to express their need in natural language.
 
+The cons related to vector space and probability model:
+QASs are as follows
+* The limited expressiveness of input: the input query has got limited expressiveness e.g. use of NOT operator is not allowed.
+* No representation of phrases: these models lack capability to represent some linguistic features such as phrases or proximity constraints which can be basis to search of information.
+* Prior Knowledge required: In the case of a probabilistic model, there should be prior estimation of the probabilities for words of documents and questions. Hence, computation of relevancy is costly.
+* Boolean relations are lost: Boolean relations are lost in these models such as NOT.
 
+Feature based models:
+Feature based retrieval model views documents as a vector of values of feature functions and combines these features into a single relevance score.
+The pros related to Feature based model QASs are as follows:
+* Feature based analysis can be performed to enable searching for feature specific information.
 
+The cons related to Feature based model QASs are as follows:
+* Learning to rank model: problem here is to identify values of features functions and their computation.
 
+Conceptual graph based models:
+These conceptual graph based models represent the sentence of the text with a structure formed by vertices and edges in graph. 
+It provides a higher level of understanding of the text by capturing semantics in the text. 
+Questions and sentences must be modeled into conceptual graph formalism for finding answers. 
+Systems face difficulty in modeling complex questions and documents in conceptual graph formalism and find relevancy between them.
 
 
 
