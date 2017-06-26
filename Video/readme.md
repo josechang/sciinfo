@@ -14,4 +14,7 @@ Here's the conclusion. We now have a functional web page implemented with search
 There are seven points worth discussing. First, the search text can not include some special character because it will return unreasonable percentage due to normalization of the similarity result. Second, the response time is too long. Besides, the total amount of PDF file in our database is only eighty nine which is far less than ten thousand! There's also no hyperlink function in our web page. We don't have a PDF reader which the text inside can be clicked on. Harvard citation format. We don't have the source mentioned on Harvard citation format. There's also no classification function in our display web page.
 #### Future Works
 After knowing the problems in the discussion part, I think there are four points can be improved in the future. First, we can try to fix the strange percentage problems in the program. Second, we can try to build or find a PDF reader which can help us to fulfill the remaining user story. Besides, we need to enlarge our database from only eighty nine articles to ten thousand articles! We also need to come up with a method to shorten the response time! This is my presentation! Thanks for your attention. 
-# Other sour
+# Other sources
+- __Youtube__ :
+- __Power point__: You can connect to the dropbox and get the full version of the powerpoint which contain the full contents.
+- __Bitbucket__: You can connect to the bitbucket and take a look at the home page in it. Theb I think you can comprehend some basic tutorial about how to use the server.
