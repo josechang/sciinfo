@@ -52,9 +52,9 @@ def get_text(request):
         for i in range(0,len(sims)):
             result = Article.objects.get(filename = sims[i][0])
             resultlist.append([str(result.filename), sims[i][1]])
-            
+
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist}), chart(sims)
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist}), chart(request, sims)
 
     else:
         return render_to_response('SearchDB/search.html')
@@ -81,7 +81,7 @@ def refreshDatabase(request):
         # Dict
         vector_space_convert(TXT_PATH, TMP_PATH, TMP_PATH, tmpName)
         transformation(TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
-        
+
         # SQL
         diff_filename = [i for i in local_filename if i not in sql_filename]
         for fname in diff_filename:
@@ -95,35 +95,3 @@ def refreshDatabase(request):
             Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
     return redirect('/')
-
-
-'''
-# Loading Data from a Static JSON String
-# It is a example to show a Column 2D chart where data is passed as JSON string format.
-# The `chart` method is defined to load chart data from an JSON string.
-
-def chart(request):
-# Create an object for the column2d chart using the FusionCharts class constructor
-    column2d = FusionCharts("column2d", "ex1" , "600", "400", "chart-1", "json",
-    # The data is passed as a string in the `dataSource` as parameter.
-    """{
-        "chart":{
-            "caption":"Harry\'s SuperMart",
-            "subCaption":"Top 5 stores in last month by revenue",
-            "numberPrefix":"$",
-            "theme":"ocean"
-        },
-        "data":[
-            {"label":"Bakersfield Central", "value":"880000"},
-            {"label":"Garden Groove harbour", "value":"730000"},
-            {"label":"Los Angeles Topanga", "value":"590000"},
-            {"label":"Compton-Rancho Dom", "value":"520000"},
-            {"label":"Daly City Serramonte", "value":"330000"}
-            ]
-        }""")
-
-        # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
-    return render(request, 'index.html', {'output' : column2d.render()})
-'''
-
-
