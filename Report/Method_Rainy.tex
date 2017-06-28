@@ -5,5 +5,13 @@
 % Note: Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{LSA}
-\subsection{Similarity Comparison }
+\subsection{Similarity Comparison}
+	\begin{figure*}[htb]
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{Rainy_Sequence_diagram}
+		\end{center}
+		\caption{Sequence diagram of text similarity compare function.\label{Sequence diagram}}
+	\end{figure*}
+	\newpage
 \subsection{Metadata Extraction}
+Metadata Extractor is the module which can extract metadata in PDF files such as title, subheading, doi, etc. We use python package pyPdf to extract metadata directly and use metadata to do couple things. First, we extract titles of articles returning those to the web page as search results. Second, we use metadata extractor to extract subheadings which are treated as the definition of break point to split PDF file i.e. one article will be separated into small pieces based on subheading. The small pieces will convert into .txt files by the .txt converter we built so that we can take .txt files into similarity comparison and get the most relative parts in the article.Third, We extract doi [explain what is doi] which can link to the original article source. 
