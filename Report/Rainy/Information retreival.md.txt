@@ -94,6 +94,8 @@ Increasing the number of clusters improves the likelihood of finding market nich
 
 UNIFIED MODELING LANGUAGE:
 
+Introduction to OMG UML by Dr. Jon Siegel, OMG
+
 Large enterprise applications-the ones that execute core business applications, and keep a company going-must be more than just a bunch of code modules. 
 They must be structured in a way that enables scalability, security, and robust execution under stressful conditions, and their structure - frequently referred to as their architecture - must be defined clearly enough that maintenance programmers can (quickly!). 
 find and fix a bug that shows up long after the original authors have moved on to other projects. 
@@ -189,8 +191,6 @@ List of UML Diaagrams:
 9)state Diagram.
 10)Use Case Diagram.
 
-References:
-1) Introduction to OMG UML by Dr. Jon Siegel, OMG
 Refering styles:
 
 Different styles of writing reference:
@@ -360,9 +360,9 @@ However, the complexity of natural language can make it very difficult to access
 If we instead focus our efforts on a limited set of questions or "entity relations," such as "where are different facilities located," or "who is employed by what company," we can make significant progress.
 The goal of this chapter is to answer the following questions:
 
-  1)How can we build a system that extracts structured data, such as tables, from unstructured text?
-  2)What are some robust methods for identifying the entities and relationships described in a text?
-  3)Which corpora are appropriate for this work, and how do we use them for training and evaluating our models?
+1)How can we build a system that extracts structured data, such as tables, from unstructured text?
+2)What are some robust methods for identifying the entities and relationships described in a text?
+3)Which corpora are appropriate for this work, and how do we use them for training and evaluating our models?
 
 Along the way, we'll apply techniques from the last two chapters to the problems of chunking and named-entity recognition.
 
@@ -396,19 +396,19 @@ After (5), all (3), is (2), said (4), and (3), done (4), , (1), more
 Notice that there is a linebreak between more and its following number. If we wanted to avoid this, we could redefine the formatting string so that it contained no spaces
 (e.g., '%s_(%d),'), then instead of printing the value of wrapped, we could print wrapped.replace('_', ' ').
 
-Information Extraction
+Information Extraction:
 Information comes in many shapes and sizes. One important form is structured data, where there is a regular and predictable organization of entities and relationships. 
 For example, we might be interested in the relation between companies and locations. Given a particular company, we would like to be able to identify the locations where it does business; conversely, given a location, we would like to discover which companies do business in that location. 
 If our data is in tabular form, such as the example in 1.1, then answering these queries is straightforward.
 
-Table
->>Locations data
->>OrgName	                LocationName
->>Omnicom	                New York
->>DDB Needham                   New York
->>Kaplan Thaler Group	        New York
->>BBDO South	                Atlanta
->>Georgia-Pacific	        Atlanta
+Table 1.1
+Locations data
+OrgName	                LocationName
+Omnicom	                New York
+DDB Needham             New York
+Kaplan Thaler Group	New York
+BBDO South	        Atlanta
+Georgia-Pacific	        Atlanta
 
 If this location data was stored in Python as a list of tuples (entity, relation, entity), then the question "Which organizations operate in Atlanta?" could be translated as follows:
 >>> locs = [('Omnicom', 'IN', 'New York'),
@@ -430,9 +430,7 @@ This method of getting meaning from text is called Information Extraction.
 
 Information Extraction has many applications, including business intelligence, resume harvesting, media analysis, sentiment detection, patent search, and email scanning. A particularly important area of current research involves the attempt to extract structured data out of electronically-available scientific literature, especially in the domain of biology and medicine.
 
-
 Information Extraction Architecture:
-
 shows the architecture for a simple information extraction system. It begins by processing a document using several of the procedures discussed in 3 and 5.: first, the raw text of the document is split into sentences using a sentence segmenter, and each sentence is further subdivided into words using a tokenizer. 
 Next, each sentence is tagged with part-of-speech tags, which will prove very helpful in the next step, named entity detection. 
 In this step, we search for mentions of potentially interesting entities in each sentence. 
@@ -446,7 +444,8 @@ Next, in named entity detection, we segment and label the entities that might pa
 
 Finally, in relation extraction, we search for specific patterns between pairs of entities that occur near one another in the text, and use those patterns to build tuples recording the relationships between the entities.
 
- Chunking:
+
+>>Chunking
 The basic technique we will use for entity detection is chunking, which segments and labels multi-token sequences as illustrated in Noun Phrase Chunking. The smaller boxes show the word-level tokenization and part-of-speech tagging, while the large boxes show higher-level chunking. Each of these larger boxes is called a chunk. Like tokenization, which omits whitespace, chunking usually selects a subset of the tokens. 
 Also like tokenization, the pieces produced by a chunker do not overlap in the source text.
  Noun Phrase Chunking:
@@ -459,29 +458,30 @@ We demonstrate this approach using an example sentence that has been part-of-spe
 This rule says that an NP chunk should be formed whenever the chunker finds an optional determiner (DT) followed by any number of adjectives (JJ) and then a noun (NN). Using this grammar, we create a chunk parser [3], and test it on our example sentence [4]. The result is a tree, which we can either print [5], or display graphically [6].
 
  	
->>> sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"), 
+>>> sentence = [("the", "DT"), ("little", "JJ"), ("yellow", "JJ"), [1]
 ... ("dog", "NN"), ("barked", "VBD"), ("at", "IN"),  ("the", "DT"), ("cat", "NN")]
 
->>> grammar = "NP: {<DT>?<JJ>*<NN>}" 
+>>> grammar = "NP: {<DT>?<JJ>*<NN>}" [2]
 
->>> cp = nltk.RegexpParser(grammar)
->>> result = cp.parse(sentence)
->>> print(result)
+>>> cp = nltk.RegexpParser(grammar) [3]
+>>> result = cp.parse(sentence) [4]
+>>> print(result) [5]
 (S
   (NP the/DT little/JJ yellow/JJ dog/NN)
   barked/VBD
   at/IN
   (NP the/DT cat/NN))
->>> result.draw() 
+>>> result.draw() [6]
 
- Tag Patterns:
+
+>>Tag Patterns:
  The rules that make up a chunk grammar use tag patterns to describe sequences of tagged words. A tag pattern is a sequence of part-of-speech tags delimited using angle brackets, e.g. <DT>?<JJ>*<NN>. Tag patterns are similar to regular expression patterns (3.4). Now, consider the following noun phrases from the Wall Street Journal:
     another/DT sharp/JJ dive/NN
     trade/NN figures/NNS
     any/DT new/JJ policy/NN measures/NNS
     earlier/JJR stages/NNS
     Panamanian/JJ dictator/NN Manuel/NNP Noriega/NNP
-We can match these noun phrases using a slight refinement of the first tag pattern above, i.e. <DT>?<JJ.*>*<NN.*>+. This will chunk any sequence of tokens beginning with an optional determiner, followed by zero or more adjectives of any type (including relative adjectives like earlier/JJR), followed by one or more nouns of any type. However, it is easy to find many more complicated examples which this rule will not cover:
+ We can match these noun phrases using a slight refinement of the first tag pattern above, i.e. <DT>?<JJ.*>*<NN.*>+. This will chunk any sequence of tokens beginning with an optional determiner, followed by zero or more adjectives of any type (including relative adjectives like earlier/JJR), followed by one or more nouns of any type. However, it is easy to find many more complicated examples which this rule will not cover:
     his/PRP$ Mansion/NNP House/NNP speech/NN
     the/DT price/NN cutting/VBG
     3/CD %/NN to/TO 4/CD %/NN
@@ -497,14 +497,22 @@ Chunking with Regular Expressions  shows a simple chunk grammar consisting of tw
            {<NNP>+}                # chunk sequences of proper nouns
    """
    cp = nltk.RegexpParser(grammar)
-   sentence = [("Rapunzel", "NNP"), ("let", "VBD"), ("down", "RP"), "her", "PP$"), ("long", "JJ"), ("golden", "JJ"), ("hair", "NN")]
- >>> print(cp.parse(sentence))
+   sentence = [("Rapunzel", "NNP"), ("let", "VBD"), ("down", "RP"), [1]
+                    ("her", "PP$"), ("long", "JJ"), ("golden", "JJ"), ("hair", "NN")]
+
+    >>> print(cp.parse(sentence)) [2]
     (S
       (NP Rapunzel/NNP)
       let/VBD
       down/RP
       (NP her/PP$ long/JJ golden/JJ hair/NN))
-
+If a tag pattern matches at overlapping locations, the leftmost match takes precedence. For example, if we apply a rule that matches two consecutive nouns to a text containing three consecutive nouns, then only the first two nouns will be chunked:
+    >>> nouns = [("money", "NN"), ("market", "NN"), ("fund", "NN")]
+    >>> grammar = "NP: {<NN><NN>}  # Chunk two consecutive nouns"
+    >>> cp = nltk.RegexpParser(grammar)
+    >>> print(cp.parse(nouns))
+     (S (NP money/NN market/NN) fund/NN)
+Once we have created the chunk for money market, we have removed the context that would have permitted fund to be included in a chunk. This issue would have been avoided with a more permissive chunk rule, e.g.  NP: {<NN>+}.
 
 Exploring Text Corpora:
 In chunking we saw how we could interrogate a tagged corpus to extract phrases matching a particular sequence of part-of-speech tags. We can do the same work more easily with a chunker, as follows:
@@ -532,6 +540,17 @@ Output	    a/DT little/JJ dog/NN	 [a/DT] little/JJ [dog/NN]	  [a/DT little/JJ] d
 
 we put the entire sentence into a single chunk, then excise the chinks.
 
+
+Summary:
+
+>>>Information extraction systems search large bodies of unrestricted text for specific types of entities and relations, and use them to populate well-organized databases. These databases can then be used to find answers for specific questions.
+>>>The typical architecture for an information extraction system begins by segmenting, tokenizing, and part-of-speech tagging the text.
+>>>The resulting data is then searched for specific types of entity. Finally, the information extraction system looks at entities that are mentioned near one another in the text, and tries to determine whether specific relationships hold between those entities.
+>>>Entity recognition is often performed using chunkers, which segment multi-token sequences, and label them with the appropriate entity type. 
+>>>Common entity types include ORGANIZATION, PERSON, LOCATION, DATE, TIME, MONEY, and GPE (geo-political entity).
+>>>Chunkers can be constructed using rule-based systems, such as the RegexpParser class provided by NLTK; or using machine learning techniques, such as the ConsecutiveNPChunker presented in this chapter. In either case, part-of-speech tags are often a very important feature when searching for chunks.
+>>>Although chunkers are specialized to create relatively flat data structures, where no two chunks are allowed to overlap, they can be cascaded together to build nested structures.
+>>>Relation extraction can be performed using either rule-based systems which typically look for specific patterns in the text that connect entities and the intervening words; or using machine-learning systems which typically attempt to learn such patterns automatically from a training corpus.
 
 Text Similarity Approaches:
 Measuring the similarity between words, sentences, paragraphs and documents is an important component in various tasks such as information retrieval, document clustering, word-sense disambiguation, automatic essay scoring, short answer grading, machine translation and text summarization. 
@@ -593,199 +612,22 @@ The more often two words co-occur near each other on a web page, the higher is t
 Large text collections are statistically analyzed to get the distributional similarity. DISCO is a method that computes distributional similarity between words by using a simple context window of size ±3 words for counting co-occurrences. 
 When two words are subjected for exact similarity DISCO simply retrieves their word vectors from the indexed data, and computes the similarity according to Lin measure. 
 If the most distributionally similar word is required; DISCO returns the second order word vector for the given word. 
+
 DISCO has two main similarity measures DISCO1 and DISCO2; DISCO1 computes the first order similarity between two input words based on their collocation sets. 
 DISCO2 computes the second order similarity between two input words based on their sets of distributionally similar words.
 
-Building of Word Vector Model:
-The steps of word vector model building in this paper are as follows:
-(1) Get words form the exercise texts.
-(2) Get the word frequency, initial the word vector and then put them into the hash table.
-(3) Construct the Huffman tree, get the Huffman tree path of every word.
-(4) Remove high-frequency words, get word vectors and optimize objective function.
-(5) Count the number of trained words and update the learning rate when it is greater than 1000.
-(6) Store word vectors.
->>To optimize word vectors, we need to calculate delta.( w) X . For easy operation, we use approximate calculation method. 
->>The range interval [6,6] is divided into 1000 equal parts, which are called 0 1 2 1000 x , x , x ,......, x . Sigmoid Function valuesare calculated at each k x and will be stored in the memory. 
->>We assume the sum of a word context word vectors equals x .
->>When x<= -6 , delta (x)= 0.
->>When x>=6, delta (x)=1.
->>When -6 < x > 6 , delta  (x) ~ delta (Xk). We can get the value from the table directly.
+Conclusion
+The  text similarity approaches is concluded  and also discussed.
+Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. 
+Nine algorithms were explained; HAL, LSA, GLSA, ESA, CL-ESA, PMI-IR, SCO-PMI, NGD and DISCO.
+Nine algorithms were introduced; Six of them were based on semantic similarity -res, lin, jcn, lch, wup and path- while the other three were based on semantic relatedness -hso, lesk and vector-. Some of these algorithms were combined together in many researches. Finally useful similarity packages were mentioned such as SimMetrics, WordNet::Similarity and NLTK.
 
-During the process of training, the size of the learning rate has a great impact on network convergence rate and training results. 
-If its value is too small, the training rate is low. If high, it may cause oscillation or diverging. 
-The value of learning rate is set 0.025 at the beginning.
-In order to optimize learning rate, we adjust the learning rate after training 1000 words.
-
-
-Calculating Semantic Distance
-The word semantic distance is the degree of conformity words. In this paper, if its distance is long, the degree of conformity words is high; if short, the degree of conformity
-words is low. The steps of calculating word semantic distance are as follows:
-(1) Load model and get the word vector trained.
-(2) Calculate the semantic distance. We firstly get the central words and their word vectors.  
-Then, we calculate the distances between central words and other words in the word library via Cosine Law.
-To improve the convenience of calculating semantic distance, we make vectors divided by their vector length.
-
-Semantic Text Similarity Computing:
-
-This paper explores the calculating of semantic text similarity via word vector, we use the word vector mentioned above to calculate the semantic text similarity. 
-The main thought of calculating text similarity is to compare the similarities of texts by calculating the semantic similarity of feature words. 
-In this paper, the whole process is divided into two parts: text pre-processing and similarity calculation.
-We should participle the texts via software of word cutting, and get word frequency of each word. 
-After that, we use feature words to represent the text, assign the evaluation parameter a . 
-The feature words can be obtained if its word frequency is bigger than  "a" .
-
-The steps of algorithm are as follows:
-(1) Get the vocabulary of texts.
-(2) Statistic the word frequency and excluding lowfrequency
-words.
-(3) Produce the feature words prepared for the calculating
-of similarity.
-
-After obtaining the feature words of texts, we use word vector to calculate the distance between them. 
-Assuming the threshold k , get the number of words which are bigger than k .
-In the end, we use the formula to get text similarity.
-
-The formula of calculating similarity:
-
-Similarity = 2 * Length / LengthA + LengthB
- 
-The steps of algorithm are as follows:
-(1) Load the binary vector model.
-(2) Get feature words of text LA and LB .
-(3) Use the formula to calculate the text similarity.
-
-Semantic Similarity between Sentences:
-Sentences are made up of words, so it is reasonable to represent a sentence using the words in the sentence. 
-The most relevant research area, to our task, is information retrieval. 
-Classical information retrieval methods use a set of a pre-determined index terms (words or collocations) that are used to represent a document in the form of document-term vector. 
-Vector similarity is then used to identify documents that are most related to the query.
-Because the index terms are pre-determined and in large numbers, this kind of strategy is inappropriate for computing sentence similarity. 
-A sentence represented using such a large number of pre-determined terms will result in a very sparse vector, i.e., the vector has a very small number of non-zero elements.
-On the other hand, some important words in a sentence may be missed because of the limits of term set. 
-Unlike classical methods our method dynamically forms the representing semantic vectors solely based on the compared sentences. 
-Recent research achievements in semantic analysis are also adapted to accomplish an efficient semantic vector for a sentence.
-
-Word Similarity:
-Given two words: w1 and w2, we need to find the semantic similarity of sw(w1, w2) for these two words. 
-In WordNet (Miller 1995) words are organised into synonym sets (synsets), with semantic and relation pointers to other synsets (arcs). 
-We can find the first class in the hierarchical semantic network that subsumes the two synsets for the compared words and take the distance in arcs traversed. 
-It is apparent that words at upper layers of the hierarchy have more general semantics and less similarity between them, 
-while words at lower layers have more concrete semantics and more similarity and so the depth of word in the hierarchy is taken into account.
-
-Applications Of Text Mining:
->>Similarity measures in Text mining are increasing function of common features and decreasing function of dissimilar features. 
-The Similarity measures will be applied in various fields and for different purposes in Text mining domain. 
-Unstructured text mining is an area which is gaining significant importance in adoptions for business applications. 
-Text mining is being applied to answer various business questions and to optimize day-to-day operational efficiencies and used for improving long-term strategic decisions. 
-Following are the practical real-world instances where text mining has been successfully applied.
-
-The pros of semantic analysis done in QASs are as follows:
->>Semantic analysis solves problems of finding semantic class of questions and answer types.
->>Semantic analysis based searching provides effective searching for answers in contrast with keyword based searching.
-
-The cons of semantic analysis done in QASs are as follows:
->>Current QASs operate at lexical and sentence level for deducing the meaning of the text. 
-To the best of our knowledge, we don’t find any work which does semantic analysis at document level.
->>The problems observed in co-reference resolution, name entity recognition, relation extraction, parts of speech tagging etc. makes the task of performing the semantic analysis of text difficult.
-
-Summary:
-
->>>Information extraction systems search large bodies of unrestricted text for specific types of entities and relations, and use them to populate well-organized databases. These databases can then be used to find answers for specific questions.
->>>The typical architecture for an information extraction system begins by segmenting, tokenizing, and part-of-speech tagging the text.
->>>The resulting data is then searched for specific types of entity. Finally, the information extraction system looks at entities that are mentioned near one another in the text, and tries to determine whether specific relationships hold between those entities.
->>>Entity recognition is often performed using chunkers, which segment multi-token sequences, and label them with the appropriate entity type. 
->>>Common entity types include ORGANIZATION, PERSON, LOCATION, DATE, TIME, MONEY, and GPE (geo-political entity).
->>>Chunkers can be constructed using rule-based systems, such as the RegexpParser class provided by NLTK; or using machine learning techniques, such as the ConsecutiveNPChunker presented in this chapter. In either case, part-of-speech tags are often a very important feature when searching for chunks.
->>>Although chunkers are specialized to create relatively flat data structures, where no two chunks are allowed to overlap, they can be cascaded together to build nested structures.
->>>Relation extraction can be performed using either rule-based systems which typically look for specific patterns in the text that connect entities and the intervening words; or using machine-learning systems which typically attempt to learn such patterns automatically from a training corpus.
-
-CONCLUSION:
-Text Mining is a significant research area which is gaining an increasing popularity in the recent years. 
-Measuring the similarity between the text documents is an important operation of text mining. 
-In this survey, three text similarity approaches such as String-based, Corpus-based and Knowledge-based similarities are discussed. 
-String-Based measures are operated on character composition and string sequences. 
-Corpus-Based similarity is a semantic similarity measure which determines the similarity between words based on the information gained from large corpus. 
-A semantic similarity measures known as Knowledge-Based similarity is based on the degree of similarity between the words and concepts. 
-Some of these algorithms were combined together in many researches and they are hybrid similarity measures. 
-Useful similarity packages such as SimMetrics, WordNet Similarity and NLTK were mentioned. 
-The System architecture for an advanced text mining system and the functionalities of various components are described.
 
 References:
 http://www.nltk.org/book
 The popularity of chunking is due in great part to pioneering work by Abney e.g., (Church, Young, & Bloothooft, 1996). Abney's Cass chunker is described in http://www.vinartus.net/spa/97a.pdf.
 The word chink initially meant a sequence of stopwords, according to a 1975 paper by Ross and Tukey (Church, Young, & Bloothooft, 1996).
-The IOB format (or sometimes BIO Format) was developed for NP chunking by (Ramshaw & Marcus, 1995), and was used for the shared NP bracketing task run by the Conference on Natural Language Learning (CoNLL) in 1999. 
-The same format was adopted by CoNLL 2000 for annotating a section of Wall Street Journal text as part of a shared task on NP chunking.
-
-
-Classification based on types of matching functions used in different retrieval models:
-
-We classify QASs based on types of matching functions used in  different retrieval models. The different categories are: 
-(1) set theoretic models, 
-(2) algebraic models, 
-(3) probability models,
-(4) feature based models, 
-(5) expected answer type analysis, and 
-(6) conceptual graph based models.
-
-Set theoretic models:
-Set theoretic models treat documents as sets of words or phrases. 
-Matching is performed on the basis of operation carried out in between sets. 
-Some of the set theoretic models are dealt in the following subsections.
-
->>Standard Boolean model. 
-The pros of the Boolean model in QASs are as follows:
-* Easy implementation: As Boolean operator is used in making a query, hence the keyword matching is easy to implement.
-
-The cons of Boolean model in QASs are as follows:
-* Partial matching of query with document is not done here i.e., 
-Systems face inability to rank the output if there is a little matching in between document words and keywords of questions.
-* Users have to formulate Boolean expression in their questions which could be difficult for most users.
-* The Boolean model generally provides either too few or too many documents which is not desirable.
-
-Algebraic models:
-This model represents source documents and users’ questions as vectors, matrixes, or tuples. 
-The matching is performed asa scalar value.
-
-* Vector space.
-* Generalized vector space model.
-* Topic based vector space model.
-* Latent semantic indexing.
-* Extended Boolean model.
-
-Probability models:
-Probability model treats documents and questions in terms of probability relevance.
-* Binary independence model.
-* Probabilistic relevance model.
-* Uncertain inference.
-* Language models.
-
-The pros related to vector space and probability model QASs are as follows:
-* Ranked list of documents: these models generate a ranked list of documents after performing matching with a question  hence better results are presented to the users.
-* Use of natural language: the input query language is simple.
-* Hence, it is convenient for the common users to express their need in natural language.
-
-The cons related to vector space and probability model:
-QASs are as follows
-* The limited expressiveness of input: the input query has got limited expressiveness e.g. use of NOT operator is not allowed.
-* No representation of phrases: these models lack capability to represent some linguistic features such as phrases or proximity constraints which can be basis to search of information.
-* Prior Knowledge required: In the case of a probabilistic model, there should be prior estimation of the probabilities for words of documents and questions. Hence, computation of relevancy is costly.
-* Boolean relations are lost: Boolean relations are lost in these models such as NOT.
-
-Feature based models:
-Feature based retrieval model views documents as a vector of values of feature functions and combines these features into a single relevance score.
-The pros related to Feature based model QASs are as follows:
-* Feature based analysis can be performed to enable searching for feature specific information.
-
-The cons related to Feature based model QASs are as follows:
-* Learning to rank model: problem here is to identify values of features functions and their computation.
-
-Conceptual graph based models:
-These conceptual graph based models represent the sentence of the text with a structure formed by vertices and edges in graph. 
-It provides a higher level of understanding of the text by capturing semantics in the text. 
-Questions and sentences must be modeled into conceptual graph formalism for finding answers. 
-Systems face difficulty in modeling complex questions and documents in conceptual graph formalism and find relevancy between them.
-
+The IOB format (or sometimes BIO Format) was developed for NP chunking by (Ramshaw & Marcus, 1995), and was used for the shared NP bracketing task run by the Conference on Natural Language Learning (CoNLL) in 1999. The same format was adopted by CoNLL 2000 for annotating a section of Wall Street Journal text as part of a shared task on NP chunking.
 
 
 11 steps to structuring a science paper editors will take seriously:
@@ -884,7 +726,7 @@ What is the best software for making and editing scientific images for publicati
 >> drawio
 
 References:
-Researchgate.net
+https://www.Researchgate.net
 https://www.publishingcampus.elsevier.com
 
 
@@ -934,7 +776,7 @@ Whichever rule you choose, the important thing is to keep your core message focu
   If you need to provide more information, create a bespoke handout and give it out after your presentation.
 
 
-7. Tell Stories
+7. Tell Stories:
   Human beings are programmed to respond to stories.
   Stories help us to pay attention, and also to remember things. If you can use stories in your presentation, your audience is more likely to engage and to remember your points afterwards. It is a good idea to start with a story, but there is a wider point too: you need your presentation to act like a story.
   Think about what story you are trying to tell your audience, and create your presentation to tell it.
@@ -948,7 +790,6 @@ Whichever rule you choose, the important thing is to keep your core message focu
   Varying the speed at which you talk, and emphasising changes in pitch and tone all help to make your voice more interesting and hold your audience’s attention.
    
    Effective Speaking:
-
    Your voice can reveal as much about your personal history as your appearance.
    The sound of a voice and the content of speech can provide clues to an individual's emotional state and a dialect can indicate their geographic roots.   
    The voice is unique to the person to whom it belongs.
