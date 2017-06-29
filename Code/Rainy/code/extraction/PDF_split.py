@@ -12,25 +12,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-# extract title
-def title_extractor(pdf_path, pdf_filename):
-    abs_path = pdf_path + pdf_filename
-    try:
-        input1 = PdfFileReader(file(abs_path, "rb"))
-
-        ############ get arabic numerals in title #############
-        z = re.findall(r'\d+', input1.getDocumentInfo().title)
-        z = str(z)
-        z = z.replace('u','').replace(',','').replace('[','').replace(']','').replace(' ','').replace("'",'')
-        #######################################################
-
-        # block title which has too little words and too many arabic numerals
-        if len(input1.getDocumentInfo().title)>7 and len(z)<5:
-            return input1.getDocumentInfo().title
-        else:
-            return "No title"
-    except:
-        print "Load pdf error."
 #transfer pdf outlines into a single list
 def dimension(arr, list):
     for i in arr:
@@ -38,18 +19,19 @@ def dimension(arr, list):
             list.append(i)
         else:
             dimension(i, list)
+
 #transfer PDF to txt file
 def pdftotxt(article):
     xml1=open('pdf_1.txt','w') #open a txt file named pdf_1
     for i in xrange(len(article)):
         xml1.write(article[i])
     xml1.close()
+
 #split txt into small part based on subheading
-def split(line,subheading,title):
+def split(line,subheading,path):
     part = []
     c = 1
-    newpath = r'C:/Users/Wu/nordron-sciinfo/Code/Rainy/code/extraction/new'
-    newpath+= title
+    newpath = path + "/new"
     if not os.path.exists(newpath):
         os.makedirs(newpath)
     os.chdir(newpath)
@@ -70,10 +52,10 @@ def split(line,subheading,title):
                 intr = open(subheading[i],'w')
                 for k in xrange(len(part)-1):
                     intr.write(part[k])
-path = "C:\Users\Wu/nordron-sciinfo\Code\Rainy\code\extraction"
-os.chdir(path)
-filename=os.listdir(".")
-article = textract.process('y.pdf', m='pdfminer')
+
+
+path = "C:\Users\Wu/nordron-sciinfo\Code\Rainy\code\extraction" #please change path
+article = textract.process('y.pdf', m='pdfminer') #please chang the file name
 f = open('y.pdf', 'rb') #import PDF file
 p = PdfFileReader(f)
 o = p.getOutlines()  #read outlines in pdf
@@ -88,7 +70,7 @@ subheading = []
 for j in range(0,len(list)):
     sub = list[j]["/Title"]
     subheading.append(sub)
-title=title_extractor(path, filename)
+#title=title_extractor(path, filename)
 myfile = open("pdf_1.txt")
 line = myfile.readlines() # read txt file line by line
-split(line,subheading,title)
+split(line,subheading,path)

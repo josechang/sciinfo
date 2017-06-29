@@ -5,9 +5,11 @@ Extract title from PDF file.
 
 Depends on: pyPDF, PDFMiner.
 
-Usage:
+This code will extract tiltle from PDF metadata. If metadata doesn't
+exists, this code will extract the first line in the article(PDF) and
+treat that as a title.
 
-    find . -name "*.pdf" |  xargs -I{} pdftitle -d tmp --rename {}
+If you want to use this code. Please install  pdfMiner version 20110115
 """
 
 import cStringIO

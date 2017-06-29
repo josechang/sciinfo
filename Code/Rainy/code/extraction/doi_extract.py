@@ -9,8 +9,7 @@ def doi_extract(pdf_path):
 
     for PDFs in os.listdir('.'):
         pdf_info = PdfFileReader(open(PDFs, 'rb')).getDocumentInfo() # extract pdf information
-        print pdf_info['/doi']
-        #doi.append('http://doi.org/'+pdf_info['/doi']) # get doi information from pdf_info
+        doi.append('http://doi.org/'+pdf_info['/doi']) # get doi information from pdf_info
 
     return doi
 
