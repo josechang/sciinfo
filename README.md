@@ -28,6 +28,13 @@ This README would normally document whatever steps are necessary to get your app
 * Repo owner or admin
 * Other community or team contact
 
+### System requirements for docker###
+
+* Linux kernel version 3.10 or higher
+* 2.0 GB of RAM
+* 3.0 GB disk space available
+* A static IP address
+
 ### Set up git ###
 
 * Step 1: Check if Git has already been installed in CentOS computer.
@@ -72,13 +79,13 @@ This README would normally document whatever steps are necessary to get your app
 
 		sudo pip install pdfx
 		
-* Step 2: Make a directory called **txt** under Wolverine_Webcrawler.
+* Step 2: Make directories called **Article_pdf** and **Article_txt** under Django/src.
 
-		mkdir ~/nordron-sciinfo/Code/Wolverine_Webcrawler/txt
+		mkdir ~/nordron-sciinfo/Code/Django/src/Article_txt ~/nordron-sciinfo/Code/Django/src/Article_pdf/
 		
-* Step 3: Move into the directory **pdfs**.
+* Step 3: Move into the directory **Article_pdf**.
 		
-		cd ~/nordron-sciinfo/Code/Wolverine_Webcrawler/pdfs
+		cd ~/nordron-sciinfo/Code/Django/src/Article_pdf/
 		
 	Check the files:
 	
