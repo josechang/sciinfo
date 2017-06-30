@@ -768,10 +768,10 @@ Whichever rule you choose, the important thing is to keep your core message focu
 
 6. Remember the 10-20-30 Rule for Slideshows
   This is a tip from Guy Kawasaki of Apple. He suggests that slideshows should:
-    Contain no more than 10 slides;
-    Last no more than 20 minutes; and
-    Use a font size of no less than 30 point.
-    This last is particularly important as it stops you trying to put too much information on any one slide. This whole approach avoids the dreaded ‘Death by PowerPoint’.
+    >Contain no more than 10 slides;
+    >Last no more than 20 minutes; and
+    >Use a font size of no less than 30 point.
+    >This last is particularly important as it stops you trying to put too much information on any one slide. This whole approach avoids the dreaded ‘Death by PowerPoint’.
   As a general rule, slides should be the sideshow to you, the presenter. A good set of slides should be no use without the presenter, and they should definitely contain less, rather than more, information, expressed simply.
   If you need to provide more information, create a bespoke handout and give it out after your presentation.
 
@@ -803,7 +803,7 @@ Whichever rule you choose, the important thing is to keep your core message focu
   
    Vocal Production:
    The following three core elements of vocal production need to be understood for anyone wishing to become an effective speaker:
-   >>Volume  -  to be heard.
+   >>Volume   -  to be heard.
    >>Clarity  -  to be understood.
    >>Variety  -  to add interest.
    >>>Pace,Volume,Pitch - Inflection - Emphasis,Pause.
