@@ -13,16 +13,16 @@
 
 \subsection{Built a database containing ten thousand articles}
 
- To test and perform our search engine we need to build a database containing 10,000 articles.
-To reach that target, this study will go to discuss the advantages and disadvantages of different databases and will decide the most suitable one to be the database of this study.
-At a meantime, this study will focus on how to use web crawlers to download articles automatically, which will be contained in the database of this study.
+We want to build a database containing 10,000 articles.
+To reach that target, we will discuss the advantages and disadvantages of different kind databases and decide the most suitable one to be the database of this study.
+At a meantime, we also focus on how to use web crawlers to download articles automatically, which is contained in the database of this study.
 
 \subsubsection{Database Management Systems}
 
 A database is an organized collection of data.
 And database management systems (DBMS) are applications that can capture and analyze data.
 There are many disciplines to manage data in different databases such as tables, queries, or other objects. 
-The data are organized typically in a way according to the kind of the database management. 
+The data are organized typically in a way according to the kind of database management. 
 
 The relational database model was proposed by Edgar Codd in 1970 initially.
 However, it was not universal at that time because of the lack of the technical requirements.
@@ -191,9 +191,17 @@ fields.
 
 \subsubsection{Comparison for four databases}
 In comparison with PostgreSQL, there is generally no good reason to use MySQL. 
-However there are certain advanvanges which made us to choose PostgreSQL as our database in our project.
-PostgreSQL is a relational database. It specialises in tracking the relationship between pieces of data 
+However there are certain advantages as show in can be found on Figure \ref{CompareDatabase}. which made us to choose PostgreSQL as our database in our project.
+PostgreSQL is a relational database. It specialists in tracking the relationship between pieces of data 
 and helping you retrieve something if you know something related to it.
+
+\begin{figure*}[htb]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{CompareDatabase}
+	\end{center}
+	\caption{Comparison between three types of database.\label{CompareDatabase}}
+\end{figure*}
+\newpage
 
 All SQL databases can do relational queries like this, but PostgreSQL is better at doing this. 
 Besides, it also support the data type of "tsquery." which means it can perform full text search.
