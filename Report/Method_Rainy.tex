@@ -13,6 +13,7 @@ Metadata Extractor is the module which can extract metadata in PDF files such as
  \subsection{Text Processing}
  After converting an article from .pdf file format to .txt format, we read the converted text file to the program and do preprocessing task. First, delete all stopwords(ex. is am are the etc) that are irrelavent to the article. Second, remove all punctuation and any non-alphabet characters  in the article. Third, tokenize the article into words and count the frequency of each word appeared in the article. Finally, remove the word only appeared once in the article because low ocurrance indicates less importance of the word to the article.
 
+
 \subsection{Similarity Comparison}
 	\begin{figure*}[htb]
 		\begin{center}
@@ -20,4 +21,4 @@ Metadata Extractor is the module which can extract metadata in PDF files such as
 		\end{center}
 		\caption{Sequence diagram of text similarity compare functionality.\label{Sequence diagram}}
 	\end{figure*}
-	\newpage
+\newpage
