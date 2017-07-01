@@ -11,14 +11,14 @@
 \subsection{Web page Construction}
 
 We are going to construct a public and user-friendly website, which can perform scientific article searching.
-To achieve this goal, we separate our responsibility into parts:\\
+To achieve this goal, we separate our works into parts:\\
 \begin{enumerate}
 	\item Build up the web server.	
 	\item Build a web page with a search bar.
-	\item Build a web page which can display the search results according to the degree of revelance.
+	\item Build a web page which can display the search results sorted by the percentage of similarity numbers.
 	\item Build up the APIs. The search bar should send the search string and the result list to the search system, 
 	then the system receives the results and displays it.
-	\item Add a CSS and javascipt file to to the search and display web page, making it looks user-friendly.
+	\item Add CSS and javascipt files for the search and display web page, makes it user-friendly.
 	\item Plot a diagram on the result web page which can be seen conveniently.
 	\item Add hyperlink to the search results which can help user browse the article from original publisher.
 \end{enumerate}
@@ -26,13 +26,10 @@ This report will provide a review through the tools and methodologies we use to 
 \subsubsection{Web Server}
 For any web page, a web server is necessary.
 There are three web server systems used in our project. 
-They play the role as web page framework, reverse proxy server, 
-and database management, respectively. 
-Consider the ease to use and the generality of Python language, we choose Django, 
-a Python based web server works on CentOS 7, as our web page framework. A server 
-system based on Django was then built by using PostgreSQL (database management application), 
-Nginx (traffic control and security), Gunicorn (interface to translate clients 
-requests in HTTP to python calls that Django can understand), and Python WSGI HTTP 
+They play the role as web page framework, reverse proxy server, and database management, respectively. 
+Consider the ease to use and the generality of Python language, we choose Django, a Python based web server works on CentOS 7, as our web page framework. 
+A server system based on Django was then built by using PostgreSQL (database management application), 
+Nginx (traffic control and security), Gunicorn (interface to translate clients requests in HTTP to Python calls that Django can understand), and Python WSGI HTTP 
 Server (used to create entry sock for Django), thus making a robust web server.
 
 \subsubsection*{NGINX  --  \normalfont{traffic control and security}}
