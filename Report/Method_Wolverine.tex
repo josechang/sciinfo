@@ -132,8 +132,6 @@ However, it is going to be changed.
 NoSQL is going to be an alternative, which means "non SQL" or "non relational".
 It is different from relational database management system (RDMS) in some ways.
 For example, NoSQL uses the concept of JSON-like (JavaScript Object Notation) or name-value to store data, instead of using tables like SQL.
-This study already listed some differences between SQL and NoSQL shown in Figure \ref{WMC3}.
-
 
 However, both SQL and NoSQL have their own advantages and disadvantages.
 Therefore, it should be chosen depending on the characteristic of data.
@@ -141,12 +139,7 @@ SQL is the ideal language when projects require logical related discrete data th
 On the other hand, NoSQL can be the ideal language if projects require unrelated, indeterminate or evolving data and simultaneously. 
 It needs speed and scalability.
 
-\begin{figure*}[ht]
-	\begin{center}
-		\includegraphics[width=1.8\columnwidth]{Wolverine_Method_Chart_3}
-	\end{center}
-	\caption{The differences between SQL and NoSQL. \label{WMC3}}
-\end{figure*}
+
 
 \subsubsection{SQLite}
 SQLite is an amazing library that gets embedded inside the 
@@ -209,10 +202,8 @@ MongoDB is not a graph database, or even a relational database.
 Like CouchDB, it's a document database and it represents the other end of the scale. 
 
 \subsubsection{Web Crawler}
-\begin{enumerate}
+
 	
-	\item\textbf{Introduce to web crawler}
-	\setlength{\parindent}{1em}	
 	The web crawler is a program that can automatically browse through web pages, find out the information we assigned and store them.
 	It has ability to process the data quickly and accurate to update a very large amount of data which are constantly being updated according to Liu2012\cite{Liu2012}.
 	It starts with a list of URL to visit, called the seeds.
@@ -223,22 +214,6 @@ Like CouchDB, it's a document database and it represents the other end of the sc
 	We need to build up a web crawler to automatically visit a list of web page.
 	Then find out which link in the page is valuable to download into our database.
 	
-	\item\textbf{Way to create a web crawler}
-	\setlength{\parindent}{1em}	
-	To create a web crawler, first we need to know how the web page works. 
-	There are two kind of web pages: dynamic page and static page.
-	With static pages, the html of the page is directly loaded when one enters the page.
-	With dynamic pages, the original html of the page need to be rendered by javascripts to create new html file in order to show the complete page.
-	These two kind of page seems identical to the users, but were totally different for the crawlers.
-	It's easy for the web crawler to find informations in static webpages.
-	When it comes to the dynamic pages,	Web crawler needs to first pass the original html to a javascript rendering program or a light weight browser. 
-	In order to get the final html to extract informations.
-	After we get the html files.
-	We need to use packages such as regular expression operations to find specific information inside the file.
-	In this case we need to find the href tags with *.pdf in it.
-	After finding those links we need to download them one by one into the server.	
 	
-\end{enumerate}
-
 
 \newpage % Ends the current page and causes all figures and tables to be printed
