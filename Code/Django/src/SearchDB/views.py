@@ -96,7 +96,7 @@ def refreshDatabase(request):
             f.close()
     return redirect('/')
 
-# Chart function 
+# Chart function
 def chart(article_info):
 
 # Initialize list for counting articles of different percentage
@@ -123,19 +123,27 @@ def chart(article_info):
             "yAxisName": "no. of article",
             "theme":"carbon"
         },
-        "category": [
-            { "label": "90-100" },
-            { "label": "80-90" },
-            { "label": "70-80" },
-            { "label": "60-70" },
-            { "label": "50-60" }
-        ],
         "data": [
-                        { "value": tmp[0] },
-                { "value": tmp[1] },
-                { "value": tmp[2] },
-                { "value": tmp[3] },
-                { "value": tmp[4] }
+                {
+                    "label": "90-100",
+                    "value": tmp[0]
+                },
+                {
+                    "label": "90-100",
+                    "value": tmp[1]
+                },
+                {
+                    "label": "90-100",
+                    "value": tmp[2]
+                },
+                {
+                    "label": "90-100",
+                    "value": tmp[3]
+                },
+                {
+                    "label": "90-100",
+                    "value": tmp[4]
+                }
         ]
     })
 
