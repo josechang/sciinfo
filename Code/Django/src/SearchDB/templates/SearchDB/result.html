@@ -7,9 +7,11 @@
 <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+<script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Result page</title>
+<title>Result page</title>
 </head>
 <body>
 
@@ -55,6 +57,7 @@
           </div>
           <div class="col-md-6">
             <!-- Render figure here -->
+            <div id="chart-1">{{ fig|safe }}</div>
           </div>
         </div>
       </div>

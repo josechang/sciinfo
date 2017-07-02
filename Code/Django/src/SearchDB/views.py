@@ -51,10 +51,10 @@ def get_text(request):
         resultlist = []
         for i in range(0,len(sims)):
             result = Article.objects.get(filename = sims[i][0])
-            resultlist.append([str(result.filename), sims[i][1]])
-
+            resultlist.append([str(result.title), sims[i][1]])
+        fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist}), chart(request, sims)
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig})
 
     else:
         return render_to_response('SearchDB/search.html')
@@ -77,7 +77,7 @@ def refreshDatabase(request):
     # If size changed, refresh dict and mm files
     # Using diff of list for current prototype
     # Using numpy for better performance in the future
-    if len(sql_filename) is not len(local_filename):
+    if len(local_filename) != len(sql_filename):
         # Dict
         vector_space_convert(TXT_PATH, TMP_PATH, TMP_PATH, tmpName)
         transformation(TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
