@@ -129,19 +129,19 @@ def chart(article_info):
                     "value": tmp[0]
                 },
                 {
-                    "label": "90-100",
+                    "label": "80-90",
                     "value": tmp[1]
                 },
                 {
-                    "label": "90-100",
+                    "label": "70-80",
                     "value": tmp[2]
                 },
                 {
-                    "label": "90-100",
+                    "label": "60-70",
                     "value": tmp[3]
                 },
                 {
-                    "label": "90-100",
+                    "label": "50-60",
                     "value": tmp[4]
                 }
         ]
