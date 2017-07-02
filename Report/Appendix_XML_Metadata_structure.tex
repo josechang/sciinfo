@@ -12,7 +12,7 @@
 
 
 To make the database functional for the user to receive the articles that they are looking for,
-our responsibility will be creating an interface between the user, the database, and the searching programme. 
+our responsibility will be creating an interface between the user, the database, and the searching program. 
 In other words, we're going to construct a webpage with a search bar for the user to enter their search string,
 and can display the search results given by the search system. 
 To display the information of each article the system found, we need to construct an XML schema which contains all important data about the article.
@@ -24,7 +24,7 @@ We are able to rank them and suggest the optimum standard to build our XML struc
 XML is a markup language that defines a set of rules for encoding the documents in a format,  which is both human-readable and machine-readable. 
 It is widely used to representation of arbitrary data structures, such as those used in web services.
 
-Metadata is defined as the "data about data" or alternatively "information about information". 
+Metadata is defined as the "data about data" or alternatively "information about information." 
 In practice, metadata summarizes basic information of data for the organization and management of documents. 
 It can be accessed manually or by automatic information processing and coding. \cite{underwood2003xml}.
 
@@ -107,7 +107,7 @@ Listed in the following are five different standards with brief introduction.
 	\begin{enumerate}
 		\item The element set is richer and more descriptive than Dublin Core.
 		\item The element set is more compatible with library data than ONIX.
-		\item The schema is more end user oriented than the full MARCXML schema.
+		\item The schema is more end user oriented than the full MARCXML schemas.
 		\item The element set is simpler than the full MARC format. 
 		\\\\ONIX: ONIX is an XML-based standard for rich book metadata, providing a consistent way for publishers, retailers and their supply chain partners to communicate rich information about their products.
 	\end{enumerate}	
@@ -128,21 +128,21 @@ Listed in the following are five different standards with brief introduction.
 	
 	\item METS+MODS+PREMIS\\
 	{\bf Introduction}\\
-		The first digital repositories was developed by British Library's e-journal system which combined METS, MODS and PREMIS.\cite{Dappert2008} 
+		The first digital repositories was developed by British Library's e-journal system which combined METS, MODS and PREMIS. \cite{Dappert2008} 
 		The system took the advantage of the METS structural, PREMIS preservation and MODS descriptive metadata to form a advanced metadata structure. 
 		The Metadata Encoding and Transmission Standard (METS) is an XML document that can package the metadata of a digital resource: 
-		the descriptive, administrative, structural, rights and other data needed for retrieval and preserving of a digital resources.\cite{Guenther2003} 
+		the descriptive, administrative, structural, rights and other data needed for retrieval and preserving of a digital resources. \cite{Guenther2003} 
 		In other words it can be referred as a metadata storing and communication standard. The METS wrapper has up to seven major subsections: 
 		"a METS Header (metsHDR), a Descriptive Metadata Section (dmdSec), an Administrative Metadata Section (amdSec), a File Section (fileSec), 
 		a Structural Map (structMap), Structural Links (structLink), and a Behavior Section (behaviorSec)" these form the basic structure of METS. 
-		The Structural Map is the most important subsection and must be included in a METS document.\cite{Cheslow2014} 
+		The Structural Map is the most important subsection and must be included in a METS document. \cite{Cheslow2014} 
 		These subsections have elements that provide the means for describing in detail the digital objects. 
 		The Structural Map defines a hierarchical structure such that using METS pointers users of the digital library object can easily navigate through it. 
-		One great advantage of METS is that it provides a flexible framework for modelling different document types and scenarios.\cite{Dappert2008}
+		One great advantage of METS is that it provides a flexible framework for modelling different document types and scenarios. \cite{Dappert2008}
 		The Metadata Object Description Standard (MODS) provides ways to describe objects and has a high level compatibility with MARC. 
 		Among other XML metadata standard it is an alternative between a simple metadata format (such as Dublin Core) 
-		which has a minimum of fields and little or no substructure, and a very detailed format (such as MARC 21) with many data elements having various structural complexities.\cite{Guenther2003}
-		The PREservation Metadata Implementation Strategies (PREMIS) is an administrative metadata schema used for the preservation of digital resources.\cite{Cheslow2014} 
+		which has a minimum of fields and little or no substructure, and a very detailed format (such as MARC 21) with many data elements having various structural complexities. \cite{Guenther2003}
+		The PREservation Metadata Implementation Strategies (PREMIS) is an administrative metadata schema used for the preservation of digital resources. \cite{Cheslow2014} 
 		With the rapid changes in technology, digital objects including its metadata are bound to go obsolete at some time in the future. 
 		PREMIS was created to set standards that will ensure long term usability and preservation of digital resources.
 	
@@ -152,17 +152,17 @@ Listed in the following are five different standards with brief introduction.
 	First, e-journals are structurally complex. New issues are released in intervals for each journal title. 
 	These may contain a varying number of articles and other publishing matters having a variety of formats. 
 	Second, the production of e-journals are outside the control of the digital repository and done without the benefit of standards for the structure of file formats, 
-	metadata formats and vocabulary, publishing schedules, etc.\cite{Dappert2008}
+	metadata formats and vocabulary, publishing schedules, etc. \cite{Dappert2008}
 	As a means to solve these problem, METS provides a robust and flexible way to define digital objects. The MODS on the other hand, provides ways to describe digital objects and can be built on a MARC. 
 	Finally the PREMIS provides ways to describe digital objects and processes that are essential for digital preservation. 
-	Also, these three metadata standards are all built on an XML schema.\cite{Dappert2008}
-	Details on how to implement these three metadata standards to form a robust metadata structure or archive can be found in "Using METS, PREMIS and MODS for Archiving eJournals".\cite{Dappert2008} 
+	Also, these three metadata standards are all built on an XML schema. \cite{Dappert2008}
+	Details on how to implement these three metadata standards to form a robust metadata structure or archive can be found in "Using METS, PREMIS and MODS for Archiving e Journals." \cite{Dappert2008} 
 	Though there are different ways to implement these schema only one was discussed in the aforementioned literature.
 	
 	{\bf Advantages}
 	\begin{enumerate}
 		\item Interoperability: According to Hafezi et al on their survey of Iranian digital library, most of the bibliographic data comprises of 82\% XML and 64\% MARC formats. 
-								Given these statistics, METS+PREMIS+MODS can be considered inter operable since they all can be implemented in these formats.\cite{AlipourHafezi2013}					
+		Given these statistics, METS+PREMIS+MODS can be considered inter operable since they all can be implemented in these formats . \cite{AlipourHafezi2013}					
 		\item XML Schema: Considering our given responsibility and the easiness of implementing XML, METS+PREMIS+MODS is among the right choice. 
 		\item Metadata Preservation: The inclusion of PREMIS in METS provided the metadata preservation feature which single metadata standard cannot provide.
 		\item Highly descriptive metadata: The MODS used in structuring the descriptive metadata in METS provided a highly descriptive metadata structure.
