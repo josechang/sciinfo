@@ -51,7 +51,7 @@ def get_text(request):
         resultlist = []
         for i in range(0,len(sims)):
             result = Article.objects.get(filename = sims[i][0])
-            resultlist.append([str(result.title), sims[i][1]])
+            resultlist.append([str(result.filename), sims[i][1]])
         fig = chart(sims)
         # return uq, resultlist to result.html
         return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig})
