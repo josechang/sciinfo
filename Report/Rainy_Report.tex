@@ -70,7 +70,6 @@ pdfkeywords = {Information retrieval, Metadata}}
 	order with the source mentioned on Harvard citation format with the title of the publication, its type and 
 	link to the publisher's full text PDF and my library's full text PDF. 		
 
-	\todo[inline]{This section should be updated based on what you are building.}
 	\section{Background}
 	\label{Background}
 	%\subsection{}
@@ -88,15 +87,24 @@ Lexical similarity is introduced in this survey though different String-Based al
 String-Based measures operate on string sequences and character composition. A string metric is a metric that measures similarity or dissimilarity (distance) between two text strings for approximate string matching or comparison. 
 Corpus-Based similarity is a semantic similarity measure that determines the similarity between words according to information gained from large corpora. 
 Knowledge-Based similarity is a semantic similarity measure that determines the degree of similarity between words using information derived from semantic networks. The most popular for each type will be presented briefly
-	\subsection{Similarity comparison}
+	
 	\subsection{Metadata extraction}
     Metadata Extractor is the module which can extract metadata in PDF files such as title, subheading, doi, etc. We use python package pyPdf to extract metadata directly and use metadata to do couple things. First, we extract titles of articles returning those to the web page as search results. Second, we use metadata extractor to extract subheadings which are treated as the definition of break point to split PDF file i.e. one article will be separated into small pieces based on subheading. The small pieces will convert into .txt files by the .txt converter we built so that we can take .txt files into similarity comparison and get the most relative parts in the article.Third, We extract doi [explain what is doi] which can link to the original article source. 
 	
-	
+	\subsection{Similarity comparison}
+The Sequence diagram of text  similarity  comparison of functionality is presented  following  \textit figure 1. 
+	\begin{figure*}[htb]
+		\begin{center}
+			\includegraphics[width=0.9\textwidth]{Rainy_Sequence_diagram}
+		\end{center}
+		\caption{Sequence diagram of text similarity compare functionality.\label{Sequence diagram}}
+	\end{figure*}
+\newpage
 
-	
 	\section{Results and discussion}
+We already have an interesting and hard working course. In the course, we build Django, PostgreSQL database, and develop search engine, after that we combine them together. Then, we can get the search result based on the search query. In order to have a user-friendly web page, we add some CSS programming files into it! We extend our database to 89 articles by manually downloading them from the Internet. Finally, we can display the similarity percentage and build a good-looking result page.
 
+In brief, we have a functional web page implemented with search bar that you can copy a bunch of texts and return the percentage of similarity between the texts and the articles in the database.
 
 	\section{Conclusions and future work}
     The results of this year are described below. We built a functional web server which contains full-text search function, similarity comparison, and the article hyperlink which can connect to the source website.
