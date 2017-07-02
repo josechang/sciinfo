@@ -22,8 +22,7 @@ def chart(article_info):
             "caption":"Similarity Score distribution",
             "xAxisname": "percentage (%)",
             "yAxisName": "no. of article",
-            "numberPrefix":"$",
-            "theme":"ocean"
+            "theme":"carbon"
         },
         "category": [
             { "label": "90-100" },
