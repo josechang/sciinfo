@@ -5,8 +5,9 @@
 % Note: Do not compile this file compile Main.tex to get the pdf file instead.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Result}
-We now have a functional web page implemented with the  search bar that you can copy a bunch of text and it will return the percentage of similarity between the text and the articles in our database. 
+We now have a functional web page implemented with the search box that you can copy a bunch of text and it will return the percentage of similarity between the text and the articles in our database. 
+Click \href{http://django.nordlinglab.org}{here} for detail view.
 
 \subsection{Discussion}
-For the search text cannot include "-" character. Any query with "-" will cause an error to the web page and no result will be shown. For some query, it will return arbitrary percentage due to normalization of the similarity result. (ex. lebron james will return 99.9999\%)
-Further, the response time is slow for only small amout of articles in the database.
+For the search text cannot include "-" character. Any query with "-" will cause an error to the web page and no result will be shown. For some query, it will return arbitrary percentage due to normalization of the similarity result. (ex. "Lebron James" will return 99.9999\%)
+Furthermore, the response time is slow even for only small amout of articles in the database.
