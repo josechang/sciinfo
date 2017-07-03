@@ -71,7 +71,8 @@ This README would normally document whatever steps are necessary to get your app
 ### Install pip ###
 
 		sudo yum update
-		sudo yum install python-pip		
+		sudo yum install python-pip
+		sudo yum install epel-release		
 	
 ### Convert pdfs into txts ###
 
@@ -110,12 +111,6 @@ This README would normally document whatever steps are necessary to get your app
 	
 	
 ### Install Django with Postgres, Nginx and Gunicorn in docker ###
-
-* Pre_install:
-
-	Enable the EPEL repository so that we can get the components we need
-
-		sudo yum install epel-release
 		
 * Step 1: Install Docker Engine
 	
@@ -170,8 +165,10 @@ This README would normally document whatever steps are necessary to get your app
 	instead.
 
 
-* Step 6: Check your website at "localhost:<port you set>"
+* Step 6: Check your website at "localhost:<port you set>". For server version, enter "<your static IP address>:<port you set>".
 
-* Step 7: If you make some change of this project in your computer, run the following command to restart docker in your computer
+* Step 7: Enter "localhost:<port you set>/update" to synchronize your database. For server version, change localhost to IP as Step 6 did.
+
+* Step 8: If you make some change of this project in your computer, e.g. design of webpage, run the following command to restart docker in your computer
 
 		sh <Django directory>/rerundocker.sh
