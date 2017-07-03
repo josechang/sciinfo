@@ -22,6 +22,6 @@ The Sequence diagram of text  similarity  comparison of functionality is present
 		\begin{center}
 			\includegraphics[width=0.8\textwidth]{Rainy_Sequence_diagram}
 		\end{center}
-		\caption{Sequence diagram of text similarity compare functionality.\label{Sequence diagram}}
+		\caption{Sequence diagram of text similarity compare functionality: The figure shows that how the similarity function works. The ``pdf directory'' module will provide a pdf file to ``pdfx command'' fist, and ``pdf command'' will transfer the PDF file into .txt file. Then the .txt file will be sent to the ``vector space convert'' and produce two things, dictionary and corpus, which will be sent to the ``transformation'' and ``similarity'' modules. The ``transformation'' will produce the lsi after it gets the dictionary and the corpus. Finally ``similarity'' will produce similarity score after it receives the dictionary, corpus, and lsi. \label{Sequence diagram}}
 	\end{figure*}
 \newpage
