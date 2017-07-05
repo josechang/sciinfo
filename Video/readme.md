@@ -2,7 +2,7 @@
 This readme file contains the sources about the video which had been done by the all participants of the Scientific Information Gathering and Processing for Engineering Research course held by Professor Nordling at the National Cheng Kung University in the spring semester of 2016.
 
 # Advice
-The video was made according to professor's advice. The following is the advice from professor Nordling:
+The video was made according to professor's advice. The following is the advice came from professor Nordling:
 
 1. Please ask yourself if you think the video make you want to use the service you built. I don't think it does.
 
@@ -25,5 +25,6 @@ The video was made according to professor's advice. The following is the advice 
 10. Why do you think I said a 5 minute video? I did it because short is good. Actually a 2 min video would be even better. Make sure you do not exceed the 5 min limit.
 
 # Other sources
-- __Youtube__ : https://www.youtube.com/watch?v=IigKBDkGBbg&feature=youtu.be
+- __YOutube (The first version)__: https://www.youtube.com/watch?v=Px4uDXlyBNw
+- __Youtube (The second version)__ : https://www.youtube.com/watch?v=IigKBDkGBbg&feature=youtu.be
 - __Bitbucket__: You can connect to the bitbucket and take a look at the home page in it. Then I think you can comprehend some basic tutorials about how to use the server.
