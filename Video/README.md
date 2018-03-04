@@ -1,5 +1,5 @@
 ﻿# Introduction
-This readme file contains the sources about the video which had been done by the all participants of the Scientific Information Gathering and Processing for Engineering Research course held by Professor Nordling at the National Cheng Kung University in the spring semester of 2016.
+This readme file contains the sources about the video which had been done by the all participants of the Scientific Information Gathering and Processing for Engineering Research course held by Professor Nordling at the National Cheng Kung University in the spring semester of 2017.
 
 # Advice
 The video was made according to professor's advice. The following is the advice came from professor Nordling:
