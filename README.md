@@ -188,7 +188,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 1: Install [python](https://www.python.org/downloads/)
 
-* Step 2: Open command line (Windows)/ terminal (Mac) and type ```pip```
+* Step 2: Open command line (Windows - [here a list of commands](https://www.lifewire.com/list-of-command-prompt-commands-4092302))/ terminal (Mac) and type ```pip``` ([difference between Unix and Win commands](https://www.lemoda.net/windows/windows2unix/windows2unix.html))
 
 * Step 3: If ```pip``` cannot work, you need to set the environment variable.
 
@@ -198,17 +198,17 @@ This README would normally document whatever steps are necessary to get your app
 
 		pip install pdfx
 		
-* Step 2: Make directories called **Article_pdf** and **Article_txt** under Django/src.
+* Step 2: Make directories called **Article_pdf** and **Article_txt** under Django/src. (Note: if your directory is on another drive than C:, use e.g. e:\<path to folder>)
 
-		mkdir <path to this repository>/Code/Django/src/Article_txt <path to this repository>/Code/Django/src/Article_pdf/
+		mkdir <path to this repository>\Code\Django\src\Article_txt <path to this repository>\Code\Django\src\Article_pdf\
 		
-* Step 3: Move into the directory **Article_pdf**.
+* Step 3: Move into the directory **Article_pdf**. (Note: if your director is on another drive, use cd /d d:\<path to directory>\Code\Django\src\Article_pdf\)
 		
-		cd <path to this repository>/Code/Django/src/Article_pdf/
+		cd <path to this repository>\Code\Django\src\Article_pdf\
 		
 	Check the files:
 	
-		ls		
+		dir
 
 * Step 4: Add pdf files to **Article_pdf** folder, you can use either FileZilla or scp command. If you're using local computer, just do copy and paste
 
