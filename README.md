@@ -35,7 +35,7 @@ This README would normally document whatever steps are necessary to get your app
 * 3.0 GB disk space available
 * A static IP address
 
-## The following steps are for linux users, if you're using Windows of Mac OS, refer to next part##
+## The following steps are for linux users, if you're using Windows or Mac OS, refer to the next part##
 
 ### Set up git ###
 
