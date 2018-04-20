@@ -35,6 +35,8 @@ This README would normally document whatever steps are necessary to get your app
 * 3.0 GB disk space available
 * A static IP address
 
+## The following steps are for linux users, if you're using Windows of Mac OS, refer to next part##
+
 ### Set up git ###
 
 * Step 1: Check if Git has already been installed in CentOS computer.
@@ -172,3 +174,103 @@ This README would normally document whatever steps are necessary to get your app
 * Step 8: If you make some change of this project in your computer, e.g. design of webpage, run the following command to restart docker in your computer
 
 		sh <Django directory>/rerundocker.sh
+		
+		
+## For Windows and Mac OS users ##
+
+### Set up git ###
+
+* Step 1: Install git client software, you can choose either [SourceTree](https://www.sourcetreeapp.com/) or [Git bash](https://git-scm.com/downloads).
+
+* Step 2: Clone this repository
+
+### Set up pip ###
+
+* Step 1: Install [python](https://www.python.org/downloads/)
+
+* Step 2: Open command line (Windows)/ terminal (Mac) and type ```pip```
+
+* Step 3: If ```pip``` cannot work, you need to set the environment variable.
+
+### Convert pdfs into txts ###
+
+* Step 1: Install pdfx.
+
+		pip install pdfx
+		
+* Step 2: Make directories called **Article_pdf** and **Article_txt** under Django/src.
+
+		mkdir <path to this repository>/Code/Django/src/Article_txt <path to this repository>/Code/Django/src/Article_pdf/
+		
+* Step 3: Move into the directory **Article_pdf**.
+		
+		cd <path to this repository>/Code/Django/src/Article_pdf/
+		
+	Check the files:
+	
+		ls		
+
+* Step 4: Add pdf files to **Article_pdf** folder, you can use either FileZilla or scp command. If you're using local computer, just do copy and paste
+
+* Step 5: Convert the pdf files to txt files.
+		
+		pdfx <filename>.pdf -t -o ../Article_txt/<filename>.txt
+		
+	or write a batch script with the following code and run it in directory **pdfs**.
+		
+		for f in *.pdf
+		do
+			echo "Converting $f"
+			pdfx $f -t -o ../Article_txt/$(echo $f | cut -f 1 -d '.').txt
+		done
+
+
+### Set up docker ###
+
+* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/).
+
+* Step 2: Launch Docker toolbox and wait until it finish setting up
+
+* Step 3: Type the command ```docker-machine ip``` to get the ip of Docker.
+
+* Step 4: Configure the port with
+
+		vim <Django directory>/docker-compose.yml
+		
+	find the following lines
+	
+		  nginx:
+			image: nginx:latest
+			container_name: ng02
+			ports:
+			  - "9000:7000"
+			volumes:
+			  - ./src:/src
+			  - ./config/nginx:/etc/nginx/conf.d
+			depends_on:
+			  - web
+			  
+	then change "9000:7000" into "<port you want>:7000"
+	e.g. "2345:7000"
+
+* Step 5: For the first time setting up, run the following command to build up docker in your computer
+
+		docker-compose build
+
+	Wait for a while before it finishes collecting the required packages.
+
+* Step 6: Save the file and run
+
+		docker-compose up
+
+	if the above command works well, after restarting you can also use
+
+        docker-compose up -d
+
+	instead.
+	
+	Note that ```-d``` is to make it run in background.
+	
+* Step 7: Check your website at "<ip for docker-machine>:<port you set>"
+
+* Step 8: Enter "<ip for docker-machine>:<port you set>/update" to synchronize the database.
