@@ -152,17 +152,17 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 4: For the first time setting up, run the following command to build up docker in your computer
 
-		docker-compose build
+		sudo docker-compose build
 
 	Wait for a while before it finishes collecting the required packages.
 
 * Step 5: Save the file and run
 
-		docker-compose up -depends_on
+		sudo docker-compose up -depends_on
 
 	if the above command is not working, use
 
-        docker-compose up -d
+        sudo docker-compose up -d
 
 	instead.
 
