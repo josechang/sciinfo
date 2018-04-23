@@ -227,8 +227,8 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up docker ###
 
-* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/).
-          If you cannot setup Docker toolbox successfully, please check your virtual machine's version whether it is the newest one. 
+* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/).If you cannot setup Docker toolbox successfully, please check your virtual machine's version whether it is the newest one.
+
 * Step 2: Launch Docker toolbox and wait until it finish setting up
 
 * Step 3: Type the command ```docker-machine ip``` to get the ip of Docker.
