@@ -1,5 +1,7 @@
 # README #
 
+![Flying Donut status of current sprint](https://www.flyingdonut.io/api/projects/57349d1f36f84d000332cd6c/iterations/current/status.svg)
+
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
