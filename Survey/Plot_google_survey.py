@@ -10,7 +10,7 @@ def Load_csv(filename):
     with open(filename, 'r') as csvfile:
         reader = csvreader(csvfile)
         data = np.array(list(reader))
-        for i in range(1,data.shape[0]-1):
+        for i in range(1,data.shape[1]-1):
             unique, counts = np.unique(data[1:,i], return_counts=True)
             dic = dict(zip(unique,counts))
             dic['Question'] = data[0,i]
