@@ -1,5 +1,7 @@
 # README #
 
+![Flying Donut status of current sprint](https://www.flyingdonut.io/api/projects/57349d1f36f84d000332cd6c/iterations/current/status.svg)
+
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
@@ -227,7 +229,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up docker ###
 
-* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/).
+* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/).If you cannot setup Docker toolbox successfully, please check your virtual machine's version whether it is the newest one.
 
 * Step 2: Launch Docker toolbox and wait until it finish setting up
 
