@@ -188,7 +188,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up pip ###
 
-* Step 1: Install [python](https://www.python.org/downloads/)
+* Step 1: Install [Python](https://www.python.org/downloads/)
 
 * Step 2: Open command line (Windows - [here a list of commands](https://www.lifewire.com/list-of-command-prompt-commands-4092302))/ terminal (Mac) and type ```pip``` ([difference between Unix and Win commands](https://www.lemoda.net/windows/windows2unix/windows2unix.html))
 
