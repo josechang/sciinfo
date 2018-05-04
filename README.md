@@ -229,8 +229,18 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up docker ###
 
-* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/).If you cannot setup Docker toolbox successfully, please check your virtual machine's version whether it is the newest one.
+* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/). If you cannot setup Docker toolbox successfully, please check your virtual machine's version whether it is the newest one.
+	
+	For newer versions of Windows 10 (Pro versions or Creator's Update) do as follows:
+	
+	a) Install [Docker Community Edition](https://www.docker.com/community-edition) (not Docker Toolbox)
+	
+	b) Enable Hyper-V by Open Control Panel -> System and Security -> Programs (left panel) -> Turn Windows features on or off -> Check the Hyper-V box. If you don't have Hyper-V option, then your Windows OS is not Enterprise Edition. Also, Docker seems to work a lot better on Intel processors (not AMD).
+	
+	c) Add C:\Program Files\Docker\Docker\resources\bin to Path in Environmental Variables. To do so, in Search (Windows Buttton), search for and then select: System (Control Panel), click the Advanced system settings link. Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+	
 
+	
 * Step 2: Launch Docker toolbox and wait until it finish setting up
 
 * Step 3: Type the command ```docker-machine ip``` to get the ip of Docker.
