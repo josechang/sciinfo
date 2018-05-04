@@ -239,7 +239,9 @@ This README would normally document whatever steps are necessary to get your app
 	
 	c) Add C:\Program Files\Docker\Docker\resources\bin to Path in Environmental Variables. To do so, in Search (Windows Buttton), search for and then select: System (Control Panel), click the Advanced system settings link. Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
 	
-
+	d) IMPORTANT: get sure you share your drives. In the task bar, right click on the docker icon (if it isn't there, it means docker service is not running and you should start from step 1 again) and select settings. In the settings windo select on the left side "Shared Drives", select the drive on which you downloaded the git files, type in your Windows password to confirm.
+	
+	e) IGNORE step 2 and 3, just do step 4, 5 and 6, then go to your browser (Firefox, Chrome) and type "localhost:YOUR_IP_FROM_STEP_4" (without the "") and voilà, you should be done. (no need for step 7 and 8)
 	
 * Step 2: Launch Docker toolbox and wait until it finish setting up
 
