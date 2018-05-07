@@ -15,7 +15,7 @@ import os
 import codecs
 import re
 from gensim import corpora, models, similarities
-from stop_words import get_stop_words
+from stop_words import get_stop_words         #匯入斷字、斷字處理等等手續都在vector_space_convert_cp1、transformation_cp1
 from collections import defaultdict
 from six import iteritems
 from pyPdf import PdfFileWriter, PdfFileReader
