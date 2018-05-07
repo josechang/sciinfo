@@ -9,17 +9,20 @@ def year_extractor(pdf_path, pdf_filename):
     try:
         input1 = PdfFileReader(file(abs_path, "rb"))
 		# "rb" => binary reading mode
+		
         ############ get arabic numerals in title #############
-        z = re.findall(r'\d+', input1.getDocumentInfo().title)
-        z = str(z)
-        z = z.replace('u','').replace(',','').replace('[','').replace(']','').replace(' ','').replace("'",'')
+        N = re.findall(r'\d+', input1.getDocumentInfo().title)
+        N = str(N)
+        N = N.replace('[','').replace(']','').replace(' ','').replace("'",'')
 		# str.replace(old, new[, max])
+		year = int(N[0:4])
         #######################################################
-
+		author = input1.getDocumentInfo().author
+		
         # block title which has too little words and too many arabic numerals
-        if len(input1.getDocumentInfo().title)>7 and len(z)<5:         
-            return int(z)
+        if len(input1.getDocumentInfo().title)>7 and len(N)<5:         
+            return int(year)
         else:
-            return "No title"
+            return "No title or wrong published year"
     except:
         print "Load pdf error."
