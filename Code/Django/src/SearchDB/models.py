@@ -7,6 +7,7 @@ from django.db import models
 class Article(models.Model):
     # Define number of columns for this table
 	# https://docs.djangoproject.com/en/2.0/ref/models/fields/#model-field-types
+	
     filename = models.CharField(max_length = 255)
     content = models.TextField()
     title = models.CharField(max_length = 255)
