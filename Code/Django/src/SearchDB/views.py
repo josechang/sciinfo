@@ -91,6 +91,7 @@ def refreshDatabase(request):
             # Load pdf file, for title
             pdf_filename = fname.replace(".txt", ".pdf")
             t = title_extractor(PDF_PATH, pdf_filename)
+			# y = year_extractor(PDF_PATH, pdf_filename)
             d = doi_extract(PDF_PATH, pdf_filename)
             Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
