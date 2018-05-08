@@ -16,6 +16,7 @@ main.run.xml
 *.gz
 *.bbl
 *.blg
+*.yml
 Report/Main.aux
 Report/Main.bbl
 Report/Main.blg
