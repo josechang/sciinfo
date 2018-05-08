@@ -1,5 +1,7 @@
 # README #
 
+![Flying Donut status of current sprint](https://www.flyingdonut.io/api/projects/57349d1f36f84d000332cd6c/iterations/current/status.svg)
+
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
@@ -35,7 +37,7 @@ This README would normally document whatever steps are necessary to get your app
 * 3.0 GB disk space available
 * A static IP address
 
-## The following steps are for linux users, if you're using Windows or Mac OS, refer to the next part##
+## The following steps are for linux (RHEL) users, if you're using Windows or Mac OS, refer to the next part##
 
 ### Set up git ###
 
@@ -186,7 +188,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up pip ###
 
-* Step 1: Install [python](https://www.python.org/downloads/)
+* Step 1: Install [Python](https://www.python.org/downloads/)
 
 * Step 2: Open command line (Windows - [here a list of commands](https://www.lifewire.com/list-of-command-prompt-commands-4092302))/ terminal (Mac) and type ```pip``` ([difference between Unix and Win commands](https://www.lemoda.net/windows/windows2unix/windows2unix.html))
 
@@ -227,8 +229,20 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Set up docker ###
 
-* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/).
-
+* Step 1: Install [Docker toolbox for Windows](https://docs.docker.com/toolbox/toolbox_install_windows/)/[Docker toolbox for Mac OS](https://docs.docker.com/toolbox/toolbox_install_mac/). If you cannot setup Docker toolbox successfully, please check your virtual machine's version whether it is the newest one.
+	
+	For newer versions of Windows 10 (Pro versions or Creator's Update) do as follows:
+	
+	a) Install [Docker Community Edition](https://www.docker.com/community-edition) (not Docker Toolbox)
+	
+	b) Enable Hyper-V by Open Control Panel -> System and Security -> Programs (left panel) -> Turn Windows features on or off -> Check the Hyper-V box. If you don't have Hyper-V option, then your Windows OS is not Enterprise Edition. Also, Docker seems to work a lot better on Intel processors (not AMD).
+	
+	c) Add C:\Program Files\Docker\Docker\resources\bin to Path in Environmental Variables. To do so, in Search (Windows Buttton), search for and then select: System (Control Panel), click the Advanced system settings link. Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+	
+	d) IMPORTANT: get sure you share your drives. In the task bar, right click on the docker icon (if it isn't there, it means docker service is not running and you should start from step 1 again) and select settings. In the settings windo select on the left side "Shared Drives", select the drive on which you downloaded the git files, type in your Windows password to confirm.
+	
+	e) IGNORE step 2 and 3, just do step 4, 5 and 6, then go to your browser (Firefox, Chrome) and type "localhost:YOUR_IP_FROM_STEP_4" (without the "") and voilà, you should be done. (no need for step 7 and 8)
+	
 * Step 2: Launch Docker toolbox and wait until it finish setting up
 
 * Step 3: Type the command ```docker-machine ip``` to get the ip of Docker.
