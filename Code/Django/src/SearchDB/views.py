@@ -57,7 +57,7 @@ def get_text(request):
         return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig})
 
     else:
-        return render_to_response('SearchDB/search_test.html')
+        return render_to_response('SearchDB/search.html')
 
 def refreshDatabase(request):
     # Create a list with filenames in SQL database
