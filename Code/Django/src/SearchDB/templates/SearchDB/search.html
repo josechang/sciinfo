@@ -44,10 +44,13 @@
 	    </div>
 	    <form action="" method="get">
 	    	<textarea id="q" rows="5" class="form-control" name="q"></textarea>
+        <div id="input-query"></div>
 	    	<br>
 	    	<button type="submit" class="btn btn-default">Search</button>
 		</form>    	
     </div>
+  <script src="{% static 'js/vendor.bundle.js' %}"></script>
+  <script src="{% static 'js/index.bundle.js' %}"></script>
 	{% include './About.html' %}
 
 </body>
