@@ -175,7 +175,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 8: If you make some change of this project in your computer, e.g. design of webpage, run the following command to restart docker in your computer
 
-		sh <Django directory>/rerundocker.sh
+		sh <Django directory>/restartDocker.sh
 		
 		
 ## For Windows and Mac OS users ##
@@ -241,7 +241,7 @@ This README would normally document whatever steps are necessary to get your app
 	
 	d) IMPORTANT: get sure you share your drives. In the task bar, right click on the docker icon (if it isn't there, it means docker service is not running and you should start from step 1 again) and select settings. In the settings windo select on the left side "Shared Drives", select the drive on which you downloaded the git files, type in your Windows password to confirm.
 	
-	e) IGNORE step 2 and 3, just do step 4, 5 and 6, then go to your browser (Firefox, Chrome) and type "localhost:YOUR_IP_FROM_STEP_4" (without the "") and voil√†, you should be done. (no need for step 7 and 8)
+	e) IGNORE step 2 and 3, just do step 4, 5 and 6, then go to your browser (Firefox, Chrome) and type "localhost:YOUR_IP_FROM_STEP_4" (without the "") and voil‡, you should be done. (no need for step 7 and 8)
 	
 * Step 2: Launch Docker toolbox and wait until it finish setting up
 
