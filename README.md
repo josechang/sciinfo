@@ -102,7 +102,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 		pdfx <filename>.pdf -t -o ../Article_txt/<filename>.txt
 		
-	or write a batch file with the following code and run it in directory **pdfs**.
+	or write a batch file with the following code and run it ($ source <filename>.sh) in directory **pdfs**.
 	
 		#!/bin/bash
 		
