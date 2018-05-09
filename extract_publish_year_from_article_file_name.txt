@@ -1,0 +1,14 @@
+#Extract publication year from file name of an article in the database
+#Read or import the name of the file
+#Extract the publish year (an integral number) from file name
+
+def title_extractor(pdf_path, pdf_filename):
+abs_path = pdf_path + pdf_filename
+try:
+input = PdfFileReader(file(abs_path, "rb"))
+z = re.findall(r'\d+', input1.getDocumentInfo().title)
+z = str(z)
+z = z.replace('u','').replace(',','').replace('[','').replace(']','').re
+year=int(N[0:3],z)
+
+#display year on the result list
