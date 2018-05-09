@@ -220,6 +220,7 @@ This README would normally document whatever steps are necessary to get your app
 		
 	or write a batch script with the following code and run it in directory **pdfs**.
 		
+		#!/bin/bash
 		for f in *.pdf
 		do
 			echo "Converting $f"
@@ -241,7 +242,7 @@ This README would normally document whatever steps are necessary to get your app
 	
 	d) IMPORTANT: get sure you share your drives. In the task bar, right click on the docker icon (if it isn't there, it means docker service is not running and you should start from step 1 again) and select settings. In the settings windo select on the left side "Shared Drives", select the drive on which you downloaded the git files, type in your Windows password to confirm.
 	
-	e) IGNORE step 2 and 3, just do step 4, 5 and 6, then go to your browser (Firefox, Chrome) and type "localhost:YOUR_IP_FROM_STEP_4" (without the "") and voilà, you should be done. (no need for step 7 and 8)
+	e) IGNORE step 2 and 3, just do step 4, 5 and 6, then go to your browser (Firefox, Chrome) and type "localhost:YOUR_IP_FROM_STEP_4" (without the "") and voilï¿½, you should be done. (no need for step 7 and 8)
 	
 * Step 2: Launch Docker toolbox and wait until it finish setting up
 
