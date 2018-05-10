@@ -45,6 +45,7 @@ def get_text(request):
         vector = SearchVector('content', weight='A')
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
+        teststr = "Got the message"
 
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
@@ -54,7 +55,8 @@ def get_text(request):
             resultlist.append([str(result.filename), sims[i][1]])
         fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr})
+		
 
     else:
         return render_to_response('SearchDB/search.html')

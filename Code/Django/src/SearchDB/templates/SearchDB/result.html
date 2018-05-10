@@ -51,9 +51,23 @@
           <div class="col-md-6">
             {% for i in resultlist %}
             <div class="article">
-              <li>{{ i }}</li>
+               
+              <li>{{ i }} &nbsp;&nbsp;&nbsp;&nbsp;
+                  
+                  <div id = "show_text{{i.0}}">original text</div>
+                  <button id = "btn{{i.0}}" class="btn btn-default">Abstract</button>   
+             </li>    
+             <script type = "text/javascript">
+              document.getElementById("btn{{i.0}}").onclick = function(){
+                  
+                  document.getElementById("show_text{{i.0}}").innerHTML = "{{teststr}}"
+              }
+              
+              </script>   
             </div>
             {% endfor %}
+              
+              
           </div>
           <div class="col-md-6">
             <!-- Render figure here -->
