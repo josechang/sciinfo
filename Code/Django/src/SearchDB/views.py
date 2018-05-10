@@ -15,7 +15,7 @@ import os
 import codecs
 import re
 from gensim import corpora, models, similarities
-from stop_words import get_stop_words
+from stop_words import get_stop_words         #匯入斷字、斷字處理等等手續都在vector_space_convert_cp1、transformation_cp1
 from collections import defaultdict
 from six import iteritems
 from pyPdf import PdfFileWriter, PdfFileReader
@@ -96,6 +96,7 @@ def refreshDatabase(request):
             # Load pdf file, for title
             pdf_filename = fname.replace(".txt", ".pdf")
             t = title_extractor(PDF_PATH, pdf_filename)
+			# y = year_extractor(PDF_PATH, pdf_filename)
             d = doi_extract(PDF_PATH, pdf_filename)
             Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
