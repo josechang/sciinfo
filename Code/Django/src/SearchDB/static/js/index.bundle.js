@@ -92972,6 +92972,10 @@ var InputBox = function (_React$Component) {
 				'div',
 				{ id: 'query-box' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+					id: 'q',
+					className: 'form-control',
+					rows: '5',
+					name: 'q',
 					placeholder: 'enter the keyword',
 					onChange: this.inputHandler,
 					value: this.state.query
@@ -92990,6 +92994,8 @@ var InputBox = function (_React$Component) {
 			this.setState({
 				query: e.target.value
 			});
+			//fumc()
+
 			var text = e.target.value.split('');
 			var lastString = text[text.length - 1];
 			if (lastString === ' ') {
@@ -93072,7 +93078,7 @@ exports = module.exports = __webpack_require__(23)(false);
 
 
 // module
-exports.push([module.i, "body,html{text-align:center}#input-query{display:inline-flex;width:calc(100vw - 20px);padding:10px;max-width:800px;flex-direction:column;align-items:center}#input-query *{font-family:Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif}#input-query #query-box{display:inline-flex;flex-direction:column;width:100%;align-items:flex-start}#input-query #query-box textarea{width:calc(100% - 10px);height:50px;border-radius:1px;margin-bottom:10px;padding:5px}#input-query #query-box textarea:focus{box-shadow:1px 1px 3px gray;outline:none;border:none}#input-query #query-box .results-container{display:inline-flex;width:100%;flex-direction:row;justify-content:flex-start;align-items:flex-start}#input-query #query-box .results-container .corrections-list{display:inline-flex;flex-direction:column;align-items:flex-start;margin-right:5px}#input-query #query-box .results-container .corrections-list .correction{border:1px solid pink;border-radius:3px;padding:5px 10px;margin-bottom:8px;cursor:pointer;transition:all .3s}#input-query #query-box .results-container .corrections-list .correction:hover{background-color:pink}", ""]);
+exports.push([module.i, "body,html{text-align:center}#input-query{display:inline-flex;width:calc(100vw - 20px);padding:10px;max-width:1000px;flex-direction:column;align-items:center}#input-query *{font-family:Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif}#input-query #query-box{display:inline-flex;flex-direction:column;width:100%;align-items:flex-start}#input-query #query-box textarea{width:calc(100% - 10px);border-radius:1px;margin-bottom:10px;padding:5px}#input-query #query-box textarea:focus{box-shadow:1px 1px 3px gray;outline:none;border:none}#input-query #query-box .results-container{display:inline-flex;width:100%;flex-direction:row;justify-content:flex-start;align-items:flex-start}#input-query #query-box .results-container .corrections-list{display:inline-flex;flex-direction:column;align-items:flex-start;margin-right:5px}#input-query #query-box .results-container .corrections-list .correction{border:1px solid pink;border-radius:3px;padding:5px 10px;margin-bottom:8px;cursor:pointer;transition:all .3s}#input-query #query-box .results-container .corrections-list .correction:hover{background-color:pink}", ""]);
 
 // exports
 
