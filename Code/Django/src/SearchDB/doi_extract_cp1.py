@@ -5,5 +5,5 @@ import os, sys
 def doi_extract(pdf_path, PDF):
     # must be pdf file in the path, otherwise it won't work!!
 	pdf_info = PdfFileReader(open(pdf_path + PDF, 'rb')).getDocumentInfo() # extract pdf information
-	doi = str('http://dx.doi.org/' + pdf_info['/doi']) # get doi information from pdf_info
+	doi = str('http://dx.doi.org/') # get doi information from pdf_info
 	return doi
