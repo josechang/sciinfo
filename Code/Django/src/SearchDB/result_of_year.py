@@ -27,9 +27,9 @@ def year_similarity_compare(query, txt, DictPath, mmPath, indexPath, filename):
     years_enu = []
     # Transform tuple data structure to list data structure and replace id to exact filename
     for i in range(0,len(years)):
-        year=text[i][0:4]    #0511修
+        year = txt[i][0:4]    #0511
         year = int(year)
-        years_enu.append([txt[i], years[i],year])    #0511修
+        years_enu.append([txt[i], years[i],year])    #0511
     years_enu = sorted(years_enu, key=lambda item: -item[2]) # calculate sorted similarity
     # print(list(enumerate(sims)))
     #print(sims) # print sorted (document number, similarity score) 2-tuples
