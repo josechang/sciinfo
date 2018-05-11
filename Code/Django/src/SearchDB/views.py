@@ -50,11 +50,11 @@ def get_text(request):
         for i in range(len(uq_split)):
         	
         	uq_split[i] = str(uq_split[i])
-        print(uq_split)
+
 
         teststr = "Got the message"
 
-
+        synonym = uq_split
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
