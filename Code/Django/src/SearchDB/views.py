@@ -36,6 +36,7 @@ TMP_PATH = getattr(settings, 'TMP_PATH', os.path.join(settings.BASE_DIR, 'tmp/')
 tmpName = 'deerwester'
 
 # Create your views here.
+
 def get_text(request):
     # if the search bar gets query, redirect to the result page, using GET method
     if 'q' in request.GET:
@@ -51,9 +52,17 @@ def get_text(request):
         	
         	uq_split[i] = str(uq_split[i])
 
-        for i in range(len(uq_split)):
-        	syn = vb.synonym(uq_split[i], format='list')
-        synonym = syn
+        for ii in range(len(uq_split)):
+        	s = []
+        	syn = vb.synonym(uq_split[ii], format='list')
+        	try:
+			for j in syn:
+			
+				s.append(j)
+		except:
+			continue
+        
+        synonym = s
         teststr = "Got the message"
 
         
