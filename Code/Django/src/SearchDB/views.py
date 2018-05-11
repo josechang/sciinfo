@@ -122,7 +122,7 @@ def get_text(request):
             result = Article.objects.get(filename = sims[i][0])
         with open(TXT_PATH + str(result.filename), "r") as f:
                 for line in f: pass
-            print line #this is the last line of the file
+        #print line #this is the last line of the file
             resultlist.append([str(result.filename), sims[i][1], line])
         fig = chart(sims)
         # return uq, resultlist to result.html
