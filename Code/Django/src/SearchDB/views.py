@@ -66,7 +66,7 @@ def get_text(request):
             resultlist.append([str(result.filename), sims[i][1], line])
         fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr, 'uq_split': uq_split})
 		
 
     else:
