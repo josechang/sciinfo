@@ -11,7 +11,7 @@ class Article(models.Model):
     filename = models.CharField(max_length = 255)
     content = models.TextField()
     title = models.CharField(max_length = 255)
-	year = models.IntegerField()
+    #year = models.IntegerField()
     doi = models.URLField(max_length = 128, default='http://dx.doi.org/')
     def __str__(self):
         # Define the model name
