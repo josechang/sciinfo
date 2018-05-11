@@ -51,7 +51,7 @@ def get_text(request):
 		uq_split = uq.split(' ')
         for i in range(len(uq_split)):
         	
-        	uq_split[i] = str(uq_split[i])
+			uq_split[i] = str(uq_split[i])
 
         for ii in range(len(uq_split)):
         	s = []
@@ -100,7 +100,7 @@ def get_text(request):
         uq_split = uq.split(' ')
         for i in range(len(uq_split)):
         	
-        	uq_split[i] = str(uq_split[i])
+			uq_split[i] = str(uq_split[i])
 
         for ii in range(len(uq_split)):
         	s = []
