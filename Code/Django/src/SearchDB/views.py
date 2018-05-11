@@ -40,36 +40,35 @@ tmpName = 'deerwester'
 
 def get_text(request):
     # if the search bar gets query, redirect to the result page, using GET method
-    if 'q' in request.GET and 'check' in request.GET:     
+	if 'q' in request.GET and 'check' in request.GET:     
 
-        # Access the database to do searching
-        article_all = Article.objects.all()
-        vector = SearchVector('content', weight='A')
-        query = SearchQuery(str(request.GET['q']))
-        uq = request.GET['q']
-
+		# Access the database to do searching
+		article_all = Article.objects.all()
+		vector = SearchVector('content', weight='A')
+		query = SearchQuery(str(request.GET['q']))
+		uq = request.GET['q']
+		
 		uq_split = uq.split(' ')
-        for i in range(len(uq_split)):
-        	
+		for i in range(len(uq_split)):
 			uq_split[i] = str(uq_split[i])
 
         for ii in range(len(uq_split)):
-        	s = []
-        	syn = vb.synonym(uq_split[ii], format='list')
-        	try:
+			s = []
+			syn = vb.synonym(uq_split[ii], format='list')
+			try:
 			for j in syn:
 			
 				s.append(j)
 		except:
 			continue
         
-        synonym = s
-        teststr = "Got the message"
+		synonym = s
+		teststr = "Got the message"
 		
         # implement searching function and ranks
-        yearsort = year_similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
+		yearsort = year_similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
 		
-        year_simus = []
+		year_simus = []
 		# create list and sorting similarity for each year 
 		for i in range(2018,1950,-1):
 			tmp = []
@@ -81,57 +80,57 @@ def get_text(request):
 				result = Article.objects.get(filename = tmp[k][0])
 				year_simus.append([str(result.filename),tmp[k][1],tmp[k][2]])
 		
-        resultlist = []
+		resultlist = []
 		for i in range(0,len(year_simus)):
-            result = Article.objects.get(filename = year_simus[i][0])   
-            resultlist.append([str(result.filename), year_simus[i][1]])
+			result = Article.objects.get(filename = year_simus[i][0])   
+			resultlist.append([str(result.filename), year_simus[i][1]])
 		fig = chart(year_simus)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result_test.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig, 'teststr' : teststr, 'synonym': synonym})
+		return render_to_response('SearchDB/result_test.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig, 'teststr' : teststr, 'synonym': synonym})
 
 	elif 'q' in request.GET:
 
         # Access the database to do searching
-        article_all = Article.objects.all()
-        vector = SearchVector('content', weight='A')
-        query = SearchQuery(str(request.GET['q']))
-        uq = request.GET['q']
- 
-        uq_split = uq.split(' ')
-        for i in range(len(uq_split)):
-        	
+		article_all = Article.objects.all()
+		vector = SearchVector('content', weight='A')
+		query = SearchQuery(str(request.GET['q']))
+		uq = request.GET['q']
+
+		uq_split = uq.split(' ')
+		for i in range(len(uq_split)):
+
 			uq_split[i] = str(uq_split[i])
 
-        for ii in range(len(uq_split)):
-        	s = []
-        	syn = vb.synonym(uq_split[ii], format='list')
-        	try:
+		for ii in range(len(uq_split)):
+			s = []
+			syn = vb.synonym(uq_split[ii], format='list')
+			try:
 			for j in syn:
 			
 				s.append(j)
 		except:
 			continue
         
-        synonym = s
-        teststr = "Got the message"
+		synonym = s
+		teststr = "Got the message"
 
         
         # implement searching function and ranks
-        sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
-        resultlist = []
-        for i in range(0,len(sims)):
-            result = Article.objects.get(filename = sims[i][0])
-	    with open(TXT_PATH + str(result.filename), "r") as f:
-    	        for line in f: pass
-    		print line #this is the last line of the file
-            resultlist.append([str(result.filename), sims[i][1], line])
-        fig = chart(sims)
+		sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
+		resultlist = []
+		for i in range(0,len(sims)):
+			result = Article.objects.get(filename = sims[i][0])
+		with open(TXT_PATH + str(result.filename), "r") as f:
+				for line in f: pass
+			print line #this is the last line of the file
+			resultlist.append([str(result.filename), sims[i][1], line])
+		fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr, 'synonym': synonym})
+		return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr, 'synonym': synonym})
 		
 
-    else:
-        return render_to_response('SearchDB/search.html')
+	else:
+		return render_to_response('SearchDB/search.html')
 
 def refreshDatabase(request):
     # Create a list with filenames in SQL database
