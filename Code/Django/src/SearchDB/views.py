@@ -45,7 +45,11 @@ def get_text(request):
         vector = SearchVector('content', weight='A')
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
-
+        uq_split = uq.split(' ')
+        for i in range(len(uq_split)):
+        	
+        	uq_split[i] = str(uq_split[i])
+        print(uq_split)
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
