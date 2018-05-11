@@ -52,15 +52,15 @@ def get_text(request):
 		for i in range(len(uq_split)):
 			uq_split[i] = str(uq_split[i])
 
-        for ii in range(len(uq_split)):
+		for ii in range(len(uq_split)):
 			s = []
 			syn = vb.synonym(uq_split[ii], format='list')
 			try:
-			for j in syn:
+				for j in syn:
 			
-				s.append(j)
-		except:
-			continue
+					s.append(j)
+			except:
+				continue
         
 		synonym = s
 		teststr = "Got the message"
@@ -105,11 +105,11 @@ def get_text(request):
 			s = []
 			syn = vb.synonym(uq_split[ii], format='list')
 			try:
-			for j in syn:
+				for j in syn:
 			
-				s.append(j)
-		except:
-			continue
+					s.append(j)
+			except:
+				continue
         
 		synonym = s
 		teststr = "Got the message"
