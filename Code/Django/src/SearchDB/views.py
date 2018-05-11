@@ -15,7 +15,7 @@ import os
 import codecs
 import re
 from gensim import corpora, models, similarities
-from stop_words import get_stop_words
+from stop_words import get_stop_words         #匯入斷字、斷字處理等等手續都在vector_space_convert_cp1、transformation_cp1
 from collections import defaultdict
 from six import iteritems
 from pyPdf import PdfFileWriter, PdfFileReader
@@ -45,11 +45,16 @@ def get_text(request):
         vector = SearchVector('content', weight='A')
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
+ 
         uq_split = uq.split(' ')
         for i in range(len(uq_split)):
         	
         	uq_split[i] = str(uq_split[i])
         print(uq_split)
+
+        teststr = "Got the message"
+
+
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
@@ -61,7 +66,8 @@ def get_text(request):
             resultlist.append([str(result.filename), sims[i][1], line])
         fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr})
+		
 
     else:
         return render_to_response('SearchDB/search.html')
@@ -98,6 +104,7 @@ def refreshDatabase(request):
             # Load pdf file, for title
             pdf_filename = fname.replace(".txt", ".pdf")
             t = title_extractor(PDF_PATH, pdf_filename)
+			# y = year_extractor(PDF_PATH, pdf_filename)
             d = doi_extract(PDF_PATH, pdf_filename)
             Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
