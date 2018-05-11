@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from vocabulary.vocabulary import Vocabulary as vb
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
@@ -51,10 +51,12 @@ def get_text(request):
         	
         	uq_split[i] = str(uq_split[i])
 
-
+        for i in range(len(uq_split)):
+        	syn = vb.synonym(uq_split[i], format='list')
+        synonym = syn
         teststr = "Got the message"
 
-        synonym = uq_split
+        
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
