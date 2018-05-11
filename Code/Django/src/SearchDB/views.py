@@ -22,6 +22,7 @@ from pyPdf import PdfFileWriter, PdfFileReader
 from vector_space_convert_cp1 import file_read, vector_space_convert
 from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
+from result_of_year import year_similarity_compare
 from title_extraction_cp1 import title_extractor
 from doi_extract_cp1 import doi_extract
 
@@ -39,7 +40,56 @@ tmpName = 'deerwester'
 
 def get_text(request):
     # if the search bar gets query, redirect to the result page, using GET method
-    if 'q' in request.GET:
+    if 'q' in request.GET and 'check' in request.GET:     
+
+        # Access the database to do searching
+        article_all = Article.objects.all()
+        vector = SearchVector('content', weight='A')
+        query = SearchQuery(str(request.GET['q']))
+        uq = request.GET['q']
+
+		uq_split = uq.split(' ')
+        for i in range(len(uq_split)):
+        	
+        	uq_split[i] = str(uq_split[i])
+
+        for ii in range(len(uq_split)):
+        	s = []
+        	syn = vb.synonym(uq_split[ii], format='list')
+        	try:
+			for j in syn:
+			
+				s.append(j)
+		except:
+			continue
+        
+        synonym = s
+        teststr = "Got the message"
+		
+        # implement searching function and ranks
+        yearsort = year_similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
+		
+        year_simus = []
+		# create list and sorting similarity for each year 
+		for i in range(2018,1950,-1):
+			tmp = []
+			for j in range(0,len(yearsort)):
+				if i == yearsort[j][2]:
+					tmp.append([yearsort[j][0],yearsort[j][1],yearsort[j][0]])
+			tmp = sorted(tmp, key = lambda item: -item[1])
+			for k in range(0,len(tmp)):
+				result = Article.objects.get(filename = tmp[k][0])
+				year_simus.append([str(result.filename),tmp[k][1],tmp[k][2]])
+		
+        resultlist = []
+		for i in range(0,len(year_simus)):
+            result = Article.objects.get(filename = year_simus[i][0])   
+            resultlist.append([str(result.filename), year_simus[i][1]])
+		fig = chart(year_simus)
+        # return uq, resultlist to result.html
+        return render_to_response('SearchDB/result_test.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig, 'teststr' : teststr, 'synonym': synonym})
+
+	elif 'q' in request.GET:
 
         # Access the database to do searching
         article_all = Article.objects.all()
