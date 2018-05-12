@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
 <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/query-box.css' %}" rel="stylesheet"/>
 <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -41,8 +42,16 @@
       <div class="searchbox">
         <p class="lead">Your search string is:<br>
         <form>
-          <textarea id="q" rows="5" class="form-control" name="q">{{ uq }}</textarea><br>
+          <textarea id="q" rows="5" class="form-control" name="q">{{ uq }}</textarea>
+          <div class="similar-words-container">
+            {% for i in synonym %}
+              <span style="padding: 10px" class="word">{{ i }}</span>
+            {% endfor %}
+          </div>
+          <br>
           <button type="submit" class="btn btn-default">Search</button>
+          <br>
+          <input id="check" type="checkbox" value="1" name="check">Sorted by published year
         </form>
         <br>
         </p>

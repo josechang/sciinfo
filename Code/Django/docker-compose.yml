@@ -4,7 +4,7 @@ services:
     image: nginx:latest
     container_name: ng02
     ports:
-            - "1234:7000"
+            - "7777:7000"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
