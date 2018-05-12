@@ -11,6 +11,7 @@ from .models import Article
 
 #import modules for vector space convert, similarity, title extraction
 import logging
+import codecs
 import os
 import codecs
 import re
@@ -32,6 +33,7 @@ import json
 # Define path and filename for gensim
 PDF_PATH = getattr(settings, 'PDF_PATH', os.path.join(settings.BASE_DIR, 'Article_pdf/'))
 TXT_PATH = getattr(settings, 'TXT_PATH', os.path.join(settings.BASE_DIR, 'Article_txt/'))
+ABSTRACT_PATH = getattr(settings, 'ABSTRACT_PATH', os.path.join(settings.BASE_DIR, 'Article_abstract/'))
 TMP_PATH = getattr(settings, 'TMP_PATH', os.path.join(settings.BASE_DIR, 'tmp/'))
 tmpName = 'deerwester'
 
@@ -45,20 +47,27 @@ def get_text(request):
         vector = SearchVector('content', weight='A')
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
-        teststr = "Got the message"
+   
 
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
+        abstract = []
         for i in range(0,len(sims)):
-            result = Article.objects.get(filename = sims[i][0])
-	    with open(TXT_PATH + str(result.filename), "r") as f:
-    	        for line in f: pass
-    		print line #this is the last line of the file
-            resultlist.append([str(result.filename), sims[i][1], line])
+		    #Get abstract from Article_abstract file and append it to abstract list. 
+            result = Article.objects.get(filename = sims[i][0]) 
+            '''file_open = codecs.open(ABSTRACT_PATH + result.filename.replace(".txt" , "abstract.txt") ,'r', encoding ='utf-8')
+            read_file = file_open.read()
+            abstract.append([(read_file)])
+			 
+            file_open.close()'''
+	    #with open(TXT_PATH + str(result.filename), "r") as f:
+    	        #for line in f: pass
+    		#print line #this is the last line of the file
+            resultlist.append([str(result.filename), sims[i][1]])
         fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'abstract' : abstract})
 		
 
     else:
@@ -79,6 +88,15 @@ def refreshDatabase(request):
     if not os.path.exists(TMP_PATH):
         os.mkdir(TMP_PATH)
 
+    if not os.path.exists(ABSTRACT_PATH):
+        os.mkdir(ABSTRACT_PATH)
+		
+    a = open(ABSTRACT_PATH + "test.txt" , 'w')	
+    for i in os.listdir(PDF_PATH):
+        if not i.replace(".pdf",".abstract.txt") in os.listdir(ABSTRACT_PATH):
+            a.write("s")
+    a.close()
+            
     # If size changed, refresh dict and mm files
     # Using diff of list for current prototype
     # Using numpy for better performance in the future
