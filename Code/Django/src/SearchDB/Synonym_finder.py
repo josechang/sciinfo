@@ -9,4 +9,4 @@ def get_syn(x):
         s = vb.synonym(word[ii], format='list')
         if s:
             syns.append(s[0])
-    return word, syns
+    return  syns

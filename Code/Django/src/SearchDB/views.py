@@ -25,7 +25,7 @@ from similarity_cp1 import similarity_compare
 from result_of_year import year_similarity_compare
 from title_extraction_cp1 import title_extractor
 from doi_extract_cp1 import doi_extract
-from Synoymn_finder import get_syn
+from Synonym_finder import get_syn
 
 # import charts
 from fusioncharts import FusionCharts
@@ -49,9 +49,7 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
-        uq_split = uq.split(' ')
-        for i in range(len(uq_split)):
-        	uq_split[i] = str(uq_split[i])
+        
 
 
         # implement searching function and ranks
@@ -85,22 +83,12 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
-        uq_split = uq.split(' ')
-        for i in range(len(uq_split)):
+        
+        
 
-            uq_split[i] = str(uq_split[i])
+      
 
-        for ii in range(len(uq_split)):
-            s = []
-            syn = vb.synonym(uq_split[ii], format='list')
-            try:
-                for j in syn:
-
-                    s.append(j)
-            except:
-                continue
-
-        synonym = s
+        synonym = get_syn(uq)
         teststr = "Got the message"
 
 
