@@ -12,6 +12,7 @@ from .models import Article
 #import modules for vector space convert, similarity, title extraction
 import logging
 import codecs
+import io
 import os
 import codecs
 import re
@@ -132,15 +133,7 @@ def refreshDatabase(request):
     # Create path if it doesn't exist
     if not os.path.exists(TMP_PATH):
         os.mkdir(TMP_PATH)
-
-    if not os.path.exists(ABSTRACT_PATH):
-        os.mkdir(ABSTRACT_PATH)
-		
-    a = open(ABSTRACT_PATH + "test.txt" , 'w')	
-    for i in os.listdir(PDF_PATH):
-        if not i.replace(".pdf",".abstract.txt") in os.listdir(ABSTRACT_PATH):
-            a.write("s")
-    a.close()
+	
             
     # If size changed, refresh dict and mm files
     # Using diff of list for current prototype
