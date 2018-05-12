@@ -24,6 +24,7 @@ from transformation_cp1 import transformation
 from similarity_cp1 import similarity_compare
 from title_extraction_cp1 import title_extractor
 from doi_extract_cp1 import doi_extract
+from Synoymn_finder import get_syn
 
 # import charts
 from fusioncharts import FusionCharts
@@ -45,10 +46,10 @@ def get_text(request):
         vector = SearchVector('content', weight='A')
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
- 
+
         uq_split = uq.split(' ')
         for i in range(len(uq_split)):
-        	
+
         	uq_split[i] = str(uq_split[i])
 
 
@@ -67,7 +68,7 @@ def get_text(request):
         fig = chart(sims)
         # return uq, resultlist to result.html
         return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr, 'synonym': synonym})
-		
+
 
     else:
         return render_to_response('SearchDB/search.html')
