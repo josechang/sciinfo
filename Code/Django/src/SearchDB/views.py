@@ -106,10 +106,10 @@ def get_text(request):
             abstract.append([(read_file)])
 			 
             file_open.close()
-	    #with open(TXT_PATH + str(result.filename), "r") as f:
-    	        #for line in f: pass
-    		#print line #this is the last line of the file
-            resultlist.append([str(result.filename), sims[i][1]])
+            with open(TXT_PATH + str(result.filename), "r") as f:
+                for line in f: pass
+                print line #this is the last line of the file
+            resultlist.append([str(result.filename), sims[i][1],line])
         fig = chart(sims)
         # return uq, resultlist to result.html
         return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'abstract' : abstract})
