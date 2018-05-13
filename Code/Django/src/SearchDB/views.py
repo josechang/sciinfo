@@ -101,11 +101,11 @@ def get_text(request):
         for i in range(0,len(sims)):
 		    #Get abstract from Article_abstract file and append it to abstract list. 
             result = Article.objects.get(filename = sims[i][0]) 
-            '''file_open = codecs.open(ABSTRACT_PATH + result.filename.replace(".txt" , "abstract.txt") ,'r', encoding ='utf-8')
+            file_open = codecs.open(ABSTRACT_PATH + result.filename.replace(".txt" , "abstract.txt") ,'r', encoding ='utf-8')
             read_file = file_open.read()
             abstract.append([(read_file)])
 			 
-            file_open.close()'''
+            file_open.close()
 	    #with open(TXT_PATH + str(result.filename), "r") as f:
     	        #for line in f: pass
     		#print line #this is the last line of the file
