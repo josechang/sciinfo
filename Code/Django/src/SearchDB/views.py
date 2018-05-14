@@ -85,7 +85,7 @@ def get_text(request):
             resultlist.append([str(result.filename), year_simus[i][1]])
         fig = chart(year_simus)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result_test.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig,'abstract' : abstract})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig,'abstract' : abstract})
 
     elif 'q' in request.GET:
 
