@@ -11,8 +11,6 @@ from .models import Article
 
 #import modules for vector space convert, similarity, title extraction
 import logging
-import codecs
-import io
 import os
 import codecs
 import re
@@ -36,7 +34,6 @@ import json
 # Define path and filename for gensim
 PDF_PATH = getattr(settings, 'PDF_PATH', os.path.join(settings.BASE_DIR, 'Article_pdf/'))
 TXT_PATH = getattr(settings, 'TXT_PATH', os.path.join(settings.BASE_DIR, 'Article_txt/'))
-ABSTRACT_PATH = getattr(settings, 'ABSTRACT_PATH', os.path.join(settings.BASE_DIR, 'Article_abstract/'))
 TMP_PATH = getattr(settings, 'TMP_PATH', os.path.join(settings.BASE_DIR, 'tmp/'))
 tmpName = 'deerwester'
 
@@ -52,9 +49,9 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
-        synonym = get_syn(uq)
-        teststr = "Got the message"
         
+
+
         # implement searching function and ranks
         yearsort = year_similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
 
@@ -71,21 +68,12 @@ def get_text(request):
                 year_simus.append([str(result.filename),tmp[k][1],tmp[k][2]])
 
         resultlist = []
-        abstract = []
         for i in range(0,len(year_simus)):
             result = Article.objects.get(filename = year_simus[i][0])
-            file_open = codecs.open(ABSTRACT_PATH + result.filename.replace(".txt" , "abstract.txt") ,'r', encoding ='utf-8')
-            read_file = file_open.read()
-            abstract.append([(read_file)])
-            
-            file_open.close()
-            with open(TXT_PATH + str(result.filename), "r") as f:
-                for line in f: pass
-                print line #this is the last line of the file
             resultlist.append([str(result.filename), year_simus[i][1]])
         fig = chart(year_simus)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig,'abstract' : abstract})
+        return render_to_response('SearchDB/result_test.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig, 'teststr' : teststr, 'synonym': synonym})
 
     elif 'q' in request.GET:
 
@@ -95,29 +83,27 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
+        
+        
+
+      
+
         synonym = get_syn(uq)
         teststr = "Got the message"
+
 
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         resultlist = []
-        abstract = []
         for i in range(0,len(sims)):
-		    #Get abstract from Article_abstract file and append it to abstract list. 
-            result = Article.objects.get(filename = sims[i][0]) 
-            file_open = codecs.open(ABSTRACT_PATH + result.filename.replace(".txt" , "abstract.txt") ,'r', encoding ='utf-8')
-            read_file = file_open.read()
-            abstract.append([(read_file)])
-			 
-            file_open.close()
-            with open(TXT_PATH + str(result.filename), "r") as f:
-                for line in f: pass
-                print line #this is the last line of the file
-            resultlist.append([str(result.filename), sims[i][1],line])
+            result = Article.objects.get(filename = sims[i][0])
+        #with open(TXT_PATH + str(result.filename), "r") as f:
+        #        for line in f: pass
+        #print line #this is the last line of the file
+            resultlist.append([str(result.filename), sims[i][1]])
         fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'abstract' : abstract})
-		
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'teststr' : teststr, 'synonym': synonym})
 
 
     else:
@@ -137,8 +123,7 @@ def refreshDatabase(request):
     # Create path if it doesn't exist
     if not os.path.exists(TMP_PATH):
         os.mkdir(TMP_PATH)
-	
-            
+
     # If size changed, refresh dict and mm files
     # Using diff of list for current prototype
     # Using numpy for better performance in the future

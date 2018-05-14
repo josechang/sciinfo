@@ -50,6 +50,8 @@
           </div>
           <br>
           <button type="submit" class="btn btn-default">Search</button>
+          <br>
+          <input id="check" type="checkbox" value="1" name="check">Sorted by published year
         </form>
         <br>
         </p>
@@ -59,21 +61,23 @@
             {% for i in resultlist %}
             <div class="article">
                
-              <li>{{ i }} &nbsp;&nbsp;&nbsp;&nbsp;
-                  
-                  <div id = "show_text{{i.0}}">original text</div>
-                  <button id = "btn{{i.0}}" class="btn btn-default">Abstract</button>   
+              <li> {{ i }} &nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- Create text and button here. forloop.counter will count the times of loop. The first loop, forloop.counter = 0 , second loop , forloop.counter = 1. -->
+                  <div id = "show_text{{forloop.counter0}}">original text</div>
+                  <button id = "btn{{forloop.counter0}}" class="btn btn-default">Abstract</button>   
              </li>    
-             <script type = "text/javascript">
-              document.getElementById("btn{{i.0}}").onclick = function(){
-                  
-                  document.getElementById("show_text{{i.0}}").innerHTML = "{{teststr}}"
-              }
-              
-              </script>   
+            
             </div>
             {% endfor %}
               
+            {% for j in abstract %}
+            <script type = "text/javascript">
+              document.getElementById("btn{{forloop.counter0}}").onclick = function(){
+                  document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
+              }
+              
+              </script>
+            {% endfor %}
               
           </div>
           <div class="col-md-6">
