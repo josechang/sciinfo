@@ -4,26 +4,28 @@ import nltk
 from nltk.corpus import wordnet as wn
 
 def get_syn(x):
-
-	word = x.split()
-	syns = []
+	word    = x.split()	# Spilt the input sentence to seperate words
+	suggest = []		# Suggestion for each words
+	syns    = []		# Final output
+	
 	for ii in range(0, len(word)):
 		
 		if not wn.synsets(word[ii]): # check if it's empty
 			syns.append('False')
 		else:
 			sets = wn.synsets(word[ii])[0].lemma_names()
-			syns.append(sets)
 			
-			"""
-			if not sets.hypernyms():
-				syns.append('False')
+			if sets[0] != word[ii]:	 # Check if the first word equals to the input
+				suggest = sets[0]
 			else:
-				syns.append(sets.hypernyms()[0].lemma_names()[0:5])
-			"""
+				suggest = sets[1]
+				
+		syns.append(suggest)
+			
 	return syns
 				
-
-q = get_syn('machine_learning deep_learning neural_network')			
-print(q)
+"""
+q = get_syn('artificial_intelligence shit')			
+print(q, )
 #syns = wn.synsets('artificial_intelligence')[0].hypernyms()[0].lemma_names()
+"""
