@@ -10,22 +10,24 @@ def get_syn(x):
 	
 	for ii in range(0, len(word)):
 		
-		if not wn.synsets(word[ii]): # check if it's empty
+		if not wn.synsets(word[ii]): # Check if it's empty
 			syns.append('False')
 		else:
 			sets = wn.synsets(word[ii])[0].lemma_names()
 			
-			if sets[0] != word[ii]:	 # Check if the first word equals to the input
-				suggest = sets[0]
+			if len(sets)<2:
+				suggest = False
 			else:
-				suggest = sets[1]
+				if sets[0] != word[ii]:	 # Check if the first word equals to the input
+					suggest = sets[0]
+				else:
+					suggest = sets[1]
 				
 		syns.append(suggest)
 			
 	return syns
 				
-"""
-q = get_syn('artificial_intelligence shit')			
-print(q, )
+
+#q = get_syn('artificial_intelligence feedback')			
+#print(q, wn.synsets('feedback')[0].lemma_names())
 #syns = wn.synsets('artificial_intelligence')[0].hypernyms()[0].lemma_names()
-"""
