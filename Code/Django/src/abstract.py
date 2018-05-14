@@ -46,7 +46,7 @@ def abstract_end(a):
     c = 0
     for i in range(len(arr)):
       if(arr[i] in a.upper()):
-        c = c+1;
+        c = c+1
 	
     if(len(a.split()) == 0):
       c = c+1
