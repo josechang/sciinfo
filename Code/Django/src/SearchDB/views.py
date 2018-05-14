@@ -52,6 +52,8 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
+        synonym = get_syn(uq)
+        teststr = "Got the message"
         
         # implement searching function and ranks
         yearsort = year_similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
@@ -69,8 +71,17 @@ def get_text(request):
                 year_simus.append([str(result.filename),tmp[k][1],tmp[k][2]])
 
         resultlist = []
+        abstract = []
         for i in range(0,len(year_simus)):
             result = Article.objects.get(filename = year_simus[i][0])
+            file_open = codecs.open(ABSTRACT_PATH + result.filename.replace(".txt" , "abstract.txt") ,'r', encoding ='utf-8')
+            read_file = file_open.read()
+            abstract.append([(read_file)])
+            
+            file_open.close()
+            with open(TXT_PATH + str(result.filename), "r") as f:
+                for line in f: pass
+                print line #this is the last line of the file
             resultlist.append([str(result.filename), year_simus[i][1]])
         fig = chart(year_simus)
         # return uq, resultlist to result.html
@@ -84,15 +95,8 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
-        
-        
-
-      
-
         synonym = get_syn(uq)
         teststr = "Got the message"
-
-
 
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
