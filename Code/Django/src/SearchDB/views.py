@@ -28,6 +28,10 @@ from result_of_year import year_similarity_compare
 from title_extraction_cp1 import title_extractor
 from doi_extract_cp1 import doi_extract
 from Synonym_finder import get_syn
+#from synonym_finder_wordnet_v1 import get_syn
+
+
+
 
 # import charts
 from fusioncharts import FusionCharts
@@ -52,7 +56,10 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
+        synonym = get_syn(uq)
+        teststr = "Got the message"
         
+        sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         # implement searching function and ranks
         yearsort = year_similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
 
@@ -69,12 +76,22 @@ def get_text(request):
                 year_simus.append([str(result.filename),tmp[k][1],tmp[k][2]])
 
         resultlist = []
+        abstract = []
         for i in range(0,len(year_simus)):
             result = Article.objects.get(filename = year_simus[i][0])
+            file_open = codecs.open(ABSTRACT_PATH + result.filename.replace(".txt" , "abstract.txt") ,'r', encoding ='utf-8')
+            read_file = file_open.read()
+            abstract.append([(read_file)])
+            
+            file_open.close()
+            with open(TXT_PATH + str(result.filename), "r") as f:
+                for line in f: pass
+                print line #this is the last line of the file
             resultlist.append([str(result.filename), year_simus[i][1]])
-        fig = chart(year_simus)
+        fig_year = year_chart(year_simus)
+        fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result_test.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig, 'teststr' : teststr, 'synonym': synonym})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year,'abstract' : abstract})
 
     elif 'q' in request.GET:
 
@@ -84,15 +101,8 @@ def get_text(request):
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
 
-        
-        
-
-      
-
         synonym = get_syn(uq)
         teststr = "Got the message"
-
-
 
         # implement searching function and ranks
         sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
@@ -111,8 +121,9 @@ def get_text(request):
                 print line #this is the last line of the file
             resultlist.append([str(result.filename), sims[i][1],line])
         fig = chart(sims)
+        fig_year = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'abstract' : abstract})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year , 'abstract' : abstract})
 		
 
 
@@ -157,6 +168,73 @@ def refreshDatabase(request):
             Article.objects.create(filename=fname, content=f.read(), title=t, doi=d)
             f.close()
     return redirect('/')
+
+# Year chart function
+def year_chart(article_info):
+
+# Initialize list for counting articles of different percentage
+    year = [0, 0, 0, 0, 0, 0, 0]
+    for element in article_info:
+        if element[2] == 2017 or element[2] == 2018:
+            year[0] += 1
+        if element[2] == 2015 or element[2] == 2016:
+            year[1] += 1
+        if element[2] == 2013 or element[2] == 2014:
+            year[2] += 1
+        if element[2] == 2011 or element[2] == 2012:
+            year[3] += 1
+        if element[2] >= 2001 and element[2] <= 2010:
+            year[4] += 1
+        if element[2] >= 1991 and element[2] <= 2000:
+            year[5] += 1
+        if element[2] >= 1951 and element[2] <= 1990:
+            year[6] += 1
+
+# Create an object for the column2d chart using the FusionCharts class constructor
+    column2d = FusionCharts("column2d", "ex1" , "600", "400", "chart-2", "json",
+    # The data is passed as a string in the `dataSource` as parameter.
+    {
+        "chart":{
+            "caption":"Publication year distribution",
+            "subCaption":"Numbers within each time period",
+            "xAxisname": "year",
+            "yAxisName": "no. of articles",
+            "theme":"zune"
+        },
+        "data": [
+                {
+                    "label": "2018-2017",
+                    "value": year[0]
+                },
+                {
+                    "label": "2015-2016",
+                    "value": year[1]
+                },
+                {
+                    "label": "2013-2014",
+                    "value": year[2]
+                },
+                {
+                    "label": "2011-2012",
+                    "value": year[3]
+                },
+                {
+                    "label": "2001-2010",
+                    "value": year[4]
+                },
+                {
+                    "label": "1991-2000",
+                    "value": year[5]
+                },
+                {
+                    "label": "1951-1990",
+                    "value": year[6]
+                }
+        ]
+    })
+
+        # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
+    return column2d.render()
 
 # Chart function
 def chart(article_info):
@@ -211,3 +289,4 @@ def chart(article_info):
 
         # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
     return column2d.render()
+

@@ -6,7 +6,6 @@ stop_words
 pyPdf
 pdfMiner==20110515
 reportlab
-pdfx
 vocabulary
+pdfx
 nltk
-
