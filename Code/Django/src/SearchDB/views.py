@@ -91,7 +91,7 @@ def get_text(request):
         fig_year = year_chart(year_simus)
         fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year,'abstract' : abstract})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year,'abstract' : abstract, 'synonym': synonym})
 
     elif 'q' in request.GET:
 
@@ -123,7 +123,7 @@ def get_text(request):
         fig = chart(sims)
         fig_year = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year , 'abstract' : abstract})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year , 'abstract' : abstract, 'synonym': synonym})
 		
 
 
