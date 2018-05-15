@@ -8,4 +8,4 @@ def get_syn(x):
         if s:
             if s[0] not in syns:
                 syns.append(s[0])
-return syns
+    return syns
