@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet"/>
+<script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Welcome </title>
+		<style>
+			body{
+				padding: 50px;
+			}
+		</style>
+	</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://bitbucket.org/nordron/nordron-sciinfo">Nordron-Sciinfo</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#about" data-toggle="modal" data-target="#about">About</a></li>
+            <li><a href="mailto:info@nordlinglab.org"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+	    <div class="col-1g-12 text-center">
+	    	<h3><a href="http://goo.gl/qCtsD" target="_blank">Nordling</a> Search Bar
+	    	<p>Try typing <i>something</i> and click Search.</p></h3>
+	    </div>
+	    <form action="" method="get">
+	      <textarea id="q" rows="5" class="form-control" name="q"></textarea>-->
+        <!-- build a virtual textarea inside the input query tag below-->
+          <div id="input-query"></div>
+	      <br>
+	      <button type="submit" class="btn btn-default">Search</button>
+		  <br>
+		  <input id="check" type="checkbox" value="1" name="check">Sorted by published year
+		</form>    	
+    </div>
+  <script src="{% static 'js/vendor.bundle.js' %}"></script>
+  <script src="{% static 'js/index.bundle.js' %}"></script>
+	{% include './About.html' %}
+
+</body>
+</html>

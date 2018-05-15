@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/query-box.css' %}" rel="stylesheet"/>
+<script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+<script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Result page</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://bitbucket.org/nordron/nordron-sciinfo">Nordron-Sciinfo</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#about" data-toggle="modal" data-target="#about">About</a></li>
+            <li><a href="mailto:info@nordlinglab.org"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="searchbox">
+        <p class="lead">Your search string is:<br>
+        <form>
+          <textarea id="q" rows="5" class="form-control" name="q">{{ uq }}</textarea>
+          <div class="similar-words-container">
+            {% for i in synonym %}
+              <span style="padding: 10px" class="word">{{ i }}</span>
+            {% endfor %}
+          </div>
+          <br>
+          <button type="submit" class="btn btn-default">Search</button>
+          <br>
+          <input id="check" type="checkbox" value="1" name="check">Sorted by published year
+        </form>
+        <br>
+        </p>
+				The result listed below:<br>
+        <div class="row">
+          <div class="col-md-6">
+            {% for i in resultlist %}
+            <div class="article">
+               
+              <li> {{ i }} &nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- Create text and button here. forloop.counter will count the times of loop. The first loop, forloop.counter = 0 , second loop , forloop.counter = 1. -->
+                  <div id = "show_text{{forloop.counter0}}">original text</div>
+                  <button id = "btn{{forloop.counter0}}" class="btn btn-default">Abstract</button>   
+             </li>    
+            
+            </div>
+            {% endfor %}
+              
+            {% for j in abstract %}
+            <script type = "text/javascript">
+             <!--first_click Contain information about the button (j) pressed first time or second time -->
+            var abstract_click= [];
+             abstract_click[{{forloop.counter}}]=1;
+                       document.getElementById("btn{{forloop.counter0}}").onclick = function(){          
+                       if (abstract_click[{{forloop.counter}}]==1) {
+                        // view abstract for first click
+                        abstract_click[{{forloop.counter}}] = 2;
+                        document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
+                       } else {
+                        // hide abstract for second click
+                        document.getElementById("show_text{{forloop.counter0}}").innerHTML= " ";
+                        abstract_click[{{forloop.counter}}] = 1;
+                      }
+                      
+              }
+              
+              
+              </script>
+            {% endfor %}
+              
+          </div>
+		  <div class="col-md-6">
+            <!-- Render figure here -->
+            <div id="chart-1">{{ fig|safe }}</div>
+          </div>
+          <div class="col-md-8">
+            <!-- Render figure here -->
+            <div id="chart-2">{{ fig_year|safe }}</div>
+          </div>	  
+      </div>
+	 </div>
+    </div><!-- /.container, contains user query and results -->
+    {% include './About.html' %}
+</body>
+</html>
+
