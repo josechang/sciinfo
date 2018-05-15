@@ -215,3 +215,70 @@ def chart(article_info):
 
         # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
     return column2d.render()
+
+# Year chart function
+def year_chart(article_info):
+
+# Initialize list for counting articles of different percentage
+    year = [0, 0, 0, 0, 0, 0, 0]
+    for element in article_info:
+        if element[2] == 2017 or element[2] == 2018:
+            year[0] += 1
+        if element[2] == 2015 or element[2] == 2016:
+            year[1] += 1
+        if element[2] == 2013 or element[2] == 2014:
+            year[2] += 1
+        if element[2] == 2011 or element[2] == 2012:
+            year[3] += 1
+        if element[2] >= 2001 and element[2] <= 2010:
+            year[4] += 1
+        if element[2] >= 1991 and element[2] <= 2000:
+            year[5] += 1
+        if element[2] >= 1951 and element[2] <= 1990:
+            year[6] += 1
+
+# Create an object for the column2d chart using the FusionCharts class constructor
+    column2d = FusionCharts("column2d", "ex1" , "600", "400", "chart-1", "json",
+    # The data is passed as a string in the `dataSource` as parameter.
+    {
+        "chart":{
+            "caption":"Publication year distribution",
+            "subCaption":"Numbers within each time period",
+            "xAxisname": "year",
+            "yAxisName": "no. of articles",
+            "theme":"zune"
+        },
+        "data": [
+                {
+                    "label": "2018-2017",
+                    "value": year[0]
+                },
+                {
+                    "label": "2015-2016",
+                    "value": year[1]
+                },
+                {
+                    "label": "2013-2014",
+                    "value": year[2]
+                },
+                {
+                    "label": "2011-2012",
+                    "value": year[3]
+                },
+                {
+                    "label": "2001-2010",
+                    "value": year[4]
+                },
+                {
+                    "label": "1991-2000"
+                    "valus": year[5]
+                },
+                {
+                    "label": "1951-1990"
+                    "valus": year[6]
+                }
+        ]
+    })
+
+        # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
+    return column2d.render()
