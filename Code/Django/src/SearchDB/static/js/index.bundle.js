@@ -92271,7 +92271,9 @@ var check = __WEBPACK_IMPORTED_MODULE_0_spelt___default()({
 
 
 window.onload = function () {
-	__WEBPACK_IMPORTED_MODULE_3_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__query_jsx__["a" /* default */], null), document.getElementById('input-query'));
+	var DOM = document.getElementById('input-query');
+	var query = DOM.getAttribute('content');
+	__WEBPACK_IMPORTED_MODULE_3_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__query_jsx__["a" /* default */], { defaultQuery: query }), document.getElementById('input-query'));
 };
 
 /***/ }),
@@ -92928,7 +92930,7 @@ var InputBox = function (_React$Component) {
 
 		_this.state = {
 			spellCheckList: [],
-			query: ''
+			query: _this.props.defaultQuery
 		};
 		_this.inputHandler = _this.inputHandler.bind(_this);
 		return _this;
@@ -92939,6 +92941,7 @@ var InputBox = function (_React$Component) {
 		value: function render() {
 			var _this2 = this;
 
+			console.log(this.props.defaultQuery);
 			var wrongCount = 0;
 			var corrections = this.state.spellCheckList.map(function (c, qIndex) {
 				if (!c.correct) wrongCount += 1;
@@ -93078,7 +93081,7 @@ exports = module.exports = __webpack_require__(23)(false);
 
 
 // module
-exports.push([module.i, "body,html{text-align:center}#input-query{display:inline-flex;width:calc(100vw - 20px);padding:10px;max-width:1000px;flex-direction:column;align-items:center}#input-query *{font-family:Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif}#input-query #query-box{display:inline-flex;flex-direction:column;width:100%;align-items:flex-start}#input-query #query-box textarea{width:calc(100% - 10px);border-radius:1px;margin-bottom:10px;padding:5px}#input-query #query-box textarea:focus{box-shadow:1px 1px 3px gray;outline:none;border:none}#input-query #query-box .results-container{display:inline-flex;width:100%;flex-direction:row;justify-content:flex-start;align-items:flex-start}#input-query #query-box .results-container .corrections-list{display:inline-flex;flex-direction:column;align-items:flex-start;margin-right:5px}#input-query #query-box .results-container .corrections-list .correction{border:1px solid pink;border-radius:3px;padding:5px 10px;margin-bottom:8px;cursor:pointer;transition:all .3s}#input-query #query-box .results-container .corrections-list .correction:hover{background-color:pink}", ""]);
+exports.push([module.i, "body,html{text-align:center}#input-query{display:inline-flex;width:calc(100vw - 20px);padding:10px;max-width:1000px;flex-direction:column;align-items:center}#input-query *{font-family:Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif}#input-query #query-box{display:inline-flex;flex-direction:column;width:100%;align-items:flex-start}#input-query #query-box textarea{width:calc(100% - 10px);border-radius:1px;margin-bottom:10px;padding:5px}#input-query #query-box textarea:focus{box-shadow:1px 1px 3px gray;outline:none;border:none}#input-query #query-box .results-container{display:inline-flex;width:100%;flex-direction:row;justify-content:flex-start;align-items:flex-start}#input-query #query-box .results-container .corrections-list{display:inline-flex;flex-direction:column;align-items:flex-start;margin-right:5px}#input-query #query-box .results-container .corrections-list .correction{border:1px solid pink;border-radius:3px;padding:5px 10px;margin-bottom:8px;cursor:pointer;transition:all .3s}#input-query #query-box .results-container .corrections-list .correction:hover{background-color:pink}#input-query #query-box .similar-words-container{display:inline-flex;flex-direction:row;align-items:center;width:calc(100% - 20px);max-width:800px;padding:10px 0}#input-query #query-box .similar-words-container .word{padding:7px;border-radius:3px;background-color:#e6e6e6;transition:background-color .3s;margin-right:10px;cursor:pointer;color:#646464}#input-query #query-box .similar-words-container .word:hover{background-color:#c8c8c8}", ""]);
 
 // exports
 

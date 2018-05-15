@@ -42,7 +42,8 @@
       <div class="searchbox">
         <p class="lead">Your search string is:<br>
         <form>
-          <textarea id="q" rows="5" class="form-control" name="q">{{ uq }}</textarea>
+          <!--<textarea id="q" rows="5" class="form-control" name="q">{{ uq }}</textarea>-->
+          <div id="input-query" content="{{ uq }}"></div>
           <div class="similar-words-container">
             {% for i in synonym %}
               <span style="padding: 10px" class="word">{{ i }}</span>
@@ -105,6 +106,8 @@
 	 </div>
     </div><!-- /.container, contains user query and results -->
     {% include './About.html' %}
+    <script src="{% static 'js/vendor.bundle.js' %}"></script>
+    <script src="{% static 'js/index.bundle.js' %}"></script>
 </body>
 </html>
 

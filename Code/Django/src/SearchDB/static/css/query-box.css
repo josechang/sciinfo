@@ -6,8 +6,8 @@
 	flex-direction: row;
 	align-items: center;
 	width: calc(100% - 20px);
-	max-width: 800px;
-	padding: 10px 0px;
+	max-width: 1000px;
+	padding: 5px 10px;
 }
 .similar-words-container .word {
 		padding: 7px;
