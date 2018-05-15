@@ -55,6 +55,7 @@ def get_text(request):
         synonym = get_syn(uq)
         teststr = "Got the message"
         
+        sims = similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
         # implement searching function and ranks
         yearsort = year_similarity_compare(uq, os.listdir(TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
 
@@ -83,9 +84,10 @@ def get_text(request):
                 for line in f: pass
                 print line #this is the last line of the file
             resultlist.append([str(result.filename), year_simus[i][1]])
-        fig = year_chart(year_simus)
+        fig_year = year_chart(year_simus)
+        fig = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig,'abstract' : abstract})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year,'abstract' : abstract})
 
     elif 'q' in request.GET:
 
@@ -115,8 +117,9 @@ def get_text(request):
                 print line #this is the last line of the file
             resultlist.append([str(result.filename), sims[i][1],line])
         fig = chart(sims)
+        fig_year = chart(sims)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig , 'abstract' : abstract})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig ,'fig_year': fig_year , 'abstract' : abstract})
 		
 
 
