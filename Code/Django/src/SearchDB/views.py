@@ -238,7 +238,7 @@ def year_chart(article_info):
             year[6] += 1
 
 # Create an object for the column2d chart using the FusionCharts class constructor
-    column2d = FusionCharts("column2d", "ex1" , "600", "400", "chart-1", "json",
+    column2d = FusionCharts("column2d", "ex2" , "600", "400", "chart-2", "json",
     # The data is passed as a string in the `dataSource` as parameter.
     {
         "chart":{
