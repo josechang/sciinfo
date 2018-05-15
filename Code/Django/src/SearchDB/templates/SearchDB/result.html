@@ -73,17 +73,16 @@
               
             {% for j in abstract %}
             <script type = "text/javascript">
-             <!--first_click Contain information about the button (j) pressed first time or second time -->
+             //first_click Contain information about the button (j) pressed first time or second time 
             var abstract_click= [];
-             abstract_click[{{forloop.counter}}]=1;
                        document.getElementById("btn{{forloop.counter0}}").onclick = function(){          
                        if (abstract_click[{{forloop.counter}}]==1) {
-                        // view abstract for first click
+                        // 'First click' for view the abstract
                         abstract_click[{{forloop.counter}}] = 2;
-                        document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
+                        document.getElementById("show_text{{forloop.counter0}}").innerHTML = " ";
                        } else {
-                        // hide abstract for second click
-                        document.getElementById("show_text{{forloop.counter0}}").innerHTML= " ";
+                        // 'Second click' for hide the abstract  
+                        document.getElementById("show_text{{forloop.counter0}}").innerHTML= "{{j}}";
                         abstract_click[{{forloop.counter}}] = 1;
                       }
                       
