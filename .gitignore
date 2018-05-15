@@ -25,3 +25,5 @@ Report/Main.pdf
 Report/Main.synctex.gz
 Report/Main.log
 *.pyc
+Code/Django/src/SearchDB/migrations/*
+Code/Django/src/tmp/*
