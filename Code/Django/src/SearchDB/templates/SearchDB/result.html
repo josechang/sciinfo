@@ -72,24 +72,37 @@
               
             {% for j in abstract %}
             <script type = "text/javascript">
-              document.getElementById("btn{{forloop.counter0}}").onclick = function(){
-                  document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
+             <!--first_click Contain information about the button (j) pressed first time or second time -->
+            var abstract_click= [];
+             abstract_click[{{forloop.counter}}]=1;
+                       document.getElementById("btn{{forloop.counter0}}").onclick = function(){          
+                       if (abstract_click[{{forloop.counter}}]==1) {
+                        // view abstract for first click
+                        abstract_click[{{forloop.counter}}] = 2;
+                        document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
+                       } else {
+                        // hide abstract for second click
+                        document.getElementById("show_text{{forloop.counter0}}").innerHTML= " ";
+                        abstract_click[{{forloop.counter}}] = 1;
+                      }
+                      
               }
+              
               
               </script>
             {% endfor %}
               
           </div>
-          <div class="col-md-6">
+		  <div class="col-md-6">
             <!-- Render figure here -->
             <div id="chart-1">{{ fig|safe }}</div>
           </div>
-		  <div class="col-md-6">
-			<div id="chart-2">{{ fig2|safe }}</div>
-		  </div>	
-		  
+          <div class="col-md-8">
+            <!-- Render figure here -->
+            <div id="chart-2">{{ fig_year|safe }}</div>
+          </div>	  
       </div>
-
+	 </div>
     </div><!-- /.container, contains user query and results -->
     {% include './About.html' %}
 </body>
