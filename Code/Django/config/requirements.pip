@@ -7,4 +7,5 @@ pyPdf
 pdfMiner==20110515
 reportlab
 vocabulary
+pdfx
 nltk

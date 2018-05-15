@@ -61,30 +61,35 @@
             {% for i in resultlist %}
             <div class="article">
                
-              <li>{{ i }} &nbsp;&nbsp;&nbsp;&nbsp;
-                  
-                  <div id = "show_text{{i.0}}">original text</div>
-                  <button id = "btn{{i.0}}" class="btn btn-default">Abstract</button>   
+              <li> {{ i }} &nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- Create text and button here. forloop.counter will count the times of loop. The first loop, forloop.counter = 0 , second loop , forloop.counter = 1. -->
+                  <div id = "show_text{{forloop.counter0}}">original text</div>
+                  <button id = "btn{{forloop.counter0}}" class="btn btn-default">Abstract</button>   
              </li>    
-             <script type = "text/javascript">
-              document.getElementById("btn{{i.0}}").onclick = function(){
-                  
-                  document.getElementById("show_text{{i.0}}").innerHTML = "{{teststr}}"
-              }
-              
-              </script>   
+            
             </div>
             {% endfor %}
               
+            {% for j in abstract %}
+            <script type = "text/javascript">
+              document.getElementById("btn{{forloop.counter0}}").onclick = function(){
+                  document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
+              }
+              
+              </script>
+            {% endfor %}
               
           </div>
-          <div class="col-md-6">
+		  <div class="col-md-6">
             <!-- Render figure here -->
             <div id="chart-1">{{ fig|safe }}</div>
           </div>
-        </div>
+          <div class="col-md-8">
+            <!-- Render figure here -->
+            <div id="chart-2">{{ fig_year|safe }}</div>
+          </div>	  
       </div>
-
+	 </div>
     </div><!-- /.container, contains user query and results -->
     {% include './About.html' %}
 </body>
