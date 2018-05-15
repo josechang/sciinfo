@@ -83,9 +83,9 @@ def get_text(request):
                 for line in f: pass
                 print line #this is the last line of the file
             resultlist.append([str(result.filename), year_simus[i][1]])
-        fig = chart(year_simus)
+        fig2 = chart(year_simus)
         # return uq, resultlist to result.html
-        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig': fig,'abstract' : abstract})
+        return render_to_response('SearchDB/result.html', {'uq': uq ,'resultlist': resultlist ,'fig2': fig2,'abstract' : abstract})
 
     elif 'q' in request.GET:
 
