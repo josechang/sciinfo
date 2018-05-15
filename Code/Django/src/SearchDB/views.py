@@ -270,12 +270,12 @@ def year_chart(article_info):
                     "value": year[4]
                 },
                 {
-                    "label": "1991-2000"
-                    "valus": year[5]
+                    "label": "1991-2000",
+                    "value": year[5]
                 },
                 {
-                    "label": "1951-1990"
-                    "valus": year[6]
+                    "label": "1951-1990",
+                    "value": year[6]
                 }
         ]
     })
