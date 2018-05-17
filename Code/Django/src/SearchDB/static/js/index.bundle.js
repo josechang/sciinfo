@@ -92979,7 +92979,7 @@ var InputBox = function (_React$Component) {
 					className: 'form-control',
 					rows: '5',
 					name: 'q',
-					placeholder: 'enter the keyword',
+                    placeholder: 'enter the keyword',
 					onChange: this.inputHandler,
 					value: this.state.query
 				}),
