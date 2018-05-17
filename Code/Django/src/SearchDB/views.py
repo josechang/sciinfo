@@ -172,25 +172,38 @@ def refreshDatabase(request):
 # Year chart function
 def year_chart(article_info):
 
-# Initialize list for counting articles of different percentage
-    year = [0, 0, 0, 0, 0, 0, 0]
-    for element in article_info:
-        if element[2] == 2017 or element[2] == 2018:
+# Initialize list for counting articles of different percentage   #0517 add
+    year = [0, 0, 0, 0, 0]
+    d=[]    #0517 add 
+    for i in range(len(article_info)):
+        d.append(article_info[i][2])
+    big=max(d)
+    small=min(d)
+    interval=(big-small+1)/5
+    for i in range(len(article_info)):
+        if article_info[i][2] >= big-interval+1:
             year[0] += 1
-        if element[2] == 2015 or element[2] == 2016:
+        if article_info[i][2] <= big-interval and article_info[i][2] >= big-2*interval+1:
             year[1] += 1
-        if element[2] == 2013 or element[2] == 2014:
+        if article_info[i][2] <= big-2*interval and article_info[i][2] >= big-3*interval+1:
             year[2] += 1
-        if element[2] == 2011 or element[2] == 2012:
+        if article_info[i][2] <= big-3*interval and article_info[i][2] >= big-4*interval+1:
             year[3] += 1
-        if element[2] >= 2001 and element[2] <= 2010:
+        if article_info[i][2] <= big-4*interval:
             year[4] += 1
-        if element[2] >= 1991 and element[2] <= 2000:
-            year[5] += 1
-        if element[2] >= 1951 and element[2] <= 1990:
-            year[6] += 1
 
-# Create an object for the column2d chart using the FusionCharts class constructor
+# Create an object for the column2d chart using the FusionCharts class constructor #0517 add
+    I1=str(eval('big'))
+    I2=str(eval('big-interval'))
+    I3=str(eval('big-2*interval'))
+    I4=str(eval('big-3*interval'))
+    I5=str(eval('big-4*interval'))
+    I6=str(eval('small'))
+    I21=I1+'-'+str(eval('big-interval+1'))
+    I32=I2+'-'+str(eval('big-2*interval+1'))
+    I43=I3+'-'+str(eval('big-3*interval+1'))
+    I54=I4+'-'+str(eval('big-4*interval+1'))
+    I65=I5+'-'+I6
     column2d = FusionCharts("column2d", "ex2" , "600", "400", "chart-2", "json",
     # The data is passed as a string in the `dataSource` as parameter.
     {
@@ -203,33 +216,25 @@ def year_chart(article_info):
         },
         "data": [
                 {
-                    "label": "2018-2017",
+                    "label": I21,
                     "value": year[0]
                 },
                 {
-                    "label": "2015-2016",
+                    "label": I32,
                     "value": year[1]
                 },
                 {
-                    "label": "2013-2014",
+                    "label": I43,
                     "value": year[2]
                 },
                 {
-                    "label": "2011-2012",
+                    "label": I54,
                     "value": year[3]
                 },
                 {
-                    "label": "2001-2010",
+                    "label": I65,
                     "value": year[4]
-                },
-                {
-                    "label": "1991-2000",
-                    "value": year[5]
-                },
-                {
-                    "label": "1951-1990",
-                    "value": year[6]
-                }
+                },                
         ]
     })
 
