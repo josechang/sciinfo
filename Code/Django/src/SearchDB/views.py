@@ -211,7 +211,7 @@ def year_chart(article_info):
             "caption":"Publication year distribution",
             "subCaption":"Numbers within each time period",
             "xAxisname": "year",
-            "yAxisName": "no. of articles",
+            "yAxisName": "No. of articles",
             "theme":"zune"
         },
         "data": [
@@ -265,7 +265,7 @@ def chart(article_info):
         "chart":{
             "caption":"Similarity Score distribution",
             "xAxisname": "percentage (%)",
-            "yAxisName": "no. of article",
+            "yAxisName": "No. of articles",
             "theme":"carbon"
         },
         "data": [
