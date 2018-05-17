@@ -9,7 +9,7 @@ with open(filename, 'r+') as f:
     for line in f:
         words = line.split()
         num_words += len(words)
-    f.write('# of words'+str(num_words))
+    f.write('\n# of words: '+str(num_words))
     print f.read()
     f.close()
 #print"Number of words: %r" %num_words
