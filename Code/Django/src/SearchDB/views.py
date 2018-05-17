@@ -69,7 +69,7 @@ def get_text(request):
             tmp = []
             for j in range(0,len(yearsort)):
                 if i == yearsort[j][2]:
-                    tmp.append([yearsort[j][0],yearsort[j][1],yearsort[j][0]])
+                    tmp.append([yearsort[j][0],yearsort[j][1],yearsort[j][2]])
             tmp = sorted(tmp, key = lambda item: -item[1])
             for k in range(0,len(tmp)):
                 result = Article.objects.get(filename = tmp[k][0])
@@ -191,7 +191,7 @@ def year_chart(article_info):
             year[6] += 1
 
 # Create an object for the column2d chart using the FusionCharts class constructor
-    column2d = FusionCharts("column2d", "ex1" , "600", "400", "chart-2", "json",
+    column2d = FusionCharts("column2d", "ex2" , "600", "400", "chart-2", "json",
     # The data is passed as a string in the `dataSource` as parameter.
     {
         "chart":{
