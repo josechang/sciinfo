@@ -69,7 +69,7 @@ def get_text(request):
             tmp = []
             for j in range(0,len(yearsort)):
                 if i == yearsort[j][2]:
-                    tmp.append([yearsort[j][0],yearsort[j][1],yearsort[j][0]])
+                    tmp.append([yearsort[j][0],yearsort[j][1],yearsort[j][2]])
             tmp = sorted(tmp, key = lambda item: -item[1])
             for k in range(0,len(tmp)):
                 result = Article.objects.get(filename = tmp[k][0])
