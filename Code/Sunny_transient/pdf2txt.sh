@@ -1,6 +1,6 @@
 #!/bin/bash
 DATA_DIR=~/nordron-sciinfo/Code/Django/src/Article_pdf/
-TXT_DIR=~/nordron-sciinfo/Code/Django/src/Article_txt1
+TXT_DIR=~/nordron-sciinfo/Code/Django/src/Article_txt
 PROGRAM_DIR=~/nordron-sciinfo/Code/Django/src/
 
 
