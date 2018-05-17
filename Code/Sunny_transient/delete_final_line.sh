@@ -12,9 +12,8 @@ PROGaRAM_DIR=~/nordron-sciinfo/Code/Sunny_transient
 for f in `find $TXT_DIR*.txt`
 do
     echo "Converting $(basename $f) "
-    python $PROGRAM_DIR/countWordnumber.py $f
+    python $PROGRAM_DIR/delete_final_line.py $f
     
 done
-
 
 
