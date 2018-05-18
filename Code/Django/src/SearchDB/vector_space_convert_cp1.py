@@ -6,10 +6,13 @@ from pprint import pprint  # pretty-printer
 from six import iteritems
 import codecs
 import re
-import os, sys
+import os
+import sys
+
 
 def file_read(filename):
-    file = codecs.open(filename, 'r', 'utf-8') # using utf-8 might have problem
+    # using utf-8 might have problem
+    file = codecs.open(filename, 'r', 'utf-8')
     content = file.read()
     return content
 
@@ -17,7 +20,6 @@ def file_read(filename):
 
 
 def vector_space_convert(ArticlePath, DictPath, mmPath, filename):
-
     '''
     # test filename
     filename = ['../../papers/Cobelli1979_Identifiability_of_compartmental_systems_and_related_structural_properties.txt',
@@ -31,7 +33,7 @@ def vector_space_convert(ArticlePath, DictPath, mmPath, filename):
     for count in range(0, 5):
         documents.append(file_read(filename[count]))
     '''
-    documents = [] # list for storing documents
+    documents = []  # list for storing documents
 
     # count = 0
 
@@ -45,7 +47,7 @@ def vector_space_convert(ArticlePath, DictPath, mmPath, filename):
     # print "okay"
 
     # remove common words and tokenize
-    stop_words = get_stop_words('english') # getting english stop_words
+    stop_words = get_stop_words('english')  # getting english stop_words
     texts = [[word for word in document.lower().split() if word not in stop_words]
              for document in documents]
 
@@ -54,14 +56,20 @@ def vector_space_convert(ArticlePath, DictPath, mmPath, filename):
     for text in texts:
         for token in text:
             frequency[token] += 1
-    texts = [[token for token in text if frequency[token] > 1] for text in texts]
+    texts = [[token for token in text if frequency[token] > 1]
+             for text in texts]
 
-    texts = [[re.sub('[^A-Za-z]', '', token) for token in text] for text in texts] # regular expression removing non-alphabet character
-    texts = [filter(None, text) for text in texts] # remove empty entry of a list
+    # regular expression removing non-alphabet character
+    texts = [[re.sub('[^A-Za-z]', '', token) for token in text]
+             for text in texts]
+    texts = [filter(None, text)
+             for text in texts]  # remove empty entry of a list
 
     dictionary = corpora.Dictionary(texts)
-    once_ids = [tokenid for tokenid, docfreq in iteritems(dictionary.dfs) if docfreq == 1]
-    dictionary.filter_tokens(once_ids)  # remove stop words and words that appear only once
+    once_ids = [tokenid for tokenid, docfreq in iteritems(
+        dictionary.dfs) if docfreq == 1]
+    # remove stop words and words that appear only once
+    dictionary.filter_tokens(once_ids)
     dictionary.compactify()  # remove gaps in id sequence after words that were removed
 
     '''
@@ -69,7 +77,9 @@ def vector_space_convert(ArticlePath, DictPath, mmPath, filename):
         print dictionary[i]
     '''
 
-    dictionary.save(DictPath + filename + '.dict')  # store the dictionary, for future reference
+    # store the dictionary, for future reference
+    dictionary.save(DictPath + filename + '.dict')
 
     corpus = [dictionary.doc2bow(text) for text in texts]
-    corpora.MmCorpus.serialize(mmPath + filename + '.mm', corpus)  # store to disk, for later use
+    # store to disk, for later use
+    corpora.MmCorpus.serialize(mmPath + filename + '.mm', corpus)

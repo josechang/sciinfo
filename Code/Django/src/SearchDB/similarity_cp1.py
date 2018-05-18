@@ -3,9 +3,11 @@ from gensim import corpora, models, similarities
 
 # logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
+
 def similarity_compare(query, txt, DictPath, mmPath, indexPath, filename):
     dictionary = corpora.Dictionary.load(DictPath + filename + '.dict')
-    corpus = corpora.MmCorpus(mmPath + filename + '.mm') # comes from vecter_space_convert.py, "From strings to vectors"
+    # comes from vecter_space_convert.py, "From strings to vectors"
+    corpus = corpora.MmCorpus(mmPath + filename + '.mm')
 
     '''
     for i in range(0, 10):
@@ -17,19 +19,21 @@ def similarity_compare(query, txt, DictPath, mmPath, indexPath, filename):
 
     doc = query
     vec_bow = dictionary.doc2bow(doc.lower().split())
-    vec_lsi = lsi[vec_bow] # convert the query to LSI space
+    vec_lsi = lsi[vec_bow]  # convert the query to LSI space
 
-    index = similarities.MatrixSimilarity(lsi[corpus]) # transform corpus to LSI space and index it
-    index.save(indexPath + filename + '.index') # save similarity index
+    # transform corpus to LSI space and index it
+    index = similarities.MatrixSimilarity(lsi[corpus])
+    index.save(indexPath + filename + '.index')  # save similarity index
 
-    sims = index[vec_lsi] # perform a similarity query against the corpus
+    sims = index[vec_lsi]  # perform a similarity query against the corpus
     sims_enu = []
     # Transform tuple data structure to list data structure and replace id to exact filename
-    for i in range(0,len(sims)):
+    for i in range(0, len(sims)):
         sims_enu.append([txt[i], sims[i]])
-    sims_enu = sorted(sims_enu, key=lambda item: -item[1]) # calculate sorted similarity
+    # calculate sorted similarity
+    sims_enu = sorted(sims_enu, key=lambda item: -item[1])
     # print(list(enumerate(sims)))
-    #print(sims) # print sorted (document number, similarity score) 2-tuples
+    # print(sims) # print sorted (document number, similarity score) 2-tuples
 
     # THRESHOLD
     sims_thres_adjust = []
@@ -37,5 +41,5 @@ def similarity_compare(query, txt, DictPath, mmPath, indexPath, filename):
         if element[1] > 0.5:
             element[1] = round(element[1], 2)
             sims_thres_adjust.append(element)
-            
+
     return sims_thres_adjust

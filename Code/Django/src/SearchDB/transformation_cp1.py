@@ -4,8 +4,8 @@ from gensim import corpora, models, similarities
 
 # logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-def transformation(DictPath, mmPath, LsiPath, filename):
 
+def transformation(DictPath, mmPath, LsiPath, filename):
     '''
     transform documents from one vector representation into another.
     This process serves two goals:
@@ -25,11 +25,14 @@ def transformation(DictPath, mmPath, LsiPath, filename):
     else:
         print("Please generate data set")
 
-    tfidf = models.TfidfModel(corpus) # step 1 -- initialize a model
+    tfidf = models.TfidfModel(corpus)  # step 1 -- initialize a model
 
-    corpus_tfidf = tfidf[corpus] # step 2 -- use the model to transform vectors
+    # step 2 -- use the model to transform vectors
+    corpus_tfidf = tfidf[corpus]
 
-    lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2) # initialize an LSI transformation
-    corpus_lsi = lsi[corpus_tfidf] # create a double wrapper over the original corpus: bow->tfidf->fold-in-lsi
+    # initialize an LSI transformation
+    lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2)
+    # create a double wrapper over the original corpus: bow->tfidf->fold-in-lsi
+    corpus_lsi = lsi[corpus_tfidf]
 
-    lsi.save(LsiPath + 'model.lsi') # same for tfidf, lda, ...
+    lsi.save(LsiPath + 'model.lsi')  # same for tfidf, lda, ...

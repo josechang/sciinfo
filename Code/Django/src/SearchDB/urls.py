@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from SearchDB.views import get_text, refreshDatabase
-# from.import views 
+# from.import views
 
 app_name = 'SearchDB'
 urlpatterns = [

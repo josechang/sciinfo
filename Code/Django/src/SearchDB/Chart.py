@@ -40,5 +40,6 @@ def chart(article_info):
                                 ]
                             })
 
-    # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
+    # returning complete JavaScript and HTML code, which is used to
+    # generate chart in the browsers.
     return column2d.render()

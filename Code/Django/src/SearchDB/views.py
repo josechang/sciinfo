@@ -29,7 +29,7 @@ from result_of_year import year_similarity_compare
 from title_extraction_cp1 import title_extractor
 from doi_extract_cp1 import doi_extract
 from Synonym_finder import get_syn
-#from synonym_finder_wordnet_v1 import get_syn
+# from synonym_finder_wordnet_v1 import get_syn
 
 
 # import charts
@@ -51,7 +51,8 @@ tmpName = 'deerwester'
 
 
 def get_text(request):
-    # if the search bar gets query, redirect to the result page, using GET method
+    # if the search bar gets query, redirect to the result page,
+    # using GET method
     if 'q' in request.GET and 'check' in request.GET:
 
         # Access the database to do searching
@@ -119,7 +120,8 @@ def get_text(request):
         resultlist = []
         abstract = []
         for i in range(0, len(sims)):
-                    # Get abstract from Article_abstract file and append it to abstract list.
+                    # Get abstract from Article_abstract file and append it
+                    # to abstract list.
             result = Article.objects.get(filename=sims[i][0])
             file_open = codecs.open(
                 ABSTRACT_PATH + result.filename.replace(".txt", "abstract.txt"), 'r', encoding='utf-8')
@@ -185,7 +187,8 @@ def refreshDatabase(request):
 
 def year_chart(article_info):
 
-    # Initialize list for counting articles of different percentage   #0517 add
+    # Initialize list for counting articles of different
+    # percentage   #0517 add
     year = [0, 0, 0, 0, 0]
     d = []  # 0517 add
     for i in range(len(article_info)):
@@ -205,7 +208,8 @@ def year_chart(article_info):
         if article_info[i][2] <= big-4*interval:
             year[4] += 1
 
-# Create an object for the column2d chart using the FusionCharts class constructor #0517 add
+# Create an object for the column2d chart using the FusionCharts
+# class constructor #0517 add
     I1 = str(eval('big'))
     I2 = str(eval('big-interval'))
     I3 = str(eval('big-2*interval'))
@@ -218,7 +222,8 @@ def year_chart(article_info):
     I54 = I4+'-'+str(eval('big-4*interval+1'))
     I65 = I5+'-'+I6
     column2d = FusionCharts("column2d", "ex2", "600", "400", "chart-2", "json",
-                            # The data is passed as a string in the `dataSource` as parameter.
+                            # The data is passed as a string in the
+                            # `dataSource` as parameter.
                             {
                                 "chart": {
                                     "caption": "Publication year distribution",
@@ -251,7 +256,8 @@ def year_chart(article_info):
                                 ]
                             })
 
-    # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
+    # returning complete JavaScript and HTML code, which is used to
+    # generate chart in the browsers.
     return column2d.render()
 
 # Chart function
@@ -273,9 +279,11 @@ def chart(article_info):
         if element[1] > 0.5 and element[1] <= 0.6:
             tmp[4] += 1
 
-# Create an object for the column2d chart using the FusionCharts class constructor
+# Create an object for the column2d chart using the
+# FusionCharts class constructor
     column2d = FusionCharts("column2d", "ex1", "600", "400", "chart-1", "json",
-                            # The data is passed as a string in the `dataSource` as parameter.
+                            # The data is passed as a
+                            # string in the `dataSource` as parameter.
                             {
                                 "chart": {
                                     "caption": "Similarity Score distribution",
@@ -307,5 +315,6 @@ def chart(article_info):
                                 ]
                             })
 
-    # returning complete JavaScript and HTML code, which is used to generate chart in the browsers.
+    # returning complete JavaScript and HTML code, which is used to
+    # generate chart in the browsers.
     return column2d.render()
