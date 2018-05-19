@@ -14,7 +14,6 @@ import logging
 import codecs
 import io
 import os
-import codecs
 import re
 from gensim import corpora, models, similarities
 # 匯入斷字、斷字處理等等手續都在vector_space_convert_cp1、transformation_cp1
@@ -101,7 +100,7 @@ def get_text(request):
             abstract.append([(read_file)])
 
             file_open.close()
-            with open(TXT_PATH + str(result.filename), "r") as f:
+            with open(TXT_PATH + result.filename, "r") as f:
                 for line in f:
                     pass
                 print line  # this is the last line of the file
