@@ -10,10 +10,11 @@ def extract_keywords(uq):
     for i in range (0, len(data)):
         word.append(data[i]['Word'])
         rank.append(data[i]['Rank'])
-
-    s=uq.split()  #split the query into individual words
+	#split the query into individual words
+    s=uq.split()  
     key_words=[]
-    t=500 # set a threshold between 1-4999
+    # set a threshold between 1-4999
+    t=500 
     freq_words=[]
 
     if t<len(data):
