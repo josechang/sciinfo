@@ -93,7 +93,7 @@ def get_text(request):
         resultlist = []
         abstract = []
         for i in range(0, len(year_simus)):
-            result = Article.objects.get(filename=year_simus[i][0])
+            """result = Article.objects.get(filename=year_simus[i][0])
             file_open = codecs.open(
                 ABSTRACT_PATH + result.filename.replace(".txt", "abstract.txt"), 'r', encoding='utf-8')
             read_file = file_open.read()
@@ -103,8 +103,8 @@ def get_text(request):
             with open(TXT_PATH + result.filename, "r") as f:
                 for line in f:
                     pass
-                print line  # this is the last line of the file
-            resultlist.append([str(result.filename), year_simus[i][1]])
+                print line"""  # this is the last line of the file
+            resultlist.append(year_simus[i][0], year_simus[i][1]])
         fig_year = year_chart(year_simus)
         fig = chart(sims)
         # return uq, resultlist to result.html
