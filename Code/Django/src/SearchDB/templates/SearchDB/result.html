@@ -77,6 +77,13 @@
       </p>
       The results are listed below:
       <br>
+      <div class="col-md-6">
+          <!-- Render similarity figure here -->
+          <div id="chart-1">{{ fig|safe }}</div>
+          <!-- Render published year figure here -->
+          <div id="chart-2">{{ fig_year|safe }}</div>
+      </div>
+      <br>
       <div class="row">
         <div class="col-md-6">
           {% for i in resultlist %}
@@ -112,11 +119,6 @@
 
           </script> {% endfor %}
 
-        </div>
-        <div class="col-md-6">
-          <!-- Render figure here -->
-          <div id="chart-1">{{ fig|safe }}</div>
-          <div id="chart-2">{{ fig_year|safe }}</div>
         </div>
       </div>
     </div>
