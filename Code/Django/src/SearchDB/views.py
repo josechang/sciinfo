@@ -71,9 +71,16 @@ def get_text(request):
         yearsort = year_similarity_compare(uq, os.listdir(
             TXT_PATH), TMP_PATH, TMP_PATH, TMP_PATH, tmpName)
 
+        year_all = []
         year_simus = []
         # create list and sorting similarity for each year
-        for i in range(2018, 1950, -1):
+        for i in range(len(yearsort)):
+            year_all.append(yearsort[i][2])
+        
+        year_max = max(year_all)
+        year_min = min(year_all)
+        
+        for i in range(year_max, year_min, -1):
             tmp = []
             for j in range(0, len(yearsort)):
                 if i == yearsort[j][2]:
