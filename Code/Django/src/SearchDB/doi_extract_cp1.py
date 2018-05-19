@@ -7,9 +7,11 @@ import sys
 
 def doi_extract(pdf_path, PDF):
     # must be pdf file in the path, otherwise it won't work!!
+    # extract pdf information
     pdf_info = PdfFileReader(open(pdf_path + PDF, 'rb')
-                             ).getDocumentInfo()  # extract pdf information
-    doi = str('http://dx.doi.org/')  # get doi information from pdf_info
+                             ).getDocumentInfo()
+    # get doi information from pdf_info  
+    doi = str('http://dx.doi.org/')
 
     # https://pythonhosted.org/PyPDF2/DocumentInformation.html#PyPDF2.pdf.DocumentInformation
     # pdf_info => The DocumentInformation Class
