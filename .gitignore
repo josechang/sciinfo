@@ -17,6 +17,7 @@ main.run.xml
 *.bbl
 *.blg
 *.yml
+.DS_Store
 Report/Main.aux
 Report/Main.bbl
 Report/Main.blg
