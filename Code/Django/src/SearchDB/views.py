@@ -87,24 +87,24 @@ def get_text(request):
                         [yearsort[j][0], yearsort[j][1], yearsort[j][2]])
             tmp = sorted(tmp, key=lambda item: -item[1])
             for k in range(0, len(tmp)):
-                #result = Article.objects.get(filename=tmp[k][0])
-                year_simus.append([tmp[k][0], tmp[k][1], tmp[k][2]])
+                result = Article.objects.get(filename=tmp[k][0])
+                year_simus.append([str(result.filename), tmp[k][1], tmp[k][2]])
 
         resultlist = []
         abstract = []
         for i in range(0, len(year_simus)):
-            """result = Article.objects.get(filename=year_simus[i][0])
+            result = Article.objects.get(filename=year_simus[i][0])
             file_open = codecs.open(
                 ABSTRACT_PATH + result.filename.replace(".txt", "abstract.txt"), 'r', encoding='utf-8')
             read_file = file_open.read()
             abstract.append([(read_file)])
 
             file_open.close()
-            with open(TXT_PATH + result.filename, "r") as f:
+            with open(TXT_PATH + str(result.filename), "r") as f:
                 for line in f:
                     pass
-                print line"""  # this is the last line of the file
-            resultlist.append(year_simus[i][0], year_simus[i][1]])
+                print line  # this is the last line of the file
+            resultlist.append([str(result.filename), year_simus[i][1]])
         fig_year = year_chart(year_simus)
         fig = chart(sims)
         # return uq, resultlist to result.html
