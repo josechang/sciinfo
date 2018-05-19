@@ -87,8 +87,8 @@ def get_text(request):
                         [yearsort[j][0], yearsort[j][1], yearsort[j][2]])
             tmp = sorted(tmp, key=lambda item: -item[1])
             for k in range(0, len(tmp)):
-                result = Article.objects.get(filename=tmp[k][0])
-                year_simus.append([result.filename, tmp[k][1], tmp[k][2]])
+                #result = Article.objects.get(filename=tmp[k][0])
+                year_simus.append([tmp[k][0], tmp[k][1], tmp[k][2]])
 
         resultlist = []
         abstract = []
