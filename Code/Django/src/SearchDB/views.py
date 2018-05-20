@@ -60,8 +60,8 @@ def get_text(request):
         vector = SearchVector('content', weight='A')
         query = SearchQuery(str(request.GET['q']))
         uq = request.GET['q']
-
-        synonym = get_syn(uq)
+        key_word = request.GET['keywords']
+        synonym = get_syn(key_word)
         teststr = "Got the message"
 
         sims = similarity_compare(uq, os.listdir(
