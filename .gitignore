@@ -27,3 +27,4 @@ Report/Main.synctex.gz
 Report/Main.log
 *.pyc
 Code/Django/docker-compose.yml
+Code/Django/src/SearchDB/migrations/*.py
