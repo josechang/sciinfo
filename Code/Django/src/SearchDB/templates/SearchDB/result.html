@@ -103,20 +103,17 @@
             //first_click Contain information about the button (j) pressed first time or second time 
             var abstract_click = [];
             document.getElementById("btn{{forloop.counter0}}").onclick = function () {
-              if (abstract_click[{{ forloop.counter }
-            }]== 1) {
-              // 'First click' for view the abstract
-              abstract_click[{{ forloop.counter }
-            }] = 2;
-            document.getElementById("show_text{{forloop.counter0}}").innerHTML = " ";
-                       } else {
-              // 'Second click' for hide the abstract  
-              document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
-              abstract_click[{{ forloop.counter }
-            }] = 1;
-                      }
-                      
+              if (abstract_click[{{ forloop.counter }}]== 1) {
+                // 'First click' for view the abstract
+                abstract_click[{{ forloop.counter }}] = 2;
+                document.getElementById("show_text{{forloop.counter0}}").innerHTML = " ";
+              } else {
+                // 'Second click' for hide the abstract  
+                document.getElementById("show_text{{forloop.counter0}}").innerHTML = "{{j}}";
+                abstract_click[{{ forloop.counter }}] = 1;
               }
+                      
+            }
 
 
           </script> {% endfor %}

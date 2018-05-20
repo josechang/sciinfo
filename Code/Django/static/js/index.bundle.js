@@ -91972,286 +91972,6 @@ zymurgy
 étude
 études`;
 
-<<<<<<< HEAD
-        /***/
-}),
-/* 4 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-        /*
-        object-assign
-        (c) Sindre Sorhus
-        @license MIT
-        */
-
-
-        /* eslint-disable no-unused-vars */
-        var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-        var hasOwnProperty = Object.prototype.hasOwnProperty;
-        var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-        function toObject(val) {
-            if (val === null || val === undefined) {
-                throw new TypeError('Object.assign cannot be called with null or undefined');
-            }
-
-            return Object(val);
-        }
-
-        function shouldUseNative() {
-            try {
-                if (!Object.assign) {
-                    return false;
-                }
-
-                // Detect buggy property enumeration order in older V8 versions.
-
-                // https://bugs.chromium.org/p/v8/issues/detail?id=4118
-                var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-                test1[5] = 'de';
-                if (Object.getOwnPropertyNames(test1)[0] === '5') {
-                    return false;
-                }
-
-                // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-                var test2 = {};
-                for (var i = 0; i < 10; i++) {
-                    test2['_' + String.fromCharCode(i)] = i;
-                }
-                var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-                    return test2[n];
-                });
-                if (order2.join('') !== '0123456789') {
-                    return false;
-                }
-
-                // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-                var test3 = {};
-                'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-                    test3[letter] = letter;
-                });
-                if (Object.keys(Object.assign({}, test3)).join('') !==
-                    'abcdefghijklmnopqrst') {
-                    return false;
-                }
-
-                return true;
-            } catch (err) {
-                // We don't expect any of the above to throw, but better to be safe.
-                return false;
-            }
-        }
-
-        module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-            var from;
-            var to = toObject(target);
-            var symbols;
-
-            for (var s = 1; s < arguments.length; s++) {
-                from = Object(arguments[s]);
-
-                for (var key in from) {
-                    if (hasOwnProperty.call(from, key)) {
-                        to[key] = from[key];
-                    }
-                }
-
-                if (getOwnPropertySymbols) {
-                    symbols = getOwnPropertySymbols(from);
-                    for (var i = 0; i < symbols.length; i++) {
-                        if (propIsEnumerable.call(from, symbols[i])) {
-                            to[symbols[i]] = from[symbols[i]];
-                        }
-                    }
-                }
-            }
-
-            return to;
-        };
-
-
-        /***/
-}),
-/* 5 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         */
-
-
-
-        /**
-         * Use invariant() to assert state which your program assumes to be true.
-         *
-         * Provide sprintf-style format (only %s is supported) and arguments
-         * to provide information about what broke and what you were
-         * expecting.
-         *
-         * The invariant message will be stripped in production, but the invariant
-         * will remain to ensure logic does not differ in production.
-         */
-
-        var validateFormat = function validateFormat(format) { };
-
-        if (false) {
-            validateFormat = function validateFormat(format) {
-                if (format === undefined) {
-                    throw new Error('invariant requires an error message argument');
-                }
-            };
-        }
-
-        function invariant(condition, format, a, b, c, d, e, f) {
-            validateFormat(format);
-
-            if (!condition) {
-                var error;
-                if (format === undefined) {
-                    error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-                } else {
-                    var args = [a, b, c, d, e, f];
-                    var argIndex = 0;
-                    error = new Error(format.replace(/%s/g, function () {
-                        return args[argIndex++];
-                    }));
-                    error.name = 'Invariant Violation';
-                }
-
-                error.framesToPop = 1; // we don't care about invariant's own frame
-                throw error;
-            }
-        }
-
-        module.exports = invariant;
-
-        /***/
-}),
-/* 6 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         */
-
-
-
-        var emptyObject = {};
-
-        if (false) {
-            Object.freeze(emptyObject);
-        }
-
-        module.exports = emptyObject;
-
-        /***/
-}),
-/* 7 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         * 
-         */
-
-        function makeEmptyFunction(arg) {
-            return function () {
-                return arg;
-            };
-        }
-
-        /**
-         * This function accepts and discards inputs; it has no side effects. This is
-         * primarily useful idiomatically for overridable function endpoints which
-         * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-         */
-        var emptyFunction = function emptyFunction() { };
-
-        emptyFunction.thatReturns = makeEmptyFunction;
-        emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-        emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-        emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-        emptyFunction.thatReturnsThis = function () {
-            return this;
-        };
-        emptyFunction.thatReturnsArgument = function (arg) {
-            return arg;
-        };
-
-        module.exports = emptyFunction;
-
-        /***/
-}),
-/* 8 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-
-        function checkDCE() {
-            /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-            if (
-                typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-                typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-            ) {
-                return;
-            }
-            if (false) {
-                // This branch is unreachable because this function is only called
-                // in production, but the condition is true only in development.
-                // Therefore if the branch is still here, dead code elimination wasn't
-                // properly applied.
-                // Don't change the message. React DevTools relies on it. Also make sure
-                // this message doesn't occur elsewhere in this function, or it will cause
-                // a false positive.
-                throw new Error('^_^');
-            }
-            try {
-                // Verify that the code above has been dead code eliminated (DCE'd).
-                __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-            } catch (err) {
-                // DevTools shouldn't crash React, no matter what.
-                // We should still report in case we break this code.
-                console.error(err);
-            }
-        }
-
-        if (true) {
-            // DCE check should happen before ReactDOM bundle executes so that
-            // DevTools can report bad minification during injection.
-            checkDCE();
-            module.exports = __webpack_require__(13);
-        } else {
-            module.exports = require('./cjs/react-dom.development.js');
-        }
-
-
-        /***/
-}),
-/* 9 */
-/***/ (function (module, __webpack_exports__, __webpack_require__) {
-
-        "use strict";
-        Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-=======
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -92524,7 +92244,6 @@ if (true) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
->>>>>>> 831b5908c7646cc7e5118ab5e46214fc49b4faa7
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_spelt__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_spelt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_spelt__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_spelt_us_dict__ = __webpack_require__(3);
@@ -92535,19 +92254,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__query_jsx__ = __webpack_require__(20);
 
-<<<<<<< HEAD
-        // import one of the dictionaries
-
-        // build dictionary
-        var check = __WEBPACK_IMPORTED_MODULE_0_spelt___default()({
-            dictionary: __WEBPACK_IMPORTED_MODULE_1_spelt_us_dict__["dictionary"],
-            // can be either "gb" or "us"
-            distanceThreshold: 0.2
-            // when a correction found with this distance
-            // we'll stop looking for another
-            // this would improve performance
-        });
-=======
 // import one of the dictionaries
 
 // build dictionary
@@ -92559,1027 +92265,11 @@ var check = __WEBPACK_IMPORTED_MODULE_0_spelt___default()({
 	// we'll stop looking for another
 	// this would improve performance
 });
->>>>>>> 831b5908c7646cc7e5118ab5e46214fc49b4faa7
 
 
 
 
 
-<<<<<<< HEAD
-        window.onload = function () {
-            var DOM = document.getElementById('input-query');
-            var query = DOM.getAttribute('content');
-            __WEBPACK_IMPORTED_MODULE_3_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__query_jsx__["a" /* default */], { defaultQuery: query }), document.getElementById('input-query'));
-        };
-
-        /***/
-}),
-/* 10 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-        Object.defineProperty(exports, "__esModule", { value: true });
-        function default_1(string1, string2) {
-            let distance = Math.abs(string1.length - string2.length) * 0.1;
-            const both = string1 + string2;
-            for (let i = both.length - 1; i >= 0; i--) {
-                if (string2.indexOf(both[i]) === -1 || string1.indexOf(both[i]) === -1)
-                    distance = distance + 0.6;
-            }
-            for (let i = string1.length - 1; i >= 0; i--) {
-                if (string1[i] !== string2[i] && string1[i] !== string2[i + 1] && string1[i] !== string2[i - 1])
-                    distance = distance + 0.15;
-                else if (string1[i] !== string2[i] && string1[i] !== string2[i + 1])
-                    distance = distance + 0.1;
-                else if (string1[i] !== string2[i])
-                    distance = distance + 0.05;
-                else
-                    distance = distance - 0.05;
-            }
-            for (let i = string2.length - 1; i >= 0; i--) {
-                if (string2[i] !== string1[i] && string2[i] !== string1[i + 1] && string2[i] !== string1[i - 1])
-                    distance = distance + 0.15;
-                else if (string2[i] !== string1[i] && string2[i] !== string1[i + 1])
-                    distance = distance + 0.1;
-                else if (string2[i] !== string1[i])
-                    distance = distance + 0.05;
-                else
-                    distance = distance - 0.05;
-            }
-            return distance;
-        }
-        exports.default = default_1;
-
-
-        /***/
-}),
-/* 11 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-        Object.defineProperty(exports, "__esModule", { value: true });
-        const transformations_1 = __webpack_require__(2);
-        function build(dictString) {
-            function appendToDictionary(entry, correctWord) {
-                if (!misspelt[entry])
-                    misspelt[entry] = correctWord;
-                else
-                    misspelt[entry] = misspelt[entry] + "|" + correctWord;
-            }
-            const misspelt = {};
-            const correct = {};
-            let sourceDictionary = dictString.split("\n");
-            for (var index = 0; index < sourceDictionary.length; index++) {
-                var word = sourceDictionary[index];
-                correct[word] = 1;
-                let noVowels = word.replace(/aouiey/, "");
-                for (var transformationIndex = 0; transformationIndex < transformations_1.default.length; transformationIndex++) {
-                    var rule = transformations_1.default[transformationIndex];
-                    appendToDictionary(word.replace(rule.regex, rule.replaceWith), word);
-                }
-            }
-            return { misspelt, correct };
-        }
-        exports.build = build;
-        exports.default = build;
-
-
-        /***/
-}),
-/* 12 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-        /** @license React v16.3.2
-         * react.production.min.js
-         *
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         */
-
-        var m = __webpack_require__(4), n = __webpack_require__(5), p = __webpack_require__(6), q = __webpack_require__(7), r = "function" === typeof Symbol && Symbol["for"], t = r ? Symbol["for"]("react.element") : 60103, u = r ? Symbol["for"]("react.portal") : 60106, v = r ? Symbol["for"]("react.fragment") : 60107, w = r ? Symbol["for"]("react.strict_mode") : 60108, x = r ? Symbol["for"]("react.provider") : 60109, y = r ? Symbol["for"]("react.context") : 60110, z = r ? Symbol["for"]("react.async_mode") : 60111, A = r ? Symbol["for"]("react.forward_ref") :
-            60112, B = "function" === typeof Symbol && Symbol.iterator; function C(a) { for (var b = arguments.length - 1, e = "http://reactjs.org/docs/error-decoder.html?invariant\x3d" + a, c = 0; c < b; c++)e += "\x26args[]\x3d" + encodeURIComponent(arguments[c + 1]); n(!1, "Minified React error #" + a + "; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ", e) } var D = { isMounted: function () { return !1 }, enqueueForceUpdate: function () { }, enqueueReplaceState: function () { }, enqueueSetState: function () { } };
-        function E(a, b, e) { this.props = a; this.context = b; this.refs = p; this.updater = e || D } E.prototype.isReactComponent = {}; E.prototype.setState = function (a, b) { "object" !== typeof a && "function" !== typeof a && null != a ? C("85") : void 0; this.updater.enqueueSetState(this, a, b, "setState") }; E.prototype.forceUpdate = function (a) { this.updater.enqueueForceUpdate(this, a, "forceUpdate") }; function F() { } F.prototype = E.prototype; function G(a, b, e) { this.props = a; this.context = b; this.refs = p; this.updater = e || D } var H = G.prototype = new F;
-        H.constructor = G; m(H, E.prototype); H.isPureReactComponent = !0; var I = { current: null }, J = Object.prototype.hasOwnProperty, K = { key: !0, ref: !0, __self: !0, __source: !0 };
-        function L(a, b, e) { var c = void 0, d = {}, g = null, h = null; if (null != b) for (c in void 0 !== b.ref && (h = b.ref), void 0 !== b.key && (g = "" + b.key), b) J.call(b, c) && !K.hasOwnProperty(c) && (d[c] = b[c]); var f = arguments.length - 2; if (1 === f) d.children = e; else if (1 < f) { for (var k = Array(f), l = 0; l < f; l++)k[l] = arguments[l + 2]; d.children = k } if (a && a.defaultProps) for (c in f = a.defaultProps, f) void 0 === d[c] && (d[c] = f[c]); return { $$typeof: t, type: a, key: g, ref: h, props: d, _owner: I.current } }
-        function M(a) { return "object" === typeof a && null !== a && a.$$typeof === t } function escape(a) { var b = { "\x3d": "\x3d0", ":": "\x3d2" }; return "$" + ("" + a).replace(/[=:]/g, function (a) { return b[a] }) } var N = /\/+/g, O = []; function P(a, b, e, c) { if (O.length) { var d = O.pop(); d.result = a; d.keyPrefix = b; d.func = e; d.context = c; d.count = 0; return d } return { result: a, keyPrefix: b, func: e, context: c, count: 0 } } function Q(a) { a.result = null; a.keyPrefix = null; a.func = null; a.context = null; a.count = 0; 10 > O.length && O.push(a) }
-        function R(a, b, e, c) {
-            var d = typeof a; if ("undefined" === d || "boolean" === d) a = null; var g = !1; if (null === a) g = !0; else switch (d) { case "string": case "number": g = !0; break; case "object": switch (a.$$typeof) { case t: case u: g = !0 } }if (g) return e(c, a, "" === b ? "." + S(a, 0) : b), 1; g = 0; b = "" === b ? "." : b + ":"; if (Array.isArray(a)) for (var h = 0; h < a.length; h++) { d = a[h]; var f = b + S(d, h); g += R(d, f, e, c) } else if (null === a || "undefined" === typeof a ? f = null : (f = B && a[B] || a["@@iterator"], f = "function" === typeof f ? f : null), "function" === typeof f) for (a = f.call(a),
-                h = 0; !(d = a.next()).done;)d = d.value, f = b + S(d, h++), g += R(d, f, e, c); else "object" === d && (e = "" + a, C("31", "[object Object]" === e ? "object with keys {" + Object.keys(a).join(", ") + "}" : e, "")); return g
-        } function S(a, b) { return "object" === typeof a && null !== a && null != a.key ? escape(a.key) : b.toString(36) } function T(a, b) { a.func.call(a.context, b, a.count++) }
-        function U(a, b, e) { var c = a.result, d = a.keyPrefix; a = a.func.call(a.context, b, a.count++); Array.isArray(a) ? V(a, c, e, q.thatReturnsArgument) : null != a && (M(a) && (b = d + (!a.key || b && b.key === a.key ? "" : ("" + a.key).replace(N, "$\x26/") + "/") + e, a = { $$typeof: t, type: a.type, key: b, ref: a.ref, props: a.props, _owner: a._owner }), c.push(a)) } function V(a, b, e, c, d) { var g = ""; null != e && (g = ("" + e).replace(N, "$\x26/") + "/"); b = P(b, g, c, d); null == a || R(a, "", U, b); Q(b) }
-        var W = {
-            Children: { map: function (a, b, e) { if (null == a) return a; var c = []; V(a, c, null, b, e); return c }, forEach: function (a, b, e) { if (null == a) return a; b = P(null, null, b, e); null == a || R(a, "", T, b); Q(b) }, count: function (a) { return null == a ? 0 : R(a, "", q.thatReturnsNull, null) }, toArray: function (a) { var b = []; V(a, b, null, q.thatReturnsArgument); return b }, only: function (a) { M(a) ? void 0 : C("143"); return a } }, createRef: function () { return { current: null } }, Component: E, PureComponent: G, createContext: function (a, b) {
-            void 0 === b && (b = null); a = {
-                $$typeof: y,
-                _calculateChangedBits: b, _defaultValue: a, _currentValue: a, _changedBits: 0, Provider: null, Consumer: null
-            }; a.Provider = { $$typeof: x, _context: a }; return a.Consumer = a
-            }, forwardRef: function (a) { return { $$typeof: A, render: a } }, Fragment: v, StrictMode: w, unstable_AsyncMode: z, createElement: L, cloneElement: function (a, b, e) {
-            null === a || void 0 === a ? C("267", a) : void 0; var c = void 0, d = m({}, a.props), g = a.key, h = a.ref, f = a._owner; if (null != b) {
-            void 0 !== b.ref && (h = b.ref, f = I.current); void 0 !== b.key && (g = "" + b.key); var k = void 0; a.type && a.type.defaultProps &&
-                (k = a.type.defaultProps); for (c in b) J.call(b, c) && !K.hasOwnProperty(c) && (d[c] = void 0 === b[c] && void 0 !== k ? k[c] : b[c])
-            } c = arguments.length - 2; if (1 === c) d.children = e; else if (1 < c) { k = Array(c); for (var l = 0; l < c; l++)k[l] = arguments[l + 2]; d.children = k } return { $$typeof: t, type: a.type, key: g, ref: h, props: d, _owner: f }
-            }, createFactory: function (a) { var b = L.bind(null, a); b.type = a; return b }, isValidElement: M, version: "16.3.2", __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: { ReactCurrentOwner: I, assign: m }
-        }, X = Object.freeze({ default: W }),
-            Y = X && W || X; module.exports = Y["default"] ? Y["default"] : Y;
-
-
-        /***/
-}),
-/* 13 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-        /** @license React v16.3.2
-         * react-dom.production.min.js
-         *
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         */
-
-        /*
-         Modernizr 3.0.0pre (Custom Build) | MIT
-        */
-        var ba = __webpack_require__(5), ea = __webpack_require__(0), m = __webpack_require__(14), A = __webpack_require__(4), C = __webpack_require__(7), fa = __webpack_require__(15), ha = __webpack_require__(16), ja = __webpack_require__(17), ka = __webpack_require__(6);
-        function D(a) { for (var b = arguments.length - 1, c = "http://reactjs.org/docs/error-decoder.html?invariant\x3d" + a, d = 0; d < b; d++)c += "\x26args[]\x3d" + encodeURIComponent(arguments[d + 1]); ba(!1, "Minified React error #" + a + "; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ", c) } ea ? void 0 : D("227");
-        function ma(a, b, c, d, e, f, h, g, k) { this._hasCaughtError = !1; this._caughtError = null; var v = Array.prototype.slice.call(arguments, 3); try { b.apply(c, v) } catch (l) { this._caughtError = l, this._hasCaughtError = !0 } }
-        var E = {
-            _caughtError: null, _hasCaughtError: !1, _rethrowError: null, _hasRethrowError: !1, invokeGuardedCallback: function (a, b, c, d, e, f, h, g, k) { ma.apply(E, arguments) }, invokeGuardedCallbackAndCatchFirstError: function (a, b, c, d, e, f, h, g, k) { E.invokeGuardedCallback.apply(this, arguments); if (E.hasCaughtError()) { var v = E.clearCaughtError(); E._hasRethrowError || (E._hasRethrowError = !0, E._rethrowError = v) } }, rethrowCaughtError: function () { return na.apply(E, arguments) }, hasCaughtError: function () { return E._hasCaughtError }, clearCaughtError: function () {
-                if (E._hasCaughtError) {
-                    var a =
-                        E._caughtError; E._caughtError = null; E._hasCaughtError = !1; return a
-                } D("198")
-            }
-        }; function na() { if (E._hasRethrowError) { var a = E._rethrowError; E._rethrowError = null; E._hasRethrowError = !1; throw a; } } var oa = null, pa = {};
-        function qa() { if (oa) for (var a in pa) { var b = pa[a], c = oa.indexOf(a); -1 < c ? void 0 : D("96", a); if (!ra[c]) { b.extractEvents ? void 0 : D("97", a); ra[c] = b; c = b.eventTypes; for (var d in c) { var e = void 0; var f = c[d], h = b, g = d; sa.hasOwnProperty(g) ? D("99", g) : void 0; sa[g] = f; var k = f.phasedRegistrationNames; if (k) { for (e in k) k.hasOwnProperty(e) && ta(k[e], h, g); e = !0 } else f.registrationName ? (ta(f.registrationName, h, g), e = !0) : e = !1; e ? void 0 : D("98", d, a) } } } }
-        function ta(a, b, c) { ua[a] ? D("100", a) : void 0; ua[a] = b; va[a] = b.eventTypes[c].dependencies } var ra = [], sa = {}, ua = {}, va = {}; function wa(a) { oa ? D("101") : void 0; oa = Array.prototype.slice.call(a); qa() } function xa(a) { var b = !1, c; for (c in a) if (a.hasOwnProperty(c)) { var d = a[c]; pa.hasOwnProperty(c) && pa[c] === d || (pa[c] ? D("102", c) : void 0, pa[c] = d, b = !0) } b && qa() }
-        var Ca = Object.freeze({ plugins: ra, eventNameDispatchConfigs: sa, registrationNameModules: ua, registrationNameDependencies: va, possibleRegistrationNames: null, injectEventPluginOrder: wa, injectEventPluginsByName: xa }), Da = null, Ea = null, Fa = null; function Ga(a, b, c, d) { b = a.type || "unknown-event"; a.currentTarget = Fa(d); E.invokeGuardedCallbackAndCatchFirstError(b, c, void 0, a); a.currentTarget = null }
-        function Ha(a, b) { null == b ? D("30") : void 0; if (null == a) return b; if (Array.isArray(a)) { if (Array.isArray(b)) return a.push.apply(a, b), a; a.push(b); return a } return Array.isArray(b) ? [a].concat(b) : [a, b] } function Ia(a, b, c) { Array.isArray(a) ? a.forEach(b, c) : a && b.call(c, a) } var Ja = null;
-        function Ka(a, b) { if (a) { var c = a._dispatchListeners, d = a._dispatchInstances; if (Array.isArray(c)) for (var e = 0; e < c.length && !a.isPropagationStopped(); e++)Ga(a, b, c[e], d[e]); else c && Ga(a, b, c, d); a._dispatchListeners = null; a._dispatchInstances = null; a.isPersistent() || a.constructor.release(a) } } function La(a) { return Ka(a, !0) } function Ma(a) { return Ka(a, !1) } var Na = { injectEventPluginOrder: wa, injectEventPluginsByName: xa };
-        function Oa(a, b) {
-            var c = a.stateNode; if (!c) return null; var d = Da(c); if (!d) return null; c = d[b]; a: switch (b) { case "onClick": case "onClickCapture": case "onDoubleClick": case "onDoubleClickCapture": case "onMouseDown": case "onMouseDownCapture": case "onMouseMove": case "onMouseMoveCapture": case "onMouseUp": case "onMouseUpCapture": (d = !d.disabled) || (a = a.type, d = !("button" === a || "input" === a || "select" === a || "textarea" === a)); a = !d; break a; default: a = !1 }if (a) return null; c && "function" !== typeof c ? D("231", b, typeof c) : void 0;
-            return c
-        } function Pa(a, b) { null !== a && (Ja = Ha(Ja, a)); a = Ja; Ja = null; a && (b ? Ia(a, La) : Ia(a, Ma), Ja ? D("95") : void 0, E.rethrowCaughtError()) } function Qa(a, b, c, d) { for (var e = null, f = 0; f < ra.length; f++) { var h = ra[f]; h && (h = h.extractEvents(a, b, c, d)) && (e = Ha(e, h)) } Pa(e, !1) } var Ra = Object.freeze({ injection: Na, getListener: Oa, runEventsInBatch: Pa, runExtractedEventsInBatch: Qa }), Sa = Math.random().toString(36).slice(2), F = "__reactInternalInstance$" + Sa, Ta = "__reactEventHandlers$" + Sa;
-        function Ua(a) { if (a[F]) return a[F]; for (; !a[F];)if (a.parentNode) a = a.parentNode; else return null; a = a[F]; return 5 === a.tag || 6 === a.tag ? a : null } function Va(a) { if (5 === a.tag || 6 === a.tag) return a.stateNode; D("33") } function Xa(a) { return a[Ta] || null } var bb = Object.freeze({ precacheFiberNode: function (a, b) { b[F] = a }, getClosestInstanceFromNode: Ua, getInstanceFromNode: function (a) { a = a[F]; return !a || 5 !== a.tag && 6 !== a.tag ? null : a }, getNodeFromInstance: Va, getFiberCurrentPropsFromNode: Xa, updateFiberProps: function (a, b) { a[Ta] = b } });
-        function L(a) { do a = a["return"]; while (a && 5 !== a.tag); return a ? a : null } function cb(a, b, c) { for (var d = []; a;)d.push(a), a = L(a); for (a = d.length; 0 < a--;)b(d[a], "captured", c); for (a = 0; a < d.length; a++)b(d[a], "bubbled", c) } function db(a, b, c) { if (b = Oa(a, c.dispatchConfig.phasedRegistrationNames[b])) c._dispatchListeners = Ha(c._dispatchListeners, b), c._dispatchInstances = Ha(c._dispatchInstances, a) } function eb(a) { a && a.dispatchConfig.phasedRegistrationNames && cb(a._targetInst, db, a) }
-        function fb(a) { if (a && a.dispatchConfig.phasedRegistrationNames) { var b = a._targetInst; b = b ? L(b) : null; cb(b, db, a) } } function gb(a, b, c) { a && c && c.dispatchConfig.registrationName && (b = Oa(a, c.dispatchConfig.registrationName)) && (c._dispatchListeners = Ha(c._dispatchListeners, b), c._dispatchInstances = Ha(c._dispatchInstances, a)) } function hb(a) { a && a.dispatchConfig.registrationName && gb(a._targetInst, null, a) } function ib(a) { Ia(a, eb) }
-        function jb(a, b, c, d) { if (c && d) a: { var e = c; for (var f = d, h = 0, g = e; g; g = L(g))h++; g = 0; for (var k = f; k; k = L(k))g++; for (; 0 < h - g;)e = L(e), h--; for (; 0 < g - h;)f = L(f), g--; for (; h--;) { if (e === f || e === f.alternate) break a; e = L(e); f = L(f) } e = null } else e = null; f = e; for (e = []; c && c !== f;) { h = c.alternate; if (null !== h && h === f) break; e.push(c); c = L(c) } for (c = []; d && d !== f;) { h = d.alternate; if (null !== h && h === f) break; c.push(d); d = L(d) } for (d = 0; d < e.length; d++)gb(e[d], "bubbled", a); for (a = c.length; 0 < a--;)gb(c[a], "captured", b) }
-        var kb = Object.freeze({ accumulateTwoPhaseDispatches: ib, accumulateTwoPhaseDispatchesSkipTarget: function (a) { Ia(a, fb) }, accumulateEnterLeaveDispatches: jb, accumulateDirectDispatches: function (a) { Ia(a, hb) } }), lb = null; function mb() { !lb && m.canUseDOM && (lb = "textContent" in document.documentElement ? "textContent" : "innerText"); return lb } var M = { _root: null, _startText: null, _fallbackText: null };
-        function nb() { if (M._fallbackText) return M._fallbackText; var a, b = M._startText, c = b.length, d, e = ob(), f = e.length; for (a = 0; a < c && b[a] === e[a]; a++); var h = c - a; for (d = 1; d <= h && b[c - d] === e[f - d]; d++); M._fallbackText = e.slice(a, 1 < d ? 1 - d : void 0); return M._fallbackText } function ob() { return "value" in M._root ? M._root.value : M._root[mb()] }
-        var pb = "dispatchConfig _targetInst nativeEvent isDefaultPrevented isPropagationStopped _dispatchListeners _dispatchInstances".split(" "), qb = { type: null, target: null, currentTarget: C.thatReturnsNull, eventPhase: null, bubbles: null, cancelable: null, timeStamp: function (a) { return a.timeStamp || Date.now() }, defaultPrevented: null, isTrusted: null };
-        function N(a, b, c, d) { this.dispatchConfig = a; this._targetInst = b; this.nativeEvent = c; a = this.constructor.Interface; for (var e in a) a.hasOwnProperty(e) && ((b = a[e]) ? this[e] = b(c) : "target" === e ? this.target = d : this[e] = c[e]); this.isDefaultPrevented = (null != c.defaultPrevented ? c.defaultPrevented : !1 === c.returnValue) ? C.thatReturnsTrue : C.thatReturnsFalse; this.isPropagationStopped = C.thatReturnsFalse; return this }
-        A(N.prototype, {
-            preventDefault: function () { this.defaultPrevented = !0; var a = this.nativeEvent; a && (a.preventDefault ? a.preventDefault() : "unknown" !== typeof a.returnValue && (a.returnValue = !1), this.isDefaultPrevented = C.thatReturnsTrue) }, stopPropagation: function () { var a = this.nativeEvent; a && (a.stopPropagation ? a.stopPropagation() : "unknown" !== typeof a.cancelBubble && (a.cancelBubble = !0), this.isPropagationStopped = C.thatReturnsTrue) }, persist: function () { this.isPersistent = C.thatReturnsTrue }, isPersistent: C.thatReturnsFalse,
-            destructor: function () { var a = this.constructor.Interface, b; for (b in a) this[b] = null; for (a = 0; a < pb.length; a++)this[pb[a]] = null }
-        }); N.Interface = qb; N.extend = function (a) { function b() { } function c() { return d.apply(this, arguments) } var d = this; b.prototype = d.prototype; var e = new b; A(e, c.prototype); c.prototype = e; c.prototype.constructor = c; c.Interface = A({}, d.Interface, a); c.extend = d.extend; rb(c); return c }; rb(N);
-        function sb(a, b, c, d) { if (this.eventPool.length) { var e = this.eventPool.pop(); this.call(e, a, b, c, d); return e } return new this(a, b, c, d) } function tb(a) { a instanceof this ? void 0 : D("223"); a.destructor(); 10 > this.eventPool.length && this.eventPool.push(a) } function rb(a) { a.eventPool = []; a.getPooled = sb; a.release = tb } var ub = N.extend({ data: null }), vb = N.extend({ data: null }), wb = [9, 13, 27, 32], xb = m.canUseDOM && "CompositionEvent" in window, yb = null; m.canUseDOM && "documentMode" in document && (yb = document.documentMode);
-        var zb = m.canUseDOM && "TextEvent" in window && !yb, Ab = m.canUseDOM && (!xb || yb && 8 < yb && 11 >= yb), Bb = String.fromCharCode(32), Kb = {
-            beforeInput: { phasedRegistrationNames: { bubbled: "onBeforeInput", captured: "onBeforeInputCapture" }, dependencies: ["topCompositionEnd", "topKeyPress", "topTextInput", "topPaste"] }, compositionEnd: { phasedRegistrationNames: { bubbled: "onCompositionEnd", captured: "onCompositionEndCapture" }, dependencies: "topBlur topCompositionEnd topKeyDown topKeyPress topKeyUp topMouseDown".split(" ") }, compositionStart: {
-                phasedRegistrationNames: {
-                    bubbled: "onCompositionStart",
-                    captured: "onCompositionStartCapture"
-                }, dependencies: "topBlur topCompositionStart topKeyDown topKeyPress topKeyUp topMouseDown".split(" ")
-            }, compositionUpdate: { phasedRegistrationNames: { bubbled: "onCompositionUpdate", captured: "onCompositionUpdateCapture" }, dependencies: "topBlur topCompositionUpdate topKeyDown topKeyPress topKeyUp topMouseDown".split(" ") }
-        }, Lb = !1;
-        function Mb(a, b) { switch (a) { case "topKeyUp": return -1 !== wb.indexOf(b.keyCode); case "topKeyDown": return 229 !== b.keyCode; case "topKeyPress": case "topMouseDown": case "topBlur": return !0; default: return !1 } } function Nb(a) { a = a.detail; return "object" === typeof a && "data" in a ? a.data : null } var Ob = !1; function Pb(a, b) { switch (a) { case "topCompositionEnd": return Nb(b); case "topKeyPress": if (32 !== b.which) return null; Lb = !0; return Bb; case "topTextInput": return a = b.data, a === Bb && Lb ? null : a; default: return null } }
-        function Qb(a, b) { if (Ob) return "topCompositionEnd" === a || !xb && Mb(a, b) ? (a = nb(), M._root = null, M._startText = null, M._fallbackText = null, Ob = !1, a) : null; switch (a) { case "topPaste": return null; case "topKeyPress": if (!(b.ctrlKey || b.altKey || b.metaKey) || b.ctrlKey && b.altKey) { if (b.char && 1 < b.char.length) return b.char; if (b.which) return String.fromCharCode(b.which) } return null; case "topCompositionEnd": return Ab ? null : b.data; default: return null } }
-        var Rb = {
-            eventTypes: Kb, extractEvents: function (a, b, c, d) {
-                var e = void 0; var f = void 0; if (xb) b: { switch (a) { case "topCompositionStart": e = Kb.compositionStart; break b; case "topCompositionEnd": e = Kb.compositionEnd; break b; case "topCompositionUpdate": e = Kb.compositionUpdate; break b }e = void 0 } else Ob ? Mb(a, c) && (e = Kb.compositionEnd) : "topKeyDown" === a && 229 === c.keyCode && (e = Kb.compositionStart); e ? (Ab && (Ob || e !== Kb.compositionStart ? e === Kb.compositionEnd && Ob && (f = nb()) : (M._root = d, M._startText = ob(), Ob = !0)), e = ub.getPooled(e,
-                    b, c, d), f ? e.data = f : (f = Nb(c), null !== f && (e.data = f)), ib(e), f = e) : f = null; (a = zb ? Pb(a, c) : Qb(a, c)) ? (b = vb.getPooled(Kb.beforeInput, b, c, d), b.data = a, ib(b)) : b = null; return null === f ? b : null === b ? f : [f, b]
-            }
-        }, Sb = null, Tb = { injectFiberControlledHostComponent: function (a) { Sb = a } }, Ub = null, Vb = null; function Wb(a) { if (a = Ea(a)) { Sb && "function" === typeof Sb.restoreControlledState ? void 0 : D("194"); var b = Da(a.stateNode); Sb.restoreControlledState(a.stateNode, a.type, b) } } function Xb(a) { Ub ? Vb ? Vb.push(a) : Vb = [a] : Ub = a }
-        function Yb() { return null !== Ub || null !== Vb } function Zb() { if (Ub) { var a = Ub, b = Vb; Vb = Ub = null; Wb(a); if (b) for (a = 0; a < b.length; a++)Wb(b[a]) } } var $b = Object.freeze({ injection: Tb, enqueueStateRestore: Xb, needsStateRestore: Yb, restoreStateIfNeeded: Zb }); function ac(a, b) { return a(b) } function bc(a, b, c) { return a(b, c) } function cc() { } var dc = !1; function ec(a, b) { if (dc) return a(b); dc = !0; try { return ac(a, b) } finally { dc = !1, Yb() && (cc(), Zb()) } }
-        var fc = { color: !0, date: !0, datetime: !0, "datetime-local": !0, email: !0, month: !0, number: !0, password: !0, range: !0, search: !0, tel: !0, text: !0, time: !0, url: !0, week: !0 }; function gc(a) { var b = a && a.nodeName && a.nodeName.toLowerCase(); return "input" === b ? !!fc[a.type] : "textarea" === b ? !0 : !1 } function hc(a) { a = a.target || window; a.correspondingUseElement && (a = a.correspondingUseElement); return 3 === a.nodeType ? a.parentNode : a }
-        function ic(a, b) { if (!m.canUseDOM || b && !("addEventListener" in document)) return !1; a = "on" + a; b = a in document; b || (b = document.createElement("div"), b.setAttribute(a, "return;"), b = "function" === typeof b[a]); return b } function jc(a) { var b = a.type; return (a = a.nodeName) && "input" === a.toLowerCase() && ("checkbox" === b || "radio" === b) }
-        function kc(a) { var b = jc(a) ? "checked" : "value", c = Object.getOwnPropertyDescriptor(a.constructor.prototype, b), d = "" + a[b]; if (!a.hasOwnProperty(b) && "function" === typeof c.get && "function" === typeof c.set) return Object.defineProperty(a, b, { configurable: !0, get: function () { return c.get.call(this) }, set: function (a) { d = "" + a; c.set.call(this, a) } }), Object.defineProperty(a, b, { enumerable: c.enumerable }), { getValue: function () { return d }, setValue: function (a) { d = "" + a }, stopTracking: function () { a._valueTracker = null; delete a[b] } } }
-        function lc(a) { a._valueTracker || (a._valueTracker = kc(a)) } function mc(a) { if (!a) return !1; var b = a._valueTracker; if (!b) return !0; var c = b.getValue(); var d = ""; a && (d = jc(a) ? a.checked ? "true" : "false" : a.value); a = d; return a !== c ? (b.setValue(a), !0) : !1 }
-        var nc = ea.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, O = "function" === typeof Symbol && Symbol["for"], oc = O ? Symbol["for"]("react.element") : 60103, pc = O ? Symbol["for"]("react.call") : 60104, qc = O ? Symbol["for"]("react.return") : 60105, rc = O ? Symbol["for"]("react.portal") : 60106, sc = O ? Symbol["for"]("react.fragment") : 60107, tc = O ? Symbol["for"]("react.strict_mode") : 60108, uc = O ? Symbol["for"]("react.provider") : 60109, vc = O ? Symbol["for"]("react.context") : 60110, wc = O ? Symbol["for"]("react.async_mode") : 60111,
-            xc = O ? Symbol["for"]("react.forward_ref") : 60112, yc = "function" === typeof Symbol && Symbol.iterator; function zc(a) { if (null === a || "undefined" === typeof a) return null; a = yc && a[yc] || a["@@iterator"]; return "function" === typeof a ? a : null }
-        function Ac(a) { a = a.type; if ("function" === typeof a) return a.displayName || a.name; if ("string" === typeof a) return a; switch (a) { case sc: return "ReactFragment"; case rc: return "ReactPortal"; case pc: return "ReactCall"; case qc: return "ReactReturn" }if ("object" === typeof a && null !== a) switch (a.$$typeof) { case xc: return a = a.render.displayName || a.render.name || "", "" !== a ? "ForwardRef(" + a + ")" : "ForwardRef" }return null }
-        function Bc(a) { var b = ""; do { a: switch (a.tag) { case 0: case 1: case 2: case 5: var c = a._debugOwner, d = a._debugSource; var e = Ac(a); var f = null; c && (f = Ac(c)); c = d; e = "\n    in " + (e || "Unknown") + (c ? " (at " + c.fileName.replace(/^.*[\\\/]/, "") + ":" + c.lineNumber + ")" : f ? " (created by " + f + ")" : ""); break a; default: e = "" }b += e; a = a["return"] } while (a); return b }
-        var Cc = /^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/, Dc = {}, Ec = {}; function Fc(a) { if (Ec.hasOwnProperty(a)) return !0; if (Dc.hasOwnProperty(a)) return !1; if (Cc.test(a)) return Ec[a] = !0; Dc[a] = !0; return !1 }
-        function Gc(a, b, c, d) { if (null !== c && 0 === c.type) return !1; switch (typeof b) { case "function": case "symbol": return !0; case "boolean": if (d) return !1; if (null !== c) return !c.acceptsBooleans; a = a.toLowerCase().slice(0, 5); return "data-" !== a && "aria-" !== a; default: return !1 } } function Hc(a, b, c, d) { if (null === b || "undefined" === typeof b || Gc(a, b, c, d)) return !0; if (null !== c) switch (c.type) { case 3: return !b; case 4: return !1 === b; case 5: return isNaN(b); case 6: return isNaN(b) || 1 > b }return !1 }
-        function U(a, b, c, d, e) { this.acceptsBooleans = 2 === b || 3 === b || 4 === b; this.attributeName = d; this.attributeNamespace = e; this.mustUseProperty = c; this.propertyName = a; this.type = b } var V = {}; "children dangerouslySetInnerHTML defaultValue defaultChecked innerHTML suppressContentEditableWarning suppressHydrationWarning style".split(" ").forEach(function (a) { V[a] = new U(a, 0, !1, a, null) });
-        [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function (a) { var b = a[0]; V[b] = new U(b, 1, !1, a[1], null) });["contentEditable", "draggable", "spellCheck", "value"].forEach(function (a) { V[a] = new U(a, 2, !1, a.toLowerCase(), null) });["autoReverse", "externalResourcesRequired", "preserveAlpha"].forEach(function (a) { V[a] = new U(a, 2, !1, a, null) });
-        "allowFullScreen async autoFocus autoPlay controls default defer disabled formNoValidate hidden loop noModule noValidate open playsInline readOnly required reversed scoped seamless itemScope".split(" ").forEach(function (a) { V[a] = new U(a, 3, !1, a.toLowerCase(), null) });["checked", "multiple", "muted", "selected"].forEach(function (a) { V[a] = new U(a, 3, !0, a.toLowerCase(), null) });["capture", "download"].forEach(function (a) { V[a] = new U(a, 4, !1, a.toLowerCase(), null) });
-        ["cols", "rows", "size", "span"].forEach(function (a) { V[a] = new U(a, 6, !1, a.toLowerCase(), null) });["rowSpan", "start"].forEach(function (a) { V[a] = new U(a, 5, !1, a.toLowerCase(), null) }); var Sc = /[\-:]([a-z])/g; function Tc(a) { return a[1].toUpperCase() }
-        "accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clip-rule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fill-rule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity stroke-width text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height".split(" ").forEach(function (a) {
-            var b = a.replace(Sc,
-                Tc); V[b] = new U(b, 1, !1, a, null)
-        }); "xlink:actuate xlink:arcrole xlink:href xlink:role xlink:show xlink:title xlink:type".split(" ").forEach(function (a) { var b = a.replace(Sc, Tc); V[b] = new U(b, 1, !1, a, "http://www.w3.org/1999/xlink") });["xml:base", "xml:lang", "xml:space"].forEach(function (a) { var b = a.replace(Sc, Tc); V[b] = new U(b, 1, !1, a, "http://www.w3.org/XML/1998/namespace") }); V.tabIndex = new U("tabIndex", 1, !1, "tabindex", null);
-        function Uc(a, b, c, d) { var e = V.hasOwnProperty(b) ? V[b] : null; var f = null !== e ? 0 === e.type : d ? !1 : !(2 < b.length) || "o" !== b[0] && "O" !== b[0] || "n" !== b[1] && "N" !== b[1] ? !1 : !0; f || (Hc(b, c, e, d) && (c = null), d || null === e ? Fc(b) && (null === c ? a.removeAttribute(b) : a.setAttribute(b, "" + c)) : e.mustUseProperty ? a[e.propertyName] = null === c ? 3 === e.type ? !1 : "" : c : (b = e.attributeName, d = e.attributeNamespace, null === c ? a.removeAttribute(b) : (e = e.type, c = 3 === e || 4 === e && !0 === c ? "" : "" + c, d ? a.setAttributeNS(d, b, c) : a.setAttribute(b, c)))) }
-        function Vc(a, b) { var c = b.checked; return A({}, b, { defaultChecked: void 0, defaultValue: void 0, value: void 0, checked: null != c ? c : a._wrapperState.initialChecked }) } function Wc(a, b) { var c = null == b.defaultValue ? "" : b.defaultValue, d = null != b.checked ? b.checked : b.defaultChecked; c = Xc(null != b.value ? b.value : c); a._wrapperState = { initialChecked: d, initialValue: c, controlled: "checkbox" === b.type || "radio" === b.type ? null != b.checked : null != b.value } } function Yc(a, b) { b = b.checked; null != b && Uc(a, "checked", b, !1) }
-        function Zc(a, b) { Yc(a, b); var c = Xc(b.value); if (null != c) if ("number" === b.type) { if (0 === c && "" === a.value || a.value != c) a.value = "" + c } else a.value !== "" + c && (a.value = "" + c); b.hasOwnProperty("value") ? $c(a, b.type, c) : b.hasOwnProperty("defaultValue") && $c(a, b.type, Xc(b.defaultValue)); null == b.checked && null != b.defaultChecked && (a.defaultChecked = !!b.defaultChecked) }
-        function ad(a, b) { if (b.hasOwnProperty("value") || b.hasOwnProperty("defaultValue")) "" === a.value && (a.value = "" + a._wrapperState.initialValue), a.defaultValue = "" + a._wrapperState.initialValue; b = a.name; "" !== b && (a.name = ""); a.defaultChecked = !a.defaultChecked; a.defaultChecked = !a.defaultChecked; "" !== b && (a.name = b) } function $c(a, b, c) { if ("number" !== b || a.ownerDocument.activeElement !== a) null == c ? a.defaultValue = "" + a._wrapperState.initialValue : a.defaultValue !== "" + c && (a.defaultValue = "" + c) }
-        function Xc(a) { switch (typeof a) { case "boolean": case "number": case "object": case "string": case "undefined": return a; default: return "" } } var bd = { change: { phasedRegistrationNames: { bubbled: "onChange", captured: "onChangeCapture" }, dependencies: "topBlur topChange topClick topFocus topInput topKeyDown topKeyUp topSelectionChange".split(" ") } }; function cd(a, b, c) { a = N.getPooled(bd.change, a, b, c); a.type = "change"; Xb(c); ib(a); return a } var dd = null, ed = null; function fd(a) { Pa(a, !1) }
-        function gd(a) { var b = Va(a); if (mc(b)) return a } function hd(a, b) { if ("topChange" === a) return b } var id = !1; m.canUseDOM && (id = ic("input") && (!document.documentMode || 9 < document.documentMode)); function jd() { dd && (dd.detachEvent("onpropertychange", kd), ed = dd = null) } function kd(a) { "value" === a.propertyName && gd(ed) && (a = cd(ed, a, hc(a)), ec(fd, a)) } function ld(a, b, c) { "topFocus" === a ? (jd(), dd = b, ed = c, dd.attachEvent("onpropertychange", kd)) : "topBlur" === a && jd() }
-        function md(a) { if ("topSelectionChange" === a || "topKeyUp" === a || "topKeyDown" === a) return gd(ed) } function nd(a, b) { if ("topClick" === a) return gd(b) } function od(a, b) { if ("topInput" === a || "topChange" === a) return gd(b) }
-        var pd = { eventTypes: bd, _isInputEventSupported: id, extractEvents: function (a, b, c, d) { var e = b ? Va(b) : window, f = void 0, h = void 0, g = e.nodeName && e.nodeName.toLowerCase(); "select" === g || "input" === g && "file" === e.type ? f = hd : gc(e) ? id ? f = od : (f = md, h = ld) : (g = e.nodeName) && "input" === g.toLowerCase() && ("checkbox" === e.type || "radio" === e.type) && (f = nd); if (f && (f = f(a, b))) return cd(f, c, d); h && h(a, e, b); "topBlur" === a && null != b && (a = b._wrapperState || e._wrapperState) && a.controlled && "number" === e.type && $c(e, "number", e.value) } }, qd = N.extend({
-            view: null,
-            detail: null
-        }), rd = { Alt: "altKey", Control: "ctrlKey", Meta: "metaKey", Shift: "shiftKey" }; function sd(a) { var b = this.nativeEvent; return b.getModifierState ? b.getModifierState(a) : (a = rd[a]) ? !!b[a] : !1 } function td() { return sd }
-        var ud = qd.extend({ screenX: null, screenY: null, clientX: null, clientY: null, pageX: null, pageY: null, ctrlKey: null, shiftKey: null, altKey: null, metaKey: null, getModifierState: td, button: null, buttons: null, relatedTarget: function (a) { return a.relatedTarget || (a.fromElement === a.srcElement ? a.toElement : a.fromElement) } }), vd = { mouseEnter: { registrationName: "onMouseEnter", dependencies: ["topMouseOut", "topMouseOver"] }, mouseLeave: { registrationName: "onMouseLeave", dependencies: ["topMouseOut", "topMouseOver"] } }, wd = {
-            eventTypes: vd, extractEvents: function (a,
-                b, c, d) {
-                    if ("topMouseOver" === a && (c.relatedTarget || c.fromElement) || "topMouseOut" !== a && "topMouseOver" !== a) return null; var e = d.window === d ? d : (e = d.ownerDocument) ? e.defaultView || e.parentWindow : window; "topMouseOut" === a ? (a = b, b = (b = c.relatedTarget || c.toElement) ? Ua(b) : null) : a = null; if (a === b) return null; var f = null == a ? e : Va(a); e = null == b ? e : Va(b); var h = ud.getPooled(vd.mouseLeave, a, c, d); h.type = "mouseleave"; h.target = f; h.relatedTarget = e; c = ud.getPooled(vd.mouseEnter, b, c, d); c.type = "mouseenter"; c.target = e; c.relatedTarget =
-                        f; jb(h, c, a, b); return [h, c]
-            }
-        }; function xd(a) { var b = a; if (a.alternate) for (; b["return"];)b = b["return"]; else { if (0 !== (b.effectTag & 2)) return 1; for (; b["return"];)if (b = b["return"], 0 !== (b.effectTag & 2)) return 1 } return 3 === b.tag ? 2 : 3 } function yd(a) { return (a = a._reactInternalFiber) ? 2 === xd(a) : !1 } function zd(a) { 2 !== xd(a) ? D("188") : void 0 }
-        function Ad(a) {
-            var b = a.alternate; if (!b) return b = xd(a), 3 === b ? D("188") : void 0, 1 === b ? null : a; for (var c = a, d = b; ;) {
-                var e = c["return"], f = e ? e.alternate : null; if (!e || !f) break; if (e.child === f.child) { for (var h = e.child; h;) { if (h === c) return zd(e), a; if (h === d) return zd(e), b; h = h.sibling } D("188") } if (c["return"] !== d["return"]) c = e, d = f; else {
-                    h = !1; for (var g = e.child; g;) { if (g === c) { h = !0; c = e; d = f; break } if (g === d) { h = !0; d = e; c = f; break } g = g.sibling } if (!h) {
-                        for (g = f.child; g;) { if (g === c) { h = !0; c = f; d = e; break } if (g === d) { h = !0; d = f; c = e; break } g = g.sibling } h ?
-                            void 0 : D("189")
-                    }
-                } c.alternate !== d ? D("190") : void 0
-            } 3 !== c.tag ? D("188") : void 0; return c.stateNode.current === c ? a : b
-        } function Bd(a) { a = Ad(a); if (!a) return null; for (var b = a; ;) { if (5 === b.tag || 6 === b.tag) return b; if (b.child) b.child["return"] = b, b = b.child; else { if (b === a) break; for (; !b.sibling;) { if (!b["return"] || b["return"] === a) return null; b = b["return"] } b.sibling["return"] = b["return"]; b = b.sibling } } return null }
-        function Cd(a) { a = Ad(a); if (!a) return null; for (var b = a; ;) { if (5 === b.tag || 6 === b.tag) return b; if (b.child && 4 !== b.tag) b.child["return"] = b, b = b.child; else { if (b === a) break; for (; !b.sibling;) { if (!b["return"] || b["return"] === a) return null; b = b["return"] } b.sibling["return"] = b["return"]; b = b.sibling } } return null } var Dd = N.extend({ animationName: null, elapsedTime: null, pseudoElement: null }), Ed = N.extend({ clipboardData: function (a) { return "clipboardData" in a ? a.clipboardData : window.clipboardData } }), Fd = qd.extend({ relatedTarget: null });
-        function Gd(a) { var b = a.keyCode; "charCode" in a ? (a = a.charCode, 0 === a && 13 === b && (a = 13)) : a = b; 10 === a && (a = 13); return 32 <= a || 13 === a ? a : 0 }
-        var Hd = { Esc: "Escape", Spacebar: " ", Left: "ArrowLeft", Up: "ArrowUp", Right: "ArrowRight", Down: "ArrowDown", Del: "Delete", Win: "OS", Menu: "ContextMenu", Apps: "ContextMenu", Scroll: "ScrollLock", MozPrintableKey: "Unidentified" }, Id = {
-            8: "Backspace", 9: "Tab", 12: "Clear", 13: "Enter", 16: "Shift", 17: "Control", 18: "Alt", 19: "Pause", 20: "CapsLock", 27: "Escape", 32: " ", 33: "PageUp", 34: "PageDown", 35: "End", 36: "Home", 37: "ArrowLeft", 38: "ArrowUp", 39: "ArrowRight", 40: "ArrowDown", 45: "Insert", 46: "Delete", 112: "F1", 113: "F2", 114: "F3", 115: "F4",
-            116: "F5", 117: "F6", 118: "F7", 119: "F8", 120: "F9", 121: "F10", 122: "F11", 123: "F12", 144: "NumLock", 145: "ScrollLock", 224: "Meta"
-        }, Jd = qd.extend({
-            key: function (a) { if (a.key) { var b = Hd[a.key] || a.key; if ("Unidentified" !== b) return b } return "keypress" === a.type ? (a = Gd(a), 13 === a ? "Enter" : String.fromCharCode(a)) : "keydown" === a.type || "keyup" === a.type ? Id[a.keyCode] || "Unidentified" : "" }, location: null, ctrlKey: null, shiftKey: null, altKey: null, metaKey: null, repeat: null, locale: null, getModifierState: td, charCode: function (a) {
-                return "keypress" ===
-                    a.type ? Gd(a) : 0
-            }, keyCode: function (a) { return "keydown" === a.type || "keyup" === a.type ? a.keyCode : 0 }, which: function (a) { return "keypress" === a.type ? Gd(a) : "keydown" === a.type || "keyup" === a.type ? a.keyCode : 0 }
-        }), Kd = ud.extend({ dataTransfer: null }), Ld = qd.extend({ touches: null, targetTouches: null, changedTouches: null, altKey: null, metaKey: null, ctrlKey: null, shiftKey: null, getModifierState: td }), Md = N.extend({ propertyName: null, elapsedTime: null, pseudoElement: null }), Nd = ud.extend({
-            deltaX: function (a) {
-                return "deltaX" in a ? a.deltaX : "wheelDeltaX" in
-                    a ? -a.wheelDeltaX : 0
-            }, deltaY: function (a) { return "deltaY" in a ? a.deltaY : "wheelDeltaY" in a ? -a.wheelDeltaY : "wheelDelta" in a ? -a.wheelDelta : 0 }, deltaZ: null, deltaMode: null
-        }), Od = {}, Pd = {}; function Qd(a, b) { var c = a[0].toUpperCase() + a.slice(1), d = "on" + c; c = "top" + c; b = { phasedRegistrationNames: { bubbled: d, captured: d + "Capture" }, dependencies: [c], isInteractive: b }; Od[a] = b; Pd[c] = b }
-        "blur cancel click close contextMenu copy cut doubleClick dragEnd dragStart drop focus input invalid keyDown keyPress keyUp mouseDown mouseUp paste pause play rateChange reset seeked submit touchCancel touchEnd touchStart volumeChange".split(" ").forEach(function (a) { Qd(a, !0) });
-        "abort animationEnd animationIteration animationStart canPlay canPlayThrough drag dragEnter dragExit dragLeave dragOver durationChange emptied encrypted ended error load loadedData loadedMetadata loadStart mouseMove mouseOut mouseOver playing progress scroll seeking stalled suspend timeUpdate toggle touchMove transitionEnd waiting wheel".split(" ").forEach(function (a) { Qd(a, !1) });
-        var Rd = {
-            eventTypes: Od, isInteractiveTopLevelEventType: function (a) { a = Pd[a]; return void 0 !== a && !0 === a.isInteractive }, extractEvents: function (a, b, c, d) {
-                var e = Pd[a]; if (!e) return null; switch (a) {
-                    case "topKeyPress": if (0 === Gd(c)) return null; case "topKeyDown": case "topKeyUp": a = Jd; break; case "topBlur": case "topFocus": a = Fd; break; case "topClick": if (2 === c.button) return null; case "topDoubleClick": case "topMouseDown": case "topMouseMove": case "topMouseUp": case "topMouseOut": case "topMouseOver": case "topContextMenu": a =
-                        ud; break; case "topDrag": case "topDragEnd": case "topDragEnter": case "topDragExit": case "topDragLeave": case "topDragOver": case "topDragStart": case "topDrop": a = Kd; break; case "topTouchCancel": case "topTouchEnd": case "topTouchMove": case "topTouchStart": a = Ld; break; case "topAnimationEnd": case "topAnimationIteration": case "topAnimationStart": a = Dd; break; case "topTransitionEnd": a = Md; break; case "topScroll": a = qd; break; case "topWheel": a = Nd; break; case "topCopy": case "topCut": case "topPaste": a = Ed; break; default: a =
-                            N
-                }b = a.getPooled(e, b, c, d); ib(b); return b
-            }
-        }, Sd = Rd.isInteractiveTopLevelEventType, Td = []; function Ud(a) { var b = a.targetInst; do { if (!b) { a.ancestors.push(b); break } var c; for (c = b; c["return"];)c = c["return"]; c = 3 !== c.tag ? null : c.stateNode.containerInfo; if (!c) break; a.ancestors.push(b); b = Ua(c) } while (b); for (c = 0; c < a.ancestors.length; c++)b = a.ancestors[c], Qa(a.topLevelType, b, a.nativeEvent, hc(a.nativeEvent)) } var Vd = !0; function Wd(a) { Vd = !!a }
-        function W(a, b, c) { if (!c) return null; a = (Sd(a) ? Xd : Yd).bind(null, a); c.addEventListener(b, a, !1) } function Zd(a, b, c) { if (!c) return null; a = (Sd(a) ? Xd : Yd).bind(null, a); c.addEventListener(b, a, !0) } function Xd(a, b) { bc(Yd, a, b) }
-        function Yd(a, b) { if (Vd) { var c = hc(b); c = Ua(c); null !== c && "number" === typeof c.tag && 2 !== xd(c) && (c = null); if (Td.length) { var d = Td.pop(); d.topLevelType = a; d.nativeEvent = b; d.targetInst = c; a = d } else a = { topLevelType: a, nativeEvent: b, targetInst: c, ancestors: [] }; try { ec(Ud, a) } finally { a.topLevelType = null, a.nativeEvent = null, a.targetInst = null, a.ancestors.length = 0, 10 > Td.length && Td.push(a) } } }
-        var $d = Object.freeze({ get _enabled() { return Vd }, setEnabled: Wd, isEnabled: function () { return Vd }, trapBubbledEvent: W, trapCapturedEvent: Zd, dispatchEvent: Yd }); function ae(a, b) { var c = {}; c[a.toLowerCase()] = b.toLowerCase(); c["Webkit" + a] = "webkit" + b; c["Moz" + a] = "moz" + b; c["ms" + a] = "MS" + b; c["O" + a] = "o" + b.toLowerCase(); return c }
-        var be = { animationend: ae("Animation", "AnimationEnd"), animationiteration: ae("Animation", "AnimationIteration"), animationstart: ae("Animation", "AnimationStart"), transitionend: ae("Transition", "TransitionEnd") }, ce = {}, de = {}; m.canUseDOM && (de = document.createElement("div").style, "AnimationEvent" in window || (delete be.animationend.animation, delete be.animationiteration.animation, delete be.animationstart.animation), "TransitionEvent" in window || delete be.transitionend.transition);
-        function ee(a) { if (ce[a]) return ce[a]; if (!be[a]) return a; var b = be[a], c; for (c in b) if (b.hasOwnProperty(c) && c in de) return ce[a] = b[c]; return a }
-        var fe = {
-            topAnimationEnd: ee("animationend"), topAnimationIteration: ee("animationiteration"), topAnimationStart: ee("animationstart"), topBlur: "blur", topCancel: "cancel", topChange: "change", topClick: "click", topClose: "close", topCompositionEnd: "compositionend", topCompositionStart: "compositionstart", topCompositionUpdate: "compositionupdate", topContextMenu: "contextmenu", topCopy: "copy", topCut: "cut", topDoubleClick: "dblclick", topDrag: "drag", topDragEnd: "dragend", topDragEnter: "dragenter", topDragExit: "dragexit", topDragLeave: "dragleave",
-            topDragOver: "dragover", topDragStart: "dragstart", topDrop: "drop", topFocus: "focus", topInput: "input", topKeyDown: "keydown", topKeyPress: "keypress", topKeyUp: "keyup", topLoad: "load", topLoadStart: "loadstart", topMouseDown: "mousedown", topMouseMove: "mousemove", topMouseOut: "mouseout", topMouseOver: "mouseover", topMouseUp: "mouseup", topPaste: "paste", topScroll: "scroll", topSelectionChange: "selectionchange", topTextInput: "textInput", topToggle: "toggle", topTouchCancel: "touchcancel", topTouchEnd: "touchend", topTouchMove: "touchmove",
-            topTouchStart: "touchstart", topTransitionEnd: ee("transitionend"), topWheel: "wheel"
-        }, ge = {
-            topAbort: "abort", topCanPlay: "canplay", topCanPlayThrough: "canplaythrough", topDurationChange: "durationchange", topEmptied: "emptied", topEncrypted: "encrypted", topEnded: "ended", topError: "error", topLoadedData: "loadeddata", topLoadedMetadata: "loadedmetadata", topLoadStart: "loadstart", topPause: "pause", topPlay: "play", topPlaying: "playing", topProgress: "progress", topRateChange: "ratechange", topSeeked: "seeked", topSeeking: "seeking",
-            topStalled: "stalled", topSuspend: "suspend", topTimeUpdate: "timeupdate", topVolumeChange: "volumechange", topWaiting: "waiting"
-        }, he = {}, ie = 0, je = "_reactListenersID" + ("" + Math.random()).slice(2); function ke(a) { Object.prototype.hasOwnProperty.call(a, je) || (a[je] = ie++ , he[a[je]] = {}); return he[a[je]] } function le(a) { for (; a && a.firstChild;)a = a.firstChild; return a }
-        function me(a, b) { var c = le(a); a = 0; for (var d; c;) { if (3 === c.nodeType) { d = a + c.textContent.length; if (a <= b && d >= b) return { node: c, offset: b - a }; a = d } a: { for (; c;) { if (c.nextSibling) { c = c.nextSibling; break a } c = c.parentNode } c = void 0 } c = le(c) } } function ne(a) { var b = a && a.nodeName && a.nodeName.toLowerCase(); return b && ("input" === b && "text" === a.type || "textarea" === b || "true" === a.contentEditable) }
-        var oe = m.canUseDOM && "documentMode" in document && 11 >= document.documentMode, pe = { select: { phasedRegistrationNames: { bubbled: "onSelect", captured: "onSelectCapture" }, dependencies: "topBlur topContextMenu topFocus topKeyDown topKeyUp topMouseDown topMouseUp topSelectionChange".split(" ") } }, qe = null, re = null, se = null, te = !1;
-        function ue(a, b) { if (te || null == qe || qe !== fa()) return null; var c = qe; "selectionStart" in c && ne(c) ? c = { start: c.selectionStart, end: c.selectionEnd } : window.getSelection ? (c = window.getSelection(), c = { anchorNode: c.anchorNode, anchorOffset: c.anchorOffset, focusNode: c.focusNode, focusOffset: c.focusOffset }) : c = void 0; return se && ha(se, c) ? null : (se = c, a = N.getPooled(pe.select, re, a, b), a.type = "select", a.target = qe, ib(a), a) }
-        var ve = {
-            eventTypes: pe, extractEvents: function (a, b, c, d) {
-                var e = d.window === d ? d.document : 9 === d.nodeType ? d : d.ownerDocument, f; if (!(f = !e)) { a: { e = ke(e); f = va.onSelect; for (var h = 0; h < f.length; h++) { var g = f[h]; if (!e.hasOwnProperty(g) || !e[g]) { e = !1; break a } } e = !0 } f = !e } if (f) return null; e = b ? Va(b) : window; switch (a) {
-                    case "topFocus": if (gc(e) || "true" === e.contentEditable) qe = e, re = b, se = null; break; case "topBlur": se = re = qe = null; break; case "topMouseDown": te = !0; break; case "topContextMenu": case "topMouseUp": return te = !1, ue(c, d); case "topSelectionChange": if (oe) break;
-                    case "topKeyDown": case "topKeyUp": return ue(c, d)
-                }return null
-            }
-        }; Na.injectEventPluginOrder("ResponderEventPlugin SimpleEventPlugin TapEventPlugin EnterLeaveEventPlugin ChangeEventPlugin SelectEventPlugin BeforeInputEventPlugin".split(" ")); Da = bb.getFiberCurrentPropsFromNode; Ea = bb.getInstanceFromNode; Fa = bb.getNodeFromInstance; Na.injectEventPluginsByName({ SimpleEventPlugin: Rd, EnterLeaveEventPlugin: wd, ChangeEventPlugin: pd, SelectEventPlugin: ve, BeforeInputEventPlugin: Rb });
-        function xe(a, b, c, d) { this.tag = a; this.key = c; this.stateNode = this.type = null; this.sibling = this.child = this["return"] = null; this.index = 0; this.ref = null; this.pendingProps = b; this.memoizedState = this.updateQueue = this.memoizedProps = null; this.mode = d; this.effectTag = 0; this.lastEffect = this.firstEffect = this.nextEffect = null; this.expirationTime = 0; this.alternate = null }
-        function ze(a, b, c) { var d = a.alternate; null === d ? (d = new xe(a.tag, b, a.key, a.mode), d.type = a.type, d.stateNode = a.stateNode, d.alternate = a, a.alternate = d) : (d.pendingProps = b, d.effectTag = 0, d.nextEffect = null, d.firstEffect = null, d.lastEffect = null); d.expirationTime = c; d.child = a.child; d.memoizedProps = a.memoizedProps; d.memoizedState = a.memoizedState; d.updateQueue = a.updateQueue; d.sibling = a.sibling; d.index = a.index; d.ref = a.ref; return d }
-        function Ae(a, b, c) {
-            var d = a.type, e = a.key; a = a.props; var f = void 0; if ("function" === typeof d) f = d.prototype && d.prototype.isReactComponent ? 2 : 0; else if ("string" === typeof d) f = 5; else switch (d) {
-                case sc: return Be(a.children, b, c, e); case wc: f = 11; b |= 3; break; case tc: f = 11; b |= 2; break; case pc: f = 7; break; case qc: f = 9; break; default: if ("object" === typeof d && null !== d) switch (d.$$typeof) {
-                    case uc: f = 13; break; case vc: f = 12; break; case xc: f = 14; break; default: if ("number" === typeof d.tag) return b = d, b.pendingProps = a, b.expirationTime = c,
-                        b; D("130", null == d ? d : typeof d, "")
-                } else D("130", null == d ? d : typeof d, "")
-            }b = new xe(f, a, e, b); b.type = d; b.expirationTime = c; return b
-        } function Be(a, b, c, d) { a = new xe(10, a, d, b); a.expirationTime = c; return a } function Ce(a, b, c) { a = new xe(6, a, null, b); a.expirationTime = c; return a } function De(a, b, c) { b = new xe(4, null !== a.children ? a.children : [], a.key, b); b.expirationTime = c; b.stateNode = { containerInfo: a.containerInfo, pendingChildren: null, implementation: a.implementation }; return b } var Ee = null, Fe = null;
-        function Ge(a) { return function (b) { try { return a(b) } catch (c) { } } } function He(a) { if ("undefined" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__) return !1; var b = __REACT_DEVTOOLS_GLOBAL_HOOK__; if (b.isDisabled || !b.supportsFiber) return !0; try { var c = b.inject(a); Ee = Ge(function (a) { return b.onCommitFiberRoot(c, a) }); Fe = Ge(function (a) { return b.onCommitFiberUnmount(c, a) }) } catch (d) { } return !0 } function Ie(a) { "function" === typeof Ee && Ee(a) } function Je(a) { "function" === typeof Fe && Fe(a) } new Set;
-        function Ke(a) { return { baseState: a, expirationTime: 0, first: null, last: null, callbackList: null, hasForceUpdate: !1, isInitialized: !1, capturedValues: null } } function Le(a, b) { null === a.last ? a.first = a.last = b : (a.last.next = b, a.last = b); if (0 === a.expirationTime || a.expirationTime > b.expirationTime) a.expirationTime = b.expirationTime } var Me = void 0, Ne = void 0;
-        function Oe(a) { Me = Ne = null; var b = a.alternate, c = a.updateQueue; null === c && (c = a.updateQueue = Ke(null)); null !== b ? (a = b.updateQueue, null === a && (a = b.updateQueue = Ke(null))) : a = null; Me = c; Ne = a !== c ? a : null } function Pe(a, b) { Oe(a); a = Me; var c = Ne; null === c ? Le(a, b) : null === a.last || null === c.last ? (Le(a, b), Le(c, b)) : (Le(a, b), c.last = b) } function Qe(a, b, c, d) { a = a.partialState; return "function" === typeof a ? a.call(b, c, d) : a }
-        function Re(a, b, c, d, e, f) {
-        null !== a && a.updateQueue === c && (c = b.updateQueue = { baseState: c.baseState, expirationTime: c.expirationTime, first: c.first, last: c.last, isInitialized: c.isInitialized, capturedValues: c.capturedValues, callbackList: null, hasForceUpdate: !1 }); c.expirationTime = 0; c.isInitialized ? a = c.baseState : (a = c.baseState = b.memoizedState, c.isInitialized = !0); for (var h = !0, g = c.first, k = !1; null !== g;) {
-            var v = g.expirationTime; if (v > f) { var l = c.expirationTime; if (0 === l || l > v) c.expirationTime = v; k || (k = !0, c.baseState = a) } else {
-                k ||
-                (c.first = g.next, null === c.first && (c.last = null)); if (g.isReplace) a = Qe(g, d, a, e), h = !0; else if (v = Qe(g, d, a, e)) a = h ? A({}, a, v) : A(a, v), h = !1; g.isForced && (c.hasForceUpdate = !0); null !== g.callback && (v = c.callbackList, null === v && (v = c.callbackList = []), v.push(g)); null !== g.capturedValue && (v = c.capturedValues, null === v ? c.capturedValues = [g.capturedValue] : v.push(g.capturedValue))
-            } g = g.next
-        } null !== c.callbackList ? b.effectTag |= 32 : null !== c.first || c.hasForceUpdate || null !== c.capturedValues || (b.updateQueue = null); k || (c.baseState = a);
-            return a
-        } function Se(a, b) { var c = a.callbackList; if (null !== c) for (a.callbackList = null, a = 0; a < c.length; a++) { var d = c[a], e = d.callback; d.callback = null; "function" !== typeof e ? D("191", e) : void 0; e.call(b) } }
-        function Te(a, b, c, d, e) {
-            function f(a, b, c, d, e, f) { if (null === b || null !== a.updateQueue && a.updateQueue.hasForceUpdate) return !0; var n = a.stateNode; a = a.type; return "function" === typeof n.shouldComponentUpdate ? n.shouldComponentUpdate(c, e, f) : a.prototype && a.prototype.isPureReactComponent ? !ha(b, c) || !ha(d, e) : !0 } function h(a, b) { b.updater = r; a.stateNode = b; b._reactInternalFiber = a } function g(a, b, c, d) {
-                a = b.state; "function" === typeof b.componentWillReceiveProps && b.componentWillReceiveProps(c, d); "function" === typeof b.UNSAFE_componentWillReceiveProps &&
-                    b.UNSAFE_componentWillReceiveProps(c, d); b.state !== a && r.enqueueReplaceState(b, b.state, null)
-            } function k(a, b, c, d) { a = a.type; if ("function" === typeof a.getDerivedStateFromProps) return a.getDerivedStateFromProps.call(null, c, d) } var v = a.cacheContext, l = a.getMaskedContext, p = a.getUnmaskedContext, z = a.isContextConsumer, B = a.hasContextChanged, r = {
-                isMounted: yd, enqueueSetState: function (a, d, e) {
-                    a = a._reactInternalFiber; e = void 0 === e ? null : e; var f = c(a); Pe(a, {
-                        expirationTime: f, partialState: d, callback: e, isReplace: !1, isForced: !1,
-                        capturedValue: null, next: null
-                    }); b(a, f)
-                }, enqueueReplaceState: function (a, d, e) { a = a._reactInternalFiber; e = void 0 === e ? null : e; var f = c(a); Pe(a, { expirationTime: f, partialState: d, callback: e, isReplace: !0, isForced: !1, capturedValue: null, next: null }); b(a, f) }, enqueueForceUpdate: function (a, d) { a = a._reactInternalFiber; d = void 0 === d ? null : d; var e = c(a); Pe(a, { expirationTime: e, partialState: null, callback: d, isReplace: !1, isForced: !0, capturedValue: null, next: null }); b(a, e) }
-            }; return {
-                adoptClassInstance: h, callGetDerivedStateFromProps: k,
-                constructClassInstance: function (a, b) { var c = a.type, d = p(a), e = z(a), f = e ? l(a, d) : ka; c = new c(b, f); var n = null !== c.state && void 0 !== c.state ? c.state : null; h(a, c); a.memoizedState = n; b = k(a, c, b, n); null !== b && void 0 !== b && (a.memoizedState = A({}, a.memoizedState, b)); e && v(a, d, f); return c }, mountClassInstance: function (a, b) {
-                    var c = a.type, d = a.alternate, e = a.stateNode, f = a.pendingProps, n = p(a); e.props = f; e.state = a.memoizedState; e.refs = ka; e.context = l(a, n); "function" === typeof c.getDerivedStateFromProps || "function" === typeof e.getSnapshotBeforeUpdate ||
-                        "function" !== typeof e.UNSAFE_componentWillMount && "function" !== typeof e.componentWillMount || (c = e.state, "function" === typeof e.componentWillMount && e.componentWillMount(), "function" === typeof e.UNSAFE_componentWillMount && e.UNSAFE_componentWillMount(), c !== e.state && r.enqueueReplaceState(e, e.state, null), c = a.updateQueue, null !== c && (e.state = Re(d, a, c, e, f, b))); "function" === typeof e.componentDidMount && (a.effectTag |= 4)
-                }, resumeMountClassInstance: function (a, b) {
-                    var c = a.type, n = a.stateNode; n.props = a.memoizedProps; n.state =
-                        a.memoizedState; var h = a.memoizedProps, r = a.pendingProps, z = n.context, q = p(a); q = l(a, q); (c = "function" === typeof c.getDerivedStateFromProps || "function" === typeof n.getSnapshotBeforeUpdate) || "function" !== typeof n.UNSAFE_componentWillReceiveProps && "function" !== typeof n.componentWillReceiveProps || (h !== r || z !== q) && g(a, n, r, q); z = a.memoizedState; b = null !== a.updateQueue ? Re(null, a, a.updateQueue, n, r, b) : z; var u = void 0; h !== r && (u = k(a, n, r, b)); if (null !== u && void 0 !== u) {
-                            b = null === b || void 0 === b ? u : A({}, b, u); var t = a.updateQueue;
-                            null !== t && (t.baseState = A({}, t.baseState, u))
-                        } if (!(h !== r || z !== b || B() || null !== a.updateQueue && a.updateQueue.hasForceUpdate)) return "function" === typeof n.componentDidMount && (a.effectTag |= 4), !1; (h = f(a, h, r, z, b, q)) ? (c || "function" !== typeof n.UNSAFE_componentWillMount && "function" !== typeof n.componentWillMount || ("function" === typeof n.componentWillMount && n.componentWillMount(), "function" === typeof n.UNSAFE_componentWillMount && n.UNSAFE_componentWillMount()), "function" === typeof n.componentDidMount && (a.effectTag |=
-                            4)) : ("function" === typeof n.componentDidMount && (a.effectTag |= 4), d(a, r), e(a, b)); n.props = r; n.state = b; n.context = q; return h
-                }, updateClassInstance: function (a, b, c) {
-                    var n = b.type, x = b.stateNode; x.props = b.memoizedProps; x.state = b.memoizedState; var h = b.memoizedProps, r = b.pendingProps, q = x.context, u = p(b); u = l(b, u); (n = "function" === typeof n.getDerivedStateFromProps || "function" === typeof x.getSnapshotBeforeUpdate) || "function" !== typeof x.UNSAFE_componentWillReceiveProps && "function" !== typeof x.componentWillReceiveProps ||
-                        (h !== r || q !== u) && g(b, x, r, u); q = b.memoizedState; c = null !== b.updateQueue ? Re(a, b, b.updateQueue, x, r, c) : q; var t = void 0; h !== r && (t = k(b, x, r, c)); if (null !== t && void 0 !== t) { c = null === c || void 0 === c ? t : A({}, c, t); var y = b.updateQueue; null !== y && (y.baseState = A({}, y.baseState, t)) } if (!(h !== r || q !== c || B() || null !== b.updateQueue && b.updateQueue.hasForceUpdate)) return "function" !== typeof x.componentDidUpdate || h === a.memoizedProps && q === a.memoizedState || (b.effectTag |= 4), "function" !== typeof x.getSnapshotBeforeUpdate || h === a.memoizedProps &&
-                            q === a.memoizedState || (b.effectTag |= 2048), !1; (t = f(b, h, r, q, c, u)) ? (n || "function" !== typeof x.UNSAFE_componentWillUpdate && "function" !== typeof x.componentWillUpdate || ("function" === typeof x.componentWillUpdate && x.componentWillUpdate(r, c, u), "function" === typeof x.UNSAFE_componentWillUpdate && x.UNSAFE_componentWillUpdate(r, c, u)), "function" === typeof x.componentDidUpdate && (b.effectTag |= 4), "function" === typeof x.getSnapshotBeforeUpdate && (b.effectTag |= 2048)) : ("function" !== typeof x.componentDidUpdate || h === a.memoizedProps &&
-                                q === a.memoizedState || (b.effectTag |= 4), "function" !== typeof x.getSnapshotBeforeUpdate || h === a.memoizedProps && q === a.memoizedState || (b.effectTag |= 2048), d(b, r), e(b, c)); x.props = r; x.state = c; x.context = u; return t
-                }
-            }
-        } var Ue = Array.isArray;
-        function Ve(a, b, c) { a = c.ref; if (null !== a && "function" !== typeof a && "object" !== typeof a) { if (c._owner) { c = c._owner; var d = void 0; c && (2 !== c.tag ? D("110") : void 0, d = c.stateNode); d ? void 0 : D("147", a); var e = "" + a; if (null !== b && null !== b.ref && b.ref._stringRef === e) return b.ref; b = function (a) { var b = d.refs === ka ? d.refs = {} : d.refs; null === a ? delete b[e] : b[e] = a }; b._stringRef = e; return b } "string" !== typeof a ? D("148") : void 0; c._owner ? void 0 : D("254", a) } return a }
-        function We(a, b) { "textarea" !== a.type && D("31", "[object Object]" === Object.prototype.toString.call(b) ? "object with keys {" + Object.keys(b).join(", ") + "}" : b, "") }
-        function Xe(a) {
-            function b(b, c) { if (a) { var d = b.lastEffect; null !== d ? (d.nextEffect = c, b.lastEffect = c) : b.firstEffect = b.lastEffect = c; c.nextEffect = null; c.effectTag = 8 } } function c(c, d) { if (!a) return null; for (; null !== d;)b(c, d), d = d.sibling; return null } function d(a, b) { for (a = new Map; null !== b;)null !== b.key ? a.set(b.key, b) : a.set(b.index, b), b = b.sibling; return a } function e(a, b, c) { a = ze(a, b, c); a.index = 0; a.sibling = null; return a } function f(b, c, d) {
-            b.index = d; if (!a) return c; d = b.alternate; if (null !== d) return d = d.index, d < c ? (b.effectTag =
-                2, c) : d; b.effectTag = 2; return c
-            } function h(b) { a && null === b.alternate && (b.effectTag = 2); return b } function g(a, b, c, d) { if (null === b || 6 !== b.tag) return b = Ce(c, a.mode, d), b["return"] = a, b; b = e(b, c, d); b["return"] = a; return b } function k(a, b, c, d) { if (null !== b && b.type === c.type) return d = e(b, c.props, d), d.ref = Ve(a, b, c), d["return"] = a, d; d = Ae(c, a.mode, d); d.ref = Ve(a, b, c); d["return"] = a; return d } function v(a, b, c, d) {
-                if (null === b || 4 !== b.tag || b.stateNode.containerInfo !== c.containerInfo || b.stateNode.implementation !== c.implementation) return b =
-                    De(c, a.mode, d), b["return"] = a, b; b = e(b, c.children || [], d); b["return"] = a; return b
-            } function l(a, b, c, d, f) { if (null === b || 10 !== b.tag) return b = Be(c, a.mode, d, f), b["return"] = a, b; b = e(b, c, d); b["return"] = a; return b } function p(a, b, c) {
-                if ("string" === typeof b || "number" === typeof b) return b = Ce("" + b, a.mode, c), b["return"] = a, b; if ("object" === typeof b && null !== b) {
-                    switch (b.$$typeof) { case oc: return c = Ae(b, a.mode, c), c.ref = Ve(a, null, b), c["return"] = a, c; case rc: return b = De(b, a.mode, c), b["return"] = a, b }if (Ue(b) || zc(b)) return b = Be(b,
-                        a.mode, c, null), b["return"] = a, b; We(a, b)
-                } return null
-            } function z(a, b, c, d) { var e = null !== b ? b.key : null; if ("string" === typeof c || "number" === typeof c) return null !== e ? null : g(a, b, "" + c, d); if ("object" === typeof c && null !== c) { switch (c.$$typeof) { case oc: return c.key === e ? c.type === sc ? l(a, b, c.props.children, d, e) : k(a, b, c, d) : null; case rc: return c.key === e ? v(a, b, c, d) : null }if (Ue(c) || zc(c)) return null !== e ? null : l(a, b, c, d, null); We(a, c) } return null } function B(a, b, c, d, e) {
-                if ("string" === typeof d || "number" === typeof d) return a = a.get(c) ||
-                    null, g(b, a, "" + d, e); if ("object" === typeof d && null !== d) { switch (d.$$typeof) { case oc: return a = a.get(null === d.key ? c : d.key) || null, d.type === sc ? l(b, a, d.props.children, e, d.key) : k(b, a, d, e); case rc: return a = a.get(null === d.key ? c : d.key) || null, v(b, a, d, e) }if (Ue(d) || zc(d)) return a = a.get(c) || null, l(b, a, d, e, null); We(b, d) } return null
-            } function r(e, l, g, h) {
-                for (var r = null, k = null, q = l, u = l = 0, t = null; null !== q && u < g.length; u++) {
-                q.index > u ? (t = q, q = null) : t = q.sibling; var n = z(e, q, g[u], h); if (null === n) { null === q && (q = t); break } a && q && null ===
-                    n.alternate && b(e, q); l = f(n, l, u); null === k ? r = n : k.sibling = n; k = n; q = t
-                } if (u === g.length) return c(e, q), r; if (null === q) { for (; u < g.length; u++)if (q = p(e, g[u], h)) l = f(q, l, u), null === k ? r = q : k.sibling = q, k = q; return r } for (q = d(e, q); u < g.length; u++)if (t = B(q, e, u, g[u], h)) { if (a && null !== t.alternate) q["delete"](null === t.key ? u : t.key); l = f(t, l, u); null === k ? r = t : k.sibling = t; k = t } a && q.forEach(function (a) { return b(e, a) }); return r
-            } function Q(e, l, g, h) {
-                var r = zc(g); "function" !== typeof r ? D("150") : void 0; g = r.call(g); null == g ? D("151") : void 0; for (var k =
-                    r = null, q = l, u = l = 0, t = null, n = g.next(); null !== q && !n.done; u++ , n = g.next()) { q.index > u ? (t = q, q = null) : t = q.sibling; var H = z(e, q, n.value, h); if (null === H) { q || (q = t); break } a && q && null === H.alternate && b(e, q); l = f(H, l, u); null === k ? r = H : k.sibling = H; k = H; q = t } if (n.done) return c(e, q), r; if (null === q) { for (; !n.done; u++ , n = g.next())n = p(e, n.value, h), null !== n && (l = f(n, l, u), null === k ? r = n : k.sibling = n, k = n); return r } for (q = d(e, q); !n.done; u++ , n = g.next())if (n = B(q, e, u, n.value, h), null !== n) {
-                        if (a && null !== n.alternate) q["delete"](null === n.key ? u : n.key);
-                        l = f(n, l, u); null === k ? r = n : k.sibling = n; k = n
-                    } a && q.forEach(function (a) { return b(e, a) }); return r
-            } return function (a, d, f, l) {
-            "object" === typeof f && null !== f && f.type === sc && null === f.key && (f = f.props.children); var g = "object" === typeof f && null !== f; if (g) switch (f.$$typeof) {
-                case oc: a: {
-                    var k = f.key; for (g = d; null !== g;) { if (g.key === k) if (10 === g.tag ? f.type === sc : g.type === f.type) { c(a, g.sibling); d = e(g, f.type === sc ? f.props.children : f.props, l); d.ref = Ve(a, g, f); d["return"] = a; a = d; break a } else { c(a, g); break } else b(a, g); g = g.sibling } f.type ===
-                        sc ? (d = Be(f.props.children, a.mode, l, f.key), d["return"] = a, a = d) : (l = Ae(f, a.mode, l), l.ref = Ve(a, d, f), l["return"] = a, a = l)
-                } return h(a); case rc: a: { for (g = f.key; null !== d;) { if (d.key === g) if (4 === d.tag && d.stateNode.containerInfo === f.containerInfo && d.stateNode.implementation === f.implementation) { c(a, d.sibling); d = e(d, f.children || [], l); d["return"] = a; a = d; break a } else { c(a, d); break } else b(a, d); d = d.sibling } d = De(f, a.mode, l); d["return"] = a; a = d } return h(a)
-            }if ("string" === typeof f || "number" === typeof f) return f = "" + f, null !== d &&
-                6 === d.tag ? (c(a, d.sibling), d = e(d, f, l), d["return"] = a, a = d) : (c(a, d), d = Ce(f, a.mode, l), d["return"] = a, a = d), h(a); if (Ue(f)) return r(a, d, f, l); if (zc(f)) return Q(a, d, f, l); g && We(a, f); if ("undefined" === typeof f) switch (a.tag) { case 2: case 1: l = a.type, D("152", l.displayName || l.name || "Component") }return c(a, d)
-            }
-        } var Ye = Xe(!0), Ze = Xe(!1);
-        function $e(a, b, c, d, e, f, h) {
-            function g(a, b, c) { k(a, b, c, b.expirationTime) } function k(a, b, c, d) { b.child = null === a ? Ze(b, null, c, d) : Ye(b, a.child, c, d) } function v(a, b) { var c = b.ref; if (null === a && null !== c || null !== a && a.ref !== c) b.effectTag |= 128 } function l(a, b, c, d, e, f) { v(a, b); if (!c && !e) return d && y(b, !1), r(a, b); c = b.stateNode; nc.current = b; var l = e ? null : c.render(); b.effectTag |= 1; e && (k(a, b, null, f), b.child = null); k(a, b, l, f); b.memoizedState = c.state; b.memoizedProps = c.props; d && y(b, !0); return b.child } function p(a) {
-                var b = a.stateNode;
-                b.pendingContext ? t(a, b.pendingContext, b.pendingContext !== b.context) : b.context && t(a, b.context, !1); Y(a, b.containerInfo)
-            } function z(a, b, c, d) {
-                var e = a.child; for (null !== e && (e["return"] = a); null !== e;) {
-                    switch (e.tag) {
-                        case 12: var f = e.stateNode | 0; if (e.type === b && 0 !== (f & c)) {
-                            for (f = e; null !== f;) {
-                                var l = f.alternate; if (0 === f.expirationTime || f.expirationTime > d) f.expirationTime = d, null !== l && (0 === l.expirationTime || l.expirationTime > d) && (l.expirationTime = d); else if (null !== l && (0 === l.expirationTime || l.expirationTime > d)) l.expirationTime =
-                                    d; else break; f = f["return"]
-                            } f = null
-                        } else f = e.child; break; case 13: f = e.type === a.type ? null : e.child; break; default: f = e.child
-                    }if (null !== f) f["return"] = e; else for (f = e; null !== f;) { if (f === a) { f = null; break } e = f.sibling; if (null !== e) { f = e; break } f = f["return"] } e = f
-                }
-            } function B(a, b, c) {
-                var d = b.type._context, e = b.pendingProps, f = b.memoizedProps; if (!q() && f === e) return b.stateNode = 0, G(b), r(a, b); var l = e.value; b.memoizedProps = e; if (null === f) l = 1073741823; else if (f.value === e.value) {
-                    if (f.children === e.children) return b.stateNode = 0, G(b),
-                        r(a, b); l = 0
-                } else { var h = f.value; if (h === l && (0 !== h || 1 / h === 1 / l) || h !== h && l !== l) { if (f.children === e.children) return b.stateNode = 0, G(b), r(a, b); l = 0 } else if (l = "function" === typeof d._calculateChangedBits ? d._calculateChangedBits(h, l) : 1073741823, l |= 0, 0 === l) { if (f.children === e.children) return b.stateNode = 0, G(b), r(a, b) } else z(b, d, l, c) } b.stateNode = l; G(b); g(a, b, e.children); return b.child
-            } function r(a, b) {
-            null !== a && b.child !== a.child ? D("153") : void 0; if (null !== b.child) {
-                a = b.child; var c = ze(a, a.pendingProps, a.expirationTime);
-                b.child = c; for (c["return"] = b; null !== a.sibling;)a = a.sibling, c = c.sibling = ze(a, a.pendingProps, a.expirationTime), c["return"] = b; c.sibling = null
-            } return b.child
-            } var Q = a.shouldSetTextContent, n = a.shouldDeprioritizeSubtree, x = b.pushHostContext, Y = b.pushHostContainer, G = d.pushProvider, R = c.getMaskedContext, S = c.getUnmaskedContext, q = c.hasContextChanged, u = c.pushContextProvider, t = c.pushTopLevelContextObject, y = c.invalidateContextProvider, H = e.enterHydrationState, Wa = e.resetHydrationState, Cb = e.tryToClaimNextHydratableInstance;
-            a = Te(c, f, h, function (a, b) { a.memoizedProps = b }, function (a, b) { a.memoizedState = b }); var Jc = a.adoptClassInstance, Kc = a.callGetDerivedStateFromProps, Lc = a.constructClassInstance, Db = a.mountClassInstance, Mc = a.resumeMountClassInstance, Eb = a.updateClassInstance; return {
-                beginWork: function (a, b, c) {
-                    if (0 === b.expirationTime || b.expirationTime > c) { switch (b.tag) { case 3: p(b); break; case 2: u(b); break; case 4: Y(b, b.stateNode.containerInfo); break; case 13: G(b) }return null } switch (b.tag) {
-                        case 0: null !== a ? D("155") : void 0; var d = b.type,
-                            e = b.pendingProps, f = S(b); f = R(b, f); d = d(e, f); b.effectTag |= 1; "object" === typeof d && null !== d && "function" === typeof d.render && void 0 === d.$$typeof ? (f = b.type, b.tag = 2, b.memoizedState = null !== d.state && void 0 !== d.state ? d.state : null, "function" === typeof f.getDerivedStateFromProps && (e = Kc(b, d, e, b.memoizedState), null !== e && void 0 !== e && (b.memoizedState = A({}, b.memoizedState, e))), e = u(b), Jc(b, d), Db(b, c), a = l(a, b, !0, e, !1, c)) : (b.tag = 1, g(a, b, d), b.memoizedProps = e, a = b.child); return a; case 1: return e = b.type, c = b.pendingProps, q() ||
-                                b.memoizedProps !== c ? (d = S(b), d = R(b, d), e = e(c, d), b.effectTag |= 1, g(a, b, e), b.memoizedProps = c, a = b.child) : a = r(a, b), a; case 2: e = u(b); null === a ? null === b.stateNode ? (Lc(b, b.pendingProps), Db(b, c), d = !0) : d = Mc(b, c) : d = Eb(a, b, c); f = !1; var h = b.updateQueue; null !== h && null !== h.capturedValues && (f = d = !0); return l(a, b, d, e, f, c); case 3: a: if (p(b), d = b.updateQueue, null !== d) {
-                                    f = b.memoizedState; e = Re(a, b, d, null, null, c); b.memoizedState = e; d = b.updateQueue; if (null !== d && null !== d.capturedValues) d = null; else if (f === e) { Wa(); a = r(a, b); break a } else d =
-                                        e.element; f = b.stateNode; (null === a || null === a.child) && f.hydrate && H(b) ? (b.effectTag |= 2, b.child = Ze(b, null, d, c)) : (Wa(), g(a, b, d)); b.memoizedState = e; a = b.child
-                                } else Wa(), a = r(a, b); return a; case 5: a: {
-                                    x(b); null === a && Cb(b); e = b.type; h = b.memoizedProps; d = b.pendingProps; f = null !== a ? a.memoizedProps : null; if (!q() && h === d) { if (h = b.mode & 1 && n(e, d)) b.expirationTime = 1073741823; if (!h || 1073741823 !== c) { a = r(a, b); break a } } h = d.children; Q(e, d) ? h = null : f && Q(e, f) && (b.effectTag |= 16); v(a, b); 1073741823 !== c && b.mode & 1 && n(e, d) ? (b.expirationTime =
-                                        1073741823, b.memoizedProps = d, a = null) : (g(a, b, h), b.memoizedProps = d, a = b.child)
-                                } return a; case 6: return null === a && Cb(b), b.memoizedProps = b.pendingProps, null; case 8: b.tag = 7; case 7: return e = b.pendingProps, q() || b.memoizedProps !== e || (e = b.memoizedProps), d = e.children, b.stateNode = null === a ? Ze(b, b.stateNode, d, c) : Ye(b, a.stateNode, d, c), b.memoizedProps = e, b.stateNode; case 9: return null; case 4: return Y(b, b.stateNode.containerInfo), e = b.pendingProps, q() || b.memoizedProps !== e ? (null === a ? b.child = Ye(b, null, e, c) : g(a, b, e), b.memoizedProps =
-                                    e, a = b.child) : a = r(a, b), a; case 14: return c = b.type.render, c = c(b.pendingProps, b.ref), g(a, b, c), b.memoizedProps = c, b.child; case 10: return c = b.pendingProps, q() || b.memoizedProps !== c ? (g(a, b, c), b.memoizedProps = c, a = b.child) : a = r(a, b), a; case 11: return c = b.pendingProps.children, q() || null !== c && b.memoizedProps !== c ? (g(a, b, c), b.memoizedProps = c, a = b.child) : a = r(a, b), a; case 13: return B(a, b, c); case 12: a: {
-                                        d = b.type; f = b.pendingProps; h = b.memoizedProps; e = d._currentValue; var t = d._changedBits; if (q() || 0 !== t || h !== f) {
-                                        b.memoizedProps =
-                                            f; var k = f.unstable_observedBits; if (void 0 === k || null === k) k = 1073741823; b.stateNode = k; if (0 !== (t & k)) z(b, d, t, c); else if (h === f) { a = r(a, b); break a } c = f.children; c = c(e); g(a, b, c); a = b.child
-                                        } else a = r(a, b)
-                                    } return a; default: D("156")
-                    }
-                }
-            }
-        }
-        function af(a, b, c, d, e) {
-            function f(a) { a.effectTag |= 4 } var h = a.createInstance, g = a.createTextInstance, k = a.appendInitialChild, v = a.finalizeInitialChildren, l = a.prepareUpdate, p = a.persistence, z = b.getRootHostContainer, B = b.popHostContext, r = b.getHostContext, Q = b.popHostContainer, n = c.popContextProvider, x = c.popTopLevelContextObject, Y = d.popProvider, G = e.prepareToHydrateHostInstance, R = e.prepareToHydrateHostTextInstance, S = e.popHydrationState, q = void 0, u = void 0, t = void 0; a.mutation ? (q = function () { }, u = function (a, b, c) {
-            (b.updateQueue =
-                c) && f(b)
-            }, t = function (a, b, c, d) { c !== d && f(b) }) : p ? D("235") : D("236"); return {
-                completeWork: function (a, b, c) {
-                    var d = b.pendingProps; switch (b.tag) {
-                        case 1: return null; case 2: return n(b), a = b.stateNode, d = b.updateQueue, null !== d && null !== d.capturedValues && (b.effectTag &= -65, "function" === typeof a.componentDidCatch ? b.effectTag |= 256 : d.capturedValues = null), null; case 3: Q(b); x(b); d = b.stateNode; d.pendingContext && (d.context = d.pendingContext, d.pendingContext = null); if (null === a || null === a.child) S(b), b.effectTag &= -3; q(b); a = b.updateQueue;
-                            null !== a && null !== a.capturedValues && (b.effectTag |= 256); return null; case 5: B(b); c = z(); var e = b.type; if (null !== a && null != b.stateNode) { var p = a.memoizedProps, H = b.stateNode, y = r(); H = l(H, e, p, d, c, y); u(a, b, H, e, p, d, c, y); a.ref !== b.ref && (b.effectTag |= 128) } else {
-                                if (!d) return null === b.stateNode ? D("166") : void 0, null; a = r(); if (S(b)) G(b, c, a) && f(b); else {
-                                    p = h(e, d, c, a, b); a: for (y = b.child; null !== y;) {
-                                        if (5 === y.tag || 6 === y.tag) k(p, y.stateNode); else if (4 !== y.tag && null !== y.child) { y.child["return"] = y; y = y.child; continue } if (y === b) break;
-                                        for (; null === y.sibling;) { if (null === y["return"] || y["return"] === b) break a; y = y["return"] } y.sibling["return"] = y["return"]; y = y.sibling
-                                    } v(p, e, d, c, a) && f(b); b.stateNode = p
-                                } null !== b.ref && (b.effectTag |= 128)
-                            } return null; case 6: if (a && null != b.stateNode) t(a, b, a.memoizedProps, d); else { if ("string" !== typeof d) return null === b.stateNode ? D("166") : void 0, null; a = z(); c = r(); S(b) ? R(b) && f(b) : b.stateNode = g(d, a, c, b) } return null; case 7: (d = b.memoizedProps) ? void 0 : D("165"); b.tag = 8; e = []; a: for ((p = b.stateNode) && (p["return"] = b); null !==
-                                p;) { if (5 === p.tag || 6 === p.tag || 4 === p.tag) D("247"); else if (9 === p.tag) e.push(p.pendingProps.value); else if (null !== p.child) { p.child["return"] = p; p = p.child; continue } for (; null === p.sibling;) { if (null === p["return"] || p["return"] === b) break a; p = p["return"] } p.sibling["return"] = p["return"]; p = p.sibling } p = d.handler; d = p(d.props, e); b.child = Ye(b, null !== a ? a.child : null, d, c); return b.child; case 8: return b.tag = 7, null; case 9: return null; case 14: return null; case 10: return null; case 11: return null; case 4: return Q(b), q(b), null;
-                        case 13: return Y(b), null; case 12: return null; case 0: D("167"); default: D("156")
-                    }
-                }
-            }
-        }
-        function bf(a, b, c, d, e) {
-            var f = a.popHostContainer, h = a.popHostContext, g = b.popContextProvider, k = b.popTopLevelContextObject, v = c.popProvider; return {
-                throwException: function (a, b, c) {
-                b.effectTag |= 512; b.firstEffect = b.lastEffect = null; b = { value: c, source: b, stack: Bc(b) }; do {
-                    switch (a.tag) {
-                        case 3: Oe(a); a.updateQueue.capturedValues = [b]; a.effectTag |= 1024; return; case 2: if (c = a.stateNode, 0 === (a.effectTag & 64) && null !== c && "function" === typeof c.componentDidCatch && !e(c)) {
-                            Oe(a); c = a.updateQueue; var d = c.capturedValues; null === d ?
-                                c.capturedValues = [b] : d.push(b); a.effectTag |= 1024; return
-                        }
-                    }a = a["return"]
-                } while (null !== a)
-                }, unwindWork: function (a) { switch (a.tag) { case 2: g(a); var b = a.effectTag; return b & 1024 ? (a.effectTag = b & -1025 | 64, a) : null; case 3: return f(a), k(a), b = a.effectTag, b & 1024 ? (a.effectTag = b & -1025 | 64, a) : null; case 5: return h(a), null; case 4: return f(a), null; case 13: return v(a), null; default: return null } }, unwindInterruptedWork: function (a) { switch (a.tag) { case 2: g(a); break; case 3: f(a); k(a); break; case 5: h(a); break; case 4: f(a); break; case 13: v(a) } }
-            }
-        }
-        function cf(a, b) { var c = b.source; null === b.stack && Bc(c); null !== c && Ac(c); b = b.value; null !== a && 2 === a.tag && Ac(a); try { b && b.suppressReactErrorLogging || console.error(b) } catch (d) { d && d.suppressReactErrorLogging || console.error(d) } }
-        function df(a, b, c, d, e) {
-            function f(a) { var c = a.ref; if (null !== c) if ("function" === typeof c) try { c(null) } catch (t) { b(a, t) } else c.current = null } function h(a) { "function" === typeof Je && Je(a); switch (a.tag) { case 2: f(a); var c = a.stateNode; if ("function" === typeof c.componentWillUnmount) try { c.props = a.memoizedProps, c.state = a.memoizedState, c.componentWillUnmount() } catch (t) { b(a, t) } break; case 5: f(a); break; case 7: g(a.stateNode); break; case 4: p && v(a) } } function g(a) {
-                for (var b = a; ;)if (h(b), null === b.child || p && 4 === b.tag) {
-                    if (b ===
-                        a) break; for (; null === b.sibling;) { if (null === b["return"] || b["return"] === a) return; b = b["return"] } b.sibling["return"] = b["return"]; b = b.sibling
-                } else b.child["return"] = b, b = b.child
-            } function k(a) { return 5 === a.tag || 3 === a.tag || 4 === a.tag } function v(a) {
-                for (var b = a, c = !1, d = void 0, e = void 0; ;) {
-                    if (!c) { c = b["return"]; a: for (; ;) { null === c ? D("160") : void 0; switch (c.tag) { case 5: d = c.stateNode; e = !1; break a; case 3: d = c.stateNode.containerInfo; e = !0; break a; case 4: d = c.stateNode.containerInfo; e = !0; break a }c = c["return"] } c = !0 } if (5 ===
-                        b.tag || 6 === b.tag) g(b), e ? S(d, b.stateNode) : R(d, b.stateNode); else if (4 === b.tag ? d = b.stateNode.containerInfo : h(b), null !== b.child) { b.child["return"] = b; b = b.child; continue } if (b === a) break; for (; null === b.sibling;) { if (null === b["return"] || b["return"] === a) return; b = b["return"]; 4 === b.tag && (c = !1) } b.sibling["return"] = b["return"]; b = b.sibling
-                }
-            } var l = a.getPublicInstance, p = a.mutation; a = a.persistence; p || (a ? D("235") : D("236")); var z = p.commitMount, B = p.commitUpdate, r = p.resetTextContent, Q = p.commitTextUpdate, n = p.appendChild,
-                x = p.appendChildToContainer, Y = p.insertBefore, G = p.insertInContainerBefore, R = p.removeChild, S = p.removeChildFromContainer; return {
-                    commitBeforeMutationLifeCycles: function (a, b) { switch (b.tag) { case 2: if (b.effectTag & 2048 && null !== a) { var c = a.memoizedProps, d = a.memoizedState; a = b.stateNode; a.props = b.memoizedProps; a.state = b.memoizedState; b = a.getSnapshotBeforeUpdate(c, d); a.__reactInternalSnapshotBeforeUpdate = b } break; case 3: case 5: case 6: case 4: break; default: D("163") } }, commitResetTextContent: function (a) { r(a.stateNode) },
-                    commitPlacement: function (a) {
-                        a: { for (var b = a["return"]; null !== b;) { if (k(b)) { var c = b; break a } b = b["return"] } D("160"); c = void 0 } var d = b = void 0; switch (c.tag) { case 5: b = c.stateNode; d = !1; break; case 3: b = c.stateNode.containerInfo; d = !0; break; case 4: b = c.stateNode.containerInfo; d = !0; break; default: D("161") }c.effectTag & 16 && (r(b), c.effectTag &= -17); a: b: for (c = a; ;) {
-                            for (; null === c.sibling;) { if (null === c["return"] || k(c["return"])) { c = null; break a } c = c["return"] } c.sibling["return"] = c["return"]; for (c = c.sibling; 5 !== c.tag && 6 !==
-                                c.tag;) { if (c.effectTag & 2) continue b; if (null === c.child || 4 === c.tag) continue b; else c.child["return"] = c, c = c.child } if (!(c.effectTag & 2)) { c = c.stateNode; break a }
-                        } for (var e = a; ;) { if (5 === e.tag || 6 === e.tag) c ? d ? G(b, e.stateNode, c) : Y(b, e.stateNode, c) : d ? x(b, e.stateNode) : n(b, e.stateNode); else if (4 !== e.tag && null !== e.child) { e.child["return"] = e; e = e.child; continue } if (e === a) break; for (; null === e.sibling;) { if (null === e["return"] || e["return"] === a) return; e = e["return"] } e.sibling["return"] = e["return"]; e = e.sibling }
-                    }, commitDeletion: function (a) {
-                        v(a);
-                        a["return"] = null; a.child = null; a.alternate && (a.alternate.child = null, a.alternate["return"] = null)
-                    }, commitWork: function (a, b) { switch (b.tag) { case 2: break; case 5: var c = b.stateNode; if (null != c) { var d = b.memoizedProps; a = null !== a ? a.memoizedProps : d; var e = b.type, f = b.updateQueue; b.updateQueue = null; null !== f && B(c, f, e, a, d, b) } break; case 6: null === b.stateNode ? D("162") : void 0; c = b.memoizedProps; Q(b.stateNode, null !== a ? a.memoizedProps : c, c); break; case 3: break; default: D("163") } }, commitLifeCycles: function (a, b, c) {
-                        switch (c.tag) {
-                            case 2: a =
-                                c.stateNode; if (c.effectTag & 4) if (null === b) a.props = c.memoizedProps, a.state = c.memoizedState, a.componentDidMount(); else { var d = b.memoizedProps; b = b.memoizedState; a.props = c.memoizedProps; a.state = c.memoizedState; a.componentDidUpdate(d, b, a.__reactInternalSnapshotBeforeUpdate) } c = c.updateQueue; null !== c && Se(c, a); break; case 3: b = c.updateQueue; if (null !== b) { a = null; if (null !== c.child) switch (c.child.tag) { case 5: a = l(c.child.stateNode); break; case 2: a = c.child.stateNode }Se(b, a) } break; case 5: a = c.stateNode; null === b && c.effectTag &
-                                    4 && z(a, c.type, c.memoizedProps, c); break; case 6: break; case 4: break; default: D("163")
-                        }
-                    }, commitErrorLogging: function (a, b) {
-                        switch (a.tag) {
-                            case 2: var c = a.type; b = a.stateNode; var d = a.updateQueue; null === d || null === d.capturedValues ? D("264") : void 0; var f = d.capturedValues; d.capturedValues = null; "function" !== typeof c.getDerivedStateFromCatch && e(b); b.props = a.memoizedProps; b.state = a.memoizedState; for (c = 0; c < f.length; c++) { d = f[c]; var l = d.value, g = d.stack; cf(a, d); b.componentDidCatch(l, { componentStack: null !== g ? g : "" }) } break;
-                            case 3: c = a.updateQueue; null === c || null === c.capturedValues ? D("264") : void 0; f = c.capturedValues; c.capturedValues = null; for (c = 0; c < f.length; c++)d = f[c], cf(a, d), b(d.value); break; default: D("265")
-                        }
-                    }, commitAttachRef: function (a) { var b = a.ref; if (null !== b) { var c = a.stateNode; switch (a.tag) { case 5: a = l(c); break; default: a = c }"function" === typeof b ? b(a) : b.current = a } }, commitDetachRef: function (a) { a = a.ref; null !== a && ("function" === typeof a ? a(null) : a.current = null) }
-                }
-        } var ef = {};
-        function ff(a, b) {
-            function c(a) { a === ef ? D("174") : void 0; return a } var d = a.getChildHostContext, e = a.getRootHostContext; a = b.createCursor; var f = b.push, h = b.pop, g = a(ef), k = a(ef), v = a(ef); return {
-                getHostContext: function () { return c(g.current) }, getRootHostContainer: function () { return c(v.current) }, popHostContainer: function (a) { h(g, a); h(k, a); h(v, a) }, popHostContext: function (a) { k.current === a && (h(g, a), h(k, a)) }, pushHostContainer: function (a, b) { f(v, b, a); f(k, a, a); f(g, ef, a); b = e(b); h(g, a); f(g, b, a) }, pushHostContext: function (a) {
-                    var b =
-                        c(v.current), e = c(g.current); b = d(e, a.type, b); e !== b && (f(k, a, a), f(g, b, a))
-                }
-            }
-        }
-        function gf(a) {
-            function b(a, b) { var c = new xe(5, null, null, 0); c.type = "DELETED"; c.stateNode = b; c["return"] = a; c.effectTag = 8; null !== a.lastEffect ? (a.lastEffect.nextEffect = c, a.lastEffect = c) : a.firstEffect = a.lastEffect = c } function c(a, b) { switch (a.tag) { case 5: return b = f(b, a.type, a.pendingProps), null !== b ? (a.stateNode = b, !0) : !1; case 6: return b = h(b, a.pendingProps), null !== b ? (a.stateNode = b, !0) : !1; default: return !1 } } function d(a) { for (a = a["return"]; null !== a && 5 !== a.tag && 3 !== a.tag;)a = a["return"]; p = a } var e = a.shouldSetTextContent;
-            a = a.hydration; if (!a) return { enterHydrationState: function () { return !1 }, resetHydrationState: function () { }, tryToClaimNextHydratableInstance: function () { }, prepareToHydrateHostInstance: function () { D("175") }, prepareToHydrateHostTextInstance: function () { D("176") }, popHydrationState: function () { return !1 } }; var f = a.canHydrateInstance, h = a.canHydrateTextInstance, g = a.getNextHydratableSibling, k = a.getFirstHydratableChild, v = a.hydrateInstance, l = a.hydrateTextInstance, p = null, z = null, B = !1; return {
-                enterHydrationState: function (a) {
-                    z =
-                    k(a.stateNode.containerInfo); p = a; return B = !0
-                }, resetHydrationState: function () { z = p = null; B = !1 }, tryToClaimNextHydratableInstance: function (a) { if (B) { var d = z; if (d) { if (!c(a, d)) { d = g(d); if (!d || !c(a, d)) { a.effectTag |= 2; B = !1; p = a; return } b(p, z) } p = a; z = k(d) } else a.effectTag |= 2, B = !1, p = a } }, prepareToHydrateHostInstance: function (a, b, c) { b = v(a.stateNode, a.type, a.memoizedProps, b, c, a); a.updateQueue = b; return null !== b ? !0 : !1 }, prepareToHydrateHostTextInstance: function (a) { return l(a.stateNode, a.memoizedProps, a) }, popHydrationState: function (a) {
-                    if (a !==
-                        p) return !1; if (!B) return d(a), B = !0, !1; var c = a.type; if (5 !== a.tag || "head" !== c && "body" !== c && !e(c, a.memoizedProps)) for (c = z; c;)b(a, c), c = g(c); d(a); z = p ? g(a.stateNode) : null; return !0
-                }
-            }
-        }
-        function hf(a) {
-            function b(a, b, c) { a = a.stateNode; a.__reactInternalMemoizedUnmaskedChildContext = b; a.__reactInternalMemoizedMaskedChildContext = c } function c(a) { return 2 === a.tag && null != a.type.childContextTypes } function d(a, b) { var c = a.stateNode, d = a.type.childContextTypes; if ("function" !== typeof c.getChildContext) return b; c = c.getChildContext(); for (var e in c) e in d ? void 0 : D("108", Ac(a) || "Unknown", e); return A({}, b, c) } var e = a.createCursor, f = a.push, h = a.pop, g = e(ka), k = e(!1), v = ka; return {
-                getUnmaskedContext: function (a) {
-                    return c(a) ?
-                        v : g.current
-                }, cacheContext: b, getMaskedContext: function (a, c) { var d = a.type.contextTypes; if (!d) return ka; var e = a.stateNode; if (e && e.__reactInternalMemoizedUnmaskedChildContext === c) return e.__reactInternalMemoizedMaskedChildContext; var f = {}, g; for (g in d) f[g] = c[g]; e && b(a, c, f); return f }, hasContextChanged: function () { return k.current }, isContextConsumer: function (a) { return 2 === a.tag && null != a.type.contextTypes }, isContextProvider: c, popContextProvider: function (a) { c(a) && (h(k, a), h(g, a)) }, popTopLevelContextObject: function (a) {
-                    h(k,
-                        a); h(g, a)
-                }, pushTopLevelContextObject: function (a, b, c) { null != g.cursor ? D("168") : void 0; f(g, b, a); f(k, c, a) }, processChildContext: d, pushContextProvider: function (a) { if (!c(a)) return !1; var b = a.stateNode; b = b && b.__reactInternalMemoizedMergedChildContext || ka; v = g.current; f(g, b, a); f(k, k.current, a); return !0 }, invalidateContextProvider: function (a, b) { var c = a.stateNode; c ? void 0 : D("169"); if (b) { var e = d(a, v); c.__reactInternalMemoizedMergedChildContext = e; h(k, a); h(g, a); f(g, e, a) } else h(k, a); f(k, b, a) }, findCurrentUnmaskedContext: function (a) {
-                    for (2 !==
-                        xd(a) || 2 !== a.tag ? D("170") : void 0; 3 !== a.tag;) { if (c(a)) return a.stateNode.__reactInternalMemoizedMergedChildContext; (a = a["return"]) ? void 0 : D("171") } return a.stateNode.context
-                }
-            }
-        }
-        function jf(a) { var b = a.createCursor, c = a.push, d = a.pop, e = b(null), f = b(null), h = b(0); return { pushProvider: function (a) { var b = a.type._context; c(h, b._changedBits, a); c(f, b._currentValue, a); c(e, a, a); b._currentValue = a.pendingProps.value; b._changedBits = a.stateNode }, popProvider: function (a) { var b = h.current, c = f.current; d(e, a); d(f, a); d(h, a); a = a.type._context; a._currentValue = c; a._changedBits = b } } }
-        function kf() { var a = [], b = -1; return { createCursor: function (a) { return { current: a } }, isEmpty: function () { return -1 === b }, pop: function (c) { 0 > b || (c.current = a[b], a[b] = null, b--) }, push: function (c, d) { b++; a[b] = c.current; c.current = d }, checkThatStackIsEmpty: function () { }, resetStackAfterFatalErrorInDev: function () { } } }
-        function lf(a) {
-            function b() { if (null !== I) for (var a = I["return"]; null !== a;)Lc(a), a = a["return"]; Ya = null; Z = 0; I = null; Nc = !1 } function c(a) { return null !== ya && ya.has(a) } function d(a) {
-                for (; ;) {
-                    var b = a.alternate, c = a["return"], d = a.sibling; if (0 === (a.effectTag & 512)) {
-                        b = Cb(b, a, Z); var e = a; if (1073741823 === Z || 1073741823 !== e.expirationTime) {
-                            b: switch (e.tag) { case 3: case 2: var f = e.updateQueue; f = null === f ? 0 : f.expirationTime; break b; default: f = 0 }for (var g = e.child; null !== g;)0 !== g.expirationTime && (0 === f || f > g.expirationTime) && (f =
-                                g.expirationTime), g = g.sibling; e.expirationTime = f
-                        } if (null !== b) return b; null !== c && 0 === (c.effectTag & 512) && (null === c.firstEffect && (c.firstEffect = a.firstEffect), null !== a.lastEffect && (null !== c.lastEffect && (c.lastEffect.nextEffect = a.firstEffect), c.lastEffect = a.lastEffect), 1 < a.effectTag && (null !== c.lastEffect ? c.lastEffect.nextEffect = a : c.firstEffect = a, c.lastEffect = a)); if (null !== d) return d; if (null !== c) a = c; else { Nc = !0; break }
-                    } else {
-                        a = Kc(a); if (null !== a) return a.effectTag &= 2559, a; null !== c && (c.firstEffect = c.lastEffect =
-                            null, c.effectTag |= 512); if (null !== d) return d; if (null !== c) a = c; else break
-                    }
-                } return null
-            } function e(a) { var b = Wa(a.alternate, a, Z); null === b && (b = d(a)); nc.current = null; return b } function f(a, c, f) {
-                ca ? D("243") : void 0; ca = !0; if (c !== Z || a !== Ya || null === I) b(), Ya = a, Z = c, I = ze(Ya.current, null, Z), a.pendingCommitExpirationTime = 0; var g = !1; do { try { if (f) for (; null !== I && !S();)I = e(I); else for (; null !== I;)I = e(I) } catch (Oc) { if (null === I) { g = !0; q(Oc); break } f = I; var h = f["return"]; if (null === h) { g = !0; q(Oc); break } Jc(h, f, Oc); I = d(f) } break } while (1);
-                ca = !1; if (g || null !== I) return null; if (Nc) return a.pendingCommitExpirationTime = c, a.current.alternate; D("262")
-            } function h(a, b, c, d) { a = { value: c, source: a, stack: Bc(a) }; Pe(b, { expirationTime: d, partialState: null, callback: null, isReplace: !1, isForced: !1, capturedValue: a, next: null }); v(b, d) } function g(a, b) {
-                a: {
-                    ca && !Za ? D("263") : void 0; for (var d = a["return"]; null !== d;) {
-                        switch (d.tag) {
-                            case 2: var e = d.stateNode; if ("function" === typeof d.type.getDerivedStateFromCatch || "function" === typeof e.componentDidCatch && !c(e)) {
-                                h(a, d, b,
-                                    1); a = void 0; break a
-                            } break; case 3: h(a, d, b, 1); a = void 0; break a
-                        }d = d["return"]
-                    } 3 === a.tag && h(a, a, b, 1); a = void 0
-                } return a
-            } function k(a) { a = 0 !== ia ? ia : ca ? Za ? 1 : Z : a.mode & 1 ? za ? 10 * (((l() + 15) / 10 | 0) + 1) : 25 * (((l() + 500) / 25 | 0) + 1) : 1; za && (0 === da || a > da) && (da = a); return a } function v(a, c) {
-                a: {
-                    for (; null !== a;) {
-                        if (0 === a.expirationTime || a.expirationTime > c) a.expirationTime = c; null !== a.alternate && (0 === a.alternate.expirationTime || a.alternate.expirationTime > c) && (a.alternate.expirationTime = c); if (null === a["return"]) if (3 === a.tag) {
-                            var d =
-                                a.stateNode; !ca && 0 !== Z && c < Z && b(); ca && !Za && Ya === d || B(d, c); Fb > xg && D("185")
-                        } else { c = void 0; break a } a = a["return"]
-                    } c = void 0
-                } return c
-            } function l() { ye = Ic() - Pc; return yg = (ye / 10 | 0) + 2 } function p(a, b, c, d, e) { var f = ia; ia = 1; try { return a(b, c, d, e) } finally { ia = f } } function z(a) { if (0 !== Gb) { if (a > Gb) return; mg(Qc) } var b = Ic() - Pc; Gb = a; Qc = lg(Q, { timeout: 10 * (a - 2) - b }) } function B(a, b) {
-                if (null === a.nextScheduledRoot) a.remainingExpirationTime = b, null === K ? (la = K = a, a.nextScheduledRoot = a) : (K = K.nextScheduledRoot = a, K.nextScheduledRoot = la);
-                else { var c = a.remainingExpirationTime; if (0 === c || b < c) a.remainingExpirationTime = b } T || (J ? Hb && (aa = a, P = 1, G(a, 1, !1)) : 1 === b ? n() : z(b))
-            } function r() {
-                var a = 0, b = null; if (null !== K) for (var c = K, d = la; null !== d;) {
-                    var e = d.remainingExpirationTime; if (0 === e) {
-                    null === c || null === K ? D("244") : void 0; if (d === d.nextScheduledRoot) { la = K = d.nextScheduledRoot = null; break } else if (d === la) la = e = d.nextScheduledRoot, K.nextScheduledRoot = e, d.nextScheduledRoot = null; else if (d === K) { K = c; K.nextScheduledRoot = la; d.nextScheduledRoot = null; break } else c.nextScheduledRoot =
-                        d.nextScheduledRoot, d.nextScheduledRoot = null; d = c.nextScheduledRoot
-                    } else { if (0 === a || e < a) a = e, b = d; if (d === K) break; c = d; d = d.nextScheduledRoot }
-                } c = aa; null !== c && c === b && 1 === a ? Fb++ : Fb = 0; aa = b; P = a
-            } function Q(a) { x(0, !0, a) } function n() { x(1, !1, null) } function x(a, b, c) { $a = c; r(); if (b) for (; null !== aa && 0 !== P && (0 === a || a >= P) && (!Ib || l() >= P);)G(aa, P, !Ib), r(); else for (; null !== aa && 0 !== P && (0 === a || a >= P);)G(aa, P, !1), r(); null !== $a && (Gb = 0, Qc = -1); 0 !== P && z(P); $a = null; Ib = !1; Y() } function Y() {
-                Fb = 0; if (null !== Aa) {
-                    var a = Aa; Aa = null; for (var b =
-                        0; b < a.length; b++) { var c = a[b]; try { c._onComplete() } catch (wg) { Ba || (Ba = !0, Jb = wg) } }
-                } if (Ba) throw a = Jb, Jb = null, Ba = !1, a;
-            } function G(a, b, c) { T ? D("245") : void 0; T = !0; c ? (c = a.finishedWork, null !== c ? R(a, c, b) : (a.finishedWork = null, c = f(a, b, !0), null !== c && (S() ? a.finishedWork = c : R(a, c, b)))) : (c = a.finishedWork, null !== c ? R(a, c, b) : (a.finishedWork = null, c = f(a, b, !1), null !== c && R(a, c, b))); T = !1 } function R(a, b, c) {
-                var d = a.firstBatch; if (null !== d && d._expirationTime <= c && (null === Aa ? Aa = [d] : Aa.push(d), d._defer)) {
-                a.finishedWork = b; a.remainingExpirationTime =
-                    0; return
-                } a.finishedWork = null; Za = ca = !0; c = b.stateNode; c.current === b ? D("177") : void 0; d = c.pendingCommitExpirationTime; 0 === d ? D("261") : void 0; c.pendingCommitExpirationTime = 0; var e = l(); nc.current = null; if (1 < b.effectTag) if (null !== b.lastEffect) { b.lastEffect.nextEffect = b; var f = b.firstEffect } else f = b; else f = b.firstEffect; zg(c.containerInfo); for (w = f; null !== w;) {
-                    var h = !1, k = void 0; try { for (; null !== w;)w.effectTag & 2048 && Db(w.alternate, w), w = w.nextEffect } catch (ab) { h = !0, k = ab } h && (null === w ? D("178") : void 0, g(w, k), null !==
-                        w && (w = w.nextEffect))
-                } for (w = f; null !== w;) { h = !1; k = void 0; try { for (; null !== w;) { var p = w.effectTag; p & 16 && Mc(w); if (p & 128) { var n = w.alternate; null !== n && kg(n) } switch (p & 14) { case 2: Eb(w); w.effectTag &= -3; break; case 6: Eb(w); w.effectTag &= -3; we(w.alternate, w); break; case 4: we(w.alternate, w); break; case 8: gg(w) }w = w.nextEffect } } catch (ab) { h = !0, k = ab } h && (null === w ? D("178") : void 0, g(w, k), null !== w && (w = w.nextEffect)) } Ag(c.containerInfo); c.current = b; for (w = f; null !== w;) {
-                    p = !1; n = void 0; try {
-                        for (f = c, h = e, k = d; null !== w;) {
-                            var r = w.effectTag;
-                            r & 36 && hg(f, w.alternate, w, h, k); r & 256 && ig(w, q); r & 128 && jg(w); var t = w.nextEffect; w.nextEffect = null; w = t
-                        }
-                    } catch (ab) { p = !0, n = ab } p && (null === w ? D("178") : void 0, g(w, n), null !== w && (w = w.nextEffect))
-                } ca = Za = !1; "function" === typeof Ie && Ie(b.stateNode); b = c.current.expirationTime; 0 === b && (ya = null); a.remainingExpirationTime = b
-            } function S() { return null === $a || $a.timeRemaining() > Bg ? !1 : Ib = !0 } function q(a) { null === aa ? D("246") : void 0; aa.remainingExpirationTime = 0; Ba || (Ba = !0, Jb = a) } var u = kf(), t = ff(a, u), y = hf(u); u = jf(u); var H = gf(a),
-                Wa = $e(a, t, y, u, H, v, k).beginWork, Cb = af(a, t, y, u, H).completeWork; t = bf(t, y, u, v, c); var Jc = t.throwException, Kc = t.unwindWork, Lc = t.unwindInterruptedWork; t = df(a, g, v, k, function (a) { null === ya ? ya = new Set([a]) : ya.add(a) }, l); var Db = t.commitBeforeMutationLifeCycles, Mc = t.commitResetTextContent, Eb = t.commitPlacement, gg = t.commitDeletion, we = t.commitWork, hg = t.commitLifeCycles, ig = t.commitErrorLogging, jg = t.commitAttachRef, kg = t.commitDetachRef, Ic = a.now, lg = a.scheduleDeferredCallback, mg = a.cancelDeferredCallback, zg = a.prepareForCommit,
-                    Ag = a.resetAfterCommit, Pc = Ic(), yg = 2, ye = Pc, Rc = 0, ia = 0, ca = !1, I = null, Ya = null, Z = 0, w = null, Za = !1, Nc = !1, ya = null, la = null, K = null, Gb = 0, Qc = -1, T = !1, aa = null, P = 0, da = 0, Ib = !1, Ba = !1, Jb = null, $a = null, J = !1, Hb = !1, za = !1, Aa = null, xg = 1E3, Fb = 0, Bg = 1; return {
-                        recalculateCurrentTime: l, computeExpirationForFiber: k, scheduleWork: v, requestWork: B, flushRoot: function (a, b) { T ? D("253") : void 0; aa = a; P = b; G(a, b, !1); n(); Y() }, batchedUpdates: function (a, b) { var c = J; J = !0; try { return a(b) } finally { (J = c) || T || n() } }, unbatchedUpdates: function (a, b) {
-                            if (J && !Hb) {
-                                Hb =
-                                !0; try { return a(b) } finally { Hb = !1 }
-                            } return a(b)
-                        }, flushSync: function (a, b) { T ? D("187") : void 0; var c = J; J = !0; try { return p(a, b) } finally { J = c, n() } }, flushControlled: function (a) { var b = J; J = !0; try { p(a) } finally { (J = b) || T || x(1, !1, null) } }, deferredUpdates: function (a) { var b = ia; ia = 25 * (((l() + 500) / 25 | 0) + 1); try { return a() } finally { ia = b } }, syncUpdates: p, interactiveUpdates: function (a, b, c) { if (za) return a(b, c); J || T || 0 === da || (x(da, !1, null), da = 0); var d = za, e = J; J = za = !0; try { return a(b, c) } finally { za = d, (J = e) || T || n() } }, flushInteractiveUpdates: function () {
-                        T ||
-                            0 === da || (x(da, !1, null), da = 0)
-                        }, computeUniqueAsyncExpiration: function () { var a = 25 * (((l() + 500) / 25 | 0) + 1); a <= Rc && (a = Rc + 1); return Rc = a }, legacyContext: y
-                    }
-        }
-        function mf(a) {
-            function b(a, b, c, d, e, h) { d = b.current; if (c) { c = c._reactInternalFiber; var l = g(c); c = k(c) ? v(c, l) : l } else c = ka; null === b.context ? b.context = c : b.pendingContext = c; b = h; Pe(d, { expirationTime: e, partialState: { element: a }, callback: void 0 === b ? null : b, isReplace: !1, isForced: !1, capturedValue: null, next: null }); f(d, e); return e } var c = a.getPublicInstance; a = lf(a); var d = a.recalculateCurrentTime, e = a.computeExpirationForFiber, f = a.scheduleWork, h = a.legacyContext, g = h.findCurrentUnmaskedContext, k = h.isContextProvider, v =
-                h.processChildContext; return {
-                    createContainer: function (a, b, c) { b = new xe(3, null, null, b ? 3 : 0); a = { current: b, containerInfo: a, pendingChildren: null, pendingCommitExpirationTime: 0, finishedWork: null, context: null, pendingContext: null, hydrate: c, remainingExpirationTime: 0, firstBatch: null, nextScheduledRoot: null }; return b.stateNode = a }, updateContainer: function (a, c, f, h) { var g = c.current, k = d(); g = e(g); return b(a, c, f, k, g, h) }, updateContainerAtExpirationTime: function (a, c, e, f, g) { var h = d(); return b(a, c, e, h, f, g) }, flushRoot: a.flushRoot,
-                    requestWork: a.requestWork, computeUniqueAsyncExpiration: a.computeUniqueAsyncExpiration, batchedUpdates: a.batchedUpdates, unbatchedUpdates: a.unbatchedUpdates, deferredUpdates: a.deferredUpdates, syncUpdates: a.syncUpdates, interactiveUpdates: a.interactiveUpdates, flushInteractiveUpdates: a.flushInteractiveUpdates, flushControlled: a.flushControlled, flushSync: a.flushSync, getPublicRootInstance: function (a) { a = a.current; if (!a.child) return null; switch (a.child.tag) { case 5: return c(a.child.stateNode); default: return a.child.stateNode } },
-                    findHostInstance: function (a) { var b = a._reactInternalFiber; void 0 === b && ("function" === typeof a.render ? D("188") : D("268", Object.keys(a))); a = Bd(b); return null === a ? null : a.stateNode }, findHostInstanceWithNoPortals: function (a) { a = Cd(a); return null === a ? null : a.stateNode }, injectIntoDevTools: function (a) { var b = a.findFiberByHostInstance; return He(A({}, a, { findHostInstanceByFiber: function (a) { a = Bd(a); return null === a ? null : a.stateNode }, findFiberByHostInstance: function (a) { return b ? b(a) : null } })) }
-                }
-        }
-        var nf = Object.freeze({ default: mf }), of = nf && mf || nf, pf = of["default"] ? of["default"] : of; function qf(a, b, c) { var d = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null; return { $$typeof: rc, key: null == d ? null : "" + d, children: a, containerInfo: b, implementation: c } } var rf = "object" === typeof performance && "function" === typeof performance.now, sf = void 0; sf = rf ? function () { return performance.now() } : function () { return Date.now() }; var tf = void 0, uf = void 0;
-        if (m.canUseDOM) if ("function" !== typeof requestIdleCallback || "function" !== typeof cancelIdleCallback) {
-            var vf = null, wf = !1, xf = -1, yf = !1, zf = 0, Af = 33, Bf = 33, Cf = void 0; Cf = rf ? { didTimeout: !1, timeRemaining: function () { var a = zf - performance.now(); return 0 < a ? a : 0 } } : { didTimeout: !1, timeRemaining: function () { var a = zf - Date.now(); return 0 < a ? a : 0 } }; var Df = "__reactIdleCallback$" + Math.random().toString(36).slice(2); window.addEventListener("message", function (a) {
-                if (a.source === window && a.data === Df) {
-                    wf = !1; a = sf(); if (0 >= zf - a) if (-1 !==
-                        xf && xf <= a) Cf.didTimeout = !0; else { yf || (yf = !0, requestAnimationFrame(Ef)); return } else Cf.didTimeout = !1; xf = -1; a = vf; vf = null; null !== a && a(Cf)
-                }
-            }, !1); var Ef = function (a) { yf = !1; var b = a - zf + Bf; b < Bf && Af < Bf ? (8 > b && (b = 8), Bf = b < Af ? Af : b) : Af = b; zf = a + Bf; wf || (wf = !0, window.postMessage(Df, "*")) }; tf = function (a, b) { vf = a; null != b && "number" === typeof b.timeout && (xf = sf() + b.timeout); yf || (yf = !0, requestAnimationFrame(Ef)); return 0 }; uf = function () { vf = null; wf = !1; xf = -1 }
-        } else tf = window.requestIdleCallback, uf = window.cancelIdleCallback; else tf =
-            function (a) { return setTimeout(function () { a({ timeRemaining: function () { return Infinity }, didTimeout: !1 }) }) }, uf = function (a) { clearTimeout(a) }; function Ff(a) { var b = ""; ea.Children.forEach(a, function (a) { null == a || "string" !== typeof a && "number" !== typeof a || (b += a) }); return b } function Gf(a, b) { a = A({ children: void 0 }, b); if (b = Ff(b.children)) a.children = b; return a }
-        function Hf(a, b, c, d) { a = a.options; if (b) { b = {}; for (var e = 0; e < c.length; e++)b["$" + c[e]] = !0; for (c = 0; c < a.length; c++)e = b.hasOwnProperty("$" + a[c].value), a[c].selected !== e && (a[c].selected = e), e && d && (a[c].defaultSelected = !0) } else { c = "" + c; b = null; for (e = 0; e < a.length; e++) { if (a[e].value === c) { a[e].selected = !0; d && (a[e].defaultSelected = !0); return } null !== b || a[e].disabled || (b = a[e]) } null !== b && (b.selected = !0) } }
-        function If(a, b) { var c = b.value; a._wrapperState = { initialValue: null != c ? c : b.defaultValue, wasMultiple: !!b.multiple } } function Jf(a, b) { null != b.dangerouslySetInnerHTML ? D("91") : void 0; return A({}, b, { value: void 0, defaultValue: void 0, children: "" + a._wrapperState.initialValue }) } function Kf(a, b) { var c = b.value; null == c && (c = b.defaultValue, b = b.children, null != b && (null != c ? D("92") : void 0, Array.isArray(b) && (1 >= b.length ? void 0 : D("93"), b = b[0]), c = "" + b), null == c && (c = "")); a._wrapperState = { initialValue: "" + c } }
-        function Lf(a, b) { var c = b.value; null != c && (c = "" + c, c !== a.value && (a.value = c), null == b.defaultValue && (a.defaultValue = c)); null != b.defaultValue && (a.defaultValue = b.defaultValue) } function Mf(a) { var b = a.textContent; b === a._wrapperState.initialValue && (a.value = b) } var Nf = { html: "http://www.w3.org/1999/xhtml", mathml: "http://www.w3.org/1998/Math/MathML", svg: "http://www.w3.org/2000/svg" };
-        function Of(a) { switch (a) { case "svg": return "http://www.w3.org/2000/svg"; case "math": return "http://www.w3.org/1998/Math/MathML"; default: return "http://www.w3.org/1999/xhtml" } } function Pf(a, b) { return null == a || "http://www.w3.org/1999/xhtml" === a ? Of(b) : "http://www.w3.org/2000/svg" === a && "foreignObject" === b ? "http://www.w3.org/1999/xhtml" : a }
-        var Qf = void 0, Rf = function (a) { return "undefined" !== typeof MSApp && MSApp.execUnsafeLocalFunction ? function (b, c, d, e) { MSApp.execUnsafeLocalFunction(function () { return a(b, c, d, e) }) } : a }(function (a, b) { if (a.namespaceURI !== Nf.svg || "innerHTML" in a) a.innerHTML = b; else { Qf = Qf || document.createElement("div"); Qf.innerHTML = "\x3csvg\x3e" + b + "\x3c/svg\x3e"; for (b = Qf.firstChild; a.firstChild;)a.removeChild(a.firstChild); for (; b.firstChild;)a.appendChild(b.firstChild) } });
-        function Sf(a, b) { if (b) { var c = a.firstChild; if (c && c === a.lastChild && 3 === c.nodeType) { c.nodeValue = b; return } } a.textContent = b }
-        var Tf = {
-            animationIterationCount: !0, borderImageOutset: !0, borderImageSlice: !0, borderImageWidth: !0, boxFlex: !0, boxFlexGroup: !0, boxOrdinalGroup: !0, columnCount: !0, columns: !0, flex: !0, flexGrow: !0, flexPositive: !0, flexShrink: !0, flexNegative: !0, flexOrder: !0, gridRow: !0, gridRowEnd: !0, gridRowSpan: !0, gridRowStart: !0, gridColumn: !0, gridColumnEnd: !0, gridColumnSpan: !0, gridColumnStart: !0, fontWeight: !0, lineClamp: !0, lineHeight: !0, opacity: !0, order: !0, orphans: !0, tabSize: !0, widows: !0, zIndex: !0, zoom: !0, fillOpacity: !0, floodOpacity: !0,
-            stopOpacity: !0, strokeDasharray: !0, strokeDashoffset: !0, strokeMiterlimit: !0, strokeOpacity: !0, strokeWidth: !0
-        }, Uf = ["Webkit", "ms", "Moz", "O"]; Object.keys(Tf).forEach(function (a) { Uf.forEach(function (b) { b = b + a.charAt(0).toUpperCase() + a.substring(1); Tf[b] = Tf[a] }) });
-        function Vf(a, b) { a = a.style; for (var c in b) if (b.hasOwnProperty(c)) { var d = 0 === c.indexOf("--"); var e = c; var f = b[c]; e = null == f || "boolean" === typeof f || "" === f ? "" : d || "number" !== typeof f || 0 === f || Tf.hasOwnProperty(e) && Tf[e] ? ("" + f).trim() : f + "px"; "float" === c && (c = "cssFloat"); d ? a.setProperty(c, e) : a[c] = e } } var Wf = A({ menuitem: !0 }, { area: !0, base: !0, br: !0, col: !0, embed: !0, hr: !0, img: !0, input: !0, keygen: !0, link: !0, meta: !0, param: !0, source: !0, track: !0, wbr: !0 });
-        function Xf(a, b, c) { b && (Wf[a] && (null != b.children || null != b.dangerouslySetInnerHTML ? D("137", a, c()) : void 0), null != b.dangerouslySetInnerHTML && (null != b.children ? D("60") : void 0, "object" === typeof b.dangerouslySetInnerHTML && "__html" in b.dangerouslySetInnerHTML ? void 0 : D("61")), null != b.style && "object" !== typeof b.style ? D("62", c()) : void 0) }
-        function Yf(a, b) { if (-1 === a.indexOf("-")) return "string" === typeof b.is; switch (a) { case "annotation-xml": case "color-profile": case "font-face": case "font-face-src": case "font-face-uri": case "font-face-format": case "font-face-name": case "missing-glyph": return !1; default: return !0 } } var Zf = C.thatReturns("");
-        function $f(a, b) { a = 9 === a.nodeType || 11 === a.nodeType ? a : a.ownerDocument; var c = ke(a); b = va[b]; for (var d = 0; d < b.length; d++) { var e = b[d]; c.hasOwnProperty(e) && c[e] || ("topScroll" === e ? Zd("topScroll", "scroll", a) : "topFocus" === e || "topBlur" === e ? (Zd("topFocus", "focus", a), Zd("topBlur", "blur", a), c.topBlur = !0, c.topFocus = !0) : "topCancel" === e ? (ic("cancel", !0) && Zd("topCancel", "cancel", a), c.topCancel = !0) : "topClose" === e ? (ic("close", !0) && Zd("topClose", "close", a), c.topClose = !0) : fe.hasOwnProperty(e) && W(e, fe[e], a), c[e] = !0) } }
-        function ag(a, b, c, d) { c = 9 === c.nodeType ? c : c.ownerDocument; d === Nf.html && (d = Of(a)); d === Nf.html ? "script" === a ? (a = c.createElement("div"), a.innerHTML = "\x3cscript\x3e\x3c/script\x3e", a = a.removeChild(a.firstChild)) : a = "string" === typeof b.is ? c.createElement(a, { is: b.is }) : c.createElement(a) : a = c.createElementNS(d, a); return a } function bg(a, b) { return (9 === b.nodeType ? b : b.ownerDocument).createTextNode(a) }
-        function cg(a, b, c, d) {
-            var e = Yf(b, c); switch (b) {
-                case "iframe": case "object": W("topLoad", "load", a); var f = c; break; case "video": case "audio": for (f in ge) ge.hasOwnProperty(f) && W(f, ge[f], a); f = c; break; case "source": W("topError", "error", a); f = c; break; case "img": case "image": case "link": W("topError", "error", a); W("topLoad", "load", a); f = c; break; case "form": W("topReset", "reset", a); W("topSubmit", "submit", a); f = c; break; case "details": W("topToggle", "toggle", a); f = c; break; case "input": Wc(a, c); f = Vc(a, c); W("topInvalid",
-                    "invalid", a); $f(d, "onChange"); break; case "option": f = Gf(a, c); break; case "select": If(a, c); f = A({}, c, { value: void 0 }); W("topInvalid", "invalid", a); $f(d, "onChange"); break; case "textarea": Kf(a, c); f = Jf(a, c); W("topInvalid", "invalid", a); $f(d, "onChange"); break; default: f = c
-            }Xf(b, f, Zf); var h = f, g; for (g in h) if (h.hasOwnProperty(g)) {
-                var k = h[g]; "style" === g ? Vf(a, k, Zf) : "dangerouslySetInnerHTML" === g ? (k = k ? k.__html : void 0, null != k && Rf(a, k)) : "children" === g ? "string" === typeof k ? ("textarea" !== b || "" !== k) && Sf(a, k) : "number" === typeof k &&
-                    Sf(a, "" + k) : "suppressContentEditableWarning" !== g && "suppressHydrationWarning" !== g && "autoFocus" !== g && (ua.hasOwnProperty(g) ? null != k && $f(d, g) : null != k && Uc(a, g, k, e))
-            } switch (b) { case "input": lc(a); ad(a, c); break; case "textarea": lc(a); Mf(a, c); break; case "option": null != c.value && a.setAttribute("value", c.value); break; case "select": a.multiple = !!c.multiple; b = c.value; null != b ? Hf(a, !!c.multiple, b, !1) : null != c.defaultValue && Hf(a, !!c.multiple, c.defaultValue, !0); break; default: "function" === typeof f.onClick && (a.onclick = C) }
-        }
-        function dg(a, b, c, d, e) {
-            var f = null; switch (b) { case "input": c = Vc(a, c); d = Vc(a, d); f = []; break; case "option": c = Gf(a, c); d = Gf(a, d); f = []; break; case "select": c = A({}, c, { value: void 0 }); d = A({}, d, { value: void 0 }); f = []; break; case "textarea": c = Jf(a, c); d = Jf(a, d); f = []; break; default: "function" !== typeof c.onClick && "function" === typeof d.onClick && (a.onclick = C) }Xf(b, d, Zf); b = a = void 0; var h = null; for (a in c) if (!d.hasOwnProperty(a) && c.hasOwnProperty(a) && null != c[a]) if ("style" === a) {
-                var g = c[a]; for (b in g) g.hasOwnProperty(b) && (h ||
-                    (h = {}), h[b] = "")
-            } else "dangerouslySetInnerHTML" !== a && "children" !== a && "suppressContentEditableWarning" !== a && "suppressHydrationWarning" !== a && "autoFocus" !== a && (ua.hasOwnProperty(a) ? f || (f = []) : (f = f || []).push(a, null)); for (a in d) {
-                var k = d[a]; g = null != c ? c[a] : void 0; if (d.hasOwnProperty(a) && k !== g && (null != k || null != g)) if ("style" === a) if (g) { for (b in g) !g.hasOwnProperty(b) || k && k.hasOwnProperty(b) || (h || (h = {}), h[b] = ""); for (b in k) k.hasOwnProperty(b) && g[b] !== k[b] && (h || (h = {}), h[b] = k[b]) } else h || (f || (f = []), f.push(a, h)),
-                    h = k; else "dangerouslySetInnerHTML" === a ? (k = k ? k.__html : void 0, g = g ? g.__html : void 0, null != k && g !== k && (f = f || []).push(a, "" + k)) : "children" === a ? g === k || "string" !== typeof k && "number" !== typeof k || (f = f || []).push(a, "" + k) : "suppressContentEditableWarning" !== a && "suppressHydrationWarning" !== a && (ua.hasOwnProperty(a) ? (null != k && $f(e, a), f || g === k || (f = [])) : (f = f || []).push(a, k))
-            } h && (f = f || []).push("style", h); return f
-        }
-        function eg(a, b, c, d, e) {
-        "input" === c && "radio" === e.type && null != e.name && Yc(a, e); Yf(c, d); d = Yf(c, e); for (var f = 0; f < b.length; f += 2) { var h = b[f], g = b[f + 1]; "style" === h ? Vf(a, g, Zf) : "dangerouslySetInnerHTML" === h ? Rf(a, g) : "children" === h ? Sf(a, g) : Uc(a, h, g, d) } switch (c) {
-            case "input": Zc(a, e); break; case "textarea": Lf(a, e); break; case "select": a._wrapperState.initialValue = void 0, b = a._wrapperState.wasMultiple, a._wrapperState.wasMultiple = !!e.multiple, c = e.value, null != c ? Hf(a, !!e.multiple, c, !1) : b !== !!e.multiple && (null != e.defaultValue ?
-                Hf(a, !!e.multiple, e.defaultValue, !0) : Hf(a, !!e.multiple, e.multiple ? [] : "", !1))
-        }
-        }
-        function fg(a, b, c, d, e) {
-            switch (b) {
-                case "iframe": case "object": W("topLoad", "load", a); break; case "video": case "audio": for (var f in ge) ge.hasOwnProperty(f) && W(f, ge[f], a); break; case "source": W("topError", "error", a); break; case "img": case "image": case "link": W("topError", "error", a); W("topLoad", "load", a); break; case "form": W("topReset", "reset", a); W("topSubmit", "submit", a); break; case "details": W("topToggle", "toggle", a); break; case "input": Wc(a, c); W("topInvalid", "invalid", a); $f(e, "onChange"); break; case "select": If(a,
-                    c); W("topInvalid", "invalid", a); $f(e, "onChange"); break; case "textarea": Kf(a, c), W("topInvalid", "invalid", a), $f(e, "onChange")
-            }Xf(b, c, Zf); d = null; for (var h in c) c.hasOwnProperty(h) && (f = c[h], "children" === h ? "string" === typeof f ? a.textContent !== f && (d = ["children", f]) : "number" === typeof f && a.textContent !== "" + f && (d = ["children", "" + f]) : ua.hasOwnProperty(h) && null != f && $f(e, h)); switch (b) {
-                case "input": lc(a); ad(a, c); break; case "textarea": lc(a); Mf(a, c); break; case "select": case "option": break; default: "function" === typeof c.onClick &&
-                    (a.onclick = C)
-            }return d
-        } function ng(a, b) { return a.nodeValue !== b }
-        var og = Object.freeze({
-            createElement: ag, createTextNode: bg, setInitialProperties: cg, diffProperties: dg, updateProperties: eg, diffHydratedProperties: fg, diffHydratedText: ng, warnForUnmatchedText: function () { }, warnForDeletedHydratableElement: function () { }, warnForDeletedHydratableText: function () { }, warnForInsertedHydratedElement: function () { }, warnForInsertedHydratedText: function () { }, restoreControlledState: function (a, b, c) {
-                switch (b) {
-                    case "input": Zc(a, c); b = c.name; if ("radio" === c.type && null != b) {
-                        for (c = a; c.parentNode;)c =
-                            c.parentNode; c = c.querySelectorAll("input[name\x3d" + JSON.stringify("" + b) + '][type\x3d"radio"]'); for (b = 0; b < c.length; b++) { var d = c[b]; if (d !== a && d.form === a.form) { var e = Xa(d); e ? void 0 : D("90"); mc(d); Zc(d, e) } }
-                    } break; case "textarea": Lf(a, c); break; case "select": b = c.value, null != b && Hf(a, !!c.multiple, b, !1)
-                }
-            }
-        }); Tb.injectFiberControlledHostComponent(og); var pg = null, qg = null;
-        function rg(a) { this._expirationTime = X.computeUniqueAsyncExpiration(); this._root = a; this._callbacks = this._next = null; this._hasChildren = this._didComplete = !1; this._children = null; this._defer = !0 } rg.prototype.render = function (a) { this._defer ? void 0 : D("250"); this._hasChildren = !0; this._children = a; var b = this._root._internalRoot, c = this._expirationTime, d = new sg; X.updateContainerAtExpirationTime(a, b, null, c, d._onCommit); return d };
-        rg.prototype.then = function (a) { if (this._didComplete) a(); else { var b = this._callbacks; null === b && (b = this._callbacks = []); b.push(a) } };
-        rg.prototype.commit = function () {
-            var a = this._root._internalRoot, b = a.firstBatch; this._defer && null !== b ? void 0 : D("251"); if (this._hasChildren) { var c = this._expirationTime; if (b !== this) { this._hasChildren && (c = this._expirationTime = b._expirationTime, this.render(this._children)); for (var d = null, e = b; e !== this;)d = e, e = e._next; null === d ? D("251") : void 0; d._next = e._next; this._next = b; a.firstBatch = this } this._defer = !1; X.flushRoot(a, c); b = this._next; this._next = null; b = a.firstBatch = b; null !== b && b._hasChildren && b.render(b._children) } else this._next =
-                null, this._defer = !1
-        }; rg.prototype._onComplete = function () { if (!this._didComplete) { this._didComplete = !0; var a = this._callbacks; if (null !== a) for (var b = 0; b < a.length; b++)(0, a[b])() } }; function sg() { this._callbacks = null; this._didCommit = !1; this._onCommit = this._onCommit.bind(this) } sg.prototype.then = function (a) { if (this._didCommit) a(); else { var b = this._callbacks; null === b && (b = this._callbacks = []); b.push(a) } };
-        sg.prototype._onCommit = function () { if (!this._didCommit) { this._didCommit = !0; var a = this._callbacks; if (null !== a) for (var b = 0; b < a.length; b++) { var c = a[b]; "function" !== typeof c ? D("191", c) : void 0; c() } } }; function tg(a, b, c) { this._internalRoot = X.createContainer(a, b, c) } tg.prototype.render = function (a, b) { var c = this._internalRoot, d = new sg; b = void 0 === b ? null : b; null !== b && d.then(b); X.updateContainer(a, c, null, d._onCommit); return d };
-        tg.prototype.unmount = function (a) { var b = this._internalRoot, c = new sg; a = void 0 === a ? null : a; null !== a && c.then(a); X.updateContainer(null, b, null, c._onCommit); return c }; tg.prototype.legacy_renderSubtreeIntoContainer = function (a, b, c) { var d = this._internalRoot, e = new sg; c = void 0 === c ? null : c; null !== c && e.then(c); X.updateContainer(b, d, a, e._onCommit); return e };
-        tg.prototype.createBatch = function () { var a = new rg(this), b = a._expirationTime, c = this._internalRoot, d = c.firstBatch; if (null === d) c.firstBatch = a, a._next = null; else { for (c = null; null !== d && d._expirationTime <= b;)c = d, d = d._next; a._next = d; null !== c && (c._next = a) } return a }; function ug(a) { return !(!a || 1 !== a.nodeType && 9 !== a.nodeType && 11 !== a.nodeType && (8 !== a.nodeType || " react-mount-point-unstable " !== a.nodeValue)) }
-        function vg(a, b) { switch (a) { case "button": case "input": case "select": case "textarea": return !!b.autoFocus }return !1 }
-        var X = pf({
-            getRootHostContext: function (a) { var b = a.nodeType; switch (b) { case 9: case 11: a = (a = a.documentElement) ? a.namespaceURI : Pf(null, ""); break; default: b = 8 === b ? a.parentNode : a, a = b.namespaceURI || null, b = b.tagName, a = Pf(a, b) }return a }, getChildHostContext: function (a, b) { return Pf(a, b) }, getPublicInstance: function (a) { return a }, prepareForCommit: function () {
-                pg = Vd; var a = fa(); if (ne(a)) {
-                    if ("selectionStart" in a) var b = { start: a.selectionStart, end: a.selectionEnd }; else a: {
-                        var c = window.getSelection && window.getSelection();
-                        if (c && 0 !== c.rangeCount) {
-                            b = c.anchorNode; var d = c.anchorOffset, e = c.focusNode; c = c.focusOffset; try { b.nodeType, e.nodeType } catch (B) { b = null; break a } var f = 0, h = -1, g = -1, k = 0, v = 0, l = a, p = null; b: for (; ;) { for (var z; ;) { l !== b || 0 !== d && 3 !== l.nodeType || (h = f + d); l !== e || 0 !== c && 3 !== l.nodeType || (g = f + c); 3 === l.nodeType && (f += l.nodeValue.length); if (null === (z = l.firstChild)) break; p = l; l = z } for (; ;) { if (l === a) break b; p === b && ++k === d && (h = f); p === e && ++v === c && (g = f); if (null !== (z = l.nextSibling)) break; l = p; p = l.parentNode } l = z } b = -1 === h || -1 === g ? null :
-                                { start: h, end: g }
-                        } else b = null
-                    } b = b || { start: 0, end: 0 }
-                } else b = null; qg = { focusedElem: a, selectionRange: b }; Wd(!1)
-            }, resetAfterCommit: function () {
-                var a = qg, b = fa(), c = a.focusedElem, d = a.selectionRange; if (b !== c && ja(document.documentElement, c)) {
-                    if (ne(c)) if (b = d.start, a = d.end, void 0 === a && (a = b), "selectionStart" in c) c.selectionStart = b, c.selectionEnd = Math.min(a, c.value.length); else if (window.getSelection) {
-                        b = window.getSelection(); var e = c[mb()].length; a = Math.min(d.start, e); d = void 0 === d.end ? a : Math.min(d.end, e); !b.extend && a >
-                            d && (e = d, d = a, a = e); e = me(c, a); var f = me(c, d); if (e && f && (1 !== b.rangeCount || b.anchorNode !== e.node || b.anchorOffset !== e.offset || b.focusNode !== f.node || b.focusOffset !== f.offset)) { var h = document.createRange(); h.setStart(e.node, e.offset); b.removeAllRanges(); a > d ? (b.addRange(h), b.extend(f.node, f.offset)) : (h.setEnd(f.node, f.offset), b.addRange(h)) }
-                    } b = []; for (a = c; a = a.parentNode;)1 === a.nodeType && b.push({ element: a, left: a.scrollLeft, top: a.scrollTop }); c.focus(); for (c = 0; c < b.length; c++)a = b[c], a.element.scrollLeft = a.left,
-                        a.element.scrollTop = a.top
-                } qg = null; Wd(pg); pg = null
-            }, createInstance: function (a, b, c, d, e) { a = ag(a, b, c, d); a[F] = e; a[Ta] = b; return a }, appendInitialChild: function (a, b) { a.appendChild(b) }, finalizeInitialChildren: function (a, b, c, d) { cg(a, b, c, d); return vg(b, c) }, prepareUpdate: function (a, b, c, d, e) { return dg(a, b, c, d, e) }, shouldSetTextContent: function (a, b) {
-                return "textarea" === a || "string" === typeof b.children || "number" === typeof b.children || "object" === typeof b.dangerouslySetInnerHTML && null !== b.dangerouslySetInnerHTML && "string" ===
-                    typeof b.dangerouslySetInnerHTML.__html
-            }, shouldDeprioritizeSubtree: function (a, b) { return !!b.hidden }, createTextInstance: function (a, b, c, d) { a = bg(a, b); a[F] = d; return a }, now: sf, mutation: {
-                commitMount: function (a, b, c) { vg(b, c) && a.focus() }, commitUpdate: function (a, b, c, d, e) { a[Ta] = e; eg(a, b, c, d, e) }, resetTextContent: function (a) { Sf(a, "") }, commitTextUpdate: function (a, b, c) { a.nodeValue = c }, appendChild: function (a, b) { a.appendChild(b) }, appendChildToContainer: function (a, b) { 8 === a.nodeType ? a.parentNode.insertBefore(b, a) : a.appendChild(b) },
-                insertBefore: function (a, b, c) { a.insertBefore(b, c) }, insertInContainerBefore: function (a, b, c) { 8 === a.nodeType ? a.parentNode.insertBefore(b, c) : a.insertBefore(b, c) }, removeChild: function (a, b) { a.removeChild(b) }, removeChildFromContainer: function (a, b) { 8 === a.nodeType ? a.parentNode.removeChild(b) : a.removeChild(b) }
-            }, hydration: {
-                canHydrateInstance: function (a, b) { return 1 !== a.nodeType || b.toLowerCase() !== a.nodeName.toLowerCase() ? null : a }, canHydrateTextInstance: function (a, b) { return "" === b || 3 !== a.nodeType ? null : a }, getNextHydratableSibling: function (a) {
-                    for (a =
-                        a.nextSibling; a && 1 !== a.nodeType && 3 !== a.nodeType;)a = a.nextSibling; return a
-                }, getFirstHydratableChild: function (a) { for (a = a.firstChild; a && 1 !== a.nodeType && 3 !== a.nodeType;)a = a.nextSibling; return a }, hydrateInstance: function (a, b, c, d, e, f) { a[F] = f; a[Ta] = c; return fg(a, b, c, e, d) }, hydrateTextInstance: function (a, b, c) { a[F] = c; return ng(a, b) }, didNotMatchHydratedContainerTextInstance: function () { }, didNotMatchHydratedTextInstance: function () { }, didNotHydrateContainerInstance: function () { }, didNotHydrateInstance: function () { },
-                didNotFindHydratableContainerInstance: function () { }, didNotFindHydratableContainerTextInstance: function () { }, didNotFindHydratableInstance: function () { }, didNotFindHydratableTextInstance: function () { }
-            }, scheduleDeferredCallback: tf, cancelDeferredCallback: uf
-        }), Cg = X; ac = Cg.batchedUpdates; bc = Cg.interactiveUpdates; cc = Cg.flushInteractiveUpdates;
-        function Dg(a, b) { b || (b = a ? 9 === a.nodeType ? a.documentElement : a.firstChild : null, b = !(!b || 1 !== b.nodeType || !b.hasAttribute("data-reactroot"))); if (!b) for (var c; c = a.lastChild;)a.removeChild(c); return new tg(a, !1, b) }
-        function Eg(a, b, c, d, e) { ug(c) ? void 0 : D("200"); var f = c._reactRootContainer; if (f) { if ("function" === typeof e) { var h = e; e = function () { var a = X.getPublicRootInstance(f._internalRoot); h.call(a) } } null != a ? f.legacy_renderSubtreeIntoContainer(a, b, e) : f.render(b, e) } else { f = c._reactRootContainer = Dg(c, d); if ("function" === typeof e) { var g = e; e = function () { var a = X.getPublicRootInstance(f._internalRoot); g.call(a) } } X.unbatchedUpdates(function () { null != a ? f.legacy_renderSubtreeIntoContainer(a, b, e) : f.render(b, e) }) } return X.getPublicRootInstance(f._internalRoot) }
-        function Fg(a, b) { var c = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null; ug(b) ? void 0 : D("200"); return qf(a, b, null, c) }
-        var Gg = {
-            createPortal: Fg, findDOMNode: function (a) { return null == a ? null : 1 === a.nodeType ? a : X.findHostInstance(a) }, hydrate: function (a, b, c) { return Eg(null, a, b, !0, c) }, render: function (a, b, c) { return Eg(null, a, b, !1, c) }, unstable_renderSubtreeIntoContainer: function (a, b, c, d) { null == a || void 0 === a._reactInternalFiber ? D("38") : void 0; return Eg(a, b, c, !1, d) }, unmountComponentAtNode: function (a) {
-                ug(a) ? void 0 : D("40"); return a._reactRootContainer ? (X.unbatchedUpdates(function () {
-                    Eg(null, null, a, !1, function () {
-                    a._reactRootContainer =
-                        null
-                    })
-                }), !0) : !1
-            }, unstable_createPortal: function () { return Fg.apply(void 0, arguments) }, unstable_batchedUpdates: X.batchedUpdates, unstable_deferredUpdates: X.deferredUpdates, flushSync: X.flushSync, unstable_flushControlled: X.flushControlled, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: { EventPluginHub: Ra, EventPluginRegistry: Ca, EventPropagators: kb, ReactControlledComponent: $b, ReactDOMComponentTree: bb, ReactDOMEventListener: $d }, unstable_createRoot: function (a, b) { return new tg(a, !0, null != b && !0 === b.hydrate) }
-        };
-        X.injectIntoDevTools({ findFiberByHostInstance: Ua, bundleType: 0, version: "16.3.2", rendererPackageName: "react-dom" }); var Hg = Object.freeze({ default: Gg }), Ig = Hg && Gg || Hg; module.exports = Ig["default"] ? Ig["default"] : Ig;
-
-
-        /***/
-}),
-/* 14 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         */
-
-
-
-        var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
-        /**
-         * Simple, lightweight module assisting with the detection and context of
-         * Worker. Helps avoid circular dependencies and allows code to reason about
-         * whether or not they are in a Worker, even if they never include the main
-         * `ReactWorker` dependency.
-         */
-        var ExecutionEnvironment = {
-
-            canUseDOM: canUseDOM,
-
-            canUseWorkers: typeof Worker !== 'undefined',
-
-            canUseEventListeners: canUseDOM && !!(window.addEventListener || window.attachEvent),
-
-            canUseViewport: canUseDOM && !!window.screen,
-
-            isInWorker: !canUseDOM // For now, this is true - might change in the future.
-
-        };
-
-        module.exports = ExecutionEnvironment;
-
-        /***/
-}),
-/* 15 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         * @typechecks
-         */
-
-        /* eslint-disable fb-www/typeof-undefined */
-
-        /**
-         * Same as document.activeElement but wraps in a try-catch block. In IE it is
-         * not safe to call document.activeElement if there is nothing focused.
-         *
-         * The activeElement will be null only if the document or document body is not
-         * yet defined.
-         *
-         * @param {?DOMDocument} doc Defaults to current document.
-         * @return {?DOMElement}
-         */
-        function getActiveElement(doc) /*?DOMElement*/ {
-            doc = doc || (typeof document !== 'undefined' ? document : undefined);
-            if (typeof doc === 'undefined') {
-                return null;
-            }
-            try {
-                return doc.activeElement || doc.body;
-            } catch (e) {
-                return doc.body;
-            }
-        }
-
-        module.exports = getActiveElement;
-
-        /***/
-}),
-/* 16 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         * @typechecks
-         * 
-         */
-
-        /*eslint-disable no-self-compare */
-
-
-
-        var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-        /**
-         * inlined Object.is polyfill to avoid requiring consumers ship their own
-         * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-         */
-        function is(x, y) {
-            // SameValue algorithm
-            if (x === y) {
-                // Steps 1-5, 7-10
-                // Steps 6.b-6.e: +0 != -0
-                // Added the nonzero y check to make Flow happy, but it is redundant
-                return x !== 0 || y !== 0 || 1 / x === 1 / y;
-            } else {
-                // Step 6.a: NaN == NaN
-                return x !== x && y !== y;
-            }
-        }
-
-        /**
-         * Performs equality by iterating through keys on an object and returning false
-         * when any key has values which are not strictly equal between the arguments.
-         * Returns true when the values of all keys are strictly equal.
-         */
-        function shallowEqual(objA, objB) {
-            if (is(objA, objB)) {
-                return true;
-            }
-
-            if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
-                return false;
-            }
-
-            var keysA = Object.keys(objA);
-            var keysB = Object.keys(objB);
-
-            if (keysA.length !== keysB.length) {
-                return false;
-            }
-
-            // Test for A's keys different from B.
-            for (var i = 0; i < keysA.length; i++) {
-                if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        module.exports = shallowEqual;
-
-        /***/
-}),
-/* 17 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         * 
-         */
-
-        var isTextNode = __webpack_require__(18);
-
-        /*eslint-disable no-bitwise */
-
-        /**
-         * Checks if a given DOM node contains or is another DOM node.
-         */
-        function containsNode(outerNode, innerNode) {
-            if (!outerNode || !innerNode) {
-                return false;
-            } else if (outerNode === innerNode) {
-                return true;
-            } else if (isTextNode(outerNode)) {
-                return false;
-            } else if (isTextNode(innerNode)) {
-                return containsNode(outerNode, innerNode.parentNode);
-            } else if ('contains' in outerNode) {
-                return outerNode.contains(innerNode);
-            } else if (outerNode.compareDocumentPosition) {
-                return !!(outerNode.compareDocumentPosition(innerNode) & 16);
-            } else {
-                return false;
-            }
-        }
-
-        module.exports = containsNode;
-
-        /***/
-}),
-/* 18 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         * @typechecks
-         */
-
-        var isNode = __webpack_require__(19);
-
-        /**
-         * @param {*} object The object to check.
-         * @return {boolean} Whether or not the object is a DOM text node.
-         */
-        function isTextNode(object) {
-            return isNode(object) && object.nodeType == 3;
-        }
-
-        module.exports = isTextNode;
-
-        /***/
-}),
-/* 19 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        "use strict";
-
-
-        /**
-         * Copyright (c) 2013-present, Facebook, Inc.
-         *
-         * This source code is licensed under the MIT license found in the
-         * LICENSE file in the root directory of this source tree.
-         *
-         * @typechecks
-         */
-
-        /**
-         * @param {*} object The object to check.
-         * @return {boolean} Whether or not the object is a DOM node.
-         */
-        function isNode(object) {
-            var doc = object ? object.ownerDocument || object : document;
-            var defaultView = doc.defaultView || window;
-            return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
-        }
-
-        module.exports = isNode;
-
-        /***/
-}),
-/* 20 */
-/***/ (function (module, __webpack_exports__, __webpack_require__) {
-
-        "use strict";
-=======
 window.onload = function () {
 	var DOM = document.getElementById('input-query');
 	var query = DOM.getAttribute('content');
@@ -94196,7 +92886,6 @@ module.exports = isNode;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
->>>>>>> 831b5908c7646cc7e5118ab5e46214fc49b4faa7
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(8);
@@ -94207,15 +92896,8 @@ module.exports = isNode;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_spelt_dist_index_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_spelt_dist_index_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_spelt_us_dict__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_spelt_us_dict___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_spelt_us_dict__);
-<<<<<<< HEAD
-        var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-        function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-        function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-        function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_keyword_extractor__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_keyword_extractor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_keyword_extractor__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -94223,750 +92905,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
->>>>>>> 831b5908c7646cc7e5118ab5e46214fc49b4faa7
 
 
 
 
 
-<<<<<<< HEAD
-        // import one of the dictionaries
-
-        // build dictionary
-        var check = __WEBPACK_IMPORTED_MODULE_3_spelt_dist_index_js___default()({
-            dictionary: __WEBPACK_IMPORTED_MODULE_4_spelt_us_dict__["dictionary"],
-            // can be either "gb" or "us"
-            distanceThreshold: 0.2
-            // when a correction found with this distance
-            // we'll stop looking for another
-            // this would improve performance
-        });
-
-        var InputBox = function (_React$Component) {
-            _inherits(InputBox, _React$Component);
-
-            function InputBox(props) {
-                _classCallCheck(this, InputBox);
-
-                var _this = _possibleConstructorReturn(this, (InputBox.__proto__ || Object.getPrototypeOf(InputBox)).call(this, props));
-
-                _this.state = {
-                    spellCheckList: [],
-                    query: _this.props.defaultQuery
-                };
-                _this.inputHandler = _this.inputHandler.bind(_this);
-                return _this;
-            }
-
-            _createClass(InputBox, [{
-                key: 'render',
-                value: function render() {
-                    var _this2 = this;
-
-                    console.log(this.props.defaultQuery);
-                    var wrongCount = 0;
-                    var corrections = this.state.spellCheckList.map(function (c, qIndex) {
-                        if (!c.correct) wrongCount += 1;
-                        var list = c.corrections.map(function (word, index) {
-                            if (index < 5) {
-                                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'div',
-                                    {
-                                        className: 'correction',
-                                        onClick: _this2.correctQuery.bind(_this2, qIndex, word.correction)
-                                    },
-                                    word.correction
-                                );
-                            }
-                        });
-                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'corrections-list' },
-                            ' ',
-                            list,
-                            ' '
-                        );
-                    });
-                    var wrongMsg = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { id: 'msg-alert' },
-                        'You had better go back to learn the English'
-                    );
-                    if (wrongCount >= 5) window.location.href = 'https://learnenglishkids.britishcouncil.org/zh-hant';
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { id: 'query-box' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
-                            id: 'q',
-                            className: 'form-control',
-                            rows: '5',
-                            name: 'q',
-                            placeholder: 'enter the keyword',
-                            onChange: this.inputHandler,
-                            value: this.state.query
-                        }),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'results-container' },
-                            corrections
-                        )
-                    );
-                }
-            }, {
-                key: 'inputHandler',
-                value: function inputHandler(e) {
-                    console.log(e.target.value);
-                    this.setState({
-                        query: e.target.value
-                    });
-                    //fumc()
-
-                    var text = e.target.value.split('');
-                    var lastString = text[text.length - 1];
-                    if (lastString === ' ') {
-                        //console.log(check(e.target.value.split(' ')[0]))
-                        var keywords = e.target.value.split(' ');
-                        keywords.pop(keywords.length - 1); //remove the last element
-                        var results = keywords.map(function (word, index) {
-                            return check(word);
-                        });
-                        console.log(results);
-                        this.setState({
-                            spellCheckList: results
-                        });
-                    }
-                }
-            }, {
-                key: 'correctQuery',
-                value: function correctQuery(index, correction) {
-                    console.log(index);
-                    console.log(correction);
-                    var query = this.state.query.split(" ");
-                    query[index] = correction;
-                    query.pop(query.length - 1);
-                    console.log(query);
-                    var newQuery = '';
-                    query.forEach(function (q, i) {
-                        newQuery += q + ' ';
-                    });
-                    this.state.spellCheckList.pop(index);
-                    var spellCheckList = this.state.spellCheckList;
-                    this.setState({
-                        query: newQuery,
-                        spellCheckList: spellCheckList
-                    });
-                }
-            }]);
-
-            return InputBox;
-        }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["a"] = (InputBox);
-
-        /***/
-}),
-/* 21 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        // style-loader: Adds some css to the DOM by adding a <style> tag
-
-        // load the styles
-        var content = __webpack_require__(22);
-        if (typeof content === 'string') content = [[module.i, content, '']];
-        // Prepare cssTransformation
-        var transform;
-
-        var options = { "hmr": true }
-        options.transform = transform
-        // add the styles to the DOM
-        var update = __webpack_require__(24)(content, options);
-        if (content.locals) module.exports = content.locals;
-        // Hot Module Replacement
-        if (false) {
-            // When the styles change, update the <style> tags
-            if (!content.locals) {
-                module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./query.sass", function () {
-                    var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./query.sass");
-                    if (typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-                    update(newContent);
-                });
-            }
-            // When the module is disposed, remove the <style> tags
-            module.hot.dispose(function () { update(); });
-        }
-
-        /***/
-}),
-/* 22 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        exports = module.exports = __webpack_require__(23)(false);
-        // imports
-
-
-        // module
-        exports.push([module.i, "body,html{text-align:center}#input-query{display:inline-flex;width:calc(100vw - 20px);padding:10px;max-width:1000px;flex-direction:column;align-items:center}#input-query *{font-family:Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif}#input-query #query-box{display:inline-flex;flex-direction:column;width:100%;align-items:flex-start}#input-query #query-box textarea{width:calc(100% - 10px);border-radius:1px;margin-bottom:10px;padding:5px}#input-query #query-box textarea:focus{box-shadow:1px 1px 3px gray;outline:none;border:none}#input-query #query-box .results-container{display:inline-flex;width:100%;flex-direction:row;justify-content:flex-start;align-items:flex-start}#input-query #query-box .results-container .corrections-list{display:inline-flex;flex-direction:column;align-items:flex-start;margin-right:5px}#input-query #query-box .results-container .corrections-list .correction{border:1px solid pink;border-radius:3px;padding:5px 10px;margin-bottom:8px;cursor:pointer;transition:all .3s}#input-query #query-box .results-container .corrections-list .correction:hover{background-color:pink}#input-query #query-box .similar-words-container{display:inline-flex;flex-direction:row;align-items:center;width:calc(100% - 20px);max-width:800px;padding:10px 0}#input-query #query-box .similar-words-container .word{padding:7px;border-radius:3px;background-color:#e6e6e6;transition:background-color .3s;margin-right:10px;cursor:pointer;color:#646464}#input-query #query-box .similar-words-container .word:hover{background-color:#c8c8c8}", ""]);
-
-        // exports
-
-
-        /***/
-}),
-/* 23 */
-/***/ (function (module, exports) {
-
-        /*
-            MIT License http://www.opensource.org/licenses/mit-license.php
-            Author Tobias Koppers @sokra
-        */
-        // css base code, injected by the css-loader
-        module.exports = function (useSourceMap) {
-            var list = [];
-
-            // return the list of modules as css string
-            list.toString = function toString() {
-                return this.map(function (item) {
-                    var content = cssWithMappingToString(item, useSourceMap);
-                    if (item[2]) {
-                        return "@media " + item[2] + "{" + content + "}";
-                    } else {
-                        return content;
-                    }
-                }).join("");
-            };
-
-            // import a list of modules into the list
-            list.i = function (modules, mediaQuery) {
-                if (typeof modules === "string")
-                    modules = [[null, modules, ""]];
-                var alreadyImportedModules = {};
-                for (var i = 0; i < this.length; i++) {
-                    var id = this[i][0];
-                    if (typeof id === "number")
-                        alreadyImportedModules[id] = true;
-                }
-                for (i = 0; i < modules.length; i++) {
-                    var item = modules[i];
-                    // skip already imported module
-                    // this implementation is not 100% perfect for weird media query combinations
-                    //  when a module is imported multiple times with different media queries.
-                    //  I hope this will never occur (Hey this way we have smaller bundles)
-                    if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-                        if (mediaQuery && !item[2]) {
-                            item[2] = mediaQuery;
-                        } else if (mediaQuery) {
-                            item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-                        }
-                        list.push(item);
-                    }
-                }
-            };
-            return list;
-        };
-
-        function cssWithMappingToString(item, useSourceMap) {
-            var content = item[1] || '';
-            var cssMapping = item[3];
-            if (!cssMapping) {
-                return content;
-            }
-
-            if (useSourceMap && typeof btoa === 'function') {
-                var sourceMapping = toComment(cssMapping);
-                var sourceURLs = cssMapping.sources.map(function (source) {
-                    return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-                });
-
-                return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-            }
-
-            return [content].join('\n');
-        }
-
-        // Adapted from convert-source-map (MIT)
-        function toComment(sourceMap) {
-            // eslint-disable-next-line no-undef
-            var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-            var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-            return '/*# ' + data + ' */';
-        }
-
-
-        /***/
-}),
-/* 24 */
-/***/ (function (module, exports, __webpack_require__) {
-
-        /*
-            MIT License http://www.opensource.org/licenses/mit-license.php
-            Author Tobias Koppers @sokra
-        */
-
-        var stylesInDom = {};
-
-        var memoize = function (fn) {
-            var memo;
-
-            return function () {
-                if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-                return memo;
-            };
-        };
-
-        var isOldIE = memoize(function () {
-            // Test for IE <= 9 as proposed by Browserhacks
-            // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-            // Tests for existence of standard globals is to allow style-loader
-            // to operate correctly into non-standard environments
-            // @see https://github.com/webpack-contrib/style-loader/issues/177
-            return window && document && document.all && !window.atob;
-        });
-
-        var getElement = (function (fn) {
-            var memo = {};
-
-            return function (selector) {
-                if (typeof memo[selector] === "undefined") {
-                    var styleTarget = fn.call(this, selector);
-                    // Special case to return head of iframe instead of iframe itself
-                    if (styleTarget instanceof window.HTMLIFrameElement) {
-                        try {
-                            // This will throw an exception if access to iframe is blocked
-                            // due to cross-origin restrictions
-                            styleTarget = styleTarget.contentDocument.head;
-                        } catch (e) {
-                            styleTarget = null;
-                        }
-                    }
-                    memo[selector] = styleTarget;
-                }
-                return memo[selector]
-            };
-        })(function (target) {
-            return document.querySelector(target)
-        });
-
-        var singleton = null;
-        var singletonCounter = 0;
-        var stylesInsertedAtTop = [];
-
-        var fixUrls = __webpack_require__(25);
-
-        module.exports = function (list, options) {
-            if (typeof DEBUG !== "undefined" && DEBUG) {
-                if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-            }
-
-            options = options || {};
-
-            options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-            // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-            // tags it will allow on a page
-            if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
-
-            // By default, add <style> tags to the <head> element
-            if (!options.insertInto) options.insertInto = "head";
-
-            // By default, add <style> tags to the bottom of the target
-            if (!options.insertAt) options.insertAt = "bottom";
-
-            var styles = listToStyles(list, options);
-
-            addStylesToDom(styles, options);
-
-            return function update(newList) {
-                var mayRemove = [];
-
-                for (var i = 0; i < styles.length; i++) {
-                    var item = styles[i];
-                    var domStyle = stylesInDom[item.id];
-
-                    domStyle.refs--;
-                    mayRemove.push(domStyle);
-                }
-
-                if (newList) {
-                    var newStyles = listToStyles(newList, options);
-                    addStylesToDom(newStyles, options);
-                }
-
-                for (var i = 0; i < mayRemove.length; i++) {
-                    var domStyle = mayRemove[i];
-
-                    if (domStyle.refs === 0) {
-                        for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-                        delete stylesInDom[domStyle.id];
-                    }
-                }
-            };
-        };
-
-        function addStylesToDom(styles, options) {
-            for (var i = 0; i < styles.length; i++) {
-                var item = styles[i];
-                var domStyle = stylesInDom[item.id];
-
-                if (domStyle) {
-                    domStyle.refs++;
-
-                    for (var j = 0; j < domStyle.parts.length; j++) {
-                        domStyle.parts[j](item.parts[j]);
-                    }
-
-                    for (; j < item.parts.length; j++) {
-                        domStyle.parts.push(addStyle(item.parts[j], options));
-                    }
-                } else {
-                    var parts = [];
-
-                    for (var j = 0; j < item.parts.length; j++) {
-                        parts.push(addStyle(item.parts[j], options));
-                    }
-
-                    stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts };
-                }
-            }
-        }
-
-        function listToStyles(list, options) {
-            var styles = [];
-            var newStyles = {};
-
-            for (var i = 0; i < list.length; i++) {
-                var item = list[i];
-                var id = options.base ? item[0] + options.base : item[0];
-                var css = item[1];
-                var media = item[2];
-                var sourceMap = item[3];
-                var part = { css: css, media: media, sourceMap: sourceMap };
-
-                if (!newStyles[id]) styles.push(newStyles[id] = { id: id, parts: [part] });
-                else newStyles[id].parts.push(part);
-            }
-
-            return styles;
-        }
-
-        function insertStyleElement(options, style) {
-            var target = getElement(options.insertInto)
-
-            if (!target) {
-                throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-            }
-
-            var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-            if (options.insertAt === "top") {
-                if (!lastStyleElementInsertedAtTop) {
-                    target.insertBefore(style, target.firstChild);
-                } else if (lastStyleElementInsertedAtTop.nextSibling) {
-                    target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-                } else {
-                    target.appendChild(style);
-                }
-                stylesInsertedAtTop.push(style);
-            } else if (options.insertAt === "bottom") {
-                target.appendChild(style);
-            } else if (typeof options.insertAt === "object" && options.insertAt.before) {
-                var nextSibling = getElement(options.insertInto + " " + options.insertAt.before);
-                target.insertBefore(style, nextSibling);
-            } else {
-                throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
-            }
-        }
-
-        function removeStyleElement(style) {
-            if (style.parentNode === null) return false;
-            style.parentNode.removeChild(style);
-
-            var idx = stylesInsertedAtTop.indexOf(style);
-            if (idx >= 0) {
-                stylesInsertedAtTop.splice(idx, 1);
-            }
-        }
-
-        function createStyleElement(options) {
-            var style = document.createElement("style");
-
-            options.attrs.type = "text/css";
-
-            addAttrs(style, options.attrs);
-            insertStyleElement(options, style);
-
-            return style;
-        }
-
-        function createLinkElement(options) {
-            var link = document.createElement("link");
-
-            options.attrs.type = "text/css";
-            options.attrs.rel = "stylesheet";
-
-            addAttrs(link, options.attrs);
-            insertStyleElement(options, link);
-
-            return link;
-        }
-
-        function addAttrs(el, attrs) {
-            Object.keys(attrs).forEach(function (key) {
-                el.setAttribute(key, attrs[key]);
-            });
-        }
-
-        function addStyle(obj, options) {
-            var style, update, remove, result;
-
-            // If a transform function was defined, run it on the css
-            if (options.transform && obj.css) {
-                result = options.transform(obj.css);
-
-                if (result) {
-                    // If transform returns a value, use that instead of the original css.
-                    // This allows running runtime transformations on the css.
-                    obj.css = result;
-                } else {
-                    // If the transform function returns a falsy value, don't add this css.
-                    // This allows conditional loading of css
-                    return function () {
-                        // noop
-                    };
-                }
-            }
-
-            if (options.singleton) {
-                var styleIndex = singletonCounter++;
-
-                style = singleton || (singleton = createStyleElement(options));
-
-                update = applyToSingletonTag.bind(null, style, styleIndex, false);
-                remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-            } else if (
-                obj.sourceMap &&
-                typeof URL === "function" &&
-                typeof URL.createObjectURL === "function" &&
-                typeof URL.revokeObjectURL === "function" &&
-                typeof Blob === "function" &&
-                typeof btoa === "function"
-            ) {
-                style = createLinkElement(options);
-                update = updateLink.bind(null, style, options);
-                remove = function () {
-                    removeStyleElement(style);
-
-                    if (style.href) URL.revokeObjectURL(style.href);
-                };
-            } else {
-                style = createStyleElement(options);
-                update = applyToTag.bind(null, style);
-                remove = function () {
-                    removeStyleElement(style);
-                };
-            }
-
-            update(obj);
-
-            return function updateStyle(newObj) {
-                if (newObj) {
-                    if (
-                        newObj.css === obj.css &&
-                        newObj.media === obj.media &&
-                        newObj.sourceMap === obj.sourceMap
-                    ) {
-                        return;
-                    }
-
-                    update(obj = newObj);
-                } else {
-                    remove();
-                }
-            };
-        }
-
-        var replaceText = (function () {
-            var textStore = [];
-
-            return function (index, replacement) {
-                textStore[index] = replacement;
-
-                return textStore.filter(Boolean).join('\n');
-            };
-        })();
-
-        function applyToSingletonTag(style, index, remove, obj) {
-            var css = remove ? "" : obj.css;
-
-            if (style.styleSheet) {
-                style.styleSheet.cssText = replaceText(index, css);
-            } else {
-                var cssNode = document.createTextNode(css);
-                var childNodes = style.childNodes;
-
-                if (childNodes[index]) style.removeChild(childNodes[index]);
-
-                if (childNodes.length) {
-                    style.insertBefore(cssNode, childNodes[index]);
-                } else {
-                    style.appendChild(cssNode);
-                }
-            }
-        }
-
-        function applyToTag(style, obj) {
-            var css = obj.css;
-            var media = obj.media;
-
-            if (media) {
-                style.setAttribute("media", media)
-            }
-
-            if (style.styleSheet) {
-                style.styleSheet.cssText = css;
-            } else {
-                while (style.firstChild) {
-                    style.removeChild(style.firstChild);
-                }
-
-                style.appendChild(document.createTextNode(css));
-            }
-        }
-
-        function updateLink(link, options, obj) {
-            var css = obj.css;
-            var sourceMap = obj.sourceMap;
-
-            /*
-                If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-                and there is no publicPath defined then lets turn convertToAbsoluteUrls
-                on by default.  Otherwise default to the convertToAbsoluteUrls option
-                directly
-            */
-            var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-            if (options.convertToAbsoluteUrls || autoFixUrls) {
-                css = fixUrls(css);
-            }
-
-            if (sourceMap) {
-                // http://stackoverflow.com/a/26603875
-                css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-            }
-
-            var blob = new Blob([css], { type: "text/css" });
-
-            var oldSrc = link.href;
-
-            link.href = URL.createObjectURL(blob);
-
-            if (oldSrc) URL.revokeObjectURL(oldSrc);
-        }
-
-
-        /***/
-}),
-/* 25 */
-/***/ (function (module, exports) {
-
-
-        /**
-         * When source maps are enabled, `style-loader` uses a link element with a data-uri to
-         * embed the css on the page. This breaks all relative urls because now they are relative to a
-         * bundle instead of the current page.
-         *
-         * One solution is to only use full urls, but that may be impossible.
-         *
-         * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
-         *
-         * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
-         *
-         */
-
-        module.exports = function (css) {
-            // get current location
-            var location = typeof window !== "undefined" && window.location;
-
-            if (!location) {
-                throw new Error("fixUrls requires window.location");
-            }
-
-            // blank or null?
-            if (!css || typeof css !== "string") {
-                return css;
-            }
-
-            var baseUrl = location.protocol + "//" + location.host;
-            var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-            // convert each url(...)
-            /*
-            This regular expression is just a way to recursively match brackets within
-            a string.
-        
-             /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-               (  = Start a capturing group
-                 (?:  = Start a non-capturing group
-                     [^)(]  = Match anything that isn't a parentheses
-                     |  = OR
-                     \(  = Match a start parentheses
-                         (?:  = Start another non-capturing groups
-                             [^)(]+  = Match anything that isn't a parentheses
-                             |  = OR
-                             \(  = Match a start parentheses
-                                 [^)(]*  = Match anything that isn't a parentheses
-                             \)  = Match a end parentheses
-                         )  = End Group
-                      *\) = Match anything and then a close parens
-                  )  = Close non-capturing group
-                  *  = Match anything
-               )  = Close capturing group
-             \)  = Match a close parens
-        
-             /gi  = Get all matches, not the first.  Be case insensitive.
-             */
-            var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function (fullMatch, origUrl) {
-                // strip quotes (if they exist)
-                var unquotedOrigUrl = origUrl
-                    .trim()
-                    .replace(/^"(.*)"$/, function (o, $1) { return $1; })
-                    .replace(/^'(.*)'$/, function (o, $1) { return $1; });
-
-                // already a full url? no change
-                if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-                    return fullMatch;
-                }
-
-                // convert the url to a full url
-                var newUrl;
-
-                if (unquotedOrigUrl.indexOf("//") === 0) {
-                    //TODO: should we add protocol?
-                    newUrl = unquotedOrigUrl;
-                } else if (unquotedOrigUrl.indexOf("/") === 0) {
-                    // path should be relative to the base url
-                    newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-                } else {
-                    // path should be relative to current directory
-                    newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-                }
-
-                // send back the fixed url(...)
-                return "url(" + JSON.stringify(newUrl) + ")";
-            });
-
-            // send back the fixed css
-            return fixedCss;
-        };
-
-
-        /***/
-})
-], [9]);
-=======
 // import one of the dictionaries
+
 
 // build dictionary
 var check = __WEBPACK_IMPORTED_MODULE_3_spelt_dist_index_js___default()({
@@ -94989,7 +92934,8 @@ var InputBox = function (_React$Component) {
 		_this.state = {
 			spellCheckList: [],
 			query: _this.props.defaultQuery || '',
-			activeIndex: -1
+			activeIndex: -1,
+			keywords: []
 		};
 		_this.inputHandler = _this.inputHandler.bind(_this);
 		_this.keyHandler = _this.keyHandler.bind(_this);
@@ -94998,6 +92944,22 @@ var InputBox = function (_React$Component) {
 	}
 
 	_createClass(InputBox, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			var sentence = "President Obama woke up Monday facing a Congressional defeat that many in both parties believed could hobble his presidency.";
+
+			//  Extract the keywords
+
+
+			var extraction_result = __WEBPACK_IMPORTED_MODULE_5_keyword_extractor___default.a.extract(sentence, {
+				language: "english",
+				remove_digits: true,
+				return_changed_case: true,
+				remove_duplicates: false
+			});
+			console.log(extraction_result);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			var _this2 = this;
@@ -95007,7 +92969,7 @@ var InputBox = function (_React$Component) {
 			var stringLength = 5; // left default position is 5px
 			var corrections = this.state.spellCheckList.map(function (c, qIndex) {
 				if (!c.correct) wrongCount += 1;
-				if (qIndex > 0) stringLength += _this2.state.spellCheckList[qIndex - 1].raw.length * 5 + 12;
+				if (qIndex > 0) stringLength += _this2.state.spellCheckList[qIndex - 1].raw.length * 6 + 6;
 				var list = c.corrections.map(function (word, index) {
 					if (index < 5) {
 						var className = 'correction-word';
@@ -95037,6 +92999,10 @@ var InputBox = function (_React$Component) {
 				{ id: 'msg-alert' },
 				'You had better go back to learn the English'
 			);
+			var keywords = "";
+			this.state.keywords.forEach(function (k, index) {
+				keywords += index < _this2.state.keywords.length - 1 ? k + " " : k;
+			});
 			if (wrongCount >= 5) window.location.href = 'https://learnenglishkids.britishcouncil.org/zh-hant';
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
@@ -95052,6 +93018,12 @@ var InputBox = function (_React$Component) {
 					onKeyDown: this.keyHandler,
 					onKeyUp: this.keyUpHandler
 				}),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+					id: 'sentence-keywords',
+					name: 'keywords',
+					value: keywords,
+					style: { opacity: 0, position: "absolute", height: 0, width: 0 }
+				}),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					{ className: 'results-container' },
@@ -95063,7 +93035,6 @@ var InputBox = function (_React$Component) {
 		key: 'inputHandler',
 		value: function inputHandler(e) {
 			if (this.state.activeIndex < 0) {
-				console.log('ㄚㄚ~~');
 				this.setState({
 					query: e.target.value
 				});
@@ -95078,9 +93049,18 @@ var InputBox = function (_React$Component) {
 					var results = keywords.map(function (word, index) {
 						return check(word);
 					});
-					console.log(results);
 					this.setState({
 						spellCheckList: results
+					});
+					var sentence = this.state.query;
+					var extraction_result = __WEBPACK_IMPORTED_MODULE_5_keyword_extractor___default.a.extract(sentence, {
+						language: "english",
+						remove_digits: true,
+						return_changed_case: true,
+						remove_duplicates: false
+					});
+					this.setState({
+						keywords: extraction_result
 					});
 				}
 			}
@@ -95088,12 +93068,9 @@ var InputBox = function (_React$Component) {
 	}, {
 		key: 'correctQuery',
 		value: function correctQuery(index, correction) {
-			console.log(index);
-			console.log(correction);
 			var query = this.state.query.split(" ");
 			query[index] = correction;
 			query.pop(query.length - 1);
-			console.log(query);
 			var newQuery = '';
 			query.forEach(function (q, i) {
 				newQuery += q + ' ';
@@ -95193,7 +93170,7 @@ exports = module.exports = __webpack_require__(23)(false);
 
 
 // module
-exports.push([module.i, "body,html{text-align:center;padding-left:0;padding-right:0;margin:0;border:0}*{box-sizing:border-box;box-sizing--moz-box-sizing:border-box;box-sizing--webkit-box-sizing:border-box}#input-query{display:inline-flex;width:calc(100vw - 20px);padding:10px;max-width:1000px;flex-direction:column;align-items:center}#input-query *{font-family:Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif}#input-query #query-box{display:inline-flex;position:relative;flex-direction:column;width:100%;align-items:flex-start}#input-query #query-box textarea{width:100%;border-radius:1px;margin-bottom:10px;padding:5px}#input-query #query-box textarea:focus{box-shadow:1px 1px 3px gray;outline:none;border:none}#input-query #query-box .results-container{display:inline-flex;width:100%;flex-direction:row;justify-content:flex-start;align-items:flex-start}#input-query #query-box .results-container .corrections-list{position:absolute;top:20px;display:inline-flex;flex-direction:column;align-items:flex-start;background-color:#fff;box-shadow:1px 1px 3px gray}#input-query #query-box .results-container .corrections-list>.correction-word{padding:3px 10px;width:100%;cursor:pointer;transition:all .3s}#input-query #query-box .results-container .corrections-list>.active,#input-query #query-box .results-container .corrections-list>.correction-word:hover{background-color:#e6e6e6}#input-query #query-box .similar-words-container{display:inline-flex;flex-direction:row;align-items:center;width:calc(100% - 20px);max-width:800px;padding:10px 0}#input-query #query-box .similar-words-container .word{padding:7px;border-radius:3px;background-color:#e6e6e6;transition:background-color .3s;margin-right:10px;cursor:pointer;color:#646464}#input-query #query-box .similar-words-container .word:hover{background-color:#c8c8c8}", ""]);
+exports.push([module.i, "body,html{text-align:center;padding-left:0;padding-right:0;margin:0;border:0}*{box-sizing:border-box;box-sizing--moz-box-sizing:border-box;box-sizing--webkit-box-sizing:border-box}#input-query{display:inline-flex;width:calc(100vw - 20px);padding:10px;max-width:1000px;flex-direction:column;align-items:center}#input-query *{font-family:Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,黑體-繁,Heiti TC,蘋果儷中黑,Apple LiGothic Medium,微軟正黑體,Microsoft JhengHei,sans-serif}#input-query #query-box{display:inline-flex;position:relative;flex-direction:column;width:100%;align-items:flex-start}#input-query #query-box textarea{width:100%;border-radius:1px;margin-bottom:10px;padding:5px;font-size:12px}#input-query #query-box textarea:focus{box-shadow:1px 1px 3px gray;outline:none;border:none}#input-query #query-box .results-container{display:inline-flex;width:100%;flex-direction:row;justify-content:flex-start;align-items:flex-start}#input-query #query-box .results-container .corrections-list{position:absolute;top:20px;display:inline-flex;flex-direction:column;align-items:flex-start;background-color:#fff;box-shadow:1px 1px 3px gray}#input-query #query-box .results-container .corrections-list>.correction-word{padding:3px 10px;width:100%;cursor:pointer;transition:all .3s}#input-query #query-box .results-container .corrections-list>.active,#input-query #query-box .results-container .corrections-list>.correction-word:hover{background-color:#e6e6e6}#input-query #query-box .similar-words-container{display:inline-flex;flex-direction:row;align-items:center;width:calc(100% - 20px);max-width:800px;padding:10px 0}#input-query #query-box .similar-words-container .word{padding:7px;border-radius:3px;background-color:#e6e6e6;transition:background-color .3s;margin-right:10px;cursor:pointer;color:#646464}#input-query #query-box .similar-words-container .word:hover{background-color:#c8c8c8}", ""]);
 
 // exports
 
@@ -95747,7 +93724,7847 @@ module.exports = function (css) {
 };
 
 
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(27);
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _ = __webpack_require__(28);
+_.str = __webpack_require__(29);
+var supported_languages = ["danish","dutch","english","french","galician","german","italian","polish","portuguese","russian","spanish","swedish"];
+var stopwords = __webpack_require__(30);
+
+function _extract(str, options){
+    if(_.isEmpty(str)){
+        return [];
+    }
+    if(_.isEmpty(options)){
+        options = {
+            remove_digits: true,
+            return_changed_case: true
+        };
+    }
+    var return_changed_case = options.return_changed_case;
+    var return_chained_words = options.return_chained_words;
+    var remove_digits = options.remove_digits;
+    var _language = options.language || "english";
+    var _remove_duplicates = options.remove_duplicates || false;
+    var return_max_ngrams = options.return_max_ngrams;
+
+    if(supported_languages.indexOf(_language) < 0){
+        throw new Error("Language must be one of ["+supported_languages.join(",")+"]");
+    }
+
+    //  strip any HTML and trim whitespace
+    var text = _.str.trim(_.str.stripTags(str));
+    if(_.isEmpty(text)){
+        return [];
+    }else{
+        var words = text.split(/\s/);
+        var unchanged_words = [];
+        var low_words = [];
+        //  change the case of all the words
+        for(var x = 0;x < words.length; x++){
+            var w = words[x].match(/https?:\/\/.*[\r\n]*/g) ? words[x] : words[x].replace(/\.|,|;|!|\?|\(|\)|:|"|^'|'$|“|”|‘|’/g,'');
+            //  remove periods, question marks, exclamation points, commas, and semi-colons
+            //  if this is a short result, make sure it's not a single character or something 'odd'
+            if(w.length === 1){
+                w = w.replace(/-|_|@|&|#/g,'');
+            }
+            //  if it's a number, remove it
+            var digits_match = w.match(/\d/g);
+            if(remove_digits && digits_match && digits_match.length === w.length){
+                w = "";
+            }
+            if(w.length > 0){
+                low_words.push(w.toLowerCase());
+                unchanged_words.push(w);
+            }
+        }
+        var results = [];
+        var _stopwords = options.stopwords || _getStopwords({ language: _language });
+        var _last_result_word_index = 0;
+        var _start_result_word_index = 0;
+	var _unbroken_word_chain = false;
+        for(var y = 0; y < low_words.length; y++){
+
+            if(_stopwords.indexOf(low_words[y]) < 0){
+                
+                if(_last_result_word_index !== y - 1){
+                    _start_result_word_index = y;
+                    _unbroken_word_chain = false; 
+		} else {
+	            _unbroken_word_chain = true;
+		}
+                var result_word = return_changed_case && !unchanged_words[y].match(/https?:\/\/.*[\r\n]*/g) ? low_words[y] : unchanged_words[y];
+                
+                if (return_max_ngrams && _unbroken_word_chain && !return_chained_words && return_max_ngrams > (y - _start_result_word_index) && _last_result_word_index === y - 1){
+                    var change_pos = results.length - 1 < 0 ? 0 : results.length - 1;
+                    results[change_pos] = results[change_pos] ? results[change_pos] + ' ' + result_word : result_word;
+                } else if (return_chained_words && _last_result_word_index === y - 1) {
+                  var change_pos = results.length - 1 < 0 ? 0 : results.length - 1;
+                  results[change_pos] = results[change_pos] ? results[change_pos] + ' ' + result_word : result_word;
+                } else {
+                  results.push(result_word);
+                }
+
+                _last_result_word_index = y;
+            } else {
+		_unbroken_word_chain = false;
+	    }
+        }
+
+        if(_remove_duplicates) {
+            results= _.uniq(results, function (item) {
+                return item;
+            });
+        }
+
+        return results;
+    }
+}
+
+function _getStopwords(options){
+    options = options || {};
+
+    var _language = options.language || "english";
+    if(supported_languages.indexOf(_language) < 0){
+        throw new Error("Language must be one of ["+supported_languages.join(",")+"]");
+    }
+
+    return stopwords[_language];
+}
+
+module.exports = {
+    extract:_extract,
+    getStopwords: _getStopwords
+};
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.7.0
+//     http://underscorejs.org
+//     (c) 2009-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+//     Underscore may be freely distributed under the MIT license.
+
+(function() {
+
+  // Baseline setup
+  // --------------
+
+  // Establish the root object, `window` in the browser, or `exports` on the server.
+  var root = this;
+
+  // Save the previous value of the `_` variable.
+  var previousUnderscore = root._;
+
+  // Save bytes in the minified (but not gzipped) version:
+  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+
+  // Create quick reference variables for speed access to core prototypes.
+  var
+    push             = ArrayProto.push,
+    slice            = ArrayProto.slice,
+    concat           = ArrayProto.concat,
+    toString         = ObjProto.toString,
+    hasOwnProperty   = ObjProto.hasOwnProperty;
+
+  // All **ECMAScript 5** native function implementations that we hope to use
+  // are declared here.
+  var
+    nativeIsArray      = Array.isArray,
+    nativeKeys         = Object.keys,
+    nativeBind         = FuncProto.bind;
+
+  // Create a safe reference to the Underscore object for use below.
+  var _ = function(obj) {
+    if (obj instanceof _) return obj;
+    if (!(this instanceof _)) return new _(obj);
+    this._wrapped = obj;
+  };
+
+  // Export the Underscore object for **Node.js**, with
+  // backwards-compatibility for the old `require()` API. If we're in
+  // the browser, add `_` as a global object.
+  if (true) {
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = _;
+    }
+    exports._ = _;
+  } else {
+    root._ = _;
+  }
+
+  // Current version.
+  _.VERSION = '1.7.0';
+
+  // Internal function that returns an efficient (for current engines) version
+  // of the passed-in callback, to be repeatedly applied in other Underscore
+  // functions.
+  var createCallback = function(func, context, argCount) {
+    if (context === void 0) return func;
+    switch (argCount == null ? 3 : argCount) {
+      case 1: return function(value) {
+        return func.call(context, value);
+      };
+      case 2: return function(value, other) {
+        return func.call(context, value, other);
+      };
+      case 3: return function(value, index, collection) {
+        return func.call(context, value, index, collection);
+      };
+      case 4: return function(accumulator, value, index, collection) {
+        return func.call(context, accumulator, value, index, collection);
+      };
+    }
+    return function() {
+      return func.apply(context, arguments);
+    };
+  };
+
+  // A mostly-internal function to generate callbacks that can be applied
+  // to each element in a collection, returning the desired result — either
+  // identity, an arbitrary callback, a property matcher, or a property accessor.
+  _.iteratee = function(value, context, argCount) {
+    if (value == null) return _.identity;
+    if (_.isFunction(value)) return createCallback(value, context, argCount);
+    if (_.isObject(value)) return _.matches(value);
+    return _.property(value);
+  };
+
+  // Collection Functions
+  // --------------------
+
+  // The cornerstone, an `each` implementation, aka `forEach`.
+  // Handles raw objects in addition to array-likes. Treats all
+  // sparse array-likes as if they were dense.
+  _.each = _.forEach = function(obj, iteratee, context) {
+    if (obj == null) return obj;
+    iteratee = createCallback(iteratee, context);
+    var i, length = obj.length;
+    if (length === +length) {
+      for (i = 0; i < length; i++) {
+        iteratee(obj[i], i, obj);
+      }
+    } else {
+      var keys = _.keys(obj);
+      for (i = 0, length = keys.length; i < length; i++) {
+        iteratee(obj[keys[i]], keys[i], obj);
+      }
+    }
+    return obj;
+  };
+
+  // Return the results of applying the iteratee to each element.
+  _.map = _.collect = function(obj, iteratee, context) {
+    if (obj == null) return [];
+    iteratee = _.iteratee(iteratee, context);
+    var keys = obj.length !== +obj.length && _.keys(obj),
+        length = (keys || obj).length,
+        results = Array(length),
+        currentKey;
+    for (var index = 0; index < length; index++) {
+      currentKey = keys ? keys[index] : index;
+      results[index] = iteratee(obj[currentKey], currentKey, obj);
+    }
+    return results;
+  };
+
+  var reduceError = 'Reduce of empty array with no initial value';
+
+  // **Reduce** builds up a single result from a list of values, aka `inject`,
+  // or `foldl`.
+  _.reduce = _.foldl = _.inject = function(obj, iteratee, memo, context) {
+    if (obj == null) obj = [];
+    iteratee = createCallback(iteratee, context, 4);
+    var keys = obj.length !== +obj.length && _.keys(obj),
+        length = (keys || obj).length,
+        index = 0, currentKey;
+    if (arguments.length < 3) {
+      if (!length) throw new TypeError(reduceError);
+      memo = obj[keys ? keys[index++] : index++];
+    }
+    for (; index < length; index++) {
+      currentKey = keys ? keys[index] : index;
+      memo = iteratee(memo, obj[currentKey], currentKey, obj);
+    }
+    return memo;
+  };
+
+  // The right-associative version of reduce, also known as `foldr`.
+  _.reduceRight = _.foldr = function(obj, iteratee, memo, context) {
+    if (obj == null) obj = [];
+    iteratee = createCallback(iteratee, context, 4);
+    var keys = obj.length !== + obj.length && _.keys(obj),
+        index = (keys || obj).length,
+        currentKey;
+    if (arguments.length < 3) {
+      if (!index) throw new TypeError(reduceError);
+      memo = obj[keys ? keys[--index] : --index];
+    }
+    while (index--) {
+      currentKey = keys ? keys[index] : index;
+      memo = iteratee(memo, obj[currentKey], currentKey, obj);
+    }
+    return memo;
+  };
+
+  // Return the first value which passes a truth test. Aliased as `detect`.
+  _.find = _.detect = function(obj, predicate, context) {
+    var result;
+    predicate = _.iteratee(predicate, context);
+    _.some(obj, function(value, index, list) {
+      if (predicate(value, index, list)) {
+        result = value;
+        return true;
+      }
+    });
+    return result;
+  };
+
+  // Return all the elements that pass a truth test.
+  // Aliased as `select`.
+  _.filter = _.select = function(obj, predicate, context) {
+    var results = [];
+    if (obj == null) return results;
+    predicate = _.iteratee(predicate, context);
+    _.each(obj, function(value, index, list) {
+      if (predicate(value, index, list)) results.push(value);
+    });
+    return results;
+  };
+
+  // Return all the elements for which a truth test fails.
+  _.reject = function(obj, predicate, context) {
+    return _.filter(obj, _.negate(_.iteratee(predicate)), context);
+  };
+
+  // Determine whether all of the elements match a truth test.
+  // Aliased as `all`.
+  _.every = _.all = function(obj, predicate, context) {
+    if (obj == null) return true;
+    predicate = _.iteratee(predicate, context);
+    var keys = obj.length !== +obj.length && _.keys(obj),
+        length = (keys || obj).length,
+        index, currentKey;
+    for (index = 0; index < length; index++) {
+      currentKey = keys ? keys[index] : index;
+      if (!predicate(obj[currentKey], currentKey, obj)) return false;
+    }
+    return true;
+  };
+
+  // Determine if at least one element in the object matches a truth test.
+  // Aliased as `any`.
+  _.some = _.any = function(obj, predicate, context) {
+    if (obj == null) return false;
+    predicate = _.iteratee(predicate, context);
+    var keys = obj.length !== +obj.length && _.keys(obj),
+        length = (keys || obj).length,
+        index, currentKey;
+    for (index = 0; index < length; index++) {
+      currentKey = keys ? keys[index] : index;
+      if (predicate(obj[currentKey], currentKey, obj)) return true;
+    }
+    return false;
+  };
+
+  // Determine if the array or object contains a given value (using `===`).
+  // Aliased as `include`.
+  _.contains = _.include = function(obj, target) {
+    if (obj == null) return false;
+    if (obj.length !== +obj.length) obj = _.values(obj);
+    return _.indexOf(obj, target) >= 0;
+  };
+
+  // Invoke a method (with arguments) on every item in a collection.
+  _.invoke = function(obj, method) {
+    var args = slice.call(arguments, 2);
+    var isFunc = _.isFunction(method);
+    return _.map(obj, function(value) {
+      return (isFunc ? method : value[method]).apply(value, args);
+    });
+  };
+
+  // Convenience version of a common use case of `map`: fetching a property.
+  _.pluck = function(obj, key) {
+    return _.map(obj, _.property(key));
+  };
+
+  // Convenience version of a common use case of `filter`: selecting only objects
+  // containing specific `key:value` pairs.
+  _.where = function(obj, attrs) {
+    return _.filter(obj, _.matches(attrs));
+  };
+
+  // Convenience version of a common use case of `find`: getting the first object
+  // containing specific `key:value` pairs.
+  _.findWhere = function(obj, attrs) {
+    return _.find(obj, _.matches(attrs));
+  };
+
+  // Return the maximum element (or element-based computation).
+  _.max = function(obj, iteratee, context) {
+    var result = -Infinity, lastComputed = -Infinity,
+        value, computed;
+    if (iteratee == null && obj != null) {
+      obj = obj.length === +obj.length ? obj : _.values(obj);
+      for (var i = 0, length = obj.length; i < length; i++) {
+        value = obj[i];
+        if (value > result) {
+          result = value;
+        }
+      }
+    } else {
+      iteratee = _.iteratee(iteratee, context);
+      _.each(obj, function(value, index, list) {
+        computed = iteratee(value, index, list);
+        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+          result = value;
+          lastComputed = computed;
+        }
+      });
+    }
+    return result;
+  };
+
+  // Return the minimum element (or element-based computation).
+  _.min = function(obj, iteratee, context) {
+    var result = Infinity, lastComputed = Infinity,
+        value, computed;
+    if (iteratee == null && obj != null) {
+      obj = obj.length === +obj.length ? obj : _.values(obj);
+      for (var i = 0, length = obj.length; i < length; i++) {
+        value = obj[i];
+        if (value < result) {
+          result = value;
+        }
+      }
+    } else {
+      iteratee = _.iteratee(iteratee, context);
+      _.each(obj, function(value, index, list) {
+        computed = iteratee(value, index, list);
+        if (computed < lastComputed || computed === Infinity && result === Infinity) {
+          result = value;
+          lastComputed = computed;
+        }
+      });
+    }
+    return result;
+  };
+
+  // Shuffle a collection, using the modern version of the
+  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+  _.shuffle = function(obj) {
+    var set = obj && obj.length === +obj.length ? obj : _.values(obj);
+    var length = set.length;
+    var shuffled = Array(length);
+    for (var index = 0, rand; index < length; index++) {
+      rand = _.random(0, index);
+      if (rand !== index) shuffled[index] = shuffled[rand];
+      shuffled[rand] = set[index];
+    }
+    return shuffled;
+  };
+
+  // Sample **n** random values from a collection.
+  // If **n** is not specified, returns a single random element.
+  // The internal `guard` argument allows it to work with `map`.
+  _.sample = function(obj, n, guard) {
+    if (n == null || guard) {
+      if (obj.length !== +obj.length) obj = _.values(obj);
+      return obj[_.random(obj.length - 1)];
+    }
+    return _.shuffle(obj).slice(0, Math.max(0, n));
+  };
+
+  // Sort the object's values by a criterion produced by an iteratee.
+  _.sortBy = function(obj, iteratee, context) {
+    iteratee = _.iteratee(iteratee, context);
+    return _.pluck(_.map(obj, function(value, index, list) {
+      return {
+        value: value,
+        index: index,
+        criteria: iteratee(value, index, list)
+      };
+    }).sort(function(left, right) {
+      var a = left.criteria;
+      var b = right.criteria;
+      if (a !== b) {
+        if (a > b || a === void 0) return 1;
+        if (a < b || b === void 0) return -1;
+      }
+      return left.index - right.index;
+    }), 'value');
+  };
+
+  // An internal function used for aggregate "group by" operations.
+  var group = function(behavior) {
+    return function(obj, iteratee, context) {
+      var result = {};
+      iteratee = _.iteratee(iteratee, context);
+      _.each(obj, function(value, index) {
+        var key = iteratee(value, index, obj);
+        behavior(result, value, key);
+      });
+      return result;
+    };
+  };
+
+  // Groups the object's values by a criterion. Pass either a string attribute
+  // to group by, or a function that returns the criterion.
+  _.groupBy = group(function(result, value, key) {
+    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
+  });
+
+  // Indexes the object's values by a criterion, similar to `groupBy`, but for
+  // when you know that your index values will be unique.
+  _.indexBy = group(function(result, value, key) {
+    result[key] = value;
+  });
+
+  // Counts instances of an object that group by a certain criterion. Pass
+  // either a string attribute to count by, or a function that returns the
+  // criterion.
+  _.countBy = group(function(result, value, key) {
+    if (_.has(result, key)) result[key]++; else result[key] = 1;
+  });
+
+  // Use a comparator function to figure out the smallest index at which
+  // an object should be inserted so as to maintain order. Uses binary search.
+  _.sortedIndex = function(array, obj, iteratee, context) {
+    iteratee = _.iteratee(iteratee, context, 1);
+    var value = iteratee(obj);
+    var low = 0, high = array.length;
+    while (low < high) {
+      var mid = low + high >>> 1;
+      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
+    }
+    return low;
+  };
+
+  // Safely create a real, live array from anything iterable.
+  _.toArray = function(obj) {
+    if (!obj) return [];
+    if (_.isArray(obj)) return slice.call(obj);
+    if (obj.length === +obj.length) return _.map(obj, _.identity);
+    return _.values(obj);
+  };
+
+  // Return the number of elements in an object.
+  _.size = function(obj) {
+    if (obj == null) return 0;
+    return obj.length === +obj.length ? obj.length : _.keys(obj).length;
+  };
+
+  // Split a collection into two arrays: one whose elements all satisfy the given
+  // predicate, and one whose elements all do not satisfy the predicate.
+  _.partition = function(obj, predicate, context) {
+    predicate = _.iteratee(predicate, context);
+    var pass = [], fail = [];
+    _.each(obj, function(value, key, obj) {
+      (predicate(value, key, obj) ? pass : fail).push(value);
+    });
+    return [pass, fail];
+  };
+
+  // Array Functions
+  // ---------------
+
+  // Get the first element of an array. Passing **n** will return the first N
+  // values in the array. Aliased as `head` and `take`. The **guard** check
+  // allows it to work with `_.map`.
+  _.first = _.head = _.take = function(array, n, guard) {
+    if (array == null) return void 0;
+    if (n == null || guard) return array[0];
+    if (n < 0) return [];
+    return slice.call(array, 0, n);
+  };
+
+  // Returns everything but the last entry of the array. Especially useful on
+  // the arguments object. Passing **n** will return all the values in
+  // the array, excluding the last N. The **guard** check allows it to work with
+  // `_.map`.
+  _.initial = function(array, n, guard) {
+    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+  };
+
+  // Get the last element of an array. Passing **n** will return the last N
+  // values in the array. The **guard** check allows it to work with `_.map`.
+  _.last = function(array, n, guard) {
+    if (array == null) return void 0;
+    if (n == null || guard) return array[array.length - 1];
+    return slice.call(array, Math.max(array.length - n, 0));
+  };
+
+  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
+  // Especially useful on the arguments object. Passing an **n** will return
+  // the rest N values in the array. The **guard**
+  // check allows it to work with `_.map`.
+  _.rest = _.tail = _.drop = function(array, n, guard) {
+    return slice.call(array, n == null || guard ? 1 : n);
+  };
+
+  // Trim out all falsy values from an array.
+  _.compact = function(array) {
+    return _.filter(array, _.identity);
+  };
+
+  // Internal implementation of a recursive `flatten` function.
+  var flatten = function(input, shallow, strict, output) {
+    if (shallow && _.every(input, _.isArray)) {
+      return concat.apply(output, input);
+    }
+    for (var i = 0, length = input.length; i < length; i++) {
+      var value = input[i];
+      if (!_.isArray(value) && !_.isArguments(value)) {
+        if (!strict) output.push(value);
+      } else if (shallow) {
+        push.apply(output, value);
+      } else {
+        flatten(value, shallow, strict, output);
+      }
+    }
+    return output;
+  };
+
+  // Flatten out an array, either recursively (by default), or just one level.
+  _.flatten = function(array, shallow) {
+    return flatten(array, shallow, false, []);
+  };
+
+  // Return a version of the array that does not contain the specified value(s).
+  _.without = function(array) {
+    return _.difference(array, slice.call(arguments, 1));
+  };
+
+  // Produce a duplicate-free version of the array. If the array has already
+  // been sorted, you have the option of using a faster algorithm.
+  // Aliased as `unique`.
+  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
+    if (array == null) return [];
+    if (!_.isBoolean(isSorted)) {
+      context = iteratee;
+      iteratee = isSorted;
+      isSorted = false;
+    }
+    if (iteratee != null) iteratee = _.iteratee(iteratee, context);
+    var result = [];
+    var seen = [];
+    for (var i = 0, length = array.length; i < length; i++) {
+      var value = array[i];
+      if (isSorted) {
+        if (!i || seen !== value) result.push(value);
+        seen = value;
+      } else if (iteratee) {
+        var computed = iteratee(value, i, array);
+        if (_.indexOf(seen, computed) < 0) {
+          seen.push(computed);
+          result.push(value);
+        }
+      } else if (_.indexOf(result, value) < 0) {
+        result.push(value);
+      }
+    }
+    return result;
+  };
+
+  // Produce an array that contains the union: each distinct element from all of
+  // the passed-in arrays.
+  _.union = function() {
+    return _.uniq(flatten(arguments, true, true, []));
+  };
+
+  // Produce an array that contains every item shared between all the
+  // passed-in arrays.
+  _.intersection = function(array) {
+    if (array == null) return [];
+    var result = [];
+    var argsLength = arguments.length;
+    for (var i = 0, length = array.length; i < length; i++) {
+      var item = array[i];
+      if (_.contains(result, item)) continue;
+      for (var j = 1; j < argsLength; j++) {
+        if (!_.contains(arguments[j], item)) break;
+      }
+      if (j === argsLength) result.push(item);
+    }
+    return result;
+  };
+
+  // Take the difference between one array and a number of other arrays.
+  // Only the elements present in just the first array will remain.
+  _.difference = function(array) {
+    var rest = flatten(slice.call(arguments, 1), true, true, []);
+    return _.filter(array, function(value){
+      return !_.contains(rest, value);
+    });
+  };
+
+  // Zip together multiple lists into a single array -- elements that share
+  // an index go together.
+  _.zip = function(array) {
+    if (array == null) return [];
+    var length = _.max(arguments, 'length').length;
+    var results = Array(length);
+    for (var i = 0; i < length; i++) {
+      results[i] = _.pluck(arguments, i);
+    }
+    return results;
+  };
+
+  // Converts lists into objects. Pass either a single array of `[key, value]`
+  // pairs, or two parallel arrays of the same length -- one of keys, and one of
+  // the corresponding values.
+  _.object = function(list, values) {
+    if (list == null) return {};
+    var result = {};
+    for (var i = 0, length = list.length; i < length; i++) {
+      if (values) {
+        result[list[i]] = values[i];
+      } else {
+        result[list[i][0]] = list[i][1];
+      }
+    }
+    return result;
+  };
+
+  // Return the position of the first occurrence of an item in an array,
+  // or -1 if the item is not included in the array.
+  // If the array is large and already in sort order, pass `true`
+  // for **isSorted** to use binary search.
+  _.indexOf = function(array, item, isSorted) {
+    if (array == null) return -1;
+    var i = 0, length = array.length;
+    if (isSorted) {
+      if (typeof isSorted == 'number') {
+        i = isSorted < 0 ? Math.max(0, length + isSorted) : isSorted;
+      } else {
+        i = _.sortedIndex(array, item);
+        return array[i] === item ? i : -1;
+      }
+    }
+    for (; i < length; i++) if (array[i] === item) return i;
+    return -1;
+  };
+
+  _.lastIndexOf = function(array, item, from) {
+    if (array == null) return -1;
+    var idx = array.length;
+    if (typeof from == 'number') {
+      idx = from < 0 ? idx + from + 1 : Math.min(idx, from + 1);
+    }
+    while (--idx >= 0) if (array[idx] === item) return idx;
+    return -1;
+  };
+
+  // Generate an integer Array containing an arithmetic progression. A port of
+  // the native Python `range()` function. See
+  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+  _.range = function(start, stop, step) {
+    if (arguments.length <= 1) {
+      stop = start || 0;
+      start = 0;
+    }
+    step = step || 1;
+
+    var length = Math.max(Math.ceil((stop - start) / step), 0);
+    var range = Array(length);
+
+    for (var idx = 0; idx < length; idx++, start += step) {
+      range[idx] = start;
+    }
+
+    return range;
+  };
+
+  // Function (ahem) Functions
+  // ------------------
+
+  // Reusable constructor function for prototype setting.
+  var Ctor = function(){};
+
+  // Create a function bound to a given object (assigning `this`, and arguments,
+  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
+  // available.
+  _.bind = function(func, context) {
+    var args, bound;
+    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
+    args = slice.call(arguments, 2);
+    bound = function() {
+      if (!(this instanceof bound)) return func.apply(context, args.concat(slice.call(arguments)));
+      Ctor.prototype = func.prototype;
+      var self = new Ctor;
+      Ctor.prototype = null;
+      var result = func.apply(self, args.concat(slice.call(arguments)));
+      if (_.isObject(result)) return result;
+      return self;
+    };
+    return bound;
+  };
+
+  // Partially apply a function by creating a version that has had some of its
+  // arguments pre-filled, without changing its dynamic `this` context. _ acts
+  // as a placeholder, allowing any combination of arguments to be pre-filled.
+  _.partial = function(func) {
+    var boundArgs = slice.call(arguments, 1);
+    return function() {
+      var position = 0;
+      var args = boundArgs.slice();
+      for (var i = 0, length = args.length; i < length; i++) {
+        if (args[i] === _) args[i] = arguments[position++];
+      }
+      while (position < arguments.length) args.push(arguments[position++]);
+      return func.apply(this, args);
+    };
+  };
+
+  // Bind a number of an object's methods to that object. Remaining arguments
+  // are the method names to be bound. Useful for ensuring that all callbacks
+  // defined on an object belong to it.
+  _.bindAll = function(obj) {
+    var i, length = arguments.length, key;
+    if (length <= 1) throw new Error('bindAll must be passed function names');
+    for (i = 1; i < length; i++) {
+      key = arguments[i];
+      obj[key] = _.bind(obj[key], obj);
+    }
+    return obj;
+  };
+
+  // Memoize an expensive function by storing its results.
+  _.memoize = function(func, hasher) {
+    var memoize = function(key) {
+      var cache = memoize.cache;
+      var address = hasher ? hasher.apply(this, arguments) : key;
+      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
+      return cache[address];
+    };
+    memoize.cache = {};
+    return memoize;
+  };
+
+  // Delays a function for the given number of milliseconds, and then calls
+  // it with the arguments supplied.
+  _.delay = function(func, wait) {
+    var args = slice.call(arguments, 2);
+    return setTimeout(function(){
+      return func.apply(null, args);
+    }, wait);
+  };
+
+  // Defers a function, scheduling it to run after the current call stack has
+  // cleared.
+  _.defer = function(func) {
+    return _.delay.apply(_, [func, 1].concat(slice.call(arguments, 1)));
+  };
+
+  // Returns a function, that, when invoked, will only be triggered at most once
+  // during a given window of time. Normally, the throttled function will run
+  // as much as it can, without ever going more than once per `wait` duration;
+  // but if you'd like to disable the execution on the leading edge, pass
+  // `{leading: false}`. To disable execution on the trailing edge, ditto.
+  _.throttle = function(func, wait, options) {
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+    if (!options) options = {};
+    var later = function() {
+      previous = options.leading === false ? 0 : _.now();
+      timeout = null;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    };
+    return function() {
+      var now = _.now();
+      if (!previous && options.leading === false) previous = now;
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+      if (remaining <= 0 || remaining > wait) {
+        clearTimeout(timeout);
+        timeout = null;
+        previous = now;
+        result = func.apply(context, args);
+        if (!timeout) context = args = null;
+      } else if (!timeout && options.trailing !== false) {
+        timeout = setTimeout(later, remaining);
+      }
+      return result;
+    };
+  };
+
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds. If `immediate` is passed, trigger the function on the
+  // leading edge, instead of the trailing.
+  _.debounce = function(func, wait, immediate) {
+    var timeout, args, context, timestamp, result;
+
+    var later = function() {
+      var last = _.now() - timestamp;
+
+      if (last < wait && last > 0) {
+        timeout = setTimeout(later, wait - last);
+      } else {
+        timeout = null;
+        if (!immediate) {
+          result = func.apply(context, args);
+          if (!timeout) context = args = null;
+        }
+      }
+    };
+
+    return function() {
+      context = this;
+      args = arguments;
+      timestamp = _.now();
+      var callNow = immediate && !timeout;
+      if (!timeout) timeout = setTimeout(later, wait);
+      if (callNow) {
+        result = func.apply(context, args);
+        context = args = null;
+      }
+
+      return result;
+    };
+  };
+
+  // Returns the first function passed as an argument to the second,
+  // allowing you to adjust arguments, run code before and after, and
+  // conditionally execute the original function.
+  _.wrap = function(func, wrapper) {
+    return _.partial(wrapper, func);
+  };
+
+  // Returns a negated version of the passed-in predicate.
+  _.negate = function(predicate) {
+    return function() {
+      return !predicate.apply(this, arguments);
+    };
+  };
+
+  // Returns a function that is the composition of a list of functions, each
+  // consuming the return value of the function that follows.
+  _.compose = function() {
+    var args = arguments;
+    var start = args.length - 1;
+    return function() {
+      var i = start;
+      var result = args[start].apply(this, arguments);
+      while (i--) result = args[i].call(this, result);
+      return result;
+    };
+  };
+
+  // Returns a function that will only be executed after being called N times.
+  _.after = function(times, func) {
+    return function() {
+      if (--times < 1) {
+        return func.apply(this, arguments);
+      }
+    };
+  };
+
+  // Returns a function that will only be executed before being called N times.
+  _.before = function(times, func) {
+    var memo;
+    return function() {
+      if (--times > 0) {
+        memo = func.apply(this, arguments);
+      } else {
+        func = null;
+      }
+      return memo;
+    };
+  };
+
+  // Returns a function that will be executed at most one time, no matter how
+  // often you call it. Useful for lazy initialization.
+  _.once = _.partial(_.before, 2);
+
+  // Object Functions
+  // ----------------
+
+  // Retrieve the names of an object's properties.
+  // Delegates to **ECMAScript 5**'s native `Object.keys`
+  _.keys = function(obj) {
+    if (!_.isObject(obj)) return [];
+    if (nativeKeys) return nativeKeys(obj);
+    var keys = [];
+    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+    return keys;
+  };
+
+  // Retrieve the values of an object's properties.
+  _.values = function(obj) {
+    var keys = _.keys(obj);
+    var length = keys.length;
+    var values = Array(length);
+    for (var i = 0; i < length; i++) {
+      values[i] = obj[keys[i]];
+    }
+    return values;
+  };
+
+  // Convert an object into a list of `[key, value]` pairs.
+  _.pairs = function(obj) {
+    var keys = _.keys(obj);
+    var length = keys.length;
+    var pairs = Array(length);
+    for (var i = 0; i < length; i++) {
+      pairs[i] = [keys[i], obj[keys[i]]];
+    }
+    return pairs;
+  };
+
+  // Invert the keys and values of an object. The values must be serializable.
+  _.invert = function(obj) {
+    var result = {};
+    var keys = _.keys(obj);
+    for (var i = 0, length = keys.length; i < length; i++) {
+      result[obj[keys[i]]] = keys[i];
+    }
+    return result;
+  };
+
+  // Return a sorted list of the function names available on the object.
+  // Aliased as `methods`
+  _.functions = _.methods = function(obj) {
+    var names = [];
+    for (var key in obj) {
+      if (_.isFunction(obj[key])) names.push(key);
+    }
+    return names.sort();
+  };
+
+  // Extend a given object with all the properties in passed-in object(s).
+  _.extend = function(obj) {
+    if (!_.isObject(obj)) return obj;
+    var source, prop;
+    for (var i = 1, length = arguments.length; i < length; i++) {
+      source = arguments[i];
+      for (prop in source) {
+        if (hasOwnProperty.call(source, prop)) {
+            obj[prop] = source[prop];
+        }
+      }
+    }
+    return obj;
+  };
+
+  // Return a copy of the object only containing the whitelisted properties.
+  _.pick = function(obj, iteratee, context) {
+    var result = {}, key;
+    if (obj == null) return result;
+    if (_.isFunction(iteratee)) {
+      iteratee = createCallback(iteratee, context);
+      for (key in obj) {
+        var value = obj[key];
+        if (iteratee(value, key, obj)) result[key] = value;
+      }
+    } else {
+      var keys = concat.apply([], slice.call(arguments, 1));
+      obj = new Object(obj);
+      for (var i = 0, length = keys.length; i < length; i++) {
+        key = keys[i];
+        if (key in obj) result[key] = obj[key];
+      }
+    }
+    return result;
+  };
+
+   // Return a copy of the object without the blacklisted properties.
+  _.omit = function(obj, iteratee, context) {
+    if (_.isFunction(iteratee)) {
+      iteratee = _.negate(iteratee);
+    } else {
+      var keys = _.map(concat.apply([], slice.call(arguments, 1)), String);
+      iteratee = function(value, key) {
+        return !_.contains(keys, key);
+      };
+    }
+    return _.pick(obj, iteratee, context);
+  };
+
+  // Fill in a given object with default properties.
+  _.defaults = function(obj) {
+    if (!_.isObject(obj)) return obj;
+    for (var i = 1, length = arguments.length; i < length; i++) {
+      var source = arguments[i];
+      for (var prop in source) {
+        if (obj[prop] === void 0) obj[prop] = source[prop];
+      }
+    }
+    return obj;
+  };
+
+  // Create a (shallow-cloned) duplicate of an object.
+  _.clone = function(obj) {
+    if (!_.isObject(obj)) return obj;
+    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+  };
+
+  // Invokes interceptor with the obj, and then returns obj.
+  // The primary purpose of this method is to "tap into" a method chain, in
+  // order to perform operations on intermediate results within the chain.
+  _.tap = function(obj, interceptor) {
+    interceptor(obj);
+    return obj;
+  };
+
+  // Internal recursive comparison function for `isEqual`.
+  var eq = function(a, b, aStack, bStack) {
+    // Identical objects are equal. `0 === -0`, but they aren't identical.
+    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+    if (a === b) return a !== 0 || 1 / a === 1 / b;
+    // A strict comparison is necessary because `null == undefined`.
+    if (a == null || b == null) return a === b;
+    // Unwrap any wrapped objects.
+    if (a instanceof _) a = a._wrapped;
+    if (b instanceof _) b = b._wrapped;
+    // Compare `[[Class]]` names.
+    var className = toString.call(a);
+    if (className !== toString.call(b)) return false;
+    switch (className) {
+      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+      case '[object RegExp]':
+      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+      case '[object String]':
+        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+        // equivalent to `new String("5")`.
+        return '' + a === '' + b;
+      case '[object Number]':
+        // `NaN`s are equivalent, but non-reflexive.
+        // Object(NaN) is equivalent to NaN
+        if (+a !== +a) return +b !== +b;
+        // An `egal` comparison is performed for other numeric values.
+        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+      case '[object Date]':
+      case '[object Boolean]':
+        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+        // millisecond representations. Note that invalid dates with millisecond representations
+        // of `NaN` are not equivalent.
+        return +a === +b;
+    }
+    if (typeof a != 'object' || typeof b != 'object') return false;
+    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+    var length = aStack.length;
+    while (length--) {
+      // Linear search. Performance is inversely proportional to the number of
+      // unique nested structures.
+      if (aStack[length] === a) return bStack[length] === b;
+    }
+    // Objects with different constructors are not equivalent, but `Object`s
+    // from different frames are.
+    var aCtor = a.constructor, bCtor = b.constructor;
+    if (
+      aCtor !== bCtor &&
+      // Handle Object.create(x) cases
+      'constructor' in a && 'constructor' in b &&
+      !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
+        _.isFunction(bCtor) && bCtor instanceof bCtor)
+    ) {
+      return false;
+    }
+    // Add the first object to the stack of traversed objects.
+    aStack.push(a);
+    bStack.push(b);
+    var size, result;
+    // Recursively compare objects and arrays.
+    if (className === '[object Array]') {
+      // Compare array lengths to determine if a deep comparison is necessary.
+      size = a.length;
+      result = size === b.length;
+      if (result) {
+        // Deep compare the contents, ignoring non-numeric properties.
+        while (size--) {
+          if (!(result = eq(a[size], b[size], aStack, bStack))) break;
+        }
+      }
+    } else {
+      // Deep compare objects.
+      var keys = _.keys(a), key;
+      size = keys.length;
+      // Ensure that both objects contain the same number of properties before comparing deep equality.
+      result = _.keys(b).length === size;
+      if (result) {
+        while (size--) {
+          // Deep compare each member
+          key = keys[size];
+          if (!(result = _.has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
+        }
+      }
+    }
+    // Remove the first object from the stack of traversed objects.
+    aStack.pop();
+    bStack.pop();
+    return result;
+  };
+
+  // Perform a deep comparison to check if two objects are equal.
+  _.isEqual = function(a, b) {
+    return eq(a, b, [], []);
+  };
+
+  // Is a given array, string, or object empty?
+  // An "empty" object has no enumerable own-properties.
+  _.isEmpty = function(obj) {
+    if (obj == null) return true;
+    if (_.isArray(obj) || _.isString(obj) || _.isArguments(obj)) return obj.length === 0;
+    for (var key in obj) if (_.has(obj, key)) return false;
+    return true;
+  };
+
+  // Is a given value a DOM element?
+  _.isElement = function(obj) {
+    return !!(obj && obj.nodeType === 1);
+  };
+
+  // Is a given value an array?
+  // Delegates to ECMA5's native Array.isArray
+  _.isArray = nativeIsArray || function(obj) {
+    return toString.call(obj) === '[object Array]';
+  };
+
+  // Is a given variable an object?
+  _.isObject = function(obj) {
+    var type = typeof obj;
+    return type === 'function' || type === 'object' && !!obj;
+  };
+
+  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp.
+  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp'], function(name) {
+    _['is' + name] = function(obj) {
+      return toString.call(obj) === '[object ' + name + ']';
+    };
+  });
+
+  // Define a fallback version of the method in browsers (ahem, IE), where
+  // there isn't any inspectable "Arguments" type.
+  if (!_.isArguments(arguments)) {
+    _.isArguments = function(obj) {
+      return _.has(obj, 'callee');
+    };
+  }
+
+  // Optimize `isFunction` if appropriate. Work around an IE 11 bug.
+  if (true) {
+    _.isFunction = function(obj) {
+      return typeof obj == 'function' || false;
+    };
+  }
+
+  // Is a given object a finite number?
+  _.isFinite = function(obj) {
+    return isFinite(obj) && !isNaN(parseFloat(obj));
+  };
+
+  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+  _.isNaN = function(obj) {
+    return _.isNumber(obj) && obj !== +obj;
+  };
+
+  // Is a given value a boolean?
+  _.isBoolean = function(obj) {
+    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
+  };
+
+  // Is a given value equal to null?
+  _.isNull = function(obj) {
+    return obj === null;
+  };
+
+  // Is a given variable undefined?
+  _.isUndefined = function(obj) {
+    return obj === void 0;
+  };
+
+  // Shortcut function for checking if an object has a given property directly
+  // on itself (in other words, not on a prototype).
+  _.has = function(obj, key) {
+    return obj != null && hasOwnProperty.call(obj, key);
+  };
+
+  // Utility Functions
+  // -----------------
+
+  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+  // previous owner. Returns a reference to the Underscore object.
+  _.noConflict = function() {
+    root._ = previousUnderscore;
+    return this;
+  };
+
+  // Keep the identity function around for default iteratees.
+  _.identity = function(value) {
+    return value;
+  };
+
+  _.constant = function(value) {
+    return function() {
+      return value;
+    };
+  };
+
+  _.noop = function(){};
+
+  _.property = function(key) {
+    return function(obj) {
+      return obj[key];
+    };
+  };
+
+  // Returns a predicate for checking whether an object has a given set of `key:value` pairs.
+  _.matches = function(attrs) {
+    var pairs = _.pairs(attrs), length = pairs.length;
+    return function(obj) {
+      if (obj == null) return !length;
+      obj = new Object(obj);
+      for (var i = 0; i < length; i++) {
+        var pair = pairs[i], key = pair[0];
+        if (pair[1] !== obj[key] || !(key in obj)) return false;
+      }
+      return true;
+    };
+  };
+
+  // Run a function **n** times.
+  _.times = function(n, iteratee, context) {
+    var accum = Array(Math.max(0, n));
+    iteratee = createCallback(iteratee, context, 1);
+    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
+    return accum;
+  };
+
+  // Return a random integer between min and max (inclusive).
+  _.random = function(min, max) {
+    if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
+  };
+
+  // A (possibly faster) way to get the current timestamp as an integer.
+  _.now = Date.now || function() {
+    return new Date().getTime();
+  };
+
+   // List of HTML entities for escaping.
+  var escapeMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '`': '&#x60;'
+  };
+  var unescapeMap = _.invert(escapeMap);
+
+  // Functions for escaping and unescaping strings to/from HTML interpolation.
+  var createEscaper = function(map) {
+    var escaper = function(match) {
+      return map[match];
+    };
+    // Regexes for identifying a key that needs to be escaped
+    var source = '(?:' + _.keys(map).join('|') + ')';
+    var testRegexp = RegExp(source);
+    var replaceRegexp = RegExp(source, 'g');
+    return function(string) {
+      string = string == null ? '' : '' + string;
+      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+    };
+  };
+  _.escape = createEscaper(escapeMap);
+  _.unescape = createEscaper(unescapeMap);
+
+  // If the value of the named `property` is a function then invoke it with the
+  // `object` as context; otherwise, return it.
+  _.result = function(object, property) {
+    if (object == null) return void 0;
+    var value = object[property];
+    return _.isFunction(value) ? object[property]() : value;
+  };
+
+  // Generate a unique integer id (unique within the entire client session).
+  // Useful for temporary DOM ids.
+  var idCounter = 0;
+  _.uniqueId = function(prefix) {
+    var id = ++idCounter + '';
+    return prefix ? prefix + id : id;
+  };
+
+  // By default, Underscore uses ERB-style template delimiters, change the
+  // following template settings to use alternative delimiters.
+  _.templateSettings = {
+    evaluate    : /<%([\s\S]+?)%>/g,
+    interpolate : /<%=([\s\S]+?)%>/g,
+    escape      : /<%-([\s\S]+?)%>/g
+  };
+
+  // When customizing `templateSettings`, if you don't want to define an
+  // interpolation, evaluation or escaping regex, we need one that is
+  // guaranteed not to match.
+  var noMatch = /(.)^/;
+
+  // Certain characters need to be escaped so that they can be put into a
+  // string literal.
+  var escapes = {
+    "'":      "'",
+    '\\':     '\\',
+    '\r':     'r',
+    '\n':     'n',
+    '\u2028': 'u2028',
+    '\u2029': 'u2029'
+  };
+
+  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
+
+  var escapeChar = function(match) {
+    return '\\' + escapes[match];
+  };
+
+  // JavaScript micro-templating, similar to John Resig's implementation.
+  // Underscore templating handles arbitrary delimiters, preserves whitespace,
+  // and correctly escapes quotes within interpolated code.
+  // NB: `oldSettings` only exists for backwards compatibility.
+  _.template = function(text, settings, oldSettings) {
+    if (!settings && oldSettings) settings = oldSettings;
+    settings = _.defaults({}, settings, _.templateSettings);
+
+    // Combine delimiters into one regular expression via alternation.
+    var matcher = RegExp([
+      (settings.escape || noMatch).source,
+      (settings.interpolate || noMatch).source,
+      (settings.evaluate || noMatch).source
+    ].join('|') + '|$', 'g');
+
+    // Compile the template source, escaping string literals appropriately.
+    var index = 0;
+    var source = "__p+='";
+    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+      source += text.slice(index, offset).replace(escaper, escapeChar);
+      index = offset + match.length;
+
+      if (escape) {
+        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+      } else if (interpolate) {
+        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+      } else if (evaluate) {
+        source += "';\n" + evaluate + "\n__p+='";
+      }
+
+      // Adobe VMs need the match returned to produce the correct offest.
+      return match;
+    });
+    source += "';\n";
+
+    // If a variable is not specified, place data values in local scope.
+    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+
+    source = "var __t,__p='',__j=Array.prototype.join," +
+      "print=function(){__p+=__j.call(arguments,'');};\n" +
+      source + 'return __p;\n';
+
+    try {
+      var render = new Function(settings.variable || 'obj', '_', source);
+    } catch (e) {
+      e.source = source;
+      throw e;
+    }
+
+    var template = function(data) {
+      return render.call(this, data, _);
+    };
+
+    // Provide the compiled source as a convenience for precompilation.
+    var argument = settings.variable || 'obj';
+    template.source = 'function(' + argument + '){\n' + source + '}';
+
+    return template;
+  };
+
+  // Add a "chain" function. Start chaining a wrapped Underscore object.
+  _.chain = function(obj) {
+    var instance = _(obj);
+    instance._chain = true;
+    return instance;
+  };
+
+  // OOP
+  // ---------------
+  // If Underscore is called as a function, it returns a wrapped object that
+  // can be used OO-style. This wrapper holds altered versions of all the
+  // underscore functions. Wrapped objects may be chained.
+
+  // Helper function to continue chaining intermediate results.
+  var result = function(obj) {
+    return this._chain ? _(obj).chain() : obj;
+  };
+
+  // Add your own custom functions to the Underscore object.
+  _.mixin = function(obj) {
+    _.each(_.functions(obj), function(name) {
+      var func = _[name] = obj[name];
+      _.prototype[name] = function() {
+        var args = [this._wrapped];
+        push.apply(args, arguments);
+        return result.call(this, func.apply(_, args));
+      };
+    });
+  };
+
+  // Add all of the Underscore functions to the wrapper object.
+  _.mixin(_);
+
+  // Add all mutator Array functions to the wrapper.
+  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+    var method = ArrayProto[name];
+    _.prototype[name] = function() {
+      var obj = this._wrapped;
+      method.apply(obj, arguments);
+      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
+      return result.call(this, obj);
+    };
+  });
+
+  // Add all accessor Array functions to the wrapper.
+  _.each(['concat', 'join', 'slice'], function(name) {
+    var method = ArrayProto[name];
+    _.prototype[name] = function() {
+      return result.call(this, method.apply(this._wrapped, arguments));
+    };
+  });
+
+  // Extracts the result from a wrapped and chained object.
+  _.prototype.value = function() {
+    return this._wrapped;
+  };
+
+  // AMD registration happens at the end for compatibility with AMD loaders
+  // that may not enforce next-turn semantics on modules. Even though general
+  // practice for AMD registration is to be anonymous, underscore registers
+  // as a named module because, like jQuery, it is a base library that is
+  // popular enough to be bundled in a third party lib, but not be part of
+  // an AMD load request. Those cases could generate an error when an
+  // anonymous define() is called outside of a loader request.
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+      return _;
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  }
+}.call(this));
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//  Underscore.string
+//  (c) 2010 Esa-Matti Suuronen <esa-matti aet suuronen dot org>
+//  Underscore.string is freely distributable under the terms of the MIT license.
+//  Documentation: https://github.com/epeli/underscore.string
+//  Some code is borrowed from MooTools and Alexandru Marasteanu.
+//  Version '2.3.2'
+
+!function(root, String){
+  'use strict';
+
+  // Defining helper functions.
+
+  var nativeTrim = String.prototype.trim;
+  var nativeTrimRight = String.prototype.trimRight;
+  var nativeTrimLeft = String.prototype.trimLeft;
+
+  var parseNumber = function(source) { return source * 1 || 0; };
+
+  var strRepeat = function(str, qty){
+    if (qty < 1) return '';
+    var result = '';
+    while (qty > 0) {
+      if (qty & 1) result += str;
+      qty >>= 1, str += str;
+    }
+    return result;
+  };
+
+  var slice = [].slice;
+
+  var defaultToWhiteSpace = function(characters) {
+    if (characters == null)
+      return '\\s';
+    else if (characters.source)
+      return characters.source;
+    else
+      return '[' + _s.escapeRegExp(characters) + ']';
+  };
+
+  // Helper for toBoolean
+  function boolMatch(s, matchers) {
+    var i, matcher, down = s.toLowerCase();
+    matchers = [].concat(matchers);
+    for (i = 0; i < matchers.length; i += 1) {
+      matcher = matchers[i];
+      if (!matcher) continue;
+      if (matcher.test && matcher.test(s)) return true;
+      if (matcher.toLowerCase() === down) return true;
+    }
+  }
+
+  var escapeChars = {
+    lt: '<',
+    gt: '>',
+    quot: '"',
+    amp: '&',
+    apos: "'"
+  };
+
+  var reversedEscapeChars = {};
+  for(var key in escapeChars) reversedEscapeChars[escapeChars[key]] = key;
+  reversedEscapeChars["'"] = '#39';
+
+  // sprintf() for JavaScript 0.7-beta1
+  // http://www.diveintojavascript.com/projects/javascript-sprintf
+  //
+  // Copyright (c) Alexandru Marasteanu <alexaholic [at) gmail (dot] com>
+  // All rights reserved.
+
+  var sprintf = (function() {
+    function get_type(variable) {
+      return Object.prototype.toString.call(variable).slice(8, -1).toLowerCase();
+    }
+
+    var str_repeat = strRepeat;
+
+    var str_format = function() {
+      if (!str_format.cache.hasOwnProperty(arguments[0])) {
+        str_format.cache[arguments[0]] = str_format.parse(arguments[0]);
+      }
+      return str_format.format.call(null, str_format.cache[arguments[0]], arguments);
+    };
+
+    str_format.format = function(parse_tree, argv) {
+      var cursor = 1, tree_length = parse_tree.length, node_type = '', arg, output = [], i, k, match, pad, pad_character, pad_length;
+      for (i = 0; i < tree_length; i++) {
+        node_type = get_type(parse_tree[i]);
+        if (node_type === 'string') {
+          output.push(parse_tree[i]);
+        }
+        else if (node_type === 'array') {
+          match = parse_tree[i]; // convenience purposes only
+          if (match[2]) { // keyword argument
+            arg = argv[cursor];
+            for (k = 0; k < match[2].length; k++) {
+              if (!arg.hasOwnProperty(match[2][k])) {
+                throw new Error(sprintf('[_.sprintf] property "%s" does not exist', match[2][k]));
+              }
+              arg = arg[match[2][k]];
+            }
+          } else if (match[1]) { // positional argument (explicit)
+            arg = argv[match[1]];
+          }
+          else { // positional argument (implicit)
+            arg = argv[cursor++];
+          }
+
+          if (/[^s]/.test(match[8]) && (get_type(arg) != 'number')) {
+            throw new Error(sprintf('[_.sprintf] expecting number but found %s', get_type(arg)));
+          }
+          switch (match[8]) {
+            case 'b': arg = arg.toString(2); break;
+            case 'c': arg = String.fromCharCode(arg); break;
+            case 'd': arg = parseInt(arg, 10); break;
+            case 'e': arg = match[7] ? arg.toExponential(match[7]) : arg.toExponential(); break;
+            case 'f': arg = match[7] ? parseFloat(arg).toFixed(match[7]) : parseFloat(arg); break;
+            case 'o': arg = arg.toString(8); break;
+            case 's': arg = ((arg = String(arg)) && match[7] ? arg.substring(0, match[7]) : arg); break;
+            case 'u': arg = Math.abs(arg); break;
+            case 'x': arg = arg.toString(16); break;
+            case 'X': arg = arg.toString(16).toUpperCase(); break;
+          }
+          arg = (/[def]/.test(match[8]) && match[3] && arg >= 0 ? '+'+ arg : arg);
+          pad_character = match[4] ? match[4] == '0' ? '0' : match[4].charAt(1) : ' ';
+          pad_length = match[6] - String(arg).length;
+          pad = match[6] ? str_repeat(pad_character, pad_length) : '';
+          output.push(match[5] ? arg + pad : pad + arg);
+        }
+      }
+      return output.join('');
+    };
+
+    str_format.cache = {};
+
+    str_format.parse = function(fmt) {
+      var _fmt = fmt, match = [], parse_tree = [], arg_names = 0;
+      while (_fmt) {
+        if ((match = /^[^\x25]+/.exec(_fmt)) !== null) {
+          parse_tree.push(match[0]);
+        }
+        else if ((match = /^\x25{2}/.exec(_fmt)) !== null) {
+          parse_tree.push('%');
+        }
+        else if ((match = /^\x25(?:([1-9]\d*)\$|\(([^\)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-fosuxX])/.exec(_fmt)) !== null) {
+          if (match[2]) {
+            arg_names |= 1;
+            var field_list = [], replacement_field = match[2], field_match = [];
+            if ((field_match = /^([a-z_][a-z_\d]*)/i.exec(replacement_field)) !== null) {
+              field_list.push(field_match[1]);
+              while ((replacement_field = replacement_field.substring(field_match[0].length)) !== '') {
+                if ((field_match = /^\.([a-z_][a-z_\d]*)/i.exec(replacement_field)) !== null) {
+                  field_list.push(field_match[1]);
+                }
+                else if ((field_match = /^\[(\d+)\]/.exec(replacement_field)) !== null) {
+                  field_list.push(field_match[1]);
+                }
+                else {
+                  throw new Error('[_.sprintf] huh?');
+                }
+              }
+            }
+            else {
+              throw new Error('[_.sprintf] huh?');
+            }
+            match[2] = field_list;
+          }
+          else {
+            arg_names |= 2;
+          }
+          if (arg_names === 3) {
+            throw new Error('[_.sprintf] mixing positional and named placeholders is not (yet) supported');
+          }
+          parse_tree.push(match);
+        }
+        else {
+          throw new Error('[_.sprintf] huh?');
+        }
+        _fmt = _fmt.substring(match[0].length);
+      }
+      return parse_tree;
+    };
+
+    return str_format;
+  })();
+
+
+
+  // Defining underscore.string
+
+  var _s = {
+
+    VERSION: '2.3.0',
+
+    isBlank: function(str){
+      if (str == null) str = '';
+      return (/^\s*$/).test(str);
+    },
+
+    stripTags: function(str){
+      if (str == null) return '';
+      return String(str).replace(/<\/?[^>]+>/g, '');
+    },
+
+    capitalize : function(str){
+      str = str == null ? '' : String(str);
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    },
+
+    chop: function(str, step){
+      if (str == null) return [];
+      str = String(str);
+      step = ~~step;
+      return step > 0 ? str.match(new RegExp('.{1,' + step + '}', 'g')) : [str];
+    },
+
+    clean: function(str){
+      return _s.strip(str).replace(/\s+/g, ' ');
+    },
+
+    count: function(str, substr){
+      if (str == null || substr == null) return 0;
+
+      str = String(str);
+      substr = String(substr);
+
+      var count = 0,
+        pos = 0,
+        length = substr.length;
+
+      while (true) {
+        pos = str.indexOf(substr, pos);
+        if (pos === -1) break;
+        count++;
+        pos += length;
+      }
+
+      return count;
+    },
+
+    chars: function(str) {
+      if (str == null) return [];
+      return String(str).split('');
+    },
+
+    swapCase: function(str) {
+      if (str == null) return '';
+      return String(str).replace(/\S/g, function(c){
+        return c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase();
+      });
+    },
+
+    escapeHTML: function(str) {
+      if (str == null) return '';
+      return String(str).replace(/[&<>"']/g, function(m){ return '&' + reversedEscapeChars[m] + ';'; });
+    },
+
+    unescapeHTML: function(str) {
+      if (str == null) return '';
+      return String(str).replace(/\&([^;]+);/g, function(entity, entityCode){
+        var match;
+
+        if (entityCode in escapeChars) {
+          return escapeChars[entityCode];
+        } else if (match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
+          return String.fromCharCode(parseInt(match[1], 16));
+        } else if (match = entityCode.match(/^#(\d+)$/)) {
+          return String.fromCharCode(~~match[1]);
+        } else {
+          return entity;
+        }
+      });
+    },
+
+    escapeRegExp: function(str){
+      if (str == null) return '';
+      return String(str).replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
+    },
+
+    splice: function(str, i, howmany, substr){
+      var arr = _s.chars(str);
+      arr.splice(~~i, ~~howmany, substr);
+      return arr.join('');
+    },
+
+    insert: function(str, i, substr){
+      return _s.splice(str, i, 0, substr);
+    },
+
+    include: function(str, needle){
+      if (needle === '') return true;
+      if (str == null) return false;
+      return String(str).indexOf(needle) !== -1;
+    },
+
+    join: function() {
+      var args = slice.call(arguments),
+        separator = args.shift();
+
+      if (separator == null) separator = '';
+
+      return args.join(separator);
+    },
+
+    lines: function(str) {
+      if (str == null) return [];
+      return String(str).split("\n");
+    },
+
+    reverse: function(str){
+      return _s.chars(str).reverse().join('');
+    },
+
+    startsWith: function(str, starts){
+      if (starts === '') return true;
+      if (str == null || starts == null) return false;
+      str = String(str); starts = String(starts);
+      return str.length >= starts.length && str.slice(0, starts.length) === starts;
+    },
+
+    endsWith: function(str, ends){
+      if (ends === '') return true;
+      if (str == null || ends == null) return false;
+      str = String(str); ends = String(ends);
+      return str.length >= ends.length && str.slice(str.length - ends.length) === ends;
+    },
+
+    succ: function(str){
+      if (str == null) return '';
+      str = String(str);
+      return str.slice(0, -1) + String.fromCharCode(str.charCodeAt(str.length-1) + 1);
+    },
+
+    titleize: function(str){
+      if (str == null) return '';
+      str  = String(str).toLowerCase();
+      return str.replace(/(?:^|\s|-)\S/g, function(c){ return c.toUpperCase(); });
+    },
+
+    camelize: function(str){
+      return _s.trim(str).replace(/[-_\s]+(.)?/g, function(match, c){ return c ? c.toUpperCase() : ""; });
+    },
+
+    underscored: function(str){
+      return _s.trim(str).replace(/([a-z\d])([A-Z]+)/g, '$1_$2').replace(/[-\s]+/g, '_').toLowerCase();
+    },
+
+    dasherize: function(str){
+      return _s.trim(str).replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase();
+    },
+
+    classify: function(str){
+      return _s.titleize(String(str).replace(/[\W_]/g, ' ')).replace(/\s/g, '');
+    },
+
+    humanize: function(str){
+      return _s.capitalize(_s.underscored(str).replace(/_id$/,'').replace(/_/g, ' '));
+    },
+
+    trim: function(str, characters){
+      if (str == null) return '';
+      if (!characters && nativeTrim) return nativeTrim.call(str);
+      characters = defaultToWhiteSpace(characters);
+      return String(str).replace(new RegExp('\^' + characters + '+|' + characters + '+$', 'g'), '');
+    },
+
+    ltrim: function(str, characters){
+      if (str == null) return '';
+      if (!characters && nativeTrimLeft) return nativeTrimLeft.call(str);
+      characters = defaultToWhiteSpace(characters);
+      return String(str).replace(new RegExp('^' + characters + '+'), '');
+    },
+
+    rtrim: function(str, characters){
+      if (str == null) return '';
+      if (!characters && nativeTrimRight) return nativeTrimRight.call(str);
+      characters = defaultToWhiteSpace(characters);
+      return String(str).replace(new RegExp(characters + '+$'), '');
+    },
+
+    truncate: function(str, length, truncateStr){
+      if (str == null) return '';
+      str = String(str); truncateStr = truncateStr || '...';
+      length = ~~length;
+      return str.length > length ? str.slice(0, length) + truncateStr : str;
+    },
+
+    /**
+     * _s.prune: a more elegant version of truncate
+     * prune extra chars, never leaving a half-chopped word.
+     * @author github.com/rwz
+     */
+    prune: function(str, length, pruneStr){
+      if (str == null) return '';
+
+      str = String(str); length = ~~length;
+      pruneStr = pruneStr != null ? String(pruneStr) : '...';
+
+      if (str.length <= length) return str;
+
+      var tmpl = function(c){ return c.toUpperCase() !== c.toLowerCase() ? 'A' : ' '; },
+        template = str.slice(0, length+1).replace(/.(?=\W*\w*$)/g, tmpl); // 'Hello, world' -> 'HellAA AAAAA'
+
+      if (template.slice(template.length-2).match(/\w\w/))
+        template = template.replace(/\s*\S+$/, '');
+      else
+        template = _s.rtrim(template.slice(0, template.length-1));
+
+      return (template+pruneStr).length > str.length ? str : str.slice(0, template.length)+pruneStr;
+    },
+
+    words: function(str, delimiter) {
+      if (_s.isBlank(str)) return [];
+      return _s.trim(str, delimiter).split(delimiter || /\s+/);
+    },
+
+    pad: function(str, length, padStr, type) {
+      str = str == null ? '' : String(str);
+      length = ~~length;
+
+      var padlen  = 0;
+
+      if (!padStr)
+        padStr = ' ';
+      else if (padStr.length > 1)
+        padStr = padStr.charAt(0);
+
+      switch(type) {
+        case 'right':
+          padlen = length - str.length;
+          return str + strRepeat(padStr, padlen);
+        case 'both':
+          padlen = length - str.length;
+          return strRepeat(padStr, Math.ceil(padlen/2)) + str
+                  + strRepeat(padStr, Math.floor(padlen/2));
+        default: // 'left'
+          padlen = length - str.length;
+          return strRepeat(padStr, padlen) + str;
+        }
+    },
+
+    lpad: function(str, length, padStr) {
+      return _s.pad(str, length, padStr);
+    },
+
+    rpad: function(str, length, padStr) {
+      return _s.pad(str, length, padStr, 'right');
+    },
+
+    lrpad: function(str, length, padStr) {
+      return _s.pad(str, length, padStr, 'both');
+    },
+
+    sprintf: sprintf,
+
+    vsprintf: function(fmt, argv){
+      argv.unshift(fmt);
+      return sprintf.apply(null, argv);
+    },
+
+    toNumber: function(str, decimals) {
+      if (!str) return 0;
+      str = _s.trim(str);
+      if (!str.match(/^-?\d+(?:\.\d+)?$/)) return NaN;
+      return parseNumber(parseNumber(str).toFixed(~~decimals));
+    },
+
+    numberFormat : function(number, dec, dsep, tsep) {
+      if (isNaN(number) || number == null) return '';
+
+      number = number.toFixed(~~dec);
+      tsep = typeof tsep == 'string' ? tsep : ',';
+
+      var parts = number.split('.'), fnums = parts[0],
+        decimals = parts[1] ? (dsep || '.') + parts[1] : '';
+
+      return fnums.replace(/(\d)(?=(?:\d{3})+$)/g, '$1' + tsep) + decimals;
+    },
+
+    strRight: function(str, sep){
+      if (str == null) return '';
+      str = String(str); sep = sep != null ? String(sep) : sep;
+      var pos = !sep ? -1 : str.indexOf(sep);
+      return ~pos ? str.slice(pos+sep.length, str.length) : str;
+    },
+
+    strRightBack: function(str, sep){
+      if (str == null) return '';
+      str = String(str); sep = sep != null ? String(sep) : sep;
+      var pos = !sep ? -1 : str.lastIndexOf(sep);
+      return ~pos ? str.slice(pos+sep.length, str.length) : str;
+    },
+
+    strLeft: function(str, sep){
+      if (str == null) return '';
+      str = String(str); sep = sep != null ? String(sep) : sep;
+      var pos = !sep ? -1 : str.indexOf(sep);
+      return ~pos ? str.slice(0, pos) : str;
+    },
+
+    strLeftBack: function(str, sep){
+      if (str == null) return '';
+      str += ''; sep = sep != null ? ''+sep : sep;
+      var pos = str.lastIndexOf(sep);
+      return ~pos ? str.slice(0, pos) : str;
+    },
+
+    toSentence: function(array, separator, lastSeparator, serial) {
+      separator = separator || ', ';
+      lastSeparator = lastSeparator || ' and ';
+      var a = array.slice(), lastMember = a.pop();
+
+      if (array.length > 2 && serial) lastSeparator = _s.rtrim(separator) + lastSeparator;
+
+      return a.length ? a.join(separator) + lastSeparator + lastMember : lastMember;
+    },
+
+    toSentenceSerial: function() {
+      var args = slice.call(arguments);
+      args[3] = true;
+      return _s.toSentence.apply(_s, args);
+    },
+
+    slugify: function(str) {
+      if (str == null) return '';
+
+      var from  = "ąàáäâãåæăćęèéëêìíïîłńòóöôõøśșțùúüûñçżź",
+          to    = "aaaaaaaaaceeeeeiiiilnoooooosstuuuunczz",
+          regex = new RegExp(defaultToWhiteSpace(from), 'g');
+
+      str = String(str).toLowerCase().replace(regex, function(c){
+        var index = from.indexOf(c);
+        return to.charAt(index) || '-';
+      });
+
+      return _s.dasherize(str.replace(/[^\w\s-]/g, ''));
+    },
+
+    surround: function(str, wrapper) {
+      return [wrapper, str, wrapper].join('');
+    },
+
+    quote: function(str, quoteChar) {
+      return _s.surround(str, quoteChar || '"');
+    },
+
+    unquote: function(str, quoteChar) {
+      quoteChar = quoteChar || '"';
+      if (str[0] === quoteChar && str[str.length-1] === quoteChar)
+        return str.slice(1,str.length-1);
+      else return str;
+    },
+
+    exports: function() {
+      var result = {};
+
+      for (var prop in this) {
+        if (!this.hasOwnProperty(prop) || prop.match(/^(?:include|contains|reverse)$/)) continue;
+        result[prop] = this[prop];
+      }
+
+      return result;
+    },
+
+    repeat: function(str, qty, separator){
+      if (str == null) return '';
+
+      qty = ~~qty;
+
+      // using faster implementation if separator is not needed;
+      if (separator == null) return strRepeat(String(str), qty);
+
+      // this one is about 300x slower in Google Chrome
+      for (var repeat = []; qty > 0; repeat[--qty] = str) {}
+      return repeat.join(separator);
+    },
+
+    naturalCmp: function(str1, str2){
+      if (str1 == str2) return 0;
+      if (!str1) return -1;
+      if (!str2) return 1;
+
+      var cmpRegex = /(\.\d+)|(\d+)|(\D+)/g,
+        tokens1 = String(str1).toLowerCase().match(cmpRegex),
+        tokens2 = String(str2).toLowerCase().match(cmpRegex),
+        count = Math.min(tokens1.length, tokens2.length);
+
+      for(var i = 0; i < count; i++) {
+        var a = tokens1[i], b = tokens2[i];
+
+        if (a !== b){
+          var num1 = parseInt(a, 10);
+          if (!isNaN(num1)){
+            var num2 = parseInt(b, 10);
+            if (!isNaN(num2) && num1 - num2)
+              return num1 - num2;
+          }
+          return a < b ? -1 : 1;
+        }
+      }
+
+      if (tokens1.length === tokens2.length)
+        return tokens1.length - tokens2.length;
+
+      return str1 < str2 ? -1 : 1;
+    },
+
+    levenshtein: function(str1, str2) {
+      if (str1 == null && str2 == null) return 0;
+      if (str1 == null) return String(str2).length;
+      if (str2 == null) return String(str1).length;
+
+      str1 = String(str1); str2 = String(str2);
+
+      var current = [], prev, value;
+
+      for (var i = 0; i <= str2.length; i++)
+        for (var j = 0; j <= str1.length; j++) {
+          if (i && j)
+            if (str1.charAt(j - 1) === str2.charAt(i - 1))
+              value = prev;
+            else
+              value = Math.min(current[j], current[j - 1], prev) + 1;
+          else
+            value = i + j;
+
+          prev = current[j];
+          current[j] = value;
+        }
+
+      return current.pop();
+    },
+
+    toBoolean: function(str, trueValues, falseValues) {
+      if (typeof str === "number") str = "" + str;
+      if (typeof str !== "string") return !!str;
+      str = _s.trim(str);
+      if (boolMatch(str, trueValues || ["true", "1"])) return true;
+      if (boolMatch(str, falseValues || ["false", "0"])) return false;
+    }
+  };
+
+  // Aliases
+
+  _s.strip    = _s.trim;
+  _s.lstrip   = _s.ltrim;
+  _s.rstrip   = _s.rtrim;
+  _s.center   = _s.lrpad;
+  _s.rjust    = _s.lpad;
+  _s.ljust    = _s.rpad;
+  _s.contains = _s.include;
+  _s.q        = _s.quote;
+  _s.toBool   = _s.toBoolean;
+
+  // Exporting
+
+  // CommonJS module is defined
+  if (true) {
+    if (typeof module !== 'undefined' && module.exports)
+      module.exports = _s;
+
+    exports._s = _s;
+  }
+
+  // Register as a named module with AMD.
+  if (true)
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){ return _s; }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+  // Integrate with Underscore.js if defined
+  // or create our own underscore object.
+  root._ = root._ || {};
+  root._.string = root._.str = _s;
+}(this, String);
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+	danish: __webpack_require__(31).stopwords,
+	dutch: __webpack_require__(32).stopwords,
+	english: __webpack_require__(33).stopwords,
+	french: __webpack_require__(34).stopwords,
+	galician: __webpack_require__(35).stopwords,
+	german: __webpack_require__(36).stopwords,
+	italian: __webpack_require__(37).stopwords,
+	polish: __webpack_require__(38).stopwords,
+	portuguese: __webpack_require__(39).stopwords,
+	russian: __webpack_require__(40).stopwords,
+	spanish: __webpack_require__(41).stopwords,
+	swedish: __webpack_require__(42).stopwords
+};
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+// Danish stopwords
+// http://www.ranks.nl/stopwords/danish
+// https://github.com/dnohr
+
+module.exports = {
+    stopwords: [
+		"ad",
+		"af",
+		"aldrig",
+		"alle",
+		"alt",
+		"altid",
+		"anden",
+		"andet",
+		"andre",
+		"at",
+		"bagved",
+		"begge",
+		"blev",
+		"blive",
+		"bliver",
+		"da",
+		"de",
+		"dem",
+		"den",
+		"denne",
+		"der",
+		"deres",
+		"det",
+		"dette",
+		"dig",
+		"din",
+		"disse",
+		"dog",
+		"du",
+		"efter",
+		"ej",
+		"eller",
+		"en",
+		"end",
+		"endnu",
+		"ene",
+		"eneste",
+		"enhver",
+		"er",
+		"et",
+		"fem",
+		"fire",
+		"fjernt",
+		"flere",
+		"fleste",
+		"for",
+		"foran",
+		"fordi",
+		"forrige",
+		"fra",
+		"få",
+		"før",
+		"gennem",
+		"god",
+		"ham",
+		"han",
+		"hans",
+		"har",
+		"havde",
+		"have",
+		"hende",
+		"hendes",
+		"her",
+		"hos",
+		"hovfor",
+		"hun",
+		"hurtig",
+		"hvad",
+		"hvem",
+		"hver",
+		"hvilken",
+		"hvis",
+		"hvonår",
+		"hvor",
+		"hvordan",
+		"hvorfor",
+		"hvorhen",
+		"hvornår",
+		"i",
+		"ikke",
+		"imod",
+		"ind",
+		"ingen",
+		"intet",
+		"ja",
+		"jeg",
+		"jer",
+		"jeres",
+		"jo",
+		"kan",
+		"kom",
+		"kommer",
+		"kunne",
+		"langsom",
+		"lav",
+		"lidt",
+		"lille",
+		"man",
+		"mand",
+		"mange",
+		"med",
+		"meget",
+		"mellem",
+		"men",
+		"mens",
+		"mere",
+		"mig",
+		"min",
+		"mindre",
+		"mine",
+		"mit",
+		"mod",
+		"måske",
+		"ned",
+		"nede",
+		"nej",
+		"ni",
+		"nogen",
+		"noget",
+		"nogle",
+		"nok",
+		"nu",
+		"ny",
+		"nyt",
+		"når",
+		"nær",
+		"næste",
+		"næsten",
+		"og",
+		"også",
+		"om",
+		"op",
+		"oppe",
+		"os",
+		"otte",
+		"over",
+		"på",
+		"rask",
+		"sammen",
+		"se",
+		"seks",
+		"selv",
+		"ses",
+		"sig",
+		"sin",
+		"sine",
+		"sit",
+		"skal",
+		"skulle",
+		"som",
+		"stor",
+		"store",
+		"syv",
+		"sådan",
+		"temmelig",
+		"thi",
+		"ti",
+		"til",
+		"to",
+		"tre",
+		"ud",
+		"uden",
+		"udenfor",
+		"under",
+		"var",
+		"ved",
+		"vi",
+		"vil",
+		"ville",
+		"vor",
+		"være",
+		"været"
+    ]
+};
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by jan on 9-3-15.
+ */
+// Dutch stopwords
+// via https://code.google.com/p/stop-words/
+
+
+
+module.exports = {
+    stopwords:[
+        "aan",
+        "af",
+        "al",
+        "als",
+        "bij",
+        "dan",
+        "dat",
+        "die",
+        "dit",
+        "een",
+        "en",
+        "er",
+        "had",
+        "heb",
+        "hem",
+        "het",
+        "hij",
+        "hoe",
+        "hun",
+        "ik",
+        "in",
+        "is",
+        "je",
+        "kan",
+        "me",
+        "men",
+        "met",
+        "mij",
+        "nog",
+        "nu",
+        "of",
+        "ons",
+        "ook",
+        "te",
+        "tot",
+        "uit",
+        "van",
+        "was",
+        "wat",
+        "we",
+        "wel",
+        "wij",
+        "zal",
+        "ze",
+        "zei",
+        "zij",
+        "zo",
+        "zou",
+        "aan",
+        "aangaande",
+        "aangezien",
+        "achter",
+        "achterna",
+        "afgelopen",
+        "al",
+        "aldaar",
+        "aldus",
+        "alhoewel",
+        "alias",
+        "alle",
+        "allebei",
+        "alleen",
+        "alsnog",
+        "altijd",
+        "altoos",
+        "ander",
+        "andere",
+        "anders",
+        "anderszins",
+        "behalve",
+        "behoudens",
+        "beide",
+        "beiden",
+        "ben",
+        "beneden",
+        "bent",
+        "bepaald",
+        "betreffende",
+        "bij",
+        "binnen",
+        "binnenin",
+        "boven",
+        "bovenal",
+        "bovendien",
+        "bovengenoemd",
+        "bovenstaand",
+        "bovenvermeld",
+        "buiten",
+        "daar",
+        "daarheen",
+        "daarin",
+        "daarna",
+        "daarnet",
+        "daarom",
+        "daarop",
+        "daarvanlangs",
+        "dan",
+        "dat",
+        "de",
+        "die",
+        "dikwijls",
+        "dit",
+        "door",
+        "doorgaand",
+        "dus",
+        "echter",
+        "eer",
+        "eerdat",
+        "eerder",
+        "eerlang",
+        "eerst",
+        "elk",
+        "elke",
+        "en",
+        "enig",
+        "enigszins",
+        "enkel",
+        "er",
+        "erdoor",
+        "even",
+        "eveneens",
+        "evenwel",
+        "gauw",
+        "gedurende",
+        "geen",
+        "gehad",
+        "gekund",
+        "geleden",
+        "gelijk",
+        "gemoeten",
+        "gemogen",
+        "geweest",
+        "gewoon",
+        "gewoonweg",
+        "haar",
+        "had",
+        "hadden",
+        "hare",
+        "heb",
+        "hebben",
+        "hebt",
+        "heeft",
+        "hem",
+        "hen",
+        "het",
+        "hierbeneden",
+        "hierboven",
+        "hij",
+        "hoe",
+        "hoewel",
+        "hun",
+        "hunne",
+        "ik",
+        "ikzelf",
+        "in",
+        "inmiddels",
+        "inzake",
+        "is",
+        "jezelf",
+        "jij",
+        "jijzelf",
+        "jou",
+        "jouw",
+        "jouwe",
+        "juist",
+        "jullie",
+        "kan",
+        "klaar",
+        "kon",
+        "konden",
+        "krachtens",
+        "kunnen",
+        "kunt",
+        "later",
+        "liever",
+        "maar",
+        "mag",
+        "meer",
+        "met",
+        "mezelf",
+        "mij",
+        "mijn",
+        "mijnent",
+        "mijner",
+        "mijzelf",
+        "misschien",
+        "mocht",
+        "mochten",
+        "moest",
+        "moesten",
+        "moet",
+        "moeten",
+        "mogen",
+        "na",
+        "naar",
+        "nadat",
+        "net",
+        "niet",
+        "noch",
+        "nog",
+        "nogal",
+        "nu",
+        "of",
+        "ofschoon",
+        "om",
+        "omdat",
+        "omhoog",
+        "omlaag",
+        "omstreeks",
+        "omtrent",
+        "omver",
+        "onder",
+        "ondertussen",
+        "ongeveer",
+        "ons",
+        "onszelf",
+        "onze",
+        "ook",
+        "op",
+        "opnieuw",
+        "opzij",
+        "over",
+        "overeind",
+        "overigens",
+        "pas",
+        "precies",
+        "reeds",
+        "rond",
+        "rondom",
+        "sedert",
+        "sinds",
+        "sindsdien",
+        "slechts",
+        "sommige",
+        "spoedig",
+        "steeds",
+        "tamelijk",
+        "tenzij",
+        "terwijl",
+        "thans",
+        "tijdens",
+        "toch",
+        "toen",
+        "toenmaals",
+        "toenmalig",
+        "tot",
+        "totdat",
+        "tussen",
+        "uit",
+        "uitgezonderd",
+        "vaakwat",
+        "van",
+        "vandaan",
+        "vanuit",
+        "vanwege",
+        "veeleer",
+        "verder",
+        "vervolgens",
+        "vol",
+        "volgens",
+        "voor",
+        "vooraf",
+        "vooral",
+        "vooralsnog",
+        "voorbij",
+        "voordat",
+        "voordezen",
+        "voordien",
+        "voorheen",
+        "voorop",
+        "vooruit",
+        "vrij",
+        "vroeg",
+        "waar",
+        "waarom",
+        "wanneer",
+        "want",
+        "waren",
+        "was",
+        "weer",
+        "weg",
+        "wegens",
+        "wel",
+        "weldra",
+        "welk",
+        "welke",
+        "wie",
+        "wiens",
+        "wier",
+        "wij",
+        "wijzelf",
+        "zal",
+        "ze",
+        "zelfs",
+        "zichzelf",
+        "zij",
+        "zijn",
+        "zijne",
+        "zo",
+        "zodra",
+        "zonder",
+        "zou",
+        "zouden",
+        "zowat",
+        "zulke",
+        "zullen",
+        "zult"
+    ]
+};
+
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+// via http://jmlr.org/papers/volume5/lewis04a/a11-smart-stop-list/english.stop
+module.exports = {
+    stopwords:[
+        "a",
+        "a's",
+        "able",
+        "about",
+        "above",
+        "according",
+        "accordingly",
+        "across",
+        "actually",
+        "after",
+        "afterwards",
+        "again",
+        "against",
+        "ain't",
+        "all",
+        "allow",
+        "allows",
+        "almost",
+        "alone",
+        "along",
+        "already",
+        "also",
+        "although",
+        "always",
+        "am",
+        "among",
+        "amongst",
+        "an",
+        "and",
+        "another",
+        "any",
+        "anybody",
+        "anyhow",
+        "anyone",
+        "anything",
+        "anyway",
+        "anyways",
+        "anywhere",
+        "apart",
+        "appear",
+        "appreciate",
+        "appropriate",
+        "are",
+        "aren't",
+        "around",
+        "as",
+        "aside",
+        "ask",
+        "asking",
+        "associated",
+        "at",
+        "available",
+        "away",
+        "awfully",
+        "b",
+        "be",
+        "became",
+        "because",
+        "become",
+        "becomes",
+        "becoming",
+        "been",
+        "before",
+        "beforehand",
+        "behind",
+        "being",
+        "believe",
+        "below",
+        "beside",
+        "besides",
+        "best",
+        "better",
+        "between",
+        "beyond",
+        "both",
+        "brief",
+        "but",
+        "by",
+        "c",
+        "c'mon",
+        "c's",
+        "came",
+        "can",
+        "can't",
+        "cannot",
+        "cant",
+        "cause",
+        "causes",
+        "certain",
+        "certainly",
+        "changes",
+        "clearly",
+        "co",
+        "com",
+        "come",
+        "comes",
+        "concerning",
+        "consequently",
+        "consider",
+        "considering",
+        "contain",
+        "containing",
+        "contains",
+        "corresponding",
+        "could",
+        "couldn't",
+        "course",
+        "currently",
+        "d",
+        "definitely",
+        "described",
+        "despite",
+        "did",
+        "didn't",
+        "different",
+        "do",
+        "does",
+        "doesn't",
+        "doing",
+        "don't",
+        "done",
+        "down",
+        "downwards",
+        "during",
+        "e",
+        "each",
+        "edu",
+        "eg",
+        "eight",
+        "either",
+        "else",
+        "elsewhere",
+        "enough",
+        "entirely",
+        "especially",
+        "et",
+        "etc",
+        "even",
+        "ever",
+        "every",
+        "everybody",
+        "everyone",
+        "everything",
+        "everywhere",
+        "ex",
+        "exactly",
+        "example",
+        "except",
+        "f",
+        "far",
+        "few",
+        "fifth",
+        "first",
+        "five",
+        "followed",
+        "following",
+        "follows",
+        "for",
+        "former",
+        "formerly",
+        "forth",
+        "four",
+        "from",
+        "further",
+        "furthermore",
+        "g",
+        "get",
+        "gets",
+        "getting",
+        "given",
+        "gives",
+        "go",
+        "goes",
+        "going",
+        "gone",
+        "got",
+        "gotten",
+        "greetings",
+        "h",
+        "had",
+        "hadn't",
+        "happens",
+        "hardly",
+        "has",
+        "hasn't",
+        "have",
+        "haven't",
+        "having",
+        "he",
+        "he's",
+        "hello",
+        "help",
+        "hence",
+        "her",
+        "here",
+        "here's",
+        "hereafter",
+        "hereby",
+        "herein",
+        "hereupon",
+        "hers",
+        "herself",
+        "hi",
+        "him",
+        "himself",
+        "his",
+        "hither",
+        "hopefully",
+        "how",
+        "howbeit",
+        "however",
+        "i",
+        "i'd",
+        "i'll",
+        "i'm",
+        "i've",
+        "ie",
+        "if",
+        "ignored",
+        "immediate",
+        "in",
+        "inasmuch",
+        "inc",
+        "indeed",
+        "indicate",
+        "indicated",
+        "indicates",
+        "inner",
+        "insofar",
+        "instead",
+        "into",
+        "inward",
+        "is",
+        "isn't",
+        "it",
+        "it'd",
+        "it'll",
+        "it's",
+        "its",
+        "itself",
+        "j",
+        "just",
+        "k",
+        "keep",
+        "keeps",
+        "kept",
+        "know",
+        "knows",
+        "known",
+        "l",
+        "last",
+        "lately",
+        "later",
+        "latter",
+        "latterly",
+        "least",
+        "less",
+        "lest",
+        "let",
+        "let's",
+        "like",
+        "liked",
+        "likely",
+        "little",
+        "look",
+        "looking",
+        "looks",
+        "ltd",
+        "m",
+        "mainly",
+        "many",
+        "may",
+        "maybe",
+        "me",
+        "mean",
+        "meanwhile",
+        "merely",
+        "might",
+        "more",
+        "moreover",
+        "most",
+        "mostly",
+        "much",
+        "must",
+        "my",
+        "myself",
+        "n",
+        "name",
+        "namely",
+        "nd",
+        "near",
+        "nearly",
+        "necessary",
+        "need",
+        "needs",
+        "neither",
+        "never",
+        "nevertheless",
+        "new",
+        "next",
+        "nine",
+        "no",
+        "nobody",
+        "non",
+        "none",
+        "noone",
+        "nor",
+        "normally",
+        "not",
+        "nothing",
+        "novel",
+        "now",
+        "nowhere",
+        "o",
+        "obviously",
+        "of",
+        "off",
+        "often",
+        "oh",
+        "ok",
+        "okay",
+        "old",
+        "on",
+        "once",
+        "one",
+        "ones",
+        "only",
+        "onto",
+        "or",
+        "other",
+        "others",
+        "otherwise",
+        "ought",
+        "our",
+        "ours",
+        "ourselves",
+        "out",
+        "outside",
+        "over",
+        "overall",
+        "own",
+        "p",
+        "particular",
+        "particularly",
+        "per",
+        "perhaps",
+        "placed",
+        "please",
+        "plus",
+        "possible",
+        "presumably",
+        "probably",
+        "provides",
+        "q",
+        "que",
+        "quite",
+        "qv",
+        "r",
+        "rather",
+        "rd",
+        "re",
+        "really",
+        "reasonably",
+        "regarding",
+        "regardless",
+        "regards",
+        "relatively",
+        "respectively",
+        "right",
+        "s",
+        "said",
+        "same",
+        "saw",
+        "say",
+        "saying",
+        "says",
+        "second",
+        "secondly",
+        "see",
+        "seeing",
+        "seem",
+        "seemed",
+        "seeming",
+        "seems",
+        "seen",
+        "self",
+        "selves",
+        "sensible",
+        "sent",
+        "serious",
+        "seriously",
+        "seven",
+        "several",
+        "shall",
+        "she",
+        "should",
+        "shouldn't",
+        "since",
+        "six",
+        "so",
+        "some",
+        "somebody",
+        "somehow",
+        "someone",
+        "something",
+        "sometime",
+        "sometimes",
+        "somewhat",
+        "somewhere",
+        "soon",
+        "sorry",
+        "specified",
+        "specify",
+        "specifying",
+        "still",
+        "sub",
+        "such",
+        "sup",
+        "sure",
+        "t",
+        "t's",
+        "take",
+        "taken",
+        "tell",
+        "tends",
+        "th",
+        "than",
+        "thank",
+        "thanks",
+        "thanx",
+        "that",
+        "that's",
+        "thats",
+        "the",
+        "their",
+        "theirs",
+        "them",
+        "themselves",
+        "then",
+        "thence",
+        "there",
+        "there's",
+        "thereafter",
+        "thereby",
+        "therefore",
+        "therein",
+        "theres",
+        "thereupon",
+        "these",
+        "they",
+        "they'd",
+        "they'll",
+        "they're",
+        "they've",
+        "think",
+        "third",
+        "this",
+        "thorough",
+        "thoroughly",
+        "those",
+        "though",
+        "three",
+        "through",
+        "throughout",
+        "thru",
+        "thus",
+        "to",
+        "together",
+        "too",
+        "took",
+        "toward",
+        "towards",
+        "tried",
+        "tries",
+        "truly",
+        "try",
+        "trying",
+        "twice",
+        "two",
+        "u",
+        "un",
+        "under",
+        "unfortunately",
+        "unless",
+        "unlikely",
+        "until",
+        "unto",
+        "up",
+        "upon",
+        "us",
+        "use",
+        "used",
+        "useful",
+        "uses",
+        "using",
+        "usually",
+        "uucp",
+        "v",
+        "value",
+        "various",
+        "very",
+        "via",
+        "viz",
+        "vs",
+        "w",
+        "want",
+        "wants",
+        "was",
+        "wasn't",
+        "way",
+        "we",
+        "we'd",
+        "we'll",
+        "we're",
+        "we've",
+        "welcome",
+        "well",
+        "went",
+        "were",
+        "weren't",
+        "what",
+        "what's",
+        "whatever",
+        "when",
+        "whence",
+        "whenever",
+        "where",
+        "where's",
+        "whereafter",
+        "whereas",
+        "whereby",
+        "wherein",
+        "whereupon",
+        "wherever",
+        "whether",
+        "which",
+        "while",
+        "whither",
+        "who",
+        "who's",
+        "whoever",
+        "whole",
+        "whom",
+        "whose",
+        "why",
+        "will",
+        "willing",
+        "wish",
+        "with",
+        "within",
+        "without",
+        "won't",
+        "wonder",
+        "would",
+        "would",
+        "wouldn't",
+        "x",
+        "y",
+        "yes",
+        "yet",
+        "you",
+        "you'd",
+        "you'll",
+        "you're",
+        "you've",
+        "your",
+        "yours",
+        "yourself",
+        "yourselves",
+        "z",
+        "zero"
+    ]
+};
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by jan on 9-3-15.
+ */
+// French stopwords
+// via https://code.google.com/p/stop-words/
+
+module.exports = {
+    stopwords: [
+        "a",
+        "à",
+        "â",
+        "abord",
+        "afin",
+        "ah",
+        "ai",
+        "aie",
+        "ainsi",
+        "allaient",
+        "allo",
+        "allô",
+        "allons",
+        "après",
+        "assez",
+        "attendu",
+        "au",
+        "aucun",
+        "aucune",
+        "aujourd",
+        "aujourd'hui",
+        "auquel",
+        "aura",
+        "auront",
+        "aussi",
+        "autre",
+        "autres",
+        "aux",
+        "auxquelles",
+        "auxquels",
+        "avaient",
+        "avais",
+        "avait",
+        "avant",
+        "avec",
+        "avoir",
+        "ayant",
+        "b",
+        "bah",
+        "beaucoup",
+        "bien",
+        "bigre",
+        "boum",
+        "bravo",
+        "brrr",
+        "c",
+        "ça",
+        "car",
+        "ce",
+        "ceci",
+        "cela",
+        "celle",
+        "celle-ci",
+        "celle-là",
+        "celles",
+        "celles-ci",
+        "celles-là",
+        "celui",
+        "celui-ci",
+        "celui-là",
+        "cent",
+        "cependant",
+        "certain",
+        "certaine",
+        "certaines",
+        "certains",
+        "certes",
+        "ces",
+        "cet",
+        "cette",
+        "ceux",
+        "ceux-ci",
+        "ceux-là",
+        "chacun",
+        "chaque",
+        "cher",
+        "chère",
+        "chères",
+        "chers",
+        "chez",
+        "chiche",
+        "chut",
+        "ci",
+        "cinq",
+        "cinquantaine",
+        "cinquante",
+        "cinquantième",
+        "cinquième",
+        "clac",
+        "clic",
+        "combien",
+        "comme",
+        "comment",
+        "compris",
+        "concernant",
+        "contre",
+        "couic",
+        "crac",
+        "d",
+        "da",
+        "dans",
+        "de",
+        "debout",
+        "dedans",
+        "dehors",
+        "delà",
+        "depuis",
+        "derrière",
+        "des",
+        "dès",
+        "désormais",
+        "desquelles",
+        "desquels",
+        "dessous",
+        "dessus",
+        "deux",
+        "deuxième",
+        "deuxièmement",
+        "devant",
+        "devers",
+        "devra",
+        "différent",
+        "différente",
+        "différentes",
+        "différents",
+        "dire",
+        "divers",
+        "diverse",
+        "diverses",
+        "dix",
+        "dix-huit",
+        "dixième",
+        "dix-neuf",
+        "dix-sept",
+        "doit",
+        "doivent",
+        "donc",
+        "dont",
+        "douze",
+        "douzième",
+        "dring",
+        "du",
+        "duquel",
+        "durant",
+        "e",
+        "effet",
+        "eh",
+        "elle",
+        "elle-même",
+        "elles",
+        "elles-mêmes",
+        "en",
+        "encore",
+        "entre",
+        "envers",
+        "environ",
+        "es",
+        "ès",
+        "est",
+        "et",
+        "etant",
+        "étaient",
+        "étais",
+        "était",
+        "étant",
+        "etc",
+        "été",
+        "etre",
+        "être",
+        "eu",
+        "euh",
+        "eux",
+        "eux-mêmes",
+        "excepté",
+        "f",
+        "façon",
+        "fais",
+        "faisaient",
+        "faisant",
+        "fait",
+        "feront",
+        "fi",
+        "flac",
+        "floc",
+        "font",
+        "g",
+        "gens",
+        "h",
+        "ha",
+        "hé",
+        "hein",
+        "hélas",
+        "hem",
+        "hep",
+        "hi",
+        "ho",
+        "holà",
+        "hop",
+        "hormis",
+        "hors",
+        "hou",
+        "houp",
+        "hue",
+        "hui",
+        "huit",
+        "huitième",
+        "hum",
+        "hurrah",
+        "i",
+        "il",
+        "ils",
+        "importe",
+        "j",
+        "je",
+        "jusqu",
+        "jusque",
+        "k",
+        "l",
+        "la",
+        "là",
+        "laquelle",
+        "las",
+        "le",
+        "lequel",
+        "les",
+        "lès",
+        "lesquelles",
+        "lesquels",
+        "leur",
+        "leurs",
+        "longtemps",
+        "lorsque",
+        "lui",
+        "lui-même",
+        "m",
+        "ma",
+        "maint",
+        "mais",
+        "malgré",
+        "me",
+        "même",
+        "mêmes",
+        "merci",
+        "mes",
+        "mien",
+        "mienne",
+        "miennes",
+        "miens",
+        "mille",
+        "mince",
+        "moi",
+        "moi-même",
+        "moins",
+        "mon",
+        "moyennant",
+        "n",
+        "na",
+        "ne",
+        "néanmoins",
+        "neuf",
+        "neuvième",
+        "ni",
+        "nombreuses",
+        "nombreux",
+        "non",
+        "nos",
+        "notre",
+        "nôtre",
+        "nôtres",
+        "nous",
+        "nous-mêmes",
+        "nul",
+        "o",
+        "o|",
+        "ô",
+        "oh",
+        "ohé",
+        "olé",
+        "ollé",
+        "on",
+        "ont",
+        "onze",
+        "onzième",
+        "ore",
+        "ou",
+        "où",
+        "ouf",
+        "ouias",
+        "oust",
+        "ouste",
+        "outre",
+        "p",
+        "paf",
+        "pan",
+        "par",
+        "parmi",
+        "partant",
+        "particulier",
+        "particulière",
+        "particulièrement",
+        "pas",
+        "passé",
+        "pendant",
+        "personne",
+        "peu",
+        "peut",
+        "peuvent",
+        "peux",
+        "pff",
+        "pfft",
+        "pfut",
+        "pif",
+        "plein",
+        "plouf",
+        "plus",
+        "plusieurs",
+        "plutôt",
+        "pouah",
+        "pour",
+        "pourquoi",
+        "premier",
+        "première",
+        "premièrement",
+        "près",
+        "proche",
+        "psitt",
+        "puisque",
+        "q",
+        "qu",
+        "quand",
+        "quant",
+        "quanta",
+        "quant-à-soi",
+        "quarante",
+        "quatorze",
+        "quatre",
+        "quatre-vingt",
+        "quatrième",
+        "quatrièmement",
+        "que",
+        "quel",
+        "quelconque",
+        "quelle",
+        "quelles",
+        "quelque",
+        "quelques",
+        "quelqu'un",
+        "quels",
+        "qui",
+        "quiconque",
+        "quinze",
+        "quoi",
+        "quoique",
+        "r",
+        "revoici",
+        "revoilà",
+        "rien",
+        "s",
+        "sa",
+        "sacrebleu",
+        "sans",
+        "sapristi",
+        "sauf",
+        "se",
+        "seize",
+        "selon",
+        "sept",
+        "septième",
+        "sera",
+        "seront",
+        "ses",
+        "si",
+        "sien",
+        "sienne",
+        "siennes",
+        "siens",
+        "sinon",
+        "six",
+        "sixième",
+        "soi",
+        "soi-même",
+        "soit",
+        "soixante",
+        "son",
+        "sont",
+        "sous",
+        "stop",
+        "suis",
+        "suivant",
+        "sur",
+        "surtout",
+        "t",
+        "ta",
+        "tac",
+        "tant",
+        "te",
+        "té",
+        "tel",
+        "telle",
+        "tellement",
+        "telles",
+        "tels",
+        "tenant",
+        "tes",
+        "tic",
+        "tien",
+        "tienne",
+        "tiennes",
+        "tiens",
+        "toc",
+        "toi",
+        "toi-même",
+        "ton",
+        "touchant",
+        "toujours",
+        "tous",
+        "tout",
+        "toute",
+        "toutes",
+        "treize",
+        "trente",
+        "très",
+        "trois",
+        "troisième",
+        "troisièmement",
+        "trop",
+        "tsoin",
+        "tsouin",
+        "tu",
+        "u",
+        "un",
+        "une",
+        "unes",
+        "uns",
+        "v",
+        "va",
+        "vais",
+        "vas",
+        "vé",
+        "vers",
+        "via",
+        "vif",
+        "vifs",
+        "vingt",
+        "vivat",
+        "vive",
+        "vives",
+        "vlan",
+        "voici",
+        "voilà",
+        "vont",
+        "vos",
+        "votre",
+        "vôtre",
+        "vôtres",
+        "vous",
+        "vous-mêmes",
+        "vu",
+        "w",
+        "x",
+        "y",
+        "z",
+        "zut",
+        "﻿alors",
+        "aucuns",
+        "bon",
+        "devrait",
+        "dos",
+        "droite",
+        "début",
+        "essai",
+        "faites",
+        "fois",
+        "force",
+        "haut",
+        "ici",
+        "juste",
+        "maintenant",
+        "mine",
+        "mot",
+        "nommés",
+        "nouveaux",
+        "parce",
+        "parole",
+        "personnes",
+        "pièce",
+        "plupart",
+        "seulement",
+        "soyez",
+        "sujet",
+        "tandis",
+        "valeur",
+        "voie",
+        "voient",
+        "état",
+        "étions"
+
+    ]
+
+};
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+//  via http://www.ranks.nl/stopwords/galician
+module.exports = {
+    stopwords: [
+        'a',
+        'aínda',
+        'alí',
+        'aquel',
+        'aquela',
+        'aquelas',
+        'aqueles',
+        'aquilo',
+        'aquí',
+        'ao',
+        'aos',
+        'as',
+        'así',
+        'á',
+        'ben',
+        'cando',
+        'che',
+        'co',
+        'coa',
+        'comigo',
+        'con',
+        'connosco',
+        'contigo',
+        'convosco',
+        'coas',
+        'cos',
+        'cun',
+        'cuns',
+        'cunha',
+        'cunhas',
+        'da',
+        'dalgunha',
+        'dalgunhas',
+        'dalgún',
+        'dalgúns',
+        'das',
+        'de',
+        'del',
+        'dela',
+        'delas',
+        'deles',
+        'desde',
+        'deste',
+        'do',
+        'dos',
+        'dun',
+        'duns',
+        'dunha',
+        'dunhas',
+        'e',
+        'el',
+        'ela',
+        'elas',
+        'eles',
+        'en',
+        'era',
+        'eran',
+        'esa',
+        'esas',
+        'ese',
+        'eses',
+        'esta',
+        'estar',
+        'estaba',
+        'está',
+        'están',
+        'este',
+        'estes',
+        'estiven',
+        'estou',
+        'eu',
+        'é',
+        'facer',
+        'foi',
+        'foron',
+        'fun',
+        'había',
+        'hai',
+        'iso',
+        'isto',
+        'la',
+        'las',
+        'lle',
+        'lles',
+        'lo',
+        'los',
+        'mais',
+        'me',
+        'meu',
+        'meus',
+        'min',
+        'miña',
+        'miñas',
+        'moi',
+        'na',
+        'nas',
+        'neste',
+        'nin',
+        'no',
+        'non',
+        'nos',
+        'nosa',
+        'nosas',
+        'noso',
+        'nosos',
+        'nós',
+        'nun',
+        'nunha',
+        'nuns',
+        'nunhas',
+        'o',
+        'os',
+        'ou',
+        'ó',
+        'ós',
+        'para',
+        'pero',
+        'pode',
+        'pois',
+        'pola',
+        'polas',
+        'polo',
+        'polos',
+        'por',
+        'que',
+        'se',
+        'senón',
+        'ser',
+        'seu',
+        'seus',
+        'sexa',
+        'sido',
+        'sobre',
+        'súa',
+        'súas',
+        'tamén',
+        'tan',
+        'te',
+        'ten',
+        'teñen',
+        'teño',
+        'ter',
+        'teu',
+        'teus',
+        'ti',
+        'tido',
+        'tiña',
+        'tiven',
+        'túa',
+        'túas',
+        'un',
+        'unha',
+        'unhas',
+        'uns',
+        'vos',
+        'vosa',
+        'vosas',
+        'voso',
+        'vosos',
+        'vós'
+    ]
+};
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by jan on 9-3-15.
+ */
+// German stopwords
+// via https://code.google.com/p/stop-words/
+module.exports = {
+    stopwords: [
+        "a",
+        "ab",
+        "aber",
+        "ach",
+        "acht",
+        "achte",
+        "achten",
+        "achter",
+        "achtes",
+        "ag",
+        "alle",
+        "allein",
+        "allem",
+        "allen",
+        "aller",
+        "allerdings",
+        "alles",
+        "allgemeinen",
+        "als",
+        "also",
+        "am",
+        "an",
+        "andere",
+        "anderen",
+        "andern",
+        "anders",
+        "au",
+        "auch",
+        "auf",
+        "aus",
+        "ausser",
+        "außer",
+        "ausserdem",
+        "außerdem",
+        "b",
+        "bald",
+        "bei",
+        "beide",
+        "beiden",
+        "beim",
+        "beispiel",
+        "bekannt",
+        "bereits",
+        "besonders",
+        "besser",
+        "besten",
+        "bin",
+        "bis",
+        "bisher",
+        "bist",
+        "c",
+        "d",
+        "da",
+        "dabei",
+        "dadurch",
+        "dafür",
+        "dagegen",
+        "daher",
+        "dahin",
+        "dahinter",
+        "damals",
+        "damit",
+        "danach",
+        "daneben",
+        "dank",
+        "dann",
+        "daran",
+        "darauf",
+        "daraus",
+        "darf",
+        "darfst",
+        "darin",
+        "darüber",
+        "darum",
+        "darunter",
+        "das",
+        "dasein",
+        "daselbst",
+        "dass",
+        "daß",
+        "dasselbe",
+        "davon",
+        "davor",
+        "dazu",
+        "dazwischen",
+        "dein",
+        "deine",
+        "deinem",
+        "deiner",
+        "dem",
+        "dementsprechend",
+        "demgegenüber",
+        "demgemäss",
+        "demgemäß",
+        "demselben",
+        "demzufolge",
+        "den",
+        "denen",
+        "denn",
+        "denselben",
+        "der",
+        "deren",
+        "derjenige",
+        "derjenigen",
+        "dermassen",
+        "dermaßen",
+        "derselbe",
+        "derselben",
+        "des",
+        "deshalb",
+        "desselben",
+        "dessen",
+        "deswegen",
+        "d.h",
+        "dich",
+        "die",
+        "diejenige",
+        "diejenigen",
+        "dies",
+        "diese",
+        "dieselbe",
+        "dieselben",
+        "diesem",
+        "diesen",
+        "dieser",
+        "dieses",
+        "dir",
+        "doch",
+        "dort",
+        "drei",
+        "drin",
+        "dritte",
+        "dritten",
+        "dritter",
+        "drittes",
+        "du",
+        "durch",
+        "durchaus",
+        "dürfen",
+        "dürft",
+        "durfte",
+        "durften",
+        "e",
+        "eben",
+        "ebenso",
+        "ehrlich",
+        "ei",
+        "ei,",
+        "eigen",
+        "eigene",
+        "eigenen",
+        "eigener",
+        "eigenes",
+        "ein",
+        "einander",
+        "eine",
+        "einem",
+        "einen",
+        "einer",
+        "eines",
+        "einige",
+        "einigen",
+        "einiger",
+        "einiges",
+        "einmal",
+        "eins",
+        "elf",
+        "en",
+        "ende",
+        "endlich",
+        "entweder",
+        "er",
+        "Ernst",
+        "erst",
+        "erste",
+        "ersten",
+        "erster",
+        "erstes",
+        "es",
+        "etwa",
+        "etwas",
+        "euch",
+        "f",
+        "früher",
+        "fünf",
+        "fünfte",
+        "fünften",
+        "fünfter",
+        "fünftes",
+        "für",
+        "g",
+        "gab",
+        "ganz",
+        "ganze",
+        "ganzen",
+        "ganzer",
+        "ganzes",
+        "gar",
+        "gedurft",
+        "gegen",
+        "gegenüber",
+        "gehabt",
+        "gehen",
+        "geht",
+        "gekannt",
+        "gekonnt",
+        "gemacht",
+        "gemocht",
+        "gemusst",
+        "genug",
+        "gerade",
+        "gern",
+        "gesagt",
+        "geschweige",
+        "gewesen",
+        "gewollt",
+        "geworden",
+        "gibt",
+        "ging",
+        "gleich",
+        "gott",
+        "gross",
+        "groß",
+        "grosse",
+        "große",
+        "grossen",
+        "großen",
+        "grosser",
+        "großer",
+        "grosses",
+        "großes",
+        "gut",
+        "gute",
+        "guter",
+        "gutes",
+        "h",
+        "habe",
+        "haben",
+        "habt",
+        "hast",
+        "hat",
+        "hatte",
+        "hätte",
+        "hatten",
+        "hätten",
+        "heisst",
+        "her",
+        "heute",
+        "hier",
+        "hin",
+        "hinter",
+        "hoch",
+        "i",
+        "ich",
+        "ihm",
+        "ihn",
+        "ihnen",
+        "ihr",
+        "ihre",
+        "ihrem",
+        "ihren",
+        "ihrer",
+        "ihres",
+        "im",
+        "immer",
+        "in",
+        "indem",
+        "infolgedessen",
+        "ins",
+        "irgend",
+        "ist",
+        "j",
+        "ja",
+        "jahr",
+        "jahre",
+        "jahren",
+        "je",
+        "jede",
+        "jedem",
+        "jeden",
+        "jeder",
+        "jedermann",
+        "jedermanns",
+        "jedoch",
+        "jemand",
+        "jemandem",
+        "jemanden",
+        "jene",
+        "jenem",
+        "jenen",
+        "jener",
+        "jenes",
+        "jetzt",
+        "k",
+        "kam",
+        "kann",
+        "kannst",
+        "kaum",
+        "kein",
+        "keine",
+        "keinem",
+        "keinen",
+        "keiner",
+        "kleine",
+        "kleinen",
+        "kleiner",
+        "kleines",
+        "kommen",
+        "kommt",
+        "können",
+        "könnt",
+        "konnte",
+        "könnte",
+        "konnten",
+        "kurz",
+        "l",
+        "lang",
+        "lange",
+        "leicht",
+        "leide",
+        "lieber",
+        "los",
+        "m",
+        "machen",
+        "macht",
+        "machte",
+        "mag",
+        "magst",
+        "mahn",
+        "man",
+        "manche",
+        "manchem",
+        "manchen",
+        "mancher",
+        "manches",
+        "mann",
+        "mehr",
+        "mein",
+        "meine",
+        "meinem",
+        "meinen",
+        "meiner",
+        "meines",
+        "mensch",
+        "menschen",
+        "mich",
+        "mir",
+        "mit",
+        "mittel",
+        "mochte",
+        "möchte",
+        "mochten",
+        "mögen",
+        "möglich",
+        "mögt",
+        "morgen",
+        "muss",
+        "muß",
+        "müssen",
+        "musst",
+        "müsst",
+        "musste",
+        "mussten",
+        "n",
+        "na",
+        "nach",
+        "nachdem",
+        "nahm",
+        "natürlich",
+        "neben",
+        "nein",
+        "neue",
+        "neuen",
+        "neun",
+        "neunte",
+        "neunten",
+        "neunter",
+        "neuntes",
+        "nicht",
+        "nichts",
+        "nie",
+        "niemand",
+        "niemandem",
+        "niemanden",
+        "noch",
+        "nun",
+        "nur",
+        "o",
+        "ob",
+        "oben",
+        "oder",
+        "offen",
+        "oft",
+        "ohne",
+        "Ordnung",
+        "p",
+        "q",
+        "r",
+        "recht",
+        "rechte",
+        "rechten",
+        "rechter",
+        "rechtes",
+        "richtig",
+        "rund",
+        "s",
+        "sa",
+        "sache",
+        "sagt",
+        "sagte",
+        "sah",
+        "satt",
+        "schlecht",
+        "Schluss",
+        "schon",
+        "sechs",
+        "sechste",
+        "sechsten",
+        "sechster",
+        "sechstes",
+        "sehr",
+        "sei",
+        "seid",
+        "seien",
+        "sein",
+        "seine",
+        "seinem",
+        "seinen",
+        "seiner",
+        "seines",
+        "seit",
+        "seitdem",
+        "selbst",
+        "sich",
+        "sie",
+        "sieben",
+        "siebente",
+        "siebenten",
+        "siebenter",
+        "siebentes",
+        "sind",
+        "so",
+        "solang",
+        "solche",
+        "solchem",
+        "solchen",
+        "solcher",
+        "solches",
+        "soll",
+        "sollen",
+        "sollte",
+        "sollten",
+        "sondern",
+        "sonst",
+        "sowie",
+        "später",
+        "statt",
+        "t",
+        "tag",
+        "tage",
+        "tagen",
+        "tat",
+        "teil",
+        "tel",
+        "tritt",
+        "trotzdem",
+        "tun",
+        "u",
+        "über",
+        "überhaupt",
+        "übrigens",
+        "uhr",
+        "um",
+        "und",
+        "und?",
+        "uns",
+        "unser",
+        "unsere",
+        "unserer",
+        "unter",
+        "v",
+        "vergangenen",
+        "viel",
+        "viele",
+        "vielem",
+        "vielen",
+        "vielleicht",
+        "vier",
+        "vierte",
+        "vierten",
+        "vierter",
+        "viertes",
+        "vom",
+        "von",
+        "vor",
+        "w",
+        "wahr?",
+        "während",
+        "währenddem",
+        "währenddessen",
+        "wann",
+        "war",
+        "wäre",
+        "waren",
+        "wart",
+        "warum",
+        "was",
+        "wegen",
+        "weil",
+        "weit",
+        "weiter",
+        "weitere",
+        "weiteren",
+        "weiteres",
+        "welche",
+        "welchem",
+        "welchen",
+        "welcher",
+        "welches",
+        "wem",
+        "wen",
+        "wenig",
+        "wenige",
+        "weniger",
+        "weniges",
+        "wenigstens",
+        "wenn",
+        "wer",
+        "werde",
+        "werden",
+        "werdet",
+        "wessen",
+        "wie",
+        "wieder",
+        "will",
+        "willst",
+        "wir",
+        "wird",
+        "wirklich",
+        "wirst",
+        "wo",
+        "wohl",
+        "wollen",
+        "wollt",
+        "wollte",
+        "wollten",
+        "worden",
+        "wurde",
+        "würde",
+        "wurden",
+        "würden",
+        "x",
+        "y",
+        "z",
+        "z.b",
+        "zehn",
+        "zehnte",
+        "zehnten",
+        "zehnter",
+        "zehntes",
+        "zeit",
+        "zu",
+        "zuerst",
+        "zugleich",
+        "zum",
+        "zunächst",
+        "zur",
+        "zurück",
+        "zusammen",
+        "zwanzig",
+        "zwar",
+        "zwei",
+        "zweite",
+        "zweiten",
+        "zweiter",
+        "zweites",
+        "zwischen",
+        "zwölf",
+        "﻿aber",
+        "euer",
+        "eure",
+        "hattest",
+        "hattet",
+        "jedes",
+        "mußt",
+        "müßt",
+        "sollst",
+        "sollt",
+        "soweit",
+        "weshalb",
+        "wieso",
+        "woher",
+        "wohin"
+    ]
+
+};
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by jan on 9-3-15.
+ */
+// Italian stopwords
+// via https://code.google.com/p/stop-words/
+
+module.exports = {
+    stopwords: [
+        "a",
+        "adesso",
+        "ai",
+        "al",
+        "alla",
+        "allo",
+        "allora",
+        "altre",
+        "altri",
+        "altro",
+        "anche",
+        "ancora",
+        "avere",
+        "aveva",
+        "avevano",
+        "ben",
+        "buono",
+        "che",
+        "chi",
+        "cinque",
+        "comprare",
+        "con",
+        "consecutivi",
+        "consecutivo",
+        "cosa",
+        "cui",
+        "da",
+        "del",
+        "della",
+        "dello",
+        "dentro",
+        "deve",
+        "devo",
+        "di",
+        "doppio",
+        "due",
+        "e",
+        "ecco",
+        "fare",
+        "fine",
+        "fino",
+        "fra",
+        "gente",
+        "giu",
+        "ha",
+        "hai",
+        "hanno",
+        "ho",
+        "il",
+        "indietro",
+        "invece",
+        "io",
+        "la",
+        "lavoro",
+        "le",
+        "lei",
+        "lo",
+        "loro",
+        "lui",
+        "lungo",
+        "ma",
+        "me",
+        "meglio",
+        "molta",
+        "molti",
+        "molto",
+        "nei",
+        "nella",
+        "no",
+        "noi",
+        "nome",
+        "nostro",
+        "nove",
+        "nuovi",
+        "nuovo",
+        "o",
+        "oltre",
+        "ora",
+        "otto",
+        "peggio",
+        "pero",
+        "persone",
+        "piu",
+        "poco",
+        "primo",
+        "promesso",
+        "qua",
+        "quarto",
+        "quasi",
+        "quattro",
+        "quello",
+        "questo",
+        "qui",
+        "quindi",
+        "quinto",
+        "rispetto",
+        "sara",
+        "secondo",
+        "sei",
+        "sembra",
+        "sembrava",
+        "senza",
+        "sette",
+        "sia",
+        "siamo",
+        "siete",
+        "solo",
+        "sono",
+        "sopra",
+        "soprattutto",
+        "sotto",
+        "stati",
+        "stato",
+        "stesso",
+        "su",
+        "subito",
+        "sul",
+        "sulla",
+        "tanto",
+        "te",
+        "tempo",
+        "terzo",
+        "tra",
+        "tre",
+        "triplo",
+        "ultimo",
+        "un",
+        "una",
+        "uno",
+        "va",
+        "vai",
+        "voi",
+        "volte",
+        "vostro",
+        "a",
+        "abbastanza",
+        "accidenti",
+        "ad",
+        "affinche",
+        "agli",
+        "ahime",
+        "ahimÃ",
+        "alcuna",
+        "alcuni",
+        "alcuno",
+        "all",
+        "alle",
+        "altrimenti",
+        "altrui",
+        "anni",
+        "anno",
+        "ansa",
+        "assai",
+        "attesa",
+        "avanti",
+        "avendo",
+        "avente",
+        "aver",
+        "avete",
+        "avuta",
+        "avute",
+        "avuti",
+        "avuto",
+        "basta",
+        "bene",
+        "benissimo",
+        "berlusconi",
+        "brava",
+        "bravo",
+        "c",
+        "casa",
+        "caso",
+        "cento",
+        "certa",
+        "certe",
+        "certi",
+        "certo",
+        "chicchessia",
+        "chiunque",
+        "ci",
+        "ciascuna",
+        "ciascuno",
+        "cima",
+        "cio",
+        "ciÃ",
+        "cioe",
+        "cioÃ",
+        "circa",
+        "citta",
+        "cittÃ",
+        "codesta",
+        "codesti",
+        "codesto",
+        "cogli",
+        "coi",
+        "col",
+        "colei",
+        "coll",
+        "coloro",
+        "colui",
+        "come",
+        "concernente",
+        "consiglio",
+        "contro",
+        "cortesia",
+        "cos",
+        "cosi",
+        "cosÃ",
+        "d",
+        "dagli",
+        "dai",
+        "dal",
+        "dall",
+        "dalla",
+        "dalle",
+        "dallo",
+        "davanti",
+        "degli",
+        "dei",
+        "dell",
+        "delle",
+        "detto",
+        "dice",
+        "dietro",
+        "dire",
+        "dirimpetto",
+        "dopo",
+        "dove",
+        "dovra",
+        "dovrÃ",
+        "dunque",
+        "durante",
+        "Ã",
+        "ed",
+        "egli",
+        "ella",
+        "eppure",
+        "era",
+        "erano",
+        "esse",
+        "essendo",
+        "esser",
+        "essere",
+        "essi",
+        "ex",
+        "fa",
+        "fatto",
+        "favore",
+        "fin",
+        "finalmente",
+        "finche",
+        "forse",
+        "fuori",
+        "gia",
+        "giÃ",
+        "giacche",
+        "giorni",
+        "giorno",
+        "gli",
+        "gliela",
+        "gliele",
+        "glieli",
+        "glielo",
+        "gliene",
+        "governo",
+        "grande",
+        "grazie",
+        "gruppo",
+        "i",
+        "ieri",
+        "improvviso",
+        "in",
+        "infatti",
+        "insieme",
+        "intanto",
+        "intorno",
+        "l",
+        "lÃ",
+        "li",
+        "lontano",
+        "macche",
+        "magari",
+        "mai",
+        "male",
+        "malgrado",
+        "malissimo",
+        "medesimo",
+        "mediante",
+        "meno",
+        "mentre",
+        "mesi",
+        "mezzo",
+        "mi",
+        "mia",
+        "mie",
+        "miei",
+        "mila",
+        "miliardi",
+        "milioni",
+        "ministro",
+        "mio",
+        "moltissimo",
+        "mondo",
+        "nazionale",
+        "ne",
+        "negli",
+        "nel",
+        "nell",
+        "nelle",
+        "nello",
+        "nemmeno",
+        "neppure",
+        "nessuna",
+        "nessuno",
+        "niente",
+        "non",
+        "nondimeno",
+        "nostra",
+        "nostre",
+        "nostri",
+        "nulla",
+        "od",
+        "oggi",
+        "ogni",
+        "ognuna",
+        "ognuno",
+        "oppure",
+        "ore",
+        "osi",
+        "ossia",
+        "paese",
+        "parecchi",
+        "parecchie",
+        "parecchio",
+        "parte",
+        "partendo",
+        "peccato",
+        "per",
+        "perche",
+        "perchÃ",
+        "percio",
+        "perciÃ",
+        "perfino",
+        "perÃ",
+        "piedi",
+        "pieno",
+        "piglia",
+        "piÃ",
+        "po",
+        "pochissimo",
+        "poi",
+        "poiche",
+        "press",
+        "prima",
+        "proprio",
+        "puo",
+        "puÃ",
+        "pure",
+        "purtroppo",
+        "qualche",
+        "qualcuna",
+        "qualcuno",
+        "quale",
+        "quali",
+        "qualunque",
+        "quando",
+        "quanta",
+        "quante",
+        "quanti",
+        "quanto",
+        "quantunque",
+        "quel",
+        "quella",
+        "quelli",
+        "quest",
+        "questa",
+        "queste",
+        "questi",
+        "riecco",
+        "salvo",
+        "sarÃ",
+        "sarebbe",
+        "scopo",
+        "scorso",
+        "se",
+        "seguente",
+        "sempre",
+        "si",
+        "solito",
+        "sta",
+        "staranno",
+        "stata",
+        "state",
+        "sua",
+        "successivo",
+        "sue",
+        "sugli",
+        "sui",
+        "sull",
+        "sulle",
+        "sullo",
+        "suo",
+        "suoi",
+        "tale",
+        "talvolta",
+        "ti",
+        "torino",
+        "tranne",
+        "troppo",
+        "tu",
+        "tua",
+        "tue",
+        "tuo",
+        "tuoi",
+        "tutta",
+        "tuttavia",
+        "tutte",
+        "tutti",
+        "tutto",
+        "uguali",
+        "uomo",
+        "vale",
+        "varia",
+        "varie",
+        "vario",
+        "verso",
+        "vi",
+        "via",
+        "vicino",
+        "visto",
+        "vita",
+        "volta",
+        "vostra",
+        "vostre",
+        "vostri"
+    ]
+};
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+// via http://hackage.haskell.org/package/glider-nlp-0.1/docs/src/Glider-NLP-Language-Polish-StopWords.html
+module.exports = {
+    stopwords:[
+        "a",
+"aby",
+"ach",
+"acz",
+"aczkolwiek",
+"aj",
+"albo",
+"ale",
+"alez",
+"ależ",
+"ani",
+"az",
+"aż",
+"bardziej",
+"bardzo",
+"bo",
+"bowiem",
+"by",
+"byli",
+"bynajmniej",
+"byc",
+"być",
+"byl",
+"był",
+"byla",
+"bylo",
+"byly",
+"była",
+"było",
+"były",
+"bedzie",
+"będzie",
+"beda",
+"będą",
+"cali",
+"cala",
+"cała",
+"caly",
+"cały",
+"ci",
+"cie",
+"cię",
+"ciebie",
+"co",
+"cokolwiek",
+"cos",
+"coś",
+"czasami",
+"czasem",
+"czemu",
+"czy",
+"czyli",
+"daleko",
+"dla",
+"dlaczego",
+"dlatego",
+"do",
+"dobrze",
+"dokad",
+"dokąd",
+"dosc",
+"dość",
+"duzo",
+"dużo",
+"dwa",
+"dwaj",
+"dwie",
+"dwoje",
+"dzis",
+"dziś",
+"dzisiaj",
+"gdy",
+"gdyby",
+"gdyz",
+"gdyż",
+"gdzie",
+"gdziekolwiek",
+"gdzies",
+"gdzieś",
+"go",
+"i",
+"ich",
+"ile",
+"im",
+"inna",
+"inne",
+"inny",
+"innych",
+"iz",
+"iż",
+"ja",
+"ją",
+"jak",
+"jakas",
+"jakaś",
+"jakby",
+"jaki",
+"jakichs",
+"jakichś",
+"jakie",
+"jakis",
+"jakiś",
+"jakiz",
+"jakiż",
+"jakkolwiek",
+"jako",
+"jakos",
+"jakoś",
+"je",
+"jeden",
+"jedna",
+"jedno",
+"jednak",
+"jednakze",
+"jednakże",
+"jego",
+"jej",
+"jemu",
+"jest",
+"jestem",
+"jeszcze",
+"jesli",
+"jeśli",
+"jezeli",
+"jeżeli",
+"juz",
+"już",
+"kazdy",
+"każdy",
+"kiedy",
+"kilka",
+"kims",
+"kimś",
+"kto",
+"ktokolwiek",
+"ktos",
+"ktoś",
+"ktora",
+"ktore",
+"które",
+"ktorego",
+"ktorej",
+"ktory",
+"ktorych",
+"ktorym",
+"ktorzy",
+"która",
+"którego",
+"której",
+"który",
+"których",
+"którym",
+"którzy",
+"ku",
+"lat",
+"lecz",
+"lub",
+"ma",
+"mają",
+"mało",
+"mam",
+"mi",
+"mimo",
+"miedzy",
+"między",
+"mna",
+"mną",
+"mnie",
+"moga",
+"mogą",
+"moi",
+"moim",
+"moja",
+"moje",
+"moze",
+"może",
+"mozliwe",
+"mozna",
+"możliwe",
+"można",
+"moj",
+"mój",
+"mu",
+"musi",
+"my",
+"na",
+"nad",
+"nam",
+"nami",
+"nas",
+"nasi",
+"nasz",
+"nasza",
+"nasze",
+"naszego",
+"naszych",
+"natomiast",
+"natychmiast",
+"nawet",
+"nia",
+"nią",
+"nic",
+"nich",
+"nie",
+"niech",
+"niego",
+"niej",
+"niemu",
+"nigdy",
+"nim",
+"nimi",
+"niz",
+"niż",
+"no",
+"o",
+"obok",
+"od",
+"około",
+"on",
+"ona",
+"one",
+"oni",
+"ono",
+"oraz",
+"oto",
+"owszem",
+"pan",
+"pana",
+"pani",
+"po",
+"pod",
+"podczas",
+"pomimo",
+"ponad",
+"poniewaz",
+"ponieważ",
+"powinien",
+"powinna",
+"powinni",
+"powinno",
+"poza",
+"prawie",
+"przeciez",
+"przecież",
+"przed",
+"przede",
+"przedtem",
+"przez",
+"przy",
+"roku",
+"rowniez",
+"również",
+"sam",
+"sama",
+"są",
+"sie",
+"się",
+"skad",
+"skąd",
+"sobie",
+"soba",
+"sobą",
+"sposob",
+"sposób",
+"swoje",
+"ta",
+"tak",
+"taka",
+"taki",
+"takie",
+"takze",
+"także",
+"tam",
+"te",
+"tego",
+"tej",
+"ten",
+"teraz",
+"też",
+"to",
+"toba",
+"tobą",
+"tobie",
+"totez",
+"toteż",
+"trzeba",
+"tu",
+"tutaj",
+"twoi",
+"twoim",
+"twoja",
+"twoje",
+"twym",
+"twoj",
+"twój",
+"ty",
+"tych",
+"tylko",
+"tym",
+"u",
+"w",
+"wam",
+"wami",
+"was",
+"wasz",
+"wasza",
+"wasze",
+"we",
+"według",
+"wiele",
+"wielu",
+"więc",
+"więcej",
+"wszyscy",
+"wszystkich",
+"wszystkie",
+"wszystkim",
+"wszystko",
+"wtedy",
+"wy",
+"wlasnie",
+"właśnie",
+"z",
+"za",
+"zapewne",
+"zawsze",
+"ze",
+"znowu",
+"znow",
+"znów",
+"zostal",
+"został",
+"zaden",
+"zadna",
+"zadne",
+"zadnych",
+"ze",
+"zeby",
+"żaden",
+"żadna",
+"żadne",
+"żadnych",
+"że",
+"żeby"
+    ]
+};
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by rodrigo on 01/10/15.
+ */
+
+//Portuguese (BRAZIL) stopwords
+// via https://sites.google.com/site/kevinbouge/stopwords-lists
+module.exports = {
+    stopwords: [
+        "a",
+        "à",
+        "adeus",
+        "agora",
+        "aí",
+        "ainda",
+        "além",
+        "algo",
+        "algumas",
+        "alguns",
+        "ali",
+        "ano",
+        "anos",
+        "antes",
+        "ao",
+        "aos",
+        "apenas",
+        "apoio",
+        "após",
+        "aquela",
+        "aquelas",
+        "aquele",
+        "aqueles",
+        "aqui",
+        "aquilo",
+        "área",
+        "as",
+        "às",
+        "assim",
+        "até",
+        "atrás",
+        "através",
+        "baixo",
+        "bastante",
+        "bem",
+        "boa",
+        "boas",
+        "bom",
+        "bons",
+        "breve",
+        "cá",
+        "cada",
+        "catorze",
+        "cedo",
+        "cento",
+        "certamente",
+        "certeza",
+        "cima",
+        "cinco",
+        "coisa",
+        "com",
+        "como",
+        "conselho",
+        "contra",
+        "custa",
+        "da",
+        "dá",
+        "dão",
+        "daquela",
+        "daquelas",
+        "daquele",
+        "daqueles",
+        "dar",
+        "das",
+        "de",
+        "debaixo",
+        "demais",
+        "dentro",
+        "depois",
+        "desde",
+        "dessa",
+        "dessas",
+        "desse",
+        "desses",
+        "desta",
+        "destas",
+        "deste",
+        "destes",
+        "deve",
+        "deverá",
+        "dez",
+        "dezanove",
+        "dezasseis",
+        "dezassete",
+        "dezoito",
+        "dia",
+        "diante",
+        "diz",
+        "dizem",
+        "dizer",
+        "do",
+        "dois",
+        "dos",
+        "doze",
+        "duas",
+        "dúvida",
+        "e",
+        "é",
+        "ela",
+        "elas",
+        "ele",
+        "eles",
+        "em",
+        "embora",
+        "entre",
+        "era",
+        "és",
+        "essa",
+        "essas",
+        "esse",
+        "esses",
+        "esta",
+        "está",
+        "estão",
+        "estar",
+        "estas",
+        "estás",
+        "estava",
+        "este",
+        "estes",
+        "esteve",
+        "estive",
+        "estivemos",
+        "estiveram",
+        "estiveste",
+        "estivestes",
+        "estou",
+        "eu",
+        "exemplo",
+        "faço",
+        "falta",
+        "favor",
+        "faz",
+        "fazeis",
+        "fazem",
+        "fazemos",
+        "fazer",
+        "fazes",
+        "fez",
+        "fim",
+        "final",
+        "foi",
+        "fomos",
+        "for",
+        "foram",
+        "forma",
+        "foste",
+        "fostes",
+        "fui",
+        "geral",
+        "grande",
+        "grandes",
+        "grupo",
+        "há",
+        "hoje",
+        "hora",
+        "horas",
+        "isso",
+        "isto",
+        "já",
+        "lá",
+        "lado",
+        "local",
+        "logo",
+        "longe",
+        "lugar",
+        "maior",
+        "maioria",
+        "mais",
+        "mal",
+        "mas",
+        "máximo",
+        "me",
+        "meio",
+        "menor",
+        "menos",
+        "mês",
+        "meses",
+        "meu",
+        "meus",
+        "mil",
+        "minha",
+        "minhas",
+        "momento",
+        "muito",
+        "muitos",
+        "na",
+        "nada",
+        "não",
+        "naquela",
+        "naquelas",
+        "naquele",
+        "naqueles",
+        "nas",
+        "nem",
+        "nenhuma",
+        "nessa",
+        "nessas",
+        "nesse",
+        "nesses",
+        "nesta",
+        "nestas",
+        "neste",
+        "nestes",
+        "nível",
+        "no",
+        "noite",
+        "nome",
+        "nos",
+        "nós",
+        "nossa",
+        "nossas",
+        "nosso",
+        "nossos",
+        "nova",
+        "novas",
+        "nove",
+        "novo",
+        "novos",
+        "num",
+        "numa",
+        "número",
+        "nunca",
+        "o",
+        "obra",
+        "obrigada",
+        "obrigado",
+        "oitava",
+        "oitavo",
+        "oito",
+        "onde",
+        "ontem",
+        "onze",
+        "os",
+        "ou",
+        "outra",
+        "outras",
+        "outro",
+        "outros",
+        "para",
+        "parece",
+        "parte",
+        "partir",
+        "paucas",
+        "pela",
+        "pelas",
+        "pelo",
+        "pelos",
+        "perto",
+        "pode",
+        "pôde",
+        "podem",
+        "poder",
+        "põe",
+        "põem",
+        "ponto",
+        "pontos",
+        "por",
+        "porque",
+        "porquê",
+        "posição",
+        "possível",
+        "possivelmente",
+        "posso",
+        "pouca",
+        "pouco",
+        "poucos",
+        "primeira",
+        "primeiras",
+        "primeiro",
+        "primeiros",
+        "própria",
+        "próprias",
+        "próprio",
+        "próprios",
+        "próxima",
+        "próximas",
+        "próximo",
+        "próximos",
+        "puderam",
+        "quáis",
+        "qual",
+        "quando",
+        "quanto",
+        "quarta",
+        "quarto",
+        "quatro",
+        "que",
+        "quê",
+        "quem",
+        "quer",
+        "quereis",
+        "querem",
+        "queremas",
+        "queres",
+        "quero",
+        "questão",
+        "quinta",
+        "quinto",
+        "quinze",
+        "relação",
+        "sabe",
+        "sabem",
+        "são",
+        "se",
+        "segunda",
+        "segundo",
+        "sei",
+        "seis",
+        "sem",
+        "sempre",
+        "ser",
+        "seria",
+        "sete",
+        "sétima",
+        "sétimo",
+        "seu",
+        "seus",
+        "sexta",
+        "sexto",
+        "sim",
+        "sistema",
+        "sob",
+        "sobre",
+        "sois",
+        "somos",
+        "sou",
+        "sua",
+        "suas",
+        "tal",
+        "talvez",
+        "também",
+        "tanta",
+        "tantas",
+        "tanto",
+        "tão",
+        "tarde",
+        "te",
+        "tem",
+        "têm",
+        "temos",
+        "tendes",
+        "tenho",
+        "tens",
+        "ter",
+        "terceira",
+        "terceiro",
+        "teu",
+        "teus",
+        "teve",
+        "tive",
+        "tivemos",
+        "tiveram",
+        "tiveste",
+        "tivestes",
+        "toda",
+        "todas",
+        "todo",
+        "todos",
+        "trabalho",
+        "três",
+        "treze",
+        "tu",
+        "tua",
+        "tuas",
+        "tudo",
+        "um",
+        "uma",
+        "umas",
+        "uns",
+        "vai",
+        "vais",
+        "vão",
+        "vários",
+        "vem",
+        "vêm",
+        "vens",
+        "ver",
+        "vez",
+        "vezes",
+        "viagem",
+        "vindo",
+        "vinte",
+        "você",
+        "vocês",
+        "vos",
+        "vós",
+        "vossa",
+        "vossas",
+        "vosso",
+        "vossos",
+        "zero"
+    ]
+};
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by jan on 9-3-15.
+ */
+// Russian stopwords
+// via https://code.google.com/p/stop-words/
+
+module.exports = {
+    stopwords: [
+        "а",
+        "е",
+        "и",
+        "ж",
+        "м",
+        "о",
+        "на",
+        "не",
+        "ни",
+        "об",
+        "но",
+        "он",
+        "мне",
+        "мои",
+        "мож",
+        "она",
+        "они",
+        "оно",
+        "мной",
+        "много",
+        "многочисленное",
+        "многочисленная",
+        "многочисленные",
+        "многочисленный",
+        "мною",
+        "мой",
+        "мог",
+        "могут",
+        "можно",
+        "может",
+        "можхо",
+        "мор",
+        "моя",
+        "моё",
+        "мочь",
+        "над",
+        "нее",
+        "оба",
+        "нам",
+        "нем",
+        "нами",
+        "ними",
+        "мимо",
+        "немного",
+        "одной",
+        "одного",
+        "менее",
+        "однажды",
+        "однако",
+        "меня",
+        "нему",
+        "меньше",
+        "ней",
+        "наверху",
+        "него",
+        "ниже",
+        "мало",
+        "надо",
+        "один",
+        "одиннадцать",
+        "одиннадцатый",
+        "назад",
+        "наиболее",
+        "недавно",
+        "миллионов",
+        "недалеко",
+        "между",
+        "низко",
+        "меля",
+        "нельзя",
+        "нибудь",
+        "непрерывно",
+        "наконец",
+        "никогда",
+        "никуда",
+        "нас",
+        "наш",
+        "нет",
+        "нею",
+        "неё",
+        "них",
+        "мира",
+        "наша",
+        "наше",
+        "наши",
+        "ничего",
+        "начала",
+        "нередко",
+        "несколько",
+        "обычно",
+        "опять",
+        "около",
+        "мы",
+        "ну",
+        "нх",
+        "от",
+        "отовсюду",
+        "особенно",
+        "нужно",
+        "очень",
+        "отсюда",
+        "в",
+        "во",
+        "вон",
+        "вниз",
+        "внизу",
+        "вокруг",
+        "вот",
+        "восемнадцать",
+        "восемнадцатый",
+        "восемь",
+        "восьмой",
+        "вверх",
+        "вам",
+        "вами",
+        "важное",
+        "важная",
+        "важные",
+        "важный",
+        "вдали",
+        "везде",
+        "ведь",
+        "вас",
+        "ваш",
+        "ваша",
+        "ваше",
+        "ваши",
+        "впрочем",
+        "весь",
+        "вдруг",
+        "вы",
+        "все",
+        "второй",
+        "всем",
+        "всеми",
+        "времени",
+        "время",
+        "всему",
+        "всего",
+        "всегда",
+        "всех",
+        "всею",
+        "всю",
+        "вся",
+        "всё",
+        "всюду",
+        "г",
+        "год",
+        "говорил",
+        "говорит",
+        "года",
+        "году",
+        "где",
+        "да",
+        "ее",
+        "за",
+        "из",
+        "ли",
+        "же",
+        "им",
+        "до",
+        "по",
+        "ими",
+        "под",
+        "иногда",
+        "довольно",
+        "именно",
+        "долго",
+        "позже",
+        "более",
+        "должно",
+        "пожалуйста",
+        "значит",
+        "иметь",
+        "больше",
+        "пока",
+        "ему",
+        "имя",
+        "пор",
+        "пора",
+        "потом",
+        "потому",
+        "после",
+        "почему",
+        "почти",
+        "посреди",
+        "ей",
+        "два",
+        "две",
+        "двенадцать",
+        "двенадцатый",
+        "двадцать",
+        "двадцатый",
+        "двух",
+        "его",
+        "дел",
+        "или",
+        "без",
+        "день",
+        "занят",
+        "занята",
+        "занято",
+        "заняты",
+        "действительно",
+        "давно",
+        "девятнадцать",
+        "девятнадцатый",
+        "девять",
+        "девятый",
+        "даже",
+        "алло",
+        "жизнь",
+        "далеко",
+        "близко",
+        "здесь",
+        "дальше",
+        "для",
+        "лет",
+        "зато",
+        "даром",
+        "первый",
+        "перед",
+        "затем",
+        "зачем",
+        "лишь",
+        "десять",
+        "десятый",
+        "ею",
+        "её",
+        "их",
+        "бы",
+        "еще",
+        "при",
+        "был",
+        "про",
+        "процентов",
+        "против",
+        "просто",
+        "бывает",
+        "бывь",
+        "если",
+        "люди",
+        "была",
+        "были",
+        "было",
+        "будем",
+        "будет",
+        "будете",
+        "будешь",
+        "прекрасно",
+        "буду",
+        "будь",
+        "будто",
+        "будут",
+        "ещё",
+        "пятнадцать",
+        "пятнадцатый",
+        "друго",
+        "другое",
+        "другой",
+        "другие",
+        "другая",
+        "других",
+        "есть",
+        "пять",
+        "быть",
+        "лучше",
+        "пятый",
+        "к",
+        "ком",
+        "конечно",
+        "кому",
+        "кого",
+        "когда",
+        "которой",
+        "которого",
+        "которая",
+        "которые",
+        "который",
+        "которых",
+        "кем",
+        "каждое",
+        "каждая",
+        "каждые",
+        "каждый",
+        "кажется",
+        "как",
+        "какой",
+        "какая",
+        "кто",
+        "кроме",
+        "куда",
+        "кругом",
+        "с",
+        "т",
+        "у",
+        "я",
+        "та",
+        "те",
+        "уж",
+        "со",
+        "то",
+        "том",
+        "снова",
+        "тому",
+        "совсем",
+        "того",
+        "тогда",
+        "тоже",
+        "собой",
+        "тобой",
+        "собою",
+        "тобою",
+        "сначала",
+        "только",
+        "уметь",
+        "тот",
+        "тою",
+        "хорошо",
+        "хотеть",
+        "хочешь",
+        "хоть",
+        "хотя",
+        "свое",
+        "свои",
+        "твой",
+        "своей",
+        "своего",
+        "своих",
+        "свою",
+        "твоя",
+        "твоё",
+        "раз",
+        "уже",
+        "сам",
+        "там",
+        "тем",
+        "чем",
+        "сама",
+        "сами",
+        "теми",
+        "само",
+        "рано",
+        "самом",
+        "самому",
+        "самой",
+        "самого",
+        "семнадцать",
+        "семнадцатый",
+        "самим",
+        "самими",
+        "самих",
+        "саму",
+        "семь",
+        "чему",
+        "раньше",
+        "сейчас",
+        "чего",
+        "сегодня",
+        "себе",
+        "тебе",
+        "сеаой",
+        "человек",
+        "разве",
+        "теперь",
+        "себя",
+        "тебя",
+        "седьмой",
+        "спасибо",
+        "слишком",
+        "так",
+        "такое",
+        "такой",
+        "такие",
+        "также",
+        "такая",
+        "сих",
+        "тех",
+        "чаще",
+        "четвертый",
+        "через",
+        "часто",
+        "шестой",
+        "шестнадцать",
+        "шестнадцатый",
+        "шесть",
+        "четыре",
+        "четырнадцать",
+        "четырнадцатый",
+        "сколько",
+        "сказал",
+        "сказала",
+        "сказать",
+        "ту",
+        "ты",
+        "три",
+        "эта",
+        "эти",
+        "что",
+        "это",
+        "чтоб",
+        "этом",
+        "этому",
+        "этой",
+        "этого",
+        "чтобы",
+        "этот",
+        "стал",
+        "туда",
+        "этим",
+        "этими",
+        "рядом",
+        "тринадцать",
+        "тринадцатый",
+        "этих",
+        "третий",
+        "тут",
+        "эту",
+        "суть",
+        "чуть",
+        "тысяч"
+    ]
+};
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+//  via https://stop-words.googlecode.com/svn/trunk/stop-words/stop-words/stop-words-spanish.txt
+module.exports = {
+    stopwords: [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '_',
+        'a',
+        'actualmente',
+        'acuerdo',
+        'adelante',
+        'ademas',
+        'además',
+        'adrede',
+        'afirmó',
+        'agregó',
+        'ahi',
+        'ahora',
+        'ahí',
+        'al',
+        'algo',
+        'alguna',
+        'algunas',
+        'alguno',
+        'algunos',
+        'algún',
+        'alli',
+        'allí',
+        'alrededor',
+        'ambos',
+        'ampleamos',
+        'antano',
+        'antaño',
+        'ante',
+        'anterior',
+        'antes',
+        'apenas',
+        'aproximadamente',
+        'aquel',
+        'aquella',
+        'aquellas',
+        'aquello',
+        'aquellos',
+        'aqui',
+        'aquél',
+        'aquélla',
+        'aquéllas',
+        'aquéllos',
+        'aquí',
+        'arriba',
+        'arribaabajo',
+        'aseguró',
+        'asi',
+        'así',
+        'atras',
+        'aun',
+        'aunque',
+        'ayer',
+        'añadió',
+        'aún',
+        'b',
+        'bajo',
+        'bastante',
+        'bien',
+        'breve',
+        'buen',
+        'buena',
+        'buenas',
+        'bueno',
+        'buenos',
+        'c',
+        'cada',
+        'casi',
+        'cerca',
+        'cierta',
+        'ciertas',
+        'cierto',
+        'ciertos',
+        'cinco',
+        'claro',
+        'comentó',
+        'como',
+        'con',
+        'conmigo',
+        'conocer',
+        'conseguimos',
+        'conseguir',
+        'considera',
+        'consideró',
+        'consigo',
+        'consigue',
+        'consiguen',
+        'consigues',
+        'contigo',
+        'contra',
+        'cosas',
+        'creo',
+        'cual',
+        'cuales',
+        'cualquier',
+        'cuando',
+        'cuanta',
+        'cuantas',
+        'cuanto',
+        'cuantos',
+        'cuatro',
+        'cuenta',
+        'cuál',
+        'cuáles',
+        'cuándo',
+        'cuánta',
+        'cuántas',
+        'cuánto',
+        'cuántos',
+        'cómo',
+        'd',
+        'da',
+        'dado',
+        'dan',
+        'dar',
+        'de',
+        'debajo',
+        'debe',
+        'deben',
+        'debido',
+        'decir',
+        'dejó',
+        'del',
+        'delante',
+        'demasiado',
+        'demás',
+        'dentro',
+        'deprisa',
+        'desde',
+        'despacio',
+        'despues',
+        'después',
+        'detras',
+        'detrás',
+        'dia',
+        'dias',
+        'dice',
+        'dicen',
+        'dicho',
+        'dieron',
+        'diferente',
+        'diferentes',
+        'dijeron',
+        'dijo',
+        'dio',
+        'donde',
+        'dos',
+        'durante',
+        'día',
+        'días',
+        'dónde',
+        'e',
+        'ejemplo',
+        'el',
+        'ella',
+        'ellas',
+        'ello',
+        'ellos',
+        'embargo',
+        'empleais',
+        'emplean',
+        'emplear',
+        'empleas',
+        'empleo',
+        'en',
+        'encima',
+        'encuentra',
+        'enfrente',
+        'enseguida',
+        'entonces',
+        'entre',
+        'era',
+        'erais',
+        'eramos',
+        'eran',
+        'eras',
+        'eres',
+        'es',
+        'esa',
+        'esas',
+        'ese',
+        'eso',
+        'esos',
+        'esta',
+        'estaba',
+        'estabais',
+        'estaban',
+        'estabas',
+        'estad',
+        'estada',
+        'estadas',
+        'estado',
+        'estados',
+        'estais',
+        'estamos',
+        'estan',
+        'estando',
+        'estar',
+        'estaremos',
+        'estará',
+        'estarán',
+        'estarás',
+        'estaré',
+        'estaréis',
+        'estaría',
+        'estaríais',
+        'estaríamos',
+        'estarían',
+        'estarías',
+        'estas',
+        'este',
+        'estemos',
+        'esto',
+        'estos',
+        'estoy',
+        'estuve',
+        'estuviera',
+        'estuvierais',
+        'estuvieran',
+        'estuvieras',
+        'estuvieron',
+        'estuviese',
+        'estuvieseis',
+        'estuviesen',
+        'estuvieses',
+        'estuvimos',
+        'estuviste',
+        'estuvisteis',
+        'estuviéramos',
+        'estuviésemos',
+        'estuvo',
+        'está',
+        'estábamos',
+        'estáis',
+        'están',
+        'estás',
+        'esté',
+        'estéis',
+        'estén',
+        'estés',
+        'ex',
+        'excepto',
+        'existe',
+        'existen',
+        'explicó',
+        'expresó',
+        'f',
+        'fin',
+        'final',
+        'fue',
+        'fuera',
+        'fuerais',
+        'fueran',
+        'fueras',
+        'fueron',
+        'fuese',
+        'fueseis',
+        'fuesen',
+        'fueses',
+        'fui',
+        'fuimos',
+        'fuiste',
+        'fuisteis',
+        'fuéramos',
+        'fuésemos',
+        'g',
+        'general',
+        'gran',
+        'grandes',
+        'gueno',
+        'h',
+        'ha',
+        'haber',
+        'habia',
+        'habida',
+        'habidas',
+        'habido',
+        'habidos',
+        'habiendo',
+        'habla',
+        'hablan',
+        'habremos',
+        'habrá',
+        'habrán',
+        'habrás',
+        'habré',
+        'habréis',
+        'habría',
+        'habríais',
+        'habríamos',
+        'habrían',
+        'habrías',
+        'habéis',
+        'había',
+        'habíais',
+        'habíamos',
+        'habían',
+        'habías',
+        'hace',
+        'haceis',
+        'hacemos',
+        'hacen',
+        'hacer',
+        'hacerlo',
+        'haces',
+        'hacia',
+        'haciendo',
+        'hago',
+        'han',
+        'has',
+        'hasta',
+        'hay',
+        'haya',
+        'hayamos',
+        'hayan',
+        'hayas',
+        'hayáis',
+        'he',
+        'hecho',
+        'hemos',
+        'hicieron',
+        'hizo',
+        'horas',
+        'hoy',
+        'hube',
+        'hubiera',
+        'hubierais',
+        'hubieran',
+        'hubieras',
+        'hubieron',
+        'hubiese',
+        'hubieseis',
+        'hubiesen',
+        'hubieses',
+        'hubimos',
+        'hubiste',
+        'hubisteis',
+        'hubiéramos',
+        'hubiésemos',
+        'hubo',
+        'i',
+        'igual',
+        'incluso',
+        'indicó',
+        'informo',
+        'informó',
+        'intenta',
+        'intentais',
+        'intentamos',
+        'intentan',
+        'intentar',
+        'intentas',
+        'intento',
+        'ir',
+        'j',
+        'junto',
+        'k',
+        'l',
+        'la',
+        'lado',
+        'largo',
+        'las',
+        'le',
+        'lejos',
+        'les',
+        'llegó',
+        'lleva',
+        'llevar',
+        'lo',
+        'los',
+        'luego',
+        'lugar',
+        'm',
+        'mal',
+        'manera',
+        'manifestó',
+        'mas',
+        'mayor',
+        'me',
+        'mediante',
+        'medio',
+        'mejor',
+        'mencionó',
+        'menos',
+        'menudo',
+        'mi',
+        'mia',
+        'mias',
+        'mientras',
+        'mio',
+        'mios',
+        'mis',
+        'misma',
+        'mismas',
+        'mismo',
+        'mismos',
+        'modo',
+        'momento',
+        'mucha',
+        'muchas',
+        'mucho',
+        'muchos',
+        'muy',
+        'más',
+        'mí',
+        'mía',
+        'mías',
+        'mío',
+        'míos',
+        'n',
+        'nada',
+        'nadie',
+        'ni',
+        'ninguna',
+        'ningunas',
+        'ninguno',
+        'ningunos',
+        'ningún',
+        'no',
+        'nos',
+        'nosotras',
+        'nosotros',
+        'nuestra',
+        'nuestras',
+        'nuestro',
+        'nuestros',
+        'nueva',
+        'nuevas',
+        'nuevo',
+        'nuevos',
+        'nunca',
+        'o',
+        'ocho',
+        'os',
+        'otra',
+        'otras',
+        'otro',
+        'otros',
+        'p',
+        'pais',
+        'para',
+        'parece',
+        'parte',
+        'partir',
+        'pasada',
+        'pasado',
+        'paìs',
+        'peor',
+        'pero',
+        'pesar',
+        'poca',
+        'pocas',
+        'poco',
+        'pocos',
+        'podeis',
+        'podemos',
+        'poder',
+        'podria',
+        'podriais',
+        'podriamos',
+        'podrian',
+        'podrias',
+        'podrá',
+        'podrán',
+        'podría',
+        'podrían',
+        'poner',
+        'por',
+        'por qué',
+        'porque',
+        'posible',
+        'primer',
+        'primera',
+        'primero',
+        'primeros',
+        'principalmente',
+        'pronto',
+        'propia',
+        'propias',
+        'propio',
+        'propios',
+        'proximo',
+        'próximo',
+        'próximos',
+        'pudo',
+        'pueda',
+        'puede',
+        'pueden',
+        'puedo',
+        'pues',
+        'q',
+        'qeu',
+        'que',
+        'quedó',
+        'queremos',
+        'quien',
+        'quienes',
+        'quiere',
+        'quiza',
+        'quizas',
+        'quizá',
+        'quizás',
+        'quién',
+        'quiénes',
+        'qué',
+        'r',
+        'raras',
+        'realizado',
+        'realizar',
+        'realizó',
+        'repente',
+        'respecto',
+        's',
+        'sabe',
+        'sabeis',
+        'sabemos',
+        'saben',
+        'saber',
+        'sabes',
+        'sal',
+        'salvo',
+        'se',
+        'sea',
+        'seamos',
+        'sean',
+        'seas',
+        'segun',
+        'segunda',
+        'segundo',
+        'según',
+        'seis',
+        'ser',
+        'sera',
+        'seremos',
+        'será',
+        'serán',
+        'serás',
+        'seré',
+        'seréis',
+        'sería',
+        'seríais',
+        'seríamos',
+        'serían',
+        'serías',
+        'seáis',
+        'señaló',
+        'si',
+        'sido',
+        'siempre',
+        'siendo',
+        'siete',
+        'sigue',
+        'siguiente',
+        'sin',
+        'sino',
+        'sobre',
+        'sois',
+        'sola',
+        'solamente',
+        'solas',
+        'solo',
+        'solos',
+        'somos',
+        'son',
+        'soy',
+        'soyos',
+        'su',
+        'supuesto',
+        'sus',
+        'suya',
+        'suyas',
+        'suyo',
+        'suyos',
+        'sé',
+        'sí',
+        'sólo',
+        't',
+        'tal',
+        'tambien',
+        'también',
+        'tampoco',
+        'tan',
+        'tanto',
+        'tarde',
+        'te',
+        'temprano',
+        'tendremos',
+        'tendrá',
+        'tendrán',
+        'tendrás',
+        'tendré',
+        'tendréis',
+        'tendría',
+        'tendríais',
+        'tendríamos',
+        'tendrían',
+        'tendrías',
+        'tened',
+        'teneis',
+        'tenemos',
+        'tener',
+        'tenga',
+        'tengamos',
+        'tengan',
+        'tengas',
+        'tengo',
+        'tengáis',
+        'tenida',
+        'tenidas',
+        'tenido',
+        'tenidos',
+        'teniendo',
+        'tenéis',
+        'tenía',
+        'teníais',
+        'teníamos',
+        'tenían',
+        'tenías',
+        'tercera',
+        'ti',
+        'tiempo',
+        'tiene',
+        'tienen',
+        'tienes',
+        'toda',
+        'todas',
+        'todavia',
+        'todavía',
+        'todo',
+        'todos',
+        'total',
+        'trabaja',
+        'trabajais',
+        'trabajamos',
+        'trabajan',
+        'trabajar',
+        'trabajas',
+        'trabajo',
+        'tras',
+        'trata',
+        'través',
+        'tres',
+        'tu',
+        'tus',
+        'tuve',
+        'tuviera',
+        'tuvierais',
+        'tuvieran',
+        'tuvieras',
+        'tuvieron',
+        'tuviese',
+        'tuvieseis',
+        'tuviesen',
+        'tuvieses',
+        'tuvimos',
+        'tuviste',
+        'tuvisteis',
+        'tuviéramos',
+        'tuviésemos',
+        'tuvo',
+        'tuya',
+        'tuyas',
+        'tuyo',
+        'tuyos',
+        'tú',
+        'u',
+        'ultimo',
+        'un',
+        'una',
+        'unas',
+        'uno',
+        'unos',
+        'usa',
+        'usais',
+        'usamos',
+        'usan',
+        'usar',
+        'usas',
+        'uso',
+        'usted',
+        'ustedes',
+        'v',
+        'va',
+        'vais',
+        'valor',
+        'vamos',
+        'van',
+        'varias',
+        'varios',
+        'vaya',
+        'veces',
+        'ver',
+        'verdad',
+        'verdadera',
+        'verdadero',
+        'vez',
+        'vosotras',
+        'vosotros',
+        'voy',
+        'vuestra',
+        'vuestras',
+        'vuestro',
+        'vuestros',
+        'w',
+        'x',
+        'y',
+        'ya',
+        'yo',
+        'z',
+        'él',
+        'éramos',
+        'ésa',
+        'ésas',
+        'ése',
+        'ésos',
+        'ésta',
+        'éstas',
+        'éste',
+        'éstos',
+        'última',
+        'últimas',
+        'último',
+        'últimos'
+    ]
+
+};
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by jan on 9-3-15.
+ */
+// Swedish stopwords
+// http://www.ranks.nl/stopwords/swedish
+// https://github.com/AlexGustafsson
+
+module.exports = {
+    stopwords: [
+        "aderton",
+        "adertonde",
+        "adjö",
+        "aldrig",
+        "alla",
+        "allas",
+        "allt",
+        "alltid",
+        "alltså",
+        "än",
+        "andra",
+        "andras",
+        "annan",
+        "annat",
+        "ännu",
+        "artonde",
+        "artonn",
+        "åtminstone",
+        "att",
+        "åtta",
+        "åttio",
+        "åttionde",
+        "åttonde",
+        "av",
+        "även",
+        "båda",
+        "bådas",
+        "bakom",
+        "bara",
+        "bäst",
+        "bättre",
+        "behöva",
+        "behövas",
+        "behövde",
+        "behövt",
+        "beslut",
+        "beslutat",
+        "beslutit",
+        "bland",
+        "blev",
+        "bli",
+        "blir",
+        "blivit",
+        "bort",
+        "borta",
+        "bra",
+        "då",
+        "dag",
+        "dagar",
+        "dagarna",
+        "dagen",
+        "där",
+        "därför",
+        "de",
+        "del",
+        "delen",
+        "dem",
+        "den",
+        "deras",
+        "dess",
+        "det",
+        "detta",
+        "dig",
+        "din",
+        "dina",
+        "dit",
+        "ditt",
+        "dock",
+        "du",
+        "efter",
+        "eftersom",
+        "elfte",
+        "eller",
+        "elva",
+        "en",
+        "enkel",
+        "enkelt",
+        "enkla",
+        "enligt",
+        "er",
+        "era",
+        "ert",
+        "ett",
+        "ettusen",
+        "få",
+        "fanns",
+        "får",
+        "fått",
+        "fem",
+        "femte",
+        "femtio",
+        "femtionde",
+        "femton",
+        "femtonde",
+        "fick",
+        "fin",
+        "finnas",
+        "finns",
+        "fjärde",
+        "fjorton",
+        "fjortonde",
+        "fler",
+        "flera",
+        "flesta",
+        "följande",
+        "för",
+        "före",
+        "förlåt",
+        "förra",
+        "första",
+        "fram",
+        "framför",
+        "från",
+        "fyra",
+        "fyrtio",
+        "fyrtionde",
+        "gå",
+        "gälla",
+        "gäller",
+        "gällt",
+        "går",
+        "gärna",
+        "gått",
+        "genast",
+        "genom",
+        "gick",
+        "gjorde",
+        "gjort",
+        "god",
+        "goda",
+        "godare",
+        "godast",
+        "gör",
+        "göra",
+        "gott",
+        "ha",
+        "hade",
+        "haft",
+        "han",
+        "hans",
+        "har",
+        "här",
+        "heller",
+        "hellre",
+        "helst",
+        "helt",
+        "henne",
+        "hennes",
+        "hit",
+        "hög",
+        "höger",
+        "högre",
+        "högst",
+        "hon",
+        "honom",
+        "hundra",
+        "hundraen",
+        "hundraett",
+        "hur",
+        "i",
+        "ibland",
+        "idag",
+        "igår",
+        "igen",
+        "imorgon",
+        "in",
+        "inför",
+        "inga",
+        "ingen",
+        "ingenting",
+        "inget",
+        "innan",
+        "inne",
+        "inom",
+        "inte",
+        "inuti",
+        "ja",
+        "jag",
+        "jämfört",
+        "kan",
+        "kanske",
+        "knappast",
+        "kom",
+        "komma",
+        "kommer",
+        "kommit",
+        "kr",
+        "kunde",
+        "kunna",
+        "kunnat",
+        "kvar",
+        "länge",
+        "längre",
+        "långsam",
+        "långsammare",
+        "långsammast",
+        "långsamt",
+        "längst",
+        "långt",
+        "lätt",
+        "lättare",
+        "lättast",
+        "legat",
+        "ligga",
+        "ligger",
+        "lika",
+        "likställd",
+        "likställda",
+        "lilla",
+        "lite",
+        "liten",
+        "litet",
+        "man",
+        "många",
+        "måste",
+        "med",
+        "mellan",
+        "men",
+        "mer",
+        "mera",
+        "mest",
+        "mig",
+        "min",
+        "mina",
+        "mindre",
+        "minst",
+        "mitt",
+        "mittemot",
+        "möjlig",
+        "möjligen",
+        "möjligt",
+        "möjligtvis",
+        "mot",
+        "mycket",
+        "någon",
+        "någonting",
+        "något",
+        "några",
+        "när",
+        "nästa",
+        "ned",
+        "nederst",
+        "nedersta",
+        "nedre",
+        "nej",
+        "ner",
+        "ni",
+        "nio",
+        "nionde",
+        "nittio",
+        "nittionde",
+        "nitton",
+        "nittonde",
+        "nödvändig",
+        "nödvändiga",
+        "nödvändigt",
+        "nödvändigtvis",
+        "nog",
+        "noll",
+        "nr",
+        "nu",
+        "nummer",
+        "och",
+        "också",
+        "ofta",
+        "oftast",
+        "olika",
+        "olikt",
+        "om",
+        "oss",
+        "över",
+        "övermorgon",
+        "överst",
+        "övre",
+        "på",
+        "rakt",
+        "rätt",
+        "redan",
+        "redigera",
+        "så",
+        "sade",
+        "säga",
+        "säger",
+        "sagt",
+        "samma",
+        "sämre",
+        "sämst",
+        "se",
+        "sedan",
+        "senare",
+        "senast",
+        "sent",
+        "sex",
+        "sextio",
+        "sextionde",
+        "sexton",
+        "sextonde",
+        "sig",
+        "sin",
+        "sina",
+        "sist",
+        "sista",
+        "siste",
+        "sitt",
+        "sjätte",
+        "sju",
+        "sjunde",
+        "sjuttio",
+        "sjuttionde",
+        "sjutton",
+        "sjuttonde",
+        "ska",
+        "skall",
+        "skulle",
+        "slutligen",
+        "små",
+        "smått",
+        "snart",
+        "som",
+        "stor",
+        "stora",
+        "större",
+        "störst",
+        "stort",
+        "tack",
+        "tidig",
+        "tidigare",
+        "tidigast",
+        "tidigt",
+        "till",
+        "tills",
+        "tillsammans",
+        "tio",
+        "tionde",
+        "tjugo",
+        "tjugoen",
+        "tjugoett",
+        "tjugonde",
+        "tjugotre",
+        "tjugotvå",
+        "tjungo",
+        "tolfte",
+        "tolv",
+        "tre",
+        "tredje",
+        "trettio",
+        "trettionde",
+        "tretton",
+        "trettonde",
+        "två",
+        "tvåhundra",
+        "under",
+        "upp",
+        "ur",
+        "ursäkt",
+        "ut",
+        "utan",
+        "utanför",
+        "ute",
+        "vad",
+        "vänster",
+        "vänstra",
+        "vår",
+        "vara",
+        "våra",
+        "varför",
+        "varifrån",
+        "varit",
+        "varken",
+        "värre",
+        "varsågod",
+        "vart",
+        "vårt",
+        "vem",
+        "vems",
+        "verkligen",
+        "vi",
+        "vid",
+        "vidare",
+        "viktig",
+        "viktigare",
+        "viktigast",
+        "viktigt",
+        "vilka",
+        "vilken",
+        "vilket",
+        "vill",
+        "är",
+        "år",
+
+        "även",
+        "dessa",
+        "wikitext",
+        "wikipedia",
+        "tyngre",
+        "tung",
+        "tyngst",
+        "kall",
+        "var",
+        "minimum",
+        "min",
+        "max",
+        "maximum",
+        "ökning",
+        "öka",
+        "kallar",
+        "hjälp",
+        "använder",
+        "betydligt",
+        "sätt",
+        "denna",
+        "detta",
+        "det",
+        "hjälpa",
+        "används",
+        "består",
+        "tränger",
+        "igenom",
+        "denna",
+        "utöka",
+        "utarmat",
+        "ungefär",
+        "sprids",
+        "betydligt",
+        "omgivande",
+        "via",
+        "huvudartikel",
+        "exempel",
+        "exempelvis",
+        "vanligt",
+        "per",
+        "största",
+        "stor",
+        "ord",
+        "ordet",
+        "kallas",
+        "påbörjad",
+        "höra",
+        "främst",
+        "ihop",
+        "antalet",
+        "the",
+        "uttryck",
+        "uttrycket",
+        "ändra",
+        "presenteras",
+        "presenterades",
+        "tänka",
+        "delar",
+        "söka",
+        "hämta",
+        "innehåll",
+        "definera",
+        "använda",
+        "pekar",
+        "istället",
+        "stället",
+        "pekar",
+        "standard",
+        "vanligaste",
+        "heter",
+        "precist",
+        "felaktigt",
+        "källor",
+        "höga",
+        "mottagare",
+        "eng",
+        "bildade",
+        "bytte",
+        "bildades",
+        "grundades",
+        "svar",
+        "betyder",
+        "betydelse",
+        "möjligheter",
+        "möjlig",
+        "möjlighet",
+        "syfte",
+        "gamla",
+        "tioårig",
+        "år",
+        "övergångsperiod",
+        "ersättas",
+        "användes",
+        "används",
+        "utgörs",
+        "drygt",
+        "alla",
+        "allt",
+        "alltså",
+        "andra",
+        "att",
+        "bara",
+        "bli",
+        "blir",
+        "borde",
+        "bra",
+        "mitt",
+        "ser",
+        "dem",
+        "den",
+        "denna",
+        "det",
+        "detta",
+        "dig",
+        "din",
+        "dock",
+        "dom",
+        "där",
+        "edit",
+        "efter",
+        "eftersom",
+        "eller",
+        "ett",
+        "fast",
+        "fel",
+        "fick",
+        "finns",
+        "fram",
+        "från",
+        "får",
+        "fått",
+        "för",
+        "första",
+        "genom",
+        "ger",
+        "går",
+        "gör",
+        "göra",
+        "hade",
+        "han",
+        "har",
+        "hela",
+        "helt",
+        "honom",
+        "hur",
+        "här",
+        "iaf",
+        "igen",
+        "ingen",
+        "inget",
+        "inte",
+        "jag",
+        "kan",
+        "kanske",
+        "kommer",
+        "lika",
+        "lite",
+        "man",
+        "med",
+        "men",
+        "mer",
+        "mig",
+        "min",
+        "mot",
+        "mycket",
+        "många",
+        "måste",
+        "nog",
+        "när",
+        "någon",
+        "något",
+        "några",
+        "nån",
+        "nåt",
+        "och",
+        "också",
+        "rätt",
+        "samma",
+        "sedan",
+        "sen",
+        "sig",
+        "sin",
+        "själv",
+        "ska",
+        "skulle",
+        "som",
+        "sätt",
+        "tar",
+        "till",
+        "tror",
+        "tycker",
+        "typ",
+        "upp",
+        "utan",
+        "vad",
+        "var",
+        "vara",
+        "vet",
+        "vid",
+        "vilket",
+        "vill",
+        "väl",
+        "även",
+        "över",
+        "förekommer",
+        "varierar",
+        "representera",
+        "representerar",
+        "itu",
+        "påbörjades",
+        "le",
+        "åtgärder",
+        "åtgärd",
+        "sådant",
+        "särskilt",
+        "eftersom",
+        "som",
+        "efter",
+        "syftet",
+        "syfte",
+        "ersatts",
+        "ersätts",
+        "ersatt",
+        "ersätt",
+        "tagits",
+        "byter",
+        "benämningar",
+        "ler",
+        "ärvs",
+        "ärv",
+        "ärvd",
+        "januari",
+        "februari",
+        "mars",
+        "april",
+        "maj",
+        "juni",
+        "juli",
+        "augusti",
+        "september",
+        "oktober",
+        "november",
+        "december",
+        "on",
+        "övriga",
+        "använts",
+        "använd",
+        "används",
+        "använt",
+        "syftar",
+        "ex",
+        "svårt",
+        "svår",
+        "lätt",
+        "lätta",
+        "lättast",
+        "lättare",
+        "svårare",
+        "svårast",
+        "list",
+        "användningsområde",
+        "användningsområden",
+        "vissa",
+        "ii",
+        "hembyggda",
+        "krav",
+        "lugnt",
+        "ändå",
+        "stycken",
+        "styck",
+        "långa",
+        "korta",
+        "små",
+        "stora",
+        "smala",
+        "tjocka",
+        "början",
+        "tungt",
+        "lätt",
+        "tim",
+        "st",
+        "kg",
+        "km",
+        "tid",
+        "ny",
+        "gammal",
+        "nyare",
+        "antal",
+        "snabbare",
+        "började",
+        "ansvar",
+        "ansvarar",
+        "både",
+        "ca",
+        "låg",
+        "hög",
+        "ro",
+        "ton",
+        "kap",
+        "of",
+        "and",
+        "vars",
+        "kr/km",
+        "rör",
+        "gällande",
+        "placeras",
+        "placerades",
+        "täckt",
+        "samt",
+        "hos",
+        "sådana",
+        "endast",
+        "tillstånd",
+        "beror",
+        "på",
+        "marken",
+        "minska",
+        "orsaker",
+        "lösningar",
+        "problem",
+        "namn",
+        "förväntas",
+        "förväntan",
+        "förväntats",
+        "varning",
+        "utfärdas",
+        "utfärda",
+        "km/h",
+        "nådde",
+        "stod",
+        "området",
+        "områden",
+        "källa",
+        "behövs",
+        "drabbade",
+        "drabbat",
+        "which",
+        "top",
+        "that",
+        "lägre",
+        "allmänt",
+        "drog",
+        "drar",
+        "enorma",
+        "ända",
+        "enda",
+        "officiella",
+        "bekräftats",
+        "bekräftas",
+        "fall",
+        "sjunker",
+        "nedåt",
+        "värms",
+        "samtidigt",
+        "efterföljd",
+        "problematik",
+        "uppåt",
+        "utom",
+        "förutom",
+        "hörnet",
+        "söt",
+        "salt",
+        "svag",
+        "stark",
+        "ren",
+        "smutsig",
+        "förr",
+        "tiden",
+        "mångdag",
+        "tisdag",
+        "onsdag",
+        "torsdag",
+        "fredag",
+        "lördag",
+        "söndag",
+        "måndagar",
+        "tisdagar",
+        "onsdagar",
+        "torsdagar",
+        "fredagar",
+        "lördagar",
+        "söndagar",
+        "efterlikna",
+        "som",
+        "lik",
+        "bergis",
+        "bekymmer",
+        "så",
+        "lista",
+        "dig",
+        "dej",
+        "mig",
+        "mej",
+        "fri",
+        "vanlig",
+        "ovanlig",
+        "sällan",
+        "ofta",
+        "avskiljs",
+        "use",
+        "släkte",
+        "släktet",
+        "släkt",
+        "kategori",
+        "kategoriseras",
+        "rensas",
+        "renas",
+        "timmar",
+        "minuter",
+        "sekunder"
+    ]
+};
+
+
 /***/ })
 ],[9]);
->>>>>>> 831b5908c7646cc7e5118ab5e46214fc49b4faa7
 //# sourceMappingURL=index.bundle.js.map
