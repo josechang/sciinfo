@@ -184,7 +184,9 @@ This README would normally document whatever steps are necessary to get your app
 
 * Step 1: Install git client software, you can choose either [SourceTree](https://www.sourcetreeapp.com/) or [Git bash](https://git-scm.com/downloads).
 
-* Step 2: Clone this repository
+* Step 2: Clone this repository (Don't know how? In the top right corner of this page you can see a "Clone wiki" button, press it.)
+
+* Step 3: Learn how to use git by doing the 15 minuts interactive git tutorial here: [15 Minutes GIT tutorial](https://try.github.io/levels/1/challenges/1) AND by checking out [this page](https://bitbucket.org/temn/nordlinglab-web/wiki/git_and_ssh) under "Command Line Session":  
 
 ### Set up pip ###
 
